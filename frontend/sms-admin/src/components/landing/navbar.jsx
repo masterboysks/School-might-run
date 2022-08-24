@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
@@ -11,6 +11,12 @@ const navigation = [
 ];
 
 export default function Navbar({ children }) {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(localStorage.getItem("user"));
+  }, []);
+
   return (
     <div className="  relative bg-gray-50  overflow-hidden ">
       <div
@@ -128,7 +134,7 @@ export default function Navbar({ children }) {
                 <span className="inline-flex rounded-md shadow">
                   {loggedIn ? (
                     <Link
-                      to="/login"
+                      to="/admin/dashboard"
                       className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-skin-base bg-white hover:bg-gray-50"
                     >
                       Dashboard
@@ -141,11 +147,6 @@ export default function Navbar({ children }) {
                       Log in
                     </Link>
                   )}
-                  {/* <Link to="/signup">
-                    <a className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-skin-inverted  bg-skin-fill hover:bg-gray-50">
-                      Sign in
-                    </a>
-                  </Link> */}
                 </span>
               </div>
             </nav>

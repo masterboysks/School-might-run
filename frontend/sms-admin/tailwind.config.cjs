@@ -22,6 +22,7 @@ module.exports = {
           base: withOpacity("--color-text-primary"),
           plane: withOpacity("--color-text-plane"),
           secondary: withOpacity("--color-text-secondary"),
+
           grey: withOpacity("--color-text-grey"),
           "grey-100": withOpacity("--color-bg-grey"),
         },

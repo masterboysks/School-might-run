@@ -1,41 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PrimaryButton } from "../../components/commom/buttons";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input from "../../components/commom/input";
 import logo from "/logo.png";
 export default function Index() {
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
   const [errorUsername, setErrorUsername] = useState(false);
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
   const [remember, setRemember] = useState(false);
-  const handleSubmit = () => {};
+  const saveData = () => {
+    localStorage.setItem("user", JSON.stringify(username));
+    return 1;
+  };
+  const handleSubmit = () => {
+    console.log({ username });
+    let temp = true;
+    username || ((temp = false) && setErrorUsername(true));
+    password || ((temp = false) && setErrorPassword(true));
+    temp && saveData() && navigate("/");
+  };
   useEffect(() => {}, []);
 
   return (
     <>
-      <div className="min-w-[100vw] min-h-[100vh] flex items-center justify-center  text-primary-grey bggrad text-">
-        <div className=" box-border flex flex-col md:flex-row w-9/12 max-w-2xl">
-          <div className="inline-flex  flex-col  max-w-md flex-grow  pt-10 md:mr-3">
+      <div className="min-w-[100vw] min-h-[100vh] flex items-center justify-center  bg-primary-grey-100 text-primary-grey  text-">
+        <div className=" box-border flex flex-col md:flex-row w-11/12 max-w-5xl justify-between">
+          <div className="inline-flex  flex-col items-center justify-center text-center max-w-md flex-grow   md:mr-3">
             <Link to="/">
               <img src={logo}></img>
             </Link>
 
-            <h1 className="text-2xl  font-semibold text-primary-secondary    my-6">
+            <h1 className="text-2xl  font-semibold text-primary-secondary  text-center  my-12  ">
               School Management System
             </h1>
           </div>
-          <div className="flex-grow max-w-md">
-            <div className=" mx-auto  px-3 py-4 bg-primary-grey-100 rounded-lg box-border my-3">
+          <div className="flex-grow max-w-sm ">
+            <div className=" mx-auto  px-5 shadow-2xl  bg-white  rounded-xl box-border my-3 py-5">
               <Input
                 placeholder="username"
                 value={username}
                 setValue={setUsername}
-                label="Login"
                 error={errorUsername}
                 setError={setErrorUsername}
                 dontShowErrorText={true}
+                className="mb-4"
               />
               <br />
               <Input
@@ -46,27 +57,30 @@ export default function Index() {
                 error={errorPassword}
                 setError={setErrorPassword}
                 errorText="Invalid credentials."
+                className="mb-4"
               />
-              <br />
 
               <Checkbox
                 label="Remember me:"
                 selected={remember}
                 setSelected={setRemember}
-                className="mt-4"
+                className="mt-3"
                 id="remember_me"
               />
               <br />
               <button className=" w-full" onClick={handleSubmit}>
-                <PrimaryButton className=" w-full text-center sm:w-full mb-3 ">
+                <PrimaryButton className=" w-full text-center sm:w-full mb-5   ">
                   Login
                 </PrimaryButton>
               </button>
-              <Link to="forgot-password" className="text-primary-base ">
+              <Link
+                to="forgot-password"
+                className="text-primary-base text-center block "
+              >
                 Forgot password?
               </Link>
             </div>
-            <div className=" text-center">
+            <div className=" text-center pt-8">
               <p className=" max-w-md">
                 Use the application according to policy rules. Any kinds of
                 violations will be subject to sanctions.

@@ -33,7 +33,7 @@ export default function Input({
       )}
 
       <input
-        className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base   border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
+        className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
         id={id}
         step={step}
         name={name}
