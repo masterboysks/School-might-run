@@ -1,25 +1,30 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import logo from "/logo.png";
 import {
   CalendarIcon,
-  FolderIcon,
-  HomeIcon,
-  InboxIcon,
   MenuAlt2Icon,
   UsersIcon,
 } from "@heroicons/react/outline";
-import { NavLink } from "react-router-dom";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const navigation = [
   {
     name: "Dashboard",
     href: "/admin/dashboard",
-    icon: HomeIcon,
+    icon: DashboardOutlinedIcon,
     current: true,
   },
   { name: "Company", href: "/admin/company", icon: UsersIcon, current: false },
-  { name: "Plan", href: "/admin/plan", icon: FolderIcon, current: false },
+  {
+    name: "Plan",
+    href: "/admin/plan",
+    icon: Inventory2OutlinedIcon,
+    current: false,
+  },
   {
     name: "Plan request",
     href: "/admin/plan-request",
@@ -29,7 +34,7 @@ const navigation = [
   {
     name: "System settings",
     href: "/admin/system-settings",
-    icon: InboxIcon,
+    icon: SettingsOutlinedIcon,
     current: false,
   },
 ];
@@ -43,7 +48,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function MainLayout({ children }) {
+export default function MainLayout({ children, className }) {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    user || navigate(-1);
+  }, []);
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -76,7 +87,7 @@ export default function MainLayout({ children }) {
               leaveTo="-translate-x-full"
             >
               <div className="relative max-w-xs w-full bg-white pt-5 pb-4 flex-1 flex flex-col">
-                <div className="flex-shrink-0 px-4 flex items-center">
+                <div className="flex-shrink-0 px-4 flex items-center pb-4">
                   <img className="h-8 w-auto" src={logo} alt="Workflow" />
                 </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
@@ -113,7 +124,7 @@ export default function MainLayout({ children }) {
         <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="border-r border-gray-200 pt-5 flex flex-col flex-grow bg-white overflow-y-auto">
-            <div className="flex-shrink-0 px-4 flex items-center">
+            <div className="flex-shrink-0 px-4 flex items-center pb-4">
               <img className="h-8 w-auto" src={logo} alt="Workflow" />
             </div>
             <div className="flex-grow mt-5 flex flex-col">
@@ -200,7 +211,7 @@ export default function MainLayout({ children }) {
 
           <main className="flex-1">
             <div className="py-6">
-              <div className="px-6">{children}</div>
+              <div className={`px-6 ${className}`}>{children}</div>
             </div>
           </main>
         </div>

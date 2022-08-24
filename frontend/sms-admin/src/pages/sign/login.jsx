@@ -20,7 +20,7 @@ export default function Index() {
     let temp = true;
     username || ((temp = false) && setErrorUsername(true));
     password || ((temp = false) && setErrorPassword(true));
-    temp && saveData() && navigate("/");
+    temp && saveData() && navigate("/admin/dashboard");
   };
   useEffect(() => {}, []);
 
