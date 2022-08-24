@@ -13,6 +13,7 @@ export default function Company() {
           <AddIcon />
         </div>
       </div>
+      <div className="main"></div>
     </MainLayout>
   );
 }

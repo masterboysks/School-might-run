@@ -33,7 +33,12 @@
     --color-button-accent-hover: 141, 71, 148;
     --color-button-secondary: 212, 87, 39;
   }
+}
+@layer utilities {
   .bggrad {
     @apply bg-gradient-to-r from-primary-base/20 to-primary-secondary/60;
+  }
+  .tab_gad_company {
+    @apply bg-gradient-to-br from-primary-base/80 to-primary-secondary/20;
   }
 }
