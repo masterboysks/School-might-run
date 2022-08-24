@@ -19,7 +19,7 @@ export const Checkbox = ({
         type="checkbox"
         checked={selected}
         {...optional}
-        className={`focus:ring-primary-base text-primary-base  w-4 h-4 border-gray-300 rounded `}
+        className={`focus:ring-primary-base text-primary-base  w-4 h-4 border-primary-base/90 border rounded `}
         onChange={(e) => {
           setSelected(e.currentTarget.checked);
         }}

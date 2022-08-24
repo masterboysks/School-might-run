@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Home from "../pages/landing/home";
 import Login from "../pages/sign/login";
-import Signup from "../pages/sign/signup";
 
 export default function LandingRoutes() {
   const path = useLocation().pathname;
@@ -16,10 +15,9 @@ export default function LandingRoutes() {
 
   return (
     <Routes>
-      <Route path="/*">
+      <Route path="/">
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
         <Route
           path="*"
           element={

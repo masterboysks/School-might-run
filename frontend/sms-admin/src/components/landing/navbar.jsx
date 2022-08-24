@@ -126,12 +126,21 @@ export default function Navbar({ children }) {
               </div>
               <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                 <span className="inline-flex rounded-md shadow">
-                  <Link
-                    to="/login"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-skin-base bg-white hover:bg-gray-50"
-                  >
-                    Log in
-                  </Link>
+                  {loggedIn ? (
+                    <Link
+                      to="/login"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-skin-base bg-white hover:bg-gray-50"
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-skin-base bg-white hover:bg-gray-50"
+                    >
+                      Log in
+                    </Link>
+                  )}
                   {/* <Link to="/signup">
                     <a className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-skin-inverted  bg-skin-fill hover:bg-gray-50">
                       Sign in
@@ -172,7 +181,7 @@ export default function Navbar({ children }) {
                   </div>
                 </div>
                 <div className="px-2 pt-2 pb-3">
-                  {navigation.map((item) => (
+                  {/* {navigation.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
@@ -180,7 +189,7 @@ export default function Navbar({ children }) {
                     >
                       {item.name}
                     </Link>
-                  ))}
+                  ))} */}
                 </div>
                 <Link
                   to="login"
