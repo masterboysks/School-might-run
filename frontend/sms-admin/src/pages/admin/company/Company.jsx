@@ -2,6 +2,10 @@ import React from "react";
 import Breadnav from "../../../components/admin/Breadnav";
 import MainLayout from "../../../layout/admin/MainLayout";
 import AddIcon from "@mui/icons-material/Add";
+import Card from "../../../components/admin/company/Card";
+
+// import { logo } from "/logo.png";
+
 const pages = [{ name: "Company", href: "#", current: true }];
 export default function Company() {
   return (
@@ -13,7 +17,19 @@ export default function Company() {
           <AddIcon />
         </div>
       </div>
-      <div className="main"></div>
+      <div className="main grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <Card
+          logo="hgkas"
+          name="AVM school"
+          mail="avm@avm.com.ed"
+          lastlogged="2001 Aug 12 15:13"
+          plan="Extra premium"
+          expire="2101 Aug 11 00:00"
+          link="avm.com.np"
+          users="999"
+          modules={["hjgdf", "jhfda"]}
+        />
+      </div>
     </MainLayout>
   );
 }
