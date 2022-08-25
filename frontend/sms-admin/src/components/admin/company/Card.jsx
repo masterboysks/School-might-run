@@ -16,7 +16,7 @@ export default function Card({
   modules,
 }) {
   return (
-    <div className="w-full h-fit">
+    <div className="w-full h-fit py-12 space-y-4 px-8 bg-white rounded">
       <div className="flex justify-between text-center text-primary-base/70 ">
         <div className="tab_gad_company text-white">
           <a href={link} target="_blank" rel="noopener noreferrer">
@@ -33,9 +33,9 @@ export default function Card({
       <div className="name text-lg font-medium tracking-wide">{logo}</div>
       <div className="email text-xs font-light tracking-tighter">{mail}</div>
       <div className="">{lastlogged}</div>
-      <div className="flex border-b border-primary-grey">
+      <div className="flex border-b border-primary-grey justify-between pb-3">
         <div className="">{plan}</div>
-        <button className="border border-primary-base px-3 py-1.5 text-primary-base/70">
+        <button className="border rounded border-primary-base px-3 py-1.5 text-primary-base/70">
           Upgrade Plan
         </button>
       </div>
