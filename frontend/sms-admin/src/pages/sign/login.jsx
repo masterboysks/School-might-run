@@ -7,20 +7,25 @@ import Input from "../../components/commom/input";
 import logo from "/logo.png";
 
 export default function Index() {
-  const { register, handleSubmit } = useForm();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
   const saveData = (data) => {
     localStorage.setItem("user", JSON.stringify(data.username));
     return 1;
   };
   const onSubmit = (data) => {
-    console.log({ data });
+    console.log(data);
 
     saveData(data);
     navigate("/admin/dashboard");
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    localStorage.getItem("user") && navigate(-1);
+  }, []);
 
   return (
     <>
@@ -44,9 +49,10 @@ export default function Index() {
                 placeholder="username"
                 register={register}
                 required={true}
-                showError={false}
+                // showError={false}
                 className="mb-4"
                 name="username"
+                errors={errors}
               />
               <br />
               <Input
@@ -55,7 +61,9 @@ export default function Index() {
                 register={register}
                 type="password"
                 errorText="Invalid credentials."
+                errors={errors}
                 className="mb-4"
+                required={true}
               />
 
               <Checkbox
@@ -76,6 +84,7 @@ export default function Index() {
               </button>
               <Link
                 to="forgot-password"
+                replace={true}
                 className="text-primary-base text-center block focus:outline-none focus:ring-2 focus:ring-primary-base"
               >
                 Forgot password?

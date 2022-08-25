@@ -3,6 +3,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ExtensionOutlinedIcon from "@mui/icons-material/ExtensionOutlined";
 import { Popover } from "@headlessui/react";
+import { Link } from "react-router-dom";
 export default function Card({
   logo,
   name,
@@ -15,27 +16,54 @@ export default function Card({
   modules,
 }) {
   return (
-    <div className="w-full h-fit py-12 space-y-4 px-8 bg-white rounded text-center">
+    <div className="w-full h-fit py-12 space-y-4 px-8 bg-white rounded-2xl text-center max-w-md mx-auto">
       <div className="flex justify-between text-center text-primary-base/70 ">
-        <div className="bg-primary-base p-2 rounded text-white">
-          <a href={link} target="_blank" rel="noopener noreferrer">
+        <div>
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" p-2 rounded primary-btn"
+          >
             Log in
           </a>
         </div>
-        <div className="3dots">
-          <MoreVertIcon />
-        </div>
+        <Popover className="relative">
+          <Popover.Button className="3dots secondary-btn   rounded-lg   !border-0">
+            <MoreVertIcon />
+          </Popover.Button>
+          <Popover.Panel className="flex rounded border border-primary-base shadow-md          flex-col px-2 py-3 gap-3 absolute right-0 w-40 bg-primary-grey-100    hover top-[120%] text-left">
+            <Link
+              to="#"
+              className="py-1 pl-2 hover:bg-primary-base hover:text-white rounded"
+            >
+              Edit
+            </Link>
+            <Link
+              to="#"
+              className="py-1 pl-2 hover:bg-primary-base hover:text-white rounded"
+            >
+              Delete
+            </Link>
+            <Link
+              to="#"
+              className="py-1 pl-2 hover:bg-primary-base hover:text-white rounded"
+            >
+              Reset password
+            </Link>
+          </Popover.Panel>
+        </Popover>
       </div>
-      <div className="logo flex items-center justify-center">
-        <img src={logo} alt={name} width="280" />
+      <div className="logo flex items-center justify-center mt-3">
+        <img src={logo} alt={name} className="w-[90%] xs:w-2/3 sm:w-1/2" />
       </div>
-      <div className="name text-lg font-medium tracking-wide">{logo}</div>
+      <div className="name text-lg font-medium tracking-wide">{name}</div>
       <div className="email text-xs font-light tracking-tighter">{mail}</div>
       <div className="">{lastlogged}</div>
-      <div className="flex border-b border-primary-grey justify-between pb-3 my-12">
+      <div className="flex border-b flex-col sm:items-center space-y-2 sm:flex-row sm:space-y-0  border-primary-grey justify-between pb-3 my-12">
         <div className="">{plan}</div>
-        <button className="border rounded border-primary-base px-3 py-1.5 text-primary-base/70 focus:outline-none focus:bg-primary-base focus:text-white">
-          Upgrade Plan
+        <button className="px-3 py-1.5 rounded secondary-btn">
+          Select plan
         </button>
       </div>
       <div className="">{expire}</div>
@@ -44,7 +72,7 @@ export default function Card({
           <PersonOutlineOutlinedIcon /> <div>{users}</div>
         </div>
         <Popover className="relative">
-          <Popover.Button className="flex  items-center justify-center space-x-2 focus:outline-none focus:  p-2 rounded text-white focus:bg-white focus:ring-2 ring- focus:text-primary-base bg-primary-base ">
+          <Popover.Button className="flex p-2 rounded items-center justify-center space-x-2 primary-btn">
             <ExtensionOutlinedIcon />
             <div>{modules.length}</div>
           </Popover.Button>

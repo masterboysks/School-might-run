@@ -1,19 +1,56 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Error from "../pages/error/Error";
-import Home from "../pages/landing/home";
-import Login from "../pages/sign/login";
-import Signout from "../pages/sign/signout";
-import AdminRoutes from "./AdminRoutes";
+
+const Error = lazy(() => import("../pages/error/Error"));
+const Home = lazy(() => import("../pages/landing/home"));
+const Login = lazy(() => import("../pages/sign/login"));
+const Signout = lazy(() => import("../pages/sign/signout"));
+const AdminRoutes = lazy(() => import("./AdminRoutes"));
 
 export default function LandingRoutes() {
   return (
     <Routes>
       <Route path="/">
-        <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="admin/*" element={<AdminRoutes />} />
-        <Route path="/signout" element={<Signout />} />
-        <Route path="*" element={<Error />} />
+        <Route
+          index
+          element={
+            <Suspense fallback="Loading...">
+              <Home />
+            </Suspense>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <Suspense fallback="Loading...">
+              <Login />
+            </Suspense>
+          }
+        />
+        <Route
+          path="admin/*"
+          element={
+            <Suspense fallback="Loading...">
+              <AdminRoutes />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/signout"
+          element={
+            <Suspense fallback="Loading...">
+              <Signout />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback="Loading...">
+              <Error />
+            </Suspense>
+          }
+        />
       </Route>
     </Routes>
   );
