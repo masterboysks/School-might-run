@@ -68,14 +68,17 @@ export default function Index() {
                 id="remember_me"
               />
               <br />
-              <button className=" w-full  mb-5 " onClick={handleSubmit}>
-                <PrimaryButton className=" w-full text-center sm:w-full  ">
+              <button
+                className=" w-full  mb-5 focus:border-primary-base focus:ring-primary-base focus:ring-2 focus:outline-none  "
+                onClick={handleSubmit}
+              >
+                <PrimaryButton className=" w-full text-center sm:w-full ">
                   Login
                 </PrimaryButton>
               </button>
               <Link
                 to="forgot-password"
-                className="text-primary-base text-center block "
+                className="text-primary-base text-center block focus:outline-none focus:ring-2 focus:ring-primary-base"
               >
                 Forgot password?
               </Link>
