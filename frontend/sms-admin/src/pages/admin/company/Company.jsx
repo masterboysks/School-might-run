@@ -4,7 +4,7 @@ import MainLayout from "../../../layout/admin/MainLayout";
 import AddIcon from "@mui/icons-material/Add";
 import Card from "../../../components/admin/company/Card";
 
-// import { logo } from "/logo.png";
+import logo from "/logo.png";
 
 const pages = [{ name: "Company", href: "#", current: true }];
 export default function Company() {
@@ -19,7 +19,7 @@ export default function Company() {
       </div>
       <div className="main grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <Card
-          logo="hgkas"
+          logo={logo}
           name="AVM school"
           mail="avm@avm.com.ed"
           lastlogged="2001 Aug 12 15:13"
