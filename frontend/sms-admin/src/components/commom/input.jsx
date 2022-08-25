@@ -3,26 +3,25 @@ import React from "react";
 export default function Input({
   id,
   name,
-  error,
-  setError,
+
+  errors,
+  register,
   type,
   label,
-  value,
-  setValue,
+  required = false,
   placeholder,
-  onChange,
+  showError = true,
   className,
   step,
   labelClassName,
 }) {
-  const optional = {};
   return (
     <>
       {label && (
         <>
           <label
             className={`my-6 ${
-              error && "text-red-600"
+              errors && errors[name] && "text-red-600"
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -36,20 +35,11 @@ export default function Input({
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
         id={id}
         step={step}
-        name={name}
+        {...register(name, { required: required })}
         placeholder={placeholder}
         type={type || "text"}
-        {...optional}
-        value={value}
-        onChange={
-          onChange ||
-          ((e) => {
-            setValue && setValue(e.target.value);
-          })
-        }
-        onClick={() => error && setError && setError(false)}
       />
-      {error && (
+      {showError && errors && errors[name] && (
         <>
           <br />
           <span className="text-xs font-light text-red-600">

@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { PrimaryButton } from "../../components/commom/buttons";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input from "../../components/commom/input";
 import logo from "/logo.png";
+
 export default function Index() {
-  const [username, setUsername] = useState("");
+  const { register, handleSubmit } = useForm();
+
   const navigate = useNavigate();
-  const [errorUsername, setErrorUsername] = useState(false);
-  const [password, setPassword] = useState("");
-  const [errorPassword, setErrorPassword] = useState(false);
-  const [remember, setRemember] = useState(false);
-  const saveData = () => {
-    localStorage.setItem("user", JSON.stringify(username));
+  const saveData = (data) => {
+    localStorage.setItem("user", JSON.stringify(data.username));
     return 1;
   };
-  const handleSubmit = () => {
-    console.log({ username });
-    let temp = true;
-    username || ((temp = false) && setErrorUsername(true));
-    password || ((temp = false) && setErrorPassword(true));
-    temp && saveData() && navigate("/admin/dashboard");
+  const onSubmit = (data) => {
+    console.log({ data });
+
+    saveData(data);
+    navigate("/admin/dashboard");
   };
   useEffect(() => {}, []);
 
@@ -38,39 +36,39 @@ export default function Index() {
             </h1>
           </div>
           <div className="flex-grow max-w-sm ">
-            <div className=" mx-auto  px-5 shadow-2xl  bg-white  rounded-xl box-border my-3 py-5">
+            <form
+              className=" mx-auto  px-5 shadow-2xl  bg-white  rounded-xl box-border my-3 py-5"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <Input
                 placeholder="username"
-                value={username}
-                setValue={setUsername}
-                error={errorUsername}
-                setError={setErrorUsername}
-                dontShowErrorText={true}
+                register={register}
+                required={true}
+                showError={false}
                 className="mb-4"
+                name="username"
               />
               <br />
               <Input
                 placeholder="Password"
-                value={password}
-                setValue={setPassword}
+                name="password"
+                register={register}
                 type="password"
-                error={errorPassword}
-                setError={setErrorPassword}
                 errorText="Invalid credentials."
                 className="mb-4"
               />
 
               <Checkbox
                 label="Remember me:"
-                selected={remember}
-                setSelected={setRemember}
+                name="remember"
+                register={register}
                 className="mt-3"
                 id="remember_me"
               />
               <br />
               <button
                 className=" w-full  mb-5 focus:border-primary-base focus:ring-primary-base focus:ring-2 focus:outline-none  "
-                onClick={handleSubmit}
+                type="submit"
               >
                 <PrimaryButton className=" w-full text-center sm:w-full ">
                   Login
@@ -82,7 +80,7 @@ export default function Index() {
               >
                 Forgot password?
               </Link>
-            </div>
+            </form>
             <div className=" text-center pt-8">
               <p className=" max-w-md">
                 Use the application according to policy rules. Any kinds of
