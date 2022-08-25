@@ -68,8 +68,8 @@ export default function Index() {
                 id="remember_me"
               />
               <br />
-              <button className=" w-full" onClick={handleSubmit}>
-                <PrimaryButton className=" w-full text-center sm:w-full mb-5   ">
+              <button className=" w-full  mb-5 " onClick={handleSubmit}>
+                <PrimaryButton className=" w-full text-center sm:w-full  ">
                   Login
                 </PrimaryButton>
               </button>
