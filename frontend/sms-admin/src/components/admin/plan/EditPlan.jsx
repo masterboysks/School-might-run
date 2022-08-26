@@ -1,24 +1,20 @@
 import React, { useState } from "react";
-import MainLayout from "../../../layout/admin/MainLayout";
 import { useForm } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 
-import Input from "../../../components/commom/input";
-import { PrimaryButton } from "../../../components/commom/buttons";
-import { useNavigate } from "react-router-dom";
-import Breadnav from "../../../components/admin/Breadnav";
+import Input from "../../commom/input";
+import { PrimaryButton } from "../../commom/buttons";
+
 import RemoveIcon from "@mui/icons-material/Remove";
-const pages = [
-  { name: "Plan", href: "/admin/plan", current: false },
-  { name: "Create", href: "#", current: true },
-];
-export default function AddCompany() {
-  const navigate = useNavigate();
+
+export default function EditPlan({ defaultValues }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues,
+  });
   const onSubmit = (d) => {
     console.log(
       JSON.stringify({
@@ -39,14 +35,12 @@ export default function AddCompany() {
 
   const [included, setIncluded] = useState([1]);
   return (
-    <MainLayout className="text-primary-grey">
-      <Breadnav pages={pages} />
-
+    <div className="text-primary-grey">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid  gap-5 bg-white rounded-md px-9 pb-6 pt-3 max-w-2xl  mx-auto mt-4"
       >
-        <h1 className="text-lg  mt-5 "> Create Plan</h1>
+        <h1 className="text-lg  mt-5 "> Edit Plan</h1>
         <div className="border-b "></div>
         <div className="">
           <Input
@@ -127,6 +121,6 @@ export default function AddCompany() {
           <PrimaryButton>Submit</PrimaryButton>
         </button>
       </form>
-    </MainLayout>
+    </div>
   );
 }

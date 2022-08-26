@@ -4,7 +4,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 export default function Input({
   id,
   name,
-
+  shouldUnregister = false,
   errors,
   errorText,
   register,
@@ -37,7 +37,7 @@ export default function Input({
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
         id={id}
         step={step}
-        {...register(name, { required })}
+        {...register(name, { required, shouldUnregister })}
         placeholder={placeholder}
         type={type || "text"}
       />
