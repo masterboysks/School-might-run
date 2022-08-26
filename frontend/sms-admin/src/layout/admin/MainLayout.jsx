@@ -49,13 +49,16 @@ function classNames(...classes) {
 }
 
 export default function MainLayout({ children, className }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const user = localStorage.getItem("user");
-    user || navigate(-1);
+    user ? setLoading(false) : navigate(-1);
   }, []);
-
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  if (loading) {
+    return <>Loading...</>;
+  }
 
   return (
     <>

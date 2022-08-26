@@ -1,4 +1,5 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import { Link } from "react-router-dom";
 
 export default function Breadnav({ pages }) {
   return (
@@ -6,13 +7,13 @@ export default function Breadnav({ pages }) {
       <ol role="list" className="flex items-center space-x-4">
         <li>
           <div>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="text-primary-grey/80 hover:text-primary-grey"
             >
               <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
               <span className="sr-only">Home</span>
-            </a>
+            </Link>
           </div>
         </li>
         {pages.map((page) => (
@@ -22,8 +23,8 @@ export default function Breadnav({ pages }) {
                 className="flex-shrink-0 h-5 w-5 text-gray-400"
                 aria-hidden="true"
               />
-              <a
-                href={page.href}
+              <Link
+                to={page.href}
                 className={` ${
                   page.current
                     ? "text-primary-grey font-medium "
@@ -32,7 +33,7 @@ export default function Breadnav({ pages }) {
                 aria-current={page.current ? "page" : undefined}
               >
                 {page.name}
-              </a>
+              </Link>
             </div>
           </li>
         ))}

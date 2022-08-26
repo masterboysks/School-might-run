@@ -3,6 +3,7 @@ import MainLayout from "../../../layout/admin/MainLayout";
 import { useForm } from "react-hook-form";
 import Input, {
   InputWithSuffix,
+  Password,
   Select,
 } from "../../../components/commom/input";
 import { PrimaryButton } from "../../../components/commom/buttons";
@@ -10,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Breadnav from "../../../components/admin/Breadnav";
 
 const pages = [
-  { name: "Company", href: "/admin/company", current: true },
+  { name: "Company", href: "/admin/company", current: false },
   { name: "Add", href: "#", current: true },
 ];
 const plans = ["jkdsfh", "dsfkjh"];
@@ -60,21 +61,23 @@ export default function AddCompany() {
           />
         </div>
         <div className="">
-          <Input
+          <Password
             register={register}
             label="Password *"
             name="password"
             errors={errors}
             required={true}
+            type="password"
           />
         </div>
         <div className="">
-          <Input
+          <Password
             register={register}
             label="Confirm password *"
             name="confirmPassword"
             required={true}
             errors={errors}
+            type="password"
           />
         </div>
         <div className="">

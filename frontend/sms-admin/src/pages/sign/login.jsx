@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { PrimaryButton } from "../../components/commom/buttons";
 import { Checkbox } from "../../components/commom/checkbox";
-import Input from "../../components/commom/input";
+import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
 
 export default function Index() {
@@ -55,7 +55,7 @@ export default function Index() {
                 errors={errors}
               />
               <br />
-              <Input
+              <Password
                 placeholder="Password"
                 name="password"
                 register={register}
