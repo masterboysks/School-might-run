@@ -6,8 +6,7 @@ import { Dialog, Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import Input from "../../commom/input";
 import { useForm } from "react-hook-form";
-import { PrimaryButton } from "../../commom/buttons";
-export default function Card({
+export default function CompanyCard({
   logo,
   name,
   mail,

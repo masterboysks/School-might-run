@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import MainLayout from "../../../layout/admin/MainLayout";
 import { useForm } from "react-hook-form";
-import Input, { InputWithSuffix } from "../../../components/commom/input";
+import Input, {
+  InputWithSuffix,
+  Select,
+} from "../../../components/commom/input";
 import { PrimaryButton } from "../../../components/commom/buttons";
 import { useNavigate } from "react-router-dom";
+import Breadnav from "../../../components/admin/Breadnav";
 
+const pages = [
+  { name: "Company", href: "/admin/company", current: true },
+  { name: "Add", href: "#", current: true },
+];
+const plans = ["jkdsfh", "dsfkjh"];
 export default function AddCompany() {
   const navigate = useNavigate();
   const {
@@ -12,6 +21,9 @@ export default function AddCompany() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  //
+  // subdomain
+  //
   const [suffix, setSuffix] = useState("spellinnovation.com.np");
   const onSubmit = (data) => {
     console.log(data);
@@ -20,15 +32,19 @@ export default function AddCompany() {
   };
 
   return (
-    <MainLayout>
+    <MainLayout className="text-primary-grey">
+      <Breadnav pages={pages} />
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid lg:grid-cols-2 gap-5 lg:max-w-full max-w-sm mx-auto"
+        className="grid  gap-5 bg-white rounded-md px-9 pb-6 pt-3 max-w-2xl  mx-auto mt-4"
       >
+        <h1 className="text-lg  mt-5 "> Add new company</h1>
+        <div className="border-b "></div>
         <div className="">
           <Input
             register={register}
-            label="Company name"
+            label="Company name *"
             name="companyName"
             required={true}
             errors={errors}
@@ -37,7 +53,7 @@ export default function AddCompany() {
         <div className="">
           <Input
             register={register}
-            label="Email"
+            label="Email *"
             name="email"
             errors={errors}
             required={true}
@@ -46,7 +62,7 @@ export default function AddCompany() {
         <div className="">
           <Input
             register={register}
-            label="Password"
+            label="Password *"
             name="password"
             errors={errors}
             required={true}
@@ -55,26 +71,28 @@ export default function AddCompany() {
         <div className="">
           <Input
             register={register}
-            label="Confirm password"
+            label="Confirm password *"
             name="confirmPassword"
             required={true}
             errors={errors}
           />
         </div>
         <div className="">
-          <Input
+          <Select
             register={register}
-            label="Plan"
+            label="Plan "
             name="plan"
             required={true}
             errors={errors}
+            value={plans}
+            selected="Select"
           />
         </div>
         <div className="">
           <InputWithSuffix
             register={register}
-            label="Domain"
-            name="domain"
+            label="Sub-Domain *"
+            name="subDomain"
             required={true}
             suffix={suffix}
             errors={errors}

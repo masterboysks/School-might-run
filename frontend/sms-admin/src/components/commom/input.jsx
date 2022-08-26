@@ -36,7 +36,7 @@ export default function Input({
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
         id={id}
         step={step}
-        {...register(name, { required: required })}
+        {...register(name, { required })}
         placeholder={placeholder}
         type={type || "text"}
       />
@@ -52,6 +52,61 @@ export default function Input({
     </>
   );
 }
+export function Select({
+  id,
+  name,
+
+  errors,
+  errorText,
+  register,
+  value: options,
+  label,
+  required = false,
+  selected,
+  showError = true,
+  className,
+  labelClassName,
+}) {
+  return (
+    <>
+      {label && (
+        <>
+          <label
+            className={`my-6 ${
+              errors && errors[name] && "text-red-600"
+            } text-sm ${labelClassName}`}
+            htmlFor={id}
+          >
+            {label}
+          </label>
+          <br />
+        </>
+      )}
+      <select
+        {...register(name, { required })}
+        id={id}
+        className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
+      >
+        {selected === "Select" && <option value="">--Select--</option>}
+        {options.map((curr) => (
+          <option value={curr} key={curr}>
+            {curr}
+          </option>
+        ))}
+      </select>
+      {showError && errors && errors[name] && (
+        <>
+          <br />
+          <span className="text-xs font-light text-red-600">
+            {errorText || " This is a required field."}
+          </span>
+          <br />
+        </>
+      )}
+    </>
+  );
+}
+
 export function InputWithSuffix({
   id,
   name,

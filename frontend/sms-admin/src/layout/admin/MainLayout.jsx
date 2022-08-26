@@ -211,7 +211,9 @@ export default function MainLayout({ children, className }) {
 
           <main className="flex-1 bg-primary-grey-100 min-h-screen">
             <div className="py-6">
-              <div className={`px-6 ${className}`}>{children}</div>
+              <div className={`px-6 text-primary-grey ${className}`}>
+                {children}
+              </div>
             </div>
           </main>
         </div>

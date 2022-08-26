@@ -1,13 +1,14 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import AddPlan from "../pages/admin/plan/AddPlan";
+import Company from "../pages/admin/company/Company";
+import AddCompany from "../pages/admin/company/AddCompany";
+import Plan from "../pages/admin/plan/Plan";
 
-const AddCompany = lazy(() => import("../pages/admin/company/AddCompany"));
-const Company = lazy(() => import("../pages/admin/company/Company"));
 const Dashboard = lazy(() => import("../pages/admin/dashboard/Dashboard"));
 const PlanRequest = lazy(() =>
   import("../pages/admin/plan request/PlanRequest")
 );
-const Plan = lazy(() => import("../pages/admin/plan/Plan"));
 const SystemSettings = lazy(() =>
   import("../pages/admin/system-settings/SystemSettings")
 );
@@ -24,22 +25,8 @@ export default function AdminRoutes() {
           </Suspense>
         }
       />
-      <Route
-        path="company"
-        element={
-          <Suspense fallback="Loading...">
-            <Company />
-          </Suspense>
-        }
-      />
-      <Route
-        path="company/add"
-        element={
-          <Suspense fallback="Loading...">
-            <AddCompany />
-          </Suspense>
-        }
-      />
+      <Route path="company" element={<Company />} />
+      <Route path="company/add" element={<AddCompany />} />
       <Route
         path="plan"
         element={
@@ -48,6 +35,7 @@ export default function AdminRoutes() {
           </Suspense>
         }
       />
+      <Route path="plan/add" element={<AddPlan />} />
       <Route
         path="plan-request"
         element={
