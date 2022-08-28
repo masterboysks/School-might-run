@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -7,32 +7,42 @@ import { PrimaryButton } from "../../components/commom/buttons";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
+import axios from "axios";
 
 export default function Index() {
   const [cookies, setCookie] = useCookies(["token"]);
+  const [errorText, setErrorText] = useState("This is a required field");
 
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const saveData = (data) => {
-    localStorage.setItem("user", JSON.stringify(data.username));
-    return 1;
-  };
+
   const onSubmit = async (data) => {
-    console.log(data);
-    const userData = await User.login(data);
-    console.log(userData.data.data);
-    const { token } = userData?.data?.data;
-    console.log(token);
-    setCookie("token", token, { path: "/" });
-    saveData(userData);
-    token && navigate("/admin/dashboard");
+    try {
+      const res = await axios.get("https://geolocation-db.com/json/");
+
+      let ip = res.data.IPv6 || res.data.IPv4;
+      console.log(data, ip);
+      const userData = await User.login(data, ip);
+      console.log(userData);
+      const { token } = userData?.data?.data;
+      console.log(token);
+      setCookie("token", token, { path: "/" });
+
+      cookies.token && navigate("/admin/dashboard");
+    } catch (e) {
+      console.log(e);
+      setError("password", { type: "focus" });
+      setErrorText("Invalid credentials");
+    }
   };
   useEffect(() => {
-    localStorage.getItem("user") && navigate(-1);
+    console.log(cookies);
+    // cookies.token && navigate(-1);
   }, []);
 
   return (
@@ -70,6 +80,7 @@ export default function Index() {
                 type="password"
                 errors={errors}
                 className="mb-4"
+                errorText={errorText}
                 required={true}
               />
 

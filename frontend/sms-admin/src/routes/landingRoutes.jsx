@@ -37,18 +37,18 @@ export default function LandingRoutes() {
           }
         />
         <Route
-          path="admin/*"
-          element={
-            <Suspense fallback="Loading...">
-              <AdminRoutes />
-            </Suspense>
-          }
-        />
-        <Route
           path="/signout"
           element={
             <Suspense fallback="Loading...">
               <Signout />
+            </Suspense>
+          }
+        />
+        <Route
+          path="admin/*"
+          element={
+            <Suspense fallback="Loading...">
+              <AdminRoutes />
             </Suspense>
           }
         />

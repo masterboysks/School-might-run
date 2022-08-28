@@ -20,7 +20,7 @@ export const Checkbox = ({
         id={id}
         type="checkbox"
         {...register(name)}
-        className={`focus:ring-primary-btn text-primary-base  w-4 h-4 border-primary-btn border rounded `}
+        className={`focus:ring-primary-btn text-primary-btn  w-4 h-4 border-primary-btn border rounded `}
       />
       <div className="ml-3 text-sm">
         <label htmlFor={id} className="font-sm text-primary-grey-600">
@@ -31,52 +31,19 @@ export const Checkbox = ({
   );
 };
 
-// Radio bth
-export const Radio = ({
-  name,
-  error,
-  value: options,
-  setError,
-  selected,
-  setSelected,
-  dataTitle,
-  dataValue,
-}) => {
-  // useEffect(() => {
-  //   console.log(err, name);
-  //   error && !selected ? setErr(true) : setErr(false);
-  //   console.log(err);
-  // }, [error]);
-
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
-
-  const handleChange = (e) => {
-    const target = e.target;
-    error && setError(false);
-    if (target.checked) {
-      setSelected(target.value);
-    }
-  };
+// Radio bth new
+export const Radio = ({ name, errors, value, register, required = false,  errorText, }) => {
   return (
     <>
-      {options.map((curr) => (
+      {value.map((curr) => (
         <label key={curr} htmlFor={curr}>
-          <input
-            type="radio"
-            id={curr}
-            name={name}
-            value={curr}
-            checked={selected === curr}
-            onChange={handleChange}
-            {...optional}
-          />
+          <input type="radio" id={curr} {...register(name),{required}} value={curr} />
           <span className={`mx-2 ${error && "text-red-600"}`}>{curr}</span>
         </label>
       ))}
-      {error && (
+      {errors && errors[name] && (
         <div className=" md:block hidden text-xs font-light text-red-600">
-          This is a required field
+        {errorText|| " This is a required field"}
         </div>
       )}
     </>
@@ -198,31 +165,26 @@ export function Password({
 // Input disabled field
 export const InputDisabled = ({
   label,
-  id,
-  name,
-  value,
 
-  type,
-  dataTitle,
-  dataValue,
+
+  value="",
+
 }) => {
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
 
   return (
     <>
-      <label className="my-6 text-sm" htmlFor={id}>
+      <label className="my-6 text-sm" >
         {label}
       </label>
       <br />
       <input
         className=" mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
         id={id}
-        name={name}
+   
         disabled
-        type={type || "text"}
-        {...optional}
-        value={value || ""}
+        type= "text"
+  
+        value={value}  
       />
     </>
   );
@@ -233,8 +195,8 @@ export const SelectDisabled = ({
   id,
   name,
   value,
-  setValue,
-  type,
+
+
   dataTitle,
   dataValue,
   className,
@@ -244,21 +206,18 @@ export const SelectDisabled = ({
 
   return (
     <>
-      <label className={`my-6 text-sm `} htmlFor={id}>
+      <label className={`my-6 text-sm `}>
         {label}
       </label>
       <br />
       <select
         className={` mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm ${className}`}
-        id={id}
-        name={name}
+  
+  
         disabled
-        type={type}
+   
         defaultValue={value}
-        {...optional}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
+    
       >
         <option value="">{value}</option>
       </select>
@@ -266,53 +225,54 @@ export const SelectDisabled = ({
   );
 };
 // Select
+
 export function Select({
-  label,
   id,
   name,
-  value,
+
+  errors,
+  errorText,
+  register,
+  value: options,
+  label,
+  required = false,
   selected,
-  setSelected,
-  dataTitle,
-  dataValue,
-  error,
-  setError,
+  showError = true,
+  className,
+  labelClassName,
 }) {
-  let options;
-  selected === "Select"
-    ? (options = ["Select", ...value])
-    : (options = [...value]);
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
   return (
     <>
-      <label className={`my-6 text-sm ${error && "text-red-600"}`} htmlFor={id}>
-        {label}
-      </label>
+      {label && (
+        <>
+          <label
+            className={`my-6 ${
+              errors && errors[name] && "text-red-600"
+            } text-sm ${labelClassName}`}
+            htmlFor={id}
+          >
+            {label}
+          </label>
+          <br />
+        </>
+      )}
       <select
-        value={selected}
-        onClick={() => error && setError(false)}
-        onChange={(e) => {
-          setSelected(e.target.value);
-        }}
-        name={name}
+        {...register(name, { required })}
         id={id}
-        {...optional}
-        className={`w-full p-2 ${
-          label && " mt-[6px] "
-        }  cursor-pointer rounded  focus:ring-primary-btn     shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm  border-primary-field  required:border-red-600 required:animate-pulse 
-        }`}
+        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey-600 text-sm ${className}`}
       >
+        {selected === "Select" && <option value="">--Select--</option>}
         {options.map((curr) => (
           <option value={curr} key={curr}>
             {curr}
           </option>
         ))}
       </select>
-      {error && (
+      {showError && errors && errors[name] && (
         <>
+          <br />
           <span className="text-xs font-light text-red-600">
-            This is a required field.
+            {errorText || " This is a required field."}
           </span>
           <br />
         </>
@@ -639,109 +599,4 @@ export const Textarea = ({
     </>
   );
 };
-// email field
-// export const Email = ({
-//   id,
-//   name,
-//   error,
-//   setError,
-//   label,
-//   value,
-//   setValue,
-//   placeholder,
-//   dataTitle,
-//   dataValue,
-// }) => {
-//   // const [err, setErr] = useState();
-//   // let err = false;
-//   // const mailRgexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-
-//   // useEffect(() => {
-//   //   console.log(err, name);
-//   //   error && value.matches(mailRgexp) ? setErr(true) : setErr(false);
-//   //   console.log(err);
-//   // }, [error]);
-
-//   const optional = {};
-//   dataTitle && (optional[dataTitle] = dataValue);
-
-//   return (
-//     <>
-//       <label className={`my-6 text-sm ${error && "text-red-600"}`} htmlFor={id}>
-//         {label}
-//       </label>
-//       <br />
-//       <input
-//         className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-//         id={id}
-//         name={name}
-//         placeholder={placeholder}
-//         type="email"
-//         {...optional}
-//         value={value}
-//         onClick={() => error && setError(false)}
-//         onChange={(e) => {
-//           setValue(e.target.value);
-//         }}
-//       />
-//       {error && (
-//         <>
-//           <br />
-//           <span className="text-xs font-light text-red-600">
-//             Please enter a valid mail address.
-//           </span>
-//         </>
-//       )}
-//     </>
-//   );
-// };
-//
-// {...optional}
-// export const CheckboxList = ({
-//   label,
-//   name,
-// error:err,
-//   value: options,
-//   required,
-//   selected,
-//   setSelected,
-//   dataTitle,
-//   dataValue,
-//   id,
-// }) => {
-//   const optional = {};
-//   dataTitle && (optional[dataTitle] = dataValue);
-
-//   return (
-//     <div>
-//       {options.map((curr, i) => (
-//         <>
-//           <div className="flex items-center h-5">
-//             <input
-//               id={id}
-//               name={name}
-//               type="checkbox"
-//               {...optional}
-//               checked={selected[i]}
-//               className="focus:ring- text-primary-btn focus:ring-0 focus:ring-offset-0 w-4 h-4 border-gray-300 rounded"
-//               onChange={(e) => {
-//                 let temp = selected;
-//                 temp.slice(i, 1, e.target.checked);
-//                 console.log(e.target.checked);
-//                 setSelected(temp);
-//               }}
-//             />
-//             <div className="ml-3 text-sm">
-//               <label
-//                 htmlFor="comments"
-//                 className="font-sm text-primary-grey-700"
-//               >
-//                 {label[i]}
-//               </label>
-//             </div>
-//           </div>
-//         </>
-//       ))}
-//     </div>
-//   );
-// };
+{/* <textarea {...register("hiiiiiiiii", {})} /> */}
