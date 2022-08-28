@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Select } from "../../../../components/fields";
-import SearchIcon from "../../../../components/SearchIcon";
+import { Select } from "../../../../../components/common/oldFields";
+import SearchIcon from "../../../../../components/common/SearchIcon";
 
 export default function Form() {
   const arrayLevel = ["hfjgk", "dsfjhg", "jkhfd"];
@@ -63,7 +63,7 @@ export default function Form() {
         />
       </div>
       <SearchIcon
-        className=" lg:col-span-2 xl:col-span-full sm:box-content col-span-full  mt-auto ml-auto "
+        className=" lg:col-span-2 xl:col-span-full sm:box-content col-span-full mt-auto ml-auto"
         onClick={handleSubmit}
       />
     </form>

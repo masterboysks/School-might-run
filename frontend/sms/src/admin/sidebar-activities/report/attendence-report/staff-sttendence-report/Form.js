@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Select } from "../../../../components/fields";
+import { Input, Select } from "../../../../../components/common/oldFields";
 import Search from "@mui/icons-material/SearchOutlined";
 export default function Form() {
   const arrayDepartment = ["sdjkh", "jhd", "djsh"];

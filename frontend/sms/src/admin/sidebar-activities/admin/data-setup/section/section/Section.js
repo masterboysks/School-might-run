@@ -1,4 +1,4 @@
-import Breadnav from "../../../../../components/Breadnav";
+import Breadnav from "../../../../../../components/common/Breadnav";
 import Tables from "./Table";
 const pages = [
   { name: "Admin", href: "#", current: false },

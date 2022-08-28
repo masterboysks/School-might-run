@@ -39,7 +39,10 @@ const Slidebar = () => {
       >
         <div className="w-full">
           <ul className="pt-9 mx-2">
-            <Link to="/student/student-information" onClick={sidebar}>
+            <Link
+              to="/admin/dashboard/student/student-information"
+              onClick={sidebar}
+            >
               <li
                 className={` flex  pr-3    p-1 mt-2 mb-3 cursor-pointer rounded ${
                   location.includes("student-information")
@@ -53,7 +56,10 @@ const Slidebar = () => {
                 Student information
               </li>
             </Link>
-            <Link to="/student/student-attendence" onClick={sidebar}>
+            <Link
+              to="/admin/dashboard/student/student-attendence"
+              onClick={sidebar}
+            >
               <li
                 className={`  pr-3    flex p-1 mt-2 mb-3 cursor-pointer rounded ${
                   location.includes("student-attendence")

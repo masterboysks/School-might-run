@@ -1,8 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Input, Radio, Select } from "../../../../../components/fields";
-import Breadnav from "../../../../../components/Breadnav";
-import Break from "../../../../../components/Break";
+import {
+  Input,
+  Radio,
+  Select,
+} from "../../../../../../components/common/oldFields";
+import Breadnav from "../../../../../../components/common/Breadnav";
+import Break from "../../../../../../components/common/Break";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {

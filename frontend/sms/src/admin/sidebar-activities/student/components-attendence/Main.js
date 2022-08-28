@@ -2,7 +2,7 @@ import React from "react";
 import ClassTable from "./classTable/ClassTable";
 
 import Form from "./Form";
-import Breadnav from "../../../components/Breadnav";
+import Breadnav from "../../../../components/common/Breadnav";
 const pages = [
   { name: "Student", href: "#", current: false },
   {

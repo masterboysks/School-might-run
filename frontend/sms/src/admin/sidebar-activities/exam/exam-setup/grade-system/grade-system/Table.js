@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import RenderTable from "./RenderTable";
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { SearchBar } from "../../../../../components/fields";
+import { SearchBar } from "../../../../../../components/common/oldFields";
 const people = [
   {
     level: "School level",

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import RenderTable from "./RenderTable";
 import Search from "@mui/icons-material/SearchOutlined";
-import { SearchBar, Select } from "../../../../components/fields";
+import { SearchBar, Select } from "../../../../../components/common/oldFields";
 import { useState } from "react";
-import SearchIcon from "../../../../components/SearchIcon";
+import SearchIcon from "../../../../../components/common/SearchIcon";
 const people = [
   {
     examName: "First term  examination",

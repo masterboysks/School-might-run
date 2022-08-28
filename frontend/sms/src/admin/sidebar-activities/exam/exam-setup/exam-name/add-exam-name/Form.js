@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { Input, Select } from "../../../../../components/fields";
+import { Input, Select } from "../../../../../../components/common/oldFields";
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../components/Buttons";
+} from "../../../../../../components/common/Buttons";
 export default function Form() {
   const arrayLevel = ["dsfjkh", "dsfsdajkh"];
   const [addExamName, setAddExamName] = useState([]);

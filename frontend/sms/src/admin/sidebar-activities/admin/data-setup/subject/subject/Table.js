@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../components/fields";
+import { SearchBar } from "../../../../../../components/common/oldFields";
 import RenderTable from "./RenderTable";
 
 const people = [

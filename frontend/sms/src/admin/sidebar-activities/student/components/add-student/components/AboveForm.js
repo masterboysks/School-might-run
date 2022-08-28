@@ -1,7 +1,7 @@
 import { CheckIcon } from "@heroicons/react/solid";
 import Break from "./Break";
 import { Link } from "react-router-dom";
-import Breadnav from "../../../../../components/Breadnav";
+import Breadnav from "../../../../../../components/common/Breadnav";
 
 const pages = [
   { name: "Student", href: "#", current: false },

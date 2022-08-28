@@ -30,7 +30,7 @@ export default function Index() {
   return (
     <>
       <div className="min-w-[100vw] min-h-[100vh] flex items-center justify-center  bg-primary-grey-100 text-primary-grey  text-">
-        <div className=" box-border flex flex-col md:flex-row w-11/12 max-w-5xl justify-between">
+        <div className=" box-border flex flex-col md:flex-row w-11/12 max-w-5xl justify-between items-center">
           <div className="inline-flex  flex-col items-center justify-center text-center max-w-md flex-grow   md:mr-3">
             <Link to="/">
               <img src={logo}></img>
@@ -50,7 +50,7 @@ export default function Index() {
                 register={register}
                 required={true}
                 // showError={false}
-                className="mb-4"
+                className="mb-2"
                 name="username"
                 errors={errors}
               />
@@ -60,7 +60,6 @@ export default function Index() {
                 name="password"
                 register={register}
                 type="password"
-                errorText="Invalid credentials."
                 errors={errors}
                 className="mb-4"
                 required={true}
@@ -74,10 +73,7 @@ export default function Index() {
                 id="remember_me"
               />
               <br />
-              <button
-                className=" w-full  mb-5 focus:border-primary-base focus:ring-primary-base focus:ring-2 focus:outline-none  "
-                type="submit"
-              >
+              <button className=" w-full  mb-5 primary-btn  " type="submit">
                 <PrimaryButton className=" w-full text-center sm:w-full ">
                   Login
                 </PrimaryButton>

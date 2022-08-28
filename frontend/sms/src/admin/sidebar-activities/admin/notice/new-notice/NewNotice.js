@@ -5,9 +5,9 @@ import {
   MultipleSelect,
   Textarea,
   Upload,
-} from "../../../../components/fields";
-import Breadnav from "../../../../components/Breadnav";
-import Break from "../../../../components/Break";
+} from "../../../../../components/common/oldFields";
+import Breadnav from "../../../../../components/common/Breadnav";
+import Break from "../../../../../components/common/Break";
 
 const pages = [
   { name: "Admin", href: "#", current: false },

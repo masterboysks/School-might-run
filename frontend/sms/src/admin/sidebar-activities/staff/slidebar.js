@@ -38,7 +38,10 @@ const Slidebar = () => {
       >
         <div className="w-full">
           <ul className="pt-9 mx-2">
-            <Link to="/staff/staff-information" onClick={sidebar}>
+            <Link
+              to="/admin/dashboard/staff/staff-information"
+              onClick={sidebar}
+            >
               <li
                 className={` flex p-1  pr-3     mt-2 mb-3 cursor-pointer rounded  ${
                   location.includes("staff-information")
@@ -52,7 +55,10 @@ const Slidebar = () => {
                 Staff information
               </li>
             </Link>
-            <Link to="/staff/staff-attendence" onClick={sidebar}>
+            <Link
+              to="/admin/dashboard/staff/staff-attendence"
+              onClick={sidebar}
+            >
               <li
                 className={` flex p-1   pr-3   mt-2 mb-3 cursor-pointer rounded ${
                   location.includes("staff-attendence")
@@ -66,7 +72,7 @@ const Slidebar = () => {
                 Staff attendence
               </li>
             </Link>
-            <Link to="/staff/teacher-assign" onClick={sidebar}>
+            <Link to="/admin/dashboard/staff/teacher-assign" onClick={sidebar}>
               <li
                 className={` flex   pr-3   p-1 mt-2 mb-3 cursor-pointer rounded ${
                   location.includes("teacher-assign")

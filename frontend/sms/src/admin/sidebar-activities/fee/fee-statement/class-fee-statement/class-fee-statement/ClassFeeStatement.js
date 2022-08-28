@@ -1,7 +1,7 @@
 import Search from "@mui/icons-material/SearchOutlined";
 import LanguageIcon from "@mui/icons-material/Language";
 import Table from "./Table";
-import Breadnav from "../../../../../components/Breadnav";
+import Breadnav from "../../../../../../components/common/Breadnav";
 const pages = [
   { name: "Fee", href: "#", current: false },
   {

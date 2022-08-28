@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import RenderTable from "./RenderTable";
-import { SearchBar } from "../../../../../components/fields";
+import { SearchBar } from "../../../../../../components/common/oldFields";
 import { useState } from "react";
-import Breadnav from "../../../../../components/Breadnav";
+import Breadnav from "../../../../../../components/common/Breadnav";
 
 const people = [
   {

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { BellIcon, MenuIcon } from "@heroicons/react/outline";
 import logo from "../../assets/logoHeader.png";
 import man from "./man-pic.png";
 
@@ -31,7 +31,7 @@ export default function Example() {
                       />
                       <Link
                         className="w-36 text-logo sm:block hidden ml-2 text-base font-medium"
-                        to="/"
+                        to="/admin/dashboard/"
                       >
                         Kindergarden Secondary School
                       </Link>
@@ -39,9 +39,9 @@ export default function Example() {
                     <div className="lg:flex lg:space-x-8 hidden">
                       {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                       <Link
-                        to="/dashboard"
+                        to="/admin/dashboard/dashboard"
                         className={`${
-                          location.includes("dashboard")
+                          location.includes("/admin/dashboard/dashboard")
                             ? "text-primary-grey-700 font-medium"
                             : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
                         }  inline-flex items-center px-1 pt-1  text-base `}
@@ -49,7 +49,7 @@ export default function Example() {
                         Dashboard
                       </Link>
                       <Link
-                        to="/event-calender"
+                        to="/admin/dashboard/event-calender"
                         className={`${
                           location.includes("event-calender")
                             ? "text-primary-grey-700 font-medium"
@@ -59,7 +59,7 @@ export default function Example() {
                         Event calander
                       </Link>
                       <Link
-                        to="/push-notification"
+                        to="/admin/dashboard/push-notification"
                         className={`${
                           location.includes("push-notification")
                             ? "text-primary-grey-700 font-medium"
@@ -123,7 +123,7 @@ export default function Example() {
                             <Menu.Item>
                               {({ active }) => (
                                 <a
-                                  to="/profile"
+                                  to="/admin/dashboard/profile"
                                   className={classNames(
                                     active ? "bg-gray-100" : "",
                                     "block px-4 py-2 text-base text-gray-700"
@@ -136,7 +136,7 @@ export default function Example() {
                             <Menu.Item>
                               {({ active }) => (
                                 <a
-                                  to="/settings"
+                                  to="/admin/dashboard/settings"
                                   className={classNames(
                                     active ? "bg-gray-100" : "",
                                     "block px-4 py-2 text-base text-gray-700"
@@ -184,7 +184,7 @@ export default function Example() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/"> Dashboard</Link>
+                            <Link to="/admin/dashboard/"> Dashboard</Link>
                           </Popover.Button>
                           <Popover.Button
                             as="a"
@@ -194,7 +194,7 @@ export default function Example() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/"> Event</Link> Calender
+                            <Link to="/admin/dashboard/"> Event</Link> Calender
                           </Popover.Button>
                           <Popover.Button
                             as="a"
@@ -204,7 +204,7 @@ export default function Example() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/"> Projects</Link>
+                            <Link to="/admin/dashboard/"> Projects</Link>
                           </Popover.Button>
                           <Popover.Button
                             as="a"
@@ -214,7 +214,8 @@ export default function Example() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/"> Push</Link> Notification
+                            <Link to="/admin/dashboard/"> Push</Link>{" "}
+                            Notification
                           </Popover.Button>
                           <Popover.Button
                             as="a"
@@ -224,7 +225,7 @@ export default function Example() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/"> Fee</Link> Payment
+                            <Link to="/admin/dashboard/"> Fee</Link> Payment
                           </Popover.Button>
                           <Popover.Button
                             as="a"
@@ -234,7 +235,7 @@ export default function Example() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/"> Logsheet</Link>
+                            <Link to="/admin/dashboard/"> Logsheet</Link>
                           </Popover.Button>
                         </div>
                         {/* <div className="pt-4 pb-3 border-t border-gray-200">

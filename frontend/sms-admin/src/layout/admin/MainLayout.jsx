@@ -40,7 +40,7 @@ const navigation = [
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
-  { name: "Settings", href: "/profile/settings" },
+  { name: "Change password", href: "/admin/change-password" },
   { name: "Sign out", href: "/signout" },
 ];
 

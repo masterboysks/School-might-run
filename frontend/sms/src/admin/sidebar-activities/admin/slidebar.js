@@ -4,25 +4,48 @@ import { Link, Outlet } from "react-router-dom";
 import Arrow from "@mui/icons-material/ArrowForwardIos";
 
 const links = [
-  { name: "University/Board", path: "/admin/data-setup/university-board" },
-  { name: "Level", path: "/admin/data-setup/level" },
-  { name: "Faculty", path: "/admin/data-setup/faculty" },
-  { name: "Sub-Faculty", path: "/admin/data-setup/sub-faculty" },
-  { name: "Section", path: "/admin/data-setup/section" },
-  { name: "Subject", path: "/admin/data-setup/subject" },
-  { name: "Class/Semester", path: "/admin/data-setup/class-semester" },
-  { name: "Assign-Subject", path: "/admin/data-setup/assign-subject" },
-  { name: "Department", path: "/admin/data-setup/department" },
-  { name: "Designation", path: "/admin/data-setup/designation" },
-  { name: "Academic Year", path: "/admin/data-setup/academic-year" },
-  { name: "Fiscal Year", path: "/admin/data-setup/fiscal-year" },
+  {
+    name: "University/Board",
+    path: "/admin/dashboard/admin/data-setup/university-board",
+  },
+  { name: "Level", path: "/admin/dashboard/admin/data-setup/level" },
+  { name: "Faculty", path: "/admin/dashboard/admin/data-setup/faculty" },
+  {
+    name: "Sub-Faculty",
+    path: "/admin/dashboard/admin/data-setup/sub-faculty",
+  },
+  { name: "Section", path: "/admin/dashboard/admin/data-setup/section" },
+  { name: "Subject", path: "/admin/dashboard/admin/data-setup/subject" },
+  {
+    name: "Class/Semester",
+    path: "/admin/dashboard/admin/data-setup/class-semester",
+  },
+  {
+    name: "Assign-Subject",
+    path: "/admin/dashboard/admin/data-setup/assign-subject",
+  },
+  { name: "Department", path: "/admin/dashboard/admin/data-setup/department" },
+  {
+    name: "Designation",
+    path: "/admin/dashboard/admin/data-setup/designation",
+  },
+  {
+    name: "Academic Year",
+    path: "/admin/dashboard/admin/data-setup/academic-year",
+  },
+  {
+    name: "Fiscal Year",
+    path: "/admin/dashboard/admin/data-setup/fiscal-year",
+  },
 ];
 const Slidebar = () => {
   const [dropdownActive, setDropdownActive] = useState(false);
   const [data, setData] = useState(false);
   const location = useLocation().pathname;
   useEffect(() => {
-    location.includes("/admin/data-setup") ? setData(true) : setData(false);
+    location.includes("/admin/dashboard/admin/data-setup")
+      ? setData(true)
+      : setData(false);
   }, [location]);
 
   let nav;
@@ -58,10 +81,13 @@ const Slidebar = () => {
       >
         <div className="w-full">
           <ul className="pt-9 mx-2">
-            <Link to="/admin/organization-setup" onClick={sidebar}>
+            <Link
+              to="/admin/dashboard/admin/organization-setup"
+              onClick={sidebar}
+            >
               <li
                 className={` flex p-1 mt-2 mb-3  cursor-pointer rounded  pr-3   ${
-                  location.includes("/admin/organization-setup")
+                  location.includes("/admin/dashboard/admin/organization-setup")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -117,10 +143,10 @@ const Slidebar = () => {
                 );
               })}
             </ul>
-            <Link to="/admin/class-schedule" onClick={sidebar}>
+            <Link to="/admin/dashboard/admin/class-schedule" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/class-schedule")
+                  location.includes("/admin/dashboard/admin/class-schedule")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -131,10 +157,10 @@ const Slidebar = () => {
                 Class schedule
               </li>
             </Link>
-            <Link to="/admin/upgrade" onClick={sidebar}>
+            <Link to="/admin/dashboard/admin/upgrade" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/upgrade")
+                  location.includes("/admin/dashboard/admin/upgrade")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -145,10 +171,10 @@ const Slidebar = () => {
                 Upgrade class
               </li>
             </Link>
-            <Link to="/admin/notice" onClick={sidebar}>
+            <Link to="/admin/dashboard/admin/notice" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/notice")
+                  location.includes("/admin/dashboard/admin/notice")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -159,10 +185,10 @@ const Slidebar = () => {
                 Notice
               </li>
             </Link>
-            <Link to="/admin/event-calender" onClick={sidebar}>
+            <Link to="/admin/dashboard/admin/event-calender" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/event-calender")
+                  location.includes("/admin/dashboard/admin/event-calender")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -173,10 +199,10 @@ const Slidebar = () => {
                 Event Calender
               </li>
             </Link>
-            <Link to="/admin/template" onClick={sidebar}>
+            <Link to="/admin/dashboard/admin/template" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3   pr-3    cursor-pointer rounded ${
-                  location.includes("/admin/template")
+                  location.includes("/admin/dashboard/admin/template")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}

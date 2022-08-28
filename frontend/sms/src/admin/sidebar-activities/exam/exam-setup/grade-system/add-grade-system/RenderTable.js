@@ -1,5 +1,5 @@
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { Input } from "../../../../../components/fields";
+import { Input } from "../../../../../../components/common/oldFields";
 export default function RenderTable({
   index,
   inputFiled,

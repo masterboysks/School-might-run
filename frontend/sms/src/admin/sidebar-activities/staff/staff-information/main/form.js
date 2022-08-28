@@ -1,5 +1,5 @@
 import Search from "@mui/icons-material/SearchOutlined";
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 
 const pages = [
   { name: "Staff", href: "#", current: false },

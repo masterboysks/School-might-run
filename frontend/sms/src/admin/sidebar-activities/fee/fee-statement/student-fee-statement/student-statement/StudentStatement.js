@@ -1,7 +1,7 @@
 import profile from "./profile.png";
 import { useParams } from "react-router-dom";
 import Table from "./Table";
-import Breadnav from "../../../../../components/Breadnav";
+import Breadnav from "../../../../../../components/common/Breadnav";
 
 export default function StudentStatement() {
   const { student } = useParams();

@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { MultipleSelect, Select } from "../../../../../components/fields";
+import {
+  MultipleSelect,
+  Select,
+} from "../../../../../../components/common/oldFields";
 
 const arrayExamNames = [
   "sun",

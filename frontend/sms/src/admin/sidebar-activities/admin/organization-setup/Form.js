@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../../assets/logoHeader.png";
-import { Input, Select, UploadPhoto } from "../../../components/fields";
+import {
+  Input,
+  Select,
+  UploadPhoto,
+} from "../../../../components/common/oldFields";
 
 const Form = () => {
   const arrayCountry = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];

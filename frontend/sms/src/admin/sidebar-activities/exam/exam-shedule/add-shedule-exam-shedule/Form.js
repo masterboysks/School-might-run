@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PrimaryButton, SecondaryButton } from "../../../../components/Buttons";
-import { Input, Select, SelectDisabled } from "../../../../components/fields";
+import {
+  PrimaryButton,
+  SecondaryButton,
+} from "../../../../../components/common/Buttons";
+import {
+  Input,
+  Select,
+  SelectDisabled,
+} from "../../../../../components/common/oldFields";
 
 export default function Form({ children }) {
   const navigate = useNavigate();

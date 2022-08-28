@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Select } from "../../../../../components/fields";
-import SearchIcon from "../../../../../components/SearchIcon";
+import { Select } from "../../../../../../components/common/oldFields";
+import SearchIcon from "../../../../../../components/common/SearchIcon";
 
 export default function Form() {
   const arrayLevel = ["hfjgk", "dsfjhg", "jkhfd"];

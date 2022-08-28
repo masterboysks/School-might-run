@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RenderTable from "./RenderTable";
-import { Select } from "../../../../../components/fields";
+import { Select } from "../../../../../../components/common/oldFields";
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../components/Buttons";
+} from "../../../../../../components/common/Buttons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 export default function Form() {
   const arrayLevel = ["kdsjhf", "dsjjkhujhg"];

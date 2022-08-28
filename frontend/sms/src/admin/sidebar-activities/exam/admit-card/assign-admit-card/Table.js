@@ -7,7 +7,7 @@ import {
   Radio,
   SearchBar,
   Select,
-} from "../../../../components/fields";
+} from "../../../../../components/common/oldFields";
 import RenderTable from "./RenderTable";
 const people = [
   {

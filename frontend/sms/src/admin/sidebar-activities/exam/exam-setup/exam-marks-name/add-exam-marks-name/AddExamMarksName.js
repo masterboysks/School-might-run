@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Breadnav from "../../../../../components/Breadnav";
-import Break from "../../../../../components/Break";
+import Breadnav from "../../../../../../components/common/Breadnav";
+import Break from "../../../../../../components/common/Break";
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../components/Buttons";
-import { Input } from "../../../../../components/fields";
+} from "../../../../../../components/common/Buttons";
+import { Input } from "../../../../../../components/common/oldFields";
 
 const pages = [
   { name: "Exam", href: "#", current: false },

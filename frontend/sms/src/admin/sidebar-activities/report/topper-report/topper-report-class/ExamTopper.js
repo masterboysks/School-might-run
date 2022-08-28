@@ -1,6 +1,6 @@
 import { PrinterIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
-import { Select } from "../../../../components/fields";
+import { Select } from "../../../../../components/common/oldFields";
 import RenderTable from "./RenderExamTopperTable";
 const currentItems = [
   {

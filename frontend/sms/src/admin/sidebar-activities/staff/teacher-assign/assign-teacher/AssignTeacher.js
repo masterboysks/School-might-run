@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 import Break from "../../Break";
 
 const pages = [

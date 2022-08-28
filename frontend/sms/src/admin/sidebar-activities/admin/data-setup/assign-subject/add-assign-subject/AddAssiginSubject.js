@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Breadnav from "../../../../../components/Breadnav";
-import Break from "../../../../../components/Break";
-import { MultipleSelect, Select } from "../../../../../components/fields";
+import Breadnav from "../../../../../../components/common/Breadnav";
+import Break from "../../../../../../components/common/Break";
+import {
+  MultipleSelect,
+  Select,
+} from "../../../../../../components/common/oldFields";
 
 const pages = [
   { name: "Admin", href: "#", current: false },

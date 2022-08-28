@@ -4,10 +4,16 @@ import { Link, Outlet } from "react-router-dom";
 import Arrow from "@mui/icons-material/ArrowForwardIos";
 
 const setupLinks = [
-  { name: "Exam name", path: "/exam/exam-setup/exam-name" },
-  { name: "Grade system setup", path: "/exam/exam-setup/grading-system" },
-  { name: "Exam marks name", path: "/exam/exam-setup/exam-marks-name" },
-  { name: "Assign mark", path: "/exam/exam-setup/assign-mark" },
+  { name: "Exam name", path: "/admin/dashboard/exam/exam-setup/exam-name" },
+  {
+    name: "Grade system setup",
+    path: "/admin/dashboard/exam/exam-setup/grading-system",
+  },
+  {
+    name: "Exam marks name",
+    path: "/admin/dashboard/exam/exam-setup/exam-marks-name",
+  },
+  { name: "Assign mark", path: "/admin/dashboard/exam/exam-setup/assign-mark" },
 ];
 
 const Slidebar = () => {
@@ -15,7 +21,9 @@ const Slidebar = () => {
   const [setup, setSetup] = useState(false);
   const location = useLocation().pathname;
   useEffect(() => {
-    location.includes("/exam/exam-setup") ? setSetup(true) : setSetup(false);
+    location.includes("/admin/dashboard/exam/exam-setup")
+      ? setSetup(true)
+      : setSetup(false);
   }, [location]);
 
   let nav;
@@ -96,10 +104,10 @@ const Slidebar = () => {
               })}
             </ul>
 
-            <Link to="/exam/marks-ledger" onClick={sidebar}>
+            <Link to="/admin/dashboard/exam/marks-ledger" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3     cursor-pointer rounded ${
-                  location.includes("/exam/marks-ledger")
+                  location.includes("/admin/dashboard/exam/marks-ledger")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -111,10 +119,10 @@ const Slidebar = () => {
               </li>
             </Link>
 
-            <Link to="/exam/exam-shedule" onClick={sidebar}>
+            <Link to="/admin/dashboard/exam/exam-shedule" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3   pr-3    cursor-pointer rounded ${
-                  location.includes("/exam/exam-shedule")
+                  location.includes("/admin/dashboard/exam/exam-shedule")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -125,10 +133,10 @@ const Slidebar = () => {
                 Exam shedule
               </li>
             </Link>
-            <Link to="/exam/admit-card" onClick={sidebar}>
+            <Link to="/admin/dashboard/exam/admit-card" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3   pr-3    cursor-pointer rounded ${
-                  location.includes("/exam/admit-card")
+                  location.includes("/admin/dashboard/exam/admit-card")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}

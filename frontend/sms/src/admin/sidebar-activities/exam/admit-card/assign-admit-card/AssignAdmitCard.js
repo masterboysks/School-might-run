@@ -1,6 +1,6 @@
 import React from "react";
-import Breadnav from "../../../../components/Breadnav";
-import Break from "../../../../components/Break";
+import Breadnav from "../../../../../components/common/Breadnav";
+import Break from "../../../../../components/common/Break";
 
 import Details from "./Details";
 import Table from "./Table";

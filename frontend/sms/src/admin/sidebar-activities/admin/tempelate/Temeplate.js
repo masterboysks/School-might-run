@@ -2,8 +2,8 @@ import photo from "./Rectangle 4369.png";
 import photo1 from "./Rectangle 4370.png";
 
 import { Link } from "react-router-dom";
-import Breadnav from "../../../components/Breadnav";
-import RadioTempelate from "../../../components/RadioTempelate";
+import Breadnav from "../../../../components/common/Breadnav";
+import RadioTempelate from "../../../../components/admin/admin/RadioTempelate";
 import { useState } from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 import Tabs from "../Tabs";
 
 const tabs = [

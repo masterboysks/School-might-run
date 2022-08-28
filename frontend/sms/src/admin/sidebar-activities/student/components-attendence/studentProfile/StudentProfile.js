@@ -1,7 +1,7 @@
 import Profile from "./Profile";
 import Form from "./Form";
 import Table from "./Table";
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 import { useParams } from "react-router-dom";
 
 const StudentProfile = () => {

@@ -1,5 +1,5 @@
 import Table from "./Table";
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 import Form from "./Form";
 const pages = [
   { name: "Admin", href: "#", current: false },

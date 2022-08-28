@@ -1,4 +1,4 @@
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 import Break from "../../break";
 import Form from "./Form";
 const pages = [

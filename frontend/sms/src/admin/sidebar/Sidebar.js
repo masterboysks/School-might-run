@@ -91,7 +91,7 @@ export default function Sidebar() {
           return (
             <div
               className={` w-[60px] text-center text-xs rounded py-1 my-4 mx-auto hover:bg-primary-grey-100 z-50 opacity-100  ${
-                location.includes(`/${curr.name.toLowerCase()}/`)
+                location.includes(`admin/dashboard/${curr.name.toLowerCase()}/`)
                   ? "  bg-primary-grey-100 text-primary-grey-700"
                   : " text-primary-grey-600 "
               }`}
@@ -104,14 +104,18 @@ export default function Sidebar() {
                 to={curr.path}
                 tabIndex="-1"
                 className={
-                  location.includes(`/${curr.name.toLowerCase()}/`)
+                  location.includes(
+                    `admin/dashboard/${curr.name.toLowerCase()}/`
+                  )
                     ? "pointer pointer-events-none"
                     : " "
                 }
               >
                 <curr.value
                   className={` mx-auto ${
-                    location.includes(`/${curr.name.toLowerCase()}/`)
+                    location.includes(
+                      `admin/dashboard/${curr.name.toLowerCase()}/`
+                    )
                       ? "text-primary-grey-700"
                       : "text-primary-grey-400"
                   }`}

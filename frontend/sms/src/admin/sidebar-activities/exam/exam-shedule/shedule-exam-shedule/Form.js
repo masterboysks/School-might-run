@@ -1,7 +1,7 @@
 import Search from "@mui/icons-material/SearchOutlined";
 import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-import { Select } from "../../../../components/fields";
+import { Select } from "../../../../../components/common/oldFields";
 import { useState } from "react";
 export default function Form() {
   const arrayClassSemester = ["fdjh", "fdsjkhg", "dsjhfg"];

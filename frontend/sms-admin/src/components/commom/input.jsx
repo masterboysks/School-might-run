@@ -43,11 +43,9 @@ export default function Input({
       />
       {showError && errors && errors[name] && (
         <>
-          <br />
           <span className="text-xs font-light text-red-600">
             {errorText || " This is a required field."}
           </span>
-          <br />
         </>
       )}
     </>
@@ -115,7 +113,6 @@ export function Password({
   errors,
   errorText,
   register,
-  type,
   label,
   required = false,
   placeholder,
@@ -160,11 +157,9 @@ export function Password({
       </div>
       {showError && errors && errors[name] && (
         <>
-          <br />
           <span className="text-xs font-light text-red-600">
             {errorText || " This is a required field."}
           </span>
-          <br />
         </>
       )}
     </>

@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { SelectDisabled } from "../../../../components/fields";
+import { SelectDisabled } from "../../../../../components/common/oldFields";
 
 const people = [
   {

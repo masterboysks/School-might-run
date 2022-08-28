@@ -4,6 +4,7 @@ import AddPlan from "../pages/admin/plan/AddPlan";
 import Company from "../pages/admin/company/Company";
 import AddCompany from "../pages/admin/company/AddCompany";
 import Plan from "../pages/admin/plan/Plan";
+import ChangePassword from "../pages/admin/ChangePassword";
 
 const Dashboard = lazy(() => import("../pages/admin/dashboard/Dashboard"));
 const PlanRequest = lazy(() =>
@@ -49,6 +50,14 @@ export default function AdminRoutes() {
         element={
           <Suspense fallback="Loading...">
             <SystemSettings />
+          </Suspense>
+        }
+      />
+      <Route
+        path="change-password"
+        element={
+          <Suspense fallback="Loading...">
+            <ChangePassword />
           </Suspense>
         }
       />

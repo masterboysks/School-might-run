@@ -9,7 +9,7 @@ import React, {
 import RenderTable from "./RenderTable";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Input } from "../../../../components/fields";
+import { Input } from "../../../../../components/common/oldFields";
 const people = [
   {
     subject: "Physics",

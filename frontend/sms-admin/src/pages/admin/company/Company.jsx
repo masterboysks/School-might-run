@@ -40,6 +40,28 @@ const company = [
     users: "999",
     modules: ["hjgdf", "hdkg"],
   },
+  {
+    name: "AVM school",
+    logo: logo,
+    mail: "avm@avm.com.ed",
+    lastlogged: "2001 Aug 12 15:13",
+    plan: "Extra premium",
+    expire: "2101 Aug 11 00:00",
+    link: "avm.com.np",
+    users: "999",
+    modules: ["hjgdf", "hdkg"],
+  },
+  {
+    name: "AVM school",
+    logo: logo,
+    mail: "avm@avm.com.ed",
+    lastlogged: "2001 Aug 12 15:13",
+    plan: "Extra premium",
+    expire: "2101 Aug 11 00:00",
+    link: "avm.com.np",
+    users: "999",
+    modules: ["hjgdf", "hdkg"],
+  },
 ];
 
 const pages = [{ name: "Company", href: "#", current: true }];
@@ -56,7 +78,7 @@ export default function Company() {
           <AddIcon />
         </Link>
       </div>
-      <div className="main grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 my-6 gap-3">
+      <div className="main grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-4 my-6 gap-3">
         {company.map(
           ({
             logo,

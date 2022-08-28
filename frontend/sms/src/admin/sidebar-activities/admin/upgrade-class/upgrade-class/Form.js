@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
-import StackedSelectAdminUpgrade from "../../../../components/StackedSelectAdminUpgrade";
+import StackedSelectAdminUpgrade from "../../../../../components/admin/admin/StackedSelectAdminUpgrade";
 import { useState } from "react";
-import { InputDisabled, Select } from "../../../../components/fields";
+import {
+  InputDisabled,
+  Select,
+} from "../../../../../components/common/oldFields";
 
 const Form = () => {
   // array
@@ -118,7 +121,7 @@ const Form = () => {
             />
             <Link
               to="/admin/data-setup/section/add"
-              className=" text-primary-btn absolute lg:hidden top-0  right-0 flex mr-1"
+              className=" text-primary-btn lg:hidden absolute top-0 right-0 flex mr-1"
             >
               <AiOutlineEdit className=" cursor-pointer"></AiOutlineEdit>
               <span>Manage</span>

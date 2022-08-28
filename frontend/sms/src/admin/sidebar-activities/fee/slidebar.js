@@ -24,7 +24,9 @@ const FeeSlidebar = () => {
     },
   ];
   useEffect(() => {
-    location.includes("/fee/fee-statement") ? setData(true) : setData(false);
+    location.includes("/admin/dashboard/fee/fee-statement")
+      ? setData(true)
+      : setData(false);
   }, [location]);
 
   const slidebar = () => {
@@ -53,10 +55,10 @@ const FeeSlidebar = () => {
       >
         <div className="w-full">
           <ul className="pt-9 mx-2">
-            <Link to="/fee/fee-type" onClick={sidebar}>
+            <Link to="/admin/dashboard/fee/fee-type" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3    mt-2 mb-3 cursor-pointer rounded  ${
-                  location.includes("/fee/fee-type")
+                  location.includes("/admin/dashboard/fee/fee-type")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -67,10 +69,10 @@ const FeeSlidebar = () => {
                 Fee type
               </li>
             </Link>
-            <Link to="/fee/fee-assign" onClick={sidebar}>
+            <Link to="/admin/dashboard/fee/fee-assign" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2   pr-3   mb-3 cursor-pointer rounded ${
-                  location.includes("/fee/fee-assign")
+                  location.includes("/admin/dashboard/fee/fee-assign")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -81,10 +83,10 @@ const FeeSlidebar = () => {
                 Fee assign
               </li>
             </Link>
-            <Link to="/fee/student-logsheet" onClick={sidebar}>
+            <Link to="/admin/dashboard/fee/student-logsheet" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3    cursor-pointer rounded ${
-                  location.includes("/fee/student-logsheet")
+                  location.includes("/admin/dashboard/fee/student-logsheet")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -95,7 +97,7 @@ const FeeSlidebar = () => {
                 Student logsheet
               </li>
             </Link>
-            <Link to="/fee/fee-payment" onClick={sidebar}>
+            <Link to="/admin/dashboard/fee/fee-payment" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2   pr-3    mb-3 cursor-pointer rounded ${
                   location.includes("fee/fee-payment")
@@ -154,7 +156,10 @@ const FeeSlidebar = () => {
                 );
               })}
             </ul>
-            <Link to="/fee/miscellaneous-fee-assign" onClick={sidebar}>
+            <Link
+              to="/admin/dashboard/fee/miscellaneous-fee-assign"
+              onClick={sidebar}
+            >
               <li
                 className={` flex p-1  pr-3    mt-2 mb-3 cursor-pointer rounded ${
                   location.includes("fee/miscellaneous-fee-assign")

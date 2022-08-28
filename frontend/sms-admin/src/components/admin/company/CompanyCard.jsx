@@ -38,7 +38,7 @@ export default function CompanyCard({
   };
   return (
     <>
-      <div className="w-full h-fit py-12 space-y-4 px-8 bg-white rounded-2xl text-center max-w-md mx-auto">
+      <div className="w-full h-fit py-6 space-y-4 px-8 bg-white rounded-2xl text-center max-w-xs mx-auto my-4">
         <div className="flex justify-between text-center text-primary-base/70 ">
           <div>
             <a
@@ -82,7 +82,7 @@ export default function CompanyCard({
         <div className="name text-lg font-medium tracking-wide">{name}</div>
         <div className="email text-xs font-light tracking-tighter">{mail}</div>
         <div className="">{lastlogged}</div>
-        <div className="flex border-b flex-col sm:items-center space-y-2 sm:flex-row sm:space-y-0  border-primary-grey justify-between pb-3 my-12">
+        <div className="flex border-b flex-col sm:items-center space-y-2 sm:flex-row sm:space-y-0 text-sm border-primary-grey justify-between pb-3 my-12">
           <div className="">{plan}</div>
           <button className="px-3 py-1.5 rounded secondary-btn">
             Select plan

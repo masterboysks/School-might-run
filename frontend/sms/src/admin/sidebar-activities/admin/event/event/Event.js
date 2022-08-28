@@ -1,4 +1,4 @@
-import Breadnav from "../../../../components/Breadnav";
+import Breadnav from "../../../../../components/common/Breadnav";
 import Calendar from "./Calendar";
 const pages = [
   { name: "Admin", href: "#", current: false },

@@ -1,8 +1,8 @@
 import { PrinterIcon } from "@heroicons/react/solid";
 import Search from "@mui/icons-material/SearchOutlined";
 import { useState } from "react";
-import { Select } from "../../../../../components/fields";
-import SearchIcon from "../../../../../components/SearchIcon";
+import { Select } from "../../../../../../components/common/oldFields";
+import SearchIcon from "../../../../../../components/common/SearchIcon";
 import RenderTable from "./RenderTable";
 const data = [
   {

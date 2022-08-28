@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Search from "@mui/icons-material/SearchOutlined";
-import { Input, Select } from "../../../../components/fields";
+import { Input, Select } from "../../../../../components/common/oldFields";
 export default function Form() {
   //
   const arrayGradingSystem = ["GPA", "Percentage"];

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Search from "@mui/icons-material/SearchOutlined";
-import { Select } from "../../../../components/fields";
+import { Select } from "../../../../../components/common/oldFields";
 export default function Form() {
   const arrayLevel = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
   const arrayClass = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];

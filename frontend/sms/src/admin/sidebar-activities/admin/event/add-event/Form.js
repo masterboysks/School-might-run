@@ -6,7 +6,7 @@ import {
   MultipleSelect,
   Textarea,
   Upload,
-} from "../../../../components/fields";
+} from "../../../../../components/common/oldFields";
 import { useState } from "react";
 
 function Form({ date }) {

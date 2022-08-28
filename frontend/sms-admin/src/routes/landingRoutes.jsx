@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import ForgotPassword from "../pages/sign/forgotPassword";
 
 const Error = lazy(() => import("../pages/error/Error"));
 const Home = lazy(() => import("../pages/landing/home"));
@@ -24,6 +25,14 @@ export default function LandingRoutes() {
           element={
             <Suspense fallback="Loading...">
               <Login />
+            </Suspense>
+          }
+        />
+        <Route
+          path="login/forgot-password"
+          element={
+            <Suspense fallback="Loading...">
+              <ForgotPassword />
             </Suspense>
           }
         />
