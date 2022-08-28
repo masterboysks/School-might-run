@@ -39,7 +39,7 @@ export default function AddCompany() {
 
   const [included, setIncluded] = useState([1]);
   return (
-    <MainLayout className="text-primary-grey">
+    <>
       <Breadnav pages={pages} />
 
       <form
@@ -127,6 +127,6 @@ export default function AddCompany() {
           <PrimaryButton>Submit</PrimaryButton>
         </button>
       </form>
-    </MainLayout>
+    </>
   );
 }

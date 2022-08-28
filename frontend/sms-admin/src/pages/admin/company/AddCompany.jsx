@@ -33,7 +33,7 @@ export default function AddCompany() {
   };
 
   return (
-    <MainLayout className="text-primary-grey">
+    <>
       <Breadnav pages={pages} />
 
       <form
@@ -105,6 +105,6 @@ export default function AddCompany() {
           <PrimaryButton>Submit</PrimaryButton>
         </button>
       </form>
-    </MainLayout>
+    </>
   );
 }

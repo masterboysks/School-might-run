@@ -32,7 +32,7 @@ export default function ChangePassword() {
   };
 
   return (
-    <MainLayout className="text-primary-grey">
+    <>
       <Breadnav pages={pages} />
 
       <form
@@ -77,6 +77,6 @@ export default function ChangePassword() {
           <PrimaryButton>Submit</PrimaryButton>
         </button>
       </form>
-    </MainLayout>
+    </>
   );
 }

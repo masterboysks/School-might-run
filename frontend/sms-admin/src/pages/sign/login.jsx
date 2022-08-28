@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import User from "../../api/User";
 import { PrimaryButton } from "../../components/commom/buttons";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
 
 export default function Index() {
+  const [cookies, setCookie] = useCookies(["token"]);
+
   const {
     register,
     handleSubmit,
@@ -17,11 +21,15 @@ export default function Index() {
     localStorage.setItem("user", JSON.stringify(data.username));
     return 1;
   };
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-
-    saveData(data);
-    navigate("/admin/dashboard");
+    const userData = await User.login(data);
+    console.log(userData.data.data);
+    const { token } = userData?.data?.data;
+    console.log(token);
+    setCookie("token", token, { path: "/" });
+    saveData(userData);
+    token && navigate("/admin/dashboard");
   };
   useEffect(() => {
     localStorage.getItem("user") && navigate(-1);
@@ -51,7 +59,7 @@ export default function Index() {
                 required={true}
                 // showError={false}
                 className="mb-2"
-                name="username"
+                name="email"
                 errors={errors}
               />
               <br />

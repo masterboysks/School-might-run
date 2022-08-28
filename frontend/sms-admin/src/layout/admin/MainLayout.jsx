@@ -6,10 +6,12 @@ import {
   MenuAlt2Icon,
   UsersIcon,
 } from "@heroicons/react/outline";
+import { useCookies } from "react-cookie";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import User from "../../api/User";
 
 const navigation = [
   {
@@ -49,12 +51,22 @@ function classNames(...classes) {
 }
 
 export default function MainLayout({ children, className }) {
+  const [token] = useCookies(["token"]);
+
+  useEffect(() => {
+    console.log(token.token);
+    const user = async () => {
+      const profile = User.profile();
+      console.log(await profile(token));
+    };
+    user();
+  }, []);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    user ? setLoading(false) : navigate(-1);
+    const token = localStorage.getItem("token");
+    true ? setLoading(false) : navigate(-1);
   }, []);
   if (loading) {
     return <>Loading...</>;
@@ -214,8 +226,8 @@ export default function MainLayout({ children, className }) {
 
           <main className="flex-1 bg-primary-grey-100 min-h-screen">
             <div className="py-6">
-              <div className={`px-6 text-primary-grey ${className}`}>
-                {children}
+              <div className={`px-6 text-primary-grey `}>
+                <Outlet />
               </div>
             </div>
           </main>

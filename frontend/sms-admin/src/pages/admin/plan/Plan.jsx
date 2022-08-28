@@ -23,7 +23,7 @@ const plans = [
 const pages = [{ name: "Plan", href: "#", current: true }];
 export default function Plan() {
   return (
-    <MainLayout>
+    <>
       <BreadNav pages={pages} />
       <div className="flex justify-between mt-3">
         <h1 className="text-lg">Manage Plan</h1>
@@ -46,6 +46,6 @@ export default function Plan() {
           />
         ))}
       </div>
-    </MainLayout>
+    </>
   );
 }

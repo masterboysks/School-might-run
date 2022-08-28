@@ -67,7 +67,7 @@ const company = [
 const pages = [{ name: "Company", href: "#", current: true }];
 export default function Company() {
   return (
-    <MainLayout className="text-primary-grey ">
+    <>
       <Breadnav pages={pages} />
       <div className="flex justify-between mt-3">
         <h1 className="text-xl ">Manage Company</h1>
@@ -106,6 +106,6 @@ export default function Company() {
           )
         )}
       </div>
-    </MainLayout>
+    </>
   );
 }
