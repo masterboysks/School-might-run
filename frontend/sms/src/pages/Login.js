@@ -76,10 +76,11 @@ export default function Login() {
                 id="remember_me"
               />
               <br />
-              <button className=" primary-btn w-full mb-5" type="submit">
-                <PrimaryButton className=" sm:w-full w-full text-center">
-                  Login
-                </PrimaryButton>
+              <button
+                className=" focus:outline-none primary_btn w-full mb-5"
+                type="submit"
+              >
+                Login
               </button>
               <Link
                 to="forgot-password"

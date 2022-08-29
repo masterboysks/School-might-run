@@ -32,18 +32,32 @@ export const Checkbox = ({
 };
 
 // Radio bth new
-export const Radio = ({ name, errors, value, register, required = false,  errorText, }) => {
+export const Radio = ({
+  name,
+  errors,
+  value,
+  register,
+  required = false,
+  errorText,
+}) => {
   return (
     <>
       {value.map((curr) => (
         <label key={curr} htmlFor={curr}>
-          <input type="radio" id={curr} {...register(name),{required}} value={curr} />
-          <span className={`mx-2 ${error && "text-red-600"}`}>{curr}</span>
+          <input
+            type="radio"
+            id={curr}
+            {...register(name, { required })}
+            value={curr}
+          />
+          <span className={`mx-2 ${errors && errors[name] && "text-red-600"}`}>
+            {curr}
+          </span>
         </label>
       ))}
       {errors && errors[name] && (
         <div className=" md:block hidden text-xs font-light text-red-600">
-        {errorText|| " This is a required field"}
+          {errorText || " This is a required field"}
         </div>
       )}
     </>
@@ -166,25 +180,17 @@ export function Password({
 export const InputDisabled = ({
   label,
 
-
-  value="",
-
+  value = "",
 }) => {
-
   return (
     <>
-      <label className="my-6 text-sm" >
-        {label}
-      </label>
+      <label className="my-6 text-sm">{label}</label>
       <br />
       <input
         className=" mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-        id={id}
-   
         disabled
-        type= "text"
-  
-        value={value}  
+        type="text"
+        value={value}
       />
     </>
   );
@@ -196,7 +202,6 @@ export const SelectDisabled = ({
   name,
   value,
 
-
   dataTitle,
   dataValue,
   className,
@@ -206,18 +211,12 @@ export const SelectDisabled = ({
 
   return (
     <>
-      <label className={`my-6 text-sm `}>
-        {label}
-      </label>
+      <label className={`my-6 text-sm `}>{label}</label>
       <br />
       <select
         className={` mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm ${className}`}
-  
-  
         disabled
-   
         defaultValue={value}
-    
       >
         <option value="">{value}</option>
       </select>
@@ -599,4 +598,6 @@ export const Textarea = ({
     </>
   );
 };
-{/* <textarea {...register("hiiiiiiiii", {})} /> */}
+{
+  /* <textarea {...register("hiiiiiiiii", {})} /> */
+}
