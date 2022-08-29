@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const navigation = [
   { name: "Features", href: "#" },
@@ -11,10 +12,11 @@ const navigation = [
 ];
 
 export default function Navbar({ children }) {
+  const [cookies, setCookie] = useCookies(["token"]);
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    setLoggedIn(localStorage.getItem("user"));
+    setLoggedIn(cookies.token && true);
   }, []);
 
   return (

@@ -50,23 +50,25 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function MainLayout({ children, className }) {
-  const [token] = useCookies(["token"]);
-
+export default function MainLayout() {
+  const [cookie] = useCookies(["token"]);
+  const navigate = useNavigate();
+  let profile;
   useEffect(() => {
-    console.log(token.token);
-    const user = async () => {
-      const profile = User.profile();
-      console.log(await profile(token));
-    };
-    user();
+    (async () => {
+      try {
+        profile = await User.profile(cookie);
+        console.log(profile);
+      } catch (e) {
+        e && navigate("/");
+      }
+    })();
   }, []);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const navigate = useNavigate();
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    true ? setLoading(false) : navigate(-1);
+    profile ? setLoading(false) : navigate(-1);
   }, []);
   if (loading) {
     return <>Loading...</>;

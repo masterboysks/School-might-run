@@ -12,13 +12,12 @@ export default {
   logout() {
     return axiosPrivate().post("/logout");
   },
-  profile() {
-    return (token) =>
-      authorized.get("/profile", {
-        headers: {
-          Authorization: `Bearer ${token.token}`,
-        },
-      });
+  profile(token) {
+    return authorized.get("/profile", {
+      headers: {
+        Authorization: `Bearer ${token.token}`,
+      },
+    });
   },
   auth() {
     return Api().get("/user");

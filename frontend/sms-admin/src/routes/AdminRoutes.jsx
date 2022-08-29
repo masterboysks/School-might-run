@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import AddPlan from "../pages/admin/plan/AddPlan";
 import Company from "../pages/admin/company/Company";
 import AddCompany from "../pages/admin/company/AddCompany";
@@ -20,6 +20,7 @@ export default function AdminRoutes() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
+        <Route index element={<Navigate to="dashboard" />} />
         <Route
           path="dashboard"
           element={

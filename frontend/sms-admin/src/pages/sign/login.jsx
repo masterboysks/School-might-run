@@ -22,12 +22,21 @@ export default function Index() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    let userData;
     try {
       const res = await axios.get("https://geolocation-db.com/json/");
 
       let ip = res.data.IPv6 || res.data.IPv4;
-      console.log(data, ip);
-      const userData = await User.login(data, ip);
+      console.log({
+        email: data.email,
+        password: data.password,
+        ip,
+      });
+      userData = await User.login({
+        email: data.email,
+        password: data.password,
+        ip,
+      });
       console.log(userData);
       const { token } = userData?.data?.data;
       console.log(token);
@@ -37,12 +46,18 @@ export default function Index() {
     } catch (e) {
       console.log(e);
       setError("password", { type: "focus" });
-      setErrorText("Invalid credentials");
+      setErrorText(() => {
+        if (e.message === "Network Error") return "Network error";
+        if (e.response.status.toString().substr(0, 1) === "5")
+          return "Server error";
+
+        return "Invalid credentials";
+      });
     }
   };
   useEffect(() => {
     console.log(cookies);
-    // cookies.token && navigate(-1);
+    cookies.token && navigate(-1);
   }, []);
 
   return (
@@ -92,10 +107,13 @@ export default function Index() {
                 id="remember_me"
               />
               <br />
-              <button className=" w-full  mb-5 primary-btn  " type="submit">
-                <PrimaryButton className=" w-full text-center sm:w-full ">
-                  Login
-                </PrimaryButton>
+              <button
+                className=" w-full  mb-5 primary-btn  py-2 rounded "
+                type="submit"
+              >
+                {/* <PrimaryButton className=" w-full text-center sm:w-full "> */}
+                Login
+                {/* </PrimaryButton> */}
               </button>
               <Link
                 to="forgot-password"
