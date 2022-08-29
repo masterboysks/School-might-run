@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import User from "../../api/User";
-import { PrimaryButton } from "../../components/commom/buttons";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
@@ -28,14 +27,13 @@ export default function Index() {
 
       let ip = res.data.IPv6 || res.data.IPv4;
       console.log({
-        email: data.email,
+        username: data.username,
         password: data.password,
         ip,
       });
       userData = await User.login({
-        email: data.email,
+        username: data.username,
         password: data.password,
-        ip,
       });
       console.log(userData);
       const { token } = userData?.data?.data;
@@ -84,7 +82,7 @@ export default function Index() {
                 required={true}
                 // showError={false}
                 className="mb-2"
-                name="email"
+                name="username"
                 errors={errors}
               />
               <br />

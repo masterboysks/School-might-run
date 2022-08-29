@@ -12,10 +12,11 @@ const navigation = [
 ];
 
 export default function Navbar({ children }) {
-  const [cookies, setCookie] = useCookies(["token"]);
+  const [cookies] = useCookies(["token"]);
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
+    console.log(cookies);
     setLoggedIn(cookies.token && true);
   }, []);
 

@@ -6,7 +6,7 @@ import {
   MenuAlt2Icon,
   UsersIcon,
 } from "@heroicons/react/outline";
-import { useCookies } from "react-cookie";
+import { Cookies, useCookies } from "react-cookie";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -54,21 +54,23 @@ export default function MainLayout() {
   const [cookie] = useCookies(["token"]);
   const navigate = useNavigate();
   let profile;
-  useEffect(() => {
-    (async () => {
-      try {
-        profile = await User.profile(cookie);
-        console.log(profile);
-      } catch (e) {
-        e && navigate("/");
-      }
-    })();
-  }, []);
+  let getProfile = async () => {
+    try {
+      profile = await User.profile(cookie);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+      e && navigate("/");
+    }
+  };
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    profile ? setLoading(false) : navigate(-1);
+    (async () => {
+      profile = await getProfile();
+    })();
   }, []);
   if (loading) {
     return <>Loading...</>;

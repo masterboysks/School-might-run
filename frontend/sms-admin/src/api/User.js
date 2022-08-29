@@ -1,3 +1,4 @@
+import { Cookies } from "react-cookie";
 import { authorized, axiosPrivate } from "./axios";
 
 export default {
@@ -14,6 +15,7 @@ export default {
   },
   profile(token) {
     return authorized.get("/profile", {
+      withCredentials: true,
       headers: {
         Authorization: `Bearer ${token.token}`,
       },
