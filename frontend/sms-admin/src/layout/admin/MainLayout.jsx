@@ -13,8 +13,7 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import User from "../../api/User";
 import useToken from "../../hooks/useToken";
 import { authorized } from "../../api/axios";
-import { useCookies } from "react-cookie";
-import AuthProvider from "../../contex/AuthProvider";
+import { AuthContext } from "../../contex/AuthProvider";
 
 const navigation = [
   {
@@ -54,15 +53,16 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
-  const auth = useContext(AuthProvider);
+  const { auth, setAuth } = useContext(AuthContext);
   const token = useToken();
   const navigate = useNavigate();
   let profile;
   let getProfile = async () => {
     try {
+      authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
       profile = await User.profile(token);
       profile && setLoading(false);
-    } catch (e) {
+    } catch (e) { 
       e && navigate("/");
     }
   };
@@ -71,8 +71,6 @@ export default function MainLayout() {
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    console.log(auth);
-    authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
     (async () => {
       profile = await getProfile();
     })();
