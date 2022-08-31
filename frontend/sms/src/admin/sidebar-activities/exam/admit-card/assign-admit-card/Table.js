@@ -1,4 +1,4 @@
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/solid";
+import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
 import Search from "@mui/icons-material/SearchOutlined";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";

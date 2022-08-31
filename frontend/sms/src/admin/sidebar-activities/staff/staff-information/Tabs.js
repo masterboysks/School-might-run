@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Fragment, useState, useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -28,7 +28,7 @@ export default function Example({ tabs }) {
             <Listbox.Button className="focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-grey-200 sm:text-sm relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default">
               <span className="block truncate">{selected.name}</span>
               <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                <SelectorIcon
+                <ChevronUpDownIcon
                   className="w-5 h-5 text-gray-400"
                   aria-hidden="true"
                 />

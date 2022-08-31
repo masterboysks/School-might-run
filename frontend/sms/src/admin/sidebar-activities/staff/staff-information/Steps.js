@@ -1,4 +1,4 @@
-import { CheckIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import { CheckIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import Break from "../Break";
 

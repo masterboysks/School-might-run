@@ -1,4 +1,4 @@
-import { CheckIcon } from "@heroicons/react/solid";
+import { CheckIcon } from "@heroicons/react/20/solid";
 import Break from "./Break";
 import { Link } from "react-router-dom";
 import Breadnav from "../../../../../../components/common/Breadnav";

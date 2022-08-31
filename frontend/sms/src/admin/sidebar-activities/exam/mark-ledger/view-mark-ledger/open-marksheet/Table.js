@@ -1,4 +1,4 @@
-import { PrinterIcon } from "@heroicons/react/solid";
+import { PrinterIcon } from "@heroicons/react/20/solid";
 import Search from "@mui/icons-material/SearchOutlined";
 import { useState } from "react";
 import { Select } from "../../../../../../components/common/oldFields";

@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import { Link, useNavigate } from "react-router-dom";
 
 const Breadnav = ({ pages }) => {

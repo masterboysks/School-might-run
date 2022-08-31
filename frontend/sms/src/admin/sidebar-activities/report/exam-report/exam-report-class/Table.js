@@ -1,4 +1,4 @@
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/solid";
+import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
 import React, {
   useEffect,
   useLayoutEffect,

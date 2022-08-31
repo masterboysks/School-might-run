@@ -5,8 +5,8 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ClockIcon,
-  DotsHorizontalIcon,
-} from "@heroicons/react/solid";
+  EllipsisHorizontalIcon,
+} from "@heroicons/react/20/solid";
 import { Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
@@ -241,7 +241,7 @@ export default function Calendar() {
           <Menu as="div" className="md:hidden relative ml-6">
             <Menu.Button className="hover:text-gray-500 flex items-center p-2 -mx-2 text-gray-400 border border-transparent rounded-full">
               <span className="sr-only">Open menu</span>
-              <DotsHorizontalIcon className="w-5 h-5" aria-hidden="true" />
+              <EllipsisHorizontalIcon className="w-5 h-5" aria-hidden="true" />
             </Menu.Button>
 
             <Transition

@@ -1,5 +1,5 @@
 import Search from "@mui/icons-material/SearchOutlined";
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/solid";
+import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { Select } from "../../../../../components/common/oldFields";
 import { useState } from "react";

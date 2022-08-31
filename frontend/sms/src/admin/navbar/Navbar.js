@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon } from "@heroicons/react/outline";
+import { BellIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import logo from "../../assets/logoHeader.png";
 import man from "./man-pic.png";
 
@@ -168,7 +168,7 @@ export default function Example() {
                       <Popover.Button className=" hover:text-primary-grey-700 focus:outline-primary-grey-200 focus:outline inline-flex items-center justify-center p-2 rounded-md">
                         <span className="sr-only">Open main menu</span>
 
-                        <MenuIcon
+                        <Bars3Icon
                           className=" block w-6 h-6"
                           aria-hidden="true"
                         />
