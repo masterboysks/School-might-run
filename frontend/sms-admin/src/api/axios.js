@@ -14,7 +14,9 @@ export const axiosPrivate = axios.create({
 export const authorized = axios.create({
   baseURL: BASE_URL,
   headers: {
-    "Content-Type": "application/json;charset=UTF-8",
+    "Content-Type": "application/json",
     Accept: "application/json",
+    "Access-Control-Allow-Credentials": true,
   },
+  withCredentials: true,
 });

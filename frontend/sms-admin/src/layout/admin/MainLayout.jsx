@@ -6,12 +6,12 @@ import {
   MenuAlt2Icon,
   UsersIcon,
 } from "@heroicons/react/outline";
-import { Cookies, useCookies } from "react-cookie";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import User from "../../api/User";
+import getToken from "../../utils/getToken";
 
 const navigation = [
   {
@@ -51,12 +51,12 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
-  const [cookie] = useCookies(["token"]);
   const navigate = useNavigate();
   let profile;
   let getProfile = async () => {
     try {
-      profile = await User.profile(cookie);
+      console.log(getToken());
+      profile = await User.profile(getToken);
       setLoading(false);
     } catch (e) {
       console.log(e);
@@ -139,7 +139,6 @@ export default function MainLayout() {
           </Dialog>
         </Transition.Root>
 
-        {/* Static sidebar for desktop */}
         <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="border-r border-gray-200 pt-5 flex flex-col flex-grow bg-white overflow-y-auto">
