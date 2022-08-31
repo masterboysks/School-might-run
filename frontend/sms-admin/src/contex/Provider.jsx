@@ -1,11 +1,10 @@
 import React from "react";
 import { CookiesProvider } from "react-cookie";
-import { AuthProvider } from "./AuthProvider";
-
+import AuthContext from "./AuthProvider";
 export default function Provider({ children }) {
   return (
     <CookiesProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthContext>{children}</AuthContext>
     </CookiesProvider>
   );
 }

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import logo from "/logo.png";
 import {
@@ -11,7 +11,10 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import User from "../../api/User";
-import getToken from "../../utils/getToken";
+import useToken from "../../hooks/useToken";
+import { authorized } from "../../api/axios";
+import { useCookies } from "react-cookie";
+import AuthProvider from "../../contex/AuthProvider";
 
 const navigation = [
   {
@@ -51,15 +54,15 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
+  const auth = useContext(AuthProvider);
+  const token = useToken();
   const navigate = useNavigate();
   let profile;
   let getProfile = async () => {
     try {
-      console.log(getToken());
-      profile = await User.profile(getToken);
-      setLoading(false);
+      profile = await User.profile(token);
+      profile && setLoading(false);
     } catch (e) {
-      console.log(e);
       e && navigate("/");
     }
   };
@@ -68,9 +71,22 @@ export default function MainLayout() {
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    console.log(auth);
+    authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
     (async () => {
       profile = await getProfile();
     })();
+    window &&
+      setInterval(async () => {
+        console.log(localStorage.getItem("ref"));
+        let { data } = await User.refresh(localStorage.getItem("ref"));
+
+        data.data.refresh_token &&
+          localStorage.setItem("ref", data.data.refresh_token);
+        console.log(data);
+        data.data.access_token && setAuth(data.data.access_token);
+      }, 1000 * 10);
+    // return clearInterval(tokenRefresh);
   }, []);
   if (loading) {
     return <>Loading...</>;

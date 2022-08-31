@@ -1,4 +1,3 @@
-import { Cookies } from "react-cookie";
 import { authorized, axiosPrivate } from "./axios";
 
 export default {
@@ -13,15 +12,10 @@ export default {
   logout() {
     return axiosPrivate().post("/logout");
   },
-  profile(token) {
-    return authorized.get("/profile", {
-      withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+  profile() {
+    return authorized.get("/profile");
   },
-  auth() {
-    return Api().get("/user");
+  refresh(token) {
+    return axiosPrivate.post("/refresh-token", { refresh_token: token });
   },
 };

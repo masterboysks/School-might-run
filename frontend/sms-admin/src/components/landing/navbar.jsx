@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import getToken from "../../utils/getToken";
+import useToken from "../../hooks/useToken";
 
 const navigation = [
   { name: "Features", href: "#" },
@@ -13,10 +13,9 @@ const navigation = [
 
 export default function Navbar({ children }) {
   const [loggedIn, setLoggedIn] = useState(false);
-
+  const token = useToken();
   useEffect(() => {
-    console.log(getToken());
-    setLoggedIn(getToken && true);
+    token && setLoggedIn(true);
   }, []);
 
   return (

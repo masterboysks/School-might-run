@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -6,13 +6,12 @@ import User from "../../api/User";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
-import axios from "axios";
-import getToken from "../../utils/getToken";
+import useToken from "../../hooks/useToken";
 
 export default function Index() {
-  const [cookies, setCookie] = useCookies(["token"]);
+  const [, setCookie] = useCookies(["token"]);
   const [errorText, setErrorText] = useState("This is a required field");
-
+  const token = useToken();
   const {
     register,
     handleSubmit,
@@ -24,29 +23,25 @@ export default function Index() {
   const onSubmit = async (data) => {
     let userData;
     try {
-      const res = await axios.get("https://geolocation-db.com/json/");
-
-      let ip = res.data.IPv6 || res.data.IPv4;
-
       userData = await User.login({
         username: data.username,
         password: data.password,
-        ip,
       });
 
       const { access_token, refresh_token } = userData?.data?.data?.token;
       const token = access_token.split(".");
       setCookie("bc", token[0], { path: "/" });
-      setCookie("bd", token[1], { path: "/" });
+      localStorage.setItem("bd", token[1]);
       setCookie("cc", token[2], { path: "/" });
-      sessionStorage.setItem("ref", refresh_token);
-      navigate("/admin/dashboard");
+      localStorage.setItem("ref", refresh_token);
+
+      token && navigate("/admin/dashboard");
     } catch (e) {
-      console.log(e);
+      console.error(e);
       setError("password", { type: "focus" });
       setErrorText(() => {
         if (e.message === "Network Error") return "Network error";
-        if (e.response.status.toString().substr(0, 1) === "5")
+        if (e.response?.status.toString().substr(0, 1) === "5")
           return "Server error";
 
         return "Invalid credentials";
@@ -54,8 +49,8 @@ export default function Index() {
     }
   };
   useEffect(() => {
-    navigate(-1);
-  }, [cookies]);
+    token && navigate(-1);
+  }, []);
 
   return (
     <>
