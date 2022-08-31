@@ -7,6 +7,7 @@ import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
 import axios from "axios";
+import getToken from "../../utils/getToken";
 
 export default function Index() {
   const [cookies, setCookie] = useCookies(["token"]);
@@ -26,21 +27,20 @@ export default function Index() {
       const res = await axios.get("https://geolocation-db.com/json/");
 
       let ip = res.data.IPv6 || res.data.IPv4;
-      console.log({
+
+      userData = await User.login({
         username: data.username,
         password: data.password,
         ip,
       });
-      userData = await User.login({
-        username: data.username,
-        password: data.password,
-      });
-      console.log(userData);
-      const { token } = userData?.data?.data;
-      console.log(token);
-      setCookie("token", token, { path: "/" });
 
-      cookies.token && navigate("/admin/dashboard");
+      const { access_token, refresh_token } = userData?.data?.data?.token;
+      const token = access_token.split(".");
+      setCookie("bc", token[0], { path: "/" });
+      setCookie("bd", token[1], { path: "/" });
+      setCookie("cc", token[2], { path: "/" });
+      sessionStorage.setItem("ref", refresh_token);
+      navigate("/admin/dashboard");
     } catch (e) {
       console.log(e);
       setError("password", { type: "focus" });
@@ -54,9 +54,8 @@ export default function Index() {
     }
   };
   useEffect(() => {
-    console.log(cookies);
-    cookies.token && navigate(-1);
-  }, []);
+    navigate(-1);
+  }, [cookies]);
 
   return (
     <>
