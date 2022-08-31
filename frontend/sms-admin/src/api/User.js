@@ -17,7 +17,7 @@ export default {
     return authorized.get("/profile", {
       withCredentials: true,
       headers: {
-        Authorization: `Bearer ${token.token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
   },
