@@ -84,7 +84,7 @@ export default function AddCompany() {
           <Password
             register={register}
             label="Confirm password *"
-            name="confirmPassword"
+            name="password_confirmation"
             required={true}
             errors={errors}
             type="password"
@@ -94,7 +94,7 @@ export default function AddCompany() {
           <Select
             register={register}
             label="Plan "
-            name="plan"
+            name="plan" //jkhdsf
             required={true}
             errors={errors}
             value={plans}
@@ -115,7 +115,7 @@ export default function AddCompany() {
           <Upload
             register={register}
             label="Upload Logo"
-            name="logo"
+            name="logo" //gfdgf
             required={true}
             errors={errors}
             id="company-logo"

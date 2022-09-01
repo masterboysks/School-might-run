@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import UploadOutlined from "@mui/icons-material/UploadOutlined";
+import { Listbox, Transition } from "@headlessui/react";
 export default function Input({
   id,
   name,
@@ -91,7 +93,7 @@ export function Select({
       >
         {selected === "Select" && <option value="">--Select--</option>}
         {options.map((curr) => (
-          <option value={curr} key={curr}>
+          <option value={curr} key={curr} classNames="capitalize">
             {curr}
           </option>
         ))}
@@ -218,6 +220,95 @@ export function Password({
           </span>
         </>
       )}
+    </>
+  );
+}
+export function MultipleSelect({
+  id,
+  name,
+  error,
+  setError,
+  label,
+  value: options, //array
+  setSelected,
+  selected, //array
+}) {
+  return (
+    <>
+      <label
+        className={`my-6 text-sm  ${error && " text-red-600"}`}
+        htmlFor={id}
+      >
+        {label}
+      </label>
+      <Listbox
+        value={selected}
+        onChange={(e) => {
+          setSelected(e);
+        }}
+        onClick={() => error && setError(false)}
+        multiple
+      >
+        <div className="relative mt-[6px]">
+          <Listbox.Button
+            id={id}
+            name={name}
+            className="  h-[38px]  p- rounded focus:ring-primary-base focus:ring-2 border px-2   border-primary-base shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  "
+          >
+            <span className="block pr-2 truncate">
+              {selected.map((person) => person).join(", ")}
+            </span>
+            {error && (
+              <span className="text-red-600">This field is required</span>
+            )}
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <ChevronUpDownIcon
+                className="w-5 h-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </span>
+          </Listbox.Button>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Listbox.Options className="max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg">
+              {options.map((person, personIdx) => (
+                <Listbox.Option
+                  key={personIdx}
+                  className={({ active }) =>
+                    `relative cursor-default select-none pl-10 pr-4 ${
+                      active
+                        ? "bg-blue-400 text-white "
+                        : "text-primary-grey-600"
+                    }`
+                  }
+                  value={person}
+                >
+                  {({ selected }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? "font-medium" : "font-normal"
+                        }`}
+                      >
+                        {person}
+                      </span>
+                      {selected ? (
+                        <span className=" absolute inset-y-0 left-0 flex items-center pl-3">
+                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
     </>
   );
 }

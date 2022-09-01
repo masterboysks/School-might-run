@@ -1,4 +1,4 @@
-import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon, HomeIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 
 export default function Breadnav({ pages }) {
@@ -8,7 +8,7 @@ export default function Breadnav({ pages }) {
         <li>
           <div>
             <Link
-              to="/"
+              to="#"
               className="text-primary-grey/80 hover:text-primary-grey"
             >
               <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />

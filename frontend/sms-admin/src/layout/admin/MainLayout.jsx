@@ -3,15 +3,15 @@ import { Dialog, Menu, Transition } from "@headlessui/react";
 import logo from "/logo.png";
 import {
   CalendarIcon,
-  MenuAlt2Icon,
+  Bars3BottomLeftIcon,
   UsersIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/24/outline";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import User from "../../api/User";
-import { authorized } from "../../api/axios";
+import { authorized, axiosPrivate } from "../../api/axios";
 import { AuthContext } from "../../contex/AuthProvider";
 
 const navigation = [
@@ -53,28 +53,34 @@ function classNames(...classes) {
 
 export default function MainLayout() {
   const { auth } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
 
   authorized.interceptors.response.use(
     (config) => {
       return config;
     },
     async (err) => {
+      console.log(err);
       const originalConfig = err?.config;
       if (err?.response?.status === 401 && localStorage.getItem("akd")) {
         try {
           const { data } = await User.refresh(localStorage.getItem("akd"));
-          console.log(data);
-          localStorage.setItem("akd", data.data.refresh_token);
 
-          setAuth(data.data.auth_token);
-          originalConfig.headers["Authorization"] = `Bearer ${auth}`;
+          localStorage.setItem("akd", data.data.refresh_token);
+          console.log(auth);
+          console.log(data.data);
+          console.log(setAuth);
+          setAuth(data.data.access_token);
+          originalConfig.headers[
+            "Authorization"
+          ] = `Bearer ${data.data.access_token}`;
           return axiosPrivate(originalConfig);
         } catch (e) {
           throw e;
         }
       }
 
-      return err;
+      throw err;
     }
   );
   const navigate = useNavigate();
@@ -88,11 +94,8 @@ export default function MainLayout() {
       try {
         authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
         profile = await User.profile();
-        profile && setLoading(false);
-      } catch (e) {
-        console.log(e);
-        e && navigate("/");
-      }
+        profile ? setLoading(false) : navigate("/");
+      } catch (e) {}
     })();
   }, []);
   if (loading) {
@@ -202,7 +205,7 @@ export default function MainLayout() {
               onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>
-              <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
+              <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
             </button>
             <div className="flex-1 flex   px-4">
               <div className="ml-4 w-full justify-end flex items-center md:ml-6">

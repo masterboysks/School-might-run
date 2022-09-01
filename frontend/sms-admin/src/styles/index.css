@@ -42,9 +42,9 @@
     @apply bg-gradient-to-br from-primary-base/80 to-primary-secondary/20;
   }
   .secondary-btn {
-    @apply border focus:outline-none border-primary-base  px-4 py-3  focus:border-primary-base  focus:text-white focus:bg-primary-base text-primary-base  hover:bg-primary-base hover:text-white font-medium;
+    @apply border focus:outline-none border-primary-base  px-4 py-2   focus:border-primary-base  focus:text-white focus:bg-primary-base text-primary-base  hover:bg-primary-base hover:text-white font-medium;
   }
   .primary-btn {
-    @apply focus:outline-none focus:ring-primary-base  text-white  px-4 py-3  focus:bg-white focus:text-primary-base hover:bg-white ring-2 ring-white hover:ring-primary-base hover:text-primary-base bg-primary-base;
+    @apply focus:outline-none focus:ring-primary-base  text-white  px-4 py-2  hover:font-medium  focus:font-medium focus:bg-white focus:text-primary-base hover:bg-white ring-2 ring-white hover:ring-primary-base hover:text-primary-base bg-primary-base;
   }
 }

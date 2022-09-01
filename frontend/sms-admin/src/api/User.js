@@ -8,6 +8,7 @@ export default {
   profile() {
     return authorized.get("/profile");
   },
+
   refresh(token) {
     return axiosPrivate.post("/refresh-token", { refresh_token: token });
   },
