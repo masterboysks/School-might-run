@@ -1,27 +1,26 @@
-import React from "react";
-import MainLayout from "../../../layout/admin/MainLayout";
+import React, { useEffect, useState } from "react";
 import BreadNav from "../../../components/admin/Breadnav";
 import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import PlanCard from "../../../components/admin/plan/PlanCard";
-const plan = [
-  {
-    plan: "Basic",
-    duration: "Unlimited",
-    price: "0",
-    modules: ["djk", "jhsda"],
-  },
-];
-const plans = [
-  {
-    name: "Basics",
-    price: "999",
-    duration: "99:99",
-    modules: ["djhsfg", "jdhf"],
-  },
-];
+import Plans from "../../../api/Plans";
+
 const pages = [{ name: "Plan", href: "#", current: true }];
 export default function Plan() {
+  const [plans, setPlans] = useState([]);
+  const [page, setPage] = useState(1);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await Plans.getPlans(page);
+        setPlans(data?.data?.data);
+        console.log(data.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
   return (
     <>
       <BreadNav pages={pages} />
@@ -38,11 +37,13 @@ export default function Plan() {
         {plans.map((c) => (
           <PlanCard
             defaultValues={c}
-            key={c}
+            key={c.id}
+            max_user={c.max_users}
+            status={c.status}
             name={c.name}
             price={c.price}
             duration={c.duration}
-            modules={c.modules}
+            modules={JSON.parse(c.modules)}
           />
         ))}
       </div>
