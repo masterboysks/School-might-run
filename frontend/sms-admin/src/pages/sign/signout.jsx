@@ -7,7 +7,7 @@ export default function Signout() {
   const { auth, setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
-    localStorage.removeItem("ref");
+    localStorage.removeItem("akd");
     setAuth(undefined);
     navigate("/");
   }, []);

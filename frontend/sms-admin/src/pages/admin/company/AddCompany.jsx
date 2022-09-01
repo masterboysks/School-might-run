@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import MainLayout from "../../../layout/admin/MainLayout";
 import { useForm } from "react-hook-form";
 import Input, {
   InputWithSuffix,
   Password,
   Select,
+  Upload,
 } from "../../../components/commom/input";
 import { PrimaryButton } from "../../../components/commom/buttons";
 import { useNavigate } from "react-router-dom";
@@ -46,7 +46,16 @@ export default function AddCompany() {
           <Input
             register={register}
             label="Company name *"
-            name="companyName"
+            name="company_name"
+            required={true}
+            errors={errors}
+          />
+        </div>
+        <div className="">
+          <Input
+            register={register}
+            label="Username *"
+            name="username"
             required={true}
             errors={errors}
           />
@@ -56,6 +65,7 @@ export default function AddCompany() {
             register={register}
             label="Email *"
             name="email"
+            type="email"
             errors={errors}
             required={true}
           />
@@ -95,14 +105,27 @@ export default function AddCompany() {
           <InputWithSuffix
             register={register}
             label="Sub-Domain *"
-            name="subDomain"
+            name="domain"
             required={true}
             suffix={suffix}
             errors={errors}
           />
         </div>
-        <button type="submit" className="col-span-full ml-auto">
-          <PrimaryButton>Submit</PrimaryButton>
+        <div className="">
+          <Upload
+            register={register}
+            label="Upload Logo"
+            name="logo"
+            required={true}
+            errors={errors}
+            id="company-logo"
+          />
+        </div>
+        <button
+          type="submit"
+          className="col-span-full ml-auto primary-btn rounded"
+        >
+          Submit
         </button>
       </form>
     </>

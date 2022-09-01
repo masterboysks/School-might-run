@@ -60,11 +60,11 @@ export default function MainLayout() {
     },
     async (err) => {
       const originalConfig = err?.config;
-      if (err?.response?.status === 401 && localStorage.getItem("ref")) {
+      if (err?.response?.status === 401 && localStorage.getItem("akd")) {
         try {
-          const { data } = await User.refresh(localStorage.getItem("ref"));
+          const { data } = await User.refresh(localStorage.getItem("akd"));
           console.log(data);
-          localStorage.setItem("ref", data.data.refresh_token);
+          localStorage.setItem("akd", data.data.refresh_token);
 
           setAuth(data.data.auth_token);
           originalConfig.headers["Authorization"] = `Bearer ${auth}`;

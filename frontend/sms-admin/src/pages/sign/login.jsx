@@ -29,7 +29,7 @@ export default function Index() {
 
       const { access_token, refresh_token } = userData?.data?.data?.token;
       setAuth(access_token);
-      localStorage.setItem("ref", refresh_token);
+      localStorage.setItem("akd", refresh_token);
 
       access_token && navigate("/admin/dashboard");
     } catch (e) {

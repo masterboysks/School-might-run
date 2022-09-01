@@ -2,9 +2,6 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../contex/AuthProvider";
-import { authorized } from "../../api/axios";
-import User from "../../api/User";
 
 const navigation = [
   { name: "Features", href: "#" },
@@ -14,36 +11,10 @@ const navigation = [
 ];
 
 export default function Navbar({ children }) {
-  const { auth, setAuth } = useContext(AuthContext);
   const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
-    auth && setLoggedIn(true);
+    localStorage.getItem("akd") && setLoggedIn(true);
   }, []);
-
-  authorized.interceptors.response.use(
-    (config) => {
-      console.log(err.response.status === 401 && localStorage.getItem("ref"));
-      return config;
-    },
-    async (err) => {
-      const originalConfig = err?.config;
-      if (err.response.status === 401 && localStorage.getItem("ref")) {
-        try {
-          const { data } = await User.refresh(localStorage.getItem("ref"));
-          console.log(data);
-          localStorage.setItem("ref", data.data.refresh_token);
-
-          setAuth(data.data.auth_token);
-          originalConfig.headers["Authorization"] = `Bearer ${auth}`;
-          return axiosPrivate(originalConfig);
-        } catch (e) {
-          throw e;
-        }
-      }
-
-      return err;
-    }
-  );
 
   return (
     <div className="  relative bg-gray-50  overflow-hidden ">

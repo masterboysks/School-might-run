@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+import UploadOutlined from "@mui/icons-material/UploadOutlined";
 export default function Input({
   id,
   name,
@@ -106,6 +108,60 @@ export function Select({
     </>
   );
 }
+export const Upload = ({
+  label,
+  id,
+  name,
+  errors,
+  register,
+  required = false,
+  showError,
+  uploadText,
+}) => {
+  return (
+    <>
+      <label
+        htmlFor={id}
+        className={` ${
+          errors && errors[name] && " text-red-600 "
+        } block text-sm`}
+      >
+        {label}
+      </label>
+      <div className=" mt-[6px] sm:col-span-2 ">
+        <div className=" flex w-full px-3 py-1.5 border border-primary-base border-dashed rounded-md">
+          <div className=" w-full space-y-1">
+            <label
+              htmlFor={id}
+              className="text-primary-grey  within:outline-none focus:border-solid focus:outline-none focus:ring-offset-0 flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
+            >
+              <div>{uploadText || "Upload here"}</div>
+              <div className="text-primary-base">
+                <UploadOutlined />
+              </div>
+              <input
+                id={id}
+                type="file"
+                className="sr-only"
+                {...register(name, { required })}
+                accept="image/*"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      {showError && errors && errors[name] && (
+        <>
+          <br />
+          <span className="text-xs font-light text-red-600">
+            {errorText || " This is a required field."}
+          </span>
+          <br />
+        </>
+      )}
+    </>
+  );
+};
 export function Password({
   id,
   name,

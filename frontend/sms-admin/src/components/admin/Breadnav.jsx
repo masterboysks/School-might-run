@@ -8,7 +8,7 @@ export default function Breadnav({ pages }) {
         <li>
           <div>
             <Link
-              to="#"
+              to="/"
               className="text-primary-grey/80 hover:text-primary-grey"
             >
               <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />

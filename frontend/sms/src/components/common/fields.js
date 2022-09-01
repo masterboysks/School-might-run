@@ -453,7 +453,7 @@ export const Upload = ({
               <input
                 id={id}
                 name={name}
-                type="file"
+                type="photo"
                 className="sr-only"
                 {...optional}
                 value={value}

@@ -7,17 +7,17 @@ import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import CompanyCard from "../../../components/admin/company/CompanyCard";
 const company = [
-  {
-    name: "AVM school",
-    logo: logo,
-    mail: "avm@avm.com.ed",
-    lastlogged: "2001 Aug 12 15:13",
-    plan: "Extra premium",
-    expire: "2101 Aug 11 00:00",
-    link: "avm.com.np",
-    users: "999",
-    modules: ["hjgdf", "hdkg"],
-  },
+  // {
+  //   name: "AVM school",
+  //   logo: logo,
+  //   mail: "avm@avm.com.ed",
+  //   lastlogged: "2001 Aug 12 15:13",
+  //   plan: "Extra premium",
+  //   expire: "2101 Aug 11 00:00",
+  //   link: "avm.com.np",
+  //   users: "999",
+  //   modules: ["hjgdf", "hdkg"],
+  // },
   {
     name: "AVM school",
     logo: logo,
