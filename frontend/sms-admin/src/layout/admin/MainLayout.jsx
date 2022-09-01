@@ -11,7 +11,6 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import User from "../../api/User";
-import useToken from "../../hooks/useToken";
 import { authorized } from "../../api/axios";
 import { AuthContext } from "../../contex/AuthProvider";
 
@@ -53,38 +52,48 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
-  const { auth, setAuth } = useContext(AuthContext);
-  const token = useToken();
+  const { auth } = useContext(AuthContext);
+
+  authorized.interceptors.response.use(
+    (config) => {
+      return config;
+    },
+    async (err) => {
+      const originalConfig = err?.config;
+      if (err?.response?.status === 401 && localStorage.getItem("ref")) {
+        try {
+          const { data } = await User.refresh(localStorage.getItem("ref"));
+          console.log(data);
+          localStorage.setItem("ref", data.data.refresh_token);
+
+          setAuth(data.data.auth_token);
+          originalConfig.headers["Authorization"] = `Bearer ${auth}`;
+          return axiosPrivate(originalConfig);
+        } catch (e) {
+          throw e;
+        }
+      }
+
+      return err;
+    }
+  );
   const navigate = useNavigate();
   let profile;
-  let getProfile = async () => {
-    try {
-      authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
-      profile = await User.profile(token);
-      profile && setLoading(false);
-    } catch (e) { 
-      e && navigate("/");
-    }
-  };
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
-      profile = await getProfile();
+      try {
+        authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
+        profile = await User.profile();
+        profile && setLoading(false);
+      } catch (e) {
+        console.log(e);
+        e && navigate("/");
+      }
     })();
-    window &&
-      setInterval(async () => {
-        console.log(localStorage.getItem("ref"));
-        let { data } = await User.refresh(localStorage.getItem("ref"));
-
-        data.data.refresh_token &&
-          localStorage.setItem("ref", data.data.refresh_token);
-        console.log(data);
-        data.data.access_token && setAuth(data.data.access_token);
-      }, 1000 * 10);
-    // return clearInterval(tokenRefresh);
   }, []);
   if (loading) {
     return <>Loading...</>;

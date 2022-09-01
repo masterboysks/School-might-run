@@ -1,17 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import User from "../../api/User";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
-import useToken from "../../hooks/useToken";
+import { AuthContext } from "../../contex/AuthProvider";
+import { authorized, axiosPrivate } from "../../api/axios";
 
 export default function Index() {
-  const [, setCookie] = useCookies(["token"]);
+  const { auth, setAuth } = useContext(AuthContext);
   const [errorText, setErrorText] = useState("This is a required field");
-  const token = useToken();
   const {
     register,
     handleSubmit,
@@ -29,13 +28,10 @@ export default function Index() {
       });
 
       const { access_token, refresh_token } = userData?.data?.data?.token;
-      const token = access_token.split(".");
-      setCookie("bc", token[0], { path: "/" });
-      localStorage.setItem("bd", token[1]);
-      setCookie("cc", token[2], { path: "/" });
+      setAuth(access_token);
       localStorage.setItem("ref", refresh_token);
 
-      token && navigate("/admin/dashboard");
+      access_token && navigate("/admin/dashboard");
     } catch (e) {
       console.error(e);
       setError("password", { type: "focus" });
@@ -49,7 +45,7 @@ export default function Index() {
     }
   };
   useEffect(() => {
-    token && navigate(-1);
+    auth && navigate(-1);
   }, []);
 
   return (
@@ -74,7 +70,6 @@ export default function Index() {
                 placeholder="username"
                 register={register}
                 required={true}
-                // showError={false}
                 className="mb-2"
                 name="username"
                 errors={errors}
