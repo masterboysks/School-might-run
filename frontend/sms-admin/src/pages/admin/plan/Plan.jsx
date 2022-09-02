@@ -20,6 +20,10 @@ export default function Plan() {
       }
     })();
   }, []);
+  const Delete = (id) => {
+    const temp = plans.filter((c) => c.id !== id);
+    console.log(temp);
+  };
 
   return (
     <>
@@ -34,7 +38,7 @@ export default function Plan() {
         </Link>
       </div>
       <div className="main grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 my-6 gap-3 ">
-        {plans.map((c) => (
+        {plans?.map((c) => (
           <PlanCard
             defaultValues={c}
             key={c.id}
@@ -43,7 +47,8 @@ export default function Plan() {
             name={c.name}
             price={c.price}
             duration={c.duration}
-            modules={JSON.parse(c.modules)}
+            modules={c.modules}
+            del={Delete}
           />
         ))}
       </div>

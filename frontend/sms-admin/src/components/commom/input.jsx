@@ -9,6 +9,7 @@ export default function Input({
   id,
   name,
   shouldUnregister = false,
+  defaultValue,
   errors,
   errorText,
   register,
@@ -44,6 +45,7 @@ export default function Input({
         {...register(name, { required, shouldUnregister })}
         placeholder={placeholder}
         type={type || "text"}
+        defaultValue={defaultValue}
       />
       {showError && errors && errors[name] && (
         <>
@@ -93,7 +95,7 @@ export function Select({
       >
         {selected === "Select" && <option value="">--Select--</option>}
         {options.map((curr) => (
-          <option value={curr} key={curr} classNames="capitalize">
+          <option value={curr} key={curr} className="">
             {curr}
           </option>
         ))}

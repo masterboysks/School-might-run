@@ -24,7 +24,7 @@ const arrayModules = [
   "LMS",
   "Transport",
 ];
-const duration = ["monthly", "quaterly", "semi-yearly", "yearly", "2 Years"];
+const duration = ["Monthly", "Quaterly", "Semi-yearly", "Yearly", "2 Years"];
 export default function AddCompany() {
   const [selected, setSelected] = useState([]);
   const [error, setError] = useState(false);
@@ -42,17 +42,6 @@ export default function AddCompany() {
       setModulesError(true);
     } else {
       try {
-        console.log({
-          description: d.description,
-          duration: d.duration,
-          name: d.name,
-          price: +d.price,
-          modules: selected,
-          max_users: d.max_users,
-          whats_included: included.map((c) => {
-            return d[`whatIsIncluded${c}`];
-          }),
-        });
         const res = await Plans.createPlan({
           description: d.description,
           duration: d.duration,

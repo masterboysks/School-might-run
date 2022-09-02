@@ -2,38 +2,63 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 
-import Input from "../../commom/input";
+import Input, { MultipleSelect } from "../../commom/input";
 import { PrimaryButton } from "../../commom/buttons";
 
 import RemoveIcon from "@mui/icons-material/Remove";
-
+const arrayModules = [
+  "Staff",
+  "Users",
+  "Account",
+  "Libary",
+  "Inventory",
+  "Exam",
+  "LMS",
+  "Transport",
+];
 export default function EditPlan({ defaultValues }) {
+  const [selected, setSelected] = useState(defaultValues.modules || []);
+  const [error, setError] = useState(false);
+  const [moduleError, setModulesError] = useState(false);
+
+  const [included, setIncluded] = useState(
+    defaultValues.whats_included.map((c, i) => {
+      return i + 1;
+    })
+  );
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues,
+    defaultValues: {
+      description: defaultValues.description,
+      duration: defaultValues.duration,
+      name: defaultValues.name,
+      price: defaultValues.price,
+    },
   });
   const onSubmit = (d) => {
+    console.log(d);
     console.log(
-      JSON.stringify({
+      // JSON.stringify(
+      {
         description: d.description,
         duration: d.duration,
         name: d.name,
         price: d.price,
-        whatIsIncluded: JSON.parse(
-          included.map((c) => {
-            `whatIsIncluded${c}`;
-          })
-        ),
-      })
+      }
     );
+    // );
 
     navigate("/admin/plan");
   };
 
-  const [included, setIncluded] = useState([1]);
+  // setIncluded(
+
+  // );
+
   return (
     <div className="text-primary-grey">
       <form
@@ -79,7 +104,17 @@ export default function EditPlan({ defaultValues }) {
           />
         </div>
         <div className="">
-          {included.map((c, i, a) => (
+          <MultipleSelect
+            label="Modules*"
+            value={arrayModules}
+            selected={selected}
+            setSelected={setSelected}
+            error={moduleError}
+            setError={setModulesError}
+          />
+        </div>
+        <div className="">
+          {included?.map((c, i, a) => (
             <div key={c} className=" flex items-end gap-1">
               <div className=" flex-1">
                 <Input
@@ -89,7 +124,12 @@ export default function EditPlan({ defaultValues }) {
                   required={true}
                   errors={errors}
                   shouldUnregister={true}
+                  defaultValue={defaultValues.whats_included[i]}
                 />
+
+                {console.log(defaultValues.whats_included[i])}
+                {console.log(c)}
+                {console.log(i)}
               </div>
               {a.length === 1 || (
                 <div
