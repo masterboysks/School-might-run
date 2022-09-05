@@ -52,9 +52,7 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
-  const { auth } = useContext(AuthContext);
-  const { setAuth } = useContext(AuthContext);
-
+  const [access, setAccess] = useState("");
   authorized.interceptors.response.use(
     (config) => {
       return config;
