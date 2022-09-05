@@ -6,6 +6,7 @@ import Input, { MultipleSelect } from "../../commom/input";
 import { PrimaryButton } from "../../commom/buttons";
 
 import RemoveIcon from "@mui/icons-material/Remove";
+import Plans from "../../../api/Plans";
 const arrayModules = [
   "Staff",
   "Users",
@@ -16,7 +17,7 @@ const arrayModules = [
   "LMS",
   "Transport",
 ];
-export default function EditPlan({ defaultValues }) {
+export default function EditPlan({ defaultValues, setIsOpen }) {
   const [selected, setSelected] = useState(defaultValues.modules || []);
   const [error, setError] = useState(false);
   const [moduleError, setModulesError] = useState(false);
@@ -37,27 +38,36 @@ export default function EditPlan({ defaultValues }) {
       duration: defaultValues.duration,
       name: defaultValues.name,
       price: defaultValues.price,
+      max_users: defaultValues.max_users,
     },
   });
-  const onSubmit = (d) => {
-    console.log(d);
-    console.log(
-      // JSON.stringify(
-      {
-        description: d.description,
-        duration: d.duration,
-        name: d.name,
-        price: d.price,
+  const onSubmit = async (d) => {
+    if (selected.length === 0) {
+      setModulesError(true);
+    } else {
+      try {
+        const res = await Plans.editPlans({
+          id: defaultValues.id,
+          form: {
+            description: d.description,
+            duration: d.duration,
+            name: d.name,
+            price: d.price,
+            modules: selected,
+            max_users: d.max_users,
+            whats_included: included.map((c) => {
+              return d[`whatIsIncluded${c}`];
+            }),
+          },
+        });
+        res.data?.message === "Plan Updated Successfully."
+          ? setIsOpen(false)
+          : setError("Failed to update plan");
+      } catch (e) {
+        console.log(e);
       }
-    );
-    // );
-
-    navigate("/admin/plan");
+    }
   };
-
-  // setIncluded(
-
-  // );
 
   return (
     <div className="text-primary-grey">
@@ -67,6 +77,7 @@ export default function EditPlan({ defaultValues }) {
       >
         <h1 className="text-lg  mt-5 "> Edit Plan</h1>
         <div className="border-b "></div>
+        {error && <div className="text-red-500">{error}</div>}
         <div className="">
           <Input
             register={register}
@@ -88,6 +99,16 @@ export default function EditPlan({ defaultValues }) {
         <div className="">
           <Input
             register={register}
+            label="Max users *"
+            name="max_users"
+            type="number"
+            errors={errors}
+            required={true}
+          />
+        </div>
+        <div className="">
+          <Input
+            register={register}
             label="Duration *"
             name="duration"
             errors={errors}
@@ -97,9 +118,8 @@ export default function EditPlan({ defaultValues }) {
         <div className="">
           <Input
             register={register}
-            label="Description*"
+            label="Description"
             name="description"
-            required={true}
             errors={errors}
           />
         </div>
@@ -126,10 +146,6 @@ export default function EditPlan({ defaultValues }) {
                   shouldUnregister={true}
                   defaultValue={defaultValues.whats_included[i]}
                 />
-
-                {console.log(defaultValues.whats_included[i])}
-                {console.log(c)}
-                {console.log(i)}
               </div>
               {a.length === 1 || (
                 <div

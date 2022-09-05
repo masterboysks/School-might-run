@@ -10,6 +10,7 @@ import { authorized, axiosPrivate } from "../../api/axios";
 
 export default function Index() {
   const { auth, setAuth } = useContext(AuthContext);
+
   const [errorText, setErrorText] = useState("This is a required field");
   const {
     register,
@@ -29,6 +30,9 @@ export default function Index() {
 
       const { access_token, refresh_token } = userData?.data?.data?.token;
       setAuth(access_token);
+      authorized.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${access_token}`;
       localStorage.setItem("akd", refresh_token);
 
       access_token && navigate("/admin/dashboard");
@@ -45,7 +49,7 @@ export default function Index() {
     }
   };
   useEffect(() => {
-    auth && navigate(-1);
+    localStorage.getItem("akd") && navigate(-1);
   }, []);
 
   return (

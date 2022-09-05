@@ -6,4 +6,10 @@ export default {
   getPlans(page) {
     return authorized.get(`/plans?page=${page}`);
   },
+  editPlans({ id, form }) {
+    return authorized.put(`/plans/${id}`, form);
+  },
+  deletePlans(id) {
+    return authorized.delete(`/plans/${id}`);
+  },
 };

@@ -53,7 +53,6 @@ export default function AddCompany() {
             return d[`whatIsIncluded${c}`];
           }),
         });
-        console.log(res);
         res.data?.message === "Plan Created Successfully."
           ? navigate("/admin/plan")
           : setError("Failed to create plan");

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import logo from "/logo.png";
 import {
@@ -12,7 +12,8 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import User from "../../api/User";
 import { authorized, axiosPrivate } from "../../api/axios";
-import { AuthContext } from "../../contex/AuthProvider";
+import { useContext } from "react";
+import { AuthContext, SetAuthContex } from "../../contex/AuthProvider";
 
 const navigation = [
   {
@@ -52,33 +53,31 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
-  const [access, setAccess] = useState("");
+  const auth = useContext(AuthContext);
+  const setAuth = useContext(SetAuthContex);
   authorized.interceptors.response.use(
     (config) => {
       return config;
     },
     async (err) => {
-      console.log(err);
       const originalConfig = err?.config;
+
       if (err?.response?.status === 401 && localStorage.getItem("akd")) {
         try {
           const { data } = await User.refresh(localStorage.getItem("akd"));
-
-          localStorage.setItem("akd", data.data.refresh_token);
-          console.log(auth);
-          console.log(data.data);
-          console.log(setAuth);
-          setAuth(data.data.access_token);
-          originalConfig.headers[
-            "Authorization"
-          ] = `Bearer ${data.data.access_token}`;
-          return axiosPrivate(originalConfig);
-        } catch (e) {
-          throw e;
+          if (data.data.refresh_token && data.data.access_token) {
+            setAuth(data.data.access_token);
+            localStorage.setItem("akd", data?.data?.refresh_token);
+            originalConfig.headers[
+              "Authorization"
+            ] = `Bearer ${data.data.access_token}`;
+            console.log(auth);
+            return axiosPrivate(originalConfig);
+          }
+        } catch (error) {
+          console.log(error);
         }
       }
-
-      throw err;
     }
   );
   const navigate = useNavigate();
@@ -88,12 +87,17 @@ export default function MainLayout() {
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    localStorage.getItem("akd") || navigate("/");
     (async () => {
+      console.log(auth);
       try {
-        authorized.defaults.headers.common["Authorization"] = `Bearer ${auth}`;
+        authorized.defaults.headers.Authorization = `Bearer ${auth}`;
         profile = await User.profile();
-        profile ? setLoading(false) : navigate("/");
-      } catch (e) {}
+        console.log(profile);
+        profile && setLoading(false);
+      } catch (e) {
+        throw e;
+      }
     })();
   }, []);
   if (loading) {

@@ -4,25 +4,38 @@ import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import PlanCard from "../../../components/admin/plan/PlanCard";
 import Plans from "../../../api/Plans";
+import Pagination from "../../../components/commom/Pagination";
+import { authorized } from "../../../api/axios";
+import { AuthContext } from "../../../contex/AuthProvider";
+import { useContext } from "react";
 
 const pages = [{ name: "Plan", href: "#", current: true }];
 export default function Plan() {
+  const auth = useContext(AuthContext);
   const [plans, setPlans] = useState([]);
+  const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(1);
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await Plans.getPlans(page);
-        setPlans(data?.data?.data);
-        console.log(data.data.data);
+        const data = await Plans.getPlans(page);
+        const datas = data?.data?.data;
+
+        setPlans(datas?.data);
+        setPagination(datas?.pagination);
       } catch (error) {
         console.log(error);
       }
     })();
-  }, []);
+  }, [page]);
+  useEffect(() => {
+    console.log(auth);
+    authorized.defaults.headers.Authorization = `Bearer ${auth}`;
+  });
   const Delete = (id) => {
     const temp = plans.filter((c) => c.id !== id);
-    console.log(temp);
+    setPlans(temp);
+    Plans.deletePlans(id);
   };
 
   return (
@@ -51,6 +64,9 @@ export default function Plan() {
             del={Delete}
           />
         ))}
+      </div>
+      <div>
+        <Pagination pagination={pagination} setPage={setPage} />
       </div>
     </>
   );
