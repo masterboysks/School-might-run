@@ -42,7 +42,7 @@ export default function Company() {
       try {
         const data = await CompanyApi.get(page);
         const datas = data?.data?.data;
-
+        console.log(data);
         setCompany(datas?.data);
         setPagination(datas?.pagination);
       } catch (error) {

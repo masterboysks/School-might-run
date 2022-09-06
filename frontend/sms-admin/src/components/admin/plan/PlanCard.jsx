@@ -16,6 +16,8 @@ export default function PlanCard({
   defaultValues,
   status,
   del,
+  setPlans,
+  plans,
 }) {
   let [isOpen, setIsOpen] = useState(false);
   let [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -139,6 +141,8 @@ export default function PlanCard({
                   <EditPlan
                     defaultValues={defaultValues}
                     setIsOpen={setIsOpen}
+                    setPlans={setPlans}
+                    plans={plans}
                   />
                 </Dialog.Panel>
               </Transition.Child>

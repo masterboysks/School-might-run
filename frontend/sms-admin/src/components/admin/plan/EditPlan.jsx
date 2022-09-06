@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 
 import Input, { MultipleSelect } from "../../commom/input";
-import { PrimaryButton } from "../../commom/buttons";
 
 import RemoveIcon from "@mui/icons-material/Remove";
 import Plans from "../../../api/Plans";
+import { Checkbox } from "../../commom/checkbox";
 const arrayModules = [
   "Staff",
   "Users",
@@ -17,7 +17,12 @@ const arrayModules = [
   "LMS",
   "Transport",
 ];
-export default function EditPlan({ defaultValues, setIsOpen }) {
+export default function EditPlan({
+  defaultValues,
+  setIsOpen,
+  setPlans,
+  plans,
+}) {
   const [selected, setSelected] = useState(defaultValues.modules || []);
   const [error, setError] = useState(false);
   const [moduleError, setModulesError] = useState(false);
@@ -39,34 +44,41 @@ export default function EditPlan({ defaultValues, setIsOpen }) {
       name: defaultValues.name,
       price: defaultValues.price,
       max_users: defaultValues.max_users,
+      status: defaultValues.status,
     },
   });
   const onSubmit = async (d) => {
+    const form = {
+      description: d.description,
+      duration: d.duration,
+      name: d.name,
+      price: d.price,
+      modules: selected,
+      max_users: d.max_users,
+      status: d.status,
+      whats_included: included.map((c) => {
+        return d[`whatIsIncluded${c}`];
+      }),
+    };
     if (selected.length === 0) {
       setModulesError(true);
     } else {
       try {
         const res = await Plans.edit({
           id: defaultValues.id,
-          form: {
-            description: d.description,
-            duration: d.duration,
-            name: d.name,
-            price: d.price,
-            modules: selected,
-            max_users: d.max_users,
-            whats_included: included.map((c) => {
-              return d[`whatIsIncluded${c}`];
-            }),
-          },
+          form,
         });
-        res.data?.message === "Plan Updated Successfully."
-          ? setIsOpen(false)
-          : setError("Failed to update plan");
+        res?.status === 201 ? edited(form) : setError("Failed to update plan");
       } catch (e) {
         console.log(e);
       }
     }
+  };
+  const edited = (form) => {
+    const temp = [...plans];
+    temp[temp.indexOf(defaultValues)] = { ...form, id: defaultValues.id };
+    setPlans(temp);
+    setIsOpen(false);
   };
 
   return (
@@ -173,9 +185,22 @@ export default function EditPlan({ defaultValues, setIsOpen }) {
             <AddIcon />
           </div>
         </div>
-        <button type="submit" className="col-span-full ml-auto">
-          <PrimaryButton>Submit</PrimaryButton>
-        </button>
+        <div>
+          <Checkbox
+            register={register}
+            id="checkbox_123"
+            label="Active"
+            name="status"
+          />
+        </div>
+        <div className="w-full flex justify-end">
+          <button
+            className="rounded w-fit mt-5 px-3 py-1.5 primary-btn"
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );

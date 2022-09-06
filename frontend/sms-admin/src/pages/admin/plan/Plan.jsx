@@ -48,7 +48,7 @@ export default function Plan() {
         </Link>
       </div>
       <div className="main grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 my-6 gap-3 ">
-        {plans?.map((c) => (
+        {plans?.map((c, i, a) => (
           <PlanCard
             defaultValues={c}
             key={c.id}
@@ -59,6 +59,8 @@ export default function Plan() {
             duration={c.duration}
             modules={c.modules}
             del={Delete}
+            setPlans={setPlans}
+            plans={a}
           />
         ))}
       </div>

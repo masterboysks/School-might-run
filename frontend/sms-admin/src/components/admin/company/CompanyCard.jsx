@@ -6,6 +6,7 @@ import { Dialog, Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import Input from "../../commom/input";
 import { useForm } from "react-hook-form";
+import Company from "../../../api/Company";
 export default function CompanyCard({
   logo,
   name,
@@ -17,6 +18,7 @@ export default function CompanyCard({
   link,
   users,
   modules,
+  defaultValues,
 }) {
   const {
     register,
@@ -30,10 +32,27 @@ export default function CompanyCard({
   const closeModal = () => {
     setIsOpen(false);
   };
-  const onSubmit = (data) => {
-    console.log(data);
-    setIsOpen(false);
+  const onSubmit = async (d) => {
+    console.log(d);
+    try {
+      const res = await Company.edit({
+        id: defaultValues.id,
+        form: {
+          company_name: d.companyName,
+          email: d.email,
+          domain: d.domain,
+        },
+      });
+      console.log(res);
+      res?.status === 201
+        ? setIsOpen(false)
+        : setEditError("Failed to update plan");
+    } catch (e) {
+      console.log(e);
+    }
   };
+  const [editError, setEditError] = useState(false);
+
   return (
     <>
       <div className="w-full h-fit py-6 space-y-4 px-8 bg-white rounded-2xl text-center max-w-xs mx-auto my-4">
@@ -43,7 +62,7 @@ export default function CompanyCard({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className=" p-2 rounded primary-btn"
+              className=" p-2 rounded primary-btn flex"
             >
               Log in
             </a>
@@ -74,14 +93,16 @@ export default function CompanyCard({
             </Popover.Panel>
           </Popover>
         </div>
-        <div className="logo flex items-center justify-center mt-3">
-          <img src={logo} alt={name} className="w-[90%] xs:w-2/3 sm:w-1/2" />
-        </div>
-        <div className="name text-lg font-medium tracking-wide">{name}</div>
+        <a href={`https://${domain}`} target="_blank">
+          <div className="logo flex items-center justify-center mt-3">
+            <img src={logo} alt={name} className="w-[90%] xs:w-2/3 sm:w-1/2" />
+          </div>
+          <div className="name text-lg font-medium tracking-wide">{name}</div>
+        </a>
         <div className="email text-xs font-light tracking-tighter">{mail}</div>
         <div className="">{lastlogged}</div>
         <div className="flex border-b flex-col sm:items-center space-y-2 sm:flex-row sm:space-y-0 text-sm border-primary-grey justify-between pb-3 my-12">
-          <div className="">{plan}</div>
+          <div className="break-all">{plan}</div>
           <button className="px-3 py-1.5 rounded secondary-btn">
             Select plan
           </button>
@@ -99,7 +120,7 @@ export default function CompanyCard({
             <Popover.Panel className="absolute ">
               <div className="w-40 bg-white shadow rounded-lg bottom-0 right-0 text-left py-3 px-2 space-y-3">
                 {modules?.map((curr) => (
-                  <div>{curr}</div>
+                  <div key={curr}>{curr}</div>
                 ))}
               </div>
             </Popover.Panel>
@@ -132,37 +153,45 @@ export default function CompanyCard({
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-primary-grey/80 p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg  leading-6 text-primary-grey/50 font-bold tracking-wider"
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="grid  gap-5 bg-white rounded-md px-9 pb-6 pt-3 max-w-2xl  mx-auto mt-4"
                   >
-                    Edit Company
-                  </Dialog.Title>
-                  <form onSubmit={handleSubmit(onSubmit)} className="mt-3">
-                    <Input
-                      register={register}
-                      label="Company name"
-                      name="companyName"
-                      errors={errors}
-                      required={true}
-                      defaultValue={name}
-                    />
-                    <Input
-                      register={register}
-                      label="Email"
-                      name="mail"
-                      errors={errors}
-                      required={true}
-                      defaultValue={mail}
-                    />
-                    <Input
-                      register={register}
-                      label="Domain"
-                      name="domain"
-                      errors={errors}
-                      required={true}
-                      defaultValue={domain}
-                    />
+                    <h1 className="text-lg  mt-5 "> Edit Company</h1>
+                    <div className="border-b "></div>
+                    {editError && (
+                      <div className="text-red-500">{editError}</div>
+                    )}
+                    <div>
+                      <Input
+                        register={register}
+                        label="Company name"
+                        name="companyName"
+                        errors={errors}
+                        required={true}
+                        defaultValue={name}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        register={register}
+                        label="Email"
+                        name="email"
+                        errors={errors}
+                        required={true}
+                        defaultValue={mail}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        register={register}
+                        label="Domain"
+                        name="domain"
+                        errors={errors}
+                        required={true}
+                        defaultValue={domain}
+                      />
+                    </div>
                     <div className="w-full flex justify-end">
                       <button
                         className="rounded w-fit mt-5 px-3 py-1.5 primary-btn"
