@@ -6,7 +6,6 @@ import Input, {
   Select,
   Upload,
 } from "../../../components/commom/input";
-import { PrimaryButton } from "../../../components/commom/buttons";
 import { useNavigate } from "react-router-dom";
 import Breadnav from "../../../components/admin/Breadnav";
 

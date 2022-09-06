@@ -71,7 +71,8 @@ export default function MainLayout() {
             originalConfig.headers[
               "Authorization"
             ] = `Bearer ${data.data.access_token}`;
-            console.log(auth);
+
+            authorized.defaults.headers.Authorization = `Bearer ${data.data.access_token}`;
             return axiosPrivate(originalConfig);
           }
         } catch (error) {
@@ -89,11 +90,9 @@ export default function MainLayout() {
   useEffect(() => {
     localStorage.getItem("akd") || navigate("/");
     (async () => {
-      console.log(auth);
       try {
         authorized.defaults.headers.Authorization = `Bearer ${auth}`;
         profile = await User.profile();
-        console.log(profile);
         profile && setLoading(false);
       } catch (e) {
         throw e;

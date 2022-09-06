@@ -14,6 +14,7 @@ export default function Pagination({ pagination, setPage }) {
     setPage(e.target.innerText);
   };
   useEffect(() => {
+    console.log(pagination?.last_page);
     pagination?.last_page === pagination?.current_page
       ? setIsLastPage(true)
       : setIsLastPage(false);
@@ -58,13 +59,13 @@ export default function Pagination({ pagination, setPage }) {
                     <li
                       className={`inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
                         pagination?.current_page ===
-                          pagination?.last_page - 5 + i &&
+                          pagination?.last_page - 4 + i &&
                         "border-primary-base text-primary-base"
                       }`}
                       onClick={handlePageNumber}
                       key={`pagination${i}`}
                     >
-                      {pagination?.last_page - 5 + i}
+                      {pagination?.last_page - 4 + i}
                     </li>
                   ) : (
                     <li

@@ -1,6 +1,5 @@
 import React from "react";
 import Breadnav from "../../../components/admin/Breadnav";
-import MainLayout from "../../../layout/admin/MainLayout";
 import AddIcon from "@mui/icons-material/Add";
 
 import logo from "/logo.png";
@@ -18,6 +17,18 @@ const company = [
   //   users: "999",
   //   modules: ["hjgdf", "hdkg"],
   // },
+  //   {
+  //     "id": "9fe398a5-575f-4678-a637-3144485f777a",
+  //     "company_name": null,
+  //     "email": "companyone@example.com",
+  //     "domain": "companyone.192.168.1.131",
+  //     "company": null,
+  //     "logo": "http://192.168.1.131/uploads/tenant/logos/1662096727.jpg",
+  //     "created_at": "September 2nd 2022",
+  //     "plan_name": null,
+  //     "modules": null,
+  //     "total_users": 1
+  // }
   {
     name: "AVM school",
     logo: logo,

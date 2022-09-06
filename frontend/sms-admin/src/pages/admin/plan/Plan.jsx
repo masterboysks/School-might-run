@@ -11,7 +11,7 @@ import { useContext } from "react";
 
 const pages = [{ name: "Plan", href: "#", current: true }];
 export default function Plan() {
-  const auth = useContext(AuthContext);
+  // const auth = useContext(AuthContext);
   const [plans, setPlans] = useState([]);
   const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(1);
@@ -28,10 +28,10 @@ export default function Plan() {
       }
     })();
   }, [page]);
-  useEffect(() => {
-    console.log(auth);
-    authorized.defaults.headers.Authorization = `Bearer ${auth}`;
-  });
+  // useEffect(() => {
+  //   console.log(auth);
+  //   authorized.defaults.headers.Authorization = `Bearer ${auth}`;
+  // });
   const Delete = (id) => {
     const temp = plans.filter((c) => c.id !== id);
     setPlans(temp);
