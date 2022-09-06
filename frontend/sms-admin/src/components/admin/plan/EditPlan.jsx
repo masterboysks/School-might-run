@@ -46,7 +46,7 @@ export default function EditPlan({ defaultValues, setIsOpen }) {
       setModulesError(true);
     } else {
       try {
-        const res = await Plans.editPlans({
+        const res = await Plans.edit({
           id: defaultValues.id,
           form: {
             description: d.description,

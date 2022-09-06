@@ -5,9 +5,6 @@ import AddIcon from "@mui/icons-material/Add";
 import PlanCard from "../../../components/admin/plan/PlanCard";
 import Plans from "../../../api/Plans";
 import Pagination from "../../../components/commom/Pagination";
-import { authorized } from "../../../api/axios";
-import { AuthContext } from "../../../contex/AuthProvider";
-import { useContext } from "react";
 
 const pages = [{ name: "Plan", href: "#", current: true }];
 export default function Plan() {
@@ -18,7 +15,7 @@ export default function Plan() {
   useEffect(() => {
     (async () => {
       try {
-        const data = await Plans.getPlans(page);
+        const data = await Plans.get(page);
         const datas = data?.data?.data;
 
         setPlans(datas?.data);
@@ -35,7 +32,7 @@ export default function Plan() {
   const Delete = (id) => {
     const temp = plans.filter((c) => c.id !== id);
     setPlans(temp);
-    Plans.deletePlans(id);
+    Plans.delete(id);
   };
 
   return (

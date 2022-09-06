@@ -42,7 +42,7 @@ export default function AddCompany() {
       setModulesError(true);
     } else {
       try {
-        const res = await Plans.createPlan({
+        const res = await Plans.create({
           description: d.description,
           duration: d.duration,
           name: d.name,
@@ -53,7 +53,7 @@ export default function AddCompany() {
             return d[`whatIsIncluded${c}`];
           }),
         });
-        res.data?.message === "Plan Created Successfully."
+        res?.data?.message === "Plan Created Successfully."
           ? navigate("/admin/plan")
           : setError("Failed to create plan");
       } catch (e) {

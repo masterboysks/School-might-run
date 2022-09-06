@@ -11,6 +11,7 @@ export default function CompanyCard({
   name,
   mail,
   lastlogged,
+  domain,
   plan,
   expire,
   link,
@@ -22,9 +23,6 @@ export default function CompanyCard({
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [company, setCompany] = useState("");
-  const [domain, setdomain] = useState("");
-  const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -96,11 +94,11 @@ export default function CompanyCard({
           <Popover className="relative">
             <Popover.Button className="flex p-2 rounded items-center justify-center space-x-2 primary-btn">
               <ExtensionOutlinedIcon />
-              <div>{modules.length}</div>
+              <div>{modules?.length}</div>
             </Popover.Button>
             <Popover.Panel className="absolute ">
               <div className="w-40 bg-white shadow rounded-lg bottom-0 right-0 text-left py-3 px-2 space-y-3">
-                {modules.map((curr) => (
+                {modules?.map((curr) => (
                   <div>{curr}</div>
                 ))}
               </div>
@@ -147,7 +145,7 @@ export default function CompanyCard({
                       name="companyName"
                       errors={errors}
                       required={true}
-                      defaultValue={company}
+                      defaultValue={name}
                     />
                     <Input
                       register={register}
@@ -155,7 +153,7 @@ export default function CompanyCard({
                       name="mail"
                       errors={errors}
                       required={true}
-                      defaultValue={email}
+                      defaultValue={mail}
                     />
                     <Input
                       register={register}
