@@ -19,6 +19,8 @@ export default function CompanyCard({
   users,
   modules,
   defaultValues,
+  company,
+  setCompany,
 }) {
   const {
     register,
@@ -33,23 +35,30 @@ export default function CompanyCard({
     setIsOpen(false);
   };
   const onSubmit = async (d) => {
+    const form = {
+      company_name: d.companyName,
+      email: d.email,
+      domain: d.domain,
+    };
     console.log(d);
     try {
       const res = await Company.edit({
         id: defaultValues.id,
-        form: {
-          company_name: d.companyName,
-          email: d.email,
-          domain: d.domain,
-        },
+        form,
       });
       console.log(res);
       res?.status === 201
-        ? setIsOpen(false)
-        : setEditError("Failed to update plan");
+        ? edited(form)
+        : setEditError("Failed to update company");
     } catch (e) {
       console.log(e);
     }
+  };
+  const edited = (form) => {
+    const temp = [...company];
+    temp[temp.indexOf(defaultValues)] = { ...defaultValues, ...form };
+    setCompany(temp);
+    setIsOpen(false);
   };
   const [editError, setEditError] = useState(false);
 

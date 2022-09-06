@@ -12,4 +12,7 @@ export default {
   delete(id) {
     return authorized.delete(`/companies/${id}`);
   },
+  plans() {
+    return authorized.get("/get-all-plans");
+  },
 };

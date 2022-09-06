@@ -76,6 +76,8 @@ export default function Company() {
             plan={c.plan_name}
             modules={c.modules}
             users={c.total_users}
+            company={company}
+            setCompany={setCompany}
             // lastlogged={lastlogged}
             // expire={expire}
           />

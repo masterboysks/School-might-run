@@ -8,27 +8,51 @@ import Input, {
 } from "../../../components/commom/input";
 import { useNavigate } from "react-router-dom";
 import Breadnav from "../../../components/admin/Breadnav";
+import Company from "../../../api/Company";
+import { useEffect } from "react";
 
 const pages = [
   { name: "Company", href: "/admin/company", current: false },
   { name: "Add", href: "#", current: true },
 ];
-const plans = ["jkdsfh", "dsfkjh"];
+
 export default function AddCompany() {
+  const [plans, setPlans] = useState([]);
+  const [suffix, setSuffix] = useState("spellinnovation.com.np");
+  const [plansWithId, setPlansWithId] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const data = await Company.plans();
+      if (!data.data.data.domain) return;
+      setPlansWithId(data.data.data.planName);
+      const temp = data.data.data.planName.map((c) => {
+        return c.name;
+      });
+      setPlans(temp);
+
+      setSuffix(data.data.data.domain);
+    })();
+  }, []);
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  //
-  // subdomain
-  //
-  const [suffix, setSuffix] = useState("spellinnovation.com.np");
-  const onSubmit = (data) => {
-    console.log(data);
 
-    navigate("/admin/company");
+  const onSubmit = (d) => {
+    Company.create({
+      ...d,
+      plan: plansWithId.filter((c) => c.name === d.plan)[0].id,
+      logo: d.logo[0],
+    });
+    console.log({
+      ...d,
+      plan: plansWithId.filter((c) => c.name === d.plan)[0]?.id,
+      logo: d.logo[0],
+    });
+    // navigate("/admin/company");
   };
 
   return (
