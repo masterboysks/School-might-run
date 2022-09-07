@@ -11,11 +11,15 @@ const arrayModules = [
   "Staff",
   "Users",
   "Account",
-  "Libary",
+  "Library",
   "Inventory",
   "Exam",
   "LMS",
   "Transport",
+  "Parent",
+  "Student",
+  "Teacher",
+  "Accounting",
 ];
 export default function EditPlan({
   defaultValues,
@@ -85,7 +89,7 @@ export default function EditPlan({
     <div className="text-primary-grey">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid  gap-5 bg-white rounded-md px-9 pb-6 pt-3 max-w-2xl  mx-auto mt-4"
+        className="grid  gap-5 box-border bg-white rounded-md px-9 pb-6 pt-3 max-w-2xl  mx-auto mt-4"
       >
         <h1 className="text-lg  mt-5 "> Edit Plan</h1>
         <div className="border-b "></div>

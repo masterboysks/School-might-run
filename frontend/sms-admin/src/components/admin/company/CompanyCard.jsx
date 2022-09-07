@@ -4,7 +4,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ExtensionOutlinedIcon from "@mui/icons-material/ExtensionOutlined";
 import { Dialog, Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import Input from "../../commom/input";
+import Input, { Select } from "../../commom/input";
 import { useForm } from "react-hook-form";
 import Company from "../../../api/Company";
 export default function CompanyCard({
@@ -18,9 +18,11 @@ export default function CompanyCard({
   link,
   users,
   modules,
+  max_users,
   defaultValues,
   company,
   setCompany,
+  plans,
 }) {
   const {
     register,
@@ -37,8 +39,6 @@ export default function CompanyCard({
   const onSubmit = async (d) => {
     const form = {
       company_name: d.companyName,
-      email: d.email,
-      domain: d.domain,
     };
     try {
       const res = await Company.edit({
@@ -75,7 +75,7 @@ export default function CompanyCard({
             </a>
           </div>
           <Popover className="relative">
-            <Popover.Button className="3dots secondary-btn   rounded-lg   !border-0">
+            <Popover.Button className="3dots secondary-btn   rounded-lg  !border-0">
               <MoreVertIcon />
             </Popover.Button>
             <Popover.Panel className="flex rounded border border-primary-base shadow-md          flex-col px-2 py-3 gap-3 absolute right-0 w-40 bg-primary-grey-100    hover top-[120%] text-left">
@@ -110,22 +110,25 @@ export default function CompanyCard({
         <div className="">{lastlogged}</div>
         <div className="flex border-b flex-col sm:items-center space-y-2 sm:flex-row sm:space-y-0 text-sm border-primary-grey justify-between pb-3 my-12">
           <div className="break-all">{plan}</div>
-          <button className="px-3 py-1.5 rounded secondary-btn">
+          {/* <button className="px-3 py-1.5 rounded secondary-btn">
             Select plan
-          </button>
+          </button> */}
         </div>
         <div className="">{expire}</div>
         <div className="flex justify-between items-center">
           <div className="flex  items-center justify-center space-x-2">
-            <PersonOutlineOutlinedIcon /> <div>{users}</div>
+            <PersonOutlineOutlinedIcon />
+            <div>
+              {users}/{max_users}
+            </div>
           </div>
           <Popover className="relative">
-            <Popover.Button className="flex p-2 rounded items-center justify-center space-x-2 primary-btn">
+            <Popover.Button className="flex p-2 rounded items-center justify-center space-x-2 primary-btn ">
               <ExtensionOutlinedIcon />
               <div>{modules?.length}</div>
             </Popover.Button>
-            <Popover.Panel className="absolute ">
-              <div className="w-40 bg-white shadow rounded-lg bottom-0 right-0 text-left py-3 px-2 space-y-3">
+            <Popover.Panel className="absolute z-10">
+              <div className="w-40 bg-white shadow rounded-lg bottom-0 right-0 text-left py-3 px-2 space-y-3 ">
                 {modules?.map((curr) => (
                   <div key={curr}>{curr}</div>
                 ))}
@@ -197,6 +200,17 @@ export default function CompanyCard({
                         errors={errors}
                         required={true}
                         defaultValue={domain}
+                      />
+                    </div>
+                    <div className="">
+                      <Select
+                        register={register}
+                        label="Plan "
+                        name="plan" //jkhdsf
+                        required={true}
+                        errors={errors}
+                        value={plans}
+                        selected="Select"
                       />
                     </div>
                     <div className="w-full flex justify-end">

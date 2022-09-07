@@ -256,10 +256,10 @@ export function MultipleSelect({
           <Listbox.Button
             id={id}
             name={name}
-            className="  h-[38px]  p- rounded focus:ring-primary-base focus:ring-2 border px-2   border-primary-base shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  "
+            className="  h-[38px]  p- rounded focus:ring-primary-base focus:ring-2 border px-2   border-primary-base shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-min min-w-full max-w-full text-left  "
           >
-            <span className="block pr-2 truncate">
-              {selected.map((person) => person).join(", ")}
+            <span className=" pr-2 truncate block w-28  xs:w-56 sm:w-80   ">
+              {selected.map((person) => person).join(",")}
             </span>
             {error && (
               <span className="text-red-600">This field is required</span>

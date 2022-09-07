@@ -18,11 +18,15 @@ const arrayModules = [
   "Staff",
   "Users",
   "Account",
-  "Libary",
+  "Library",
   "Inventory",
   "Exam",
   "LMS",
   "Transport",
+  "Parent",
+  "Student",
+  "Teacher",
+  "Accounting",
 ];
 const duration = ["Monthly", "Quaterly", "Semi-yearly", "Yearly", "2 Years"];
 export default function AddCompany() {

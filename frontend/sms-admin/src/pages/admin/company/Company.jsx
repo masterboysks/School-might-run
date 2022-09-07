@@ -36,7 +36,24 @@ const pages = [{ name: "Company", href: "#", current: true }];
 export default function Company() {
   const [company, setCompany] = useState([]);
   const [pagination, setPagination] = useState({});
+
+  const [plans, setPlans] = useState([]);
+  const [suffix, setSuffix] = useState("spellinnovation.com.np");
+  const [plansWithId, setPlansWithId] = useState([]);
   const [page, setPage] = useState(1);
+  useEffect(() => {
+    (async () => {
+      const data = await Company.plans();
+      if (!data.data.data.domain) return;
+      setPlansWithId(data.data.data.planName);
+      const temp = data.data.data.planName.map((c) => {
+        return c.name;
+      });
+      setPlans(temp);
+
+      setSuffix(data.data.data.domain);
+    })();
+  }, []);
   useEffect(() => {
     (async () => {
       try {
@@ -74,9 +91,14 @@ export default function Company() {
             logo={c.logo}
             plan={c.plan_name}
             modules={c.modules}
+            max_users={c.max_users}
             users={c.total_users}
             company={company}
             setCompany={setCompany}
+            plansWithId={plansWithId}
+            suffix={suffix}
+            plans={plans}
+
             // lastlogged={lastlogged}
             // expire={expire}
           />
