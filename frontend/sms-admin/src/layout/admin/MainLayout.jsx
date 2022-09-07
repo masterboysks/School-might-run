@@ -9,7 +9,7 @@ import {
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, Navigate } from "react-router-dom";
 import User from "../../api/User";
 import { authorized, axiosPrivate } from "../../api/axios";
 import { useContext } from "react";
@@ -53,8 +53,14 @@ function classNames(...classes) {
 }
 
 export default function MainLayout() {
+  const navigate = useNavigate();
   const auth = useContext(AuthContext);
   const setAuth = useContext(SetAuthContex);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [loading, setLoading] = useState(true);
+  let profile;
+
   authorized.interceptors.response.use(
     (config) => {
       return config;
@@ -76,29 +82,27 @@ export default function MainLayout() {
             return axiosPrivate(originalConfig);
           }
         } catch (error) {
-          console.log(error);
+          error.response.status === 400 && localStorage.removeItem("akd");
         }
       }
     }
   );
-  const navigate = useNavigate();
-  let profile;
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     localStorage.getItem("akd") || navigate("/");
     (async () => {
       try {
         authorized.defaults.headers.Authorization = `Bearer ${auth}`;
         profile = await User.profile();
+
+        if (!profile) throw "error";
         profile && setLoading(false);
       } catch (e) {
-        throw e;
+        navigate("/");
       }
     })();
   }, []);
+
   if (loading) {
     return <>Loading...</>;
   }

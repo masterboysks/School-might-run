@@ -196,19 +196,7 @@ export const InputDisabled = ({
   );
 };
 // select disabled
-export const SelectDisabled = ({
-  label,
-  id,
-  name,
-  value,
-
-  dataTitle,
-  dataValue,
-  className,
-}) => {
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
-
+export const SelectDisabled = ({ label, id, name, value, className }) => {
   return (
     <>
       <label className={`my-6 text-sm `}>{label}</label>
@@ -288,21 +276,8 @@ export function MultipleSelect({
   label,
   value: options, //array
   setSelected,
-  selected, //array
-  dataTitle,
-  dataValue,
+  selected,
 }) {
-  // const [err, setErr] = useState();
-  // let err = false;
-
-  // useEffect(() => {
-  //   console.log(err, name);
-  //   error && !(selected.length === 0) ? setErr(true) : setErr(false);
-  //   console.log(err);
-  // }, [error]);
-
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
   return (
     <>
       <label
@@ -382,10 +357,7 @@ export function MultipleSelect({
     </>
   );
 }
-export function SearchBar({ id, dataTitle, dataValue, value, setValue }) {
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
-
+export function SearchBar({ id, value, setValue }) {
   return (
     <div className=" relative w-full">
       <div className="top-1 absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -406,7 +378,6 @@ export function SearchBar({ id, dataTitle, dataValue, value, setValue }) {
       <input
         type="text"
         id={id}
-        {...optional}
         className="bg-gray-50 mt-[6px] border border-primary-grey-400 text-primary-grey-600 text-sm rounded focus:ring-primary-btn block w-full pl-10 p-2 "
         placeholder="Search"
         value={value || ""}
@@ -598,6 +569,3 @@ export const Textarea = ({
     </>
   );
 };
-{
-  /* <textarea {...register("hiiiiiiiii", {})} /> */
-}
