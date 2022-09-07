@@ -25,10 +25,6 @@ export default function Plan() {
       }
     })();
   }, [page]);
-  // useEffect(() => {
-  //   console.log(auth);
-  //   authorized.defaults.headers.Authorization = `Bearer ${auth}`;
-  // });
   const Delete = (id) => {
     const temp = plans.filter((c) => c.id !== id);
     setPlans(temp);

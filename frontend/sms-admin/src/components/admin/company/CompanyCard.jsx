@@ -40,13 +40,11 @@ export default function CompanyCard({
       email: d.email,
       domain: d.domain,
     };
-    console.log(d);
     try {
       const res = await Company.edit({
         id: defaultValues.id,
         form,
       });
-      console.log(res);
       res?.status === 201
         ? edited(form)
         : setEditError("Failed to update company");

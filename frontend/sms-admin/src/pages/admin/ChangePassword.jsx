@@ -26,8 +26,6 @@ export default function ChangePassword() {
   //
   const [suffix, setSuffix] = useState("spellinnovation.com.np");
   const onSubmit = (data) => {
-    console.log(data);
-
     navigate("/admin/company");
   };
 

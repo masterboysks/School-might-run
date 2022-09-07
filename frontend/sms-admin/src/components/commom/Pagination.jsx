@@ -14,7 +14,6 @@ export default function Pagination({ pagination, setPage }) {
     setPage(e.target.innerText);
   };
   useEffect(() => {
-    console.log(pagination?.last_page);
     pagination?.last_page === pagination?.current_page
       ? setIsLastPage(true)
       : setIsLastPage(false);
