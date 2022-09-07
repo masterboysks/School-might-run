@@ -144,6 +144,7 @@ export const Upload = ({
                 <UploadOutlined />
               </div>
               <input
+                name={name}
                 id={id}
                 type="file"
                 className="sr-only"
@@ -154,7 +155,7 @@ export const Upload = ({
           </div>
         </div>
       </div>
-      {showError && errors && errors[name] && (
+      {showError && errors[name] && (
         <>
           <br />
           <span className="text-xs font-light text-red-600">

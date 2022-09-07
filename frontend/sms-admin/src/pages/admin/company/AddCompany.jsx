@@ -41,15 +41,22 @@ export default function AddCompany() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (d) => {
+  const convert2base64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file[0]);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  const onSubmit = async (d) => {
     Company.create({
       ...d,
       plan: plansWithId.filter((c) => c.name === d.plan)[0].id,
       logo: d.logo[0],
+      // logo: (reader.onloadend = () => reader.readAsText(d.logo[0])),
+      // logo: await convert2base64(d.logo),
     });
     console.log({
-      ...d,
-      plan: plansWithId.filter((c) => c.name === d.plan)[0]?.id,
       logo: d.logo[0],
     });
     // navigate("/admin/company");
