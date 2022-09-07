@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contex/AuthProvider";
+import { SetAuthContex } from "../../contex/AuthProvider";
 
 export default function Signout() {
-  const { auth, setAuth } = useContext(AuthContext);
+  const setAuth = useContext(SetAuthContex);
   const navigate = useNavigate();
   useEffect(() => {
     localStorage.removeItem("akd");

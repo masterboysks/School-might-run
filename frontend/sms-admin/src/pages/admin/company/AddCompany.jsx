@@ -19,6 +19,8 @@ const pages = [
 export default function AddCompany() {
   const [plans, setPlans] = useState([]);
   const [suffix, setSuffix] = useState("spellinnovation.com.np");
+
+  const [error, setError] = useState(false);
   const [plansWithId, setPlansWithId] = useState([]);
   useEffect(() => {
     (async () => {
@@ -41,25 +43,21 @@ export default function AddCompany() {
     formState: { errors },
   } = useForm();
 
-  const convert2base64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file[0]);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
   const onSubmit = async (d) => {
-    Company.create({
-      ...d,
-      plan: plansWithId.filter((c) => c.name === d.plan)[0].id,
-      logo: d.logo[0],
-      // logo: (reader.onloadend = () => reader.readAsText(d.logo[0])),
-      // logo: await convert2base64(d.logo),
-    });
-    console.log({
-      logo: d.logo[0],
-    });
-    // navigate("/admin/company");
+    const form = new FormData();
+    for (const name in d) {
+      form.append(name, d[name]);
+    }
+    form.append("logo", d.logo[0]);
+    form.append("plan", plansWithId.filter((c) => c.name === d.plan)[0].id);
+    try {
+      const res = await Company.create(form);
+      res?.status === 201
+        ? navigate("/admin/company")
+        : setError("Failed to create company");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -72,6 +70,7 @@ export default function AddCompany() {
       >
         <h1 className="text-lg  mt-5 "> Add new company</h1>
         <div className="border-b "></div>
+        {error && <div className="text-red-500">{error}</div>}
         <div className="">
           <Input
             register={register}

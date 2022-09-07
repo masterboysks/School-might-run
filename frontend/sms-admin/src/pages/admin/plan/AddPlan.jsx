@@ -53,6 +53,7 @@ export default function AddCompany() {
             return d[`whatIsIncluded${c}`];
           }),
         });
+
         res?.status === 201
           ? navigate("/admin/plan")
           : setError("Failed to create plan");

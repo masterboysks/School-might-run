@@ -17,8 +17,6 @@ export default function ForgotPassword() {
     return 1;
   };
   const onSubmit = (data) => {
-    console.log(data);
-
     saveData(data);
     navigate("/admin/dashboard");
   };

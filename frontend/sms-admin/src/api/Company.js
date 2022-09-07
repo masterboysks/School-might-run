@@ -1,7 +1,11 @@
 import { authorized } from "./axios";
 export default {
   create(form) {
-    return authorized.post("/companies", form);
+    return authorized.post("/companies", form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
   },
   get(page) {
     return authorized.get(`/companies?page=${page}`);

@@ -5,11 +5,12 @@ import User from "../../api/User";
 import { Checkbox } from "../../components/commom/checkbox";
 import Input, { Password } from "../../components/commom/input";
 import logo from "/logo.png";
-import { AuthContext } from "../../contex/AuthProvider";
-import { authorized, axiosPrivate } from "../../api/axios";
+import { AuthContext, SetAuthContex } from "../../contex/AuthProvider";
+import { authorized } from "../../api/axios";
 
 export default function Index() {
-  const { auth, setAuth } = useContext(AuthContext);
+  const auth = useContext(AuthContext);
+  const setAuth = useContext(SetAuthContex);
 
   const [errorText, setErrorText] = useState("This is a required field");
   const {
