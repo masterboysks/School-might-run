@@ -4,9 +4,10 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ExtensionOutlinedIcon from "@mui/icons-material/ExtensionOutlined";
 import { Dialog, Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import Input, { Select } from "../../commom/input";
+import Input from "../../commom/input";
 import { useForm } from "react-hook-form";
 import Company from "../../../api/Company";
+import UpgradePlan from "./UpgradePlan";
 export default function CompanyCard({
   logo,
   name,
@@ -22,13 +23,13 @@ export default function CompanyCard({
   defaultValues,
   company,
   setCompany,
-  plans,
 }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [selectPlanModalOpen, setSelectPlanModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -38,8 +39,9 @@ export default function CompanyCard({
   };
   const onSubmit = async (d) => {
     const form = {
-      company_name: d.companyName,
+      ...d,
     };
+    console.log(form);
     try {
       const res = await Company.edit({
         id: defaultValues.id,
@@ -110,9 +112,14 @@ export default function CompanyCard({
         <div className="">{lastlogged}</div>
         <div className="flex border-b flex-col sm:items-center space-y-2 sm:flex-row sm:space-y-0 text-sm border-primary-grey justify-between pb-3 my-12">
           <div className="break-all">{plan}</div>
-          {/* <button className="px-3 py-1.5 rounded secondary-btn">
+          <button
+            className="px-3 py-1.5 rounded secondary-btn"
+            onClick={() => {
+              setSelectPlanModalOpen(true);
+            }}
+          >
             Select plan
-          </button> */}
+          </button>
         </div>
         <div className="">{expire}</div>
         <div className="flex justify-between items-center">
@@ -137,6 +144,52 @@ export default function CompanyCard({
           </Popover>
         </div>
       </div>
+      <Transition appear show={selectPlanModalOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => {
+            setSelectPlanModalOpen(false);
+          }}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/25 " />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-start justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white text-primary-grey/80 p-6 text-left  shadow-xl transition-all">
+                  <UpgradePlan
+                    plan={plan}
+                    companyId={defaultValues.id}
+                    setPlanEditOpen={setSelectPlanModalOpen}
+                    setCompany={setCompany}
+                    defaultValues={defaultValues}
+                    company={company}
+                  />
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -165,7 +218,7 @@ export default function CompanyCard({
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-primary-grey/80 p-6 text-left align-middle shadow-xl transition-all">
                   <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="grid  gap-5 bg-white rounded-md px-9 pb-6 pt-3 max-w-2xl  mx-auto mt-4"
+                    className="grid  gap-5 bg-white rounded-md  pb-6 pt-3 max-w-2xl   mx-auto mt-4"
                   >
                     <h1 className="text-lg  mt-5 "> Edit Company</h1>
                     <div className="border-b "></div>
@@ -176,7 +229,7 @@ export default function CompanyCard({
                       <Input
                         register={register}
                         label="Company name"
-                        name="companyName"
+                        name="company_name"
                         errors={errors}
                         required={true}
                         defaultValue={name}
@@ -202,17 +255,7 @@ export default function CompanyCard({
                         defaultValue={domain}
                       />
                     </div>
-                    <div className="">
-                      <Select
-                        register={register}
-                        label="Plan "
-                        name="plan" //jkhdsf
-                        required={true}
-                        errors={errors}
-                        value={plans}
-                        selected="Select"
-                      />
-                    </div>
+
                     <div className="w-full flex justify-end">
                       <button
                         className="rounded w-fit mt-5 px-3 py-1.5 primary-btn"

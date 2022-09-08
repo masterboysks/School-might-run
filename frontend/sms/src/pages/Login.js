@@ -1,7 +1,6 @@
 import React from "react";
 import { Checkbox, Input, Password } from "../components/common/fields";
-import logo from "../assets/logoHeader.png";
-import { PrimaryButton } from "../components/common/Buttons";
+
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 export default function Login() {
@@ -35,7 +34,7 @@ export default function Login() {
         <div className=" md:flex-row box-border flex flex-col items-center justify-between w-11/12 max-w-5xl">
           <div className="md:mr-3 md:max-w-md inline-flex flex-col justify-center flex-grow max-w-sm -mt-8">
             <Link to="/">
-              <img src={logo} width={100}></img>
+              <img src="/logoHeader.png" width={100} alt="logo"></img>
             </Link>
 
             <h1 className="text-primary-grey-600 my-12 text-2xl font-semibold text-left">

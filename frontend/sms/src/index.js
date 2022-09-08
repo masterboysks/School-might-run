@@ -3,17 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainRoutes from "./routes/MainRoutes";
-import { AuthProvider } from "./contex/AuthProvider";
+import ContexProvider from "./contex/ContexProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
+      <ContexProvider>
         <Routes>
           <Route path="/*" element={<MainRoutes />} />
         </Routes>
-      </AuthProvider>
+      </ContexProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

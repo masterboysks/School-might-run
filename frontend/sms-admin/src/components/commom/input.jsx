@@ -237,7 +237,7 @@ export function MultipleSelect({
   selected, //array
 }) {
   return (
-    <>
+    <div className="w-full">
       <label
         className={`my-6 text-sm  ${error && " text-red-600"}`}
         htmlFor={id}
@@ -256,15 +256,17 @@ export function MultipleSelect({
           <Listbox.Button
             id={id}
             name={name}
-            className="  h-[38px]  p- rounded focus:ring-primary-base focus:ring-2 border px-2   border-primary-base shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-min min-w-full max-w-full text-left  "
+            className="  h-[38px]  p- rounded focus:ring-primary-base focus:ring-2 border px-2   border-primary-base shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full min-w-full max-w-full text-left  "
           >
-            <span className=" pr-2 truncate block w-28  xs:w-56 sm:w-80   ">
+            <span className=" truncate  block  sm:w-full w-40 sm:max-w-sm md:max-w-md ">
               {selected.map((person) => person).join(",")}
             </span>
             {error && (
-              <span className="text-red-600">This field is required</span>
+              <span className="text-red-600 break-all">
+                This field is required
+              </span>
             )}
-            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+            <span className="absolute inset-y-0 right-0 flex items-center py-2 pointer-events-none">
               <ChevronUpDownIcon
                 className="w-5 h-5 text-gray-400"
                 aria-hidden="true"
@@ -312,7 +314,7 @@ export function MultipleSelect({
           </Transition>
         </div>
       </Listbox>
-    </>
+    </div>
   );
 }
 export function InputWithSuffix({

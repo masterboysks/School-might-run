@@ -1,5 +1,5 @@
-import Navbar from "../admin/navbar/Navbar";
-import Sidebar from "../admin/sidebar/Sidebar";
+import Navbar from "../modules/admin/navbar/Navbar";
+import Sidebar from "../modules/admin/sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
 
 const AdminMain = () => {

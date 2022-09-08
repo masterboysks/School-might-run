@@ -32,9 +32,9 @@ export default function EditPlan({
   const [moduleError, setModulesError] = useState(false);
 
   const [included, setIncluded] = useState(
-    defaultValues.whats_included.map((c, i) => {
+    defaultValues?.whats_included?.map((c, i) => {
       return i + 1;
-    })
+    }) || [1]
   );
 
   const {

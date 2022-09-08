@@ -19,4 +19,7 @@ export default {
   plans() {
     return authorized.get("/get-all-plans");
   },
+  updatePlan({ companyId, form }) {
+    return authorized.put(`/companies/${companyId}/update-plan`, form);
+  },
 };
