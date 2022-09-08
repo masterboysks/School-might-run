@@ -2,511 +2,512 @@ import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState, lazy, Suspense } from "react";
 
-const AdminMain = lazy(() => import("../pages/AdminMain"));
-
-// const  Main=lazy(()=>import( "../modules/admin/sidebar-activities/index"))
-
-// student import
+const AdminMain = lazy(() => import("../../pages/AdminMain"));
+// student imports
 const AddStudent = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/add-student/AddStudent"
+    "../../modules/admin/sidebar-activities/student/components/add-student/AddStudent"
   )
 );
 const StudentSlidebar = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/slidebar/Slidebar"
+    "../../modules/admin/sidebar-activities/student/components/slidebar/Slidebar"
   )
 );
 const StudentInformation = lazy(() =>
-  import("../modules/admin/sidebar-activities/student/Student-information")
+  import("../../modules/admin/sidebar-activities/student/Student-information")
 );
 const StudentAttendence = lazy(() =>
-  import("../modules/admin/sidebar-activities/student/Student-attendence")
+  import("../../modules/admin/sidebar-activities/student/Student-attendence")
 );
 const AddguardianTrue = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/add-student/AddGuardianTrue"
+    "../../modules/admin/sidebar-activities/student/components/add-student/AddGuardianTrue"
   )
 );
 const AddguardianFalse = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/add-student/AddGuardianFalse"
+    "../../modules/admin/sidebar-activities/student/components/add-student/AddGuardianFalse"
   )
 );
 const WholeClass = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components-attendence/wholeClass/WholeClass"
+    "../../modules/admin/sidebar-activities/student/components-attendence/wholeClass/WholeClass"
   )
 );
 const StudentProfile = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components-attendence/studentProfile/StudentProfile"
+    "../../modules/admin/sidebar-activities/student/components-attendence/studentProfile/StudentProfile"
   )
 );
 const AddAddress = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/add-student/AddAddress"
+    "../../modules/admin/sidebar-activities/student/components/add-student/AddAddress"
   )
 );
 const AddClassDetails = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/add-student/AddClassDetails"
+    "../../modules/admin/sidebar-activities/student/components/add-student/AddClassDetails"
   )
 );
 const AddFeeDetails = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/student/components/add-student/AddFeeDetails"
+    "../../modules/admin/sidebar-activities/student/components/add-student/AddFeeDetails"
   )
 );
 // Staff immport
 const StaffSlidebar = lazy(() =>
-  import("../modules/admin/sidebar-activities/staff/slidebar.js")
+  import("../../modules/admin/sidebar-activities/staff/slidebar.js")
 );
 const StaffInformation = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/main/staff-information.js"
+    "../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information.js"
   )
 );
 const AddStaffGeneralPersonal = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-personal/AddStaffGeneralPersonal"
+    "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-personal/AddStaffGeneralPersonal"
   )
 );
 const AddStaffGeneralAddress = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-address/AddStaffGeneralAddress"
+    "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-address/AddStaffGeneralAddress"
   )
 );
 const AddStaffGeneralOffice = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice"
+    "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice"
   )
 );
 const StaffAcademicDetails = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/academic/academic-details/AcademicDetails"
+    "../../modules/admin/sidebar-activities/staff/staff-information/academic/academic-details/AcademicDetails"
   )
 );
 const AddStaffAcademicDetails = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/academic/add-acedimic-details/AddAcademicDetails"
+    "../../modules/admin/sidebar-activities/staff/staff-information/academic/add-acedimic-details/AddAcademicDetails"
   )
 );
 const AddStaffDocument = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/documents/add-document/AddDocument"
+    "../../modules/admin/sidebar-activities/staff/staff-information/documents/add-document/AddDocument"
   )
 );
 const StaffDocument = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/documents/documents/Document"
+    "../../modules/admin/sidebar-activities/staff/staff-information/documents/documents/Document"
   )
 );
 const AddStaffGeneralBase = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/general/Base"
+    "../../modules/admin/sidebar-activities/staff/staff-information/general/Base"
   )
 );
 const AddStaffAcademicBase = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/academic/base.js"
+    "../../modules/admin/sidebar-activities/staff/staff-information/academic/base.js"
   )
 );
 const AddStaffDocumentBase = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-information/documents/base.js"
+    "../../modules/admin/sidebar-activities/staff/staff-information/documents/base.js"
   )
 );
 
 // Admin Imports
 const AdminSlidebar = lazy(() =>
-  import("../modules/admin/sidebar-activities/admin/slidebar")
+  import("../../modules/admin/sidebar-activities/admin/slidebar")
 );
 const OrginazationSetup = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/organization-setup/OrginazationSetup"
+    "../../modules/admin/sidebar-activities/admin/organization-setup/OrginazationSetup"
   )
 );
 const UniversityBoard = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/university-board/university-board/UniversityBoard"
+    "../../modules/admin/sidebar-activities/admin/data-setup/university-board/university-board/UniversityBoard"
   )
 );
 const AddUniversityBoard = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/university-board/add-university-board/AddUniversityBoard"
+    "../../modules/admin/sidebar-activities/admin/data-setup/university-board/add-university-board/AddUniversityBoard"
   )
 );
 const Level = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/level/level/Level"
+    "../../modules/admin/sidebar-activities/admin/data-setup/level/level/Level"
   )
 );
 const AddLevel = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/level/add-level/AddLevel"
+    "../../modules/admin/sidebar-activities/admin/data-setup/level/add-level/AddLevel"
   )
 );
 const Faculty = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/faculty/faculty/Faculty"
+    "../../modules/admin/sidebar-activities/admin/data-setup/faculty/faculty/Faculty"
   )
 );
 const AddFaculty = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/faculty/add-faculty/AddFaculty"
+    "../../modules/admin/sidebar-activities/admin/data-setup/faculty/add-faculty/AddFaculty"
   )
 );
 const SubFaculty = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/sub-faculty/SubFaculty"
+    "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/sub-faculty/SubFaculty"
   )
 );
 const AddSubFaculty = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/add-sub-faculty/AddSubFaculty"
+    "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/add-sub-faculty/AddSubFaculty"
   )
 );
 const Section = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/section/section/Section"
+    "../../modules/admin/sidebar-activities/admin/data-setup/section/section/Section"
   )
 );
 const AddSection = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/section/add-section/AddSection"
+    "../../modules/admin/sidebar-activities/admin/data-setup/section/add-section/AddSection"
   )
 );
 const Subject = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/subject/subject/Subject"
+    "../../modules/admin/sidebar-activities/admin/data-setup/subject/subject/Subject"
   )
 );
 const AddSubject = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/subject/add-subject/AddSubject"
+    "../../modules/admin/sidebar-activities/admin/data-setup/subject/add-subject/AddSubject"
   )
 );
 const ClassSemester = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/class-semester/class-semester/ClassSemester"
+    "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/class-semester/ClassSemester"
   )
 );
 const AddClassSemester = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/class-semester/add-class-semester/AddClassSemester"
+    "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/add-class-semester/AddClassSemester"
   )
 );
 const AssignSubject = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/assign-subject/assign-subject/AssignSubject"
+    "../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/assign-subject/AssignSubject"
   )
 );
 const AddAssiginSubject = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/assign-subject/add-assign-subject/AddAssiginSubject"
+    "../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/add-assign-subject/AddAssiginSubject"
   )
 );
 const Department = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/department/department/Department"
+    "../../modules/admin/sidebar-activities/admin/data-setup/department/department/Department"
   )
 );
 const AddDepartment = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/department/add-department/AddDepartment"
+    "../../modules/admin/sidebar-activities/admin/data-setup/department/add-department/AddDepartment"
   )
 );
 const Designation = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/designation/designation/Designation"
+    "../../modules/admin/sidebar-activities/admin/data-setup/designation/designation/Designation"
   )
 );
 const AddDesignation = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/designation/add-designation/AddDesignation"
+    "../../modules/admin/sidebar-activities/admin/data-setup/designation/add-designation/AddDesignation"
   )
 );
 const AcademicYear = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/academic-year/academic-year/AcademicYear"
+    "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/academic-year/AcademicYear"
   )
 );
 const AddAcademicYear = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/academic-year/add-academic-year/AddAcademicYear"
+    "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/add-academic-year/AddAcademicYear"
   )
 );
 const FiscalYear = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/fiscal-year/FiscalYear"
+    "../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/fiscal-year/FiscalYear"
   )
 );
 const AddFiscalYear = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/add-fiscal-year/AddFiscalYear"
+    "../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/add-fiscal-year/AddFiscalYear"
   )
 );
 const AddClassShedule = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/class-shedule/add-class-shedule/AddClassShedule"
+    "../../modules/admin/sidebar-activities/admin/class-shedule/add-class-shedule/AddClassShedule"
   )
 );
 const UpgradeClass = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/upgrade-class/upgrade-class/UpgradeClass"
+    "../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade-class/UpgradeClass"
   )
 );
 const ClassSchedule = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/class-shedule/class-shedule/ClassShedule"
+    "../../modules/admin/sidebar-activities/admin/class-shedule/class-shedule/ClassShedule"
   )
 );
 const Upgrade = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/upgrade-class/upgrade/Upgrade"
+    "../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade/Upgrade"
   )
 );
 const Notice = lazy(() =>
-  import("../modules/admin/sidebar-activities/admin/notice/notice/Notice")
+  import("../../modules/admin/sidebar-activities/admin/notice/notice/Notice")
 );
 const NewNotice = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/admin/notice/new-notice/NewNotice"
+    "../../modules/admin/sidebar-activities/admin/notice/new-notice/NewNotice"
   )
 );
 const Event = lazy(() =>
-  import("../modules/admin/sidebar-activities/admin/event/event/Event")
+  import("../../modules/admin/sidebar-activities/admin/event/event/Event")
 );
 const AddEvent = lazy(() =>
-  import("../modules/admin/sidebar-activities/admin/event/add-event/AddEvent")
+  import(
+    "../../modules/admin/sidebar-activities/admin/event/add-event/AddEvent"
+  )
 );
 const Temeplate = lazy(() =>
-  import("../modules/admin/sidebar-activities/admin/tempelate/Temeplate")
+  import("../../modules/admin/sidebar-activities/admin/tempelate/Temeplate")
 );
 //
 const StaffAttendence = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/staff-attendence/main/StaffAttendence"
+    "../../modules/admin/sidebar-activities/staff/staff-attendence/main/StaffAttendence"
   )
 );
 const TeacherAssign = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/teacher-assign/teacher-assign/TeacherAssign"
+    "../../modules/admin/sidebar-activities/staff/teacher-assign/teacher-assign/TeacherAssign"
   )
 );
 const AssignTeacher = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/staff/teacher-assign/assign-teacher/AssignTeacher"
+    "../../modules/admin/sidebar-activities/staff/teacher-assign/assign-teacher/AssignTeacher"
   )
 );
 const FeeSlidebar = lazy(() =>
-  import("../modules/admin/sidebar-activities/fee/slidebar")
+  import("../../modules/admin/sidebar-activities/fee/slidebar")
 );
 const FeeType = lazy(() =>
-  import("../modules/admin/sidebar-activities/fee/fee-type/fee-type/FeeType")
+  import("../../modules/admin/sidebar-activities/fee/fee-type/fee-type/FeeType")
 );
 const AddFeeType = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-type/add-fee-type/AddFeeType"
+    "../../modules/admin/sidebar-activities/fee/fee-type/add-fee-type/AddFeeType"
   )
 );
 const FeeAssign = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-assign/fee-assign/FeeAssign"
+    "../../modules/admin/sidebar-activities/fee/fee-assign/fee-assign/FeeAssign"
   )
 );
 const Assign = lazy(() =>
-  import("../modules/admin/sidebar-activities/fee/fee-assign/assign/Assign")
+  import("../../modules/admin/sidebar-activities/fee/fee-assign/assign/Assign")
 );
 const StudentLogsheet = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/logsheet/student-logsheet/StudentLogsheet"
+    "../../modules/admin/sidebar-activities/fee/logsheet/student-logsheet/StudentLogsheet"
   )
 );
 const Logsheet = lazy(() =>
-  import("../modules/admin/sidebar-activities/fee/logsheet/logsheet/Logsheet")
+  import(
+    "../../modules/admin/sidebar-activities/fee/logsheet/logsheet/Logsheet"
+  )
 );
 const FeePayment = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-payment/fee-payment/FeePayment"
+    "../../modules/admin/sidebar-activities/fee/fee-payment/fee-payment/FeePayment"
   )
 );
 const MiscAssign = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/assign/MiscAssign"
+    "../../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/assign/MiscAssign"
   )
 );
 const MiscellaneousFeeAssign = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/miscellaneous-fee-assign/MiscellaneousFeeAssign"
+    "../../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/miscellaneous-fee-assign/MiscellaneousFeeAssign"
   )
 );
 const FeeStudent = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-payment/fee-student/FeeStudent"
+    "../../modules/admin/sidebar-activities/fee/fee-payment/fee-student/FeeStudent"
   )
 );
 const ClassFeeStatement = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-fee-statement/ClassFeeStatement"
+    "../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-fee-statement/ClassFeeStatement"
   )
 );
 const StudentFeeStatement = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-fee-statement/StudentFeeStatement"
+    "../../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-fee-statement/StudentFeeStatement"
   )
 );
 const ClassStatement = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement/ClassStatement"
+    "../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement/ClassStatement"
   )
 );
 const StudentStatement = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-statement/StudentStatement"
+    "../../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-statement/StudentStatement"
   )
 );
 const ClassStatementMonthly = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement-monthly/ClassStatementMonthly"
+    "../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement-monthly/ClassStatementMonthly"
   )
 );
 const ExamSlidebar = lazy(() =>
-  import("../modules/admin/sidebar-activities/exam/ExamSlidebar")
+  import("../../modules/admin/sidebar-activities/exam/ExamSlidebar")
 );
 const ExamName = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/exam-name/exam-name/ExamName"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-name/exam-name/ExamName"
   )
 );
 const AddExamName = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/exam-name/add-exam-name/AddExamName"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-name/add-exam-name/AddExamName"
   )
 );
 const GradeSystem = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/grade-system/grade-system/GradeSystem"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/grade-system/grade-system/GradeSystem"
   )
 );
 const AddGradeSystem = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/grade-system/add-grade-system/AddGradeSystem"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/grade-system/add-grade-system/AddGradeSystem"
   )
 );
 const ExamMarksName = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/exam-marks-name/ExamMarksName"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/exam-marks-name/ExamMarksName"
   )
 );
 const AddExamMarksName = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/add-exam-marks-name/AddExamMarksName"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/add-exam-marks-name/AddExamMarksName"
   )
 );
 const AssignExam = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-mark/AssignExam"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-mark/AssignExam"
   )
 );
 const AssignAssignExam = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-assign-mark/AssignAssignExam"
+    "../../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-assign-mark/AssignAssignExam"
   )
 );
 const MarkLedger = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/mark-ledger/mark-ledger/MarkLedger"
+    "../../modules/admin/sidebar-activities/exam/mark-ledger/mark-ledger/MarkLedger"
   )
 );
 const ViewMarkLedger = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/ViewMarkLedger"
+    "../../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/ViewMarkLedger"
   )
 );
 const OpenMarksheet = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/open-marksheet/OpenMarksheet"
+    "../../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/open-marksheet/OpenMarksheet"
   )
 );
 const ExamShedule = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-shedule/exam-shedule/ExamShedule"
+    "../../modules/admin/sidebar-activities/exam/exam-shedule/exam-shedule/ExamShedule"
   )
 );
 const SheduleExamShedule = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-shedule/shedule-exam-shedule/SheduleExamShedule"
+    "../../modules/admin/sidebar-activities/exam/exam-shedule/shedule-exam-shedule/SheduleExamShedule"
   )
 );
 const AddSheduleExamShedule = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/exam-shedule/add-shedule-exam-shedule/AddSheduleExamShedule"
+    "../../modules/admin/sidebar-activities/exam/exam-shedule/add-shedule-exam-shedule/AddSheduleExamShedule"
   )
 );
 const AdmitCard = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/admit-card/admit-card/AdmitCard"
+    "../../modules/admin/sidebar-activities/exam/admit-card/admit-card/AdmitCard"
   )
 );
 const AssignAdmitCard = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/exam/admit-card/assign-admit-card/AssignAdmitCard"
+    "../../modules/admin/sidebar-activities/exam/admit-card/assign-admit-card/AssignAdmitCard"
   )
 );
 // routes of report
 const StudentAttendenceReportClasses = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/attendence-report/student-attendence-report/classes/StudentAttendenceReportClasses"
+    "../../modules/admin/sidebar-activities/report/attendence-report/student-attendence-report/classes/StudentAttendenceReportClasses"
   )
 );
 const ReportSlidebar = lazy(() =>
-  import("../modules/admin/sidebar-activities/report/slidebar")
+  import("../../modules/admin/sidebar-activities/report/slidebar")
 );
 const StudentAttendenceReportClass = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/attendence-report/student-attendence-report/class/StudentAttendenceReportClass"
+    "../../modules/admin/sidebar-activities/report/attendence-report/student-attendence-report/class/StudentAttendenceReportClass"
   )
 );
 const StaffAttendenceReport = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/attendence-report/staff-sttendence-report/StaffAttendenceReport"
+    "../../modules/admin/sidebar-activities/report/attendence-report/staff-sttendence-report/StaffAttendenceReport"
   )
 );
 const ExamReportClasses = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/exam-report/exam-report-classes/ExamReportClasses"
+    "../../modules/admin/sidebar-activities/report/exam-report/exam-report-classes/ExamReportClasses"
   )
 );
 const ExamReportClass = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/exam-report/exam-report-class/ExamReportClass"
+    "../../modules/admin/sidebar-activities/report/exam-report/exam-report-class/ExamReportClass"
   )
 );
 const FeeReport = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/fee-report/fee-report/FeeReport"
+    "../../modules/admin/sidebar-activities/report/fee-report/fee-report/FeeReport"
   )
 );
 const MonthlyFeeStatementReport = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/fee-report/monthly-fee-statement-report/MonthlyFeeStatementReport"
+    "../../modules/admin/sidebar-activities/report/fee-report/monthly-fee-statement-report/MonthlyFeeStatementReport"
   )
 );
 const FeeStatementReport = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/fee-report/fee-statement-report/FeeStatementReport"
+    "../../modules/admin/sidebar-activities/report/fee-report/fee-statement-report/FeeStatementReport"
   )
 );
 const TopperReportClasses = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/topper-report/topper-report-classes/TopperReportClasses"
+    "../../modules/admin/sidebar-activities/report/topper-report/topper-report-classes/TopperReportClasses"
   )
 );
 const TopperReportClass = lazy(() =>
   import(
-    "../modules/admin/sidebar-activities/report/topper-report/topper-report-class/TopperReportClass"
+    "../../modules/admin/sidebar-activities/report/topper-report/topper-report-class/TopperReportClass"
   )
 );
 

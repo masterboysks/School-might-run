@@ -1,8 +1,13 @@
 import React from "react";
-import { Checkbox, Input, Password } from "../components/common/fields";
+import { Input, Password } from "../components/common/fields";
 
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Auth from "../api/Auth";
+import { useState } from "react";
+import AuthContext from "../contex/AuthProvider";
+import { useContext } from "react";
+// import Error from "../components/loginError/Error";
 export default function Login() {
   const {
     register,
@@ -10,26 +15,41 @@ export default function Login() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const onSubmit = (data) => {
+  // const { abc } = useParams();
+  const { auth, setAuth } = useContext(AuthContext);
+  const [errorText, setErrorText] = useState("");
+  // console.log(abc);
+  const onSubmit = async (data) => {
     console.log(data);
-    switch (data.username) {
-      case "admin":
-        navigate("/admin/dashboard/");
-        break;
-      case "student":
-        navigate("student/dashboard");
-        break;
-      case "parent":
-        navigate("parent/dashboard");
-        break;
-      case "teacher":
-        navigate("teacher/dashboard");
-        break;
-      default:
+
+    try {
+      const res = await Auth.login(data);
+
+      setAuth(res.data.data.token.access_token);
+      localStorage.setItem("kcx", res.data.data.token.refresh_token);
+      switch (res.data.data.meta.type) {
+        case "student":
+          navigate("student/dashboard");
+          break;
+        case "parent":
+          navigate("parent/dashboard");
+          break;
+        case "teacher":
+          navigate("teacher/dashboard");
+          break;
+        default:
+          navigate("admin/dashboard");
+      }
+    } catch (err) {
+      err.response?.status === 422 && setErrorText("Invalid Credentials");
+      (err.response?.status === 404 ||
+        err.response?.status?.toString().substring(0, 1) === "5") &&
+        setErrorText("Server error");
     }
   };
   return (
     <>
+      {/* {abc && <Error error={abc} />} */}
       <div className="min-w-[100vw] min-h-[100vh] flex items-center justify-center  bg-primary-grey-100 text-primary-grey  text-">
         <div className=" md:flex-row box-border flex flex-col items-center justify-between w-11/12 max-w-5xl">
           <div className="md:mr-3 md:max-w-md inline-flex flex-col justify-center flex-grow max-w-sm -mt-8">
@@ -46,11 +66,11 @@ export default function Login() {
               className=" rounded-xl box-border px-5 py-5 mx-auto my-3 bg-white shadow-2xl"
               onSubmit={handleSubmit(onSubmit)}
             >
+              {errorText && <span className="text-red-600">{errorText}</span>}
               <Input
                 placeholder="username"
                 register={register}
                 required={true}
-                // showError={false}
                 className="mb-4"
                 name="username"
                 errors={errors}
@@ -61,19 +81,19 @@ export default function Login() {
                 name="password"
                 register={register}
                 type="password"
-                errorText="Invalid credentials."
+                errorText="Please enter password"
                 errors={errors}
                 className="mb-4"
                 required={true}
               />
-
+              {/* 
               <Checkbox
                 label="Remember me:"
                 name="remember"
                 register={register}
                 className="mt-3"
                 id="remember_me"
-              />
+              /> */}
               <br />
               <button
                 className=" focus:outline-none primary_btn w-full mb-5"

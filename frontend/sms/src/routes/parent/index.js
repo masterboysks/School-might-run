@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ParentMain from "../pages/ParentMain";
+import ParentMain from "../../pages/ParentMain";
 
 export default function ParentRoutes() {
   return (

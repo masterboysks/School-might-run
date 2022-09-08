@@ -38,7 +38,6 @@ export default function Index() {
 
       access_token && navigate("/admin/dashboard");
     } catch (e) {
-      console.error(e);
       setError("password", { type: "focus" });
       setErrorText(() => {
         if (e.message === "Network Error") return "Network error";
@@ -91,13 +90,13 @@ export default function Index() {
                 required={true}
               />
 
-              <Checkbox
+              {/* <Checkbox
                 label="Remember me:"
                 name="remember"
                 register={register}
                 className="mt-3"
                 id="remember_me"
-              />
+              /> */}
               <br />
               <button
                 className=" w-full  mb-5 primary-btn  py-2 rounded "
