@@ -49,14 +49,17 @@ const AdminMain = () => {
         try {
           authorized.defaults.headers.Authorization = `Bearer ${auth}`;
           modules = await Info.get();
-          setSidebarData(modules.data.data.modules);
+          console.log(modules);
+          setSidebarData(modules.data?.data?.modules);
           if (!modules) throw { message: "Modules not found", status: "404" };
           modules && setLoading(false);
         } catch (e) {
+          // console.log(e);
           navigate("/");
         }
       })();
     } catch (error) {
+      // console.log(error);
       navigate("/");
     }
   }, []);

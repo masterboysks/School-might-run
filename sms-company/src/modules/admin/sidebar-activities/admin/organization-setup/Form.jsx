@@ -1,153 +1,100 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import countries from "../../../../../api/country/country";
 import {
   Input,
   Select,
   UploadPhoto,
-} from "../../../../../components/common/oldFields";
+} from "../../../../../components/common/fields";
 
+const arrayDateFormat = ["AD", "BS"];
 const Form = () => {
-  const arrayCountry = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
-  const arrayProvince = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
-  const arrayDistrict = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
-  const arrayVdcMuncaliplity = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
-  const arrayDateFormat = ["AD", "BS"];
-  const [schoolName, setSchoolName] = useState("");
-  const [registrationNo, setRegistrationNo] = useState("");
-  const [panNo, setPanNo] = useState("");
-  const [eduRegistration, setEduRegistration] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [telephone, setTelephone] = useState("");
-  const [alternative, setAlternative] = useState("");
-  const [website, setWebsite] = useState("");
-  const [mail, setMail] = useState("");
-  const [country, setCountry] = useState("Select");
-  const [province, setProvince] = useState("Select");
-  const [district, setDistrict] = useState("Select");
-  const [vdcMuncaliplity, setVdcMuncaliplity] = useState("Select");
-  const [wardNo, setWardNo] = useState("");
-  const [tole, setTole] = useState("");
-  const [mapLink, setMapLink] = useState("");
-  const [dateFormat, setDateFormat] = useState("Select");
-  const [establishedDate, setEstablishedDate] = useState("");
-  const [schoolLogo, setSchoolLogo] = useState("");
-  const [schoolStamp, setSchoolStamp] = useState("");
-  // error state
-  const [errorSchoolName, setErrorSchoolName] = useState(false);
-  const [errorRegistrationNo, setErrorRegistrationNo] = useState(false);
-  const [errorPanNo, setErrorPanNo] = useState(false);
-  const [errorEduRegistrationNo, setErrorEduRegistrationNo] = useState(false);
-  const [errorMobileNo, setErrorMobileNo] = useState(false);
-  const [errorTelephoneNo, setErrorTelephoneNo] = useState(false);
-  const [errorCountry, setErrorCountry] = useState(false);
-  const [errorProvince, setErrorProvince] = useState(false);
-  const [errorDistrict, setErrorDistrict] = useState(false);
-  const [errorVdcMuncaliplity, setErrorVdcMuncaliplity] = useState(false);
-  const [errorWardNo, setErrorWardNo] = useState(false);
-  const [errorToleNo, setErrorToleNo] = useState(false);
-  const [errorDateFormat, setErrorDateFormat] = useState(false);
-  const [errorEstablishedDate, setErrorEstablishedDate] = useState(false);
-  const [errorSchoolLogo, setErrorSchoolLogo] = useState(false);
-  const [errorSchoolStamp, setErrorSchoolStamp] = useState(false);
-  //
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({
-      schoolName,
-      registrationNo,
-      panNo,
-      eduRegistration,
-      postalCode,
-      mobileNumber,
-      telephone,
-      alternative,
-      website,
-      mail,
-      country,
-      province,
-      district,
-      vdcMuncaliplity,
-      wardNo,
-      tole,
-      mapLink,
-      dateFormat,
-      establishedDate,
-      schoolLogo,
-      schoolStamp,
-    });
-    let temp = false;
-    schoolName || ((temp = true) && setErrorSchoolName(true));
-    registrationNo || ((temp = true) && setErrorRegistrationNo(true));
-    panNo || ((temp = true) && setErrorPanNo(true));
-    eduRegistration || ((temp = true) && setErrorEduRegistrationNo(true));
-    mobileNumber || ((temp = true) && setErrorMobileNo(true));
-    telephone || ((temp = true) && setErrorTelephoneNo(true));
-    wardNo || ((temp = true) && setErrorWardNo(true));
-    tole || ((temp = true) && setErrorToleNo(true));
-    establishedDate || ((temp = true) && setErrorEstablishedDate(true));
-    schoolLogo || ((temp = true) && setErrorSchoolLogo(true));
-    schoolStamp || ((temp = true) && setErrorSchoolStamp(true));
-    country === "Select" && (temp = true) && setErrorCountry(true);
-    province === "Select" && (temp = true) && setErrorProvince(true);
-    district === "Select" && (temp = true) && setErrorDistrict(true);
-    vdcMuncaliplity === "Select" &&
-      (temp = true) &&
-      setErrorVdcMuncaliplity(true);
-    dateFormat === "Select" && (temp = true) && setErrorDateFormat(true);
+  const {
+    register,
+    handleSubmit,
+    setError,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const [country, province, district] = watch([
+    "country",
+    "province",
+    "district",
+  ]);
+  const [arrayCountry, setArrayCountry] = useState([]);
+  const [arrayProvince, setArrayProvince] = useState([]);
+  const [arrayDistrict, setArrayDistrict] = useState([]);
+  const [arrayVdcMunicalipality, setArrayVdcMunicalipality] = useState([]);
+  useEffect(() => {}, [country, province, district]);
+  useEffect(() => {
+    (async () => {
+      const data = await countries.country();
+      console.log(data.data.data);
+      //  setArrayCountry(data?.data?.data?.country)
+    })();
+  }, []);
 
-    temp || navigate("/admin/organization-setup");
+  const navigate = useNavigate();
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
-    <form className="form-solid w-full my-6 rounded-md">
+    <form
+      className="form-solid w-full my-6 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
           <Input
-            label="School/Collrge Name*"
+            label="School/College Name*"
+            register={register}
             placeholder="XYZ school"
-            error={errorSchoolName}
-            setError={setErrorSchoolName}
-            value={schoolName}
-            setValue={setSchoolName}
+            errors={errors}
+            required={true}
+            name="company_name"
           />
         </div>
         <div className="">
           <Input
             label="Registration no.*"
+            register={register}
             placeholder="468456464584464"
-            error={errorRegistrationNo}
-            setError={setErrorRegistrationNo}
-            value={registrationNo}
-            setValue={setRegistrationNo}
+            errors={errors}
+            required={true}
+            name="registration_no"
+            type="number"
           />
         </div>
         <div className="">
           <Input
             label="Pan no.*"
+            register={register}
+            errors={errors}
+            required={true}
+            name="pan_no"
             placeholder="21445165412154"
-            error={errorPanNo}
-            setError={setErrorPanNo}
-            value={panNo}
-            setValue={setPanNo}
+            type="number"
           />
         </div>
 
-        <div className="">
+        {/* <div className="">
           <Input
             label="Education reg. no*"
             placeholder="21445165412152154"
-            error={errorEduRegistrationNo}
-            setError={setErrorEduRegistrationNo}
-            value={eduRegistration}
-            setValue={setEduRegistration}
+            register={register}
+            errors={errors}
+            name=""
+            required={true}
+            type="number"
           />
-        </div>
+        </div> */}
         <div className="">
           <Input
             label="Postal code"
             placeholder="33650"
-            value={postalCode}
-            setValue={setPostalCode}
+            register={register}
+            name="postal_code"
             type="number"
           />
         </div>
@@ -155,10 +102,10 @@ const Form = () => {
           <Input
             label="Mobile Number*"
             placeholder="214451654"
-            error={errorMobileNo}
-            setError={setErrorMobileNo}
-            value={mobileNumber}
-            setValue={setMobileNumber}
+            name="mobile_no"
+            errors={errors}
+            required={true}
+            register={register}
             type="number"
           />
         </div>
@@ -166,10 +113,10 @@ const Form = () => {
           <Input
             label="Telephone Number*"
             placeholder="01-5521332"
-            error={errorTelephoneNo}
-            setError={setErrorTelephoneNo}
-            value={telephone}
-            setValue={setTelephone}
+            register={register}
+            errors={errors}
+            required={true}
+            name="tel_no"
             type="number"
           />
         </div>
@@ -177,28 +124,31 @@ const Form = () => {
           <Input
             label="Alternative Number"
             placeholder="01-5521335"
-            value={alternative}
-            setValue={setAlternative}
+            name="alt_tel_no"
+            register={register}
             type="number"
           />
         </div>
         <div className="">
           <Input
             label="Website"
-            placeholder="www.xyz.com"
-            value={website}
-            setValue={setWebsite}
+            placeholder="https://www.xyz.com"
+            register={register}
+            type="url"
+            name="website"
           />
         </div>
         <div className="">
           <Input
             label="Email"
+            name="company_email"
+            type="email"
             placeholder="mail@xyz.com.edu"
-            value={mail}
-            setValue={setMail}
+            register={register}
           />
         </div>
-        <div className="">
+
+        {/* <div className="">
           <Select
             label="Country*"
             value={arrayCountry}
@@ -208,7 +158,7 @@ const Form = () => {
             setSelected={setCountry}
           />
         </div>
-        <div className="">
+       { (country&&arrayProvince)?<div className="">
           <Select
             label="Province*"
             value={arrayProvince}
@@ -217,7 +167,9 @@ const Form = () => {
             selected={province}
             setSelected={setProvince}
           />
-        </div>
+        </div>:}{
+(province&&arrayDistrict)?
+
         <div className="">
           <Select
             label="District*"
@@ -227,24 +179,28 @@ const Form = () => {
             selected={district}
             setSelected={setDistrict}
           />
-        </div>
-        <div className="">
+        </div>:
+        }
+        {
+        (district&&arrayVdcMunicalipality)
+        ?  <div className="">
           <Select
             label="VDC/Municipality*"
-            value={arrayVdcMuncaliplity}
+            value={arrayVdcMunicalipality}
             error={errorVdcMuncaliplity}
             setError={setErrorVdcMuncaliplity}
             selected={vdcMuncaliplity}
             setSelected={setVdcMuncaliplity}
-          />
-        </div>
+            />
+            </div>
+          :} */}
         <div className="">
           <Input
             label="Ward no.*"
-            error={errorWardNo}
-            setError={setErrorWardNo}
-            value={wardNo}
-            setValue={setWardNo}
+            name="ward_no"
+            register={register}
+            errors={errors}
+            required={true}
             placeholder="11"
             type="number"
           />
@@ -252,18 +208,19 @@ const Form = () => {
         <div className="">
           <Input
             label="Tole.*"
-            error={errorToleNo}
-            setError={setErrorToleNo}
-            value={tole}
-            setValue={setTole}
+            required={true}
+            errors={errors}
+            register={register}
+            name="tole"
             placeholder="XYZ"
           />
         </div>
         <div className="">
           <Input
             label="Google map link"
-            value={mapLink}
-            setValue={setMapLink}
+            name="google_map_link"
+            type="url"
+            register={register}
             placeholder="Link here"
           />
         </div>
@@ -271,10 +228,10 @@ const Form = () => {
           <Select
             label="AD/BS*"
             value={arrayDateFormat}
-            error={errorDateFormat}
-            setError={setErrorDateFormat}
-            selected={dateFormat}
-            setSelected={setDateFormat}
+            register={register}
+            errors={errors}
+            required={true}
+            name="date_format"
           />
 
           <span className="text-sm">
@@ -284,24 +241,24 @@ const Form = () => {
         <div className="">
           <Input
             label="Established date*"
-            error={errorEstablishedDate}
-            setError={setErrorEstablishedDate}
-            value={establishedDate}
-            setValue={setEstablishedDate}
+            register={register}
+            name="established_date"
+            errors={errors}
+            required={true}
             type="date"
           />
         </div>
         <div className="">
           <UploadPhoto
             label="School logo*"
-            error={errorSchoolLogo}
-            setError={setErrorSchoolLogo}
-            value={schoolLogo}
-            setValue={setSchoolLogo}
+            name="school_logo"
+            register={register}
+            errors={errors}
+            required={true}
             id="school_logo"
           />
         </div>
-        <div className="">
+        {/* <div className="">
           <UploadPhoto
             label="School Stamp*"
             error={errorSchoolStamp}
@@ -310,7 +267,7 @@ const Form = () => {
             setValue={setSchoolStamp}
             id="school_stamp"
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="md:flex-row flex flex-col justify-between w-full my-6">
@@ -325,12 +282,12 @@ const Form = () => {
           >
             Cancel
           </Link>
-          <div
-            onClick={handleSubmit}
+          <button
+            type="submit"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Save
-          </div>
+          </button>
         </div>
       </div>
     </form>
@@ -338,6 +295,350 @@ const Form = () => {
 };
 
 export default Form;
+
+// FIXME
+// import { useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import {
+//   Input,
+//   Select,
+//   UploadPhoto,
+// } from "../../../../../components/common/fields";
+
+// const arrayDateFormat = ["AD", "BS"];
+// const Form = () => {
+//   const arrayCountry = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
+//   const arrayProvince = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
+//   const arrayDistrict = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
+//   const arrayVdcMunicalipality = ["Nepal", "jhdsgf", "jdkhgfhds", "sjdhgfugfj"];
+//   // const [schoolName, setSchoolName] = useState("");
+//   // const [registrationNo, setRegistrationNo] = useState("");
+//   // const [panNo, setPanNo] = useState("");
+//   // const [eduRegistration, setEduRegistration] = useState("");
+//   // const [postalCode, setPostalCode] = useState("");
+//   // const [mobileNumber, setMobileNumber] = useState("");
+//   // const [telephone, setTelephone] = useState("");
+//   // const [alternative, setAlternative] = useState("");
+//   // const [website, setWebsite] = useState("");
+//   // const [mail, setMail] = useState("");
+//   // const [country, setCountry] = useState("Select");
+//   // const [province, setProvince] = useState("Select");
+//   // const [district, setDistrict] = useState("Select");
+//   // const [vdcMuncaliplity, setVdcMuncaliplity] = useState("Select");
+//   // const [wardNo, setWardNo] = useState("");
+//   // const [tole, setTole] = useState("");
+//   // const [mapLink, setMapLink] = useState("");
+//   // const [dateFormat, setDateFormat] = useState("Select");
+//   // const [establishedDate, setEstablishedDate] = useState("");
+//   // const [schoolLogo, setSchoolLogo] = useState("");
+//   // const [schoolStamp, setSchoolStamp] = useState("");
+//   // // error state
+//   // const [errorSchoolName, setErrorSchoolName] = useState(false);
+//   // const [errorRegistrationNo, setErrorRegistrationNo] = useState(false);
+//   // const [errorPanNo, setErrorPanNo] = useState(false);
+//   // const [errorEduRegistrationNo, setErrorEduRegistrationNo] = useState(false);
+//   // const [errorMobileNo, setErrorMobileNo] = useState(false);
+//   // const [errorTelephoneNo, setErrorTelephoneNo] = useState(false);
+//   // const [errorCountry, setErrorCountry] = useState(false);
+//   // const [errorProvince, setErrorProvince] = useState(false);
+//   // const [errorDistrict, setErrorDistrict] = useState(false);
+//   // const [errorVdcMuncaliplity, setErrorVdcMuncaliplity] = useState(false);
+//   // const [errorWardNo, setErrorWardNo] = useState(false);
+//   // const [errorToleNo, setErrorToleNo] = useState(false);
+//   // const [errorDateFormat, setErrorDateFormat] = useState(false);
+//   // const [errorEstablishedDate, setErrorEstablishedDate] = useState(false);
+//   // const [errorSchoolLogo, setErrorSchoolLogo] = useState(false);
+//   // const [errorSchoolStamp, setErrorSchoolStamp] = useState(false);
+//   //
+//   const navigate = useNavigate();
+//   const onSubmit = (data) => {
+//     console.log(data);
+//     // console.log({
+//     //   schoolName,
+//     //   registrationNo,
+//     //   panNo,
+//     //   eduRegistration,
+//     //   postalCode,
+//     //   mobileNumber,
+//     //   telephone,
+//     //   alternative,
+//     //   website,
+//     //   mail,
+//     //   country,
+//     //   province,
+//     //   district,
+//     //   vdcMuncaliplity,
+//     //   wardNo,
+//     //   tole,
+//     //   mapLink,
+//     //   dateFormat,
+//     //   establishedDate,
+//     //   schoolLogo,
+//     //   schoolStamp,
+//     // });
+//     // let temp = false;
+//     // schoolName || ((temp = true) && setErrorSchoolName(true));
+//     // registrationNo || ((temp = true) && setErrorRegistrationNo(true));
+//     // panNo || ((temp = true) && setErrorPanNo(true));
+//     // eduRegistration || ((temp = true) && setErrorEduRegistrationNo(true));
+//     // mobileNumber || ((temp = true) && setErrorMobileNo(true));
+//     // telephone || ((temp = true) && setErrorTelephoneNo(true));
+//     // wardNo || ((temp = true) && setErrorWardNo(true));
+//     // tole || ((temp = true) && setErrorToleNo(true));
+//     // establishedDate || ((temp = true) && setErrorEstablishedDate(true));
+//     // schoolLogo || ((temp = true) && setErrorSchoolLogo(true));
+//     // schoolStamp || ((temp = true) && setErrorSchoolStamp(true));
+//     // country === "Select" && (temp = true) && setErrorCountry(true);
+//     // province === "Select" && (temp = true) && setErrorProvince(true);
+//     // district === "Select" && (temp = true) && setErrorDistrict(true);
+//     // vdcMuncaliplity === "Select" &&
+//     //   (temp = true) &&
+//     //   setErrorVdcMuncaliplity(true);
+//     // dateFormat === "Select" && (temp = true) && setErrorDateFormat(true);
+
+//     // temp || navigate("/admin/organization-setup");
+//   };
+//   return (
+//     <form className="form-solid w-full my-6 rounded-md" onSubmit={handleSubmit}>
+//       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+//         <div>
+//           <Input
+//             label="School/Collrge Name*"
+//             placeholder="XYZ school"
+//             error={errorSchoolName}
+//             setError={setErrorSchoolName}
+//             value={schoolName}
+//             setValue={setSchoolName}
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Registration no.*"
+//             placeholder="468456464584464"
+//             error={errorRegistrationNo}
+//             setError={setErrorRegistrationNo}
+//             value={registrationNo}
+//             setValue={setRegistrationNo}
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Pan no.*"
+//             placeholder="21445165412154"
+//             error={errorPanNo}
+//             setError={setErrorPanNo}
+//             value={panNo}
+//             setValue={setPanNo}
+//           />
+//         </div>
+
+//         <div className="">
+//           <Input
+//             label="Education reg. no*"
+//             placeholder="21445165412152154"
+//             error={errorEduRegistrationNo}
+//             setError={setErrorEduRegistrationNo}
+//             value={eduRegistration}
+//             setValue={setEduRegistration}
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Postal code"
+//             placeholder="33650"
+//             value={postalCode}
+//             setValue={setPostalCode}
+//             type="number"
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Mobile Number*"
+//             placeholder="214451654"
+//             error={errorMobileNo}
+//             setError={setErrorMobileNo}
+//             value={mobileNumber}
+//             setValue={setMobileNumber}
+//             type="number"
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Telephone Number*"
+//             placeholder="01-5521332"
+//             error={errorTelephoneNo}
+//             setError={setErrorTelephoneNo}
+//             value={telephone}
+//             setValue={setTelephone}
+//             type="number"
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Alternative Number"
+//             placeholder="01-5521335"
+//             value={alternative}
+//             setValue={setAlternative}
+//             type="number"
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Website"
+//             placeholder="www.xyz.com"
+//             value={website}
+//             setValue={setWebsite}
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Email"
+//             placeholder="mail@xyz.com.edu"
+//             value={mail}
+//             setValue={setMail}
+//           />
+//         </div>
+//         <div className="">
+//           <Select
+//             label="Country*"
+//             value={arrayCountry}
+//             error={errorCountry}
+//             setError={setErrorCountry}
+//             selected={country}
+//             setSelected={setCountry}
+//           />
+//         </div>
+//         <div className="">
+//           <Select
+//             label="Province*"
+//             value={arrayProvince}
+//             error={errorProvince}
+//             setError={setErrorProvince}
+//             selected={province}
+//             setSelected={setProvince}
+//           />
+//         </div>
+//         <div className="">
+//           <Select
+//             label="District*"
+//             value={arrayDistrict}
+//             error={errorDistrict}
+//             setError={setErrorDistrict}
+//             selected={district}
+//             setSelected={setDistrict}
+//           />
+//         </div>
+//         <div className="">
+//           <Select
+//             label="VDC/Municipality*"
+//             value={arrayVdcMunicalipality}
+//             error={errorVdcMuncaliplity}
+//             setError={setErrorVdcMuncaliplity}
+//             selected={vdcMuncaliplity}
+//             setSelected={setVdcMuncaliplity}
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Ward no.*"
+//             error={errorWardNo}
+//             setError={setErrorWardNo}
+//             value={wardNo}
+//             setValue={setWardNo}
+//             placeholder="11"
+//             type="number"
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Tole.*"
+//             error={errorToleNo}
+//             setError={setErrorToleNo}
+//             value={tole}
+//             setValue={setTole}
+//             placeholder="XYZ"
+//           />
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Google map link"
+//             value={mapLink}
+//             setValue={setMapLink}
+//             placeholder="Link here"
+//           />
+//         </div>
+//         <div className="">
+//           <Select
+//             label="AD/BS*"
+//             value={arrayDateFormat}
+//             error={errorDateFormat}
+//             setError={setErrorDateFormat}
+//             selected={dateFormat}
+//             setSelected={setDateFormat}
+//           />
+
+//           <span className="text-sm">
+//             Note:Selected date format will be used in whole system.
+//           </span>
+//         </div>
+//         <div className="">
+//           <Input
+//             label="Established date*"
+//             error={errorEstablishedDate}
+//             setError={setErrorEstablishedDate}
+//             value={establishedDate}
+//             setValue={setEstablishedDate}
+//             type="date"
+//           />
+//         </div>
+//         <div className="">
+//           <UploadPhoto
+//             label="School logo*"
+//             error={errorSchoolLogo}
+//             setError={setErrorSchoolLogo}
+//             value={schoolLogo}
+//             setValue={setSchoolLogo}
+//             id="school_logo"
+//           />
+//         </div>
+//         <div className="">
+//           <UploadPhoto
+//             label="School Stamp*"
+//             error={errorSchoolStamp}
+//             setError={setErrorSchoolStamp}
+//             value={schoolStamp}
+//             setValue={setSchoolStamp}
+//             id="school_stamp"
+//           />
+//         </div>
+//       </div>
+
+//       <div className="md:flex-row flex flex-col justify-between w-full my-6">
+//         <div className="w-44">
+//           *Note:Please upload logo of school as below
+//           <img src="/logoHeader.png" alt="" className="my-3" />
+//         </div>
+//         <div className=" w-fit my-auto">
+//           <Link
+//             to="#"
+//             className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
+//           >
+//             Cancel
+//           </Link>
+//           <button
+//           type="submit"
+//             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
+//           >
+//             Save
+//           </button>
+//         </div>
+//       </div>
+//     </form>
+//   );
+// };
+
+// export default Form;
+// FIXME
 
 // import { Link } from "react-router-dom";
 // import logo from "../../../../assets/logoHeader.png";

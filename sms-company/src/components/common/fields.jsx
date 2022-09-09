@@ -452,23 +452,20 @@ export const Upload = ({
 export const UploadPhoto = ({
   label,
   name,
-  error,
-  setError,
-  value,
-  setValue,
-  dataTitle,
-  dataValue,
+  errors,
+  register,
+  required = false,
+  showError = true,
   uploadText,
+  errorText,
   id,
 }) => {
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
   return (
     <>
       <div className="">
         <label
           htmlFor={id}
-          className={`${error && "text-red-600 "} block text-sm`}
+          className={`${errors[name] && "text-red-600 "} block text-sm`}
         >
           {label}
         </label>
@@ -485,18 +482,13 @@ export const UploadPhoto = ({
             </span>
             <input
               type="file"
-              className="text-primary-gray- hover:bg-gray-50 focus:outline-none focus:ring- focus:ring-offset-2 hidden px-3 py-2 ml-5 text-sm font-medium leading-4 bg-white rounded-md"
               name={name}
               id={id}
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-              }}
-              {...optional}
-              onClick={() => {
-                error && setError(false);
-              }}
+              className="sr-only"
+              {...register(name, { required })}
+              accept="image/*"
             />
+            {/* className="text-primary-gray- hover:bg-gray-50 focus:outline-none focus:ring- focus:ring-offset-2 hidden px-3 py-2 ml-5 text-sm font-medium leading-4 bg-white rounded-md" */}
             <label
               htmlFor={id}
               className="bg-primary-grey-200 cursor-pointer border-primary-field border-[1px] rounded ml-2 p-1 text-primary-grey-700"
@@ -505,10 +497,10 @@ export const UploadPhoto = ({
             </label>
           </div>
         </div>
-        {error && (
+        {showError && errors[name] && (
           <>
             <span className="text-xs font-light text-red-600">
-              This is a required field
+              {errorText || " This is a required field."}
             </span>
             <br />
           </>

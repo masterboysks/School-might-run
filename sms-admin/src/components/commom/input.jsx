@@ -121,6 +121,7 @@ export const Upload = ({
   required = false,
   showError,
   uploadText,
+  errorText,
 }) => {
   return (
     <>
