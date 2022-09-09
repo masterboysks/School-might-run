@@ -196,7 +196,7 @@ export const InputDisabled = ({
   );
 };
 // select disabled
-export const SelectDisabled = ({ label, id, name, value, className }) => {
+export const SelectDisabled = ({ label, value, className }) => {
   return (
     <>
       <label className={`my-6 text-sm `}>{label}</label>

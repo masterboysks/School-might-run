@@ -9,12 +9,12 @@ const countries = {
   },
   district(country, province) {
     return countryAPI.get(
-      `/get-provinces?country_id=${country}&province_id=${province}`
+      `/get-districts?country_id=${country}&province_id=${province}`
     );
   },
   municipality(country, province, district) {
     return countryAPI.get(
-      `/get-provinces?country_id=${country}&province_id=${province}&district_id=${district}`
+      `/get-municipalities?country_id=${country}&province_id=${province}&district_id=${district}`
     );
   },
 };
