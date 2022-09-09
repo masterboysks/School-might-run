@@ -29,7 +29,7 @@ export default function PlanCard({
   return (
     <>
       <div
-        className={`relative mt-6 rounded  bg-white w-full max-w-md py-6 px-4 ${
+        className={`relative mt-6 rounded mx-auto  bg-white w-full max-w-md py-6 px-4 ${
           status || "opacity-60"
         }`}
       >

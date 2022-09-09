@@ -13,6 +13,7 @@ const AdminMain = () => {
   const { setAuth, auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [sidebarData, setSidebarData] = useState([]);
   let modules;
   authorized.interceptors.response.use(
     (config) => {
@@ -47,10 +48,8 @@ const AdminMain = () => {
       (async () => {
         try {
           authorized.defaults.headers.Authorization = `Bearer ${auth}`;
-          // eslint-disable-next-line react-hooks/exhaustive-deps
           modules = await Info.get();
-
-          // eslint-disable-next-line no-throw-literal
+          setSidebarData(modules.data.data.modules);
           if (!modules) throw { message: "Modules not found", status: "404" };
           modules && setLoading(false);
         } catch (e) {
@@ -68,7 +67,7 @@ const AdminMain = () => {
     <>
       <Navbar />
       <div className="md:flex w-full">
-        <Sidebar />
+        <Sidebar modules={sidebarData} />
         <Outlet />
       </div>
     </>

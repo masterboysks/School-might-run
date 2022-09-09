@@ -14,7 +14,7 @@ import { useEffect } from "react";
 
 import Hamburger from "@mui/icons-material/MenuOutlined";
 
-const activity = [
+let activity = [
   { name: "Admin", value: Admin, path: "admin/organization-setup" },
   { name: "Staff", value: Staff, path: "staff/staff-information" },
   { name: "Student", value: Student, path: "student/student-information" },
@@ -40,7 +40,8 @@ const activity = [
   },
   { name: "LMS", value: Lms, path: "student/student-information" },
 ];
-export default function Sidebar() {
+export default function Sidebar({ modules }) {
+  activity = activity.filter((c) => modules?.includes(c.name));
   useEffect(() => {
     const esc = document.addEventListener("keydown", (e) => {
       e.key === "Escape" && sidebar();

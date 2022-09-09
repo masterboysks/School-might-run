@@ -43,7 +43,7 @@ export default function Plan() {
           <AddIcon />
         </Link>
       </div>
-      <div className="main grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 my-6 gap-3 ">
+      <div className="main grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 my-6 gap-3  ">
         {plans?.map((c, i, a) => (
           <PlanCard
             defaultValues={c}

@@ -57,11 +57,11 @@ const AddFeeDetails = lazy(() =>
 );
 // Staff immport
 const StaffSlidebar = lazy(() =>
-  import("../../modules/admin/sidebar-activities/staff/slidebar.js")
+  import("../../modules/admin/sidebar-activities/staff/slidebar")
 );
 const StaffInformation = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information.js"
+    "../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information"
   )
 );
 const AddStaffGeneralPersonal = lazy(() =>
@@ -106,12 +106,12 @@ const AddStaffGeneralBase = lazy(() =>
 );
 const AddStaffAcademicBase = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/academic/base.js"
+    "../../modules/admin/sidebar-activities/staff/staff-information/academic/base"
   )
 );
 const AddStaffDocumentBase = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/documents/base.js"
+    "../../modules/admin/sidebar-activities/staff/staff-information/documents/base"
   )
 );
 

@@ -1,4 +1,4 @@
-import Table from "./table.js";
+import Table from "./table";
 import Form from "./form";
 
 const Staffs = () => {
