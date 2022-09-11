@@ -228,6 +228,7 @@ export function Select({
   className,
   labelClassName,
 }) {
+  console.log(options);
   return (
     <>
       {label && (
@@ -250,7 +251,7 @@ export function Select({
       >
         {selected === "Select" && <option value="">--Select--</option>}
         {options.map((curr) => (
-          <option value={curr.id} key={curr.name + name}>
+          <option value={curr.id} key={curr.name + name + curr.id}>
             {curr.name}
           </option>
         ))}

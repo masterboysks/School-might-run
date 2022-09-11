@@ -13,4 +13,7 @@ export default {
   create(form) {
     return authorized.post(`/faculties`, form);
   },
+  getAll() {
+    return authorized.get(`/get-faculties`);
+  },
 };

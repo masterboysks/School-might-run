@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import sectionsApi from "../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi";
 import { SearchBar } from "../../../../../../../components/common/oldFields";
+import Pagination from "../../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
 const people = [
@@ -13,12 +17,27 @@ const people = [
 ];
 
 export default function Table() {
-  const [search, setSearch] = useState("");
+  const { register, watch } = useForm();
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState({});
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await sectionsApi.get(page);
+        const datas = data?.data?.data;
+        setData(datas?.data);
+        setPagination(datas?.pagination);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, [page]);
   return (
     <div className="mt-11 lg:w-2/3 w-full">
       <div className="sm:flex sm:items-center justify-between">
         <div className="w-72 relative max-w-full">
-          <SearchBar value={search} setValue={setSearch} />
+          <SearchBar register={register} name="search" />
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
@@ -52,13 +71,14 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
+                  <RenderTable currentItems={data} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+      <Pagination pagination={pagination} setPage={setPage} />
     </div>
   );
 }

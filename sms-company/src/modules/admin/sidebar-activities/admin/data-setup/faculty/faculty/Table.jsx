@@ -39,7 +39,7 @@ export default function Table() {
     <div className="mt-11 lg:w-2/3 w-full">
       <div className="sm:flex sm:items-center justify-between">
         <div className="w-72 relative max-w-full">
-          <SearchBar register={register} />
+          <SearchBar register={register} name="search" />
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link

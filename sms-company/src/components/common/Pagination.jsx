@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function Pagination({ pagination, setPage }) {
-  console.log(pagination);
   const [isLastPage, setIsLastPage] = useState(false);
   const [isFirstPage, setIsFirstPage] = useState(true);
 

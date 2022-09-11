@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {
-  Input,
-  Select,
-} from "../../../../../../../components/common/oldFields";
+import { Input, Select } from "../../../../../../../components/common/fields";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
+import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -25,34 +26,51 @@ const pages = [
   },
 ];
 const AddSubFaculty = () => {
-  const arrayFaculty = ["dhfjg", "hfdjg", "djfsh"];
-  const [faculty, setFaculty] = useState("Select");
-  const [subFaculty, setSubFaculty] = useState("");
-  const [errorFaculty, setErrorFaculty] = useState(false);
-  const [errorSubFaculty, setErrorSubFaculty] = useState(false);
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ faculty, subFaculty });
-    let temp = false;
-    subFaculty || ((temp = true) && setErrorSubFaculty(true));
-    faculty === "Select" && (temp = true) && setErrorFaculty(true);
+  const {
+    register,
+    handleSubmit,
 
-    temp || navigate("/admin/data-setup/sub-faculty");
+    formState: { errors },
+  } = useForm();
+  const [arrayFaculty, setArrayFaculty] = useState([]);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    (async () => {
+      const data = await facultyApi.getAll();
+      setArrayFaculty(data?.data?.data);
+    })();
+  }, []);
+  const navigate = useNavigate();
+  const onSubmit = async (d) => {
+    const res = await subFacultyApi.create(d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/sub-faculty")
+      : setError("Failed to create sub-faculty");
   };
   return (
     <>
       <Breadnav pages={pages} />
       <Break title="Add Sub-faculty" />
-      <form className="form-solid w-full my-6 rounded-md">
+      <form
+        className="form-solid w-full my-6 rounded-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {error && (
+          <>
+            <div className="text-lg font-medium text-red-600">{error}</div>
+            <br />
+          </>
+        )}
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Select
               value={arrayFaculty}
               label="Faculty*"
-              error={errorFaculty}
-              setError={setErrorFaculty}
-              selected={faculty}
-              setSelected={setFaculty}
+              required={true}
+              selected="Select"
+              errors={errors}
+              register={register}
+              name="faculty_id"
             />
           </div>
           <div>
@@ -60,10 +78,10 @@ const AddSubFaculty = () => {
               label="Sub-faculty*"
               placeholder="Bio"
               id="subFaculty"
-              setError={setErrorSubFaculty}
-              error={errorSubFaculty}
-              value={subFaculty}
-              setValue={setSubFaculty}
+              required={true}
+              errors={errors}
+              register={register}
+              name="subfaculty_name"
             />
           </div>
         </div>
@@ -76,12 +94,12 @@ const AddSubFaculty = () => {
               >
                 Cancel
               </Link>
-              <div
-                onClick={handleSubmit}
+              <button
+                type="submit"
                 className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
               >
                 Save
-              </div>
+              </button>
             </div>
           </div>
         </div>
