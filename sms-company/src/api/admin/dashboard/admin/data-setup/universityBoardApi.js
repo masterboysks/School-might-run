@@ -2,7 +2,7 @@ import { authorized } from "../../../../axios";
 
 export default {
   get(page = 1) {
-    return authorized.get(`/universities?page=${page}`);
+    return authorized.get(`/universities`);
   },
   delete(id) {
     return authorized.post(`universities/${id}`);

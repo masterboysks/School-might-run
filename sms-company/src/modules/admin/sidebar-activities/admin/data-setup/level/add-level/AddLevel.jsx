@@ -1,11 +1,16 @@
+import { useEffect } from "react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
+import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
   Checkbox,
   Input,
-} from "../../../../../../../components/common/oldFields";
+  Select,
+} from "../../../../../../../components/common/fields";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -26,54 +31,74 @@ const pages = [
   },
 ];
 const AddLevel = () => {
-  const [university, setUniversity] = useState("");
-  const [level, setLevel] = useState("");
-  const [hasFaculty, setHasFaculty] = useState(false);
-  const [errorUniversity, setErrorUniversity] = useState(false);
-  const [errorLevel, setErrorLevel] = useState(false);
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ university, level, hasFaculty });
-    let temp = false;
-    university || ((temp = true) && setErrorUniversity(true));
-    level || ((temp = true) && setErrorLevel(true));
+  const {
+    register,
+    handleSubmit,
 
-    temp || navigate("/admin/data-setup/level");
+    formState: { errors },
+  } = useForm();
+  const [error, setError] = useState("");
+  const [arrayUniversity, setArrayUniversity] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const data = await universityBoardApi.get();
+      setArrayUniversity(data?.data?.data?.data);
+    })();
+  }, []);
+
+  const navigate = useNavigate();
+  const onSubmit = async (d) => {
+    console.log(d);
+    const res = await levelApi.create(d);
+    console.log(res);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/level")
+      : setError("Failed to create Level");
   };
   return (
     <>
       <Breadnav pages={pages} />
       <Break title="Add Level and Board details" />
-      <form className="form-solid w-full my-6 rounded-md">
+      <form
+        className="form-solid w-full my-6 rounded-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {error && (
+          <>
+            <div className="text-lg font-medium text-red-600">{error}</div>
+            <br />
+          </>
+        )}
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
-            <Input
+            <Select
               label="University/Board*"
-              type="text"
-              value={university}
-              setValue={setUniversity}
-              error={errorUniversity}
-              setError={setErrorUniversity}
+              name="university_id"
+              register={register}
               placeholder="NEB"
+              value={arrayUniversity}
+              selected="Select"
+              required={true}
+              errors={errors}
             />
           </div>
           <div>
             <Input
               label="Level*"
               type="text"
-              value={level}
-              setValue={setLevel}
-              error={errorLevel}
-              setError={setErrorLevel}
+              name="level_name"
+              register={register}
               placeholder="+2"
+              required={true}
+              errors={errors}
             />
           </div>
           <div className="col-span-full">
             <Checkbox
               label="Has faculty"
-              selected={hasFaculty}
-              setSelected={setHasFaculty}
+              name="has_faculty"
               id="hasFaculty"
+              register={register}
             />
           </div>
         </div>
@@ -86,12 +111,12 @@ const AddLevel = () => {
               >
                 Cancel
               </Link>
-              <div
-                onClick={handleSubmit}
+              <button
+                type="submit"
                 className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
               >
                 Save
-              </div>
+              </button>
             </div>
           </div>
         </div>

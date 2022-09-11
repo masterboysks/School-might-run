@@ -6,12 +6,12 @@ const RenderTable = ({ currentItems }) => {
   return (
     <>
       {currentItems.map((person, index, table) => (
-        <tr key={index}>
+        <tr key={person.id + "faculty"}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.faculty}
+            {person.faculty_name}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.level}
+            {person.level_name}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">

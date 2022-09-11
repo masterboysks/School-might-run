@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
 import { SearchBar } from "../../../../../../../components/common/oldFields";
-import Pagination from "../../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
 const people = [
@@ -19,15 +18,12 @@ const people = [
 export default function Table() {
   const { register, watch } = useForm();
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
-  const [pagination, setPagination] = useState({});
   useEffect(() => {
     (async () => {
       try {
-        const data = await universityBoardApi.get(page);
+        const data = await universityBoardApi.get();
         const datas = data?.data?.data;
         setData(datas?.data);
-        setPagination(datas?.pagination);
         // setData();
       } catch (e) {
         console.warn(e);
@@ -80,7 +76,6 @@ export default function Table() {
           </div>
         </div>
       </div>
-      <Pagination pagination={pagination} setPage={setPage} />
     </div>
   );
 }
