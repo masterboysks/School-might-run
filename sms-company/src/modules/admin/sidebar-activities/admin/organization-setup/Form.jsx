@@ -10,8 +10,7 @@ import {
 import LocationForm from "../../../../../components/common/LocationForm";
 
 const arrayDateFormat = ["AD", "BS"];
-const Form = (props) => {
-  const [defaultValues, setdefaultValues] = useState(second);
+const Form = () => {
   const {
     register,
     handleSubmit,
@@ -19,19 +18,57 @@ const Form = (props) => {
     setError,
     watch,
     formState: { errors },
-  } = useForm({
-    defaultValues,
-  });
+  } = useForm();
   const [locationWithIds, setLocationWithIds] = useState({});
   const navigate = useNavigate();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    console.log(locationWithIds);
+    const d = {
+      ...data,
+      country: locationWithIds?.country.filter(
+        (c) => data.country === c.country_name
+      )[0].id,
+      district: locationWithIds?.district.filter(
+        (c) => data.district === c.district_name
+      )[0].id,
+      province: locationWithIds?.province.filter(
+        (c) => data.province === c.province_name
+      )[0].id,
+      vdc_municipality: locationWithIds?.vdc_municipality.filter(
+        (c) => data.vdc_municipality === c.municipality_name
+      )[0].id,
+    };
+    const form = new FormData();
+    for (const name in d) {
+      form.append(name, d[name]);
+    }
+    form.append("company_logo", d.company_logo[0]);
+
+    try {
+      const res = await organizationSetupApi.edit(form);
+      res?.status === 201 || setError("Failed to update Organization details");
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     (async () => {
       const data = await organizationSetupApi.get();
-      console.log(data.data.data);
-      reset();
+      const defaultData = data?.data?.data;
+      console.log(defaultData.company_logo[0]);
+      setLocationWithIds({
+        country: [defaultData?.country],
+        province: [defaultData?.province],
+        district: [defaultData?.district],
+        vdc_municipality: [defaultData?.vdc_municipality],
+      });
+      reset({
+        ...defaultData,
+        country: defaultData?.country?.country_name,
+        province: defaultData?.province?.province_name,
+        district: defaultData?.district?.district_name,
+        vdc_municipality: defaultData?.vdc_municipality?.municipality_name,
+      });
     })();
   }, []);
 
@@ -195,24 +232,13 @@ const Form = (props) => {
         </div>
         <div className="">
           <UploadPhoto
-            label="School logo*"
-            name="school_logo"
+            label="School logo"
+            name="company_logo"
             register={register}
-            errors={errors}
-            required={true}
-            id="school_logo"
+            id="company_logo"
+            watch={watch}
           />
         </div>
-        {/* <div className="">
-          <UploadPhoto
-            label="School Stamp*"
-            error={errorSchoolStamp}
-            setError={setErrorSchoolStamp}
-            value={schoolStamp}
-            setValue={setSchoolStamp}
-            id="school_stamp"
-          />
-        </div> */}
       </div>
 
       <div className="md:flex-row flex flex-col justify-between w-full my-6">
