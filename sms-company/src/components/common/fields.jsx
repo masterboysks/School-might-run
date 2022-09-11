@@ -250,7 +250,7 @@ export function Select({
       >
         {selected === "Select" && <option value="">--Select--</option>}
         {options.map((curr) => (
-          <option value={curr} key={curr}>
+          <option value={curr} key={curr + name}>
             {curr}
           </option>
         ))}
@@ -459,13 +459,19 @@ export const UploadPhoto = ({
   uploadText,
   errorText,
   id,
+  watch,
 }) => {
+  let logo;
+  watch && (logo = watch(name));
+  console.log(logo && logo);
   return (
     <>
       <div className="">
         <label
           htmlFor={id}
-          className={`${errors[name] && "text-red-600 "} block text-sm`}
+          className={`${
+            errors && errors[name] && "text-red-600 "
+          } block text-sm`}
         >
           {label}
         </label>
@@ -493,11 +499,13 @@ export const UploadPhoto = ({
               htmlFor={id}
               className="bg-primary-grey-200 cursor-pointer border-primary-field border-[1px] rounded ml-2 p-1 text-primary-grey-700"
             >
-              {uploadText || "Choose a file to upload"}
+              {logo && logo.length === 1
+                ? logo[0].name
+                : uploadText || "Choose a file to upload"}
             </label>
           </div>
         </div>
-        {showError && errors[name] && (
+        {showError && errors && errors[name] && (
           <>
             <span className="text-xs font-light text-red-600">
               {errorText || " This is a required field."}

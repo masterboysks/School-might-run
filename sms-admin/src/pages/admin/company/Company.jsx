@@ -60,6 +60,7 @@ export default function Company() {
         const datas = data?.data?.data;
         setCompany(datas?.data);
         setPagination(datas?.pagination);
+        setSuffix(datas?.domain);
       } catch (error) {
         console.log(error);
       }
