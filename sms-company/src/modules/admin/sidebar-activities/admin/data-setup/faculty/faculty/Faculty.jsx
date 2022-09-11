@@ -10,7 +10,7 @@ const pages = [
   },
   {
     name: "Faculty",
-    href: "/admin/data-setup/faculty",
+    href: "/admin/dashboard/admin/data-setup/faculty",
     current: true,
   },
 ];

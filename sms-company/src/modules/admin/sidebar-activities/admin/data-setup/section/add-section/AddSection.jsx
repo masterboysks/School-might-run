@@ -13,12 +13,12 @@ const pages = [
   },
   {
     name: "Section",
-    href: "/admin/data-setup/section",
+    href: "/admin/dashboard/admin/data-setup/section",
     current: false,
   },
   {
     name: "Add",
-    href: "/admin/data-setup/section/add",
+    href: "/admin/dashboard/admin/data-setup/section/add",
     current: true,
   },
 ];
@@ -53,7 +53,7 @@ const AddSection = () => {
           <div className="md:flex-row w-fit flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
               <Link
-                to="/admin/data-setup/section"
+                to="/admin/dashboard/admin/data-setup/section"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel

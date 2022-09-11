@@ -10,7 +10,7 @@ const pages = [
   },
   {
     name: "Level",
-    href: "/admin/data-setup/level",
+    href: "/admin/dashboard/admin/data-setup/level",
     current: true,
   },
 ];

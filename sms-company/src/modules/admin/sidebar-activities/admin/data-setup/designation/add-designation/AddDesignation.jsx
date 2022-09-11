@@ -16,12 +16,12 @@ const pages = [
   },
   {
     name: "Designation",
-    href: "/admin/data-setup/designation",
+    href: "/admin/dashboard/admin/data-setup/designation",
     current: false,
   },
   {
     name: "Add",
-    href: "/admin/data-setup/designation/add",
+    href: "/admin/dashboard/admin/data-setup/designation/add",
     current: true,
   },
 ];
@@ -74,7 +74,7 @@ const AddDesignation = () => {
           <div className="md:flex-row w-fit sm:col-span-2 flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
               <Link
-                to="/admin/data-setup/university-board"
+                to="/admin/dashboard/admin/data-setup/university-board"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel

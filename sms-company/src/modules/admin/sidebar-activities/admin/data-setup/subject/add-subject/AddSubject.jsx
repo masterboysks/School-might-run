@@ -16,12 +16,12 @@ const pages = [
   },
   {
     name: "Subject",
-    href: "/admin/data-setup/subject",
+    href: "/admin/dashboard/admin/data-setup/subject",
     current: false,
   },
   {
     name: "Add",
-    href: "/admin/data-setup/subject/add",
+    href: "/admin/dashboard/admin/data-setup/subject/add",
     current: true,
   },
 ];
@@ -98,7 +98,7 @@ const AddSubject = () => {
           <div className="md:flex-row col-span-full xl:col-span-3 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link
-                to="/admin/data-setup/subject"
+                to="/admin/dashboard/admin/data-setup/subject"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel

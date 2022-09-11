@@ -99,7 +99,7 @@ export function Input({
       )}
 
       <input
-        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey-600 text-sm ${className}`}
+        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
         id={id}
         step={step}
         {...register(name, { required, shouldUnregister })}
@@ -150,7 +150,7 @@ export function Password({
       )}
       <div className="relative">
         <input
-          className={`mt-[6px] w-full p- rounded pr-8  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey-600 text-sm ${className}`}
+          className={`mt-[6px] w-full p- rounded pr-8  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
           id={id}
           step={step}
           {...register(name, { required })}
@@ -246,12 +246,12 @@ export function Select({
       <select
         {...register(name, { required })}
         id={id}
-        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey-600 text-sm ${className}`}
+        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
       >
         {selected === "Select" && <option value="">--Select--</option>}
         {options.map((curr) => (
-          <option value={curr} key={curr + name}>
-            {curr}
+          <option value={curr.id} key={curr.name + name}>
+            {curr.name}
           </option>
         ))}
       </select>
@@ -357,7 +357,7 @@ export function MultipleSelect({
     </>
   );
 }
-export function SearchBar({ id, value, setValue }) {
+export function SearchBar({ id = Math.random(), register }) {
   return (
     <div className=" relative w-full">
       <div className="top-1 absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -380,10 +380,7 @@ export function SearchBar({ id, value, setValue }) {
         id={id}
         className="bg-gray-50 mt-[6px] border border-primary-grey-400 text-primary-grey-600 text-sm rounded focus:ring-primary-btn block w-full pl-10 p-2 "
         placeholder="Search"
-        value={value || ""}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
+        {...register}
       />
     </div>
   );
@@ -463,7 +460,6 @@ export const UploadPhoto = ({
 }) => {
   let logo;
   watch && (logo = watch(name));
-  console.log(logo && logo);
   return (
     <>
       <div className="">

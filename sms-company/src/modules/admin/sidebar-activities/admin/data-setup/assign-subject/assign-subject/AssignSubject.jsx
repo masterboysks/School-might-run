@@ -10,7 +10,7 @@ const pages = [
   },
   {
     name: "Assign Subject",
-    href: "/admin/data-setup/assign-subject",
+    href: "/admin/dashboard/admin/data-setup/assign-subject",
     current: true,
   },
 ];

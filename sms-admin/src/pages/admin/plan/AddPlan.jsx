@@ -21,6 +21,7 @@ const arrayModules = [
   "Library",
   "Inventory",
   "Exam",
+  "Report",
   "LMS",
   "Transport",
   "Parent",

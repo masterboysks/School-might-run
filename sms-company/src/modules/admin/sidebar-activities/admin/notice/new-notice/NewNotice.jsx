@@ -13,12 +13,12 @@ const pages = [
   { name: "Admin", href: "#", current: false },
   {
     name: "Push notification",
-    href: "/admin/notice",
+    href: "/admin/dashboard/admin/notice",
     current: false,
   },
   {
     name: "New notice",
-    href: "/admin/notice/new",
+    href: "/admin/dashboard/admin/notice/new",
     current: true,
   },
 ];
@@ -115,7 +115,7 @@ function NewNotice() {
           <div className="md:flex-row w-fit col-span-full lg:col-span-2 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link
-                to="/admin/notice"
+                to="/admin/dashboard/admin/notice"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel

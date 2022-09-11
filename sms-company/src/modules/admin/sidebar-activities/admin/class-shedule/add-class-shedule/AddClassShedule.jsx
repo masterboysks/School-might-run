@@ -14,12 +14,12 @@ const pages = [
   { name: "Admin", href: "#", current: false },
   {
     name: "Class schedule",
-    href: "/admin/class-schedule/",
+    href: "/admin/dashboard/admin/class-schedule/",
     current: false,
   },
   {
     name: "Class 1 'A'",
-    href: "/admin/class-schedule/add/class-1-a",
+    href: "/admin/dashboard/admin/class-schedule/add/class-1-a",
     current: true,
   },
 ];
@@ -161,7 +161,7 @@ function AddClassShedule() {
             </div>
             <div className="col-span-full flex">
               Add subject
-              <Link to="/admin/data-setup/subject/add">
+              <Link to="/admin/dashboard/admin/data-setup/subject/add">
                 <div className="outline outline-1 outline-primary-grey-700 mx-2 rounded cursor-pointer">
                   <AddOutlinedIcon
                     text="sm"
@@ -174,7 +174,7 @@ function AddClassShedule() {
             <div className="col-span-full ml-auto">
               <div className=" w-fit my-auto">
                 <Link
-                  to="/admin/class-schedule"
+                  to="/admin/dashboard/admin/class-schedule"
                   className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
                 >
                   Cancel

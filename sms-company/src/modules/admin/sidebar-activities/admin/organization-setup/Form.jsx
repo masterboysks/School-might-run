@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
 import organizationSetupApi from "../../../../../api/admin/dashboard/admin/organizationSetupApi";
 import {
   Input,
@@ -9,67 +8,70 @@ import {
 } from "../../../../../components/common/fields";
 import LocationForm from "../../../../../components/common/LocationForm";
 
-const arrayDateFormat = ["AD", "BS"];
+const arrayDateFormat = [
+  { id: 1, name: "AD" },
+  { id: 2, name: "BS" },
+];
 const Form = () => {
   const {
     register,
     handleSubmit,
     reset,
-    setError,
     watch,
     formState: { errors },
   } = useForm();
-  const [locationWithIds, setLocationWithIds] = useState({});
-  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState("");
   const onSubmit = async (data) => {
-    console.log(locationWithIds);
     const d = {
       ...data,
-      country: locationWithIds?.country.filter(
-        (c) => data.country === c.country_name
-      )[0].id,
-      district: locationWithIds?.district.filter(
-        (c) => data.district === c.district_name
-      )[0].id,
-      province: locationWithIds?.province.filter(
-        (c) => data.province === c.province_name
-      )[0].id,
-      vdc_municipality: locationWithIds?.vdc_municipality.filter(
-        (c) => data.vdc_municipality === c.municipality_name
-      )[0].id,
+      // country: locationWithIds?.country.filter(
+      //   (c) => data.country === c.country_name
+      // )[0].id,
+      // district: locationWithIds?.district.filter(
+      //   (c) => data.district === c.district_name
+      // )[0].id,
+      // province: locationWithIds?.province.filter(
+      //   (c) => data.province === c.province_name
+      // )[0].id,
+      // vdc_municipality: locationWithIds?.vdc_municipality.filter(
+      //   (c) => data.vdc_municipality === c.municipality_name
+      // )[0].id,
     };
     const form = new FormData();
     for (const name in d) {
       form.append(name, d[name]);
     }
-    form.append("company_logo", d.company_logo[0]);
+    d.company_logo.length === 1
+      ? form.append("company_logo", d.company_logo[0])
+      : form.append("company_logo", "");
 
     try {
       const res = await organizationSetupApi.edit(form);
-      res?.status === 201 || setError("Failed to update Organization details");
+      if (!(res?.status === 201)) {
+        setMessage("Failed to update Organization details");
+        setError(true);
+      } else {
+        setError(false);
+        setMessage("Organization details updated sucesfully");
+      }
     } catch (error) {
       console.log(error);
     }
   };
+  const resetData = async () => {
+    const data = await organizationSetupApi.get();
+    const defaultData = data?.data?.data;
+    reset({
+      ...defaultData,
+      country: defaultData.country.id,
+      vdc_municipality: defaultData.vdc_municipality.id,
+      province: defaultData.province.id,
+      district: defaultData.district.id,
+    });
+  };
   useEffect(() => {
-    (async () => {
-      const data = await organizationSetupApi.get();
-      const defaultData = data?.data?.data;
-      console.log(defaultData.company_logo[0]);
-      setLocationWithIds({
-        country: [defaultData?.country],
-        province: [defaultData?.province],
-        district: [defaultData?.district],
-        vdc_municipality: [defaultData?.vdc_municipality],
-      });
-      reset({
-        ...defaultData,
-        country: defaultData?.country?.country_name,
-        province: defaultData?.province?.province_name,
-        district: defaultData?.district?.district_name,
-        vdc_municipality: defaultData?.vdc_municipality?.municipality_name,
-      });
-    })();
+    resetData();
   }, []);
 
   return (
@@ -77,6 +79,18 @@ const Form = () => {
       className="form-solid w-full my-6 rounded-md"
       onSubmit={handleSubmit(onSubmit)}
     >
+      {message && (
+        <>
+          <div
+            className={`${
+              error && "!text-red-600"
+            } text-green-500 font-medium text-lg`}
+          >
+            {message}
+          </div>
+          <br />
+        </>
+      )}
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
           <Input
@@ -133,7 +147,7 @@ const Form = () => {
         <div className="">
           <Input
             label="Telephone Number*"
-            placeholder="01-5521332"
+            placeholder="015521332"
             register={register}
             errors={errors}
             required={true}
@@ -144,7 +158,7 @@ const Form = () => {
         <div className="">
           <Input
             label="Alternative Number"
-            placeholder="01-5521335"
+            placeholder="015521335"
             name="alt_tel_no"
             register={register}
             type="number"
@@ -169,13 +183,7 @@ const Form = () => {
           />
         </div>
 
-        <LocationForm
-          watch={watch}
-          register={register}
-          errors={errors}
-          location={locationWithIds}
-          setLocation={setLocationWithIds}
-        />
+        <LocationForm watch={watch} register={register} errors={errors} />
         <div className="">
           <Input
             label="Ward no.*"
@@ -224,7 +232,8 @@ const Form = () => {
           <Input
             label="Established date*"
             register={register}
-            name="established_date"
+            name="established_at"
+            id="established_date_form"
             errors={errors}
             required={true}
             type="date"
@@ -247,12 +256,14 @@ const Form = () => {
           <img src="/logoHeader.png" alt="" className="my-3" />
         </div>
         <div className=" w-fit my-auto">
-          <Link
-            to="#"
+          <button
+            onClick={() => {
+              resetData();
+            }}
             className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
           >
             Cancel
-          </Link>
+          </button>
           <button
             type="submit"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"

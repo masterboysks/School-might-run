@@ -9,7 +9,7 @@ const pages = [
   { name: "Admin", href: "#", current: false },
   {
     name: "Template",
-    href: "/admin/template",
+    href: "/admin/dashboard/admin/template",
     current: true,
   },
 ];
@@ -105,13 +105,13 @@ function Temeplate() {
       <div className="w-full mt-6 mb-12">
         <div className=" w-fit my-auto ml-auto">
           <Link
-            to="/admin/template"
+            to="/admin/dashboard/admin/template"
             className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
           >
             Cancel
           </Link>
           <Link
-            to="/admin/template"
+            to="/admin/dashboard/admin/template"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Save

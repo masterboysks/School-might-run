@@ -7,7 +7,7 @@ const pages = [
   { name: "Admin", href: "#", current: false },
   {
     name: "Organization setup",
-    href: "/admin/organization-setup/",
+    href: "/admin/dashboard/admin/organization-setup",
     current: true,
   },
 ];

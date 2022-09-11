@@ -22,7 +22,7 @@ const pages = [
   },
   {
     name: "Department",
-    href: "/admin/data-setup/department",
+    href: "/admin/dashboard/admin/data-setup/department",
     current: true,
   },
 ];
@@ -38,7 +38,7 @@ const Department = () => {
           </div>
           <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
             <Link
-              to="/admin/data-setup/department/add"
+              to="/admin/dashboard/admin/data-setup/department/add"
               className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
             >
               Add

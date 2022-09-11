@@ -9,7 +9,7 @@ const pages = [
   },
   {
     name: "Section",
-    href: "/admin/data-setup/section",
+    href: "/admin/dashboard/admin/data-setup/section",
     current: true,
   },
 ];

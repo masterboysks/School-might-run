@@ -120,7 +120,7 @@ const Form = () => {
               value={toAvailableSections}
             />
             <Link
-              to="/admin/data-setup/section/add"
+              to="/admin/dashboard/admin/data-setup/section/add"
               className=" text-primary-btn lg:hidden absolute top-0 right-0 flex mr-1"
             >
               <AiOutlineEdit className=" cursor-pointer"></AiOutlineEdit>
@@ -128,7 +128,9 @@ const Form = () => {
             </Link>
           </div>
           <div className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 h-fit w-fit lg:block items-center justify-center hidden px-3 py-2 mt-auto text-sm font-medium text-white border border-transparent rounded-md shadow-sm cursor-pointer">
-            <Link to="/admin/data-setup/section/add">Manage section</Link>
+            <Link to="/admin/dashboard/admin/data-setup/section/add">
+              Manage section
+            </Link>
           </div>
         </div>
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">

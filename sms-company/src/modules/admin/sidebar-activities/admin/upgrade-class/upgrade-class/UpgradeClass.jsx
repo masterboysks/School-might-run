@@ -10,7 +10,7 @@ export default function UpgradeClass() {
     { name: "Admin", href: "#", current: false },
     {
       name: "Upgrade Class",
-      href: "/admin/upgrade/",
+      href: "/admin/dashboard/admin/upgrade/",
       current: false,
     },
     {

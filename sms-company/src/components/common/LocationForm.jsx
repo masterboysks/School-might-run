@@ -2,13 +2,7 @@ import { useEffect, useState } from "react";
 import countries from "../../api/country/country";
 import { Select, SelectDisabled } from "./fields";
 
-export default function LocationForm({
-  register,
-  errors,
-  watch,
-  location,
-  setLocation,
-}) {
+export default function LocationForm({ register, errors, watch }) {
   const [country, province, district, vdc_municipality] = watch([
     "country",
     "province",
@@ -21,64 +15,37 @@ export default function LocationForm({
   const [arrayVdcMunicalipality, setArrayVdcMunicalipality] = useState([]);
   const provinceFunction = async () => {
     try {
-      const data = await countries.province(
-        location?.country?.filter((curr) => curr.country_name === country)[0].id
-      );
-      const tempLocation = { ...location, province: data?.data?.data };
-      setLocation(tempLocation);
-      const temp = data?.data?.data?.map((curr) => curr.province_name);
-      setArrayProvince(temp);
-      console.log(location);
+      const data = await countries.province(country);
+      setArrayProvince(data?.data?.data);
     } catch (e) {
       console.log(e);
     }
   };
   const districtFunction = async () => {
     try {
-      console.log(location);
-      const data = await countries.district(
-        location?.country?.filter((curr) => curr.country_name === country)[0]
-          .id,
-        location?.province?.filter((curr) => curr.province_name === province)[0]
-          .id
-      );
-      setLocation({ ...location, district: data?.data?.data });
-      const temp = data?.data?.data?.map((curr) => curr.district_name);
-      setArrayDistrict(temp);
+      const data = await countries.district(country, province);
+      setArrayDistrict(data?.data?.data);
     } catch (e) {
       console.log(e);
     }
   };
   const vdcFunction = async () => {
     try {
-      const data = await countries.municipality(
-        location?.country?.filter((curr) => curr.country_name === country)[0]
-          .id,
-        location?.province?.filter((curr) => curr.province_name === province)[0]
-          .id,
-        location?.district?.filter((curr) => curr.district_name === district)[0]
-          .id
-      );
-      setLocation({ ...location, vdc_municipality: data?.data?.data });
-      const temp = data?.data?.data?.map((curr) => curr.municipality_name);
-      setArrayVdcMunicalipality(temp);
+      const data = await countries.municipality(country, province, district);
+      setArrayVdcMunicalipality(data?.data?.data);
     } catch (e) {
       console.log(e);
     }
   };
 
   useEffect(() => {
-    console.log(location);
     console.log(country, province, district, vdc_municipality);
 
     if (arrayCountry.length === 0) {
       (async () => {
         const data = await countries.country();
-        setLocation({ ...location, country: data?.data?.data });
-
-        const temp = data?.data?.data?.map((curr) => curr.country_name);
-        //   console.log(countryWithId);
-        setArrayCountry(temp);
+        console.log(data?.data?.data);
+        setArrayCountry(data?.data?.data);
       })();
     }
     if (country) {

@@ -23,7 +23,7 @@ const pages = [
   },
   {
     name: "Fiscal year",
-    href: "/admin/data-setup/fiscal-year",
+    href: "/admin/dashboard/admin/data-setup/fiscal-year",
     current: true,
   },
 ];
@@ -39,7 +39,7 @@ const FiscalYear = () => {
           </div>
           <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
             <Link
-              to="/admin/data-setup/fiscal-year/add"
+              to="/admin/dashboard/admin/data-setup/fiscal-year/add"
               className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
             >
               Add

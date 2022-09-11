@@ -5,7 +5,7 @@ const pages = [
   { name: "Admin", href: "#", current: false },
   {
     name: "Push notification",
-    href: "/admin/notice",
+    href: "/admin/dashboard/admin/notice",
     current: true,
   },
 ];

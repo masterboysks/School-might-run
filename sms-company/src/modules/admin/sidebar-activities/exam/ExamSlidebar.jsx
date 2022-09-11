@@ -4,16 +4,22 @@ import { Link, Outlet } from "react-router-dom";
 import Arrow from "@mui/icons-material/ArrowForwardIos";
 
 const setupLinks = [
-  { name: "Exam name", path: "/admin/dashboard/exam/exam-setup/exam-name" },
+  {
+    name: "Exam name",
+    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/exam-name",
+  },
   {
     name: "Grade system setup",
-    path: "/admin/dashboard/exam/exam-setup/grading-system",
+    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/grading-system",
   },
   {
     name: "Exam marks name",
-    path: "/admin/dashboard/exam/exam-setup/exam-marks-name",
+    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/exam-marks-name",
   },
-  { name: "Assign mark", path: "/admin/dashboard/exam/exam-setup/assign-mark" },
+  {
+    name: "Assign mark",
+    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/assign-mark",
+  },
 ];
 
 const Slidebar = () => {

@@ -15,12 +15,12 @@ const pages = [
   },
   {
     name: "Class/semester",
-    href: "/admin/data-setup/class-semester",
+    href: "/admin/dashboard/admin/data-setup/class-semester",
     current: false,
   },
   {
     name: "Add",
-    href: "/admin/data-setup/class-semester/add",
+    href: "/admin/dashboard/admin/data-setup/class-semester/add",
     current: true,
   },
 ];
@@ -116,7 +116,7 @@ const AddClassSemester = () => {
           <div className="md:flex-row col-span-full xl:col-span-4 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link
-                to="/admin/data-setup/class-semester"
+                to="/admin/dashboard/admin/data-setup/class-semester"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel

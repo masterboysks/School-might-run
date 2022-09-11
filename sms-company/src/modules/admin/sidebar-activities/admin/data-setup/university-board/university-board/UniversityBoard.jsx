@@ -9,7 +9,7 @@ const pages = [
   },
   {
     name: "University/Board",
-    href: "/admin/data-setup/university-board",
+    href: "/admin/dashboard/admin/data-setup/university-board",
     current: true,
   },
 ];

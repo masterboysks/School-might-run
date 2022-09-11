@@ -10,7 +10,7 @@ function AddEvent() {
     { name: "Admin", href: "#", current: false },
     {
       name: "Event",
-      href: "/admin/event-calender",
+      href: "/admin/dashboard/admin/event-calender",
       current: false,
     },
     {
