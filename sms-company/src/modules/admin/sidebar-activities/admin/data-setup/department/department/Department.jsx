@@ -1,17 +1,12 @@
 import { Link } from "react-router-dom";
 import RenderTable from "./RenderTable";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
+import { SearchBar } from "../../../../../../../components/common/fields";
 import { useState } from "react";
 import Breadnav from "../../../../../../../components/common/Breadnav";
-
-const people = [
-  {
-    department: "Non-Academic",
-  },
-  {
-    department: "Academic",
-  },
-];
+import Pagination from "../../../../../../../components/common/Pagination";
+import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -27,14 +22,29 @@ const pages = [
   },
 ];
 const Department = () => {
-  const [search, setSearch] = useState("");
+  const { register, watch } = useForm();
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState({});
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await departmentApi.get(page);
+        const datas = data?.data?.data;
+        setData(datas?.data);
+        setPagination(datas?.pagination);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, [page]);
   return (
     <>
       <Breadnav pages={pages} />
       <div className="mt-11 lg:w-2/3 w-full">
         <div className="sm:flex sm:items-center justify-between">
           <div className="w-72 relative max-w-full">
-            <SearchBar value={search} setValue={setSearch} />
+            <SearchBar register={register} name="search" />
           </div>
           <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
             <Link
@@ -68,13 +78,14 @@ const Department = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    <RenderTable currentItems={people} />
+                    <RenderTable currentItems={data} />
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
+        <Pagination pagination={pagination} setPage={setPage} />
       </div>
     </>
   );

@@ -8,7 +8,7 @@ const RenderTable = ({ currentItems }) => {
       {currentItems.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.department}
+            {person.department_name}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">

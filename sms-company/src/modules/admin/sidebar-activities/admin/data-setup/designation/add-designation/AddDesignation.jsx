@@ -1,11 +1,12 @@
+import { useEffect } from "react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
+import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
-import {
-  Input,
-  Select,
-} from "../../../../../../../components/common/oldFields";
+import { Input, Select } from "../../../../../../../components/common/fields";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -27,46 +28,70 @@ const pages = [
 ];
 
 const AddDesignation = () => {
-  const arrayDepartment = ["jdskhf", "djshjh"];
-  const [department, setDepartment] = useState("Select");
-  const [designation, setDesignation] = useState("");
+  const {
+    register,
+    handleSubmit,
 
-  //
-  const [errorDepartment, setErrorDepartment] = useState(false);
-  const [errorDesignation, setErrorDesignation] = useState(false);
+    formState: { errors },
+  } = useForm();
+  const [arrayDepartment, setArrayDepartment] = useState([]);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    (async () => {
+      const data = await departmentApi.getAll();
+      setArrayDepartment(data?.data?.data);
+    })();
+  }, []);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ department, designation });
-    let temp = false;
-    department === "Select" && (temp = true) && setErrorDepartment(true);
-    designation || setErrorDesignation(true) || (temp = true);
-    temp || navigate("/admin/data-setup/designation");
+  const onSubmit = async (d) => {
+    const res = await designationApi.create(d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/designation")
+      : setError("Failed to create designation");
   };
+  // const arrayDepartment = ["jdskhf", "djshjh"];
+  // const [department, setDepartment] = useState("Select");
+  // const [designation, setDesignation] = useState("");
+
+  // //
+  // const [errorDepartment, setErrorDepartment] = useState(false);
+  // const [errorDesignation, setErrorDesignation] = useState(false);
+  // const navigate = useNavigate();
+  // const handleSubmit = () => {
+  //   console.log({ department, designation });
+  //   let temp = false;
+  //   department === "Select" && (temp = true) && setErrorDepartment(true);
+  //   designation || setErrorDesignation(true) || (temp = true);
+  //   temp || navigate("/admin/data-setup/designation");
+  // };
   return (
     <>
       <Breadnav pages={pages} />
       <Break title="Add designation" />
-      <form className="form-solid w-full my-6 rounded-md">
+      <form
+        className="form-solid w-full my-6 rounded-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Select
               label="Department*"
               value={arrayDepartment}
-              selected={department}
-              setSelected={setDepartment}
-              error={errorDepartment}
-              setError={setErrorDepartment}
+              register={register}
+              name="department_id"
+              errors={errors}
+              required={true}
             />
           </div>
           <div>
             <Input
               type="text"
               label="Designation*"
-              value={designation}
-              setValue={setDesignation}
+              register={register}
+              errors={errors}
+              name="designation_name"
               placeholder="Manager"
-              error={errorDesignation}
-              setError={setErrorDesignation}
+              required={true}
             />
           </div>
         </div>
@@ -79,12 +104,12 @@ const AddDesignation = () => {
               >
                 Cancel
               </Link>
-              <div
-                onClick={handleSubmit}
+              <button
+                type="submit"
                 className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
               >
                 Save
-              </div>
+              </button>
             </div>
           </div>
         </div>

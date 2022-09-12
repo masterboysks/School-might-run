@@ -411,7 +411,7 @@ export function Select({
         }  cursor-pointer rounded  focus:ring-primary-btn     shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm  border-primary-field  required:border-red-600 required:animate-pulse 
         }`}
       >
-        {options.map((curr) => (
+        {options?.map((curr) => (
           <option value={curr} key={curr}>
             {curr}
           </option>

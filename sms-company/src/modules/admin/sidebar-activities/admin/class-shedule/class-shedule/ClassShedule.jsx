@@ -1,10 +1,8 @@
 import Search from "@mui/icons-material/SearchOutlined";
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import { PrinterIcon } from "@heroicons/react/20/solid";
 import { Select } from "../../../../../../components/common/oldFields";
 import { useState } from "react";
 import Breadnav from "../../../../../../components/common/Breadnav";
+import Table from "./Table";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -14,30 +12,8 @@ const pages = [
     current: true,
   },
 ];
-const people = [
-  {
-    startTime: "11",
-    endTime: "14",
-    subjectTeacher: "Anil",
-    subject: "English",
-  },
-  {
-    startTime: "14",
-    endTime: "20",
-    subjectTeacher: "Dheren",
-    subject: "Spanish",
-  },
-  {
-    startTime: "5",
-    endTime: "11",
-    subjectTeacher: "Alisha",
-    subject: "Maths",
-  },
-  ,
-];
 
 const ClassSchedule = () => {
-  const arraysDays = ["Sun", "Mon", "Tue", "Thur", "Fri", "Sat"];
   const arrayLevel = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
   const arrayClass = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
   const arrayFaculty = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
@@ -46,11 +22,9 @@ const ClassSchedule = () => {
   const [classSemester, setClassSemester] = useState("Select");
   const [faculty, setFaculty] = useState("Select");
   const [section, setSection] = useState("Select");
-  const [day, setDay] = useState("Select");
   const [errorLevel, setErrorLevel] = useState(false);
   const [errorClass, setErrorClass] = useState(false);
   const [errorSection, setErrorSection] = useState(false);
-  const [errorDay, setErrorDay] = useState(false);
 
   const handleSearch = () => {
     console.log({ level, classSemester, faculty, section });
@@ -139,86 +113,7 @@ const ClassSchedule = () => {
           </div>
         </div>
       </div>
-      <div className="mt-11 w-full">
-        <div className="sm:grid lg:grid-cols-4 sm:items-center justify-between grid-cols-2">
-          <div className="col-span-2">
-            <div className="">
-              <Select
-                id="day"
-                name="day"
-                label="Day*"
-                error={errorDay}
-                setError={setErrorDay}
-                value={arraysDays}
-                selected={day}
-                setSelected={setDay}
-              />
-            </div>
-          </div>
-          <div className=" flex col-span-2 mt-auto ml-auto">
-            <div className="text-primary-btn print flex items-center p-2 mx-1 mt-auto font-medium">
-              <span className="mx-1">Print</span>
-              <div className="w-7">
-                <PrinterIcon fontSize="medium" />
-              </div>
-            </div>
-            <Link
-              to="#"
-              className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
-            >
-              Edit
-            </Link>
-            <Link
-              to="/admin/dashboard/admin/class-schedule/add"
-              className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
-            >
-              Add
-            </Link>
-          </div>
-        </div>
-        <div className="my-6">
-          <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
-            <div className="inline-block w-full align-middle">
-              <div className=" w-full rounded-lg">
-                <table className="min-w-full divide-y divide-gray-300 table-auto">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
-                      >
-                        Subject
-                      </th>
-
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
-                      >
-                        Start time
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
-                      >
-                        End time
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
-                      >
-                        Subject teacher
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    <RenderTable currentItems={people} />
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Table />
     </>
   );
 };

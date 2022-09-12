@@ -223,7 +223,6 @@ export function Select({
   value: options,
   label,
   required = false,
-  selected,
   showError = true,
   className,
   labelClassName,
@@ -248,7 +247,7 @@ export function Select({
         id={id}
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
       >
-        {selected === "Select" && <option value="">--Select--</option>}
+        <option value="">--Select--</option>
         {options.map((curr) => (
           <option value={curr.id} key={curr.name + name + curr.id}>
             {curr.name}

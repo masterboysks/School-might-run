@@ -6,10 +6,15 @@ import {
   Input,
   MultipleSelect,
   Select,
-} from "../../../../../../components/common/oldFields";
+} from "../../../../../../components/common/fields";
 import { useState } from "react";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../../../../../components/common/Break";
+import subjectApi from "../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
+import teacherApi from "../../../../../../api/admin/dashboard/staff/teacher/teacherApi";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -23,35 +28,75 @@ const pages = [
     current: true,
   },
 ];
+const arrayDays = [
+  { name: "Sun", id: 7 },
+  { name: "Mon", id: 1 },
+  { name: "Tue", id: 2 },
+  { name: "Wed", id: 3 },
+  { name: "Thur", id: 4 },
+  { id: 5, name: "Fri" },
+  { name: "Sat", id: 6 },
+];
 function AddClassShedule() {
-  const arrayTeachers = ["hi", "hlo"];
-  const arrayDays = ["Sun", "Mon", "Tue", "Thur", "Fri", "Sat"];
-  const arraySubjects = ["Sun", "Mon", "Tue", "Thur", "Fri", "Sat"];
+  const {
+    register,
+    handleSubmit,
 
-  const [days, setDays] = useState([]); //array for multiple
-  const [subject, setSubject] = useState("Select"); //single select has one item so no array
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [teacher, setTeacher] = useState("Select");
+    formState: { errors },
+  } = useForm();
 
-  const [daysError, setDaysError] = useState(false);
-  const [startTimeError, setStartTimeError] = useState(false);
-  const [endTimeError, setEndTimeError] = useState(false);
-  const [errorSubject, setErrorSubject] = useState(false);
-  const [errorTeacher, setErrorTeacher] = useState(false);
-  //
+  const [error, setError] = useState("");
+  const [arrayTeachers, setArrayTeachers] = useState([]);
+  const [arraySubjects, setArraySubjects] = useState([]);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ days, subject, startTime, endTime, teacher });
-    let temp = false;
-    days.length === 0 && (temp = true) && setDaysError(true);
-    subject === "Select" && (temp = true) && setErrorSubject(true);
-    teacher === "Select" && (temp = true) && setErrorTeacher(true);
-    !startTime && (temp = true) && setStartTimeError(true);
-    !endTime && (temp = true) && setEndTimeError(true);
-
-    temp || navigate("/admin/class-schedule");
+  const onSubmit = async (data) => {
+    const d = {
+      ...data,
+      weekdays: days,
+      class_id: 1,
+      level_id: 1,
+      section_id: 1,
+    };
+    const res = await classSheduleApi.create(d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/class-shedule")
+      : setError("Failed to create class shedule");
   };
+  useEffect(() => {
+    (async () => {
+      const data = await teacherApi.getAll();
+      setArrayTeachers(data?.data?.data);
+    })();
+    (async () => {
+      const data = await subjectApi.getAll();
+      setArraySubjects(data?.data?.data);
+    })();
+  }, []);
+  const [days, setDays] = useState([]); //array for multiple
+  const [daysError, setDaysError] = useState(false);
+  // const arrayTeachers = ["hi", "hlo"];
+  // const arraySubjects = ["Sun", "Mon", "Tue", "Thur", "Fri", "Sat"];
+  // const [subject, setSubject] = useState("Select"); //single select has one item so no array
+  // const [startTime, setStartTime] = useState("");
+  // const [endTime, setEndTime] = useState("");
+  // const [teacher, setTeacher] = useState("Select");
+  // const [startTimeError, setStartTimeError] = useState(false);
+  // const [endTimeError, setEndTimeError] = useState(false);
+  // const [errorSubject, setErrorSubject] = useState(false);
+  // const [errorTeacher, setErrorTeacher] = useState(false);
+  // //
+  // const navigate = useNavigate();
+  // const handleSubmit = () => {
+  //   console.log({ days, subject, startTime, endTime, teacher });
+  //   let temp = false;
+  //   days.length === 0 && (temp = true) && setDaysError(true);
+  //   subject === "Select" && (temp = true) && setErrorSubject(true);
+  //   teacher === "Select" && (temp = true) && setErrorTeacher(true);
+  //   !startTime && (temp = true) && setStartTimeError(true);
+  //   !endTime && (temp = true) && setEndTimeError(true);
+
+  //   temp || navigate("/admin/class-schedule");
+  // };
   return (
     <>
       <div>
@@ -86,10 +131,15 @@ function AddClassShedule() {
         <Break title="Class schedule" />
         <form
           className="form-solid w-full my-6 rounded-md"
-          onSubmit={() => {
-            console.log({ days });
-          }}
+          onSubmit={handleSubmit(onSubmit)}
         >
+          {" "}
+          {error && (
+            <>
+              <div className="text-lg font-medium text-red-600">{error}</div>
+              <br />
+            </>
+          )}
           <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
             {/* multiple select */}
             <div className="col-span-full">
@@ -111,25 +161,23 @@ function AddClassShedule() {
             <div>
               <Select
                 id="subject"
-                name="subject"
-                label="Subject*"
-                error={errorSubject}
-                setError={setErrorSubject}
                 value={arraySubjects}
-                selected={subject}
-                setSelected={setSubject}
+                label="Subject*"
+                required={true}
+                errors={errors}
+                register={register}
+                name="subject_id"
               ></Select>
             </div>
             <div>
               <Input
                 id="startTimer"
-                name="startTimer"
+                name="start_time"
                 type="time"
                 label="Start time*"
-                value={startTime}
-                setValue={setStartTime}
-                error={startTimeError}
-                setError={setStartTimeError}
+                errors={errors}
+                register={register}
+                required={true}
               />
               {/*cannot not place placeholder for type time */}
             </div>
@@ -137,26 +185,24 @@ function AddClassShedule() {
             <div>
               <Input
                 id="endTimer"
-                name="endTimer"
+                name="end_time"
                 type="time"
                 label="End time*"
-                value={endTime}
-                setValue={setEndTime}
-                error={endTimeError}
-                setError={setEndTimeError}
+                register={register}
+                errors={errors}
+                required={true}
               />
             </div>
             {/* select */}
             <div>
               <Select
                 id="subject-teacher"
-                name="subject-teacher"
+                name="teacher_id"
                 label="Subject teacher*"
-                error={errorTeacher}
-                setError={setErrorTeacher}
+                required={true}
+                register={register}
+                errors={errors}
                 value={arrayTeachers}
-                selected={teacher}
-                setSelected={setTeacher}
               ></Select>
             </div>
             <div className="col-span-full flex">
@@ -179,12 +225,12 @@ function AddClassShedule() {
                 >
                   Cancel
                 </Link>
-                <div
-                  onClick={handleSubmit}
+                <button
+                  type="submit"
                   className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
                 >
                   Save
-                </div>
+                </button>
               </div>
             </div>
           </div>
