@@ -1,11 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import {
+  Input,
   MultipleSelect,
   Select,
-} from "../../../../../../../components/common/oldFields";
+} from "../../../../../../../components/common/fields";
 import { useState } from "react";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
+import sectionsApi from "../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi";
+import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
+import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
+import classApi from "../../../../../../../api/admin/dashboard/admin/data-setup/classApi";
+import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
+import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import AssignClassSubject from "../../../../../../../components/admin/admin/AssignClassSubject";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -24,76 +34,129 @@ const pages = [
     current: true,
   },
 ];
-const subjectType = [
-  { id: "compulsary", title: "Compulsary subject" },
-  { id: "optinal", title: "Elective subject" },
-];
+
 const AddClassSemester = () => {
-  const levelOption = ["ho", "dfshg", "dskh"];
-  const classOption = ["ho", "dfshg", "dskh"];
-  const facultyOption = ["ho", "dfshg", "dskh"];
-  const subFacultyOption = ["ho", "dfshg", "dskh"];
-  const sectionsOption = ["ho", "dfshg", "dskh"];
-  const [level, setLevel] = useState("Select");
-  const [classSemester, setClassSemester] = useState("Select");
-  const [faculty, setFaculty] = useState("Select");
-  const [subFaculty, setSubFaculty] = useState("Select");
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm();
   const [section, setSection] = useState([]);
-
-  //
   const [errorSection, setErrorSection] = useState(false);
-  const [errorLevel, setErrorLevel] = useState(false);
-  const [errorClass, setErrorClass] = useState(false);
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ level, classSemester, faculty, subFaculty, section });
-    let temp = false;
-    section.length === 0 && (temp = true) && setErrorSection(true);
-    level === "Select" && (temp = true) && setErrorLevel(true);
-    classSemester === "Select" && (temp = true) && setErrorClass(true);
+  const [sectionsOption, setSectionsOption] = useState([]);
+  const [subFacultyOption, setSubFacultyOption] = useState([]);
+  const [facultyOption, setFacultyOption] = useState([]);
+  const [levelOption, setLevelOption] = useState([]);
+  const [arrayCompalsarySubjects, setArrayCompalsarySubjects] = useState([]);
+  const [arrayElectiveSubjects, setArrayElectiveSubjects] = useState([]);
 
-    temp || navigate("/admin/data-setup/class-semester");
+  const [error, setError] = useState("");
+  useEffect(() => {
+    (async () => {
+      const data = await sectionsApi.getAll();
+
+      setSectionsOption(data?.data?.data);
+    })();
+    (async () => {
+      const data = await subFacultyApi.getAll();
+
+      setSubFacultyOption(data?.data?.data);
+    })();
+    (async () => {
+      const data = await facultyApi.getAll();
+
+      setFacultyOption(data?.data?.data);
+    })();
+    (async () => {
+      const data = await levelApi.getAll();
+
+      setLevelOption(data?.data?.data);
+    })();
+    (async () => {
+      const data = await subjectApi.getAll();
+      setArrayCompalsarySubjects(
+        data?.data?.data.filter((c) => c.subject_type === 1)
+      );
+      setArrayElectiveSubjects(
+        data?.data?.data.filter((c) => c.subject_type === 2)
+      );
+    })();
+  }, []);
+  const navigate = useNavigate();
+  const onSubmit = async (d) => {
+    try {
+      const res = await classApi.create({
+        level_id: d.level_id,
+        class_name: d.class_name,
+        faculty_id: d.faculty_id,
+        subfaculty_id: d.subfaculty_id,
+        section_ids: section,
+        subject_ids: [
+          ...arrayCompalsarySubjects
+            .filter((c, i) => d[`compalsarySubjects${i}`])
+            .map((c) => c.id),
+          ...arrayElectiveSubjects
+            .filter((c, i) => d[`electiveSubjects${i}`])
+            .map((c) => c.id),
+        ],
+      });
+      res?.status === 201
+        ? navigate("/admin/dashboard/admin/data-setup/class-semester")
+        : setError("Failed to add class");
+    } catch (error) {
+      console.warn(error);
+    }
   };
   return (
     <>
       <Breadnav pages={pages} />
       <Break title="Add Class/Semester" />
-      <form className="form-solid w-full my-6 rounded-md">
+      <form
+        className="form-solid w-full my-6 rounded-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {error && (
+          <>
+            <div className="text-lg font-medium text-red-600">{error}</div>
+            <br />
+          </>
+        )}
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Select
               label="Level*"
               value={levelOption}
-              selected={level}
-              setSelected={setLevel}
-              error={errorLevel}
-              setError={setErrorLevel}
+              register={register}
+              name="level_id"
+              required={true}
+              selected="Select"
+              errors={errors}
             />
           </div>
           <div>
-            <Select
+            <Input
               label="Class/Semester*"
-              value={classOption}
-              selected={classSemester}
-              setSelected={setClassSemester}
-              error={errorClass}
-              setError={setErrorClass}
+              name="class_name"
+              register={register}
+              errors={errors}
+              required={true}
             />
           </div>
           <div>
             <Select
               label="Faculty"
               value={facultyOption}
-              selected={faculty}
-              setSelected={setFaculty}
+              register={register}
+              name="faculty_id"
             />
           </div>
           <div>
             <Select
               label="Sub faculty"
               value={subFacultyOption}
-              selected={subFaculty}
-              setSelected={setSubFaculty}
+              name="subfaculty_id"
+              register={register}
             />
           </div>
 
@@ -112,6 +175,18 @@ const AddClassSemester = () => {
             </div>
           </div>
         </div>
+        <AssignClassSubject
+          label="Select for compulsary Subject*"
+          register={register}
+          value={arrayCompalsarySubjects}
+          name="compalsarySubjects"
+        />
+        <AssignClassSubject
+          label="Select for elective Subject"
+          register={register}
+          value={arrayElectiveSubjects}
+          name="electiveSubjects"
+        />
         <div className="sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row col-span-full xl:col-span-4 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
@@ -121,12 +196,12 @@ const AddClassSemester = () => {
               >
                 Cancel
               </Link>
-              <div
-                onClick={handleSubmit}
+              <button
+                type="submit"
                 className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
               >
                 Save
-              </div>
+              </button>
             </div>
           </div>
         </div>

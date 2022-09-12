@@ -2,11 +2,11 @@ import Navbar from "../modules/admin/navbar/Navbar";
 import Sidebar from "../modules/admin/sidebar/Sidebar";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { authorized, axiosPrivate } from "../api/axios";
+import { authorized, axiosPrivate } from "../api/common/axios";
 import AuthContext from "../contex/AuthProvider";
 import { useContext } from "react";
 import Info from "../api/admin/Info";
-import Auth from "../api/Auth";
+import Auth from "../api/common/Auth";
 import { useState } from "react";
 
 const AdminMain = () => {

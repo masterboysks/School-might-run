@@ -1,4 +1,4 @@
-import { authorized } from "../../../../axios";
+import { authorized } from "../../../../common/axios";
 
 export default {
   get(page = 1) {
@@ -12,5 +12,8 @@ export default {
   },
   create(form) {
     return authorized.post(`/sub-faculties`, form);
+  },
+  getAll() {
+    return authorized.get(`/get-subfaculties`);
   },
 };

@@ -7,17 +7,6 @@ import { SearchBar } from "../../../../../../../components/common/fields";
 import Pagination from "../../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
-const people = [
-  {
-    faculty: "NEB",
-    subFaculty: "jhdgsgasfd",
-  },
-  {
-    faculty: "TU",
-    subFaculty: "gfstrft",
-  },
-];
-
 export default function Table() {
   const { register, watch } = useForm();
   const [data, setData] = useState([]);

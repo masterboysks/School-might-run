@@ -3,7 +3,7 @@ import { Input, Password } from "../components/common/fields";
 
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Auth from "../api/Auth";
+import Auth from "../api/common/Auth";
 import { useState } from "react";
 import AuthContext from "../contex/AuthProvider";
 import { useContext } from "react";

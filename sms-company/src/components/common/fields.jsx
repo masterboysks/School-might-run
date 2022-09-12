@@ -43,15 +43,15 @@ export const Radio = ({
   return (
     <>
       {value.map((curr) => (
-        <label key={curr} htmlFor={curr}>
+        <label key={curr.id} htmlFor={curr.id + "radioButton" + curr.name}>
           <input
             type="radio"
-            id={curr}
+            id={curr.id + "radioButton" + curr.name}
             {...register(name, { required })}
-            value={curr}
+            value={curr.id}
           />
           <span className={`mx-2 ${errors && errors[name] && "text-red-600"}`}>
-            {curr}
+            {curr.name}
           </span>
         </label>
       ))}
@@ -228,7 +228,6 @@ export function Select({
   className,
   labelClassName,
 }) {
-  console.log(options);
   return (
     <>
       {label && (
@@ -302,7 +301,10 @@ export function MultipleSelect({
             className="  h-[38px]  p- rounded focus:ring-primary-btn focus:ring-2 border px-2   border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  "
           >
             <span className="block pr-2 truncate">
-              {selected.map((person) => person).join(", ")}
+              {options
+                .filter((c) => selected.includes(c.id))
+                ?.map((person) => person.name)
+                .join(", ")}
             </span>
             {error && (
               <span className="text-red-600">This field is required</span>
@@ -331,7 +333,7 @@ export function MultipleSelect({
                         : "text-primary-grey-600"
                     }`
                   }
-                  value={person}
+                  value={person.id}
                 >
                   {({ selected }) => (
                     <>
@@ -340,7 +342,7 @@ export function MultipleSelect({
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {person}
+                        {person.name}
                       </span>
                       {selected ? (
                         <span className=" absolute inset-y-0 left-0 flex items-center pl-3">
