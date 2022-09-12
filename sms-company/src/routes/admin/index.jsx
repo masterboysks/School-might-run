@@ -10,10 +10,6 @@ import FeeRoutes from "./FeeRoutes";
 
 const AdminMain = lazy(() => import("../../pages/AdminMain"));
 
-//
-
-// routes of report
-
 function AdminRoutes() {
   const location = useLocation();
   return (
