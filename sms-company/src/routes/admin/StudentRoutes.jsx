@@ -61,7 +61,7 @@ export default function StudentRoutes() {
       <Route
         path="/"
         element={
-          <Suspense>
+          <Suspense fallback="Loading">
             <StudentSlidebar />
           </Suspense>
         }
@@ -69,7 +69,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentInformation />
             </Suspense>
           }
@@ -77,7 +77,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information/add-student-details"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddStudent
                 HasAnotherChild={hasAnotherChild}
                 setHasAnotherChild={setHasAnotherChild}
@@ -88,7 +88,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information/add-student-details/guardian-true"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddguardianTrue />
             </Suspense>
           }
@@ -96,7 +96,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information/add-student-details/guardian-false"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddguardianFalse />
             </Suspense>
           }
@@ -104,7 +104,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information/add-address-details"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddAddress />
             </Suspense>
           }
@@ -112,7 +112,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information/add-class-details"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddClassDetails />
             </Suspense>
           }
@@ -120,7 +120,7 @@ export default function StudentRoutes() {
         <Route
           path="student-information/add-fee-details"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddFeeDetails />
             </Suspense>
           }
@@ -128,7 +128,7 @@ export default function StudentRoutes() {
         <Route
           path="student-attendence"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentAttendence />
             </Suspense>
           }
@@ -137,7 +137,7 @@ export default function StudentRoutes() {
         <Route
           path="student-attendence/:classOfSchool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <WholeClass />
             </Suspense>
           }
@@ -146,7 +146,7 @@ export default function StudentRoutes() {
         <Route
           path="student-attendence/:classOfSchool/:section/:studentName/:studentId"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentProfile />
             </Suspense>
           }

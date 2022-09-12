@@ -21,7 +21,7 @@ function AdminRoutes() {
       <Route
         path="/dashboard/"
         element={
-          <Suspense>
+          <Suspense fallback="Loading">
             <AdminMain />
           </Suspense>
         }

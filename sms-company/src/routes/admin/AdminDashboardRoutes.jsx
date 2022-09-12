@@ -179,7 +179,7 @@ export default function AdminDashboardRoutes() {
       <Route
         path="/"
         element={
-          <Suspense>
+          <Suspense fallback="Loading">
             <AdminSlidebar />
           </Suspense>
         }
@@ -187,7 +187,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="template"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Temeplate />
             </Suspense>
           }
@@ -195,7 +195,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="event-calender"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Event />
             </Suspense>
           }
@@ -203,7 +203,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="event-calender/add/:date"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddEvent />
             </Suspense>
           }
@@ -211,7 +211,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="notice"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Notice />
             </Suspense>
           }
@@ -219,7 +219,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="notice/new"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <NewNotice />
             </Suspense>
           }
@@ -227,7 +227,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="upgrade"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Upgrade />
             </Suspense>
           }
@@ -235,7 +235,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="upgrade/class/:classname"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <UpgradeClass />
             </Suspense>
           }
@@ -243,7 +243,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="class-schedule"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ClassSchedule />
             </Suspense>
           }
@@ -251,7 +251,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="class-schedule/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddClassShedule />
             </Suspense>
           }
@@ -259,7 +259,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="organization-setup"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <OrginazationSetup />
             </Suspense>
           }
@@ -267,7 +267,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/university-board"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <UniversityBoard></UniversityBoard>
             </Suspense>
           }
@@ -275,7 +275,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/university-board/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddUniversityBoard></AddUniversityBoard>
             </Suspense>
           }
@@ -283,7 +283,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/level"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Level></Level>
             </Suspense>
           }
@@ -291,7 +291,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/level/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddLevel></AddLevel>
             </Suspense>
           }
@@ -299,7 +299,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/faculty"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Faculty></Faculty>
             </Suspense>
           }
@@ -307,7 +307,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/faculty/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddFaculty />
             </Suspense>
           }
@@ -315,7 +315,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/sub-faculty"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <SubFaculty />
             </Suspense>
           }
@@ -323,7 +323,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/sub-faculty/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddSubFaculty />
             </Suspense>
           }
@@ -331,7 +331,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Section />
             </Suspense>
           }
@@ -339,7 +339,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/section/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddSection />
             </Suspense>
           }
@@ -347,7 +347,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/subject"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Subject />
             </Suspense>
           }
@@ -355,7 +355,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/subject/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddSubject />
             </Suspense>
           }
@@ -363,7 +363,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/class-semester"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ClassSemester />
             </Suspense>
           }
@@ -371,7 +371,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/class-semester/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddClassSemester />
             </Suspense>
           }
@@ -396,7 +396,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/department"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Department />
             </Suspense>
           }
@@ -404,7 +404,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/department/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddDepartment />
             </Suspense>
           }
@@ -412,7 +412,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/designation"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Designation />
             </Suspense>
           }
@@ -420,7 +420,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/designation/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddDesignation />
             </Suspense>
           }
@@ -428,7 +428,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/academic-year"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AcademicYear />
             </Suspense>
           }
@@ -436,7 +436,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/academic-year/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddAcademicYear />
             </Suspense>
           }
@@ -444,7 +444,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/fiscal-year"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FiscalYear />
             </Suspense>
           }
@@ -452,7 +452,7 @@ export default function AdminDashboardRoutes() {
         <Route
           path="data-setup/fiscal-year/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddFiscalYear />
             </Suspense>
           }

@@ -92,7 +92,7 @@ export default function ExamRoutes() {
       <Route
         path="/"
         element={
-          <Suspense>
+          <Suspense fallback="Loading">
             <ExamSlidebar />
           </Suspense>
         }
@@ -101,7 +101,7 @@ export default function ExamRoutes() {
           <Route
             path="exam-name"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <ExamName />
               </Suspense>
             }
@@ -109,7 +109,7 @@ export default function ExamRoutes() {
           <Route
             path="exam-name/add"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <AddExamName />
               </Suspense>
             }
@@ -117,7 +117,7 @@ export default function ExamRoutes() {
           <Route
             path="grading-system"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <GradeSystem />
               </Suspense>
             }
@@ -125,7 +125,7 @@ export default function ExamRoutes() {
           <Route
             path="grading-system/add"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <AddGradeSystem />
               </Suspense>
             }
@@ -133,7 +133,7 @@ export default function ExamRoutes() {
           <Route
             path="exam-marks-name"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <ExamMarksName />
               </Suspense>
             }
@@ -141,7 +141,7 @@ export default function ExamRoutes() {
           <Route
             path="exam-marks-name/add"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <AddExamMarksName />
               </Suspense>
             }
@@ -149,7 +149,7 @@ export default function ExamRoutes() {
           <Route
             path="assign-mark"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <AssignExam />
               </Suspense>
             }
@@ -157,7 +157,7 @@ export default function ExamRoutes() {
           <Route
             path="assign-mark/assign/:classOfSchool/:section"
             element={
-              <Suspense>
+              <Suspense fallback="Loading">
                 <AssignAssignExam />
               </Suspense>
             }
@@ -166,7 +166,7 @@ export default function ExamRoutes() {
         <Route
           path="marks-ledger/view/:classOfSchool/:section/:studentName/:studentId"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <OpenMarksheet />
             </Suspense>
           }
@@ -174,7 +174,7 @@ export default function ExamRoutes() {
         <Route
           path="marks-ledger"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <MarkLedger />
             </Suspense>
           }
@@ -182,7 +182,7 @@ export default function ExamRoutes() {
         <Route
           path="marks-ledger/view/:classOfSchool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ViewMarkLedger />
             </Suspense>
           }
@@ -190,7 +190,7 @@ export default function ExamRoutes() {
         <Route
           path="exam-shedule"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ExamShedule />
             </Suspense>
           }
@@ -198,7 +198,7 @@ export default function ExamRoutes() {
         <Route
           path="exam-shedule/shedule/:examName"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <SheduleExamShedule />
             </Suspense>
           }
@@ -206,7 +206,7 @@ export default function ExamRoutes() {
         <Route
           path="exam-shedule/shedule/:examName/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddSheduleExamShedule />
             </Suspense>
           }
@@ -214,7 +214,7 @@ export default function ExamRoutes() {
         <Route
           path="admit-card"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AdmitCard />
             </Suspense>
           }
@@ -222,7 +222,7 @@ export default function ExamRoutes() {
         <Route
           path="admit-card/assign/:classOfschool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AssignAdmitCard />
             </Suspense>
           }

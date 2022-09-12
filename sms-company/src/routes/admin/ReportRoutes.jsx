@@ -62,7 +62,7 @@ export default function ReportRoutes() {
       <Route
         path="/"
         element={
-          <Suspense>
+          <Suspense fallback="Loading">
             <ReportSlidebar />
           </Suspense>
         }
@@ -70,7 +70,7 @@ export default function ReportRoutes() {
         <Route
           path="attendence-report/student-attendence-report"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentAttendenceReportClasses />
             </Suspense>
           }
@@ -78,7 +78,7 @@ export default function ReportRoutes() {
         <Route
           path="attendence-report/student-attendence-report/:classOfSchool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentAttendenceReportClass />
             </Suspense>
           }
@@ -86,7 +86,7 @@ export default function ReportRoutes() {
         <Route
           path="attendence-report/staff-attendence-report"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StaffAttendenceReport />
             </Suspense>
           }
@@ -94,7 +94,7 @@ export default function ReportRoutes() {
         <Route
           path="exam-report"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ExamReportClasses />
             </Suspense>
           }
@@ -102,7 +102,7 @@ export default function ReportRoutes() {
         <Route
           path="exam-report/:classOfSchool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ExamReportClass />
             </Suspense>
           }
@@ -110,7 +110,7 @@ export default function ReportRoutes() {
         <Route
           path="fee-report"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FeeReport />
             </Suspense>
           }
@@ -118,7 +118,7 @@ export default function ReportRoutes() {
         <Route
           path="fee-report/fee-statement/:classOfSchool/:section/:monthly"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <MonthlyFeeStatementReport />
             </Suspense>
           }
@@ -126,7 +126,7 @@ export default function ReportRoutes() {
         <Route
           path="fee-report/fee-statement/:classOfSchool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FeeStatementReport />
             </Suspense>
           }
@@ -134,7 +134,7 @@ export default function ReportRoutes() {
         <Route
           path="topper-report"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <TopperReportClasses />
             </Suspense>
           }
@@ -142,7 +142,7 @@ export default function ReportRoutes() {
         <Route
           path="topper-report/:classOfSchool"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <TopperReportClass />
             </Suspense>
           }

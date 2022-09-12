@@ -84,7 +84,7 @@ export default function FeeRoutes() {
       <Route
         path="fee"
         element={
-          <Suspense>
+          <Suspense fallback="Loading">
             <FeeSlidebar />
           </Suspense>
         }
@@ -92,7 +92,7 @@ export default function FeeRoutes() {
         <Route
           path="miscellaneous-fee-assign"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <MiscellaneousFeeAssign />
             </Suspense>
           }
@@ -100,7 +100,7 @@ export default function FeeRoutes() {
         <Route
           path="miscellaneous-fee-assign/assign"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <MiscAssign />
             </Suspense>
           }
@@ -108,7 +108,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-statement/student-fee-statement/:student"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentStatement />
             </Suspense>
           }
@@ -116,7 +116,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-statement/student-fee-statement"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentFeeStatement />
             </Suspense>
           }
@@ -124,7 +124,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-statement/class-fee-statement/:classOfSchool/:section/:monthly"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ClassStatementMonthly />
             </Suspense>
           }
@@ -132,7 +132,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-statement/class-fee-statement/:classOfSchool/:section"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ClassStatement />
             </Suspense>
           }
@@ -140,7 +140,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-statement/class-fee-statement"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <ClassFeeStatement />
             </Suspense>
           }
@@ -148,7 +148,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-payment"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FeePayment />
             </Suspense>
           }
@@ -156,7 +156,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-payment/:student"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FeeStudent />
             </Suspense>
           }
@@ -164,7 +164,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-type"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FeeType />
             </Suspense>
           }
@@ -172,7 +172,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-type/add"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <AddFeeType />
             </Suspense>
           }
@@ -180,7 +180,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-assign"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <FeeAssign />
             </Suspense>
           }
@@ -188,7 +188,7 @@ export default function FeeRoutes() {
         <Route
           path="fee-assign/assign"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Assign />
             </Suspense>
           }
@@ -196,7 +196,7 @@ export default function FeeRoutes() {
         <Route
           path="student-logsheet"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <StudentLogsheet />
             </Suspense>
           }
@@ -204,7 +204,7 @@ export default function FeeRoutes() {
         <Route
           path="student-logsheet/:student"
           element={
-            <Suspense>
+            <Suspense fallback="Loading">
               <Logsheet />
             </Suspense>
           }
