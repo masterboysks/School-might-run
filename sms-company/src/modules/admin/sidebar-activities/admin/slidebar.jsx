@@ -20,10 +20,10 @@ const links = [
     name: "Class/Semester",
     path: "/admin/dashboard/admin/data-setup/class-semester",
   },
-  {
-    name: "Assign-Subject",
-    path: "/admin/dashboard/admin/data-setup/assign-subject",
-  },
+  // {
+  //   name: "Assign-Subject",
+  //   path: "/admin/dashboard/admin/data-setup/assign-subject",
+  // },
   { name: "Department", path: "/admin/dashboard/admin/data-setup/department" },
   {
     name: "Designation",
