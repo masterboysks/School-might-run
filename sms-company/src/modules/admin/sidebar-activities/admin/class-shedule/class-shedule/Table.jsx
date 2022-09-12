@@ -9,6 +9,15 @@ import Pagination from "../../../../../../components/common/Pagination";
 import { useEffect } from "react";
 import { useState } from "react";
 import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";
+const arrayDays = [
+  { name: "Sun", id: 7 },
+  { name: "Mon", id: 1 },
+  { name: "Tue", id: 2 },
+  { name: "Wed", id: 3 },
+  { name: "Thur", id: 4 },
+  { id: 5, name: "Fri" },
+  { name: "Sat", id: 6 },
+];
 export default function Table() {
   const {
     register,
@@ -16,15 +25,7 @@ export default function Table() {
     watch,
     formState: { errors },
   } = useForm();
-  const arrayDays = [
-    { name: "Sun", id: 7 },
-    { name: "Mon", id: 1 },
-    { name: "Tue", id: 2 },
-    { name: "Wed", id: 3 },
-    { name: "Thur", id: 4 },
-    { id: 5, name: "Fri" },
-    { name: "Sat", id: 6 },
-  ];
+
   const [data, setData] = useState([]);
   useEffect(() => {
     (async () => {

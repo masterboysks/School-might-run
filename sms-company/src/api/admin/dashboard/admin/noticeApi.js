@@ -1,0 +1,19 @@
+import { authorized } from "../../../common/axios";
+
+export default {
+  get(page = 1) {
+    return authorized.get(`/notices?page=${page}`);
+  },
+  delete(id) {
+    return authorized.post(`notices/${id}`);
+  },
+  edit(id, form) {
+    return authorized.post(`notices/${id}`, form);
+  },
+  create(form) {
+    return authorized.post(`/notices`, form);
+  },
+  getAll() {
+    return authorized.get(`/get-notices`);
+  },
+};

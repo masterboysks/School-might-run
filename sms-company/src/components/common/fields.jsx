@@ -518,44 +518,30 @@ export const UploadPhoto = ({
 export const Textarea = ({
   id,
   name,
-  error,
-  setError,
+  register,
+  required = false,
+  errors,
   row,
   label,
-  value,
-  setValue,
   placeholder,
-  dataTitle,
-  dataValue,
 }) => {
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
-
   return (
     <>
       <label
-        className={`my-6 text-sm ${error && " text-red-600"}`}
+        className={`my-6 text-sm ${errors && errors[name] && " text-red-600"}`}
         htmlFor={id}
       >
         {label}
       </label>
       <br />
       <textarea
-        {...optional}
-        name={name}
         id={id}
         row={row || 20}
         placeholder={placeholder}
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        onClick={() => {
-          error && setError(false);
-        }}
+        {...register(name, { required })}
         className="resize-none  mt-[6px] w-full p- rounded  focus:ring-primary-btn  h-52  border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
       />
-      {error && (
+      {errors && errors[name] && (
         <>
           <br />
           <span className="text-xs font-light text-red-600">

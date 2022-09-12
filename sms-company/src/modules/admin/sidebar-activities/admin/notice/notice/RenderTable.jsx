@@ -8,19 +8,29 @@ const RenderTable = ({ currentItems }) => {
       {currentItems.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.date}
+            {person.entry_date}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.title}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.sendTo}
+            {person.send_to}
           </td>
           <td className="whitespace-nowrap text-primary-btn px-3 py-4 text-sm">
-            {person.document ? "View" : ""}
+            {person.document ? (
+              <a
+                href={person.document}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View
+              </a>
+            ) : (
+              ""
+            )}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.status}
+            {person.expiry_date}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">

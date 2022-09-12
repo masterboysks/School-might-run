@@ -1,25 +1,31 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../../components/common/oldFields";
+import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";
+import { SearchBar } from "../../../../../../components/common/fields";
 import RenderTable from "./RenderTable";
 
-const people = [
-  {
-    document: true,
-    status: "Active",
-    date: "2022/06/20",
-    title: "Failed students",
-    sendTo: "All",
-  },
-];
-
 export default function Table() {
-  const [search, setSearch] = useState("");
+  const { register, handleSubmit, watch } = useForm();
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await noticeApi.get();
+        const datas = data?.data?.data;
+        setData(datas?.data);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, []);
   return (
     <div className="mt-11 w-full">
       <div className="sm:flex sm:items-center justify-between">
         <div className="w-72 relative max-w-full">
-          <SearchBar value={search} setValue={setSearch} />
+          <SearchBar register={register} name="search" />
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
@@ -66,7 +72,7 @@ export default function Table() {
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Status
+                      Expiry date
                     </th>
 
                     <th
@@ -78,7 +84,7 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
+                  <RenderTable currentItems={data} />
                 </tbody>
               </table>
             </div>

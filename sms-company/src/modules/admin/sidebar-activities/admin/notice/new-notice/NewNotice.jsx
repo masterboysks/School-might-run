@@ -4,10 +4,12 @@ import {
   Input,
   MultipleSelect,
   Textarea,
-  Upload,
-} from "../../../../../../components/common/oldFields";
+  UploadPhoto,
+} from "../../../../../../components/common/fields";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../../../../../components/common/Break";
+import { useForm } from "react-hook-form";
+import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -22,46 +24,66 @@ const pages = [
     current: true,
   },
 ];
+
+const arraySendTo = [
+  { name: "All", id: 1 },
+  { name: "Student", id: 2 },
+  { name: "Teachers", id: 3 },
+];
 function NewNotice() {
-  const arraySendTo = ["All", "Student", "Teachers"];
-  const [noticeTitle, setNoticeTitle] = useState("");
-  const [noticeDescription, setNoticeDescription] = useState("");
-  const [document, setDocument] = useState("");
-  const [sendTo, setSendTo] = useState([arraySendTo[0]]);
-  const [noticeExpireDate, setNoticeExpireDate] = useState("");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-  const [errorNoticeTitle, setErrorNoticeTitle] = useState(false);
-  const [errorNoticeDescription, setErrorNoticeDescription] = useState(false);
-  const [errorSendTo, setErrorSendTo] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({
-      noticeTitle,
-      noticeDescription,
-      noticeExpireDate,
-      sendTo,
-      document,
-    });
-    let temp = false;
-    noticeTitle || ((temp = true) && setErrorNoticeTitle(true));
-    noticeDescription || ((temp = true) && setErrorNoticeDescription(true));
-    sendTo.length === 0 && (temp = true) && setErrorSendTo(true);
-
-    temp || navigate("/admin/notice");
+  const onSubmit = async (data) => {
+    const d = {
+      ...data,
+      send_to: sendTo,
+    };
+    const form = new FormData();
+    for (const name in d) {
+      form.append(name, d[name]);
+    }
+    d.document.length === 1
+      ? form.append("document", d.document[0])
+      : form.append("document", "");
+    const res = await noticeApi.create(form);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/class-shedule")
+      : setError("Failed to create class shedule");
   };
+
+  const [sendTo, setSendTo] = useState([]);
+  const [errorSendTo, setErrorSendTo] = useState(false);
+
   return (
     <div>
       <Breadnav pages={pages} />
       <Break title="New notice"></Break>
-      <form className="form-solid w-full my-4 space-y-4 rounded-md">
+      <form
+        className="form-solid w-full my-4 space-y-4 rounded-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {" "}
+        {error && (
+          <>
+            <div className="text-lg font-medium text-red-600">{error}</div>
+            <br />
+          </>
+        )}
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <Input
               label="Notice title*"
-              value={noticeTitle}
-              setValue={setNoticeTitle}
-              error={errorNoticeTitle}
-              setError={setErrorNoticeTitle}
+              register={register}
+              required={true}
+              errors={errors}
+              name="title"
               placeholder="National Education Board"
             />
           </div>
@@ -72,28 +94,29 @@ function NewNotice() {
               label="Notice description*"
               placeholder=" Description here"
               id="notice_description"
-              value={noticeDescription}
-              setValue={setNoticeDescription}
-              error={errorNoticeDescription}
-              setError={setErrorNoticeDescription}
+              name="description"
+              register={register}
+              errors={errors}
+              required={true}
             />
           </div>
         </div>
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
-            <Upload
+            <UploadPhoto
               label="Document"
               id="document_form"
-              value={document}
-              setValue={setDocument}
+              name="document"
+              register={register}
+              watch={watch}
             />
           </div>
           <div>
             <Input
               label="Notice expire date"
               type="date"
-              value={noticeExpireDate}
-              setValue={setNoticeExpireDate}
+              register={register}
+              name="expiry_date"
               id="expire_date"
             />
           </div>
@@ -120,12 +143,12 @@ function NewNotice() {
               >
                 Cancel
               </Link>
-              <div
-                onClick={handleSubmit}
+              <button
+                type="submit"
                 className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
               >
                 Save
-              </div>
+              </button>
             </div>
           </div>
         </div>
