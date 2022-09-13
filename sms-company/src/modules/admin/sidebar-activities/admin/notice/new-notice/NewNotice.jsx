@@ -54,8 +54,8 @@ function NewNotice() {
       : form.append("document", "");
     const res = await noticeApi.create(form);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/class-shedule")
-      : setError("Failed to create class shedule");
+      ? navigate("/admin/dashboard/admin/notice")
+      : setError("Failed to create a notice");
   };
 
   const [sendTo, setSendTo] = useState([]);

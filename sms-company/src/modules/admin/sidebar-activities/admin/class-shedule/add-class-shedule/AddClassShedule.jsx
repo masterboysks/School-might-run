@@ -74,29 +74,7 @@ function AddClassShedule() {
   }, []);
   const [days, setDays] = useState([]); //array for multiple
   const [daysError, setDaysError] = useState(false);
-  // const arrayTeachers = ["hi", "hlo"];
-  // const arraySubjects = ["Sun", "Mon", "Tue", "Thur", "Fri", "Sat"];
-  // const [subject, setSubject] = useState("Select"); //single select has one item so no array
-  // const [startTime, setStartTime] = useState("");
-  // const [endTime, setEndTime] = useState("");
-  // const [teacher, setTeacher] = useState("Select");
-  // const [startTimeError, setStartTimeError] = useState(false);
-  // const [endTimeError, setEndTimeError] = useState(false);
-  // const [errorSubject, setErrorSubject] = useState(false);
-  // const [errorTeacher, setErrorTeacher] = useState(false);
-  // //
-  // const navigate = useNavigate();
-  // const handleSubmit = () => {
-  //   console.log({ days, subject, startTime, endTime, teacher });
-  //   let temp = false;
-  //   days.length === 0 && (temp = true) && setDaysError(true);
-  //   subject === "Select" && (temp = true) && setErrorSubject(true);
-  //   teacher === "Select" && (temp = true) && setErrorTeacher(true);
-  //   !startTime && (temp = true) && setStartTimeError(true);
-  //   !endTime && (temp = true) && setEndTimeError(true);
 
-  //   temp || navigate("/admin/class-schedule");
-  // };
   return (
     <>
       <div>
