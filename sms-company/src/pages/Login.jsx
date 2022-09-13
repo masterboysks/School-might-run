@@ -20,11 +20,9 @@ export default function Login() {
   const [errorText, setErrorText] = useState("");
   // console.log(abc);
   const onSubmit = async (data) => {
-    console.log(data);
-
     try {
       const res = await Auth.login(data);
-
+      console.log(res);
       setAuth(res.data.data.token.access_token);
       localStorage.setItem("kcx", res.data.data.token.refresh_token);
       switch (res.data.data.meta.type) {
@@ -42,9 +40,9 @@ export default function Login() {
       }
     } catch (err) {
       err.response?.status === 422 && setErrorText("Invalid Credentials");
-      (err.response?.status === 404 ||
-        err.response?.status?.toString().substring(0, 1) === "5") &&
-        setErrorText("Server error");
+      // (err.response?.status === 404 ||
+      //   err.response?.status?.toString().substring(0, 1) === "5") &&
+      setErrorText("Server error");
     }
   };
   return (

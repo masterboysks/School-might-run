@@ -69,7 +69,6 @@ function NewNotice() {
         className="form-solid w-full my-4 space-y-4 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {" "}
         {error && (
           <>
             <div className="text-lg font-medium text-red-600">{error}</div>
