@@ -6,7 +6,7 @@ import { useContext } from "react";
 import Info from "../api/admin/Info";
 import Auth from "../api/common/Auth";
 import { useState } from "react";
-import Sidebar from "../modules/teacher/sidebar/Slidebar";
+import Sidebar from "../modules/teacher/sidebar/Sidebar";
 import Navbar from "../modules/teacher/navbar/Navbar";
 
 const TeacherMain = () => {

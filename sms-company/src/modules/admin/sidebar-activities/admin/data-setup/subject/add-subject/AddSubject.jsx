@@ -65,7 +65,6 @@ const AddSubject = () => {
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {" "}
         {error && (
           <>
             <div className="text-lg font-medium text-red-600">{error}</div>

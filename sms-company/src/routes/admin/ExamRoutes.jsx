@@ -226,7 +226,7 @@ export default function ExamRoutes() {
               <AssignAdmitCard />
             </Suspense>
           }
-        ></Route>{" "}
+        ></Route>
         <Route
           path="*"
           element={

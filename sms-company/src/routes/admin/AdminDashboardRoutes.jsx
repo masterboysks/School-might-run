@@ -55,7 +55,6 @@ const Temeplate = lazy(() =>
 export default function AdminDashboardRoutes() {
   return (
     <Routes>
-      {" "}
       {/* Admin Routes reside here */}
       <Route
         path="/"
@@ -145,7 +144,7 @@ export default function AdminDashboardRoutes() {
               <OrginazationSetup />
             </Suspense>
           }
-        />{" "}
+        />
         <Route
           path="*"
           element={

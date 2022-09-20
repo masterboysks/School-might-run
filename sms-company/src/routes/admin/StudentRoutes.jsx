@@ -79,7 +79,7 @@ export default function StudentRoutes() {
               <AddStudent
                 HasAnotherChild={hasAnotherChild}
                 setHasAnotherChild={setHasAnotherChild}
-              />{" "}
+              />
             </Suspense>
           }
         />

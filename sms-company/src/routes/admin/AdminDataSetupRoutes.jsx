@@ -126,7 +126,6 @@ const AddFiscalYear = lazy(() =>
 export default function AdminDataSetupRoutes() {
   return (
     <Routes>
-      {" "}
       <Route
         path="university-board"
         element={

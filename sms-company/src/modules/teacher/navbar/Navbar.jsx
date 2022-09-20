@@ -214,7 +214,7 @@ export default function Navbar() {
                                 : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
-                            <Link to="/admin/dashboard/"> Push</Link>{" "}
+                            <Link to="/admin/dashboard/"> Push</Link>
                             Notification
                           </Popover.Button>
                           <Popover.Button

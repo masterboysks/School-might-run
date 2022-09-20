@@ -80,7 +80,6 @@ const ClassStatementMonthly = lazy(() =>
 export default function FeeRoutes() {
   return (
     <Routes>
-      {" "}
       <Route
         path="fee"
         element={
