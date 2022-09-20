@@ -10,6 +10,7 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../../../../../components/common/Break";
 import { useForm } from "react-hook-form";
 import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";
+import { useEffect } from "react";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -25,11 +26,11 @@ const pages = [
   },
 ];
 
-const arraySendTo = [
-  { name: "All", id: 1 },
-  { name: "Student", id: 2 },
-  { name: "Teachers", id: 3 },
-];
+// const arraySendTo = [
+//   { name: "All", id: 1 },
+//   { name: "Student", id: 2 },
+//   { name: "Teachers", id: 3 },
+// ];
 function NewNotice() {
   const {
     register,
@@ -37,14 +38,15 @@ function NewNotice() {
     watch,
     formState: { errors },
   } = useForm();
-
+  const [arraySendTo, setArraySendTo] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      send_to: sendTo,
+      send_to: JSON.stringify(sendTo),
     };
+    console.log(d);
     const form = new FormData();
     for (const name in d) {
       form.append(name, d[name]);
@@ -60,6 +62,17 @@ function NewNotice() {
 
   const [sendTo, setSendTo] = useState([]);
   const [errorSendTo, setErrorSendTo] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await noticeApi.sendTo();
+        setArraySendTo(data?.data?.data?.data);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, []);
 
   return (
     <div>

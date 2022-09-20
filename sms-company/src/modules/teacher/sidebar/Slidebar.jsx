@@ -1,43 +1,24 @@
-import Admin from "@mui/icons-material/AdminPanelSettingsOutlined";
-import Student from "@mui/icons-material/SchoolOutlined";
-import Staff from "@mui/icons-material/SupervisorAccountOutlined";
-import Fee from "@mui/icons-material/ReceiptLongOutlined";
-import Account from "@mui/icons-material/AccountBalanceWalletOutlined";
-import Libary from "@mui/icons-material/LocalLibraryOutlined";
-import Inventory from "@mui/icons-material/Inventory2Outlined";
+// import Admin from "@mui/icons-material/AdminPanelSettingsOutlined";
+import Class from "@mui/icons-material/SchoolOutlined";
+import Profile from "@mui/icons-material/SupervisorAccountOutlined";
+// import Fee from "@mui/icons-material/ReceiptLongOutlined";
+// import Account from "@mui/icons-material/AccountBalanceWalletOutlined";
+// import Libary from "@mui/icons-material/LocalLibraryOutlined";
+// import Inventory from "@mui/icons-material/Inventory2Outlined";
 import Exam from "@mui/icons-material/QuizOutlined";
 import Lms from "@mui/icons-material/AppRegistrationOutlined";
-import Transport from "@mui/icons-material/DirectionsBusOutlined";
-import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
+// import Transport from "@mui/icons-material/DirectionsBusOutlined";
+// import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import Hamburger from "@mui/icons-material/MenuOutlined";
 
 let activity = [
-  { name: "Admin", value: Admin, path: "admin/organization-setup" },
-  { name: "Staff", value: Staff, path: "staff/staff-information" },
-  { name: "Student", value: Student, path: "student/student-information" },
-  { name: "Fee", value: Fee, path: "fee/fee-type" },
+  { name: "Profile", value: Profile, path: "admin/organization-setup" },
+  { name: "Class", value: Class, path: "staff/staff-information" },
   { name: "Exam", value: Exam, path: "exam/exam-setup/exam-name" },
 
-  {
-    name: "Report",
-    value: SummarizeOutlinedIcon,
-    path: "report/attendence-report/student-attendence-report",
-  },
-  { name: "Libary", value: Libary, path: "student/student-information" },
-  {
-    name: "Transport",
-    value: Transport,
-    path: "student/student-information",
-  },
-  { name: "Account", value: Account, path: "account" },
-  {
-    name: "Inventory",
-    value: Inventory,
-    path: "student/student-information",
-  },
   { name: "LMS", value: Lms, path: "student/student-information" },
 ];
 export default function Sidebar({ modules }) {

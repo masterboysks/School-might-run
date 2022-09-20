@@ -16,4 +16,7 @@ export default {
   getAll() {
     return authorized.get(`/get-notices`);
   },
+  sendTo() {
+    return authorized.get(`/array-send-to`);
+  },
 };

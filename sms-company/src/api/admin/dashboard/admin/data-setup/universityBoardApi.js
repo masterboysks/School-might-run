@@ -11,6 +11,6 @@ export default {
     return authorized.post(`universities/${id}`, form);
   },
   create(form) {
-    return authorized.post(`/universities`, form);
+    return authorized.post(`/get-universities`, form);
   },
 };

@@ -14,7 +14,9 @@ const RenderTable = ({ currentItems }) => {
             {person.title}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.send_to}
+            {person?.send_to?.length > 1
+              ? person?.send_to?.join(" ,")
+              : person?.send_to}
           </td>
           <td className="whitespace-nowrap text-primary-btn px-3 py-4 text-sm">
             {person.document ? (

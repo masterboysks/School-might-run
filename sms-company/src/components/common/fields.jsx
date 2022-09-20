@@ -301,7 +301,7 @@ export function MultipleSelect({
           >
             <span className="block pr-2 truncate">
               {options
-                .filter((c) => selected.includes(c.id))
+                ?.filter((c) => selected.includes(c.id))
                 ?.map((person) => person.name)
                 .join(", ")}
             </span>

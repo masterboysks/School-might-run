@@ -38,6 +38,7 @@ const Form = () => {
       //   (c) => data.vdc_municipality === c.municipality_name
       // )[0].id,
     };
+
     const form = new FormData();
     for (const name in d) {
       form.append(name, d[name]);
@@ -68,6 +69,7 @@ const Form = () => {
       vdc_municipality: defaultData.vdc_municipality.id,
       province: defaultData.province.id,
       district: defaultData.district.id,
+      date_format: defaultData.date_format.id,
     });
   };
   useEffect(() => {
