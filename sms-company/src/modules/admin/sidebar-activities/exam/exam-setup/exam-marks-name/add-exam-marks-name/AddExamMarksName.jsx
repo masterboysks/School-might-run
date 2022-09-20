@@ -17,12 +17,12 @@ const pages = [
   },
   {
     name: "Exam marks name",
-    href: "/exam/exam-setup/exam-marks-name",
+    href: "/admin/dashboard/exam/exam-setup/exam-marks-name",
     current: false,
   },
   {
     name: "add",
-    href: "/exam/exam-setup/exam-marks-name/add",
+    href: "/admin/dashboard/exam/exam-setup/exam-marks-name/add",
     current: true,
   },
 ];
@@ -34,7 +34,7 @@ export default function ExamMarksName() {
     console.log({ examMarksName });
 
     examMarksName
-      ? navigate("/exam/exam-setup/exam-marks-name")
+      ? navigate("/admin/dashboard/exam/exam-setup/exam-marks-name")
       : setErrorExamMarksName(true);
   };
   return (
@@ -57,7 +57,7 @@ export default function ExamMarksName() {
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row w-fit flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
-              <Link to="/exam/exam-setup/exam-marks-name">
+              <Link to="/admin/dashboard/exam/exam-setup/exam-marks-name">
                 <SecondaryButton>Cancel</SecondaryButton>
               </Link>
               <span onClick={handleSubmit}>

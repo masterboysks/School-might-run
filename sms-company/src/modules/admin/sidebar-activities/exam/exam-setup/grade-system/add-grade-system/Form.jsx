@@ -24,7 +24,7 @@ export default function Form() {
       (curr.lowerLimit && curr.upperLimit && curr.grade && curr.gpa) ||
         (temp = true);
     });
-    temp || navigate("/exam/exam-setup/grading-system");
+    temp || navigate("/admin/dashboard/exam/exam-setup/grading-system");
   };
   return (
     <>
@@ -127,7 +127,7 @@ export default function Form() {
         </div>
 
         <div className="w-fit ml-auto">
-          <Link to="/exam/exam-setup/grading-system">
+          <Link to="/admin/dashboard/exam/exam-setup/grading-system">
             <SecondaryButton>Cancel</SecondaryButton>
           </Link>
           <PrimaryButton onClick={handleSubmit}>Save</PrimaryButton>

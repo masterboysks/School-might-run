@@ -13,12 +13,12 @@ const pages = [
   },
   {
     name: "Exam name",
-    href: "/exam/exam-setup/exam-name",
+    href: "/admin/dashboard/exam/exam-setup/exam-name",
     current: false,
   },
   {
     name: "Add",
-    href: "/exam/exam-setup/exam-name/add",
+    href: "/admin/dashboard/exam/exam-setup/exam-name/add",
     current: true,
   },
 ];

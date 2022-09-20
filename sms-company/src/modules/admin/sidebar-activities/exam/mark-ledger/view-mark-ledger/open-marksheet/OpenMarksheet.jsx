@@ -11,7 +11,7 @@ export default function OpenMarksheet() {
 
     {
       name: "Marksledger",
-      href: "/exam/marks-ledger",
+      href: "/admin/dashboard/exam/marks-ledger",
       current: false,
     },
     {

@@ -23,7 +23,7 @@ export default function Form() {
     let temp = false;
     examName || ((temp = true) && setErrorExamName(true));
     level === "Select" && (temp = true) && setErrorLevel(true);
-    temp || navigate("/exam/exam-setup/exam-name");
+    temp || navigate("/admin/dashboard/exam/exam-setup/exam-name");
   };
   return (
     <form className="form-solid w-full my-6 rounded-md">
@@ -92,7 +92,7 @@ export default function Form() {
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className="md:flex-row w-fit lg:col-span-2 flex flex-col my-6 ml-auto">
           <div className=" w-fit">
-            <Link to="/exam/exam-setup/exam-name">
+            <Link to="/admin/dashboard/exam/exam-setup/exam-name">
               <SecondaryButton>Cancel</SecondaryButton>
             </Link>
             <PrimaryButton onClick={handleSubmit}>Save</PrimaryButton>

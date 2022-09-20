@@ -11,12 +11,12 @@ const pages = [
   },
   {
     name: "Grading system",
-    href: "/exam/exam-setup/grading-system",
+    href: "/admin/dashboard/exam/exam-setup/grading-system",
     current: false,
   },
   {
     name: "Add",
-    href: "/exam/exam-setup/grading-system/add",
+    href: "/admin/dashboard/exam/exam-setup/grading-system/add",
     current: true,
   },
 ];

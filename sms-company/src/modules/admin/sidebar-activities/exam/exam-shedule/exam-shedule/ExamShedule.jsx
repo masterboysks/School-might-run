@@ -5,7 +5,7 @@ const pages = [
   { name: "Exam", href: "#", current: false },
   {
     name: "Exam schedule",
-    href: "/exam/exam-shedule",
+    href: "/admin/dashboard/exam/exam-shedule",
     current: true,
   },
 ];

@@ -10,7 +10,7 @@ const pages = [
   },
   {
     name: "Exam name",
-    href: "/exam/exam-setup/exam-name",
+    href: "/admin/dashboard/exam/exam-setup/exam-name",
     current: true,
   },
 ];

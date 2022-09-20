@@ -10,7 +10,7 @@ const pages = [
   },
   {
     name: "Grading system",
-    href: "/exam/exam-setup/grading-system",
+    href: "/admin/dashboard/exam/exam-setup/grading-system",
     current: true,
   },
 ];

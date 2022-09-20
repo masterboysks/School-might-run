@@ -6,19 +6,19 @@ import Arrow from "@mui/icons-material/ArrowForwardIos";
 const setupLinks = [
   {
     name: "Exam name",
-    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/exam-name",
+    path: "/admin/dashboard/exam/exam-setup/exam-name",
   },
   {
     name: "Grade system setup",
-    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/grading-system",
+    path: "/admin/dashboard/exam/exam-setup/grading-system",
   },
   {
     name: "Exam marks name",
-    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/exam-marks-name",
+    path: "/admin/dashboard/exam/exam-setup/exam-marks-name",
   },
   {
     name: "Assign mark",
-    path: "/admin/dashboard/admin/dashboard/exam/exam-setup/assign-mark",
+    path: "/admin/dashboard/exam/exam-setup/assign-mark",
   },
 ];
 

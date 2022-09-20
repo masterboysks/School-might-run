@@ -10,7 +10,7 @@ export default function AddSheduleExamShedule() {
     { name: "Exam", href: "#", current: false },
     {
       name: "Exam shedule",
-      href: "/exam/exam-shedule",
+      href: "/admin/dashboard/exam/exam-shedule",
       current: false,
     },
     {

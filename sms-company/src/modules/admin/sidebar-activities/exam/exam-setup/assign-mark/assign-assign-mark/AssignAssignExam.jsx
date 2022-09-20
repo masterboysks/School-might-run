@@ -16,7 +16,7 @@ export default function AssignAssignExam() {
     },
     {
       name: "Exam name",
-      href: "/exam/exam-setup/assign-mark",
+      href: "/admin/dashboard/exam/exam-setup/assign-mark",
       current: false,
     },
     {
