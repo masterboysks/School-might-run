@@ -9,7 +9,7 @@ const RenderTable = ({ currentItems }) => {
             {person.date}
           </td>
 
-          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          <td className="whitespace-nowrap px-3 py-4 text-sm text-primary-btn">
             <Link to={`${person.particular}`}> {person.particular}</Link>
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
