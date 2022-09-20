@@ -12,7 +12,7 @@ const pages = [
   },
   {
     name: "Add Student",
-    href: "/student/student-information/add-student-details",
+    href: "/admin/dashboard/student/student-information/add-student-details",
     current: true,
   },
 ];

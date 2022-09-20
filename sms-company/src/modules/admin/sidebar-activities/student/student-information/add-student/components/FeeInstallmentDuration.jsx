@@ -63,13 +63,13 @@ function FeeInstallmentDuration() {
         </div>
         <div className=" w-fit xl:mt-0 mt-3 mb-6 ml-auto">
           <Link
-            to="/student/student-information/add-class-details"
+            to="/admin/dashboard/student/student-information/add-class-details"
             className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
           >
             Back
           </Link>
           <Link
-            to={`/student/student-information`}
+            to={`/admin/dashboard/student/student-information`}
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Submit

@@ -5,13 +5,11 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 const AddStudent = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components/add-student/AddStudent"
+    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddStudent"
   )
 );
 const StudentSlidebar = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/components/slidebar/Slidebar"
-  )
+  import("../../modules/admin/sidebar-activities/student/Slidebar")
 );
 const StudentInformation = lazy(() =>
   import("../../modules/admin/sidebar-activities/student/Student-information")
@@ -21,12 +19,12 @@ const StudentAttendence = lazy(() =>
 );
 const AddguardianTrue = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components/add-student/AddGuardianTrue"
+    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianTrue"
   )
 );
 const AddguardianFalse = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components/add-student/AddGuardianFalse"
+    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianFalse"
   )
 );
 const WholeClass = lazy(() =>
@@ -41,17 +39,17 @@ const StudentProfile = lazy(() =>
 );
 const AddAddress = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components/add-student/AddAddress"
+    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddAddress"
   )
 );
 const AddClassDetails = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components/add-student/AddClassDetails"
+    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddClassDetails"
   )
 );
 const AddFeeDetails = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components/add-student/AddFeeDetails"
+    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddFeeDetails"
   )
 );
 export default function StudentRoutes() {

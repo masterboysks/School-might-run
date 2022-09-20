@@ -186,13 +186,13 @@ const DetailsForm = ({ anotherChildToggle, anotherChild }) => {
       <div className="w-full">
         <div className=" w-fit ml-auto">
           <Link
-            to="/student/student-information/"
+            to="/admin/dashboard/student/student-information/"
             className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
           >
             Cancel
           </Link>
           <Link
-            to={`/student/student-information/add-student-details/guardian-${anotherChild}`}
+            to={`/admin/dashboard/student/student-information/add-student-details/guardian-${anotherChild}`}
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Next

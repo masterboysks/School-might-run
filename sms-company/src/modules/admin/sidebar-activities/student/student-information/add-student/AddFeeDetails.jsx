@@ -6,13 +6,13 @@ const steps = [
   {
     id: "01",
     name: "Student details",
-    href: "/student/student-information/add-student-details",
+    href: "/admin/dashboard/student/student-information/add-student-details",
     status: "complete",
   },
   {
     id: "02",
     name: "Guardian details",
-    href: "/student/student-information/add-student-details/guardian-false",
+    href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
     status: "complete",
   },
   {

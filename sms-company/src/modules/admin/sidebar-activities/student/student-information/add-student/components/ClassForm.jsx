@@ -1,157 +1,117 @@
+import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Break from "./Break";
 
-function AddressForm() {
+function ClassForm() {
   const navigate = useNavigate();
   return (
     <form className="form-solid my-6 rounded-md">
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
-        <div>
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Country*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
         <div className="">
           <label className="py-6 text-sm" htmlFor="Student Id">
-            Province*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            District*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Municipality/VDC*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Ward number*
+            Date of addmission*
           </label>
           <br />
           <input
             className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="number"
-            placeholder="11"
+            type="date"
+            placeholder="Nepal"
           />
         </div>
         <div className="">
           <label className="py-6 text-sm" htmlFor="Student Id">
-            Tole
+            Student ID*
           </label>
           <br />
           <input
             className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
             type="text"
-            placeholder="Ason tole"
-          />
-        </div>
-      </div>
-      <Break title=" Temporary address" />
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
-        <div className="col-span-full">
-          <input type="checkbox" id="same" className="mr-3 rounded" />
-          <label htmlFor="same"> Same as permenant address</label>
-        </div>
-        <div>
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Country*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Province*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            District*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Municipality/VDC*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-          >
-            <option value="test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Ward number*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="number"
-            placeholder="11"
+            placeholder="550632a"
           />
         </div>
         <div className="">
           <label className="py-6 text-sm" htmlFor="Student Id">
-            Tole
+            Class/Semester*
+          </label>
+          <br />
+          <select
+            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+            name="class"
+            id="class"
+          >
+            <option value="test">Select</option>
+          </select>
+        </div>
+        <div className="">
+          <label className="py-6 text-sm" htmlFor="Student Id">
+            Faculty
+          </label>
+          <br />
+          <select
+            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+            name="class"
+            id="class"
+          >
+            <option value="test">Select</option>
+          </select>
+        </div>
+        <div className="">
+          <label className="py-6 text-sm" htmlFor="Student Id">
+            Section
+          </label>
+          <br />
+          <select
+            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+            name="class"
+            id="class"
+          >
+            <option value="test">Select</option>
+          </select>
+        </div>
+        <div className="">
+          <label className="py-6 text-sm" htmlFor="Student Id">
+            Previous school
           </label>
           <br />
           <input
             className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
             type="text"
-            placeholder="Ason tole"
+            placeholder="AVM school"
           />
+        </div>
+        <div className="">
+          <label className="py-6 text-sm" htmlFor="Student Id">
+            Address of previous school*
+          </label>
+          <br />
+          <input
+            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+            type="text"
+            placeholder="Kalimati, Kathmandu"
+          />
+        </div>
+        <div className="">
+          <label className="py-6 text-sm" htmlFor="Student Id">
+            Grade in previous school
+          </label>
+          <br />
+          <input
+            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+            type="text"
+            placeholder="3.45"
+          />
+        </div>
+        <div className="">
+          <label className="py-6 text-sm" htmlFor="Student Id">
+            Status
+          </label>
+          <br />
+          <select
+            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+            name="status"
+            id="status"
+          >
+            <option value="test">Select</option>
+          </select>
         </div>
       </div>
       <div className="w-full">
@@ -165,7 +125,7 @@ function AddressForm() {
             Back
           </div>
           <Link
-            to={`/student/student-information/add-class-details`}
+            to={`/admin/dashboard/student/student-information/add-fee-details`}
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Next
@@ -176,4 +136,4 @@ function AddressForm() {
   );
 }
 
-export default AddressForm;
+export default ClassForm;
