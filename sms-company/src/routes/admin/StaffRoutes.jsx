@@ -119,7 +119,7 @@ export default function StaffRoutes() {
           }
         ></Route>
         <Route
-          path="staff/staff-information/add-staff/general"
+          path="staff-information/add-staff/general"
           element={
             <Suspense fallback="Loading">
               <AddStaffGeneralBase />
@@ -127,7 +127,7 @@ export default function StaffRoutes() {
           }
         >
           <Route
-            path="staff/staff-information/add-staff/general/personal-details"
+            path="personal-details"
             element={
               <Suspense fallback="Loading">
                 <AddStaffGeneralPersonal />
@@ -135,7 +135,7 @@ export default function StaffRoutes() {
             }
           />
           <Route
-            path="staff/staff-information/add-staff/general/address-details"
+            path="address-details"
             element={
               <Suspense fallback="Loading">
                 <AddStaffGeneralAddress />
@@ -143,7 +143,7 @@ export default function StaffRoutes() {
             }
           />
           <Route
-            path="staff/staff-information/add-staff/general/office-details"
+            path="office-details"
             element={
               <Suspense fallback="Loading">
                 <AddStaffGeneralOffice />
@@ -159,7 +159,7 @@ export default function StaffRoutes() {
           }
         >
           <Route
-            path="staff/staff-information/add-staff/academic"
+            path="staff-information/add-staff/academic"
             element={
               <Suspense fallback="Loading">
                 <StaffAcademicDetails />
@@ -167,7 +167,7 @@ export default function StaffRoutes() {
             }
           />
           <Route
-            path="staff/staff-information/add-staff/academic/add-academic-details"
+            path="staff-information/add-staff/academic/add-academic-details"
             element={
               <Suspense fallback="Loading">
                 <AddStaffAcademicDetails />
@@ -183,7 +183,7 @@ export default function StaffRoutes() {
           }
         >
           <Route
-            path="staff/staff-information/add-staff/documents"
+            path="staff-information/add-staff/documents"
             element={
               <Suspense fallback="Loading">
                 <StaffDocument />
@@ -191,7 +191,7 @@ export default function StaffRoutes() {
             }
           />
           <Route
-            path="staff/staff-information/add-staff/documents/add-documents"
+            path="staff-information/add-staff/documents/add-documents"
             element={
               <Suspense fallback="Loading">
                 <AddStaffDocument />

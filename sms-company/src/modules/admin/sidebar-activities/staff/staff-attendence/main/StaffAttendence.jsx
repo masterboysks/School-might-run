@@ -16,8 +16,8 @@ function StaffAttendence() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Attendence" />
       <Form></Form>
+      <Break title="Attendence" />
       <Table></Table>
     </>
   );

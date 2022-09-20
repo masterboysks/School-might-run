@@ -4,17 +4,17 @@ import Tabs from "../Tabs";
 const tabs = [
   {
     name: "General details",
-    href: "/staff/staff-information/add-staff/general/personal-details",
+    href: "/admin/dashboard/staff/staff-information/add-staff/general/personal-details",
     current: false,
   },
   {
     name: "Academic details",
-    href: "/staff/staff-information/add-staff/academic",
+    href: "/admin/dashboard/staff/staff-information/add-staff/academic",
     current: false,
   },
   {
     name: "Documents",
-    href: "/staff/staff-information/add-staff/documents",
+    href: "/admin/dashboard/staff/staff-information/add-staff/documents",
     current: true,
   },
 ];
