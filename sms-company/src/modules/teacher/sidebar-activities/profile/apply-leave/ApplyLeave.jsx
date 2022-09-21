@@ -2,6 +2,8 @@ import React from "react";
 import Breadnav from "../../../../../components/common/Breadnav";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
+import Form from "./Form";
+import Break from "../../../../../components/common/Break";
 const pages = [
   { name: "Profile", href: "#", current: false },
   {
@@ -27,18 +29,31 @@ export default function ApplyLeave() {
   return (
     <>
       <Breadnav pages={pages} />
-      <div className="w-1/3 flex items-center  border rounded p-2 my-6">
+      {/* Chart */}
+      <div className="w-1/3 flex items-center  border rounded-lg p-2 my-6 gap-5 text-primary-grey-600">
         <div className="w-1/3">
           <Doughnut data={data} />
         </div>
         <div>
           <ul>
-            <li>Total school days:143</li>
-            <li>Total present days:123</li>
-            <li>Total absent days:20</li>
+            <li>
+              Total school days:
+              <span className="text-primary-grey-700 font-medium"> 143</span>
+            </li>
+            <li>
+              Total present days:
+              <span className="text-primary-grey-700 font-medium"> 123</span>
+            </li>
+            <li>
+              Total absent days:
+              <span className="text-primary-grey-700 font-medium"> 20</span>
+            </li>
           </ul>
         </div>
       </div>
+      {/* Form */}
+      <Break title="Apply leave" />
+      <Form></Form>
     </>
   );
 }
