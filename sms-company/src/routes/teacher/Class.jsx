@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Classess from "../../modules/teacher/sidebar-activities/class/class-attendence/Classess";
+import ClassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/ClassRoutine";
 import MyClasses from "../../modules/teacher/sidebar-activities/class/my-classes/MyClasses";
 import Slidebar from "../../modules/teacher/sidebar-activities/class/Slidebar";
 
@@ -8,6 +10,10 @@ export default function Class() {
     <Routes>
       <Route path="/" element={<Slidebar />}>
         <Route path="/my-classes" element={<MyClasses />} />
+        <Route path="/class-attendence" element={<Classess />} />
+        <Route path="/class-attendence/:class/:id" element={<Classess />} />
+        <Route path="/class-routine" element={<ClassRoutine />} />
+        <Route path="/class-routine/:class/:id" element={<ClassRoutine />} />
       </Route>
     </Routes>
   );

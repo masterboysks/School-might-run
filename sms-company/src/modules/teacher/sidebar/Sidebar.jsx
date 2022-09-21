@@ -1,37 +1,30 @@
-// import Admin from "@mui/icons-material/AdminPanelSettingsOutlined";
 import Class from "@mui/icons-material/SchoolOutlined";
 import Profile from "@mui/icons-material/SupervisorAccountOutlined";
-// import Fee from "@mui/icons-material/ReceiptLongOutlined";
-// import Account from "@mui/icons-material/AccountBalanceWalletOutlined";
-// import Libary from "@mui/icons-material/LocalLibraryOutlined";
-// import Inventory from "@mui/icons-material/Inventory2Outlined";
 import Exam from "@mui/icons-material/QuizOutlined";
 import Lms from "@mui/icons-material/AppRegistrationOutlined";
-// import Transport from "@mui/icons-material/DirectionsBusOutlined";
-// import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import Hamburger from "@mui/icons-material/MenuOutlined";
 
 let activity = [
-  { name: "Profile", value: Profile, path: "admin/organization-setup" },
-  { name: "Class", value: Class, path: "staff/staff-information" },
-  { name: "Exam", value: Exam, path: "exam/exam-setup/exam-name" },
+  { name: "Profile", value: Profile, path: "profile/my-profile" },
+  { name: "Class", value: Class, path: "class/my-classes" },
+  { name: "Exam", value: Exam, path: "exam/exam-marks" },
 
-  { name: "LMS", value: Lms, path: "student/student-information" },
+  { name: "LMS", value: Lms, path: "lms/assignment" },
 ];
 export default function Sidebar({ modules }) {
-  activity = activity.filter((c) => modules?.includes(c.name));
-  useEffect(() => {
-    const esc = document.addEventListener("keydown", (e) => {
-      e.key === "Escape" && sidebar();
-    });
+  // activity = activity.filter((c) => modules?.includes(c.name));
+  // useEffect(() => {
+  //   const esc = document.addEventListener("keydown", (e) => {
+  //     e.key === "Escape" && sidebar();
+  //   });
 
-    return () => {
-      document.removeEventListener("keydown", esc);
-    };
-  });
+  //   return () => {
+  //     document.removeEventListener("keydown", esc);
+  //   };
+  // });
 
   const location = useLocation().pathname.toLowerCase();
 
@@ -73,7 +66,9 @@ export default function Sidebar({ modules }) {
           return (
             <div
               className={` w-[60px] text-center text-xs rounded py-1 my-4 mx-auto hover:bg-primary-grey-100 z-50 opacity-100  ${
-                location.includes(`admin/dashboard/${curr.name.toLowerCase()}/`)
+                location.includes(
+                  `teacher/dashboard/${curr.name.toLowerCase()}/`
+                )
                   ? "  bg-primary-grey-100 text-primary-grey-700"
                   : " text-primary-grey-600 "
               }`}
@@ -87,7 +82,7 @@ export default function Sidebar({ modules }) {
                 tabIndex="-1"
                 className={
                   location.includes(
-                    `admin/dashboard/${curr.name.toLowerCase()}/`
+                    `teacher/dashboard/${curr.name.toLowerCase()}/`
                   )
                     ? "pointer pointer-events-none"
                     : " "
@@ -96,7 +91,7 @@ export default function Sidebar({ modules }) {
                 <curr.value
                   className={` mx-auto ${
                     location.includes(
-                      `admin/dashboard/${curr.name.toLowerCase()}/`
+                      `teacher/dashboard/${curr.name.toLowerCase()}/`
                     )
                       ? "text-primary-grey-700"
                       : "text-primary-grey-400"

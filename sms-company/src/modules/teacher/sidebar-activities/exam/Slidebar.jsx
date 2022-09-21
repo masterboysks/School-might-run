@@ -39,10 +39,10 @@ const Slidebar = () => {
       >
         <div className="w-full">
           <ul className="pt-9 mx-2">
-            <Link to="/teacher/dashboard/profile/my-profile" onClick={sidebar}>
+            <Link to="/teacher/dashboard/exam/exam-marks" onClick={sidebar}>
               <li
                 className={` flex  pr-3    p-1 mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("/teacher/dashboard/profile/my-profile")
+                  location.includes("/teacher/dashboard/exam/exam-marks")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -50,21 +50,7 @@ const Slidebar = () => {
                 <div className="devList text-primary-grey-300">
                   <Arrow fontSize="sm" />
                 </div>
-                My profile
-              </li>
-            </Link>
-            <Link to="/teacher/dashboard/profile/apply-leave" onClick={sidebar}>
-              <li
-                className={`  pr-3    flex p-1 mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("/teacher/dashboard/profile/apply-leave")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
-                } text-sm`}
-              >
-                <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
-                </div>
-                Apply leave
+                Exam marks
               </li>
             </Link>
           </ul>

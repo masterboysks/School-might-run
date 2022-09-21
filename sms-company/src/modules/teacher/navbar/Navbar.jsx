@@ -39,9 +39,9 @@ export default function Navbar() {
                     <div className="lg:flex lg:space-x-8 hidden">
                       {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                       <Link
-                        to="/admin/dashboard/dashboard"
+                        to="/teacherr/dashboard/dashboard"
                         className={`${
-                          location.includes("/admin/dashboard/dashboard")
+                          location.includes("/teacher/dashboard/dashboard")
                             ? "text-primary-grey-700 font-medium"
                             : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
                         }  inline-flex items-center px-1 pt-1  text-base `}

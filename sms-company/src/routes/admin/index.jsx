@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useState, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import StudentRoutes from "./StudentRoutes";
 import StaffRoutes from "./StaffRoutes";
 import AdminDashboardRoutes from "./AdminDashboardRoutes";
