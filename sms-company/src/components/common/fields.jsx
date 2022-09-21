@@ -248,9 +248,9 @@ export function Select({
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
       >
         <option value="">--Select--</option>
-        {options.map((curr) => (
+        {options?.map((curr) => (
           <option value={curr.id} key={curr.name + name + curr.id}>
-            {curr.name}
+            {curr?.name}
           </option>
         ))}
       </select>
