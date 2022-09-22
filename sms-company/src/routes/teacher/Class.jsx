@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Attendence from "../../modules/teacher/sidebar-activities/class/class-attendence/attendence/Attendence";
-import Classess from "../../modules/teacher/sidebar-activities/class/class-attendence/Classess";
-import ClassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/ClassRoutine";
+import Classess from "../../modules/teacher/sidebar-activities/class/class-attendence/class-attendence/Classess";
+import ClassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/class-routine/ClassRoutine";
 import MyClasses from "../../modules/teacher/sidebar-activities/class/my-classes/MyClasses";
 import Slidebar from "../../modules/teacher/sidebar-activities/class/Slidebar";
 

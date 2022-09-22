@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Select } from "../../../../../components/common/fields";
+import { Select } from "../../../../../../components/common/fields";
 import RenderTable from "./RenderTable";
 const arrayDays = [
   { name: "Sun", id: 7 },
