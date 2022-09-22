@@ -39,12 +39,9 @@ export default function LocationForm({ register, errors, watch }) {
   };
 
   useEffect(() => {
-    console.log(country, province, district, vdc_municipality);
-
     if (arrayCountry.length === 0) {
       (async () => {
         const data = await countries.country();
-        console.log(data?.data?.data);
         setArrayCountry(data?.data?.data);
       })();
     }

@@ -40,6 +40,7 @@ export default function AddCompany() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -148,6 +149,7 @@ export default function AddCompany() {
             required={true}
             errors={errors}
             id="company-logo"
+            watch={watch}
           />
         </div>
         <button

@@ -69,7 +69,7 @@ const AdminMain = () => {
   return (
     <>
       <Navbar />
-      <div className="md:flex w-full">
+      <div className="md:flex w-full text-primary-grey-600">
         <Sidebar modules={sidebarData} />
         <Outlet />
       </div>

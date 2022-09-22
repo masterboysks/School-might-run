@@ -81,7 +81,7 @@ export default function FeeRoutes() {
   return (
     <Routes>
       <Route
-        path="fee"
+        path="/"
         element={
           <Suspense fallback="Loading">
             <FeeSlidebar />

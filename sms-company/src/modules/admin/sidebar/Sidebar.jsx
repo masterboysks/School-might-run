@@ -41,7 +41,7 @@ let activity = [
   { name: "LMS", value: Lms, path: "student/student-information" },
 ];
 export default function Sidebar({ modules }) {
-  activity = activity.filter((c) => modules?.includes(c.name));
+  // activity = activity.filter((c) => modules?.includes(c.name));
   useEffect(() => {
     const esc = document.addEventListener("keydown", (e) => {
       e.key === "Escape" && sidebar();

@@ -120,9 +120,12 @@ export const Upload = ({
   register,
   required = false,
   showError,
+  watch,
   uploadText,
   errorText,
 }) => {
+  let logo;
+  watch && (logo = watch(name));
   return (
     <>
       <label
@@ -140,7 +143,11 @@ export const Upload = ({
               htmlFor={id}
               className="text-primary-grey  within:outline-none focus:border-solid focus:outline-none focus:ring-offset-0 flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
             >
-              <div>{uploadText || "Upload here"}</div>
+              <div>
+                {logo && logo.length === 1
+                  ? logo[0].name
+                  : uploadText || "Choose a file to upload"}
+              </div>
               <div className="text-primary-base">
                 <UploadOutlined />
               </div>
