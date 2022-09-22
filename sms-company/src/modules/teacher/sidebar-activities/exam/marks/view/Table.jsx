@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { SearchBar } from "../../../../../../components/common/fields";
 import RenderTable from "./RenderTable";
 
 export default function Table() {
@@ -32,10 +34,14 @@ export default function Table() {
       id: "jdsdhfhfgjhdg",
     },
   ]);
+  const { register } = useForm();
   return (
     <>
-      <div className="w-full text-center text-lg font-medium text-primary-grey-600">
+      <div className="w-full text-center text-lg font-medium text-primary-grey-600 my-3">
         First term examination
+      </div>
+      <div className="w-72 relative max-w-full">
+        <SearchBar register={register} name="search" />
       </div>
       <div className="my-6">
         {/*  */}
@@ -50,38 +56,32 @@ export default function Table() {
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
                     >
-                      CLass/semester
+                      Student name
                     </th>
 
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Level
+                      Theory
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Faculty
+                      Pratical
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Section
+                      Assest
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Subjcet
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
-                    >
-                      Action
+                      Total
                     </th>
                   </tr>
                 </thead>

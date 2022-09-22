@@ -21,14 +21,6 @@ export default function Table() {
           <div className="w-72 relative max-w-full">
             <SearchBar value={search} setValue={setSearch} />
           </div>
-          <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
-            <Link
-              to="/admin/data-setup/department/add"
-              className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
-            >
-              Add
-            </Link>
-          </div>
         </div>
         <div className="my-6">
           <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">

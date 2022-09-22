@@ -184,8 +184,12 @@ export const InputDisabled = ({
 }) => {
   return (
     <>
-      <label className="my-6 text-sm">{label}</label>
-      <br />
+      {label && (
+        <>
+          <label className="my-6 text-sm">{label}</label> <br />
+        </>
+      )}
+
       <input
         className=" mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
         disabled
