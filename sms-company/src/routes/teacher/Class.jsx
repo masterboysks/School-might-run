@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Attendence from "../../modules/teacher/sidebar-activities/class/class-attendence/attendence/Attendence";
 import Classess from "../../modules/teacher/sidebar-activities/class/class-attendence/class-attendence/Classess";
 import ClassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/class-routine/ClassRoutine";
+import RoutineCLassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/routine-class-routine/RoutineCLassRoutine";
 import MyClasses from "../../modules/teacher/sidebar-activities/class/my-classes/MyClasses";
 import Slidebar from "../../modules/teacher/sidebar-activities/class/Slidebar";
 
@@ -18,8 +19,8 @@ export default function Class() {
         />
         <Route path="/class-routine" element={<ClassRoutine />} />
         <Route
-          path="/class-routine/:classOfSchool/:id"
-          element={<ClassRoutine />}
+          path="/class-routine/:classOfSchool/:section"
+          element={<RoutineCLassRoutine />}
         />
       </Route>
     </Routes>

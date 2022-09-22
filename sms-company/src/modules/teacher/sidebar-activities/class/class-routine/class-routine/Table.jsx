@@ -1,17 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Select } from "../../../../../../components/common/fields";
 import RenderTable from "./RenderTable";
-const arrayDays = [
-  { name: "Sun", id: 7 },
-  { name: "Mon", id: 1 },
-  { name: "Tue", id: 2 },
-  { name: "Wed", id: 3 },
-  { name: "Thur", id: 4 },
-  { name: "Fri", id: 5 },
-  { name: "Sat", id: 6 },
-];
+
 export default function Table() {
   const [data, setData] = useState([
     {
@@ -42,7 +32,6 @@ export default function Table() {
       id: "jdsdhfhfgjhdg",
     },
   ]);
-  const { register } = useForm();
   return (
     <div className="my-6">
       {/*  */}
