@@ -1,21 +1,8 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { Select } from "../../../../../../components/common/fields";
-
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import RenderTable from "./RenderTable";
 import { useState } from "react";
-const arrayDays = [
-  { name: "Sun", id: 7 },
-  { name: "Mon", id: 1 },
-  { name: "Tue", id: 2 },
-  { name: "Wed", id: 3 },
-  { name: "Thur", id: 4 },
-  { name: "Fri", id: 5 },
-  { name: "Sat", id: 6 },
-];
+import RenderTable from "./RenderTable";
+
 export default function Table() {
-  const { register, handleSubmit } = useForm();
   const [data, setData] = useState([
     {
       class: "dsjkhjkah",
@@ -47,25 +34,6 @@ export default function Table() {
   ]);
   return (
     <>
-      <div className="md:flex-row flex flex-col justify-between my-6">
-        <div className=" md:w-64 w-full">
-          <div>
-            <Select
-              label="From date(month)"
-              value={arrayDays}
-              register={register}
-              name="days"
-            />
-          </div>
-        </div>
-        <div className="h-fit md:mt-auto md:my-0 text-primary-btn flex items-center my-6">
-          <div className="">Print</div>
-          <div className=" text-primary-btn w-6 ml-1">
-            <PrinterIcon fontSize="mediun" />
-          </div>
-        </div>
-      </div>
-      {/*  */}
       <div className="w-full text-center text-lg font-medium text-primary-grey-600">
         Class 12 - B routine
       </div>
@@ -82,26 +50,38 @@ export default function Table() {
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
                     >
-                      Subject
+                      CLass/semester
                     </th>
 
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Start time
+                      Level
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      End time
+                      Faculty
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Subject teacher
+                      Section
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
+                    >
+                      Subjcet
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
+                    >
+                      Action
                     </th>
                   </tr>
                 </thead>
