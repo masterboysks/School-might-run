@@ -1,5 +1,58 @@
 import { Link } from "react-router-dom";
-
+const arrayBloodGroup = [
+  {
+    name: "A+",
+    id: 1,
+  },
+  {
+    name: "A-",
+    id: 2,
+  },
+  {
+    name: "B+",
+    id: 3,
+  },
+  {
+    name: "B-",
+    id: 4,
+  },
+  {
+    name: "O+",
+    id: 5,
+  },
+  {
+    name: "O-",
+    id: 6,
+  },
+  {
+    name: "AB+",
+    id: 7,
+  },
+  {
+    name: "Ab-",
+    id: 8,
+  },
+];
+const arrayGender = [
+  {
+    name: "Male",
+    id: 1,
+  },
+  {
+    name: "Female",
+    id: 2,
+  },
+];
+const arrayMaritialSatus = [
+  {
+    name: "Married",
+    id: 1,
+  },
+  {
+    name: "Single",
+    id: 2,
+  },
+];
 const DetailsForm = () => {
   return (
     <form className="form-solid my-6 rounded-md">
