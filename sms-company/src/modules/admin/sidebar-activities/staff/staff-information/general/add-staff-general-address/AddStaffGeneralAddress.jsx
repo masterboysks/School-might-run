@@ -1,3 +1,4 @@
+import { useForm } from "react-hook-form";
 import Steps from "../../Steps";
 import PermanentAddressForm from "./PermanentAddressForm";
 import TemporaryAddressForm from "./TemporaryAddressForm";
@@ -17,17 +18,33 @@ const steps = [
   {
     id: "03",
     name: "Office details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/office-details",
+    href: "",
     status: "upcomming",
   },
 ];
 
 const AddStaffGeneralPersonal = () => {
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <Steps steps={steps} />
-      <PermanentAddressForm />
-      <TemporaryAddressForm />
+      <form>
+        <PermanentAddressForm
+          register={register}
+          watch={watch}
+          errors={errors}
+        />
+        <TemporaryAddressForm
+          register={register}
+          watch={watch}
+          errors={errors}
+        />
+      </form>
     </>
   );
 };

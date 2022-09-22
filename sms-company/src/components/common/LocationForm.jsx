@@ -2,13 +2,21 @@ import { useEffect, useState } from "react";
 import countries from "../../api/country/country";
 import { Select, SelectDisabled } from "./fields";
 
-export default function LocationForm({ register, errors, watch }) {
-  const [country, province, district, vdc_municipality] = watch([
-    "country",
-    "province",
-    "district",
-    "vdc_municipality",
-  ]);
+export default function LocationForm({ register, errors, watch, prefix }) {
+  let country, province, district, vdc_municipality;
+  prefix
+    ? ([country, province, district, vdc_municipality] = watch([
+        prefix + "_country",
+        prefix + "_province",
+        prefix + "_district",
+        prefix + "_vdc_municipality",
+      ]))
+    : ([country, province, district, vdc_municipality] = watch([
+        "country",
+        "province",
+        "district",
+        "vdc_municipality",
+      ]));
   const [arrayCountry, setArrayCountry] = useState([]);
   const [arrayProvince, setArrayProvince] = useState([]);
   const [arrayDistrict, setArrayDistrict] = useState([]);
@@ -82,7 +90,7 @@ export default function LocationForm({ register, errors, watch }) {
           value={arrayCountry}
           selected="Select"
           register={register}
-          name="country"
+          name={prefix ? prefix + "_country" : "country"}
           required={true}
           errors={errors}
         />
@@ -94,7 +102,7 @@ export default function LocationForm({ register, errors, watch }) {
             value={arrayProvince}
             selected="Select"
             register={register}
-            name="province"
+            name={prefix ? prefix + "_province" : "province"}
             required={true}
             errors={errors}
           />
@@ -111,7 +119,7 @@ export default function LocationForm({ register, errors, watch }) {
             value={arrayDistrict}
             selected="Select"
             register={register}
-            name="district"
+            name={prefix ? prefix + "_district" : "district"}
             required={true}
             errors={errors}
           />
@@ -128,7 +136,7 @@ export default function LocationForm({ register, errors, watch }) {
             value={arrayVdcMunicalipality}
             selected="Select"
             register={register}
-            name="vdc_municipality"
+            name={prefix ? prefix + "_vdc_municipality" : "vdc_municipality"}
             errors={errors}
             required={true}
           />

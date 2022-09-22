@@ -1,87 +1,45 @@
 import React from "react";
 import Break from "../../../Break";
 import { useRoutes, Link } from "react-router-dom";
-const TemporaryAddressForm = () => {
+import { Checkbox, Input } from "../../../../../../../components/common/fields";
+import LocationForm from "../../../../../../../components/common/LocationForm";
+const TemporaryAddressForm = ({ register, watch, errors }) => {
   //   const route = useRoutes();
   return (
     <>
       <Break title="Temporary address" />
-      <form className="my-5">
-        <label htmlFor="same">
-          <input type="checkbox" id="same" className="rounded" />
-          Same as permenant address
-        </label>
-      </form>
-      <form className="form-solid mb-6 rounded-md">
+      <div className="my-5">
+        <Checkbox
+          label="Same as permenant address"
+          id="sameAsPermenantAddress"
+          register={register}
+          name="sameAsPermenantAddress"
+        />
+      </div>
+      <div className="form-solid mb-6 rounded-md">
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+          <LocationForm
+            register={register}
+            errors={errors}
+            watch={watch}
+            prefix="temp"
+          />
           <div className="">
-            <label className="my-6 text-sm" htmlFor="Student Id">
-              Country*
-            </label>
-            <br />
-            <select
-              className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-              type="text"
-            >
-              <option value="test">Select</option>
-            </select>
-          </div>
-          <div className="">
-            <label className="my-6 text-sm" htmlFor="Student Id">
-              Province*
-            </label>
-            <br />
-            <select
-              className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-              type="text"
-            >
-              <option value="test">Select</option>
-            </select>
-          </div>
-          <div className="">
-            <label className="my-6 text-sm" htmlFor="Student Id">
-              District*
-            </label>
-            <br />
-            <select
-              className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-              type="text"
-            >
-              <option value="test">Select</option>
-            </select>
-          </div>
-          <div className="">
-            <label className="my-6 text-sm" htmlFor="Student Id">
-              Municipality/VDC*
-            </label>
-            <br />
-            <select
-              className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-              type="text"
-            >
-              <option value="test">Select</option>
-            </select>
-          </div>
-          <div className="">
-            <label className="my-6 text-sm" htmlFor="Student Id">
-              Ward*
-            </label>
-            <br />
-            <input
-              className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-              type="text"
-              placeholder="Ward number"
+            <Input
+              label="Ward*"
+              required={true}
+              errors={errors}
+              register={register}
+              name="temp_ward_number"
+              placeholder="11"
             />
           </div>
           <div className="">
-            <label className="my-6 text-sm" htmlFor="Student Id">
-              Tole
-            </label>
-            <br />
-            <input
-              className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-              type="text"
-              placeholder="Tole name"
+            <Input
+              label="Tole"
+              register={register}
+              name="temp_tole"
+              placeholder="Surya tole"
             />
           </div>
         </div>
@@ -101,7 +59,7 @@ const TemporaryAddressForm = () => {
             </Link>
           </div>
         </div>
-      </form>
+      </div>
     </>
   );
 };

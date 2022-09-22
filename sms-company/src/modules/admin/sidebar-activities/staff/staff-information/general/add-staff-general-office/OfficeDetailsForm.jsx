@@ -1,6 +1,13 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const PermanentAddressForm = () => {
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   return (
     <form className="form-solid my-6 rounded-md">
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
