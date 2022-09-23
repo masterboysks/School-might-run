@@ -1,3 +1,5 @@
+import React from "react";
+
 const RenderTable = ({ currentItems }) => {
   return (
     <>
@@ -8,9 +10,6 @@ const RenderTable = ({ currentItems }) => {
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.level}
-          </td>
-          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.paymentMethod}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.paymentMethod}
