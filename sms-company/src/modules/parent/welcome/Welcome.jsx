@@ -4,6 +4,7 @@ import three from "./three.jpg";
 import two from "./two.jpg";
 import { RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
+import { useNavigate } from "react-router-dom";
 const arrayStudents = [
   {
     name: "Bobby koirala",
@@ -18,26 +19,6 @@ const arrayStudents = [
     picture: two,
   },
 ];
-// const currs = [
-//   {
-//     id: 1,
-//     title: "Newsletter",
-//     description: "Last message sent an hour ago",
-//     users: "621 users",
-//   },
-//   {
-//     id: 2,
-//     title: "Existing Customers",
-//     description: "Last message sent 2 weeks ago",
-//     users: "1200 users",
-//   },
-//   {
-//     id: 3,
-//     title: "Trial Users",
-//     description: "Last message sent 4 days ago",
-//     users: "2740 users",
-//   },
-// ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -46,6 +27,10 @@ export default function Welcome() {
   const [selectedMailingLists, setSelectedMailingLists] = useState(
     arrayStudents[0]
   );
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/parent/dashboard");
+  };
   return (
     <div className="text-center flex items-center justify-center  text-primary-grey-600 min-h-screen">
       <div className="w-11/12 sm:w-10/12 lg:8/12 xl:1/2 h-fit ">
@@ -131,7 +116,9 @@ export default function Welcome() {
           </RadioGroup>
         </div>
         <div className="flex items-center justify-center my-5 mt-9">
-          <button className="primary_btn">Continue</button>
+          <button className="primary_btn" onClick={handleClick}>
+            Continue
+          </button>
         </div>
       </div>
     </div>
