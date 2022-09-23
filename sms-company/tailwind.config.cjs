@@ -17,6 +17,10 @@ module.exports = {
           "grey-300": "#D0D7E2",
           "grey-50": "#F0F2FF",
           50: "#E1F0FF",
+          "grey-900": "#748DA6",
+        },
+        warning: {
+          50: "#FFF9F1",
         },
         logo: "rgba(3, 77, 162, 1)",
       },

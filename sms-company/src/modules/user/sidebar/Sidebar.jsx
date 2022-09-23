@@ -10,16 +10,10 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import one from "../welcome/three.jpg";
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
-];
+let navigation;
+
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Settings", href: "#" },
@@ -33,6 +27,42 @@ function classNames(...classes) {
 export default function Sidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation().pathname;
+  location.includes("/parent/dashboard") &&
+    (navigation = [
+      {
+        name: "Dashboard",
+        href: "/parent/dashboard/dashboard",
+        icon: HomeIcon,
+      },
+      {
+        name: "Attendence",
+        href: "/parent/dashboard/attendence",
+        icon: CalendarIcon,
+      },
+      {
+        name: "Teacher details",
+        href: "/parent/dashboard/teacher-details",
+        icon: UsersIcon,
+      },
+    ]);
+  location.includes("/student/dashboard") &&
+    (navigation = [
+      {
+        name: "Dashboard",
+        href: "/student/dashboard/dashboard",
+        icon: HomeIcon,
+      },
+      {
+        name: "Attendence",
+        href: "/student/dashboard/attendence",
+        icon: CalendarIcon,
+      },
+      {
+        name: "Teacher details",
+        href: "/student/dashboard/teacher-details",
+        icon: UsersIcon,
+      },
+    ]);
 
   return (
     <>
@@ -127,11 +157,11 @@ export default function Sidebar() {
                         NAVIGATION
                       </div>
                       {navigation.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className={classNames(
-                            item.current
+                            location.includes(item.href)
                               ? "bg-primary-grey-200 text-primary-grey-700"
                               : "text-primary-grey-600 hover:bg-primary-grey-200 ",
                             "group flex items-center px-2 py-2 text-base font-medium rounded-md"
@@ -139,7 +169,7 @@ export default function Sidebar() {
                         >
                           <item.icon
                             className={classNames(
-                              item.current
+                              location.includes(item.href)
                                 ? "text-gray-500"
                                 : "text-gray-400 group-hover:text-gray-500",
                               "mr-4 flex-shrink-0 h-6 w-6"
@@ -147,7 +177,7 @@ export default function Sidebar() {
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </nav>
                   </div>
@@ -202,11 +232,11 @@ export default function Sidebar() {
                   NAVIGATION
                 </div>
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={classNames(
-                      item.current
+                      location.includes(item.href)
                         ? "bg-primary-grey-200 text-primary-grey-700"
                         : "text-primary-grey-600 hover:bg-primary-grey-200 ",
                       " flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -214,7 +244,7 @@ export default function Sidebar() {
                   >
                     <item.icon
                       className={classNames(
-                        item.current
+                        location.includes(item.href)
                           ? "text-primary-grey-600"
                           : "text-primary-grey-400 ",
                         "mr-3 flex-shrink-0 h-6 w-6"
@@ -222,7 +252,7 @@ export default function Sidebar() {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
@@ -251,6 +281,9 @@ export default function Sidebar() {
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
+                      <div className="ml-2 text-primary-grey-700 pr-1">
+                        Shuvam Sherstha
+                      </div>
                     </Menu.Button>
                   </div>
                   <Transition
@@ -266,15 +299,15 @@ export default function Sidebar() {
                       {userNavigation.map((item) => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
-                            <a
-                              href={item.href}
+                            <Link
+                              to={item.href}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               {item.name}
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                       ))}
