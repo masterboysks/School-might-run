@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import TeacherRoutes from "./teacher";
 import AdminRoutes from "./admin";
 import UserRoutes from "./user/UserRoutes";
+import Welcome from "../modules/parent/welcome/Welcome";
 
 export default function MainRoutes() {
   return (
@@ -15,6 +16,8 @@ export default function MainRoutes() {
           <Route path="dashboard/*" element={<UserRoutes />} />
         </Route>
         <Route path="parent" element={<Outlet />}>
+          <Route path="welcome" element={<Welcome />} />
+
           <Route path="dashboard/*" element={<UserRoutes />} />
         </Route>
         <Route path="teacher/*" element={<TeacherRoutes />} />
