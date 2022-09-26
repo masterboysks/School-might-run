@@ -4,6 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import Table from "./Table";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import Form from "./Form";
 
 ChartJS.register(ArcElement, Tooltip);
 const data = {
