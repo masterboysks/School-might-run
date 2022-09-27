@@ -5,7 +5,7 @@ const steps = [
   {
     id: "01",
     name: "Personal details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/personal-details",
+    href: "#",
     status: "current",
   },
   {
@@ -25,7 +25,7 @@ const steps = [
 const AddStaffGeneralPersonal = () => {
   return (
     <>
-      <Steps steps={steps} title="General details" />
+      <Steps steps={steps} title="Personal details" />
       <Form />
     </>
   );

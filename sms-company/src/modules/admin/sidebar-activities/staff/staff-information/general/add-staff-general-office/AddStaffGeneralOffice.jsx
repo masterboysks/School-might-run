@@ -5,19 +5,19 @@ const steps = [
   {
     id: "01",
     name: "Personal details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/personal-details",
+    href: "#",
     status: "complete",
   },
   {
     id: "02",
     name: "Address details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/address-details",
+    href: "#",
     status: "complete",
   },
   {
     id: "03",
     name: "Office details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/office-details",
+    href: "#",
     status: "current",
   },
 ];

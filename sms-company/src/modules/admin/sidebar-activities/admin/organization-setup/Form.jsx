@@ -65,11 +65,6 @@ const Form = () => {
     const defaultData = data?.data?.data;
     reset({
       ...defaultData,
-      country: defaultData.country.id,
-      vdc_municipality: defaultData.vdc_municipality.id,
-      province: defaultData.province.id,
-      district: defaultData.district.id,
-      date_format: defaultData.date_format.id,
     });
   };
   useEffect(() => {

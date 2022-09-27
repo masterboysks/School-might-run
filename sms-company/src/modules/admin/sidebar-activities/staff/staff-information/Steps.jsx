@@ -81,7 +81,7 @@ const Steps = ({ steps, title }) => {
           ))}
         </ol>
       </nav>
-      <Break title="General details" />
+      <Break title={title} />
     </>
   );
 };

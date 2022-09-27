@@ -14,15 +14,17 @@ const PermanentAddressForm = ({ register, errors, watch }) => {
             required={true}
             errors={errors}
             register={register}
-            name="ward_number"
+            name="ward"
             placeholder="11"
           />
         </div>
         <div className="">
           <Input
-            label="Tole"
+            label="Tole*"
             register={register}
             name="tole"
+            required={true}
+            errors={errors}
             placeholder="Surya tole"
           />
         </div>

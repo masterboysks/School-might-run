@@ -85,22 +85,24 @@ export default function LocationForm({ register, errors, watch, prefix }) {
   return (
     <>
       <div className="">
-        <Select
-          label="Country*"
-          value={arrayCountry}
-          selected="Select"
-          register={register}
-          name={prefix ? prefix + "_country" : "country"}
-          required={true}
-          errors={errors}
-        />
+        {arrayCountry.length !== 0 ? (
+          <Select
+            label="Country*"
+            value={arrayCountry}
+            register={register}
+            name={prefix ? prefix + "_country" : "country"}
+            required={true}
+            errors={errors}
+          />
+        ) : (
+          <SelectDisabled value="Select" label="Province*" />
+        )}
       </div>
       {arrayProvince.length !== 0 ? (
         <div className="">
           <Select
             label="Province*"
             value={arrayProvince}
-            selected="Select"
             register={register}
             name={prefix ? prefix + "_province" : "province"}
             required={true}
@@ -117,7 +119,6 @@ export default function LocationForm({ register, errors, watch, prefix }) {
           <Select
             label="District*"
             value={arrayDistrict}
-            selected="Select"
             register={register}
             name={prefix ? prefix + "_district" : "district"}
             required={true}
@@ -134,7 +135,6 @@ export default function LocationForm({ register, errors, watch, prefix }) {
           <Select
             label="VDC/Municipality*"
             value={arrayVdcMunicalipality}
-            selected="Select"
             register={register}
             name={prefix ? prefix + "_vdc_municipality" : "vdc_municipality"}
             errors={errors}

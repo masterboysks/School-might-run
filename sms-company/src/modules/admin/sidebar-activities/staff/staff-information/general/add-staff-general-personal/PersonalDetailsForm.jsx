@@ -1,10 +1,12 @@
+import { useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Input,
   Select,
   UploadPhoto,
 } from "../../../../../../../components/common/fields";
+import StaffFormPersonalDetailsPicture from "../../../../../../../contex/StaffFormPersonalDetailsPicture";
 const arrayBloodGroup = [
   {
     name: "A+",
@@ -60,14 +62,37 @@ const arrayMaritialSatus = [
   },
 ];
 const DetailsForm = () => {
+  const photo = useContext(StaffFormPersonalDetailsPicture);
+  const navigate = useNavigate();
   const {
     register,
     watch,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+  useEffect(() => {
+    (async () => {
+      const temp = await JSON.parse(localStorage.getItem("pdgdsas"));
+      console.log({ ...temp, photo: photo?.photo });
+      reset({ ...temp, photo: photo?.photo });
+    })();
+  }, []);
+  const onSubmit = async (data) => {
+    console.log(data);
+    photo?.setPhoto(data.photo);
+    delete data.photo;
+    localStorage.setItem("pdgdsas", JSON.stringify(data));
+    navigate(
+      "/admin/dashboard/staff/staff-information/add-staff/general/address-details"
+    );
+  };
+
   return (
-    <form className="form-solid my-6 rounded-md">
+    <form
+      className="form-solid my-6 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
           <Input
@@ -161,7 +186,7 @@ const DetailsForm = () => {
           <Input
             label="Pan number*"
             required={true}
-            name="pan_number"
+            name="pan_no"
             errors={errors}
             register={register}
             placeholder="55410-a85-pp99-02"
@@ -209,12 +234,12 @@ const DetailsForm = () => {
           >
             Cancel
           </Link>
-          <Link
-            to="/admin/dashboard/staff/staff-information/add-staff/general/address-details"
+          <button
+            type="submit"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Next
-          </Link>
+          </button>
         </div>
       </div>
     </form>

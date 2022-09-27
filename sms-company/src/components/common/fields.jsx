@@ -200,13 +200,13 @@ export const InputDisabled = ({
   );
 };
 // select disabled
-export const SelectDisabled = ({ label, value, className }) => {
+export const SelectDisabled = ({ label, value = "Select", className }) => {
   return (
     <>
       <label className={`my-6 text-sm `}>{label}</label>
       <br />
       <select
-        className={` mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm ${className}`}
+        className={` mt-[6px] w-full p- rounded   focus:ring-primary-btn py-3    bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm ${className}`}
         disabled
         defaultValue={value}
       >
