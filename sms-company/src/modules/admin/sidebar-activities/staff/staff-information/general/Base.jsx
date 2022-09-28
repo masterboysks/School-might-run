@@ -36,7 +36,7 @@ const Base = () => {
   return (
     <>
       <Breadnav pages={pages} />
-      <Tabs tabs={tabs} />
+      {/* <Tabs tabs={tabs} /> */}
       <Outlet />
     </>
   );

@@ -32,6 +32,7 @@ const PermanentAddressForm = () => {
     register,
     watch,
     reset,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -52,6 +53,7 @@ const PermanentAddressForm = () => {
         console.warn(e);
       }
     })();
+    reset({ ...getValues(), designation_id: "" });
   }, [department]);
 
   useEffect(() => {
@@ -93,6 +95,13 @@ const PermanentAddressForm = () => {
       console.log(data);
       data?.response?.status === 422 &&
         setMessage(data?.response?.data?.errors);
+      if (data?.status === 201) {
+        localStorage.removeItem("odgdsas");
+        localStorage.removeItem("adgdsas");
+        localStorage.removeItem("pdgdsas");
+        photo.setPhoto();
+        navigate("/admin/dashboard/staff/staff-information/");
+      }
     });
 
     // .catch((e) => {
@@ -101,8 +110,6 @@ const PermanentAddressForm = () => {
     //   // e===422?sete(e)
     //   e === 422 && console.log(e);
     // });
-
-    // navigate("/admin/dashboard/staff/staff-information/");
   };
   const handelBack = (data) => {
     localStorage.setItem("odgdsas", JSON.stringify(data));
@@ -126,10 +133,9 @@ const PermanentAddressForm = () => {
         <>
           <div className="!text-red-600 font-medium text-lg">
             <ul>
-
-            {message?.map((curr) => (
-              <li key={curr}>{curr}</li>
-            ))}
+              {message?.map((curr) => (
+                <li key={curr}>{curr}</li>
+              ))}
             </ul>
           </div>
           <br />

@@ -26,26 +26,26 @@ const AddStaffGeneralOffice = lazy(() =>
     "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice"
   )
 );
-const StaffAcademicDetails = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/academic/academic-details/AcademicDetails"
-  )
-);
-const AddStaffAcademicDetails = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/academic/add-acedimic-details/AddAcademicDetails"
-  )
-);
-const AddStaffDocument = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/documents/add-document/AddDocument"
-  )
-);
-const StaffDocument = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/documents/documents/Document"
-  )
-);
+// const StaffAcademicDetails = lazy(() =>
+//   import(
+//     "../../modules/admin/sidebar-activities/staff/staff-information/academic/academic-details/AcademicDetails"
+//   )
+// );
+// const AddStaffAcademicDetails = lazy(() =>
+//   import(
+//     "../../modules/admin/sidebar-activities/staff/staff-information/academic/add-acedimic-details/AddAcademicDetails"
+//   )
+// );
+// const AddStaffDocument = lazy(() =>
+//   import(
+//     "../../modules/admin/sidebar-activities/staff/staff-information/documents/add-document/AddDocument"
+//   )
+// );
+// const StaffDocument = lazy(() =>
+//   import(
+//     "../../modules/admin/sidebar-activities/staff/staff-information/documents/documents/Document"
+//   )
+// );
 const AddStaffGeneralBase = lazy(() =>
   import(
     "../../modules/admin/sidebar-activities/staff/staff-information/general/Base"
@@ -160,54 +160,6 @@ export default function StaffRoutes() {
             }
           />
         </Route>
-        <Route
-          element={
-            <Suspense fallback="Loading">
-              <AddStaffAcademicBase />
-            </Suspense>
-          }
-        >
-          <Route
-            path="staff-information/add-staff/academic"
-            element={
-              <Suspense fallback="Loading">
-                <StaffAcademicDetails />
-              </Suspense>
-            }
-          />
-          <Route
-            path="staff-information/add-staff/academic/add-academic-details"
-            element={
-              <Suspense fallback="Loading">
-                <AddStaffAcademicDetails />
-              </Suspense>
-            }
-          />
-        </Route>
-        <Route
-          element={
-            <Suspense fallback="Loading">
-              <AddStaffDocumentBase />
-            </Suspense>
-          }
-        >
-          <Route
-            path="staff-information/add-staff/documents"
-            element={
-              <Suspense fallback="Loading">
-                <StaffDocument />
-              </Suspense>
-            }
-          />
-          <Route
-            path="staff-information/add-staff/documents/add-documents"
-            element={
-              <Suspense fallback="Loading">
-                <AddStaffDocument />
-              </Suspense>
-            }
-          />
-        </Route>
       </Route>
       <Route
         path="*"
@@ -220,3 +172,52 @@ export default function StaffRoutes() {
     </Routes>
   );
 }
+// }
+// <Route
+// element={
+//   <Suspense fallback="Loading">
+//     <AddStaffAcademicBase />
+//   </Suspense>
+// }
+// >
+// <Route
+//   path="staff-information/add-staff/academic"
+//   element={
+//     <Suspense fallback="Loading">
+//       <StaffAcademicDetails />
+//     </Suspense>
+//   }
+// />
+// <Route
+//   path="staff-information/add-staff/academic/add-academic-details"
+//   element={
+//     <Suspense fallback="Loading">
+//       <AddStaffAcademicDetails />
+//     </Suspense>
+//   }
+// />
+// </Route>
+// <Route
+// element={
+//   <Suspense fallback="Loading">
+//     <AddStaffDocumentBase />
+//   </Suspense>
+// }
+// >
+// <Route
+//   path="staff-information/add-staff/documents"
+//   element={
+//     <Suspense fallback="Loading">
+//       <StaffDocument />
+//     </Suspense>
+//   }
+// />
+// <Route
+//   path="staff-information/add-staff/documents/add-documents"
+//   element={
+//     <Suspense fallback="Loading">
+//       <AddStaffDocument />
+//     </Suspense>
+//   }
+// />
+// </Route>
