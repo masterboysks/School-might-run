@@ -2,6 +2,7 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import ViewStaff from "../../modules/admin/sidebar-activities/staff/staff-information/view/ViewStaff";
 const StaffSlidebar = lazy(() =>
   import("../../modules/admin/sidebar-activities/staff/slidebar")
 );
@@ -118,6 +119,14 @@ export default function StaffRoutes() {
             </Suspense>
           }
         ></Route>
+        <Route
+          path="staff-information/:id/view"
+          element={
+            <Suspense fallback="Loading ...">
+              <ViewStaff />
+            </Suspense>
+          }
+        />
         <Route
           path="staff-information/add-staff/general"
           element={

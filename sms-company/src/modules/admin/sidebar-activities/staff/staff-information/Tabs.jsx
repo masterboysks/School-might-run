@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example({ tabs }) {
+export default function Tabs({ tabs }) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(
     tabs.filter((curr) => {

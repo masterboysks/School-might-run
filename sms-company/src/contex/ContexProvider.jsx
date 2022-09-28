@@ -1,6 +1,6 @@
 import React from "react";
+import { StaffFormPersonalDetailsPictureContex } from "./admin/staff/StaffFormPersonalDetailsPicture";
 import { AuthProvider } from "./AuthProvider";
-import { StaffFormPersonalDetailsPictureContex } from "./StaffFormPersonalDetailsPicture";
 
 export default function ContexProvider({ children }) {
   return (

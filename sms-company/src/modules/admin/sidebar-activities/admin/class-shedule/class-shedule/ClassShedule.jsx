@@ -27,7 +27,7 @@ const ClassSchedule = () => {
   const [errorSection, setErrorSection] = useState(false);
 
   const handleSearch = () => {
-    console.log({ level, classSemester, faculty, section });
+    // console.log({ level, classSemester, faculty, section });
     level === "Select" && setErrorLevel(true);
     classSemester === "Select" && setErrorClass(true);
     section === "Select" && setErrorSection(true);

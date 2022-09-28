@@ -33,7 +33,7 @@ const AddStaffGeneralPersonal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const sameAsPermenantAddress = watch("same_as_permanent_address");
+  // const sameAsPermenantAddress = watch("same_as_permanent_address");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const AddStaffGeneralPersonal = () => {
   const onSubmit = async (data) => {
     console.log(data);
     let d = { ...data };
-
+    // delete d;
     localStorage.setItem("adgdsas", JSON.stringify(data));
     navigate(
       "/admin/dashboard/staff/staff-information/add-staff/general/office-details"

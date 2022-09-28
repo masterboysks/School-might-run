@@ -95,7 +95,7 @@ export default function LocationForm({ register, errors, watch, prefix }) {
             errors={errors}
           />
         ) : (
-          <SelectDisabled value="Select" label="Province*" />
+          <SelectDisabled value="Select" label="Country*" />
         )}
       </div>
       {arrayProvince.length !== 0 ? (

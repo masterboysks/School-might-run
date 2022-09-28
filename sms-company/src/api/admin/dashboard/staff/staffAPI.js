@@ -7,4 +7,10 @@ export default {
   getAll() {
     return authorized.get(`/get-teachers`);
   },
+  list(page) {
+    return authorized.get(`/staff?page=${page}`);
+  },
+  personalGet(id) {
+    return authorized.get(`/staff/view-personal/${id}`);
+  },
 };

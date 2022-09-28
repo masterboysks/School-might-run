@@ -6,7 +6,7 @@ import {
   Select,
   UploadPhoto,
 } from "../../../../../../../components/common/fields";
-import StaffFormPersonalDetailsPicture from "../../../../../../../contex/StaffFormPersonalDetailsPicture";
+import StaffFormPersonalDetailsPicture from "../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
 const arrayBloodGroup = [
   {
     name: "A+",

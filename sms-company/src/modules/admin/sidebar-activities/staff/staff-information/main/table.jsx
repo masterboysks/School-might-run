@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
+import Pagination from "../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
 const people = [
@@ -106,40 +108,17 @@ const people = [
 ];
 
 export default function Table() {
-  const itemsOnPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
-  const [currentItems, setCurrentItems] = useState(
-    people.slice(0, itemsOnPage)
-  );
-  const [indexOfLastItem, setIndexOfLastItem] = useState(
-    currentPage * itemsOnPage
-  );
-  const [indexOfFirstItem, setIndexOfFirstItem] = useState(
-    indexOfLastItem - itemsOnPage
-  );
-  const [message, setmessage] = useState("Showing 1 to 2 of 2 results");
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState([]);
+  const [data, setData] = useState([]);
 
-  const onNextPage = () => {
-    setCurrentPage((curr) => curr + 1);
-  };
-
-  const onPreviousPage = () => {
-    setCurrentPage((curr) => curr - 1);
-  };
   useEffect(() => {
-    setIndexOfLastItem(currentPage * itemsOnPage);
-  }, [currentPage]);
-  useEffect(() => {
-    setIndexOfFirstItem(indexOfLastItem - itemsOnPage);
-  }, [indexOfLastItem]);
-  useEffect(() => {
-    setmessage(
-      `Showing ${indexOfFirstItem + 1} to ${
-        people.length <= indexOfLastItem ? people.length : indexOfLastItem
-      } of ${people.length}`
-    );
-    setCurrentItems(people.slice(indexOfFirstItem, indexOfLastItem));
-  }, [indexOfFirstItem]);
+    (async () => {
+      const res = await staffAPI.list(page);
+      setPagination(res?.data?.data?.pagination);
+      setData(res?.data?.data?.data);
+    })();
+  }, [page]);
 
   return (
     <div className="mt-11">
@@ -227,14 +206,15 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={currentItems} />
+                  <RenderTable currentItems={data} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-      <nav
+      <Pagination setPage={setPage} pagination={pagination} />
+      {/* <nav
         className=" flex items-center justify-between py-3 bg-white border-t border-gray-200"
         aria-label="Pagination"
       >
@@ -257,7 +237,7 @@ export default function Table() {
             Next
           </button>
         </div>
-      </nav>
+      </nav> */}
     </div>
   );
 }

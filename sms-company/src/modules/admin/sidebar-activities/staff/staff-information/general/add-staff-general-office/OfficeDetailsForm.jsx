@@ -10,8 +10,10 @@ import {
 
 import { useState, useEffect, useContext } from "react";
 import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import StaffFormPersonalDetailsPicture from "../../../../../../../contex/StaffFormPersonalDetailsPicture";
 import staffAPI from "../../../../../../../api/admin/dashboard/staff/staffAPI";
+import StaffFormPersonalDetailsPicture from "../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
+import axios from "axios";
+import { light } from "@mui/material/styles/createPalette";
 
 const arrayStatus = [
   {
@@ -86,8 +88,20 @@ const PermanentAddressForm = () => {
     }
     form.delete("personal[photo]");
     form.append(`personal[profile_picture]`, photo?.photo && photo?.photo[0]);
-    const res = await staffAPI.create(form);
-    console.log(res);
+
+    staffAPI.create(form).then((data) => {
+      console.log(data);
+      data?.response?.status === 422 &&
+        setMessage(data?.response?.data?.errors);
+    });
+
+    // .catch((e) => {
+    //   console.log("this is eroor functin");
+    //   console.log(e);
+    //   // e===422?sete(e)
+    //   e === 422 && console.log(e);
+    // });
+
     // navigate("/admin/dashboard/staff/staff-information/");
   };
   const handelBack = (data) => {
@@ -108,14 +122,15 @@ const PermanentAddressForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       {" "}
-      {message && (
+      {message.length !== 0 && (
         <>
-          <div
-            className={`${
-              error && "!text-red-600"
-            } text-green-500 font-medium text-lg`}
-          >
-            {message}
+          <div className="!text-red-600 font-medium text-lg">
+            <ul>
+
+            {message?.map((curr) => (
+              <li key={curr}>{curr}</li>
+            ))}
+            </ul>
           </div>
           <br />
         </>

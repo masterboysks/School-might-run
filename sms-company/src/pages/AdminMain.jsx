@@ -20,9 +20,9 @@ const AdminMain = () => {
       return config;
     },
     async (err) => {
+      if (err?.response?.status !== 401) return err;
       const originalConfig = err?.config;
-
-      if (err?.response?.status === 401 && localStorage.getItem("kcx")) {
+      if (localStorage.getItem("kcx")) {
         try {
           const { data } = await Auth.refresh(localStorage.getItem("kcx"));
           if (data.data.refresh_token && data.data.access_token) {

@@ -5,7 +5,7 @@ import Tabs from "../Tabs";
 const tabs = [
   {
     name: "General details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/personal-details",
+    href: "#",
     current: true,
   },
   {
