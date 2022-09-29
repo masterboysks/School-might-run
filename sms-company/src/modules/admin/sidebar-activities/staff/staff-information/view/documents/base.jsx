@@ -4,17 +4,17 @@ import Tabs from "../../Tabs";
 const tabs = [
   {
     name: "General details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/general/personal-details",
+    href: "/admin/dashboard/staff/staff-information/44/general",
     current: false,
   },
   {
     name: "Academic details",
-    href: "/admin/dashboard/staff/staff-information/add-staff/academic",
+    href: "/admin/dashboard/staff/staff-information/44/academic",
     current: false,
   },
   {
     name: "Documents",
-    href: "/admin/dashboard/staff/staff-information/add-staff/documents",
+    href: "",
     current: true,
   },
 ];
@@ -22,7 +22,7 @@ const pages = [
   { name: "Staff", href: "#", current: false },
   {
     name: "Staff Information",
-    href: "/admin/dashboard/staff/staff-information/",
+    href: "",
     current: false,
   },
   {
@@ -31,13 +31,13 @@ const pages = [
     current: true,
   },
 ];
-const Base = () => {
+const DocumentView = () => {
   return (
     <>
-      <Breadnav pages={pages} />
-      {/* <Tabs tabs={tabs} /> */}
+      {/* <Breadnav pages={pages} /> */}
+      <Tabs tabs={tabs} />
       <Outlet></Outlet>
     </>
   );
 };
-export default Base;
+export default DocumentView;

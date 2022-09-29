@@ -2,6 +2,12 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import AcademicsView from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base";
+import AddDocument from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument";
+import DocumentView from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base";
+import Document from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/documents/Document";
+import ViewGeneral from "../../modules/admin/sidebar-activities/staff/staff-information/view/general/base";
+import GeneralDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/general/general-details/GeneralDetails";
 import ViewStaff from "../../modules/admin/sidebar-activities/staff/staff-information/view/ViewStaff";
 const StaffSlidebar = lazy(() =>
   import("../../modules/admin/sidebar-activities/staff/slidebar")
@@ -51,16 +57,16 @@ const AddStaffGeneralBase = lazy(() =>
     "../../modules/admin/sidebar-activities/staff/staff-information/general/Base"
   )
 );
-const AddStaffAcademicBase = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/academic/base"
-  )
-);
-const AddStaffDocumentBase = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/documents/base"
-  )
-);
+// const AddStaffAcademicBase = lazy(() =>
+//   import(
+//     "../../modules/admin/sidebar-activities/staff/staff-information/academic/base"
+//   )
+// );
+// const AddStaffDocumentBase = lazy(() =>
+//   import(
+//     "../../modules/admin/sidebar-activities/staff/staff-information/documents/base"
+//   )
+// );
 const StaffAttendence = lazy(() =>
   import(
     "../../modules/admin/sidebar-activities/staff/staff-attendence/main/StaffAttendence"
@@ -120,13 +126,72 @@ export default function StaffRoutes() {
           }
         ></Route>
         <Route
-          path="staff-information/:id/view"
+          path="staff-information/:id"
           element={
             <Suspense fallback="Loading ...">
               <ViewStaff />
             </Suspense>
           }
-        />
+        >
+          <Route
+            path="general"
+            element={
+              <Suspense fallback="Loading ...">
+                <ViewGeneral />
+              </Suspense>
+            }
+          />
+          <Route
+            path="document"
+            element={
+              <Suspense fallback="Loading ...">
+                <DocumentView />
+              </Suspense>
+            }
+          >
+            <Route
+              index
+              element={
+                <Suspense fallback="Loading ...">
+                  <Document />
+                </Suspense>
+              }
+            />
+            <Route
+              path="add"
+              element={
+                <Suspense fallback="Loading ...">
+                  <AddDocument />
+                </Suspense>
+              }
+            />
+          </Route>
+          <Route
+            path="academic"
+            element={
+              <Suspense fallback="Loading ...">
+                <AcademicsView />
+              </Suspense>
+            }
+          />
+          <Route
+            path="general"
+            element={
+              <Suspense fallback="Loading ...">
+                <ViewGeneral />
+              </Suspense>
+            }
+          >
+            <Route
+              index
+              element={
+                <Suspense fallback="Loading...">
+                  <GeneralDetails></GeneralDetails>
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
         <Route
           path="staff-information/add-staff/general"
           element={

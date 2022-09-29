@@ -1,8 +1,7 @@
-import Break from "../../../Break";
-
+import Break from "../../../../Break";
 import Form from "./Form";
 
-const Document = () => {
+const AddDocument = () => {
   return (
     <>
       <Break title="Add document" />
@@ -11,4 +10,4 @@ const Document = () => {
   );
 };
 
-export default Document;
+export default AddDocument;

@@ -1,44 +1,68 @@
-import React, { useState } from "react";
+import React from "react";
+import {
+  Input,
+  InputDisabled,
+} from "../../../../../../components/common/fields";
 
-export default function RenderTable({ curr }) {
-  const [status, setStatus] = useState(true);
+export default function RenderTable({ curr, watch, register, errors }) {
+  const status = watch(`${curr.staff_id}[radio]`);
+  console.log(status);
+  console.log(curr.name + "_radio");
   return (
     <tr>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        {curr.id}
+        {curr.staff_id}
       </td>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        {curr.name}
+        {curr.staff_name}
       </td>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        {curr.department}
+        {curr.department_name}
       </td>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        {curr.designation}
+        {curr.designation_name}
       </td>
-      <td className="whitespace-nowrap px-3 py-4 pt-6 text-sm flex items-center justify-center text-gray-500">
-        {/*  checked:bg-primary-grey-700 hover:checked:bg-primary-grey-700 focus:ring-0 focus:ring-offset-0  */}
-        <input
-          type="checkbox"
-          checked={status}
-          className=" ring-0 w-6 h-6 rounded-full"
-          onChange={() => {
-            setStatus(!status);
-          }}
-        />
-      </td>
-      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        {status ? (
+      <td className=" px-3 py-4 pt-6 ">
+        <div className="">
           <input
-            type="text"
-            className=" border-primary-grey-400 bg-primary-grey-100 placeholder:text-primary-grey-400 text-primary-grey-700 text-sm rounded shadow-md"
-            disabled
+            type="radio"
+            checked="checked"
+            className=" ring-0 w-3 h-3 rounded-full"
+            {...register(`${curr.staff_id}[radio]`)}
+            value="1"
           />
-        ) : (
+        </div>
+      </td>
+      <td className=" px-3 py-4 pt-6 ">
+        <div className="">
           <input
-            type="text"
-            placeholder="Reason"
-            className=" focus:ring-primary-btn border-primary-field placeholder:text-primary-grey-400 text-primary-grey-700 text-sm rounded shadow-md cursor-pointer"
+            type="radio"
+            className=" ring-0 w-3 h-3 rounded-full"
+            {...register(`${curr.staff_id}[radio]`)}
+            value="2"
+          />
+        </div>
+      </td>
+      <td className=" px-3 py-4 pt-6 ">
+        <div className="">
+          <input
+            type="radio"
+            className=" ring-0 w-3 h-3 rounded-full"
+            {...register(`${curr.staff_id}[radio]`)}
+            value="3"
+          />
+        </div>
+      </td>
+      <td className="whitespace-nowrap px-1 pb-2 text-sm text-gray-500">
+        {status === "1" || status === undefined ? (
+          <InputDisabled />
+        ) : (
+          <Input
+            register={register}
+            name={`${curr.staff_id}[reason]`}
+            errors={errors}
+            required={true}
+            showError={false}
           />
         )}
       </td>

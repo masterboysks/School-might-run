@@ -12,8 +12,6 @@ import { useState, useEffect, useContext } from "react";
 import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
 import staffAPI from "../../../../../../../api/admin/dashboard/staff/staffAPI";
 import StaffFormPersonalDetailsPicture from "../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
-import axios from "axios";
-import { light } from "@mui/material/styles/createPalette";
 
 const arrayStatus = [
   {
@@ -65,7 +63,6 @@ const PermanentAddressForm = () => {
         console.warn(e);
       }
     })();
-    console.log(photo.photo);
   }, []);
   const onSubmit = async (d) => {
     const form = new FormData();
@@ -128,7 +125,6 @@ const PermanentAddressForm = () => {
       className="form-solid my-6 rounded-md"
       onSubmit={handleSubmit(onSubmit)}
     >
-      {" "}
       {message.length !== 0 && (
         <>
           <div className="!text-red-600 font-medium text-lg">

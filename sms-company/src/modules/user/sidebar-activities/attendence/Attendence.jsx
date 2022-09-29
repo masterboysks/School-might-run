@@ -44,17 +44,11 @@ export default function Attendence() {
               <ul>
                 <li>
                   Total school days:
-                  <span className="text-primary-grey-700 font-medium">
-                    {" "}
-                    143
-                  </span>
+                  <span className="text-primary-grey-700 font-medium">143</span>
                 </li>
                 <li>
                   Total present days:
-                  <span className="text-primary-grey-700 font-medium">
-                    {" "}
-                    123
-                  </span>
+                  <span className="text-primary-grey-700 font-medium">123</span>
                 </li>
                 <li>
                   Total absent days:

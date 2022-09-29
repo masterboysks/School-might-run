@@ -1,39 +1,30 @@
 import React from "react";
-import { useState } from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import Tabs from "../Tabs";
-const tabs = [
-  {
-    name: "General details",
-    href: "",
-    current: true,
-  },
-  {
-    name: "Academic details",
-    href: "",
-    current: false,
-  },
-  {
-    name: "Documents",
-    href: "",
-    current: false,
-  },
-];
+import StaffGeneralDetailsView from "../../../../../../contex/admin/staff/StaffGeneralDetailsView";
+
 export default function ViewStaff() {
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const generalDetails = useContext(StaffGeneralDetailsView);
+  const data = generalDetails.data?.personal;
   useEffect(() => {
     (async () => {
       try {
-        const res = await staffAPI.personalGet(id);
-        console.log(res.data.data);
-        setData(res?.data?.data);
+        const personal = await staffAPI.personalGet(id);
+        const address = await staffAPI.addressGet(id);
+        const office = await staffAPI.officialGet(id);
+        generalDetails.setData({
+          personal: personal?.data?.data,
+          address: address?.data?.data,
+          office: office?.data?.data,
+        });
       } catch (e) {
         console.log(e);
       }
     })();
+    return generalDetails.setData({});
   }, []);
 
   return (
@@ -51,10 +42,7 @@ export default function ViewStaff() {
           <div className="">{data?.email}</div>
         </div>
       </div>
-      <Tabs tabs={tabs} />
-      <div className="my-6">
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   );
 }

@@ -33,7 +33,7 @@ const RenderTable = ({ currentItems }) => {
                  ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
               >
                 <div className="p-3">
-                  <Link to="entry/Class 12/B">Mark entry</Link>{" "}
+                  <Link to="entry/Class 12/B">Mark entry</Link>
                 </div>
 
                 <div className="p-3">

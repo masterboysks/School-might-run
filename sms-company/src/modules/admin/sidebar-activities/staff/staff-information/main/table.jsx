@@ -4,121 +4,8 @@ import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
 import Pagination from "../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
-const people = [
-  {
-    staffId: 12323,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 14152323,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 1234564523,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 12879323,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 12378669784523,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 12378694784523,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 1,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 12378699784523,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 12378697784523,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-  {
-    staffId: 12378697584523,
-    staffName: "pratap",
-    depart: "admistrative",
-    desig: "manager",
-    type: "idk",
-    gen: "male",
-    numb: "01234569978",
-    status: "active",
-  },
-];
-
-export default function Table() {
-  const [page, setPage] = useState(1);
-  const [pagination, setPagination] = useState([]);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const res = await staffAPI.list(page);
-      setPagination(res?.data?.data?.pagination);
-      setData(res?.data?.data?.data);
-    })();
-  }, [page]);
+export default function Table({ setPage, data, pagination }) {
+  //
 
   return (
     <div className="mt-11">
@@ -141,79 +28,88 @@ export default function Table() {
           </Link>
         </div>
       </div>
-      <div className="my-6">
-        <div className=" ring-1 ring-black ring-opacity-5 min-w-full overflow-x-auto rounded-lg shadow">
-          <div className="inline-block w-full align-middle">
-            <div className=" w-full rounded-lg">
-              <table className="min-w-full divide-y divide-gray-300 table-auto">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700    "
-                    >
-                      Staff ID
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Staff Name
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Department
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Designation
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Type
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Gender
-                    </th>
 
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Mobile Number
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Status
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700  "
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={data} />
-                </tbody>
-              </table>
+      {data.length === 0 ? (
+        <div className="flex justify-center text-2xl my-9">
+          Please search to view Table
+        </div>
+      ) : (
+        <>
+          <div className="my-6">
+            <div className=" ring-1 overflow-x-auto overflow-y-auto ring-black ring-opacity-5 min-w-full rounded-lg shadow">
+              <div className="inline-block w-full align-middle">
+                <div className=" w-full rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-300 table-auto">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700    "
+                        >
+                          Staff ID
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Staff Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Department
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Designation
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Type
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Gender
+                        </th>
+
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Mobile Number
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Status
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700  "
+                        >
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      <RenderTable currentItems={data} />
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <Pagination setPage={setPage} pagination={pagination} />
+          <Pagination setPage={setPage} pagination={pagination} />
+        </>
+      )}
       {/* <nav
         className=" flex items-center justify-between py-3 bg-white border-t border-gray-200"
         aria-label="Pagination"

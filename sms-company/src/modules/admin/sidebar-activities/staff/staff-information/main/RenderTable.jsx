@@ -45,9 +45,8 @@ const RenderTable = ({ currentItems }) => {
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
                  ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
               >
-                <div className="p-3">Edit</div>
                 <div className="p-3">
-                  <Link to={`${person.id}/view`}>View</Link>
+                  <Link to={`${person.id}/general`}>View</Link>
                 </div>
 
                 <div className="p-3">Delete</div>

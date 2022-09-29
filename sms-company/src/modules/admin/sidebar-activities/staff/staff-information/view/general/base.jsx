@@ -1,16 +1,16 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Breadnav from "../../../../../../../components/common/Breadnav";
 import Tabs from "../../Tabs";
 const tabs = [
   {
     name: "General details",
-    href: "/admin/dashboard/staff/staff-information/44/general",
-    current: false,
+    href: "",
+    current: true,
   },
   {
     name: "Academic details",
-    href: "",
-    current: true,
+    href: "/admin/dashboard/staff/staff-information/44/academic",
+    current: false,
   },
   {
     name: "Documents",
@@ -18,14 +18,13 @@ const tabs = [
     current: false,
   },
 ];
-
-const AcademicsView = () => {
+export default function ViewGeneral() {
   return (
     <>
-      {/* <Breadnav pages={pages} /> */}
       <Tabs tabs={tabs} />
-      <Outlet></Outlet>
+      <div className="my-6">
+        <Outlet />
+      </div>
     </>
   );
-};
-export default AcademicsView;
+}

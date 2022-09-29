@@ -226,7 +226,7 @@ export default function Sidebar() {
                     </button>
                   </div>
                 </div>
-              )}{" "}
+              )}
               <nav className="flex-1 space-y-1 px-2 pb-4">
                 <div className="text-primary-grey-700 mx-1 text-sm my-3">
                   NAVIGATION

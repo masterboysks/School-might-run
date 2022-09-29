@@ -41,7 +41,7 @@ export default function RenderTable({ curr }) {
             className=" focus:ring-primary-btn border-primary-field placeholder:text-primary-grey-400 text-primary-grey-700 text-sm rounded shadow-md cursor-pointer"
           />
         )}
-      </td>{" "}
+      </td>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
         <UploadPhoto
           watch={watch}
