@@ -161,10 +161,10 @@ const AddAcademicDetailsForm = () => {
           <Input
             name="passed_year"
             label="Passed year*"
+            placeholder="2010"
             required={true}
             errors={errors}
             register={register}
-            type="date"
           />
         </div>
       </div>
