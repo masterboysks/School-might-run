@@ -1,4 +1,8 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
+import Pagination from "../../../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
 const people = [
@@ -11,6 +15,23 @@ const people = [
 ];
 
 export default function DocumentTable() {
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState({});
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await staffAPI.getDocument(id, page);
+        const datas = data?.data?.data;
+        setData(datas?.data);
+        setPagination(datas?.pagination);
+        console.log(datas);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, [page]);
   return (
     <div className="mt-11">
       <div className="sm:flex sm:items-center">
@@ -28,7 +49,7 @@ export default function DocumentTable() {
             to="add"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
-            Add Staff
+            Add
           </Link>
         </div>
       </div>
@@ -55,12 +76,13 @@ export default function DocumentTable() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
+                  <RenderTable currentItems={data} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <Pagination pagination={pagination} setPage={setPage} />
       </div>
     </div>
   );

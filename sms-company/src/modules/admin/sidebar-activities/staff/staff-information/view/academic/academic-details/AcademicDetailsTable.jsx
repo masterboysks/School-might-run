@@ -1,128 +1,28 @@
 // import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
+import Pagination from "../../../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
-const currentItems = [
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-  {
-    board: "pratap",
-    level: "admistrative",
-    program: "manager",
-    batch: "idk",
-    grade: "male",
-    org: "01234569978",
-    orgAddress: "active",
-  },
-];
-
 export default function AcademicTable() {
-  // pagination
-  // const itemsOnPage = 5;
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [currentItems, setCurrentItems] = useState(
-  //   people.slice(0, itemsOnPage)
-  // );
-  // const [indexOfLastItem, setIndexOfLastItem] = useState(
-  //   currentPage * itemsOnPage
-  // );
-  // const [indexOfFirstItem, setIndexOfFirstItem] = useState(
-  //   indexOfLastItem - itemsOnPage
-  // );
-  // const [message, setmessage] = useState("Showing 1 to 2 of 2 results");
-
-  // const onNextPage = () => {
-  //   setCurrentPage((curr) => curr + 1);
-  // };
-
-  // const onPreviousPage = () => {
-  //   setCurrentPage((curr) => curr - 1);
-  // };
-  // useEffect(() => {
-  //   setIndexOfLastItem(currentPage * itemsOnPage);
-  // }, [currentPage]);
-  // useEffect(() => {
-  //   setIndexOfFirstItem(indexOfLastItem - itemsOnPage);
-  // }, [indexOfLastItem]);
-  // useEffect(() => {
-  //   setmessage(
-  //     `Showing ${indexOfFirstItem + 1} to ${
-  //       people.length <= indexOfLastItem ? people.length : indexOfLastItem
-  //     } of ${people.length}`
-  //   );
-  //   setCurrentItems(people.slice(indexOfFirstItem, indexOfLastItem));
-  // }, [indexOfFirstItem]);
-
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState({});
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await staffAPI.getAcademic(id, page);
+        const datas = data?.data?.data;
+        setData(datas?.data);
+        setPagination(datas?.pagination);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, [page]);
   return (
     <div className="mt-11">
       <div className="sm:flex sm:items-center">
@@ -137,7 +37,7 @@ export default function AcademicTable() {
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
-            to="/admin/dashboard/staff/staff-information/add-staff/academic/add-academic-details"
+            to="/add"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Add
@@ -204,12 +104,13 @@ export default function AcademicTable() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={currentItems} />
+                  <RenderTable currentItems={data} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <Pagination pagination={pagination} setPage={setPage} />
       </div>
     </div>
   );
