@@ -67,9 +67,9 @@ const AddStaffGeneralBase = lazy(() =>
 //     "../../modules/admin/sidebar-activities/staff/staff-information/documents/base"
 //   )
 // );
-const StaffAttendence = lazy(() =>
+const StaffAttendance = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/staff/staff-attendence/main/StaffAttendence"
+    "../../modules/admin/sidebar-activities/staff/staff-attendance/main/StaffAttendance"
   )
 );
 const TeacherAssign = lazy(() =>
@@ -110,10 +110,10 @@ export default function StaffRoutes() {
           }
         ></Route>
         <Route
-          path="staff-attendence"
+          path="staff-attendance"
           element={
             <Suspense fallback="Loading">
-              <StaffAttendence />
+              <StaffAttendance />
             </Suspense>
           }
         ></Route>

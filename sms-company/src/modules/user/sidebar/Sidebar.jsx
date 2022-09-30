@@ -35,8 +35,8 @@ export default function Sidebar() {
         icon: HomeIcon,
       },
       {
-        name: "Attendence",
-        href: "/parent/dashboard/attendence",
+        name: "Attendance",
+        href: "/parent/dashboard/attendance",
         icon: CalendarIcon,
       },
       {
@@ -53,8 +53,8 @@ export default function Sidebar() {
         icon: HomeIcon,
       },
       {
-        name: "Attendence",
-        href: "/student/dashboard/attendence",
+        name: "Attendance",
+        href: "/student/dashboard/attendance",
         icon: CalendarIcon,
       },
       {

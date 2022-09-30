@@ -6,8 +6,8 @@ import Breadnav from "../../../../../components/common/Breadnav";
 const pages = [
   { name: "Student", href: "#", current: false },
   {
-    name: "Student Attendence",
-    href: "/student/student-attendence/",
+    name: "Student Attendance",
+    href: "/student/student-attendance/",
     current: true,
   },
 ];

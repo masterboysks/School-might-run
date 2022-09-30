@@ -28,7 +28,7 @@ const Details = () => {
         </div>
       </div>
       <div className="w-fit lg:h-fit bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 lg:mx-3 lg:my-0 lg:mt-auto flex items-center justify-center p-3 my-6 ml-auto text-sm font-medium text-white border border-transparent rounded-md shadow-sm cursor-pointer">
-        Attendence Report
+        Attendance Report
       </div>
     </div>
   );

@@ -2,22 +2,22 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-const StudentAttendenceReportClasses = lazy(() =>
+const StudentAttendanceReportClasses = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/report/attendence-report/student-attendence-report/classes/StudentAttendenceReportClasses"
+    "../../modules/admin/sidebar-activities/report/attendance-report/student-attendance-report/classes/StudentAttendanceReportClasses"
   )
 );
 const ReportSlidebar = lazy(() =>
   import("../../modules/admin/sidebar-activities/report/slidebar")
 );
-const StudentAttendenceReportClass = lazy(() =>
+const StudentAttendanceReportClass = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/report/attendence-report/student-attendence-report/class/StudentAttendenceReportClass"
+    "../../modules/admin/sidebar-activities/report/attendance-report/student-attendance-report/class/StudentAttendanceReportClass"
   )
 );
-const StaffAttendenceReport = lazy(() =>
+const StaffAttendanceReport = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/report/attendence-report/staff-sttendence-report/StaffAttendenceReport"
+    "../../modules/admin/sidebar-activities/report/attendance-report/staff-sttendence-report/StaffAttendanceReport"
   )
 );
 const ExamReportClasses = lazy(() =>
@@ -68,26 +68,26 @@ export default function ReportRoutes() {
         }
       >
         <Route
-          path="attendence-report/student-attendence-report"
+          path="attendance-report/student-attendance-report"
           element={
             <Suspense fallback="Loading">
-              <StudentAttendenceReportClasses />
+              <StudentAttendanceReportClasses />
             </Suspense>
           }
         />
         <Route
-          path="attendence-report/student-attendence-report/:classOfSchool/:section"
+          path="attendance-report/student-attendance-report/:classOfSchool/:section"
           element={
             <Suspense fallback="Loading">
-              <StudentAttendenceReportClass />
+              <StudentAttendanceReportClass />
             </Suspense>
           }
         />
         <Route
-          path="attendence-report/staff-attendence-report"
+          path="attendance-report/staff-attendance-report"
           element={
             <Suspense fallback="Loading">
-              <StaffAttendenceReport />
+              <StaffAttendanceReport />
             </Suspense>
           }
         />

@@ -22,7 +22,7 @@ export default {
   addressGet(id) {
     return authorized.get(`/staff/view-address/${id}`);
   },
-  attendence(form) {
-    return authorized.post(`/staff-attendence`, form);
+  attendance(form) {
+    return authorized.post(`/staff-attendance`, form);
   },
 };

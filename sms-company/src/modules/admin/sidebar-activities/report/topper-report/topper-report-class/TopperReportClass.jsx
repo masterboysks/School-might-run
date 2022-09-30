@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../../../../../components/common/Break";
-import AttendenceTopper from "./AttendenceTopper";
+import AttendanceTopper from "./AttendanceTopper";
 import Details from "./Details";
 import ExamTopper from "./ExamTopper";
 
@@ -28,8 +28,8 @@ export default function TopperReportClass() {
       <Details />
       <Break title="Exam topper" />
       <ExamTopper />
-      <Break title="Attendence topper" />
-      <AttendenceTopper />
+      <Break title="Attendance topper" />
+      <AttendanceTopper />
     </>
   );
 }

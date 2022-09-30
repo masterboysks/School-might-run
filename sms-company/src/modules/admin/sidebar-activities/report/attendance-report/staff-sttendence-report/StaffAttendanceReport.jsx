@@ -5,17 +5,17 @@ import Table from "./Table";
 const pages = [
   { name: "Report", href: "#", current: false },
   {
-    name: "Attendence report",
+    name: "Attendance report",
     href: "#",
     current: false,
   },
   {
-    name: "Staff attendence report",
-    href: "/report/attendence-report/staff-attendence-report",
+    name: "Staff attendance report",
+    href: "/report/attendance-report/staff-attendance-report",
     current: true,
   },
 ];
-export default function StaffAttendenceReport() {
+export default function StaffAttendanceReport() {
   return (
     <>
       <Breadnav pages={pages} />

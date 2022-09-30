@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "./components-attendence/Main";
+import Main from "./components-attendance/Main";
 
 const Student = () => {
   return <Main />;

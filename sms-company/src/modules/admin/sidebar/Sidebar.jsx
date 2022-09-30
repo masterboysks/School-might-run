@@ -24,7 +24,7 @@ let activity = [
   {
     name: "Report",
     value: SummarizeOutlinedIcon,
-    path: "report/attendence-report/student-attendence-report",
+    path: "report/attendance-report/student-attendance-report",
   },
   { name: "Libary", value: Libary, path: "student/student-information" },
   {

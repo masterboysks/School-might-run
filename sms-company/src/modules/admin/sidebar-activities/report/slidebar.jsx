@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
 
 const ReportSlidebar = () => {
-  const [attendenceReport, setAttendenceReport] = useState(false);
-  const [dropAttendenceReport, setDropAttendenceReport] = useState(true);
+  const [attendanceReport, setAttendanceReport] = useState(false);
+  const [dropAttendanceReport, setDropAttendanceReport] = useState(true);
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
@@ -15,18 +15,18 @@ const ReportSlidebar = () => {
   };
   const links = [
     {
-      name: "Student attendence report",
-      path: "attendence-report/student-attendence-report",
+      name: "Student attendance report",
+      path: "attendance-report/student-attendance-report",
     },
     {
-      name: "Staff attendence report",
-      path: "attendence-report/staff-attendence-report",
+      name: "Staff attendance report",
+      path: "attendance-report/staff-attendance-report",
     },
   ];
   useEffect(() => {
-    location.includes("/report/attendence-report")
-      ? setAttendenceReport(true)
-      : setAttendenceReport(false);
+    location.includes("/report/attendance-report")
+      ? setAttendanceReport(true)
+      : setAttendanceReport(false);
   }, [location]);
 
   const slidebar = () => {
@@ -56,18 +56,18 @@ const ReportSlidebar = () => {
         <div className="w-full">
           <ul className="pt-9 mx-2">
             <li
-              id="attendenceReport"
+              id="attendanceReport"
               onClick={() => {
-                setDropAttendenceReport(!dropAttendenceReport);
+                setDropAttendanceReport(!dropAttendanceReport);
               }}
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
               ${
-                attendenceReport
+                attendanceReport
                   ? "text-primary-grey-700"
                   : "text-primary-grey-600"
               } 
                    ${
-                     attendenceReport && !dropAttendenceReport
+                     attendanceReport && !dropAttendanceReport
                        ? "bg-primary-grey-200 "
                        : "text-primary-grey-600"
                    }text-sm`}
@@ -75,16 +75,16 @@ const ReportSlidebar = () => {
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  dropAttendenceReport ? "rotate-90" : ""
+                  dropAttendanceReport ? "rotate-90" : ""
                 }  `}
               >
                 <Arrow fontSize="sm" />
               </div>
-              <div className=" text-sm">Attendence report</div>
+              <div className=" text-sm">Attendance report</div>
             </li>
             <ul
               className={`${
-                dropAttendenceReport ? "" : "hidden"
+                dropAttendanceReport ? "" : "hidden"
               } transition duration-700 ease-in`}
               id="dropdown"
             >

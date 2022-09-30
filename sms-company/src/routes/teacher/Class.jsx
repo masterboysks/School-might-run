@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Attendence from "../../modules/teacher/sidebar-activities/class/class-attendence/attendence/Attendence";
-import Classess from "../../modules/teacher/sidebar-activities/class/class-attendence/class-attendence/Classess";
+import Attendance from "../../modules/teacher/sidebar-activities/class/class-attendance/attendance/Attendance";
+import Classess from "../../modules/teacher/sidebar-activities/class/class-attendance/class-attendance/Classess";
 import ClassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/class-routine/ClassRoutine";
 import RoutineCLassRoutine from "../../modules/teacher/sidebar-activities/class/class-routine/routine-class-routine/RoutineCLassRoutine";
 import MyClasses from "../../modules/teacher/sidebar-activities/class/my-classes/MyClasses";
@@ -12,10 +12,10 @@ export default function Class() {
     <Routes>
       <Route path="/" element={<Slidebar />}>
         <Route path="/my-classes" element={<MyClasses />} />
-        <Route path="/class-attendence" element={<Classess />} />
+        <Route path="/class-attendance" element={<Classess />} />
         <Route
-          path="/class-attendence/:classOfSchool/:section"
-          element={<Attendence />}
+          path="/class-attendance/:classOfSchool/:section"
+          element={<Attendance />}
         />
         <Route path="/class-routine" element={<ClassRoutine />} />
         <Route

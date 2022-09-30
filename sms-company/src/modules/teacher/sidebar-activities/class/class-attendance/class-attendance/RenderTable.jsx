@@ -21,7 +21,7 @@ const RenderTable = ({ currentItems }) => {
             {person.subject}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-primary-btn">
-            <Link to={`${person.class}/${person.section}`}>Attendence</Link>
+            <Link to={`${person.class}/${person.section}`}>Attendance</Link>
           </td>
         </tr>
       ))}

@@ -64,7 +64,7 @@ export default function Table() {
   const onSubmit = async (data) => {
     console.log(data);
 
-    const res = await staffAPI.attendence(data);
+    const res = await staffAPI.attendance(data);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full my-6">

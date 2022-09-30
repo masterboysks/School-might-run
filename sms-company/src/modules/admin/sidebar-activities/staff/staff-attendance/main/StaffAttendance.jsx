@@ -7,20 +7,20 @@ import Table from "./Table";
 const pages = [
   { name: "Staff", href: "#", current: false },
   {
-    name: "Staff attendence",
-    href: "/staff/staff-attendence/",
+    name: "Staff attendance",
+    href: "/staff/staff-attendance/",
     current: true,
   },
 ];
-function StaffAttendence() {
+function StaffAttendance() {
   return (
     <>
       <Breadnav pages={pages} />
       <Form></Form>
-      <Break title="Attendence" />
+      <Break title="Attendance" />
       <Table></Table>
     </>
   );
 }
 
-export default StaffAttendence;
+export default StaffAttendance;

@@ -18,7 +18,7 @@ const data = {
     },
   ],
 };
-export default function Attendence() {
+export default function Attendance() {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -32,7 +32,7 @@ export default function Attendence() {
     <>
       <div>
         <h1 className="text-xl font-medium text-primary-grey-700">
-          Attendence
+          Attendance
         </h1>
         {/* Chart */}
         <div className="flex flex-col sm:flex-row">

@@ -14,8 +14,8 @@ const StudentSlidebar = lazy(() =>
 const StudentInformation = lazy(() =>
   import("../../modules/admin/sidebar-activities/student/Student-information")
 );
-const StudentAttendence = lazy(() =>
-  import("../../modules/admin/sidebar-activities/student/Student-attendence")
+const StudentAttendance = lazy(() =>
+  import("../../modules/admin/sidebar-activities/student/Student-attendance")
 );
 const AddguardianTrue = lazy(() =>
   import(
@@ -29,12 +29,12 @@ const AddguardianFalse = lazy(() =>
 );
 const WholeClass = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components-attendence/wholeClass/WholeClass"
+    "../../modules/admin/sidebar-activities/student/components-attendance/wholeClass/WholeClass"
   )
 );
 const StudentProfile = lazy(() =>
   import(
-    "../../modules/admin/sidebar-activities/student/components-attendence/studentProfile/StudentProfile"
+    "../../modules/admin/sidebar-activities/student/components-attendance/studentProfile/StudentProfile"
   )
 );
 const AddAddress = lazy(() =>
@@ -124,16 +124,16 @@ export default function StudentRoutes() {
           }
         />
         <Route
-          path="student-attendence"
+          path="student-attendance"
           element={
             <Suspense fallback="Loading">
-              <StudentAttendence />
+              <StudentAttendance />
             </Suspense>
           }
         ></Route>
 
         <Route
-          path="student-attendence/:classOfSchool/:section"
+          path="student-attendance/:classOfSchool/:section"
           element={
             <Suspense fallback="Loading">
               <WholeClass />
@@ -142,7 +142,7 @@ export default function StudentRoutes() {
         />
 
         <Route
-          path="student-attendence/:classOfSchool/:section/:studentName/:studentId"
+          path="student-attendance/:classOfSchool/:section/:studentName/:studentId"
           element={
             <Suspense fallback="Loading">
               <StudentProfile />

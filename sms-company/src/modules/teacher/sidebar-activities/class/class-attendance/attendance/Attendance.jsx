@@ -5,7 +5,7 @@ import Break from "../../../../../../components/common/Break";
 import Table from "./Table";
 import Form from "./Form";
 
-export default function Attendence() {
+export default function Attendance() {
   const { classOfSchool, section } = useParams();
   const pages = [
     { name: "Class", href: "#", current: false },
@@ -23,7 +23,7 @@ export default function Attendence() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Attendence" />
+      <Break title="Attendance" />
       <Form />
       <Table />
     </>

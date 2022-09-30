@@ -1,5 +1,5 @@
 import { PrinterIcon } from "@heroicons/react/20/solid";
-import RenderTable from "./RenderAttendenceTable";
+import RenderTable from "./RenderAttendanceTable";
 const currentItems = [
   {
     stdId: "Lindsay Walton",
@@ -24,7 +24,7 @@ const currentItems = [
   },
 ];
 
-export default function AttendenceTopper() {
+export default function AttendanceTopper() {
   return (
     <div className="mt-6">
       <div className="h-fit md:my-auto flex items-center justify-end my-6">

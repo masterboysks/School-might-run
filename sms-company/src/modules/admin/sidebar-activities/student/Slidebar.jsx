@@ -57,12 +57,12 @@ const Slidebar = () => {
               </li>
             </Link>
             <Link
-              to="/admin/dashboard/student/student-attendence"
+              to="/admin/dashboard/student/student-attendance"
               onClick={sidebar}
             >
               <li
                 className={`  pr-3    flex p-1 mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("student-attendence")
+                  location.includes("student-attendance")
                     ? " bg-primary-grey-200  text-primary-grey-700 "
                     : " hover:bg-primary-grey-200 text-primary-grey-600 "
                 } text-sm`}
@@ -70,7 +70,7 @@ const Slidebar = () => {
                 <div className="devList text-primary-grey-300">
                   <Arrow fontSize="sm" />
                 </div>
-                Student attendence
+                Student attendance
               </li>
             </Link>
           </ul>

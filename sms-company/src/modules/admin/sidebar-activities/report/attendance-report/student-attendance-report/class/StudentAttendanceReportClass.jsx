@@ -5,18 +5,18 @@ import Details from "./Details";
 import Form from "./Form";
 import Table from "./Table";
 
-export default function StudentAttendenceReportClass() {
+export default function StudentAttendanceReportClass() {
   const { classOfSchool, section } = useParams();
   const pages = [
     { name: "Report", href: "#", current: false },
     {
-      name: "Attendence report",
+      name: "Attendance report",
       href: "#",
       current: false,
     },
     {
-      name: "Student attendence report",
-      href: "/report/attendence-report/student-attendence-report",
+      name: "Student attendance report",
+      href: "/report/attendance-report/student-attendance-report",
       current: false,
     },
     {

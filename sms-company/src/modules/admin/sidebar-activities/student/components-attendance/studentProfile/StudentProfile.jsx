@@ -9,18 +9,18 @@ const StudentProfile = () => {
   const pages = [
     { name: "Student", href: "#", current: false },
     {
-      name: "Student Attendence",
-      href: "/student/student-attendence/",
+      name: "Student Attendance",
+      href: "/student/student-attendance/",
       current: false,
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: `/student/student-attendence/${classOfSchool}/${section}`,
+      href: `/student/student-attendance/${classOfSchool}/${section}`,
       current: false,
     },
     {
       name: `${studentName}`,
-      href: `/student/student-attendence/${classOfSchool}/${section}/${studentName}`,
+      href: `/student/student-attendance/${classOfSchool}/${section}/${studentName}`,
       current: true,
     },
   ];

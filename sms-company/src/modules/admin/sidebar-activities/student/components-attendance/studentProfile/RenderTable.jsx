@@ -31,7 +31,7 @@ const RenderTable = () => {
             {person.reason}
           </td>
           <td className="px-3 py-4 text-sm font-medium text-primary-btn whitespace-nowrap">
-            <Link to="/student/student-attendence/">View</Link>
+            <Link to="/student/student-attendance/">View</Link>
           </td>
         </tr>
       ))}
