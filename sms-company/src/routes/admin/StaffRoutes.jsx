@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import AcademicDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/academic-details/AcademicDetails";
+import AddAcademicDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/add-acedimic-details/AddAcademicDetails";
 import AcademicsView from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base";
 import AddDocument from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument";
 import DocumentView from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base";
@@ -180,6 +181,14 @@ export default function StaffRoutes() {
               element={
                 <Suspense fallback="Loading...">
                   <AcademicDetails></AcademicDetails>
+                </Suspense>
+              }
+            />{" "}
+            <Route
+              path="add"
+              element={
+                <Suspense fallback="Loading ...">
+                  <AddAcademicDetails />
                 </Suspense>
               }
             />
