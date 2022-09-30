@@ -8,7 +8,7 @@ export default function Table({ setPage, data, pagination }) {
   //
 
   return (
-    <div className="mt-11">
+    <div className="mt-11 mb-6">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-primary-grey-700 text-xl font-semibold">

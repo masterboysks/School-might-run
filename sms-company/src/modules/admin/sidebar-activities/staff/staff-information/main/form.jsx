@@ -15,7 +15,7 @@ const pages = [
   { name: "Staff", href: "#", current: false },
   {
     name: "Staff Information",
-    href: "/staff/staff-information/",
+    href: "/admin/dashboard/staff/staff-information",
     current: true,
   },
 ];

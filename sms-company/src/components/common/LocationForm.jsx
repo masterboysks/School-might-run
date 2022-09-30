@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import countries from "../../api/country/country";
+import countries from "../../api/common/country/country";
 import { Select, SelectDisabled } from "./fields";
 
 export default function LocationForm({ register, errors, watch, prefix }) {

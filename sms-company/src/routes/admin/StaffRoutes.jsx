@@ -2,6 +2,7 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import AcademicDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/academic-details/AcademicDetails";
 import AcademicsView from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base";
 import AddDocument from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument";
 import DocumentView from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base";
@@ -173,7 +174,16 @@ export default function StaffRoutes() {
                 <AcademicsView />
               </Suspense>
             }
-          />
+          >
+            <Route
+              index
+              element={
+                <Suspense fallback="Loading...">
+                  <AcademicDetails></AcademicDetails>
+                </Suspense>
+              }
+            />
+          </Route>
           <Route
             path="general"
             element={

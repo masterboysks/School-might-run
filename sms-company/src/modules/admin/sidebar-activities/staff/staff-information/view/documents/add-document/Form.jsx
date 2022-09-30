@@ -1,48 +1,74 @@
-import Upload from "@mui/icons-material/UploadOutlined";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
+import {
+  Input,
+  Upload,
+} from "../../../../../../../../components/common/fields";
 
 const Form = () => {
+  const { id } = useParams();
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const {
+    register,
+    watch,
+    reset,
+    getValues,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    console.log(data);
+    const form = new FormData();
+    form.append("document_name", data["document_name"]);
+    form.append("document_file", data["document_file"][0]);
+    try {
+      const res = await staffAPI.createDocument(id, form);
+      res.status === 201
+        ? navigate(
+            "/admin/dashboard/staff/staff-information/add-staff/documents"
+          )
+        : setMessage(res?.response?.data?.message);
+    } catch (error) {
+      console.log(error);
+    }
+    // to=
+  };
   return (
-    <form className="form-solid md:w-10/12 lg:w-8/12 w-full my-6 rounded-md">
+    <form
+      className="form-solid md:w-10/12 lg:w-8/12 w-full my-6 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      {message && (
+        <>
+          <div className="!text-red-600 font-medium text-lg">{message}</div>
+          <br />
+        </>
+      )}
       <div className="sm:grid-cols-2 grid grid-cols-1 gap-4">
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Staff Id">
-            Staff Id
-          </label>
-          <br />
-          <input
-            className="w-full p- rounded  focus:ring-primary-btn mt-[6px]    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Id"
+          <Input
+            name="document_name"
+            register={register}
+            errors={errors}
+            required={true}
+            label="Name"
+            placeholder="Citizenship"
           />
         </div>
         <div className="">
-          <label htmlFor="cover-photo" className=" block text-sm">
-            Birth/Citizenship Certificate*
-          </label>
-          <div className=" mt-[6px] sm:col-span-2 ">
-            <div className=" flex w-full px-3 py-2 border-2 border-gray-300 border-dashed rounded-md">
-              <div className=" w-full space-y-1">
-                <div className=" w-full text-sm">
-                  <label
-                    htmlFor="file-upload"
-                    className="text-primary-grey-700 -indigo-600 hover:text-focus-within:outline-none focus-within:ring- focus-within:ring-offset-0 flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
-                  >
-                    <div>Upload here</div>
-                    <div className="text-primary-btn">
-                      <Upload />
-                    </div>
-                    <input
-                      id="file-upload"
-                      name="file-upload"
-                      type="file"
-                      className="sr-only"
-                    />
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Upload
+            name="document_file"
+            register={register}
+            errors={errors}
+            required={true}
+            label="Document"
+            watch={watch}
+            id="document_file"
+            accept="image/*,.pdf"
+          />
         </div>
         <div className=" col-span-full">
           <div className=" w-fit ml-auto">
@@ -52,12 +78,12 @@ const Form = () => {
             >
               Cancel
             </Link>
-            <Link
-              to="/admin/dashboard/staff/staff-information/add-staff/documents"
+            <button
+              type="submit"
               className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
             >
               Save
-            </Link>
+            </button>
           </div>
         </div>
       </div>

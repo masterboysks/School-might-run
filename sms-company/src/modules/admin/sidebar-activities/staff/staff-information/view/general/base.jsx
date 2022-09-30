@@ -1,24 +1,25 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Tabs from "../../Tabs";
-const tabs = [
-  {
-    name: "General details",
-    href: "",
-    current: true,
-  },
-  {
-    name: "Academic details",
-    href: "/admin/dashboard/staff/staff-information/44/academic",
-    current: false,
-  },
-  {
-    name: "Documents",
-    href: "/admin/dashboard/staff/staff-information/44/document",
-    current: false,
-  },
-];
 export default function ViewGeneral() {
+  const { id } = useParams();
+  const tabs = [
+    {
+      name: "General details",
+      href: "",
+      current: true,
+    },
+    {
+      name: "Academic details",
+      href: `/admin/dashboard/staff/staff-information/${id}/academic`,
+      current: false,
+    },
+    {
+      name: "Documents",
+      href: `/admin/dashboard/staff/staff-information/${id}/document`,
+      current: false,
+    },
+  ];
   return (
     <>
       <Tabs tabs={tabs} />

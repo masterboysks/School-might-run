@@ -25,4 +25,13 @@ export default {
   attendance(form) {
     return authorized.post(`/staff-attendance`, form);
   },
+  getAcademic(id, page) {
+    return authorized.get(`/academic-details/staff/${id}?page=${page}`);
+  },
+  getDocument(id, page) {
+    return authorized.get(`/documents/staff/${id}?page=${page}`);
+  },
+  createDocument(id, form) {
+    return authorized.post(`/documents/staff/${id}`, form);
+  },
 };

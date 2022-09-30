@@ -391,67 +391,75 @@ export function SearchBar({ id = Math.random(), register }) {
     </div>
   );
 }
+
 export const Upload = ({
   label,
   name,
-  error,
-  setError,
-  value,
-  setValue,
-  dataTitle,
-  dataValue,
+  errors,
+  register,
+  required = false,
+  showError = true,
   uploadText,
+  errorText,
   id,
+  watch,
+  accept,
 }) => {
-  const optional = {};
-  dataTitle && (optional[dataTitle] = dataValue);
+  let logo;
+  watch && (logo = watch(name));
   return (
     <>
-      <label
-        htmlFor={id}
-        className={` ${error && " text-red-600 "} block text-sm`}
-      >
-        {label}
-      </label>
-      <div className=" mt-[6px] sm:col-span-2 ">
-        <div className=" flex w-full px-3 py-1.5 border-2 border-gray-300 border-dashed rounded-md">
-          <div className=" w-full space-y-1">
+      <div className="">
+        <label
+          htmlFor={id}
+          className={`${
+            errors && errors[name] && "text-red-600 "
+          } block text-sm`}
+        >
+          {label}
+        </label>
+        <div className="mt-[6px] sm:mt-0 sm:col-span-2">
+          <div className="text-primary-gray-700 flex items-center">
+            <span className=" w-12 h-12 overflow-hidden rounded-full">
+              <svg
+                className="w-full h-full text-gray-300"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </span>
+            <input
+              type="file"
+              name={name}
+              id={id}
+              className="sr-only"
+              {...register(name, { required })}
+              accept={accept}
+            />
+            {/* className="text-primary-gray- hover:bg-gray-50 focus:outline-none focus:ring- focus:ring-offset-2 hidden px-3 py-2 ml-5 text-sm font-medium leading-4 bg-white rounded-md" */}
             <label
               htmlFor={id}
-              className="text-primary-grey-700 -indigo-600 hover:text-focus-within:outline-none focus-within:ring- focus-within:ring-offset-0 flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
+              className="bg-primary-grey-200 cursor-pointer border-primary-field border-[1px] rounded ml-2 p-1 text-primary-grey-700"
             >
-              <div>{uploadText || "Upload here"}</div>
-              <div className="text-primary-btn">
-                <UploadOutlined />
-              </div>
-              <input
-                id={id}
-                name={name}
-                type="photo"
-                className="sr-only"
-                {...optional}
-                value={value}
-                onChange={(e) => {
-                  error && setError(false);
-                  setValue(e.target.value);
-                }}
-              />
+              {logo && logo.length === 1
+                ? logo[0].name
+                : uploadText || "Choose a file to upload"}
             </label>
           </div>
         </div>
+        {showError && errors && errors[name] && (
+          <>
+            <span className="text-xs font-light text-red-600">
+              {errorText || " This is a required field."}
+            </span>
+            <br />
+          </>
+        )}
       </div>
-      {error && (
-        <>
-          <br />
-          <span className="text-xs font-light text-red-600">
-            This is a required field
-          </span>
-        </>
-      )}
     </>
   );
 };
-
 export const UploadPhoto = ({
   label,
   name,

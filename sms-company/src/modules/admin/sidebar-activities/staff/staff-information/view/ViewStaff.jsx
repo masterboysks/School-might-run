@@ -4,7 +4,19 @@ import { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
 import StaffGeneralDetailsView from "../../../../../../contex/admin/staff/StaffGeneralDetailsView";
-
+const pages = [
+  { name: "Staff", href: "#", current: false },
+  {
+    name: "Staff Information",
+    href: "/admin/dashboard/staff/staff-information",
+    current: false,
+  },
+  {
+    name: "View",
+    href: "#",
+    current: true,
+  },
+];
 export default function ViewStaff() {
   const { id } = useParams();
   const generalDetails = useContext(StaffGeneralDetailsView);
@@ -28,7 +40,7 @@ export default function ViewStaff() {
   }, []);
 
   return (
-    <>
+    <div className="my-6">
       <div className="flex gap-6">
         <div className="rounded-full overflow-hidden object-cover h-24 w-24 border">
           <img src={data?.profile_picture} alt={data?.first_name} />
@@ -43,6 +55,6 @@ export default function ViewStaff() {
         </div>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 }

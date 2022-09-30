@@ -5,10 +5,10 @@ import { Popover } from "@headlessui/react";
 const RenderTable = ({ currentItems }) => {
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.board}
+            {person.board_university}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.level}
@@ -17,16 +17,16 @@ const RenderTable = ({ currentItems }) => {
             {person.program}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.batch}
+            {person.passed_year}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.grade}
+            {person.division}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.org}
+            {person.institution_name}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.orgAddress}
+            {person.institution_address}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">

@@ -7,8 +7,8 @@ export default function GeneralDetails() {
   return (
     <div>
       <PersonalDetails />
-      <AddressDetails />
       <OfficeDetails />
+      <AddressDetails />
     </div>
   );
 }
