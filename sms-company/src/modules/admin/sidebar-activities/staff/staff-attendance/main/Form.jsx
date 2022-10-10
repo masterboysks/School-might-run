@@ -1,60 +1,140 @@
 import Search from "@mui/icons-material/SearchOutlined";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import departmentApi from "../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
+import designationApi from "../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
+import { Input, Select } from "../../../../../../components/common/fields";
+const arrayStatus = [
+  {
+    name: "Active",
+    id: 1,
+  },
 
-function Form() {
+  {
+    name: "InActive",
+    id: 2,
+  },
+];
+function Form({ onSubmit }) {
+  const {
+    register,
+    watch,
+    reset,
+    getValues,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [arrayDesignation, setArrayDesignation] = useState([]);
+  const [arrayDepartment, setArrayDepartment] = useState([]);
+  const department = watch("department_id");
+  useEffect(() => {
+    (async () => {
+      try {
+        const temp = await designationApi.getAll(department);
+        setArrayDesignation(temp?.data?.data);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+    reset({ ...getValues(), designation_id: "" });
+  }, [department]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const temp = await departmentApi.getAll();
+        setArrayDepartment(temp?.data?.data);
+      } catch (e) {
+        console.warn(e);
+      }
+    })();
+  }, []);
+
   return (
-    <form className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ring-1 ring-black ring-opacity-5 form-solid grid grid-cols-1 gap-4 p-4 my-6 rounded-md shadow">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ring-1 ring-black ring-opacity-5 form-solid grid grid-cols-1 gap-4 p-4 my-6 rounded-md shadow"
+    >
       <div className="">
-        <label className="my-6 text-sm" htmlFor="Desigation">
+        <Input
+          register={register}
+          errors={errors}
+          label="Date*"
+          name="date"
+          type="date"
+        />
+        {/* <label className="my-6 text-sm" htmlFor="Desigation">
           Date*
         </label>
         <br />
         <input
           type="date"
           className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm"
-        />
+        /> */}
       </div>
       <div className="">
-        <label className="my-6 text-sm" htmlFor="Staff type">
+        <Select
+          value={arrayDepartment}
+          label="Department*"
+          name="department_id"
+          required={true}
+          errors={errors}
+          register={register}
+        />
+        {/* <label className="my-6 text-sm" htmlFor="Staff type">
           Department*
         </label>
         <br />
         <select className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
           <option value="Test">Select</option>
-        </select>
+        </select> */}
       </div>
       <div className="">
-        <label className="my-6 text-sm" htmlFor="Status">
+        {" "}
+        <Select
+          value={arrayDesignation}
+          label="Designation*"
+          name="designation_id"
+          required={true}
+          errors={errors}
+          register={register}
+        />
+        {/* <label className="my-6 text-sm" htmlFor="Status">
           Designation*
         </label>
         <br />
         <select className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
           <option value="Test">Select</option>
-        </select>
+        </select> */}
       </div>
       <div className="">
-        <label className="my-6 text-sm" htmlFor="Order By">
-          Staff name
-        </label>
-        <br />
-        <input
-          type="text"
+        {" "}
+        <Input
+          register={register}
+          errors={errors}
+          label="Staff name"
+          name="staff_name"
           placeholder="Hari shyam"
-          className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn     border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm"
         />
       </div>
       <div className="">
-        <label className="my-6 text-sm" htmlFor="Order By">
-          Status*
-        </label>
-        <br />
-        <select className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn     border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-          <option value="Test">Select</option>
-        </select>
+        <Select
+          label="Status"
+          required={true}
+          register={register}
+          errors={errors}
+          name="status"
+          value={arrayStatus}
+        />
       </div>
-      <div className="h-fit w-fit bg-primary-btn xl:col-span-3 sm:box-content box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
+      <button
+        type="submit"
+        className="h-fit w-fit bg-primary-btn xl:col-span-3 sm:box-content box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer"
+      >
         {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
         <Search className="w-4 mx-auto"></Search>
-      </div>
+      </button>
     </form>
   );
 }

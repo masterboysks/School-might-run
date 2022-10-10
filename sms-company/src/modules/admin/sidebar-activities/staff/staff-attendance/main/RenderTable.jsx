@@ -26,7 +26,6 @@ export default function RenderTable({ curr, watch, register, errors }) {
         <div className="">
           <input
             type="radio"
-            checked="checked"
             className=" ring-0 w-3 h-3 rounded-full"
             {...register(`${curr.staff_id}[radio]`)}
             value="1"

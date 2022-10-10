@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../Break";
 import Form from "./Form";
@@ -13,12 +15,23 @@ const pages = [
   },
 ];
 function StaffAttendance() {
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState([]);
+  const [data, setData] = useState([]);
+
+  const onSubmit = async (data, page = 1) => {
+    (async () => {
+      const res = await staffAPI.search(page, data);
+      setData(res?.data?.data?.data);
+    })();
+  };
+
   return (
     <>
       <Breadnav pages={pages} />
-      <Form></Form>
+      <Form onSubmit={onSubmit}></Form>
       <Break title="Attendance" />
-      <Table></Table>
+      <Table data={data}></Table>
     </>
   );
 }

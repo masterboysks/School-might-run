@@ -9,7 +9,7 @@ const Staffs = () => {
   const [pagination, setPagination] = useState([]);
   const [data, setData] = useState([]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, page = 1) => {
     (async () => {
       const res = await staffAPI.search(page, data);
       setPagination(res?.data?.data?.pagination);

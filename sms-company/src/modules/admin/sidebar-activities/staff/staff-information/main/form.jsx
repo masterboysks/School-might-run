@@ -49,7 +49,6 @@ const arrayOrderBy = [
 ];
 const Form = ({ onSubmit, page }) => {
   const { register, watch, reset, getValues, handleSubmit } = useForm();
-
   const department = watch("department_id");
   const [arrayStaffType, setArrayStaffType] = useState([
     { name: "Teachers", id: "teacher" },
@@ -58,6 +57,7 @@ const Form = ({ onSubmit, page }) => {
   ]);
   const [arrayDepartment, setArrayDepartment] = useState([]);
   const [arrayDesignation, setArrayDesignation] = useState([]);
+
   useEffect(() => {
     (async () => {
       try {
@@ -81,7 +81,7 @@ const Form = ({ onSubmit, page }) => {
     })();
   }, []);
   useEffect(() => {
-    onSubmit(getValues());
+    onSubmit(getValues(), page);
   }, [page]);
 
   return (

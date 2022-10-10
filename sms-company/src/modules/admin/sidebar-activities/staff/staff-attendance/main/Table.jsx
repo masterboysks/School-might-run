@@ -5,42 +5,10 @@ import { Fragment } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
+import Pagination from "../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
-const people = [
-  {
-    id: 115,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
-  },
-  {
-    id: 116,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
-  },
-  {
-    id: 1155,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
-  },
-  {
-    id: 11532,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
-  },
-  {
-    id: 1152,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
-  },
-];
-
-export default function Table() {
+export default function Table({ data, pagination, setPage }) {
   const {
     register,
     watch,
@@ -49,18 +17,7 @@ export default function Table() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [page, setPage] = useState(2);
-  const [pagination, setPagination] = useState([]);
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      const res = await staffAPI.search(page, {});
-      console.log(res);
-      setPagination(res?.data?.data?.pagination);
-      setData(res?.data?.data?.data);
-    })();
-  }, []);
   const onSubmit = async (data) => {
     console.log(data);
 
@@ -146,6 +103,7 @@ export default function Table() {
           </div>
         </div>
       </div>
+      {/* <Pagination setPage={setPage} pagination={pagination} /> */}
       <div className=" w-fit ml-auto">
         <Link
           to="#"

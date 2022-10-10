@@ -113,10 +113,7 @@ export default function Pagination({ pagination, setPage }) {
             }`}
           >
             Next
-            <ArrowLongRightIcon
-              className="ml-3 h-5 w-5 text-gray-400"
-              aria-hidden="true"
-            />
+            <ArrowLongRightIcon className="ml-3 h-5 w-5 " aria-hidden="true" />
           </div>
         </div>
       </nav>
