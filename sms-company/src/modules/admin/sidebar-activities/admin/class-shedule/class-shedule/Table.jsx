@@ -1,6 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Select } from "../../../../../../components/common/fields";
+import {
+  MultipleSelectNew,
+  Select,
+} from "../../../../../../components/common/fields";
 
 import { Link } from "react-router-dom";
 import RenderTable from "./RenderTable";
@@ -23,6 +26,7 @@ export default function Table() {
     register,
     handleSubmit,
     watch,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -43,14 +47,11 @@ export default function Table() {
       <div className="sm:grid lg:grid-cols-4 sm:items-center justify-between grid-cols-2">
         <div className="col-span-2">
           <div className="">
-            <Select
-              id="day"
+            <MultipleSelectNew
               label="Day*"
               value={arrayDays}
-              required={true}
-              register={register}
+              control={control}
               name="days"
-              errors={errors}
             />
           </div>
         </div>
