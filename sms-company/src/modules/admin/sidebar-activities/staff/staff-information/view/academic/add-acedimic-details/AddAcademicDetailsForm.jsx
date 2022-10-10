@@ -1,98 +1,187 @@
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
+import {
+  Input,
+  Select,
+} from "../../../../../../../../components/common/fields";
+const arrayLevel = [
+  {
+    name: "Secondary level",
+    id: "Secondary level",
+  },
+  {
+    name: "Higher secondary",
+    id: "Higher secondary",
+  },
+  {
+    name: "Under graduate",
+    id: "Under graduate",
+  },
+  {
+    name: "Graduate",
+    id: "Graduate",
+  },
+  {
+    name: "Post Graduate",
+    id: "Post Graduate",
+  },
+];
+const arrayDivision = [
+  {
+    name: "A+",
+    id: "A+",
+  },
+  {
+    name: "A",
+    id: "A",
+  },
+  {
+    name: "B+",
+    id: "B+",
+  },
+  {
+    name: "B",
+    id: "B",
+  },
+  {
+    name: "C+",
+    id: "C+",
+  },
+  {
+    name: "C",
+    id: "C",
+  },
+  {
+    name: "D",
+    id: "D",
+  },
+];
 const AddAcademicDetailsForm = () => {
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const {
+    register,
+    watch,
+    reset,
+    getValues,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { id } = useParams();
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    try {
+      const res = await staffAPI.createAcademic(id, data);
+      res.status === 201
+        ? navigate(`/admin/dashboard/staff/staff-information/${id}/academic`)
+        : setMessage(res?.response?.data?.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <form className="form-solid my-6 rounded-md">
+    <form
+      className="form-solid my-6 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      {message && (
+        <>
+          <div className="!text-red-600 font-medium text-lg">{message}</div>
+          <br />
+        </>
+      )}
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Faculty">
-            Board/University*
-          </label>
-          <br />
-          <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-            <option value="Test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="my-6 text-sm" htmlFor="Faculty">
-            Level*
-          </label>
-          <br />
-          <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-            <option value="Test">Select</option>
-          </select>
-        </div>
-        <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Program*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Program"
+          <Input
+            label="Board/University*"
+            placeholder="Tribhuvan University"
+            name="board_university"
+            required={true}
+            errors={errors}
+            register={register}
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Division*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Division"
+          <Select
+            name="level"
+            label="Level*"
+            required={true}
+            errors={errors}
+            register={register}
+            value={arrayLevel}
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Institution name*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Institution name"
+          <Input
+            label="Program"
+            name="program"
+            required="true"
+            errors={errors}
+            register={register}
+            placeholder="BBA"
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Institution address line*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Minbhawan,Kathmandu,Nepal"
+          {" "}
+          <Select
+            name="division"
+            label="Division*"
+            required={true}
+            errors={errors}
+            register={register}
+            value={arrayDivision}
+          />
+        </div>
+        <div className="">
+          {" "}
+          <Input
+            name="institution_name"
+            label="Institution name*"
+            required={true}
+            errors={errors}
+            register={register}
+          />
+        </div>
+        <div className="">
+          {" "}
+          <Input
+            name="institution_address"
+            label="Institution address*"
+            required={true}
+            errors={errors}
+            register={register}
           />
         </div>
 
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Passed year*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-40 text-primary-grey-700 text-sm"
-            type="date"
-            placeholder="Id"
+          {" "}
+          <Input
+            name="passed_year"
+            label="Passed year*"
+            placeholder="2010"
+            required={true}
+            errors={errors}
+            register={register}
           />
         </div>
       </div>
       <div className="w-full my-6">
         <div className=" w-fit ml-auto">
           <Link
-            to="/admin/dashboard/staff/staff-information/add-staff/academic"
+            to={`/admin/dashboard/staff/staff-information/${id}/academic`}
             className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
           >
             Back
           </Link>
-          <Link
-            to="/admin/dashboard/staff/staff-information/add-staff/academic"
+          <button
+            type="submit"
             className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
             Save
-          </Link>
+          </button>
         </div>
       </div>
     </form>

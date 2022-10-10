@@ -7,7 +7,7 @@ import {
 export default function RenderTable({ curr, watch, register, errors }) {
   const status = watch(`${curr.staff_id}[radio]`);
   console.log(status);
-  console.log(curr.name + "_radio");
+  console.log(curr.staff_id + "_radio");
   return (
     <tr>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">

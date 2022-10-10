@@ -28,6 +28,9 @@ export default {
   getAcademic(id, page) {
     return authorized.get(`/academic-details/staff/${id}?page=${page}`);
   },
+  createAcademic(id, form) {
+    return authorized.post(`/academic-details/staff/${id}`, form);
+  },
   getDocument(id, page) {
     return authorized.get(`/documents/staff/${id}?page=${page}`);
   },

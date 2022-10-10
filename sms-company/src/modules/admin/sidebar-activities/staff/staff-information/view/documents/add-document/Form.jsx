@@ -27,9 +27,7 @@ const Form = () => {
     try {
       const res = await staffAPI.createDocument(id, form);
       res.status === 201
-        ? navigate(
-            "/admin/dashboard/staff/staff-information/add-staff/documents"
-          )
+        ? navigate(`/admin/dashboard/staff/staff-information/${id}/document`)
         : setMessage(res?.response?.data?.message);
     } catch (error) {
       console.log(error);
@@ -73,7 +71,7 @@ const Form = () => {
         <div className=" col-span-full">
           <div className=" w-fit ml-auto">
             <Link
-              to="/admin/dashboard/staff/staff-information/add-staff/documents"
+              to={`/admin/dashboard/staff/staff-information/${id}/document`}
               className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
             >
               Cancel

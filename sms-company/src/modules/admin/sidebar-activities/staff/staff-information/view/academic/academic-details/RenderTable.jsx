@@ -6,7 +6,7 @@ const RenderTable = ({ currentItems }) => {
   return (
     <>
       {currentItems?.map((person, index, table) => (
-        <tr key={index}>
+        <tr key={person.id}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.board_university}
           </td>

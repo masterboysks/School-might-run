@@ -87,7 +87,7 @@ export default function Table({ data, pagination, setPage }) {
                 <tbody className="bg-white divide-y divide-gray-200">
                   {data?.map((curr) => {
                     return (
-                      <Fragment key={curr.id}>
+                      <Fragment key={curr.staff_id}>
                         <RenderTable
                           curr={curr}
                           register={register}
