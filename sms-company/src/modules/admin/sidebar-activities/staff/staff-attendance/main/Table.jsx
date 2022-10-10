@@ -56,7 +56,7 @@ export default function Table() {
   useEffect(() => {
     (async () => {
       const res = await staffAPI.search(page, {});
-      console.log(res);
+      console.log(res?.data?.data);
       setPagination(res?.data?.data?.pagination);
       setData(res?.data?.data?.data);
     })();
@@ -130,7 +130,7 @@ export default function Table() {
                 <tbody className="bg-white divide-y divide-gray-200">
                   {data?.map((curr) => {
                     return (
-                      <Fragment key={curr.id}>
+                      <Fragment key={curr.staff_id}>
                         <RenderTable
                           curr={curr}
                           register={register}

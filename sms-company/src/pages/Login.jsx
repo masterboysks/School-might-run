@@ -16,7 +16,7 @@ export default function Login() {
   } = useForm();
   const navigate = useNavigate();
   // const { abc } = useParams();
-  const { auth, setAuth } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
   const [errorText, setErrorText] = useState("");
   // console.log(abc);
   const onSubmit = async (data) => {

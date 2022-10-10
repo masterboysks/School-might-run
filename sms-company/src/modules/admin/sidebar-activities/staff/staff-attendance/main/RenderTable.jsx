@@ -7,7 +7,7 @@ import {
 export default function RenderTable({ curr, watch, register, errors }) {
   const status = watch(`${curr.staff_id}[radio]`);
   console.log(status);
-  console.log(curr.name + "_radio");
+  console.log(curr.staff_id + "_radio");
   return (
     <tr>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -26,7 +26,6 @@ export default function RenderTable({ curr, watch, register, errors }) {
         <div className="">
           <input
             type="radio"
-            checked="checked"
             className=" ring-0 w-3 h-3 rounded-full"
             {...register(`${curr.staff_id}[radio]`)}
             value="1"
