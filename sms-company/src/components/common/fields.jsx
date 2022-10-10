@@ -371,7 +371,6 @@ export function MultipleSelectNew({
   control,
   errors,
   required,
-  id,
 }) {
   const {
     field: { onChange, value },
@@ -384,18 +383,18 @@ export function MultipleSelectNew({
   console.log(value, onChange);
   return (
     <>
-      <label
-        className={`my-6 text-sm  ${errors && errors[name] && " text-red-600"}`}
-        htmlFor={id}
-      >
-        {label}
-      </label>
       <Listbox value={value || []} onChange={onChange} multiple>
-        <div className="relative mt-[6px]">
-          <Listbox.Button
-            id={id}
-            className="  h-[38px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  "
+        <Listbox.Label>
+          <label
+            className={`my-6 text-sm  ${
+              errors && errors[name] && " text-red-600"
+            }`}
           >
+            {label}
+          </label>
+        </Listbox.Label>
+        <div className="relative mt-[6px]">
+          <Listbox.Button className="  h-[38px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  ">
             <span className="block pr-2 truncate">
               {options
                 ?.filter((c) => value?.includes(c))
