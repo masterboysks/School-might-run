@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const BASE_URL = "http://companytwo.sms.test/api/";
+const BASE_URL = "http://companytwo.sms.test:81/api/";
 // const BASE_URL = "http://master3.157.90.19.159/api/";
 const COUNTRY_API = import.meta.env.VITE_COUNTRYAPI;
 //  || window.location.origin;

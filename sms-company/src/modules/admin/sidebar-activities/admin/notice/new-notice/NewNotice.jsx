@@ -36,6 +36,7 @@ function NewNotice() {
     register,
     handleSubmit,
     watch,
+    control,
     formState: { errors },
   } = useForm();
   const [arraySendTo, setArraySendTo] = useState([]);
@@ -44,9 +45,9 @@ function NewNotice() {
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      send_to: JSON.stringify(sendTo),
+      send_to: JSON.stringify(data.send_to?.map((c) => c.id)),
     };
-    console.log(d);
+    // console.log(d);
     const form = new FormData();
     for (const name in d) {
       form.append(name, d[name]);
@@ -59,9 +60,6 @@ function NewNotice() {
       ? navigate("/admin/dashboard/admin/notice")
       : setError("Failed to create a notice");
   };
-
-  const [sendTo, setSendTo] = useState([]);
-  const [errorSendTo, setErrorSendTo] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -93,10 +91,10 @@ function NewNotice() {
             <MultipleSelect
               value={arraySendTo}
               label="Send to*"
-              selected={sendTo}
-              setSelected={setSendTo}
-              error={errorSendTo}
-              setError={setErrorSendTo}
+              name="send_to"
+              control={control}
+              errors={errors}
+              required={true}
             />
             Note:You can select to multiple items
           </div>
@@ -138,11 +136,13 @@ function NewNotice() {
           </div>
           <div>
             <Input
-              label="Notice expire date"
+              label="Notice expire date*"
               type="date"
               register={register}
               name="expiry_date"
               id="expire_date"
+              required={true}
+              errors={errors}
             />
           </div>
         </div>

@@ -193,6 +193,7 @@ const PermanentAddressForm = () => {
             required={true}
             register={register}
             errors={errors}
+            placeholder="Levli72"
           />
         </div>
         <div className="">

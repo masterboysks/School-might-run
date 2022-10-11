@@ -41,7 +41,7 @@ function AddClassShedule() {
   const {
     register,
     handleSubmit,
-
+    control,
     formState: { errors },
   } = useForm();
 
@@ -52,11 +52,13 @@ function AddClassShedule() {
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      weekdays: days,
+      weekdays: data.weekdays?.map((c) => c.id),
       class_id: 1,
       level_id: 1,
       section_id: 1,
     };
+
+    console.log(d);
     const res = await classSheduleApi.create(d);
     res?.status === 201
       ? navigate("/admin/dashboard/admin/class-schedule")
@@ -72,8 +74,8 @@ function AddClassShedule() {
       setArraySubjects(data?.data?.data);
     })();
   }, []);
-  const [days, setDays] = useState([]); //array for multiple
-  const [daysError, setDaysError] = useState(false);
+  // const [days, setDays] = useState([]); //array for multiple
+  // const [daysError, setDaysError] = useState(false);
 
   return (
     <>
@@ -121,14 +123,12 @@ function AddClassShedule() {
             {/* multiple select */}
             <div className="col-span-full">
               <MultipleSelect
-                id="days"
-                name="days"
+                name="weekdays"
                 label="Days*"
-                error={daysError}
-                setError={setDaysError}
                 value={arrayDays}
-                selected={days}
-                setSelected={setDays}
+                control={control}
+                errors={errors}
+                required={true}
               ></MultipleSelect>
 
               <div className="mt-3">

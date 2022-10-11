@@ -39,10 +39,9 @@ const AddClassSemester = () => {
   const {
     register,
     handleSubmit,
-
+    control,
     formState: { errors },
   } = useForm();
-  const [section, setSection] = useState([]);
   const [errorSection, setErrorSection] = useState(false);
   const [sectionsOption, setSectionsOption] = useState([]);
   const [subFacultyOption, setSubFacultyOption] = useState([]);
@@ -85,13 +84,22 @@ const AddClassSemester = () => {
   }, []);
   const navigate = useNavigate();
   const onSubmit = async (d) => {
+    // console.log({
+    //   ...d,
+    //   section_ids: d.section_ids?.map((c) => c.id),
+    //   subject_ids: [
+    //     ...arrayCompalsarySubjects
+    //       .filter((c, i) => d[`compalsarySubjects${i}`])
+    //       .map((c) => c.id),
+    //     ...arrayElectiveSubjects
+    //       .filter((c, i) => d[`electiveSubjects${i}`])
+    //       .map((c) => c.id),
+    //   ],
+    // });
     try {
       const res = await classApi.create({
-        level_id: d.level_id,
-        class_name: d.class_name,
-        faculty_id: d.faculty_id,
-        subfaculty_id: d.subfaculty_id,
-        section_ids: section,
+        ...d,
+        section_ids: d.section_ids?.map((c) => c.id),
         subject_ids: [
           ...arrayCompalsarySubjects
             .filter((c, i) => d[`compalsarySubjects${i}`])
@@ -163,11 +171,11 @@ const AddClassSemester = () => {
           <div>
             <MultipleSelect
               label="Sections*"
+              name="section_ids"
               value={sectionsOption}
-              selected={section}
-              error={errorSection}
-              setError={setErrorSection}
-              setSelected={setSection}
+              control={control}
+              errors={errors}
+              required={true}
             />
 
             <div className=" my-3">
