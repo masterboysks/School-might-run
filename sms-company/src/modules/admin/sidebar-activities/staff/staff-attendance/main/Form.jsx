@@ -60,7 +60,7 @@ function Form({ onSubmit }) {
         <Input
           register={register}
           errors={errors}
-          label="Date*"
+          label="Date"
           name="date"
           type="date"
         />
@@ -82,34 +82,17 @@ function Form({ onSubmit }) {
           errors={errors}
           register={register}
         />
-        {/* <label className="my-6 text-sm" htmlFor="Staff type">
-          Department*
-        </label>
-        <br />
-        <select className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-          <option value="Test">Select</option>
-        </select> */}
       </div>
       <div className="">
         {" "}
         <Select
           value={arrayDesignation}
-          label="Designation*"
+          label="Designation"
           name="designation_id"
-          required={true}
-          errors={errors}
           register={register}
         />
-        {/* <label className="my-6 text-sm" htmlFor="Status">
-          Designation*
-        </label>
-        <br />
-        <select className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-          <option value="Test">Select</option>
-        </select> */}
       </div>
       <div className="">
-        {" "}
         <Input
           register={register}
           errors={errors}
@@ -121,9 +104,7 @@ function Form({ onSubmit }) {
       <div className="">
         <Select
           label="Status"
-          required={true}
           register={register}
-          errors={errors}
           name="status"
           value={arrayStatus}
         />
@@ -132,7 +113,6 @@ function Form({ onSubmit }) {
         type="submit"
         className="h-fit w-fit bg-primary-btn xl:col-span-3 sm:box-content box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer"
       >
-        {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
         <Search className="w-4 mx-auto"></Search>
       </button>
     </form>

@@ -93,10 +93,6 @@ const PermanentAddressForm = () => {
       data?.response?.status === 422 &&
         setMessage(data?.response?.data?.errors);
       if (data?.status === 201) {
-        localStorage.removeItem("odgdsas");
-        localStorage.removeItem("adgdsas");
-        localStorage.removeItem("pdgdsas");
-        photo.setPhoto();
         navigate("/admin/dashboard/staff/staff-information/");
       }
     });

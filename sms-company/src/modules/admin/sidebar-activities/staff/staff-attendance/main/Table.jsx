@@ -1,19 +1,13 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import { Fragment } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import Pagination from "../../../../../../components/common/Pagination";
 import RenderTable from "./RenderTable";
 
-export default function Table({ data, pagination, setPage }) {
+export default function Table({ data }) {
   const {
     register,
     watch,
-    reset,
-    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -24,7 +18,7 @@ export default function Table({ data, pagination, setPage }) {
     const res = await staffAPI.attendance(data);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full my-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full ">
       <div className="my-6">
         <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
           <div className="inline-block w-full align-middle">

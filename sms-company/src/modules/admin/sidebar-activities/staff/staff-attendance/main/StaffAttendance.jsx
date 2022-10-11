@@ -15,13 +15,13 @@ const pages = [
   },
 ];
 function StaffAttendance() {
-  const [page, setPage] = useState(1);
-  const [pagination, setPagination] = useState([]);
+  const [message, setMessage] = useState("Search for Data");
   const [data, setData] = useState([]);
 
   const onSubmit = async (data, page = 1) => {
     (async () => {
       const res = await staffAPI.search(page, data);
+      res.status === 204 && setMessage("No data was found.");
       setData(res?.data?.data?.data);
     })();
   };
@@ -31,7 +31,13 @@ function StaffAttendance() {
       <Breadnav pages={pages} />
       <Form onSubmit={onSubmit}></Form>
       <Break title="Attendance" />
-      <Table data={data}></Table>
+      {data.length === 0 ? (
+        <div className="my-6 w-full text-center font-medium text-primary-grey-700 text-3xl">
+          {message}
+        </div>
+      ) : (
+        <Table data={data}></Table>
+      )}
     </>
   );
 }

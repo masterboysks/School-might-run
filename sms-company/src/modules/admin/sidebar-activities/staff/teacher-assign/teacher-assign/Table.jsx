@@ -57,7 +57,7 @@ export default function Table() {
             to="/admin/dashboard/staff/teacher-assign/assign-teacher"
             className="bg-primary-btn hover: lg:mt-0 h-fit w-fit focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mt-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
           >
-            Add
+            Assign teacher
           </Link>
         </div>
       </div>
