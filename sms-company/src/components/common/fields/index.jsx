@@ -1,3 +1,4 @@
+import { bs_ad } from "./bs_ad";
 import { checkbox, radio } from "./Checkbox";
 import { input, inputDisabled, password } from "./Input";
 import { searchBar } from "./Search";
@@ -35,3 +36,4 @@ export const Upload = upload;
 export const UploadPhoto = uploadPhoto;
 
 export const Textarea = textarea;
+export const MonthInput = bs_ad;
