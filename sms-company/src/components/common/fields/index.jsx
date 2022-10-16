@@ -1,6 +1,6 @@
-import { bs_ad } from "./bs_ad";
+import { bs_ad_day, bs_ad_month, bs_ad_year } from "./bs_ad";
 import { checkbox, radio } from "./Checkbox";
-import { input, inputDisabled, password } from "./Input";
+import { input, inputDisabled, inputNumber, password } from "./Input";
 import { searchBar } from "./Search";
 import {
   multipleSelect,
@@ -21,6 +21,7 @@ export const Radio = radio;
 export const Input = input;
 // password new
 export const Password = password;
+export const InputNumber = inputNumber;
 // Input disabled field
 export const InputDisabled = inputDisabled;
 // select disabled
@@ -36,4 +37,6 @@ export const Upload = upload;
 export const UploadPhoto = uploadPhoto;
 
 export const Textarea = textarea;
-export const MonthInput = bs_ad;
+export const MonthInput = bs_ad_month;
+export const YearInput = bs_ad_year;
+export const YearDay = bs_ad_day;

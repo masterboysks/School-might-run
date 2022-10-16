@@ -1,5 +1,5 @@
 import React from "react";
-import { Select } from ".";
+import { InputNumber, Select } from ".";
 const arrayMonths = [
   {
     bs: "Baishakh",
@@ -58,17 +58,42 @@ const arrayMonths = [
     id: 12,
   },
 ];
-export const bs_ad = ({ format }) => {
+export const bs_ad_month = (props) => {
+  const { format } = props;
   return (
     <Select
-      label="Month"
       value={
-        format === bs
+        format === "bs"
           ? arrayMonths.map((c) => {
               return { id: c.id, name: c.bs };
             })
           : arrayMonths
       }
+      {...props}
     ></Select>
+  );
+};
+
+export const bs_ad_year = (props) => {
+  const { format } = props;
+  return (
+    <InputNumber
+      placeholder="2005"
+      {...props}
+      min={format === "bs" ? 2000 : 1950}
+      max={format === "bs" ? 2089 : 2029}
+      step="1"
+    ></InputNumber>
+  );
+};
+export const bs_ad_day = (props) => {
+  return (
+    <InputNumber
+      placeholder="16"
+      {...props}
+      min="1"
+      max="32"
+      step="1"
+    ></InputNumber>
   );
 };

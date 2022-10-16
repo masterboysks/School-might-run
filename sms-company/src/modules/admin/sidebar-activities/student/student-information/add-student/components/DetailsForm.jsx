@@ -1,83 +1,125 @@
 import Upload from "@mui/icons-material/UploadOutlined";
+import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
-
+import { Input, Select } from "../../../../../../../components/common/fields";
+const arrayGender = [
+  {
+    id: 1,
+    name: "Boy",
+  },
+  {
+    id: 2,
+    name: "Girl",
+  },
+];
+const arrayBloodGroup = [
+  {
+    name: "A+",
+    id: 1,
+  },
+  {
+    name: "A-",
+    id: 2,
+  },
+  {
+    name: "B+",
+    id: 3,
+  },
+  {
+    name: "B-",
+    id: 4,
+  },
+  {
+    name: "O+",
+    id: 5,
+  },
+  {
+    name: "O-",
+    id: 6,
+  },
+  {
+    name: "AB+",
+    id: 7,
+  },
+  {
+    name: "Ab-",
+    id: 8,
+  },
+];
 const DetailsForm = ({ anotherChildToggle, anotherChild }) => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
   return (
     <form className="form-solid my-6 rounded-md">
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            First Name*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="First name"
+          <Input
+            label="First Name*"
+            placeholder="Roshan"
+            register={register}
+            name="first_name"
+            errors={errors}
+            required={true}
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Middle Name
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Middle name"
+          <Input
+            label="Middle Name"
+            placeholder="Bahadur"
+            register={register}
+            name="middle_name"
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Last Name*
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Last name"
+          <Input
+            label="Last Name*"
+            placeholder="Dahal"
+            register={register}
+            errors={errors}
+            required={true}
+            name="last_name"
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Mobile Number
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Mobile number"
+          <Input
+            label="Mobile Number"
+            placeholder="981234567"
+            register={register}
+            name="mobile_number"
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Student Id">
-            Email
-          </label>
-          <br />
-          <input
-            className=" mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="mail@gmail.com"
+          <Input
+            label="Email"
+            placeholder="mail@hoymail.com"
+            type="email"
+            register={register}
+            name="email"
           />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Class / Semester">
-            Gender*
-          </label>
-          <br />
-          <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-            <option value="Test">Select</option>
-          </select>
+          <Select
+            value={arrayGender}
+            label="Gender*"
+            required={true}
+            register={register}
+            errors={errors}
+            name="gender"
+          />
         </div>
         <div className="">
-          <label className="my-6 text-sm" htmlFor="Faculty">
-            Blood Group
-          </label>
-          <br />
-          <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-            <option value="Test">Select</option>
-          </select>
+          <Select
+            label="BLood Group"
+            value={arrayBloodGroup}
+            register={register}
+            name="blood_group"
+          />
         </div>
         <div className="">
           <label className="my-6 text-sm" htmlFor="Student Id">
@@ -97,20 +139,6 @@ const DetailsForm = ({ anotherChildToggle, anotherChild }) => {
           <div className=" mt-[6px] sm:col-span-2 ">
             <div className=" flex w-full px-3 py-2 border-2 border-gray-300 border-dashed rounded-md">
               <div className=" w-full space-y-1">
-                {/* <svg
-                className="w-12 h-12 mx-auto text-gray-400"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 48 48"
-                aria-hidden="true"
-            > */}
-                {/* <path
-                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                /> */}
-                {/* </svg> */}
                 <div className=" w-full text-sm">
                   <label
                     htmlFor="file-upload"
