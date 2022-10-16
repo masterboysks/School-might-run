@@ -14,7 +14,6 @@ export function input({
   placeholder,
   showError = true,
   className,
-  step,
   labelClassName,
 }) {
   return (
@@ -36,7 +35,6 @@ export function input({
       <input
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
         id={id}
-        step={step}
         {...register(name, { required, shouldUnregister })}
         placeholder={placeholder}
         type={type || "text"}
@@ -51,6 +49,7 @@ export function input({
     </>
   );
 }
+
 export function password({
   id,
   name,
@@ -132,3 +131,50 @@ export const inputDisabled = ({
     </>
   );
 };
+export function inputNumber({
+  id,
+  name,
+  errors,
+  register,
+  label,
+  required = false,
+  placeholder,
+  step,
+  min,
+  max,
+}) {
+  const props = { step, min, max };
+  return (
+    <>
+      {label && (
+        <>
+          <label
+            className={`my-6 ${
+              errors && errors[name] && "text-red-600"
+            } text-sm `}
+            htmlFor={id}
+          >
+            {label}
+          </label>
+          <br />
+        </>
+      )}
+
+      <input
+        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm`}
+        id={id}
+        {...register(name, { required })}
+        placeholder={placeholder}
+        type="number"
+        {...props}
+      />
+      {errors && errors[name] && (
+        <>
+          <span className="text-xs font-light text-red-600">
+            {" This is a required field."}
+          </span>
+        </>
+      )}
+    </>
+  );
+}
