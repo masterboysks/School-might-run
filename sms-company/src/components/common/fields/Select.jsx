@@ -178,7 +178,7 @@ export function MultipleSelectNew({
           </label>
         </Listbox.Label>
         <div className="relative mt-[6px]">
-          <Listbox.Button className="  h-[38px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  ">
+          <Listbox.Button className="  h-[46px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  ">
             <span className="block pr-2 truncate">
               {options
                 ?.filter((c) => value?.includes(c))

@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../Break";
+import {
+  MultipleSelect,
+  Select,
+} from "../../../../../../components/common/fields";
+import { useForm } from "react-hook-form";
 
 const pages = [
   { name: "Staff", href: "#", current: false },
@@ -16,7 +21,17 @@ const pages = [
     current: true,
   },
 ];
+const arrayDepartment = [
+  { id: 1, name: "THis" },
+  { id: 2, name: "All" },
+];
 function AssignTeacher() {
+  const {
+    register,
+    formState: { errors },
+    control,
+    handleSubmit,
+  } = useForm();
   return (
     <>
       <Breadnav pages={pages} />
@@ -48,49 +63,47 @@ function AssignTeacher() {
       <form className="form-solid my-6 rounded-md">
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="">
-            <label className="my-6 text-sm" htmlFor="Faculty">
-              Department*
-            </label>
-            <br />
-            <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-              <option value="Test">Select</option>
-            </select>
+            <Select
+              register={register}
+              name="department"
+              value={arrayDepartment}
+              label="Department*"
+            />
           </div>
           <div className="">
-            <label className="my-6 text-sm" htmlFor="Faculty">
-              Designation*
-            </label>
-            <br />
-            <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-              <option value="Test">Select</option>
-            </select>
+            <Select
+              register={register}
+              name="designation"
+              value={arrayDepartment}
+              label="Designation*"
+            />
+          </div>
+
+          <div className="">
+            <Select
+              label="Teacher name*"
+              name="teacher_name"
+              value={arrayDepartment}
+              register={register}
+            />
+          </div>
+
+          <div className="">
+            <Select
+              label="Teacher ID*"
+              value={arrayDepartment}
+              register={register}
+              name="teacher_id"
+            />
           </div>
           <div className="">
-            <label className="my-6 text-sm" htmlFor="Faculty">
-              Teacher name*
-            </label>
-            <br />
-            <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-              <option value="Test">Select</option>
-            </select>
-          </div>
-          <div className="">
-            <label className="my-6 text-sm" htmlFor="Faculty">
-              Teacher ID*
-            </label>
-            <br />
-            <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-              <option value="Test">Select</option>
-            </select>
-          </div>
-          <div className="">
-            <label className="my-6 text-sm" htmlFor="Faculty">
-              Subject*
-            </label>
-            <br />
-            <select className="w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm">
-              <option value="Test">Select</option>
-            </select>
+            <MultipleSelect
+              control={control}
+              label="Subject*"
+              value={arrayDepartment}
+              name="subject"
+            />
+
             <div className="mt-3">
               *Note : You can select multiple subject at once
             </div>
