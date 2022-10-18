@@ -1,15 +1,12 @@
-import React, { useEffect } from "react";
-import Break from "../../../Break";
-import { useRoutes, Link } from "react-router-dom";
-import { Checkbox, Input } from "../../../../../../../components/common/fields";
-import LocationForm from "../../../../../../../components/common/LocationForm";
+import { Link } from "react-router-dom";
+import {
+  Checkbox,
+  Input,
+} from "../../../../../../../../components/common/fields";
+import LocationForm from "../../../../../../../../components/common/LocationForm";
+import Break from "../../../../../staff/Break";
 const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
   const asAsPermenantAddress = watch("same_as_permanent_address");
-  // useEffect(() => {
-  //   console.log(asAsPermenantAddress);
-  // }, [asAsPermenantAddress]);
-
-  //   const route = useRoutes();
   return (
     <>
       <Break title="Temporary address" />
@@ -58,12 +55,12 @@ const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
             >
               Back
             </button>
-            <button
-              type="submit"
+            <Link
+              to={`/admin/dashboard/student/student-information/add-class-details`}
               className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
             >
               Next
-            </button>
+            </Link>
           </div>
         </div>
       </div>

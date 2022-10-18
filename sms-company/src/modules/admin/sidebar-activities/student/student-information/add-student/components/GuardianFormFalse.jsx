@@ -1,249 +1,123 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Break from "./Break";
+import {
+  Input,
+  InputNumber,
+  Password,
+  UploadPhoto,
+} from "../../../../../../../components/common/fields";
+import FatheAndMotherDetail from "./FatheAndMotherDetail";
 
 const GuardianFormFalse = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
   return (
     <form className="form-solid my-6 rounded-md">
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  grid grid-cols-1 gap-4">
         <div>
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            First Name*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="First name"
+          <Input
+            label="First Name*"
+            name="local_guardian[first_name]"
+            register={register}
+            required={true}
+            errors={errors}
+            placeholder="Shuvam"
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Middle Name
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Middle name"
+          <Input
+            label="Middle Name"
+            name="local_guardian[middle_name]"
+            register={register}
+            placeholder="Prashad"
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Last Name*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Last name"
+          <Input
+            label="Last Name*"
+            required={true}
+            register={register}
+            name="local_guardian[last_name]"
+            errors={errors}
+            placeholder="Koirala"
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Mobile Number*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="number"
-            placeholder="9818756958"
+          <InputNumber
+            label="Mobile Number*"
+            required={true}
+            placeholder="9860625009"
+            name="local_guardian[mobile_number]"
+            errors={errors}
+            register={register}
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Email
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="Email"
-            placeholder="mail@gmail.com"
+          <Input
+            label="Email"
+            type="email"
+            placeholder="abc@yahoo.com"
+            name="local_guardian[email]"
+            register={register}
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Occupation*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Occupation"
-          />
+          <Input
+            label="Occupation*"
+            name="local_guardian[occupation]"
+            required={true}
+            errors={errors}
+            register={register}
+            placeholder="An architect"
+          ></Input>
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Relation*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
+          <Input
+            label="Relation*"
+            name="local_guardian[relation]"
+            required={true}
+            errors={errors}
+            register={register}
             placeholder="Mother"
+          ></Input>
+        </div>
+        <div className="">
+          <Input
+            label="Username*"
+            name="local_guardian[username]"
+            register={register}
+            errors={errors}
+            required={true}
+            placeholder="@shuvamkoirala"
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Username*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn   font-sm border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Username"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Password*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="password"
+          <Password
+            label="Password*"
+            name="local_guardian[password]"
+            register={register}
+            errors={errors}
+            requred={true}
             placeholder="Password"
           />
         </div>
-      </div>
-      <Break title="Father details" />
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
-        <div>
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            First Name*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="First name"
-          />
-        </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Middle Name
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Middle name"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Last Name*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Last name"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Mobile Number*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="number"
-            placeholder="9818756958"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Email
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="Email"
-            placeholder="mail@gmail.com"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Occupation*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Occupation"
+          <UploadPhoto
+            name="local_guardian[profile_picture]"
+            label="Picture"
+            register={register}
+            watch={watch}
+            id="3131113152_Form_photo"
           />
         </div>
       </div>
-      <Break title="Mother details" />
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
-        <div>
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            First Name*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="First name"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Middle Name
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Middle name"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Last Name*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Last name"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Mobile Number*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="number"
-            placeholder="9818756958"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Email
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="Email"
-            placeholder="mail@gmail.com"
-          />
-        </div>
-        <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Occupation*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Occupation"
-          />
-        </div>
-      </div>
+      <FatheAndMotherDetail errors={errors} register={register} />
       <div className="w-full">
         <div className=" w-fit ml-auto">
           <Link

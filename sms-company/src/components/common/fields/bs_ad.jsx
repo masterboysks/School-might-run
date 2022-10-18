@@ -58,31 +58,37 @@ const arrayMonths = [
     id: 12,
   },
 ];
+
 export const bs_ad_month = (props) => {
-  const { format } = props;
+  const format = localStorage.getItem("hdjkjkfg");
   return (
     <Select
       value={
-        format === "bs"
+        format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002"
           ? arrayMonths.map((c) => {
               return { id: c.id, name: c.bs };
             })
           : arrayMonths
       }
       {...props}
+      name={`${props.name}[month]`}
     ></Select>
   );
 };
 
 export const bs_ad_year = (props) => {
-  const { format } = props;
+  const format = localStorage.getItem("hdjkjkfg");
   return (
     <InputNumber
       placeholder="2005"
       {...props}
-      min={format === "bs" ? 2000 : 1950}
-      max={format === "bs" ? 2089 : 2029}
+      name={`${props.name}[year]`}
+      min={format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? 2000 : 1950}
+      max={format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? 2089 : 2029}
       step="1"
+      label={`${props.label}(${
+        format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? "BS" : "AD"
+      })`}
     ></InputNumber>
   );
 };
@@ -91,6 +97,7 @@ export const bs_ad_day = (props) => {
     <InputNumber
       placeholder="16"
       {...props}
+      name={`${props.name}[day]`}
       min="1"
       max="32"
       step="1"

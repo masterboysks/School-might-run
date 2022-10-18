@@ -75,7 +75,7 @@ export const uploadPhoto = ({
   showError = true,
   uploadText,
   errorText,
-  id,
+  id = Math.random() + "hdfhdfkhfkdh",
   watch,
 }) => {
   let logo;

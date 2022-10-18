@@ -143,7 +143,7 @@ export function inputNumber({
   min,
   max,
 }) {
-  const props = { step, min, max };
+  const props = { step, min, max, placeholder, id };
   return (
     <>
       {label && (
@@ -162,9 +162,7 @@ export function inputNumber({
 
       <input
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm`}
-        id={id}
         {...register(name, { required })}
-        placeholder={placeholder}
         type="number"
         {...props}
       />
