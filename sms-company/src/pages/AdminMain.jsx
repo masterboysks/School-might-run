@@ -8,6 +8,7 @@ import { useContext } from "react";
 import Info from "../api/admin/Info";
 import Auth from "../api/common/Auth";
 import { useState } from "react";
+import Delete from "../components/common/dialog-modal/Delete";
 
 const AdminMain = () => {
   const { setAuth, auth } = useContext(AuthContext);
@@ -70,6 +71,7 @@ const AdminMain = () => {
     <>
       <Navbar />
       <div className="md:flex w-full text-primary-grey-600">
+        <Delete />
         <Sidebar modules={sidebarData} />
         <Outlet />
       </div>

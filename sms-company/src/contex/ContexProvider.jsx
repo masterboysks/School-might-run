@@ -1,4 +1,5 @@
 import React from "react";
+import ContexForDeleteModal from "./admin/common/ContexForDeleteModal";
 import { StaffFormPersonalDetailsPictureContex } from "./admin/staff/StaffFormPersonalDetailsPicture";
 import { StaffGeneralDetailsViewContex } from "./admin/staff/StaffGeneralDetailsView";
 import { StudentFormPicture } from "./admin/student/StudentFormStudentPictureAndGurdainPicture";
@@ -9,7 +10,9 @@ export default function ContexProvider({ children }) {
     <AuthProvider>
       <StaffFormPersonalDetailsPictureContex>
         <StaffGeneralDetailsViewContex>
-          <StudentFormPicture>{children}</StudentFormPicture>
+          <StudentFormPicture>
+            <ContexForDeleteModal>{children}</ContexForDeleteModal>
+          </StudentFormPicture>
         </StaffGeneralDetailsViewContex>
       </StaffFormPersonalDetailsPictureContex>
     </AuthProvider>
