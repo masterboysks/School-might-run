@@ -2,8 +2,26 @@ import React from "react";
 import ThreeDots from "@mui/icons-material/MoreVert";
 import { Popover } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
+import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
 
 const RenderTable = ({ currentItems }) => {
+  const value = useContext(DeleteModalContex);
+
+  const deleteFunction = async (id) => {
+    const res = await subjectApi.delete(id);
+    res.status === 200 && setData(currentItems.filter((d) => d.id != id));
+  };
+  const handleDelete = (id, name, inUse) => {
+    value.setValue({
+      func: deleteFunction,
+      id: id,
+      message: `You want to delete ${name} ?`,
+      heading: "level",
+      inUse,
+    });
+  };
   return (
     <>
       {currentItems.map((person, index, table) => (
@@ -43,8 +61,15 @@ const RenderTable = ({ currentItems }) => {
                   }}
                 >
                   <Link to={`${person.id}/${person.subject_name}`}>Edit</Link>
-                </div>
-                <div className="p-3">Delete</div>
+                </div>{" "}
+                <button
+                  onClick={() => {
+                    handleDelete(person.id, person.subject_name, person.in_use);
+                  }}
+                  className="p-3"
+                >
+                  Delete
+                </button>
               </Popover.Panel>
             </Popover>
           </td>

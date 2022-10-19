@@ -5,7 +5,7 @@ export default {
     return authorized.get(`/subjects?page=${page}`);
   },
   delete(id) {
-    return authorized.post(`subjects/${id}`);
+    return authorized.delete(`subjects/${id}`);
   },
   edit(id, form) {
     return authorized.put(`subjects/${id}`, form);

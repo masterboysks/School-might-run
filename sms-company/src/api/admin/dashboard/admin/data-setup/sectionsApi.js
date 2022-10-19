@@ -5,10 +5,10 @@ export default {
     return authorized.get(`/sections?page=${page}`);
   },
   delete(id) {
-    return authorized.post(`sections/${id}`);
+    return authorized.delete(`sections/${id}`);
   },
   edit(id, form) {
-    return authorized.post(`sections/${id}`, form);
+    return authorized.put(`sections/${id}`, form);
   },
   create(form) {
     return authorized.post(`/sections`, form);

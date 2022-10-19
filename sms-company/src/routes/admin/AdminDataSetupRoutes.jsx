@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import EditFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty";
+import EditSection from "../../modules/admin/sidebar-activities/admin/data-setup/section/edit-section/EditSection";
 import EditSubFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/edit-sub-faculty/EditSubFaculty";
 import EditSubject from "../../modules/admin/sidebar-activities/admin/data-setup/subject/edit-subject/EditSubject";
 // my imports
@@ -236,6 +237,31 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       />
+
+      <Route
+        path="section"
+        element={
+          <Suspense fallback="Loading">
+            <Section />
+          </Suspense>
+        }
+      />
+      <Route
+        path="section/add"
+        element={
+          <Suspense fallback="Loading">
+            <AddSection />
+          </Suspense>
+        }
+      />
+      <Route
+        path="section/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditSection />
+          </Suspense>
+        }
+      />
       <Route
         path="subject"
         element={
@@ -260,23 +286,6 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       />
-      <Route
-        path="section"
-        element={
-          <Suspense fallback="Loading">
-            <Section />
-          </Suspense>
-        }
-      />
-      <Route
-        path="section/add"
-        element={
-          <Suspense fallback="Loading">
-            <AddSection />
-          </Suspense>
-        }
-      />
-
       <Route
         path="class-semester"
         element={
