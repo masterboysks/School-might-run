@@ -14,6 +14,7 @@ const RenderTable = ({ currentItems }) => {
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
+      inUse: true,
     });
   };
   return (
