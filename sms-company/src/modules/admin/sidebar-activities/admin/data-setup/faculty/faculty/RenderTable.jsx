@@ -10,20 +10,20 @@ const RenderTable = ({ currentItems, setData }) => {
 
   const deleteFunction = async (id) => {
     const res = await facultyApi.delete(id);
-    res.status === 200 && setData(currentItems.filter((d) => d.id != id));
+    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
   };
   const handleDelete = (id, name, inUse) => {
     value.setValue({
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
-      heading: "level",
+      heading: "faculty",
       inUse,
     });
   };
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={person.id + "faculty"}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.faculty_name}

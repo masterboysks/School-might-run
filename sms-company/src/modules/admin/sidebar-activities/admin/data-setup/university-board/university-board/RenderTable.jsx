@@ -9,17 +9,17 @@ import { Link } from "react-router-dom";
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
 
-  const deleteFunction = async (id) => {
+  const deleteFunction = async (id, name, inUse) => {
     const res = await universityBoardApi.delete(id);
-    res.status === 200 && setData(currentItems.filter((d) => d.id != id));
+    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
   };
-  const handleDelete = (id, name) => {
+  const handleDelete = (id, name, inUse) => {
     value.setValue({
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
       heading: "university",
-      inUse: true,
+      inUse,
     });
   };
   return (
@@ -45,7 +45,7 @@ const RenderTable = ({ currentItems, setData }) => {
 
                 <button
                   onClick={() => {
-                    handleDelete(person.id, person.name);
+                    handleDelete(person.id, person.name, person.in_use);
                   }}
                   className="p-3"
                 >

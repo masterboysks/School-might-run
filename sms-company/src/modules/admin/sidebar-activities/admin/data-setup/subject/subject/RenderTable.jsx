@@ -11,14 +11,14 @@ const RenderTable = ({ currentItems }) => {
 
   const deleteFunction = async (id) => {
     const res = await subjectApi.delete(id);
-    res.status === 200 && setData(currentItems.filter((d) => d.id != id));
+    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
   };
   const handleDelete = (id, name, inUse) => {
     value.setValue({
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
-      heading: "level",
+      heading: "subject",
       inUse,
     });
   };

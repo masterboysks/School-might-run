@@ -9,22 +9,22 @@ import { Link } from "react-router-dom";
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
 
-  const deleteFunction = async (id) => {
+  const deleteFunction = async (id, name, inUse) => {
     const res = await levelApi.delete(id);
-    res.status === 200 && setData(currentItems.filter((d) => d.id != id));
+    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
   };
-  const handleDelete = (id, name) => {
+  const handleDelete = (id, name, inUse) => {
     value.setValue({
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
       heading: "level",
-      inUse: false,
+      inUse,
     });
   };
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.level_name}
@@ -64,7 +64,7 @@ const RenderTable = ({ currentItems, setData }) => {
 
                 <button
                   onClick={() => {
-                    handleDelete(person.id, person.name);
+                    handleDelete(person.id, person.level_name, person.in_use);
                   }}
                   className="p-3"
                 >
