@@ -2,6 +2,7 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import EditFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty";
 // my imports
 const EditLevel = lazy(() =>
   import(
@@ -154,7 +155,7 @@ export default function AdminDataSetupRoutes() {
         }
       />
       <Route
-        path="university-board/:id/:board"
+        path="university-board/:id/:name"
         element={
           <Suspense fallback="Loading">
             <EditUniversityBoard></EditUniversityBoard>
@@ -178,7 +179,7 @@ export default function AdminDataSetupRoutes() {
         }
       />
       <Route
-        path="level/:id/:board"
+        path="level/:id/:name"
         element={
           <Suspense fallback="Loading">
             <EditLevel></EditLevel>
@@ -198,6 +199,14 @@ export default function AdminDataSetupRoutes() {
         element={
           <Suspense fallback="Loading">
             <AddFaculty />
+          </Suspense>
+        }
+      />
+      <Route
+        path="faculty/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditFaculty />
           </Suspense>
         }
       />
