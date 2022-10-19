@@ -1,10 +1,16 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
 import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
-import { Input } from "../../../../../../../components/common/fields";
+import {
+  Checkbox,
+  Input,
+  Select,
+} from "../../../../../../../components/common/fields";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -14,8 +20,8 @@ const pages = [
     current: false,
   },
   {
-    name: "University/Board",
-    href: "/admin/dashboard/admin/data-setup/university-board",
+    name: "Level",
+    href: "/admin/dashboard/admin/data-setup/level",
     current: false,
   },
   {
@@ -24,63 +30,85 @@ const pages = [
     current: true,
   },
 ];
-const EditUniversityBoard = () => {
-  const { id, board } = useParams();
-  const [error, setError] = useState("");
+const EditLevel = () => {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ defaultValues: { name: board } });
+  } = useForm();
+  const [error, setError] = useState("");
+  const [arrayUniversity, setArrayUniversity] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const data = await universityBoardApi.get();
+      setArrayUniversity(data?.data?.data?.data);
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      reset(temp);
+    })();
+    return () => localStorage.removeItem("Mb5sVJt5Qp");
+  }, []);
+
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
-    try {
-      const res = await universityBoardApi.edit(id, d);
-      res?.status === 201
-        ? navigate("/admin/dashboard/admin/data-setup/university-board")
-        : setError("Failed to edit university");
-    } catch (errors) {
-      console.warn(errors);
-    }
-
-    // university
-    //   ? navigate("/admin/data-setup/university-board")
-    //   : setErrorUniversity(true);
+    const res = await levelApi.edit(id, d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/level")
+      : setError("Failed to create Level");
   };
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Edit university/Board details" />
-
+      <Break title="Edit Level and Board details" />
       <form
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
       >
         {error && (
           <>
-            <div className="text-red-600 font-medium text-lg">{error}</div>
+            <div className="text-lg font-medium text-red-600">{error}</div>
             <br />
           </>
         )}
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
-            <Input
+            <Select
               label="University/Board*"
-              placeholder="National Education Board"
-              name="name"
-              required={true}
+              name="university_id"
               register={register}
+              placeholder="NEB"
+              value={arrayUniversity}
+              selected="Select"
+              required={true}
               errors={errors}
+            />
+          </div>
+          <div>
+            <Input
+              label="Level*"
+              type="text"
+              name="level_name"
+              register={register}
+              placeholder="+2"
+              required={true}
+              errors={errors}
+            />
+          </div>
+          <div className="col-span-full">
+            <Checkbox
+              label="Has faculty"
+              name="has_faculty"
+              id="hasFaculty"
+              register={register}
             />
           </div>
         </div>
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
-          <div className="md:flex-row w-fit flex flex-col my-6 ml-auto">
-            <div className=" w-fit my-auto">
+          <div className="md:flex-row w-fit col-span-full lg:col-span-2 flex flex-col my-6 ml-auto">
+            <div className=" w-fit">
               <Link
-                to="/admin/dashboard/admin/data-setup/university-board"
+                to="/admin/dashboard/admin/data-setup/level"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel
@@ -99,4 +127,4 @@ const EditUniversityBoard = () => {
   );
 };
 
-export default EditUniversityBoard;
+export default EditLevel;

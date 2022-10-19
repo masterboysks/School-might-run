@@ -12,8 +12,6 @@ export default function Delete() {
   useEffect(() => {
     setOpen(value?.value ? true : false);
   }, [value]);
-  console.log(value.inUse);
-  console.log(value);
   return (
     <Transition.Root show={open} as="div">
       {value?.value &&
@@ -60,11 +58,13 @@ export default function Delete() {
                           as="h3"
                           className="text-lg font-medium leading-6 text-gray-900"
                         >
-                          This data cannot be deleted.
+                          This {value.value.heading} cannot be deleted.
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            This data is in use inside the system.
+                            To delete this {value.value.heading}, you need to
+                            first re-assign or remove the {value.value.heading}s
+                            using it.
                           </p>
                         </div>
                       </div>

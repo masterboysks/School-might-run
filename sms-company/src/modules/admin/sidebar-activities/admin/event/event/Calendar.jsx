@@ -432,7 +432,7 @@ export default function Calendar() {
           <div className="isolate lg:hidden grid w-full grid-cols-7 grid-rows-6 gap-px">
             {days.map((day) => (
               <Link
-                to={`/admin/event-calender/add/${day.date}`}
+                to={`/admin/dashboard/admin/event-calender/add/${day.date}`}
                 key={day.date}
                 type="button"
                 className={classNames(
