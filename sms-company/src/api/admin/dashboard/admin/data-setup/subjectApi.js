@@ -8,7 +8,7 @@ export default {
     return authorized.post(`subjects/${id}`);
   },
   edit(id, form) {
-    return authorized.post(`subjects/${id}`, form);
+    return authorized.put(`subjects/${id}`, form);
   },
   create(form) {
     return authorized.post(`/subjects`, form);

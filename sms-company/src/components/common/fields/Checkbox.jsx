@@ -32,11 +32,15 @@ export const radio = ({
   return (
     <>
       {value.map((curr) => (
-        <label key={curr.id} htmlFor={curr.id + "radioButton" + curr.name}>
+        <label
+          key={curr.id + curr.name}
+          htmlFor={curr.id + "radioButton" + curr.name}
+        >
           <input
             type="radio"
             id={curr.id + "radioButton" + curr.name}
             {...register(name, { required })}
+            name={name}
             value={curr.id}
           />
           <span className={`mx-2 ${errors && errors[name] && "text-red-600"}`}>
