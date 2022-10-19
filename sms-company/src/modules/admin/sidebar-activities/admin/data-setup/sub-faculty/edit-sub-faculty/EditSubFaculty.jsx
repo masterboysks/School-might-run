@@ -1,17 +1,12 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
+import { useState } from "react";
+import { Input, Select } from "../../../../../../../components/common/fields";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
-import {
-  Checkbox,
-  Input,
-  Select,
-} from "../../../../../../../components/common/fields";
-
+import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -20,8 +15,8 @@ const pages = [
     current: false,
   },
   {
-    name: "Level",
-    href: "/admin/dashboard/admin/data-setup/level",
+    name: "Sub-Faculty",
+    href: "/admin/dashboard/admin/data-setup/sub-faculty",
     current: false,
   },
   {
@@ -30,7 +25,7 @@ const pages = [
     current: true,
   },
 ];
-const EditLevel = () => {
+const EditSubFaculty = () => {
   const { id } = useParams();
   const {
     register,
@@ -38,29 +33,29 @@ const EditLevel = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const [arrayFaculty, setArrayFaculty] = useState([]);
   const [error, setError] = useState("");
-  const [arrayUniversity, setArrayUniversity] = useState([]);
   useEffect(() => {
     (async () => {
-      const data = await universityBoardApi.get();
-      setArrayUniversity(data?.data?.data?.data);
+      const data = await facultyApi.getAll();
+      setArrayFaculty(data?.data?.data);
       const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
       reset(temp);
     })();
+
     return () => localStorage.removeItem("Mb5sVJt5Qp");
   }, []);
-
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    const res = await levelApi.edit(id, d);
+    const res = await subFacultyApi.edit(id, d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/level")
-      : setError("Failed to edit Level");
+      ? navigate("/admin/dashboard/admin/data-setup/sub-faculty")
+      : setError("Failed to edit sub-faculty");
   };
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Edit Level and Board details" />
+      <Break title="Edit Sub-faculty" />
       <form
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
@@ -74,33 +69,24 @@ const EditLevel = () => {
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Select
-              label="University/Board*"
-              name="university_id"
-              register={register}
-              placeholder="NEB"
-              value={arrayUniversity}
-              selected="Select"
+              value={arrayFaculty}
+              label="Faculty*"
               required={true}
+              selected="Select"
               errors={errors}
+              register={register}
+              name="faculty_id"
             />
           </div>
           <div>
             <Input
-              label="Level*"
-              type="text"
-              name="level_name"
-              register={register}
-              placeholder="+2"
+              label="Sub-faculty*"
+              placeholder="Bio"
+              id="subFaculty"
               required={true}
               errors={errors}
-            />
-          </div>
-          <div className="col-span-full">
-            <Checkbox
-              label="Has faculty"
-              name="has_faculty"
-              id="hasFaculty"
               register={register}
+              name="subfaculty_name"
             />
           </div>
         </div>
@@ -108,7 +94,7 @@ const EditLevel = () => {
           <div className="md:flex-row w-fit col-span-full lg:col-span-2 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link
-                to="/admin/dashboard/admin/data-setup/level"
+                to="/admin/dashboard/admin/data-setup/sub-faculty"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel
@@ -127,4 +113,4 @@ const EditLevel = () => {
   );
 };
 
-export default EditLevel;
+export default EditSubFaculty;

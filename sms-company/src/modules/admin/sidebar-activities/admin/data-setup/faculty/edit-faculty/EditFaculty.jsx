@@ -51,7 +51,7 @@ const EditFaculty = () => {
     const res = await facultyApi.edit(id, d);
     res?.status === 201
       ? navigate("/admin/dashboard/admin/data-setup/faculty")
-      : setError("Failed to create faculty");
+      : setError("Failed to edit faculty");
   };
   return (
     <>

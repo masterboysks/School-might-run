@@ -56,7 +56,7 @@ const RenderTable = ({ currentItems, setData }) => {
                     );
                   }}
                 >
-                  <Link to={`${person.id}/${person.level_name}`}>Edit</Link>
+                  <Link to={`${person.id}/${person.faculty_name}`}>Edit</Link>
                 </div>
                 <button
                   onClick={() => {
