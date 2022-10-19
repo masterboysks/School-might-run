@@ -5,10 +5,10 @@ export default {
     return authorized.get(`/designations?page=${page}`);
   },
   delete(id) {
-    return authorized.post(`designations/${id}`);
+    return authorized.delete(`designations/${id}`);
   },
   edit(id, form) {
-    return authorized.post(`designations/${id}`, form);
+    return authorized.put(`designations/${id}`, form);
   },
   create(form) {
     return authorized.post(`/designations`, form);

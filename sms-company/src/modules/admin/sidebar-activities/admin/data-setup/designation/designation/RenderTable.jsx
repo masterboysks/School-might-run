@@ -1,8 +1,27 @@
 import React, { Fragment } from "react";
 import ThreeDots from "@mui/icons-material/MoreVert";
 import { Popover } from "@headlessui/react";
+import { Link } from "react-router-dom";
+import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
+import { useContext } from "react";
+import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
 
-const RenderTable = ({ currentItems }) => {
+const RenderTable = ({ currentItems, setData }) => {
+  const value = useContext(DeleteModalContex);
+
+  const deleteFunction = async (id) => {
+    const res = await designationApi.delete(id);
+    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
+  };
+  const handleDelete = (id, name, inUse) => {
+    value.setValue({
+      func: deleteFunction,
+      id: id,
+      message: `You want to delete ${name} ?`,
+      heading: "designation",
+      inUse,
+    });
+  };
   return (
     <>
       {currentItems.map((person, index, table) => (
@@ -23,9 +42,35 @@ const RenderTable = ({ currentItems }) => {
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
                  ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
               >
-                <div className="p-3">Edit</div>
-
-                <div className="p-3">Delete</div>
+                <div
+                  onClick={() => {
+                    console.log(person);
+                    localStorage.setItem(
+                      "Mb5sVJt5Qp",
+                      JSON.stringify({
+                        department_id: person.department_id,
+                        designation_name: person.designation_name,
+                      })
+                    );
+                  }}
+                  className="p-3"
+                >
+                  <Link to={`${person.id}/${person.designation_name}`}>
+                    Edit
+                  </Link>
+                </div>
+                <button
+                  onClick={() => {
+                    handleDelete(
+                      person.id,
+                      person.designation_name,
+                      person.in_use
+                    );
+                  }}
+                  className="p-3"
+                >
+                  Delete
+                </button>
               </Popover.Panel>
             </Popover>
           </td>

@@ -5,10 +5,10 @@ export default {
     return authorized.get(`/departments?page=${page}`);
   },
   delete(id) {
-    return authorized.post(`departments/${id}`);
+    return authorized.delete(`departments/${id}`);
   },
   edit(id, form) {
-    return authorized.post(`departments/${id}`, form);
+    return authorized.put(`departments/${id}`, form);
   },
   create(form) {
     return authorized.post(`/departments`, form);

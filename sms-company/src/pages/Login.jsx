@@ -39,11 +39,9 @@ export default function Login() {
           navigate("admin/dashboard");
       }
     } catch (err) {
-      err.response?.status === 422 && setErrorText("Invalid Credentials");
-      console.log(err);
-      // (err.response?.status === 404 ||
-      //   err.response?.status?.toString().substring(0, 1) === "5") &&
-      setErrorText("Server error");
+      err.response?.status == 422
+        ? setErrorText("Invalid Credentials")
+        : setErrorText("Server error");
     }
   };
   return (

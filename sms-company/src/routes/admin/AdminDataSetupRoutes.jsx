@@ -2,6 +2,8 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import EditDepartment from "../../modules/admin/sidebar-activities/admin/data-setup/department/edit-department/EditDepartment";
+import EditDesignation from "../../modules/admin/sidebar-activities/admin/data-setup/designation/edit-designation/EditDesignation";
 import EditFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty";
 import EditSection from "../../modules/admin/sidebar-activities/admin/data-setup/section/edit-section/EditSection";
 import EditSubFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/edit-sub-faculty/EditSubFaculty";
@@ -302,23 +304,7 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       ></Route>
-      {/* <Route
- path="assign-subject"
- element={
-   <Suspense>
-     <AssignSubject />
-   </Suspense>
- }
-/>
 
-<Route
- path="assign-subject/add"
- element={
-   <Suspense>
-     <AddAssiginSubject />
-   </Suspense>
- }
-></Route> */}
       <Route
         path="department"
         element={
@@ -336,6 +322,14 @@ export default function AdminDataSetupRoutes() {
         }
       />
       <Route
+        path="department/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditDepartment />
+          </Suspense>
+        }
+      />
+      <Route
         path="designation"
         element={
           <Suspense fallback="Loading">
@@ -348,6 +342,14 @@ export default function AdminDataSetupRoutes() {
         element={
           <Suspense fallback="Loading">
             <AddDesignation />
+          </Suspense>
+        }
+      />
+      <Route
+        path="designation/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditDesignation />
           </Suspense>
         }
       />
@@ -385,4 +387,23 @@ export default function AdminDataSetupRoutes() {
       />
     </Routes>
   );
+}
+{
+  /* <Route
+ path="assign-subject"
+ element={
+   <Suspense>
+     <AssignSubject />
+   </Suspense>
+ }
+/>
+
+<Route
+ path="assign-subject/add"
+ element={
+   <Suspense>
+     <AddAssiginSubject />
+   </Suspense>
+ }
+></Route> */
 }

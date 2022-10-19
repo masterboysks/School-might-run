@@ -78,7 +78,7 @@ const Department = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    <RenderTable currentItems={data} />
+                    <RenderTable currentItems={data} setData={setData} />
                   </tbody>
                 </table>
               </div>

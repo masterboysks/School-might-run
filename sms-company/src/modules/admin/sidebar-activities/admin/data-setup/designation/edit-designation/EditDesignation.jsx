@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
 import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
@@ -21,49 +21,40 @@ const pages = [
     current: false,
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/designation/add",
+    name: "Edit",
+    href: "#",
     current: true,
   },
 ];
 
-const AddDesignation = () => {
+const EditDesignation = () => {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm();
   const [arrayDepartment, setArrayDepartment] = useState([]);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+  const onSubmit = async (d) => {
+    const res = await designationApi.edit(id, d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/designation")
+      : setError("Failed to edit designation");
+  };
+
   useEffect(() => {
     (async () => {
       const data = await departmentApi.getAll();
       setArrayDepartment(data?.data?.data);
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      reset(temp);
     })();
+    return () => localStorage.removeItem("Mb5sVJt5Qp");
   }, []);
-  const navigate = useNavigate();
-  const onSubmit = async (d) => {
-    const res = await designationApi.create(d);
-    res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/designation")
-      : setError("Failed to create designation");
-  };
-  // const arrayDepartment = ["jdskhf", "djshjh"];
-  // const [department, setDepartment] = useState("Select");
-  // const [designation, setDesignation] = useState("");
-
-  // //
-  // const [errorDepartment, setErrorDepartment] = useState(false);
-  // const [errorDesignation, setErrorDesignation] = useState(false);
-  // const navigate = useNavigate();
-  // const handleSubmit = () => {
-  //   console.log({ department, designation });
-  //   let temp = false;
-  //   department === "Select" && (temp = true) && setErrorDepartment(true);
-  //   designation || setErrorDesignation(true) || (temp = true);
-  //   temp || navigate("/admin/data-setup/designation");
-  // };
   return (
     <>
       <Breadnav pages={pages} />
@@ -124,4 +115,19 @@ const AddDesignation = () => {
   );
 };
 
-export default AddDesignation;
+export default EditDesignation;
+// const arrayDepartment = ["jdskhf", "djshjh"];
+// const [department, setDepartment] = useState("Select");
+// const [designation, setDesignation] = useState("");
+
+// //
+// const [errorDepartment, setErrorDepartment] = useState(false);
+// const [errorDesignation, setErrorDesignation] = useState(false);
+// const navigate = useNavigate();
+// const handleSubmit = () => {
+//   console.log({ department, designation });
+//   let temp = false;
+//   department === "Select" && (temp = true) && setErrorDepartment(true);
+//   designation || setErrorDesignation(true) || (temp = true);
+//   temp || navigate("/admin/data-setup/designation");
+// };
