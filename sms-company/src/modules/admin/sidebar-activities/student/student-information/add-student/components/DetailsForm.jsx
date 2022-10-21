@@ -8,7 +8,7 @@ import {
   Password,
   Select,
   Upload,
-  YearDay,
+  ,
   YearInput,
 } from "../../../../../../../components/common/fields";
 const arrayGender = [
@@ -158,7 +158,7 @@ const DetailsForm = () => {
           <MonthInput register={register} name="personal[dob]" label="Month" />
         </div>
         <div className="">
-          <YearDay register={register} name="personal[dob]" label="Day" />
+          <DayInput register={register} name="personal[dob]" label="Day" />
         </div>
         <div className="">
           <Upload

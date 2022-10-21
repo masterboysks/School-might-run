@@ -22,7 +22,7 @@ export const textarea = ({
         row={row || 20}
         placeholder={placeholder}
         {...register(name, { required })}
-        className="resize-none  mt-[6px] w-full p- rounded  focus:ring-primary-btn  h-52  border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+        className="resize-none  mt-[6px] w-full p- rounded  focus:ring-primary-btn  h-52  border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
       />
       {errors && errors[name] && (
         <>

@@ -1,7 +1,7 @@
 import { authorized } from "../../../../common/axios";
 
 export default {
-  get(page = 1) {
+  get() {
     return authorized.get(`/universities`);
   },
   delete(id) {
@@ -13,7 +13,7 @@ export default {
   create(form) {
     return authorized.post(`/universities`, form);
   },
-  getAll(form) {
-    return authorized.post(`/get-universities`, form);
+  getAll() {
+    return authorized.get(`/universities`);
   },
 };

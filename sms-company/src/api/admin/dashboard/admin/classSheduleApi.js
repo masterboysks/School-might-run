@@ -5,10 +5,10 @@ export default {
     return authorized.get(`/schedules?page=${page}`);
   },
   delete(id) {
-    return authorized.post(`schedules/${id}`);
+    return authorized.delete(`schedules/${id}`);
   },
   edit(id, form) {
-    return authorized.post(`schedules/${id}`, form);
+    return authorized.put(`schedules/${id}`, form);
   },
   create(form) {
     return authorized.post(`/schedules`, form);

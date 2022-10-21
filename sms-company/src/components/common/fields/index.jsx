@@ -39,4 +39,4 @@ export const UploadPhoto = uploadPhoto;
 export const Textarea = textarea;
 export const MonthInput = bs_ad_month;
 export const YearInput = bs_ad_year;
-export const YearDay = bs_ad_day;
+export const DayInput = bs_ad_day;

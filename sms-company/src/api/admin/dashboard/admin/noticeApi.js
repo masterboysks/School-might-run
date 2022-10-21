@@ -5,10 +5,10 @@ export default {
     return authorized.get(`/notices?page=${page}`);
   },
   delete(id) {
-    return authorized.post(`notices/${id}`);
+    return authorized.delete(`notices/${id}`);
   },
   edit(id, form) {
-    return authorized.post(`notices/${id}`, form);
+    return authorized.put(`notices/${id}`, form);
   },
   create(form) {
     return authorized.post(`/notices`, form);

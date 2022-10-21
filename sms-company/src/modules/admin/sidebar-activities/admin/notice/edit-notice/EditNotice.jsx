@@ -23,8 +23,8 @@ const pages = [
     current: false,
   },
   {
-    name: "New notice",
-    href: "/admin/dashboard/admin/notice/new",
+    name: "Edit notice",
+    href: "#",
     current: true,
   },
 ];
@@ -34,6 +34,7 @@ function NewNotice() {
     register,
     handleSubmit,
     watch,
+    reset,
     control,
     formState: { errors },
   } = useForm();
@@ -52,17 +53,20 @@ function NewNotice() {
     d.document.length === 1
       ? form.append("document", d.document[0])
       : form.append("document", "");
-    const res = await noticeApi.create(form);
+    const res = await noticeApi.edit(form);
     res?.status === 201
       ? navigate("/admin/dashboard/admin/notice")
-      : setError("Failed to create a notice");
+      : setError("Failed to edit a notice");
   };
 
   useEffect(() => {
     (async () => {
       try {
+        const temp = JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+
         const data = await noticeApi.sendTo();
         setArraySendTo(data?.data?.data?.data);
+        reset(temp);
       } catch (e) {
         console.warn(e);
       }

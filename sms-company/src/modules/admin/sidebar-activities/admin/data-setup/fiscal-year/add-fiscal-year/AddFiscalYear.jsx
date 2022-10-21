@@ -6,7 +6,6 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
   Checkbox,
-  Input,
   YearInput,
 } from "../../../../../../../components/common/fields";
 
@@ -69,7 +68,7 @@ const AddFiscalYear = () => {
             />
           </div>
           <div>
-            <Input
+            <YearInput
               label="Fiscal year end*"
               name="end_year"
               register={register}
