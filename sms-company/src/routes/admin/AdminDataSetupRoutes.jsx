@@ -2,14 +2,52 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import EditAcademicYear from "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/edit-academic-year/EditAcademicYear";
-import EditClassSemester from "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/edit-class-semester/EditClassSemester";
-import EditDepartment from "../../modules/admin/sidebar-activities/admin/data-setup/department/edit-department/EditDepartment";
-import EditDesignation from "../../modules/admin/sidebar-activities/admin/data-setup/designation/edit-designation/EditDesignation";
-import EditFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty";
-import EditSection from "../../modules/admin/sidebar-activities/admin/data-setup/section/edit-section/EditSection";
-import EditSubFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/edit-sub-faculty/EditSubFaculty";
-import EditSubject from "../../modules/admin/sidebar-activities/admin/data-setup/subject/edit-subject/EditSubject";
+
+const EditAcademicYear = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/edit-academic-year/EditAcademicYear"
+  )
+);
+const EditClassSemester = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/edit-class-semester/EditClassSemester"
+  )
+);
+const EditDepartment = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/department/edit-department/EditDepartment"
+  )
+);
+const EditDesignation = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/designation/edit-designation/EditDesignation"
+  )
+);
+const EditFaculty = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty"
+  )
+);
+const EditFiscalYear = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/edit-fiscal-year/EditFiscalYear"
+  )
+);
+const EditSection = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/section/edit-section/EditSection"
+  )
+);
+const EditSubFaculty = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/edit-sub-faculty/EditSubFaculty"
+  )
+);
+const EditSubject = lazy(() =>
+  import(
+    "../../modules/admin/sidebar-activities/admin/data-setup/subject/edit-subject/EditSubject"
+  )
+);
 // my imports
 const EditLevel = lazy(() =>
   import(
@@ -241,7 +279,6 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       />
-
       <Route
         path="section"
         element={
@@ -274,6 +311,7 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       />
+      checking going on
       <Route
         path="subject/add"
         element={
@@ -314,7 +352,6 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       ></Route>
-
       <Route
         path="department"
         element={
