@@ -28,9 +28,7 @@ export default function FeeStudent() {
 
       <div className=" my-6">
         <div className="w-fit my-3 ml-auto">
-          <div className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm">
-            Fee statement
-          </div>
+          <div className="primary_btn">Fee statement</div>
         </div>
         <div className="md:flex ring-black ring-opacity-5 ring-1 form-solid p-4 rounded-md shadow">
           <img

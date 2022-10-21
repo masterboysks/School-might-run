@@ -102,16 +102,10 @@ export default function Form() {
       </form>
       <div className="w-full my-6">
         <div className=" w-fit ml-auto">
-          <Link
-            to="/fee/fee-payment"
-            className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm cursor-pointer"
-          >
+          <Link to="/fee/fee-payment" className="secondary_btn cursor-pointer">
             Cancel
           </Link>
-          <Link
-            to={`/fee/fee-payment`}
-            className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
-          >
+          <Link to={`/fee/fee-payment`} className="primary_btn">
             Save
           </Link>
         </div>

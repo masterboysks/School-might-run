@@ -158,9 +158,7 @@ export default function Table() {
           />
 
           <div className="">
-            <div className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm">
-              Assign
-            </div>
+            <div className="primary_btn">Assign</div>
           </div>
         </div>
       </div>

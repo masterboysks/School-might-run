@@ -7,6 +7,6 @@
     @apply bg-primary-btn focus:outline-none focus:ring-primary-btn focus:ring focus:bg-white focus:text-primary-btn focus:ring-offset-2 inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm;
   }
   .secondary_btn {
-    @apply bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm;
+    @apply bg-primary-grey-50 text-primary-grey-700  focus:ring-primary-btn focus:outline-none focus:ring focus:ring-offset-2 inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm;
   }
 }
