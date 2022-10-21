@@ -2,12 +2,7 @@ import { bs_ad_day, bs_ad_month, bs_ad_year } from "./bs_ad";
 import { checkbox, radio } from "./Checkbox";
 import { input, inputDisabled, inputNumber, password } from "./Input";
 import { searchBar } from "./Search";
-import {
-  multipleSelect,
-  MultipleSelectNew,
-  select,
-  selectDisabled,
-} from "./Select";
+import { MultipleSelectNew, select, selectDisabled } from "./Select";
 import { textarea } from "./Textbox";
 import { upload, uploadPhoto } from "./Upload";
 

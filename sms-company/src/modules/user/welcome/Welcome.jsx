@@ -18,6 +18,96 @@ const arrayStudents = [
     section: "B",
     picture: two,
   },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
+  {
+    name: "Whinni koirala",
+    class: "Class 8",
+    section: "B",
+    picture: two,
+  },
 ];
 
 function classNames(...classes) {
