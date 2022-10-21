@@ -1,7 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  :root {
+    --color-text-primary: 147, 39, 143;
+    --color-text-secondary: 212, 87, 39;
+    --color-text-plane: 212, 87, 39;
+    --color-text-grey: 56, 88, 99;
+    --color-bg-grey: 246, 246, 246;
+    --color-fill: 224, 61, 219;
+    --color-button-accent: 147, 39, 143;
+    --color-button-accent-hover: 141, 71, 148;
+    --color-button-secondary: 212, 87, 39;
+  }
+  .theme-swiss {
+    --color-text-primary: 147, 39, 143;
+    --color-text-secondary: 212, 87, 39;
+    --color-text-plane: 212, 87, 39;
+    --color-text-grey: 56, 88, 99;
+    --color-fill: 224, 61, 219;
+    --color-button-accent: 147, 39, 143;
+    --color-button-accent-hover: 141, 71, 148;
+    --color-button-secondary: 212, 87, 39;
+  }
+  .theme-neon {
+    --color-text-primary: 147, 39, 143;
+    --color-text-secondary: 212, 87, 39;
+    --color-text-plane: 212, 87, 39;
+    --color-text-grey: 56, 88, 99;
+    --color-fill: 224, 61, 219;
+    --color-button-accent: 147, 39, 143;
+    --color-button-accent-hover: 141, 71, 148;
+    --color-button-secondary: 212, 87, 39;
+  }
+}
 @layer utilities {
   .primary_btn {
     @apply bg-primary-btn focus:outline-none focus:ring-primary-btn focus:ring focus:bg-white focus:text-primary-btn focus:ring-offset-2 inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm;

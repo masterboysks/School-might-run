@@ -57,7 +57,7 @@ export function select({
   );
 }
 
-export function MultipleSelectNew({
+export function multipleSelect({
   name,
   label,
   value: options,

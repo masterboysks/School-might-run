@@ -1,10 +1,10 @@
 export function searchBar({ id = Math.random(), register }) {
   return (
     <div className=" relative w-full">
-      <div className="top-1 absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+      <div className="top-0 absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <svg
           aria-hidden="true"
-          className="text-primary-grey-600 w-5 h-5"
+          className="text-primary-grey-600 w-4 h-3"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ export function searchBar({ id = Math.random(), register }) {
       <input
         type="text"
         id={id}
-        className="bg-gray-50 mt-[6px] border border-primary-grey-400 text-primary-grey-600 text-sm rounded focus:ring-primary-btn block w-full pl-10 p-2 "
+        className=" mt-[6px] border  border-primary-btn text-primary-grey-600 text-sm rounded focus:ring-primary-btn block w-full pl-10 p-2 "
         placeholder="Search"
         {...register}
       />
