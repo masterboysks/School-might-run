@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import academicyearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
@@ -37,7 +38,10 @@ const AddAcademicYear = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    const res = await academicyearApi.create(d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/designation")
+      : setError("Failed to create Academic year");
   };
   return (
     <>

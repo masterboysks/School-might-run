@@ -4,6 +4,7 @@ import { Popover } from "@headlessui/react";
 import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
 import { useContext } from "react";
 import academicyearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi";
+import { Link } from "react-router-dom";
 
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
@@ -49,13 +50,13 @@ const RenderTable = ({ currentItems, setData }) => {
                       "Mb5sVJt5Qp",
                       JSON.stringify({
                         is_running: person.is_running,
-                        academicYear: person.academicYear,
+                        academic_year: person.academic_year,
                       })
                     );
                   }}
                   className="p-3"
                 >
-                  <Link to={`${person.id}/${person.academicYear}`}>Edit</Link>
+                  <Link to={`${person.id}/${person.academic_year}`}>Edit</Link>
                 </div>
                 <button
                   onClick={() => {

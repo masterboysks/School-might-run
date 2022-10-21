@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import fiscalYearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
@@ -38,7 +39,10 @@ const AddFiscalYear = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    const res = await fiscalYearApi.create(d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/designation")
+      : setError("Failed to create Fiscal year");
   };
   return (
     <>

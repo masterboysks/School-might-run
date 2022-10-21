@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import fiscalYearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
@@ -23,12 +24,13 @@ const pages = [
     current: false,
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year/add",
+    name: "Edit",
+    href: "",
     current: true,
   },
 ];
-const AddFiscalYear = () => {
+const EditFiscalYear = () => {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
@@ -40,7 +42,10 @@ const AddFiscalYear = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (d) => {
-    console.log(d);
+    const res = await fiscalYearApi.edit(id, d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/designation")
+      : setError("Failed to edit Fiscal year");
   };
 
   useEffect(() => {
@@ -53,7 +58,7 @@ const AddFiscalYear = () => {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add fiscal year" />
+      <Break title="Edit fiscal year" />
       <form
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
@@ -115,4 +120,4 @@ const AddFiscalYear = () => {
   );
 };
 
-export default AddFiscalYear;
+export default EditFiscalYear;

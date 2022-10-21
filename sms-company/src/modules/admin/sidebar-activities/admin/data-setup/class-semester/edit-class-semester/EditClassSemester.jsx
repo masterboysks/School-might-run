@@ -29,8 +29,8 @@ const pages = [
     current: false,
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/class-semester/add",
+    name: "Edit",
+    href: "",
     current: true,
   },
 ];
@@ -111,7 +111,7 @@ const EditClassSemester = () => {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add Class/Semester" />
+      <Break title="Edit Class/Semester" />
       <form
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}

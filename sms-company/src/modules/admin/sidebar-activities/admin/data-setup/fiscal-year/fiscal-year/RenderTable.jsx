@@ -4,6 +4,7 @@ import { Popover } from "@headlessui/react";
 import fiscalYearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi";
 import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const RenderTable = ({ currentItems }) => {
   const value = useContext(DeleteModalContex);
@@ -55,7 +56,7 @@ const RenderTable = ({ currentItems }) => {
                   }}
                   className="p-3"
                 >
-                  <Link to={`${person.id}/${person.fiscalYear}`}>Edit</Link>
+                  <Link to={`${person.id}/${person.fiscal_year}`}>Edit</Link>
                 </div>
                 <button
                   onClick={() => {

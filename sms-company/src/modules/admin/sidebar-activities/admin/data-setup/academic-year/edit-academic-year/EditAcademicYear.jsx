@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import academicyearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
@@ -21,8 +22,8 @@ const pages = [
     current: false,
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/academic-year/add",
+    name: "Edit",
+    href: "",
     current: true,
   },
 ];
@@ -37,12 +38,15 @@ const EditAcademicYear = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    const res = await academicyearApi.edit(d);
+    res?.status === 201
+      ? navigate("/admin/dashboard/admin/data-setup/designation")
+      : setError("Failed to edit Academic year");
   };
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add Academic year" />
+      <Break title="Edit Academic year" />
       <form
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
