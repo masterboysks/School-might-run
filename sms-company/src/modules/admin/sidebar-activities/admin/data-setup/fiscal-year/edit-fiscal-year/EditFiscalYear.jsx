@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -37,9 +38,18 @@ const AddFiscalYear = () => {
   } = useForm();
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const onSubmit = async (d) => {
     console.log(d);
   };
+
+  useEffect(() => {
+    (async () => {
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      reset(temp);
+    })();
+    return () => localStorage.removeItem("Mb5sVJt5Qp");
+  }, []);
   return (
     <>
       <Breadnav pages={pages} />

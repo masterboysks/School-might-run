@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   Input,
   MultipleSelect,
@@ -35,11 +35,13 @@ const pages = [
   },
 ];
 
-const AddClassSemester = () => {
+const EditClassSemester = () => {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm();
   const [sectionsOption, setSectionsOption] = useState([]);
@@ -55,6 +57,8 @@ const AddClassSemester = () => {
       const data = await sectionsApi.getAll();
 
       setSectionsOption(data?.data?.data);
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      reset(temp);
     })();
     (async () => {
       const data = await subFacultyApi.getAll();
@@ -80,23 +84,12 @@ const AddClassSemester = () => {
         data?.data?.data.filter((c) => c.subject_type === 2)
       );
     })();
+    return () => localStorage.removeItem("Mb5sVJt5Qp");
   }, []);
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    // console.log({
-    //   ...d,
-    //   section_ids: d.section_ids?.map((c) => c.id),
-    //   subject_ids: [
-    //     ...arrayCompalsarySubjects
-    //       .filter((c, i) => d[`compalsarySubjects${i}`])
-    //       .map((c) => c.id),
-    //     ...arrayElectiveSubjects
-    //       .filter((c, i) => d[`electiveSubjects${i}`])
-    //       .map((c) => c.id),
-    //   ],
-    // });
     try {
-      const res = await classApi.create({
+      const res = await classApi.edit(id, {
         ...d,
         section_ids: d.section_ids?.map((c) => c.id),
         subject_ids: [
@@ -217,4 +210,4 @@ const AddClassSemester = () => {
   );
 };
 
-export default AddClassSemester;
+export default EditClassSemester;

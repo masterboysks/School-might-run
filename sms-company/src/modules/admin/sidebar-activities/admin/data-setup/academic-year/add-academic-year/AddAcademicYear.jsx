@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
   Checkbox,
-  Input,
-} from "../../../../../../../components/common/oldFields";
+  YearInput,
+} from "../../../../../../../components/common/fields";
 
 const pages = [
   { name: "Admin", href: "#", current: false },
@@ -26,44 +27,48 @@ const pages = [
   },
 ];
 const AddAcademicYear = () => {
-  const [year, setYear] = useState("");
-  const [running, setRunning] = useState(false);
-
-  //
-  const [errorYear, setErrorYear] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ year, running });
-
-    year ? navigate("/admin/data-setup/academic-year") : setErrorYear(true);
+  const onSubmit = async (d) => {
+    console.log(d);
   };
   return (
     <>
       <Breadnav pages={pages} />
       <Break title="Add Academic year" />
-      <form className="form-solid w-full my-6 rounded-md">
+      <form
+        className="form-solid w-full my-6 rounded-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {error && (
+          <>
+            <div className="text-lg font-medium text-red-600">{error}</div>
+            <br />
+          </>
+        )}
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
-            <Input
-              id="year"
-              name="year"
-              placeholder="2075"
-              type="text"
-              value={year}
-              setValue={setYear}
+            <YearInput
+              register={register}
+              name="academic_year"
               label="Academic year*"
-              error={errorYear}
-              setError={setErrorYear}
-            ></Input>
+              required={true}
+              errors={errors}
+            ></YearInput>
           </div>
           <div className="col-span-full">
             <Checkbox
-              value="running"
-              name="running"
+              register={register}
+              name="is_running"
+              id="Form_label_45584578"
               label="is running?"
-              selected={running}
-              setSelected={setRunning}
-              id="running-year"
             />
           </div>
         </div>
@@ -76,12 +81,12 @@ const AddAcademicYear = () => {
               >
                 Cancel
               </Link>
-              <div
-                onClick={handleSubmit}
+              <button
+                type="submit"
                 className="bg-primary-btn hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm"
               >
                 Save
-              </div>
+              </button>
             </div>
           </div>
         </div>

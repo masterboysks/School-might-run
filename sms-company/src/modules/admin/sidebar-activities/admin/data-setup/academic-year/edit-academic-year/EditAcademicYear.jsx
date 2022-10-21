@@ -5,7 +5,6 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
   Checkbox,
-  Input,
   YearInput,
 } from "../../../../../../../components/common/fields";
 
@@ -17,17 +16,17 @@ const pages = [
     current: false,
   },
   {
-    name: "Fiscal year",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year",
+    name: "Academic year",
+    href: "/admin/dashboard/admin/data-setup/academic-year",
     current: false,
   },
   {
     name: "Add",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year/add",
+    href: "/admin/dashboard/admin/data-setup/academic-year/add",
     current: true,
   },
 ];
-const AddFiscalYear = () => {
+const EditAcademicYear = () => {
   const {
     register,
     handleSubmit,
@@ -43,7 +42,7 @@ const AddFiscalYear = () => {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add fiscal year" />
+      <Break title="Add Academic year" />
       <form
         className="form-solid w-full my-6 rounded-md"
         onSubmit={handleSubmit(onSubmit)}
@@ -57,36 +56,27 @@ const AddFiscalYear = () => {
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <YearInput
-              label="Fiscal year start*"
-              name="start_year"
               register={register}
-              errors={errors}
+              name="academic_year"
+              label="Academic year*"
               required={true}
-            />
-          </div>
-          <div>
-            <Input
-              label="Fiscal year end*"
-              name="end_year"
-              register={register}
               errors={errors}
-              required={true}
-            />
+            ></YearInput>
           </div>
           <div className="col-span-full">
             <Checkbox
               register={register}
               name="is_running"
+              id="Form_label_45584578"
               label="is running?"
-              id="isRunning_form_54524"
             />
           </div>
         </div>
         <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
-          <div className="md:flex-row sm:col-span-2 w-fit flex flex-col my-6 ml-auto">
+          <div className="md:flex-row w-fit flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
               <Link
-                to="/admin/dashboard/admin/data-setup/fiscal-year"
+                to="/admin/dashboard/admin/data-setup/academic-year"
                 className="bg-primary-grey-50 text-primary-grey-700 hover: focus:outline-none focus:ring- focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 mr-3 text-sm font-medium border border-transparent rounded-md shadow-sm"
               >
                 Cancel
@@ -105,4 +95,4 @@ const AddFiscalYear = () => {
   );
 };
 
-export default AddFiscalYear;
+export default EditAcademicYear;

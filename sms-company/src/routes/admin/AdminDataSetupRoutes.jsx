@@ -2,6 +2,8 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import EditAcademicYear from "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/edit-academic-year/EditAcademicYear";
+import EditClassSemester from "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/edit-class-semester/EditClassSemester";
 import EditDepartment from "../../modules/admin/sidebar-activities/admin/data-setup/department/edit-department/EditDepartment";
 import EditDesignation from "../../modules/admin/sidebar-activities/admin/data-setup/designation/edit-designation/EditDesignation";
 import EditFaculty from "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty";
@@ -304,6 +306,14 @@ export default function AdminDataSetupRoutes() {
           </Suspense>
         }
       ></Route>
+      <Route
+        path="class-semester/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditClassSemester />
+          </Suspense>
+        }
+      ></Route>
 
       <Route
         path="department"
@@ -370,6 +380,14 @@ export default function AdminDataSetupRoutes() {
         }
       />
       <Route
+        path="academic-year/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditAcademicYear />
+          </Suspense>
+        }
+      />
+      <Route
         path="fiscal-year"
         element={
           <Suspense fallback="Loading">
@@ -382,6 +400,14 @@ export default function AdminDataSetupRoutes() {
         element={
           <Suspense fallback="Loading">
             <AddFiscalYear />
+          </Suspense>
+        }
+      />
+      <Route
+        path="fiscal-year/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditFiscalYear />
           </Suspense>
         }
       />
