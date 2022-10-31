@@ -24,6 +24,7 @@ const Form = () => {
   const [date, setDate] = useState("");
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
+  const [defaultDate, setDefaultDate] = useState("");
   const onSubmit = async (data) => {
     const d = {
       ...data,
@@ -57,6 +58,8 @@ const Form = () => {
     reset({
       ...defaultData,
     });
+    setDate(defaultData?.established_at);
+    setDefaultDate(defaultData?.established_at);
   };
   useEffect(() => {
     resetData();
@@ -217,7 +220,12 @@ const Form = () => {
           </span>
         </div>
         <div className="">
-          <DateInput selected={date} setSelected={setDate} label="Date" />
+          <DateInput
+            selected={date}
+            setSelected={setDate}
+            label="Date"
+            defaultDate={defaultDate}
+          />
         </div>
         <div className="">
           <UploadPhoto
