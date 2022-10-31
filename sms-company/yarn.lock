@@ -529,6 +529,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
+"@sbmdkl/nepali-datepicker-reactjs@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@sbmdkl/nepali-datepicker-reactjs/-/nepali-datepicker-reactjs-1.2.1.tgz#901674f569bec66eea6410c9e229b0d4bf1366f0"
+  integrity sha512-87XeVPOOwkluJz3jz7nX7RSO9ivaX61hSFdToBlgnE/xUirBsfI3S15KjaqA6NF1t1cECgMT5gP2H4ZlTx4Bgg==
+
 "@tailwindcss/forms@^0.5.2":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.3.tgz#e4d7989686cbcaf416c53f1523df5225332a86e7"
