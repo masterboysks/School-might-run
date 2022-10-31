@@ -1,18 +1,18 @@
 import { Fragment, useState } from "react";
+import Arrow from "@mui/icons-material/ArrowForwardIos";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
   Bars3BottomLeftIcon,
   CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
   HomeIcon,
-  InboxIcon,
   UsersIcon,
+  BanknotesIcon,
+  DocumentCheckIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import one from "../welcome/three.jpg";
-let navigation;
+let navigation, dropnavigation;
 
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -26,7 +26,10 @@ function classNames(...classes) {
 
 export default function Sidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [examData, setExamData] = useState(false);
+  const [feeData, setFeeData] = useState(false);
   const location = useLocation().pathname;
+
   location.includes("/parent/dashboard") &&
     (navigation = [
       {
@@ -43,6 +46,52 @@ export default function Sidebar() {
         name: "Teacher details",
         href: "/parent/dashboard/teacher-details",
         icon: UsersIcon,
+      },
+    ]) &&
+    (dropnavigation = [
+      {
+        name: "Exam",
+        open: examData,
+        close: setExamData,
+        icon: DocumentCheckIcon,
+        links: [
+          {
+            name: "Exam routine",
+            link: "/parent/dashboard/exam/exam-routine",
+          },
+          {
+            name: "Admit card",
+            link: "/parent/dashboard/exam/admit-card",
+          },
+          {
+            name: "Report card",
+            link: "/parent/dashboard/exam/report-card",
+          },
+        ],
+      },
+      {
+        name: "Fee",
+        open: feeData,
+        close: setFeeData,
+        icon: BanknotesIcon,
+        links: [
+          {
+            name: "Logsheet",
+            link: "/parent/dashboard/fee/logsheet",
+          },
+          {
+            name: "Fee invoice",
+            link: "/parent/dashboard/fee/fee-invoice",
+          },
+          {
+            name: "Reciept",
+            link: "/parent/dashboard/fee/recipt",
+          },
+          {
+            name: "Balance sheet",
+            link: "/parent/dashboard/fee/balance-sheet",
+          },
+        ],
       },
     ]);
   location.includes("/student/dashboard") &&
@@ -62,8 +111,55 @@ export default function Sidebar() {
         href: "/student/dashboard/teacher-details",
         icon: UsersIcon,
       },
+    ]) &&
+    (dropnavigation = [
+      {
+        name: "Exam",
+        open: examData,
+        close: setExamData,
+        href: "/student/dashboard/exam",
+        icon: DocumentCheckIcon,
+        links: [
+          {
+            name: "Exam routine",
+            link: "/parent/dashboard/exam/exam-routine",
+          },
+          {
+            name: "Admit card",
+            link: "/parent/dashboard/exam/admit-card",
+          },
+          {
+            name: "Report card",
+            link: "/parent/dashboard/exam/report-card",
+          },
+        ],
+      },
+      {
+        name: "Fee",
+        open: feeData,
+        close: setFeeData,
+        href: "/student/dashboard/fee",
+        icon: BanknotesIcon,
+        links: [
+          {
+            name: "Logsheet",
+            link: "/parent/dashboard/fee/logsheet",
+          },
+          {
+            name: "Fee invoice",
+            link: "/parent/dashboard/fee/fee-invoice",
+          },
+          {
+            name: "Reciept",
+            link: "/parent/dashboard/fee/recipt",
+          },
+          {
+            name: "Balance sheet",
+            link: "/parent/dashboard/fee/balance-sheet",
+          },
+        ],
+      },
     ]);
-
   return (
     <>
       <div>
@@ -108,7 +204,7 @@ export default function Sidebar() {
                     <div className="absolute top-0 right-0 -mr-12 pt-2">
                       <button
                         type="button"
-                        className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-grey-200"
+                        className="ml-1 flex h-10 w-10  items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-grey-200"
                         onClick={() => setSidebarOpen(false)}
                       >
                         <span className="sr-only">Close sidebar</span>
@@ -179,6 +275,59 @@ export default function Sidebar() {
                           {item.name}
                         </Link>
                       ))}
+                      {dropnavigation.map((item) => (
+                        <Fragment key={item.name}>
+                          <a
+                            onClick={() => {
+                              item.close((a) => !a);
+                            }}
+                            className={classNames(
+                              item.open && location.includes(item.href)
+                                ? "bg-primary-grey-200 text-primary-grey-700"
+                                : "text-primary-grey-600 hover:bg-primary-grey-200 ",
+                              "group flex items-center px-2 py-2  text-base font-medium rounded-md"
+                            )}
+                          >
+                            <item.icon
+                              className={classNames(
+                                item.open && location.includes(item.href)
+                                  ? "text-gray-500"
+                                  : "text-gray-400 group-hover:text-gray-500",
+                                "mr-4 flex-shrink-0 h-6 w-6"
+                              )}
+                              aria-hidden="true"
+                            />
+                            <div className="flex w-full justify-between">
+                              <div className="">{item.name}</div>
+                              <div
+                                id="arrow"
+                                className={`devList text-gray-500  transition duration-100 ease-in text-sm ${
+                                  item.open ? "rotate-90" : ""
+                                }  `}
+                              >
+                                <Arrow fontSize="sm" />
+                              </div>
+                            </div>
+                          </a>
+                          {item.open ? (
+                            <ul>
+                              {item.links.map((curr) => (
+                                <Link to={curr.link} key={curr.name}>
+                                  <li
+                                    className={`pl-6  pr-3 font-medium text-base   mx-2 mt-2 mb-3 rounded py-[3px]  ${
+                                      location.includes(curr.path)
+                                        ? "bg-primary-grey-200 text-primary-grey-700"
+                                        : "hover:bg-primary-grey-200 text-primary-grey-600"
+                                    }`}
+                                  >
+                                    {curr.name}
+                                  </li>
+                                </Link>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </Fragment>
+                      ))}
                     </nav>
                   </div>
                 </Dialog.Panel>
@@ -239,20 +388,73 @@ export default function Sidebar() {
                       location.includes(item.href)
                         ? "bg-primary-grey-200 text-primary-grey-700"
                         : "text-primary-grey-600 hover:bg-primary-grey-200 ",
-                      " flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                      "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                     )}
                   >
                     <item.icon
                       className={classNames(
                         location.includes(item.href)
-                          ? "text-primary-grey-600"
-                          : "text-primary-grey-400 ",
-                        "mr-3 flex-shrink-0 h-6 w-6"
+                          ? "text-gray-500"
+                          : "text-gray-400 group-hover:text-gray-500",
+                        "mr-4 flex-shrink-0 h-6 w-6"
                       )}
                       aria-hidden="true"
                     />
                     {item.name}
                   </Link>
+                ))}
+                {dropnavigation.map((item) => (
+                  <Fragment key={item.name}>
+                    <a
+                      onClick={() => {
+                        item.close((a) => !a);
+                      }}
+                      className={classNames(
+                        item.open && location.includes(item.href)
+                          ? "bg-primary-grey-200 text-primary-grey-700"
+                          : "text-primary-grey-600 hover:bg-primary-grey-200 ",
+                        "group flex items-center px-2 py-2  text-base font-medium rounded-md"
+                      )}
+                    >
+                      <item.icon
+                        className={classNames(
+                          item.open && location.includes(item.href)
+                            ? "text-gray-500"
+                            : "text-gray-400 group-hover:text-gray-500",
+                          "mr-4 flex-shrink-0 h-6 w-6"
+                        )}
+                        aria-hidden="true"
+                      />
+                      <div className="flex w-full justify-between">
+                        <div className="">{item.name}</div>
+                        <div
+                          id="arrow"
+                          className={`devList text-gray-500  transition duration-100 ease-in text-sm ${
+                            item.open ? "rotate-90" : ""
+                          }  `}
+                        >
+                          <Arrow fontSize="sm" />
+                        </div>
+                      </div>
+                    </a>
+                    {item.open ? (
+                      <ul>
+                        {item.links.map((curr) => (
+                          <Link to={curr.link} key={curr.name}>
+                            <li
+                              className={`pl-6  pr-3 font-medium text-base   mx-2 mt-2 mb-3 rounded py-[3px]  ${
+                                location.includes(curr.path)
+                                  ? "bg-primary-grey-200 text-primary-grey-700"
+                                  : "hover:bg-primary-grey-200 text-primary-grey-600"
+                              }`}
+                            >
+                              {curr.name}
+                            </li>
+                          </Link>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </Fragment>
                 ))}
               </nav>
             </div>

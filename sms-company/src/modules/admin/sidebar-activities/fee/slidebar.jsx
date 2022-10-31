@@ -122,7 +122,7 @@ const FeeSlidebar = () => {
                      data && !dropFeeStatement
                        ? "bg-primary-grey-200 "
                        : "text-primary-grey-600"
-                   }text-sm`}
+                   } text-sm`}
             >
               <div
                 id="arrow"
