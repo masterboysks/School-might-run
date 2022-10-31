@@ -3,6 +3,7 @@ import ThreeDots from "@mui/icons-material/MoreVert";
 import { Popover } from "@headlessui/react";
 import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
 import classApi from "../../../../../../../api/admin/dashboard/admin/data-setup/classApi";
+import { Link } from "react-router-dom";
 
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);

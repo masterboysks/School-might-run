@@ -38,6 +38,7 @@ const AddFiscalYear = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const onSubmit = async (d) => {
+    console.log(d);
     const res = await fiscalYearApi.create(d);
     res?.status === 201
       ? navigate("/admin/dashboard/admin/data-setup/designation")

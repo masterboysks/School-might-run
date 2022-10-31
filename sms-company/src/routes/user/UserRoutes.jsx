@@ -19,11 +19,11 @@ export default function UserRoutes() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="attendance" element={<Attendance />} />
         <Route path="teacher-details" element={<TeacherDetails />} />
-
+        {/* exam */}
         <Route path="exam/exam-routine" element={<ExamRoutine />} />
         <Route path="exam/admit-card" element={<AdmitCard />} />
         <Route path="exam/report-card" element={<ReportCard />} />
-
+        {/* fee */}
         <Route path="fee/logsheet" element={<Logsheet />} />
         <Route path="fee/fee-invoice" element={<FeeInvoice />} />
         <Route path="fee/reciept" element={<Reciept />} />
