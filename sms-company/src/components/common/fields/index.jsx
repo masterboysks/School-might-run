@@ -1,4 +1,4 @@
-import { bs_ad_day, bs_ad_month, bs_ad_year } from "./bs_ad";
+import dateInput, { bs_ad_day, bs_ad_month, bs_ad_year } from "./bs_ad";
 import { checkbox, radio } from "./Checkbox";
 import { input, inputDisabled, inputNumber, password } from "./Input";
 import { searchBar } from "./Search";
@@ -18,6 +18,5 @@ export const MultipleSelect = multipleSelect;
 export const SearchBar = searchBar;
 export const Upload = upload;
 export const UploadPhoto = uploadPhoto;
-export const MonthInput = bs_ad_month;
+export const DateInput = dateInput;
 export const YearInput = bs_ad_year;
-export const DayInput = bs_ad_day;
