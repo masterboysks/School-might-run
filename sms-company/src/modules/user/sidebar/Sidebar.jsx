@@ -54,6 +54,7 @@ export default function Sidebar() {
         open: examData,
         close: setExamData,
         icon: DocumentCheckIcon,
+        href: "/parent/dashboard/exam",
         links: [
           {
             name: "Exam routine",
@@ -74,6 +75,7 @@ export default function Sidebar() {
         open: feeData,
         close: setFeeData,
         icon: BanknotesIcon,
+        href: "/parent/dashboard/fee",
         links: [
           {
             name: "Logsheet",
@@ -85,7 +87,7 @@ export default function Sidebar() {
           },
           {
             name: "Reciept",
-            link: "/parent/dashboard/fee/recipt",
+            link: "/parent/dashboard/fee/reciept",
           },
           {
             name: "Balance sheet",
@@ -122,15 +124,15 @@ export default function Sidebar() {
         links: [
           {
             name: "Exam routine",
-            link: "/parent/dashboard/exam/exam-routine",
+            link: "/student/dashboard/exam/exam-routine",
           },
           {
             name: "Admit card",
-            link: "/parent/dashboard/exam/admit-card",
+            link: "/student/dashboard/exam/admit-card",
           },
           {
             name: "Report card",
-            link: "/parent/dashboard/exam/report-card",
+            link: "/student/dashboard/exam/report-card",
           },
         ],
       },
@@ -143,19 +145,19 @@ export default function Sidebar() {
         links: [
           {
             name: "Logsheet",
-            link: "/parent/dashboard/fee/logsheet",
+            link: "/student/dashboard/fee/logsheet",
           },
           {
             name: "Fee invoice",
-            link: "/parent/dashboard/fee/fee-invoice",
+            link: "/student/dashboard/fee/fee-invoice",
           },
           {
             name: "Reciept",
-            link: "/parent/dashboard/fee/recipt",
+            link: "/student/dashboard/fee/reciept",
           },
           {
             name: "Balance sheet",
-            link: "/parent/dashboard/fee/balance-sheet",
+            link: "/student/dashboard/fee/balance-sheet",
           },
         ],
       },
@@ -282,7 +284,7 @@ export default function Sidebar() {
                               item.close((a) => !a);
                             }}
                             className={classNames(
-                              item.open && location.includes(item.href)
+                              !item.open && location.includes(item.href)
                                 ? "bg-primary-grey-200 text-primary-grey-700"
                                 : "text-primary-grey-600 hover:bg-primary-grey-200 ",
                               "group flex items-center px-2 py-2  text-base font-medium rounded-md"
@@ -290,7 +292,7 @@ export default function Sidebar() {
                           >
                             <item.icon
                               className={classNames(
-                                item.open && location.includes(item.href)
+                                !item.open && location.includes(item.href)
                                   ? "text-gray-500"
                                   : "text-gray-400 group-hover:text-gray-500",
                                 "mr-4 flex-shrink-0 h-6 w-6"
@@ -410,7 +412,7 @@ export default function Sidebar() {
                         item.close((a) => !a);
                       }}
                       className={classNames(
-                        item.open && location.includes(item.href)
+                        !item.open && location.includes(item.href)
                           ? "bg-primary-grey-200 text-primary-grey-700"
                           : "text-primary-grey-600 hover:bg-primary-grey-200 ",
                         "group flex items-center px-2 py-2  text-base font-medium rounded-md"
@@ -418,7 +420,7 @@ export default function Sidebar() {
                     >
                       <item.icon
                         className={classNames(
-                          item.open && location.includes(item.href)
+                          !item.open && location.includes(item.href)
                             ? "text-gray-500"
                             : "text-gray-400 group-hover:text-gray-500",
                           "mr-4 flex-shrink-0 h-6 w-6"
@@ -443,7 +445,7 @@ export default function Sidebar() {
                           <Link to={curr.link} key={curr.name}>
                             <li
                               className={`pl-6  pr-3 font-medium text-base   mx-2 mt-2 mb-3 rounded py-[3px]  ${
-                                location.includes(curr.path)
+                                location.includes(curr.link)
                                   ? "bg-primary-grey-200 text-primary-grey-700"
                                   : "hover:bg-primary-grey-200 text-primary-grey-600"
                               }`}
