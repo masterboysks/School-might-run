@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
 import { useForm } from "react-hook-form";
 import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
+import React from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -56,7 +57,7 @@ const EditSubject = () => {
     (async () => {
       const data = await levelApi.getAll();
       setArrayLevel(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
       console.log(temp);
       reset(temp);
     })();
@@ -82,7 +83,6 @@ const EditSubject = () => {
               label="Level*"
               value={arrayLevel}
               register={register}
-              selected="Select"
               errors={errors}
               required={true}
               name="level_id"

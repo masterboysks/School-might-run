@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
 import { useForm } from "react-hook-form";
 import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
+import React from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -77,7 +78,6 @@ const AddSubject = () => {
               label="Level*"
               value={arrayLevel}
               register={register}
-              selected="Select"
               errors={errors}
               required={true}
               name="level_id"

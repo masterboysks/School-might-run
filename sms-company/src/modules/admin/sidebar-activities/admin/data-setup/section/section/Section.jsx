@@ -1,3 +1,4 @@
+import React from "react";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Tables from "./Table";
 const pages = [

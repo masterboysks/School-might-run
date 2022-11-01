@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -44,7 +45,7 @@ const EditLevel = () => {
     (async () => {
       const data = await universityBoardApi.get();
       setArrayUniversity(data?.data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
       reset(temp);
     })();
     return () => localStorage.removeItem("Mb5sVJt5Qp");
@@ -77,9 +78,7 @@ const EditLevel = () => {
               label="University/Board*"
               name="university_id"
               register={register}
-              placeholder="NEB"
               value={arrayUniversity}
-              selected="Select"
               required={true}
               errors={errors}
             />

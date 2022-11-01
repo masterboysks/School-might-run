@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -75,9 +76,7 @@ const AddLevel = () => {
               label="University/Board*"
               name="university_id"
               register={register}
-              placeholder="NEB"
               value={arrayUniversity}
-              selected="Select"
               required={true}
               errors={errors}
             />

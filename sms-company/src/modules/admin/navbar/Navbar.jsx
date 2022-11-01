@@ -4,6 +4,7 @@ import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
 import { BellIcon, Bars3Icon } from "@heroicons/react/24/outline";
 
 import man from "./man-pic.png";
+import React from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

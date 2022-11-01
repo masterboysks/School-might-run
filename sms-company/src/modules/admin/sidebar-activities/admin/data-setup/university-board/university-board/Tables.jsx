@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
+import { SearchBar } from "../../../../../../../components/common/fields";
 import RenderTable from "./RenderTable";
 
 const people = [

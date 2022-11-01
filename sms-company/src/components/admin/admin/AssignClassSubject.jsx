@@ -5,7 +5,7 @@ export default function AssignClassSubject({
   name,
   value,
   register,
-  className,
+  className = "",
 }) {
   return (
     <>

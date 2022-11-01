@@ -1,4 +1,8 @@
-export function searchBar({ id = Math.random(), register }) {
+export function searchBar({
+  id = Math.random() + "uehwsfdkh",
+  register,
+  name,
+}) {
   return (
     <div className=" relative w-full">
       <div className="top-0 absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

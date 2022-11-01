@@ -118,4 +118,5 @@ export default function Pagination({ pagination, setPage }) {
       </nav>
     );
   }
+  return <></>;
 }

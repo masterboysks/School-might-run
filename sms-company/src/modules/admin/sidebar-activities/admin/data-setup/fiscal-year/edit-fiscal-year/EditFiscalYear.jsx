@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -49,7 +50,7 @@ const EditFiscalYear = () => {
 
   useEffect(() => {
     (async () => {
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
       reset(temp);
     })();
     return () => localStorage.removeItem("Mb5sVJt5Qp");

@@ -13,8 +13,8 @@ export const Checkbox = ({
   setSelected,
   dataTitle,
   dataValue,
-  id,
-  className,
+  id = Math.random() + "jkhsaieor",
+  className = "",
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -45,8 +45,8 @@ export const NewCheckbox = ({
   label, //array with correct index
   name,
   register,
-  id,
-  className,
+  id = Math.random() + "jkhsaieor",
+  className = "",
 }) => {
   return (
     <div className={`flex items-center h-5 ${className}`}>
@@ -117,22 +117,22 @@ export const Radio = ({
   );
 };
 export const Input = ({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   error,
   setError,
-  type,
+  type = "text",
   label,
   value,
   setValue,
-  placeholder,
+  placeholder = "",
   dataTitle,
   dataValue,
   onChange,
-  className,
+  className = "",
   step,
-  errorText,
-  dontShowErrorText,
+  errorText = "",
+  dontShowerrorText = undefined,
 }) => {
   // useEffect(() => {
   //   console.log(err, name);
@@ -190,20 +190,21 @@ export const Input = ({
 // Input field new
 
 export function NewInput({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   shouldUnregister = false,
-  errors,
-  errorText,
+
+  errors = {},
+  errorText = "",
   register,
-  type,
+  type = "text",
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   showError = true,
-  className,
+  className = "",
   step,
-  labelClassName,
+  labelClassName = "",
 }) {
   return (
     <>
@@ -243,19 +244,19 @@ export function NewInput({
 }
 // password new
 export function Password({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
 
-  errors,
-  errorText,
+  errors = {},
+  errorText = "",
   register,
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   showError = true,
-  className,
+  className = "",
   step,
-  labelClassName,
+  labelClassName = "",
 }) {
   const [visiblity, setVisiblity] = useState(false);
   return (
@@ -306,11 +307,11 @@ export function Password({
 // Input disabled field
 export const InputDisabled = ({
   label,
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   value,
 
-  type,
+  type = "text",
   dataTitle,
   dataValue,
 }) => {
@@ -338,14 +339,14 @@ export const InputDisabled = ({
 // select disabled
 export const SelectDisabled = ({
   label,
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   value,
   setValue,
-  type,
+  type = "text",
   dataTitle,
   dataValue,
-  className,
+  className = "",
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -376,7 +377,7 @@ export const SelectDisabled = ({
 // Select
 export function Select({
   label,
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   value,
   selected,
@@ -430,7 +431,7 @@ export function Select({
 }
 // Multiple select
 export function MultipleSelect({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   error,
   setError,
@@ -576,7 +577,7 @@ export const Upload = ({
   dataTitle,
   dataValue,
   uploadText,
-  id,
+  id = Math.random() + "jkhsaieor",
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -637,7 +638,7 @@ export const UploadPhoto = ({
   dataTitle,
   dataValue,
   uploadText,
-  id,
+  id = Math.random() + "jkhsaieor",
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -696,7 +697,7 @@ export const UploadPhoto = ({
   );
 };
 export const Textarea = ({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   error,
   setError,
@@ -704,7 +705,7 @@ export const Textarea = ({
   label,
   value,
   setValue,
-  placeholder,
+  placeholder = "",
   dataTitle,
   dataValue,
 }) => {
@@ -749,14 +750,14 @@ export const Textarea = ({
 };
 // email field
 // export const Email = ({
-//   id,
+//   id=Math.random(),
 //   name,
 //   error,
 //   setError,
 //   label,
 //   value,
 //   setValue,
-//   placeholder,
+//   placeholder='',
 //   dataTitle,
 //   dataValue,
 // }) => {
@@ -815,7 +816,7 @@ export const Textarea = ({
 //   setSelected,
 //   dataTitle,
 //   dataValue,
-//   id,
+//   id=Math.random(),
 // }) => {
 //   const optional = {};
 //   dataTitle && (optional[dataTitle] = dataValue);

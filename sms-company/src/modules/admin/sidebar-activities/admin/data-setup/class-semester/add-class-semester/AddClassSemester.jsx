@@ -16,6 +16,7 @@ import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setu
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AssignClassSubject from "../../../../../../../components/admin/admin/AssignClassSubject";
+import React from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -101,11 +102,11 @@ const AddClassSemester = () => {
         section_ids: d.section_ids?.map((c) => c.id),
         subject_ids: [
           ...arrayCompalsarySubjects
-            .filter((c, i) => d[`compalsarySubjects${i}`])
-            .map((c) => c.id),
+            ?.filter((c, i) => d[`compalsarySubjects${i}`])
+            ?.map((c) => c?.id),
           ...arrayElectiveSubjects
-            .filter((c, i) => d[`electiveSubjects${i}`])
-            .map((c) => c.id),
+            ?.filter((c, i) => d[`electiveSubjects${i}`])
+            ?.map((c) => c?.id),
         ],
       });
       res?.status === 201
@@ -137,7 +138,6 @@ const AddClassSemester = () => {
               register={register}
               name="level_id"
               required={true}
-              selected="Select"
               errors={errors}
             />
           </div>

@@ -2,8 +2,8 @@ export const checkbox = ({
   label, //array with correct index
   name,
   register,
-  id,
-  className,
+  id = Math.random() + "uehwsfdkh",
+  className = "",
 }) => {
   return (
     <div className={`flex items-center h-5 ${className}`}>
@@ -23,11 +23,12 @@ export const checkbox = ({
 };
 export const radio = ({
   name,
-  errors,
+
+  errors = {},
   value,
   register,
   required = false,
-  errorText,
+  errorText = undefined,
 }) => {
   return (
     <>

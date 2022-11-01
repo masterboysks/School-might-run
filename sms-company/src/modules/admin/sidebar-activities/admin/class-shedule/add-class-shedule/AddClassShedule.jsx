@@ -15,6 +15,7 @@ import teacherApi from "../../../../../../api/admin/dashboard/staff/teacher/teac
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";
+import React from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -187,7 +188,7 @@ function AddClassShedule() {
               <Link to="/admin/dashboard/admin/data-setup/subject/add">
                 <div className="outline outline-1 outline-primary-grey-700 mx-2 rounded cursor-pointer">
                   <AddOutlinedIcon
-                    text="sm"
+                    fontSize="small"
                     className="text-primary-grey-700"
                   />
                 </div>

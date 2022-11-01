@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const days = [
   { date: "2021-12-27", events: [] },
@@ -400,7 +401,7 @@ export default function Calendar() {
                       : undefined
                   }
                 >
-                  {day.date.split("-").pop().replace(/^0/, "")}
+                  {day?.date?.split("-")?.pop()?.replace(/^0/, "")}
                 </time>
                 {day.events.length > 0 && (
                   <ol className="mt-2">
@@ -459,7 +460,7 @@ export default function Calendar() {
                     "ml-auto"
                   )}
                 >
-                  {day.date.split("-").pop().replace(/^0/, "")}
+                  {day?.date?.split("-")?.pop()?.replace(/^0/, "")}
                 </time>
                 <span className="sr-only">{day.events.length} events</span>
                 {day.events.length > 0 && (

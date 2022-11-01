@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
 
-export const DeleteModalContex = createContext(null);
+export const DeleteModalContex = createContext({});
 export default function ContexForDeleteModal({ children }) {
   const [modalData, setModalData] = useState(null);
 

@@ -7,6 +7,7 @@ import Pagination from "../../../../../../../components/common/Pagination";
 import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import React from "react";
 
 const pages = [
   { name: "Admin", href: "#", current: false },

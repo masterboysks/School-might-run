@@ -16,6 +16,7 @@ import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setu
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import AssignClassSubject from "../../../../../../../components/admin/admin/AssignClassSubject";
+import React from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -57,7 +58,7 @@ const EditClassSemester = () => {
       const data = await sectionsApi.getAll();
 
       setSectionsOption(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
       reset(temp);
     })();
     (async () => {
@@ -130,7 +131,6 @@ const EditClassSemester = () => {
               register={register}
               name="level_id"
               required={true}
-              selected="Select"
               errors={errors}
             />
           </div>

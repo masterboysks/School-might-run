@@ -2,19 +2,20 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 export function input({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   shouldUnregister = false,
-  errors,
-  errorText,
+
+  errors = {},
+  errorText = "",
   register,
-  type,
+  type = "text",
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   showError = true,
-  className,
-  labelClassName,
+  className = "",
+  labelClassName = "",
 }) {
   return (
     <>
@@ -37,7 +38,7 @@ export function input({
         id={id}
         {...register(name, { required, shouldUnregister })}
         placeholder={placeholder}
-        type={type || "text"}
+        type={type}
       />
       {showError && errors && errors[name] && (
         <>
@@ -51,19 +52,19 @@ export function input({
 }
 
 export function password({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
 
-  errors,
-  errorText,
+  errors = {},
+  errorText = "",
   register,
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   showError = true,
-  className,
+  className = "",
   step,
-  labelClassName,
+  labelClassName = "",
 }) {
   const [visiblity, setVisiblity] = useState(false);
   return (
@@ -132,13 +133,14 @@ export const inputDisabled = ({
   );
 };
 export function inputNumber({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
-  errors,
+
+  errors = {},
   register,
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   step,
   min,
   max,

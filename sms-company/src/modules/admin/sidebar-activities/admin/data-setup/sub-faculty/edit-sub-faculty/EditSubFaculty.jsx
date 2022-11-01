@@ -7,6 +7,7 @@ import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setu
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
+import React from "react";
 const pages = [
   { name: "Admin", href: "#", current: false },
   {
@@ -39,7 +40,7 @@ const EditSubFaculty = () => {
     (async () => {
       const data = await facultyApi.getAll();
       setArrayFaculty(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp"));
+      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
       reset(temp);
     })();
 
@@ -72,7 +73,6 @@ const EditSubFaculty = () => {
               value={arrayFaculty}
               label="Faculty*"
               required={true}
-              selected="Select"
               errors={errors}
               register={register}
               name="faculty_id"

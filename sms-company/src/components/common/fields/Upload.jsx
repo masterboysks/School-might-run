@@ -1,13 +1,14 @@
 export const upload = ({
   label,
   name,
-  errors,
+
+  errors = {},
   register,
   required = false,
   showError = true,
   uploadText,
-  errorText,
-  id,
+  errorText = "",
+  id = Math.random() + "jkhsaieor",
   watch,
   accept,
 }) => {
@@ -70,12 +71,13 @@ export const upload = ({
 export const uploadPhoto = ({
   label,
   name,
-  errors,
+
+  errors = {},
   register,
   required = false,
   showError = true,
-  uploadText,
-  errorText,
+  uploadText = "",
+  errorText = "",
   id = Math.random() + "hdfhdfkhfkdh",
   watch,
 }) => {

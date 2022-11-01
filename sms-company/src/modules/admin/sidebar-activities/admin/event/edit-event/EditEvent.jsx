@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../../../../../components/common/Break";
 
-import Form from "./Form";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Input,
@@ -12,6 +11,7 @@ import {
   Upload,
 } from "../../../../../../components/common/oldFields";
 import { useState } from "react";
+import React from "react";
 
 function AddEvent() {
   const { date } = useParams();

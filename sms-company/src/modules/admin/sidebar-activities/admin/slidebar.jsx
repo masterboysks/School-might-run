@@ -50,26 +50,22 @@ const Slidebar = () => {
 
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar").classList;
+    nav = document.getElementById("sidebar")?.classList;
     nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
     slidebar();
   };
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar").classList;
-    let overlay =
-      document.getElementById("overlay") &&
-      document.getElementById("overlay").classList;
-    const slidebar =
-      document.getElementById("slidebar") &&
-      document.getElementById("slidebar").classList;
+    nav = document.getElementById("sidebar")?.classList;
+    let overlay = document.getElementById("overlay")?.classList;
+    const slidebar = document.getElementById("slidebar")?.classList;
 
     slidebar &&
       (slidebar.contains("hidden") && !nav.contains("hidden")
         ? slidebar.remove("hidden")
         : slidebar.add("hidden"));
     overlay &&
-      (!slidebar.contains("hidden")
+      (!slidebar?.contains("hidden")
         ? overlay.remove("hidden")
         : overlay.add("hidden"));
   };
@@ -93,7 +89,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="small"></Arrow>
                 </div>
                 Organization setup
               </li>
@@ -117,7 +113,7 @@ const Slidebar = () => {
                   dropdownActive ? "rotate-90" : ""
                 }  `}
               >
-                <Arrow fontSize="sm" />
+                <Arrow fontSize="small" />
               </div>
               <div className=" text-sm">Data setup</div>
             </li>
@@ -152,7 +148,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="small"></Arrow>
                 </div>
                 Class schedule
               </li>
@@ -166,7 +162,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="small"></Arrow>
                 </div>
                 Upgrade class
               </li>
@@ -180,7 +176,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="small"></Arrow>
                 </div>
                 Notice
               </li>
@@ -194,7 +190,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="small"></Arrow>
                 </div>
                 Event Calender
               </li>
@@ -208,7 +204,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="small"></Arrow>
                 </div>
                 Template
               </li>

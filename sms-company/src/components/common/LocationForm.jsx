@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import countries from "../../api/common/country/country";
 import { Select, SelectDisabled } from "./fields";
 
-export default function LocationForm({ register, errors, watch, prefix }) {
+export default function LocationForm({ register, errors, watch, prefix = "" }) {
   let country, province, district, vdc_municipality;
   prefix
     ? ([country, province, district, vdc_municipality] = watch([

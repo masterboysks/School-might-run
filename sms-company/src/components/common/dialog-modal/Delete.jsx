@@ -3,10 +3,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { DeleteModalContex } from "../../../contex/admin/common/ContexForDeleteModal";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function Delete() {
   const value = useContext(DeleteModalContex);
+  // const value = useContext<any>(DeleteModalContex);
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function Delete() {
   return (
     <Transition.Root show={open} as="div">
       {value?.value &&
-        (value.value.inUse ? (
+        (value?.value?.inUse ? (
           <Dialog
             as="div"
             className="relative z-[99999]"
@@ -58,13 +59,13 @@ export default function Delete() {
                           as="h3"
                           className="text-lg font-medium leading-6 text-gray-900"
                         >
-                          This {value.value.heading} cannot be deleted.
+                          This {value?.value?.heading} cannot be deleted.
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            To delete this {value.value.heading}, you need to
-                            first re-assign or remove the {value.value.heading}s
-                            using it.
+                            To delete this {value?.value?.heading}, you need to
+                            first re-assign or remove the{" "}
+                            {value?.value?.heading}s using it.
                           </p>
                         </div>
                       </div>
@@ -74,7 +75,7 @@ export default function Delete() {
                         type="button"
                         className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm"
                         onClick={() => {
-                          value.setValue(null);
+                          value?.setValue(null);
                         }}
                         ref={cancelButtonRef}
                       >
@@ -133,7 +134,7 @@ export default function Delete() {
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            {value.value.message}
+                            {value?.value?.message}
                           </p>
                         </div>
                       </div>
@@ -143,8 +144,8 @@ export default function Delete() {
                         type="button"
                         className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
                         onClick={() => {
-                          value.value.func(value.value.id);
-                          value.setValue(null);
+                          value?.value?.func(value?.value?.id);
+                          value?.setValue(null);
                         }}
                       >
                         Delete
@@ -153,7 +154,7 @@ export default function Delete() {
                         type="button"
                         className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm"
                         onClick={() => {
-                          value.setValue(null);
+                          value?.setValue(null);
                         }}
                         ref={cancelButtonRef}
                       >

@@ -4,18 +4,18 @@ import { Fragment } from "react";
 import { useController } from "react-hook-form";
 
 export function select({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
 
-  errors,
-  errorText,
+  errors = {},
+  errorText = "",
   register,
   value: options,
   label,
   required = false,
   showError = true,
-  className,
-  labelClassName,
+  className = "",
+  labelClassName = "",
 }) {
   return (
     <>
@@ -62,7 +62,8 @@ export function multipleSelect({
   label,
   value: options,
   control,
-  errors,
+
+  errors = {},
   required,
 }) {
   const {

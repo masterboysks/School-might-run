@@ -1,11 +1,10 @@
 import Calendar from "@sbmdkl/nepali-datepicker-reactjs";
 import "@sbmdkl/nepali-datepicker-reactjs/dist/index.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { InputNumber } from ".";
 import "./datepicker.css";
 
-function ad_bs({ selected, setSelected, label, defaultDate }) {
+function ad_bs({ selected, setSelected, label, defaultDate = "" }) {
   const format = localStorage.getItem("hdjkjkfg");
   const [render, setRender] = useState(1);
   const handleDate = ({ bsDate }) => {

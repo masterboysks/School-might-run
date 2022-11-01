@@ -1,12 +1,13 @@
 export const textarea = ({
-  id,
+  id = Math.random() + "jkhsaieor",
   name,
   register,
   required = false,
-  errors,
-  row,
+
+  errors = {},
+  row = 10,
   label,
-  placeholder,
+  placeholder = "",
 }) => {
   return (
     <>

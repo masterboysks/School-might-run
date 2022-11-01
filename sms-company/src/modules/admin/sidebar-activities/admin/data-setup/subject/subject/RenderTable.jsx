@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
 import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
 
-const RenderTable = ({ currentItems }) => {
+const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
 
   const deleteFunction = async (id) => {
