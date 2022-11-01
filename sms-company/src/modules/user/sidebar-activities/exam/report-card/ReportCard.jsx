@@ -166,7 +166,7 @@ export default function ExamRoutine() {
         {routines.map((curr, i) => (
           <div key={curr.name} className="border p-3 rounded-md  mt-9">
             <div className="flex">
-              <div className="text-red-500 h-5 w-5 -mt-1 mr-3">
+              <div className="text-red-500 h-5 w-5  mr-3">
                 <AssessmentIcon fontSize="small" />
               </div>
               <div className="">{curr.days} days ago</div>

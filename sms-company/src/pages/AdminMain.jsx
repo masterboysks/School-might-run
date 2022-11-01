@@ -16,12 +16,12 @@ const AdminMain = () => {
   const [loading, setLoading] = useState(true);
   const [sidebarData, setSidebarData] = useState([]);
   let modules;
-  authorized.interceptors.response.use(
+  const myInterceptor = authorized.interceptors.response.use(
     (config) => {
       return config;
     },
     async (err) => {
-      if (err?.response?.status !== 401) return err;
+      if (err?.response?.status !== 401) return Promise.reject(err);
       const originalConfig = err?.config;
       if (localStorage.getItem("kcx")) {
         try {
@@ -63,7 +63,10 @@ const AdminMain = () => {
       // console.log(error);
       navigate("/");
     }
-    // return () => localStorage.removeItem("kcx");
+    // return () => {
+    //   localStorage.removeItem("kcx");
+    //   authorized.interceptors.response.eject(myInterceptor);
+    // };
   }, []);
   if (loading) {
     return <div>Loading...</div>;
