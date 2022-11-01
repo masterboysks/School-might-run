@@ -36,13 +36,7 @@ const RenderTable = ({ currentItems }) => {
             {person.grandTotal}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.paidAmount}
-          </td>
-          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.dueAmmount}
-          </td>
-          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.status}
+            {person.grandTotal}
           </td>
           <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
             <button className="primary_btn">View</button>
