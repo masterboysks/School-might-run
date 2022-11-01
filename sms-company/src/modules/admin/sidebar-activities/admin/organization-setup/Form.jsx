@@ -223,7 +223,7 @@ const Form = () => {
           <DateInput
             selected={date}
             setSelected={setDate}
-            label="Date"
+            label="Established date"
             defaultDate={defaultDate}
           />
         </div>

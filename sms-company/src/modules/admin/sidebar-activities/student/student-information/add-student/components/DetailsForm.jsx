@@ -8,7 +8,6 @@ import {
   Password,
   Select,
   Upload,
-  ,
   YearInput,
 } from "../../../../../../../components/common/fields";
 const arrayGender = [

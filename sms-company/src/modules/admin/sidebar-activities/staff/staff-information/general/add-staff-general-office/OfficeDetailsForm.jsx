@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
 import {
+  DateInput,
   Input,
   Password,
   Select,
@@ -25,6 +26,7 @@ const arrayStatus = [
 ];
 const PermanentAddressForm = () => {
   const [message, setMessage] = useState("");
+  const [date, setDate] = useState("");
   const photo = useContext(StaffFormPersonalDetailsPicture);
   const {
     register,
@@ -86,7 +88,8 @@ const PermanentAddressForm = () => {
       form.append(`general[${name}]`, d[name]);
     }
     form.delete("personal[photo]");
-    form.append(`personal[profile_picture]`, photo?.photo && photo?.photo[0]);
+    form.append("personal[profile_picture]", photo?.photo && photo?.photo[0]);
+    form.append("general.joined_date", date);
 
     staffAPI.create(form).then((data) => {
       console.log(data);
@@ -173,13 +176,10 @@ const PermanentAddressForm = () => {
           )}
         </div>
         <div className="">
-          <Input
+          <DateInput
             label="Joined date*"
-            name="joined_date"
-            type="date"
-            required={true}
-            errors={errors}
-            register={register}
+            selected={date}
+            setSelected={setDate}
           />
         </div>
         <div className="">

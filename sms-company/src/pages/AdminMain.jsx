@@ -63,7 +63,7 @@ const AdminMain = () => {
       // console.log(error);
       navigate("/");
     }
-    return () => localStorage.removeItem("kcx");
+    // return () => localStorage.removeItem("kcx");
   }, []);
   if (loading) {
     return <div>Loading...</div>;

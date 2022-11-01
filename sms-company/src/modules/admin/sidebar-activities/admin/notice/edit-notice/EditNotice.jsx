@@ -5,9 +5,7 @@ import {
   MultipleSelect,
   Textarea,
   UploadPhoto,
-  DayInput,
-  MonthInput,
-  YearInput,
+  DateInput,
 } from "../../../../../../components/common/fields";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../../../../../components/common/Break";
@@ -30,6 +28,8 @@ const pages = [
 ];
 
 function NewNotice() {
+  const [date, setDate] = useState("");
+  const [defaultDate, setDefaultDate] = useState("");
   const {
     register,
     handleSubmit,
@@ -66,6 +66,7 @@ function NewNotice() {
 
         const data = await noticeApi.sendTo();
         setArraySendTo(data?.data?.data?.data);
+        setDefaultDate(temp.expiry_date);
         reset(temp);
       } catch (e) {
         console.warn(e);
@@ -147,32 +148,11 @@ function NewNotice() {
             />
           </div> */}
           <div className="">
-            <YearInput
-              label="Notice expire Year*"
-              name="expire_date"
-              register={register}
-              required={true}
-              errors={errors}
-            />
-          </div>
-          <div className="hidden lg:block"></div>
-          <div className="hidden xl:block"></div>
-          <div className="">
-            <MonthInput
-              name="expire_date"
-              register={register}
-              label="Notice expire month*"
-              required={true}
-              errors={errors}
-            />
-          </div>
-          <div className="">
-            <DayInput
-              name="expire_date"
-              register={register}
-              label="Notice expire date*"
-              required={true}
-              errors={errors}
+            <DateInput
+              selected={date}
+              setSelected={setDate}
+              label="Date"
+              defaultDate={defaultDate}
             />
           </div>
         </div>

@@ -14,6 +14,7 @@ function ad_bs({ selected, setSelected, label, defaultDate }) {
   useEffect(() => {
     setRender((c) => c + 1);
   }, [defaultDate]);
+
   if (format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002")
     return (
       <>
@@ -34,6 +35,11 @@ function ad_bs({ selected, setSelected, label, defaultDate }) {
         )}
       </>
     );
+  useEffect(() => {
+    if (defaultDate) {
+      setSelected(defaultDate);
+    } else setSelected(new Date().toISOString().split("T")[0]);
+  }, [defaultDate]);
 
   return (
     <>

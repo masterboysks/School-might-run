@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import {
+  DateInput,
   Input,
   Select,
   UploadPhoto,
@@ -62,6 +64,7 @@ const arrayMaritialSatus = [
   },
 ];
 const DetailsForm = () => {
+  const [date, setDate] = useState("");
   const photo = useContext(StaffFormPersonalDetailsPicture);
   const navigate = useNavigate();
   const {
@@ -82,6 +85,7 @@ const DetailsForm = () => {
     console.log(data);
     photo?.setPhoto(data.photo);
     delete data.photo;
+    data.dob = date;
     localStorage.setItem("pdgdsas", JSON.stringify(data));
     navigate(
       "/admin/dashboard/staff/staff-information/add-staff/general/address-details"
@@ -163,13 +167,10 @@ const DetailsForm = () => {
           />
         </div>
         <div className="">
-          <Input
-            label="Date Of Birth*"
-            required={true}
-            name="dob"
-            type="date"
-            errors={errors}
-            register={register}
+          <DateInput
+            selected={date}
+            setSelected={setDate}
+            label="Date of birth"
           />
         </div>
         <div className="">
