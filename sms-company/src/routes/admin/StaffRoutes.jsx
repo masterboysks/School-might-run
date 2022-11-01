@@ -136,14 +136,6 @@ export default function StaffRoutes() {
           }
         >
           <Route
-            path="general"
-            element={
-              <Suspense fallback="Loading ...">
-                <ViewGeneral />
-              </Suspense>
-            }
-          />
-          <Route
             path="document"
             element={
               <Suspense fallback="Loading ...">

@@ -1,14 +1,14 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
 import {
   Checkbox,
+  DateInput,
   Input,
-  MonthInput,
   Password,
   Select,
   Upload,
-  YearInput,
 } from "../../../../../../../components/common/fields";
 const arrayGender = [
   {
@@ -55,6 +55,7 @@ const arrayBloodGroup = [
   },
 ];
 const DetailsForm = () => {
+  const [date, setDate] = useState("");
   const {
     register,
     handleSubmit,
@@ -63,6 +64,7 @@ const DetailsForm = () => {
     formState: { errors },
   } = useForm();
   const anotherChild = watch("has_siblings");
+  // personal.dob
   return (
     <form className="form-solid my-6 rounded-md">
       <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
@@ -151,13 +153,11 @@ const DetailsForm = () => {
           />
         </div>
         <div className="">
-          <YearInput register={register} name="personal[dob]" label="Year" />
-        </div>
-        <div className="">
-          <MonthInput register={register} name="personal[dob]" label="Month" />
-        </div>
-        <div className="">
-          <DayInput register={register} name="personal[dob]" label="Day" />
+          <DateInput
+            selected={date}
+            setSelected={setDate}
+            label="Date of birth"
+          />
         </div>
         <div className="">
           <Upload

@@ -65,6 +65,7 @@ const arrayMaritialSatus = [
 ];
 const DetailsForm = () => {
   const [date, setDate] = useState("");
+  const [defaultDate, setDefaultDate] = useState("");
   const photo = useContext(StaffFormPersonalDetailsPicture);
   const navigate = useNavigate();
   const {
@@ -79,6 +80,7 @@ const DetailsForm = () => {
       const temp = await JSON.parse(localStorage.getItem("pdgdsas"));
       console.log({ ...temp, photo: photo?.photo });
       reset({ ...temp, photo: photo?.photo });
+      setDefaultDate(temp.dob);
     })();
   }, []);
   const onSubmit = async (data) => {
@@ -171,6 +173,7 @@ const DetailsForm = () => {
             selected={date}
             setSelected={setDate}
             label="Date of birth"
+            defaultDate={defaultDate}
           />
         </div>
         <div className="">
