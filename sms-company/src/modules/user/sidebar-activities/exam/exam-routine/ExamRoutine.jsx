@@ -1,6 +1,5 @@
 import React from "react";
 import { ClockIcon } from "@heroicons/react/24/outline";
-import { Api } from "@mui/icons-material";
 const routines = [
   {
     name: "Preboard examination routine",
@@ -184,13 +183,13 @@ export default function ExamRoutine() {
 }
 
 // const [isOpen, setIsOpen] = useState(false)
-// const [card, setCard] = useState("")
-// const [cards, setCards] = useState('')
+// const [routine, setRoutine] = useState("")
+// const [routines, setRoutines] = useState('')
 // const onClick=async(id)=>{
 //   try {
 
 //     const data=await Api....
-//     setCard(data?.data)
+//     setRoutine(data?.data)
 //     setIsOpen(true)
 //   } catch (error) {
 //     console.warn(error)
