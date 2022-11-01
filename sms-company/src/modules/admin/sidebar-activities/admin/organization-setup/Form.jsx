@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import organizationSetupApi from "../../../../../api/admin/dashboard/admin/organizationSetupApi";
 import {
+  DateInput,
   Input,
   Select,
   UploadPhoto,
@@ -20,23 +21,14 @@ const Form = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const [date, setDate] = useState("");
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
+  const [defaultDate, setDefaultDate] = useState("");
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      // country: locationWithIds?.country.filter(
-      //   (c) => data.country === c.country_name
-      // )[0].id,
-      // district: locationWithIds?.district.filter(
-      //   (c) => data.district === c.district_name
-      // )[0].id,
-      // province: locationWithIds?.province.filter(
-      //   (c) => data.province === c.province_name
-      // )[0].id,
-      // vdc_municipality: locationWithIds?.vdc_municipality.filter(
-      //   (c) => data.vdc_municipality === c.municipality_name
-      // )[0].id,
+      established_at: date,
     };
 
     const form = new FormData();
@@ -66,6 +58,8 @@ const Form = () => {
     reset({
       ...defaultData,
     });
+    setDate(defaultData?.established_at);
+    setDefaultDate(defaultData?.established_at);
   };
   useEffect(() => {
     resetData();
@@ -226,14 +220,11 @@ const Form = () => {
           </span>
         </div>
         <div className="">
-          <Input
-            label="Established date*"
-            register={register}
-            name="established_at"
-            id="established_date_form"
-            errors={errors}
-            required={true}
-            type="date"
+          <DateInput
+            selected={date}
+            setSelected={setDate}
+            label="Date"
+            defaultDate={defaultDate}
           />
         </div>
         <div className="">

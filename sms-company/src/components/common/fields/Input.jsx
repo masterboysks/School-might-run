@@ -42,7 +42,7 @@ export function input({
       {showError && errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errorText || "This is a required field."}
           </span>
         </>
       )}
