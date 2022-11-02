@@ -34,7 +34,8 @@ export default function Example() {
       selectedPeople.length > 0 && selectedPeople.length < people.length;
     setChecked(selectedPeople.length === people.length);
     setIndeterminate(isIndeterminate);
-    checkbox?.current?.indeterminate = isIndeterminate;
+    
+    checkbox.current.indeterminate = isIndeterminate;
   }, [selectedPeople]);
 
   function toggleAll() {
