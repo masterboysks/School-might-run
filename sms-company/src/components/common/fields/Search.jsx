@@ -25,7 +25,7 @@ export function searchBar({
         id={id}
         className=" mt-[6px] border  border-primary-btn text-primary-grey-600 text-sm rounded focus:ring-primary-btn block w-full pl-10 p-2 "
         placeholder="Search"
-        {...register}
+        {...register(name)}
       />
     </div>
   );
