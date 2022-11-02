@@ -1,0 +1,4 @@
+import { Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export default function AssignClassSubject({ label, name, value, register, className = "", }) {
+    return (_jsx(_Fragment, { children: value.length === 0 ? (_jsx(_Fragment, {})) : (_jsxs("div", { className: "sm:grid-cols-2 lg:grid-cols-3 lg:w-2/3 mt-9 grid grid-cols-1 gap-4", children: [_jsx("div", { className: "col-span-full pt-5", children: label }), value.map((curr, i) => (_jsxs("div", { className: `flex items-center h-5 ${className}`, children: [_jsx("input", { id: curr.name + i + label, type: "checkbox", ...register(name + i), className: `focus:ring-primary-btn text-primary-btn  w-4 h-4 border-primary-btn border rounded ` }), _jsx("div", { className: "ml-3 text-sm", children: _jsx("label", { htmlFor: curr.name + i + label, className: "font-sm text-primary-grey-600", children: curr.name }) })] }, curr.name + i + label + curr.id)))] })) }));
+}

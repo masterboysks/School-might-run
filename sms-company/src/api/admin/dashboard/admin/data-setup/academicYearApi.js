@@ -1,5 +1,4 @@
 import { authorized } from "../../../../common/axios";
-
 export default {
     get(page = 1) {
         return authorized.get(`/academic-years?page=${page}`);

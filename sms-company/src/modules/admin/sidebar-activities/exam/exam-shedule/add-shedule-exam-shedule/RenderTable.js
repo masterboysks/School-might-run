@@ -1,0 +1,4 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export default function RenderTable({ person }) {
+    return (_jsxs("tr", { children: [_jsx("td", { className: "whitespace-nowrap px-3 py-4 text-sm text-left text-gray-500", children: person.subject }), _jsx("td", { className: "whitespace-nowrap text-primary-grey-600 px-3 py-4 text-sm", children: person.type }), _jsx("td", { className: "p-2", children: _jsx("input", { type: "date", className: "mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm" }) }), _jsx("td", { className: "p-2", children: _jsx("input", { type: "text", name: "total", disabled: true, id: "total", className: "mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-grey-400 bg-primary-grey-100 shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm" }) })] }));
+}
