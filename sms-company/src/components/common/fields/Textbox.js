@@ -1,4 +1,0 @@
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-export const textarea = ({ id = Math.random() + "jkhsaieor", name, register, required = false, errors = {}, row = 10, label, placeholder = "", }) => {
-    return (_jsxs(_Fragment, { children: [_jsx("label", { className: `my-6 text-sm ${errors && errors[name] && " text-red-600"}`, htmlFor: id, children: label }), _jsx("br", {}), _jsx("textarea", { id: id, row: row || 20, placeholder: placeholder, ...register(name, { required }), className: "resize-none  mt-[6px] w-full p- rounded  focus:ring-primary-btn  h-52  border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm" }), errors && errors[name] && (_jsxs(_Fragment, { children: [_jsx("br", {}), _jsx("span", { className: "text-xs font-light text-red-600", children: "This is a required field." }), _jsx("br", {})] }))] }));
-};
