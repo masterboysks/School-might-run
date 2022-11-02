@@ -60,7 +60,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Assignment
               </li>
@@ -74,7 +74,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 E-Library
               </li>
@@ -91,7 +91,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Pratice questions
               </li>
@@ -116,7 +116,7 @@ const Slidebar = () => {
                   dropReports ? "rotate-90" : ""
                 }  `}
               >
-                <Arrow fontSize="small" />
+                <Arrow fontSize="inherit" />
               </div>
               <div className=" text-sm">Reports</div>
             </li>

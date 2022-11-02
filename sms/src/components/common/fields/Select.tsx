@@ -149,7 +149,7 @@ export function multipleSelect({
     </>
   );
 }
-export const selectDisabled = ({ label, value = "Select", className }) => {
+export const selectDisabled = ({ label, value = "Select", className='' }) => {
   return (
     <>
       <label className={`my-6 text-sm `}>{label}</label>

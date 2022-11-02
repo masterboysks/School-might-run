@@ -7,6 +7,8 @@ import AdminDashboardRoutes from "./AdminDashboardRoutes";
 import ExamRoutes from "./ExamRoutes";
 import ReportRoutes from "./ReportRoutes";
 import FeeRoutes from "./FeeRoutes";
+import React from "react";
+import TransportationRoutes from "./TransportationRoutes";
 
 const AdminMain = lazy(() => import("../../pages/AdminMain"));
 
@@ -28,6 +30,7 @@ function AdminRoutes() {
         <Route path="staff/*" element={<StaffRoutes />}></Route>
         <Route path="student/*" element={<StudentRoutes />}></Route>
         <Route path="fee/*" element={<FeeRoutes />}></Route>
+        <Route path="transport/*" element={<TransportationRoutes />}></Route>
 
         <Route
           path="*"

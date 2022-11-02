@@ -51,7 +51,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Student information
               </li>
@@ -68,7 +68,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Student attendance
               </li>

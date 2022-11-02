@@ -2,6 +2,7 @@ import React from "react";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Table from "./Table";
 import { useParams } from "react-router-dom";
+import Form from "./Form";
 export default function AssignmentClass() {
   const { name } = useParams();
   const pages = [
@@ -20,7 +21,7 @@ export default function AssignmentClass() {
   return (
     <>
       <Breadnav pages={pages} />
-      aaignnentclass search
+      <Form></Form>
       <Table />
     </>
   );

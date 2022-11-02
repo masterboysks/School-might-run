@@ -114,7 +114,7 @@ export default function Form() {
                           <div className="text-primary-btn mx-1">Add new</div>
                           <AddIcon
                             className="text-primary-btn"
-                            fontSize="small"
+                            fontSize="inherit"
                           />
                         </div>
                       </div>

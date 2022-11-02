@@ -52,6 +52,7 @@ export default function Table({ data, status }) {
               name="student_name"
               register={register}
               label="Student name"
+              placeholder="Ranjit"
             />
           </div>
           <div>
@@ -74,19 +75,31 @@ export default function Table({ data, status }) {
                     <tr>
                       <th
                         scope="col"
-                        className="px-3 py-3.5 w-12 text-left text-sm font-medium text-primary-grey-700    "
+                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
                       >
-                        Student Is
+                        Student Id
                       </th>
                       <th
                         scope="col"
-                        className="px-3 py-3.5 w-20 text-left text-sm font-medium text-primary-grey-700    "
+                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
+                      >
+                        Student name
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
+                      >
+                        Roll no
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
                       >
                         Submission status
                       </th>
                       <th
                         scope="col"
-                        className="px-3 py-3.5 w-40  text-left text-sm font-medium text-primary-grey-700    "
+                        className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700    "
                       >
                         Submitted date
                       </th>
@@ -106,7 +119,11 @@ export default function Table({ data, status }) {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    <RenderTable currentItems={data} setOpen={setOpen} />
+                    <RenderTable
+                      currentItems={data}
+                      setOpen={setOpen}
+                      status={status}
+                    />
                   </tbody>
                 </table>
               </div>

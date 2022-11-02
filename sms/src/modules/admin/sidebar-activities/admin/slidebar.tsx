@@ -89,7 +89,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Organization setup
               </li>
@@ -113,7 +113,7 @@ const Slidebar = () => {
                   dropdownActive ? "rotate-90" : ""
                 }  `}
               >
-                <Arrow fontSize="small" />
+                <Arrow fontSize="inherit" />
               </div>
               <div className=" text-sm">Data setup</div>
             </li>
@@ -148,7 +148,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Class schedule
               </li>
@@ -162,7 +162,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Upgrade class
               </li>
@@ -176,7 +176,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Notice
               </li>
@@ -190,7 +190,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Event Calender
               </li>
@@ -204,7 +204,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Template
               </li>

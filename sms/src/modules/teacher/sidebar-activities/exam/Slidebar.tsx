@@ -44,7 +44,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="small" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Exam marks
               </li>

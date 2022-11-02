@@ -70,7 +70,7 @@ export default function Form() {
                     setAddExamName(addExamName.slice(0, -1));
                   }}
                 >
-                  <CloseOutlinedIcon fontSize="small" />
+                  <CloseOutlinedIcon fontSize="inherit" />
                 </div>
               </div>
             ))}
@@ -84,7 +84,7 @@ export default function Form() {
           >
             <div className="">Add</div>
             <div className="icon border-primary-field p-1 ml-2 border rounded-lg">
-              <AddOutlinedIcon fontSize="small" />
+              <AddOutlinedIcon fontSize="inherit" />
             </div>
           </div>
         </div>

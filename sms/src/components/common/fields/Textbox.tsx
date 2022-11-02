@@ -1,3 +1,5 @@
+import React from "react";
+
 export const textarea = ({
   id = Math.random() + "jkhsaieor",
   name,

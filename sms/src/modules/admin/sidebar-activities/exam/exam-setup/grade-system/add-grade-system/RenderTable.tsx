@@ -66,7 +66,7 @@ export default function RenderTable({
               setInputFiled(inputFields.slice(0, -1));
             }}
           >
-            <CloseOutlinedIcon fontSize="small" />
+            <CloseOutlinedIcon fontSize="inherit" />
           </div>
         )}
       </td>

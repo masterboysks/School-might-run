@@ -64,7 +64,7 @@ const FeeSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Fee type
               </li>
@@ -78,7 +78,7 @@ const FeeSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Fee assign
               </li>
@@ -92,7 +92,7 @@ const FeeSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Student logsheet
               </li>
@@ -106,7 +106,7 @@ const FeeSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Fee payment
               </li>
@@ -130,7 +130,7 @@ const FeeSlidebar = () => {
                   dropFeeStatement ? "rotate-90" : ""
                 }  `}
               >
-                <Arrow fontSize="sm" />
+                <Arrow fontSize="inherit" />
               </div>
               <div className=" text-sm">Fee statement</div>
             </li>
@@ -168,7 +168,7 @@ const FeeSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Misc. fee assign
               </li>

@@ -167,7 +167,7 @@ export default function ExamRoutine() {
           <div key={curr.name} className="border p-3 rounded-md  mt-9">
             <div className="flex">
               <div className="text-red-500 h-5 w-5  mr-3">
-                <AssessmentIcon fontSize="small" />
+                <AssessmentIcon fontSize="inherit" />
               </div>
               <div className="">{curr.days} days ago</div>
             </div>

@@ -83,7 +83,7 @@ const Slidebar = () => {
                   dropdownSetupActive ? "rotate-90" : ""
                 }  `}
               >
-                <Arrow fontSize="sm" />
+                <Arrow fontSize="inherit" />
               </div>
               <div className=" text-sm">Exam setup</div>
             </li>
@@ -119,7 +119,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Marks Ledger
               </li>
@@ -134,7 +134,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Exam shedule
               </li>
@@ -148,7 +148,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm"></Arrow>
+                  <Arrow fontSize="inherit"></Arrow>
                 </div>
                 Admit card
               </li>

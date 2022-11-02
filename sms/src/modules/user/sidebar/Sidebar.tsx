@@ -307,7 +307,7 @@ export default function Sidebar() {
                                   item.open ? "rotate-90" : ""
                                 }  `}
                               >
-                                <Arrow fontSize="sm" />
+                                <Arrow fontSize="inherit" />
                               </div>
                             </div>
                           </a>
@@ -435,7 +435,7 @@ export default function Sidebar() {
                             item.open ? "rotate-90" : ""
                           }  `}
                         >
-                          <Arrow fontSize="sm" />
+                          <Arrow fontSize="inherit" />
                         </div>
                       </div>
                     </a>

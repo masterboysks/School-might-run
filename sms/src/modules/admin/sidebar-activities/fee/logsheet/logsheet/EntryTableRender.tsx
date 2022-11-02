@@ -60,7 +60,7 @@ export default function RenderTable({ type, index, setEntry, entry }) {
               setEntry(entry.slice(0, -1));
             }}
           >
-            <CloseOutlinedIcon fontSize="small" />
+            <CloseOutlinedIcon fontSize="inherit" />
           </div>
         )}
       </td>

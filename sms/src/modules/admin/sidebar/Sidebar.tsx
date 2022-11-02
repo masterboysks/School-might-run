@@ -31,7 +31,7 @@ let activity = [
   {
     name: "Transport",
     value: Transport,
-    path: "student/student-information",
+    path: "transport/student-wise-details",
   },
   { name: "Account", value: Account, path: "account" },
   {

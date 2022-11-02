@@ -37,7 +37,8 @@ const filtered_data = [
     name: "Ranjit Sherstha",
     roll_no: "99/98",
     status: 1,
-    submitted_date: undefined,
+
+    submitted_date: "11/12/2039",
     points: "0/100",
     assignment: "https://www.google.com",
   },

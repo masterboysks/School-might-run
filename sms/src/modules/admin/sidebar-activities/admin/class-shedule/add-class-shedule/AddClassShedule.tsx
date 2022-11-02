@@ -188,7 +188,7 @@ function AddClassShedule() {
               <Link to="/admin/dashboard/admin/data-setup/subject/add">
                 <div className="outline outline-1 outline-primary-grey-700 mx-2 rounded cursor-pointer">
                   <AddOutlinedIcon
-                    fontSize="small"
+                    fontSize="inherit"
                     className="text-primary-grey-700"
                   />
                 </div>

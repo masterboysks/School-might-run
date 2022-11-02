@@ -1,3 +1,5 @@
+import React from "react";
+
 export const upload = ({
   label,
   name,
@@ -11,6 +13,20 @@ export const upload = ({
   id = Math.random() + "jkhsaieor",
   watch,
   accept,
+  multiple,
+}: {
+  label: any;
+  name: any;
+  errors?: {} | undefined;
+  register: any;
+  required?: boolean | undefined;
+  showError?: boolean | undefined;
+  uploadText?: any;
+  errorText?: string | undefined;
+  id?: string | undefined;
+  watch: any;
+  accept?: string | undefined;
+  multiple?: boolean | undefined;
 }) => {
   let logo;
   watch && (logo = watch(name));
@@ -49,6 +65,7 @@ export const upload = ({
                 className="sr-only"
                 {...register(name, { required })}
                 accept={accept}
+                multiple={multiple}
               />
               {logo && logo.length === 1
                 ? logo[0].name

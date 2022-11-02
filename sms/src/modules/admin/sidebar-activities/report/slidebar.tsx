@@ -78,7 +78,7 @@ const ReportSlidebar = () => {
                   dropAttendanceReport ? "rotate-90" : ""
                 }  `}
               >
-                <Arrow fontSize="sm" />
+                <Arrow fontSize="inherit" />
               </div>
               <div className=" text-sm">Attendance report</div>
             </li>
@@ -113,7 +113,7 @@ const ReportSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Exam report
               </li>
@@ -127,7 +127,7 @@ const ReportSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Fee report
               </li>
@@ -141,7 +141,7 @@ const ReportSlidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="sm" />
+                  <Arrow fontSize="inherit" />
                 </div>
                 Topper report
               </li>

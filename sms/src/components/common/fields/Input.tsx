@@ -141,9 +141,9 @@ export function inputNumber({
   label,
   required = false,
   placeholder = "",
-  step,
-  min,
-  max,
+  step = "",
+  min = "",
+  max = "",
 }) {
   const props = { step, min, max, placeholder, id };
   return (
