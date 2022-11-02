@@ -7,26 +7,22 @@ const transportSlidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar").classList;
+    nav = document.getElementById("sidebar")?.classList;
     nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
     slidebar();
   };
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar").classList;
-    let overlay =
-      document.getElementById("overlay") &&
-      document.getElementById("overlay").classList;
-    const slidebar =
-      document.getElementById("slidebar") &&
-      document.getElementById("slidebar").classList;
+    nav = document.getElementById("sidebar")?.classList;
+    let overlay = document.getElementById("overlay")?.classList;
+    const slidebar = document.getElementById("slidebar")?.classList;
 
     slidebar &&
       (slidebar.contains("hidden") && !nav.contains("hidden")
         ? slidebar.remove("hidden")
         : slidebar.add("hidden"));
     overlay &&
-      (!slidebar.contains("hidden")
+      (!slidebar?.contains("hidden")
         ? overlay.remove("hidden")
         : overlay.add("hidden"));
   };
