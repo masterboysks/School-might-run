@@ -81,7 +81,7 @@ export default function AssignmentView() {
       <div className="mt-4">DESCRIPTION:</div>
       <div className="my-2">{data.description}</div>
       <Details data={data} />
-      <Table data={filtered_data} status={status} />
+      <Table data={filtered_data} status={statusArray} />
     </>
   );
 }
