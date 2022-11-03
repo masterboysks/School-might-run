@@ -138,7 +138,7 @@ export const inputDisabled = ({
       )}
 
       <input
-        className=" mt-[6px] w-full p- rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+        className=" mt-[6px] w-full py-3 rounded   focus:ring-primary-btn     bg-primary-grey-100 border-primary-grey-400  shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
         disabled
         type="text"
         value={value}

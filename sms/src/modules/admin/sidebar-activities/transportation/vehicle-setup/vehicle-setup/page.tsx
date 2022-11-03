@@ -9,7 +9,7 @@ const pages = [
     href: "/admin/dashboard/transport/vehicle-setup/",
   },
 ];
-export default function StudentWiseDetails() {
+export default function VehicleSetup() {
   return (
     <>
       <Breadnav pages={pages} />
