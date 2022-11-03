@@ -4,19 +4,7 @@ const arrayGender = {
   2: "Femail",
 };
 
-const RenderTable = ({
-  currentItems,
-}: {
-  currentItems: {
-    id: string;
-    name: string;
-    route_name: string;
-    station: string;
-    trip_type: string;
-    fee: string;
-    status: number;
-  }[];
-}) => {
+const RenderTable = ({ currentItems }) => {
   return (
     <>
       {currentItems.map((person, index, table) => (

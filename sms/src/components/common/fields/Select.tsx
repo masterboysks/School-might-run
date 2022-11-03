@@ -1,5 +1,6 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import React from "react";
 import { Fragment } from "react";
 import { useController } from "react-hook-form";
 
@@ -64,7 +65,7 @@ export function multipleSelect({
   control,
 
   errors = {},
-  required,
+  required = false,
 }) {
   const {
     field: { onChange, value },
@@ -149,7 +150,7 @@ export function multipleSelect({
     </>
   );
 }
-export const selectDisabled = ({ label, value = "Select", className='' }) => {
+export const selectDisabled = ({ label, value = "Select", className = "" }) => {
   return (
     <>
       <label className={`my-6 text-sm `}>{label}</label>

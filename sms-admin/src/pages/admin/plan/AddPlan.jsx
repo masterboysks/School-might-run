@@ -175,9 +175,10 @@ export default function AddCompany() {
           <div
             className=" text-white icon w-fit bg-primary-base/80 rounded h-fit p-1"
             onClick={() => {
-              setIncluded([...included, included[included.length - 1] + 1]);
+              setIncluded([...included, included.splice(-1)[0] + 1]);
             }}
           >
+        
             <AddIcon />
           </div>
         </div>

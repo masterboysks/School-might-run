@@ -1,4 +1,5 @@
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import React from "react";
 import { Input } from "../../../../../../../components/common/oldFields";
 export default function RenderTable({
   index,
@@ -57,9 +58,7 @@ export default function RenderTable({
       </td>
 
       <td>
-        {index === 0 ? (
-          <></>
-        ) : (
+        {inputFields.length === 1 || (
           <div
             className=" text-primary-grey-700 w-fit p-1 mx-1 bg-white rounded-full shadow"
             onClick={() => {

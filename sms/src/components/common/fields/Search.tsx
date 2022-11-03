@@ -1,3 +1,5 @@
+import React from "react";
+
 export function searchBar({
   id = Math.random() + "uehwsfdkh",
   register,

@@ -1,20 +1,19 @@
 import React from "react";
 
-export function SecondaryButton({ children, onClick, className }) {
+export function SecondaryButton(props) {
+  const children = props?.children;
   return (
-    <div onClick={onClick} className={`secondary_btn ${className} `}>
+    <button {...props} className={`secondary_btn ${props.className} `}>
       {children}
-    </div>
+    </button>
   );
 }
 
-export function PrimaryButton({ children, onClick, className }) {
+export function PrimaryButton(props) {
+  const children = props?.children;
   return (
-    <div
-      onClick={onClick}
-      className={`bg-primary-btn focus:outline-none focus:ring focus:bg-white   focus:ring-offset-2 sm:w-auto inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white border border-transparent rounded-md shadow-sm ${className}`}
-    >
+    <button {...props} className={`primary_btn ${props.className}`}>
       {children}
-    </div>
+    </button>
   );
 }

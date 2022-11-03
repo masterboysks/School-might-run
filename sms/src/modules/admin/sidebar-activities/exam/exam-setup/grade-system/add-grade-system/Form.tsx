@@ -19,7 +19,7 @@ export default function Form() {
   const handleSubmit = () => {
     console.log({ inputFileds, level });
     let temp = false;
-    level === Select && (temp = true) && setErrorLevel(true);
+    level === "Select" && (temp = true) && setErrorLevel(true);
     inputFileds.map((curr) => {
       (curr.lowerLimit && curr.upperLimit && curr.grade && curr.gpa) ||
         (temp = true);

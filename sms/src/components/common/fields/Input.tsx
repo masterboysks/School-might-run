@@ -1,5 +1,6 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import React from "react";
 import { useState } from "react";
 export function input({
   id = Math.random() + "jkhsaieor",
@@ -134,11 +135,11 @@ export const inputDisabled = ({
 };
 export function inputNumber({
   id = Math.random() + "jkhsaieor",
-  name,
 
   errors = {},
   register,
   label,
+  name = label,
   required = false,
   placeholder = "",
   step = "",
