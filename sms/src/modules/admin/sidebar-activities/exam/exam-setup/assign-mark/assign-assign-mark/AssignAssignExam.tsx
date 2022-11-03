@@ -8,21 +8,18 @@ import Table from "./Table";
 export default function AssignAssignExam() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Exam", href: "#", current: false },
+    { name: "Exam", href: "#" },
     {
       name: "Exam setup",
       href: "#",
-      current: false,
     },
     {
       name: "Exam name",
       href: "/admin/dashboard/exam/exam-setup/assign-mark",
-      current: false,
     },
     {
       name: `${classOfSchool}-${section}`,
       href: "#",
-      current: true,
     },
   ];
   return (

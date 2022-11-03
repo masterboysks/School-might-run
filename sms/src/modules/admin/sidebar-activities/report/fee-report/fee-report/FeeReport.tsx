@@ -4,11 +4,10 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Form from "./Form";
 
 const pages = [
-  { name: "Report", href: "#", current: false },
+  { name: "Report", href: "#" },
   {
     name: "Fee Report",
     href: "/report/fee-report",
-    current: true,
   },
 ];
 export default function FeeStatement() {

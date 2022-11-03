@@ -5,16 +5,14 @@ import Break from "../../../../../../components/common/Break";
 import Details from "./Details";
 import Table from "./Table";
 const pages = [
-  { name: "Exam", href: "#", current: false },
+  { name: "Exam", href: "#" },
   {
     name: "Admit card",
     href: "/admin/dashboard/exam/admit-card",
-    current: false,
   },
   {
     name: "Assign admit card",
     href: "#",
-    current: true,
   },
 ];
 export default function AssignAdmitCard() {

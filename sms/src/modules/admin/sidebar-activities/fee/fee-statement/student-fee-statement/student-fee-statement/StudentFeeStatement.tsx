@@ -3,16 +3,14 @@ import React from "react";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Table from "./Table";
 const pages = [
-  { name: "Fee", href: "#", current: false },
+  { name: "Fee", href: "#" },
   {
     name: "Fee statement",
     href: "#",
-    current: false,
   },
   {
     name: "Student fee statement",
     href: "/fee/fee-statement/student-fee-statement",
-    current: true,
   },
 ];
 export default function StudentFeeStatement() {

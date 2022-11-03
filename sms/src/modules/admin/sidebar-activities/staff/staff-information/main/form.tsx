@@ -12,11 +12,10 @@ import {
 } from "../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Staff", href: "#", current: false },
+  { name: "Staff", href: "#" },
   {
     name: "Staff Information",
     href: "/admin/dashboard/staff/staff-information",
-    current: true,
   },
 ];
 const arrayStatus = [

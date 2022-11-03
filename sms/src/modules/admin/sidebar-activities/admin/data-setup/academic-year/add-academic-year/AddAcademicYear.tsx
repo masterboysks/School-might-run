@@ -11,21 +11,18 @@ import {
 } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Academic year",
     href: "/admin/dashboard/admin/data-setup/academic-year",
-    current: false,
   },
   {
     name: "Add",
     href: "/admin/dashboard/admin/data-setup/academic-year/add",
-    current: true,
   },
 ];
 const AddAcademicYear = () => {

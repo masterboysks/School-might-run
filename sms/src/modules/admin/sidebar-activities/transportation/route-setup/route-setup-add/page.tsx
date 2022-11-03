@@ -4,16 +4,14 @@ import Break from "../../../../../../components/common/Break";
 import Form from "./Form";
 
 const pages = [
-  { name: "Transportation", href: "#", current: false },
+  { name: "Transportation", href: "#" },
   {
     name: "Route setup",
     href: "/admin/dashboard/transport/route-setup/",
-    current: false,
   },
   {
     name: "Add",
     href: "#",
-    current: true,
   },
 ];
 export default function RouteSetup() {

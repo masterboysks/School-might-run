@@ -7,17 +7,15 @@ import Table from "./Table";
 export default function ViewMarkLedger() {
   const { section, classOfSchool } = useParams();
   const pages = [
-    { name: "Exam", href: "#", current: false },
+    { name: "Exam", href: "#" },
 
     {
       name: "Marksledger",
       href: "/admin/dashboard/exam/marks-ledger",
-      current: false,
     },
     {
       name: `${classOfSchool}-${section}`,
       href: "#",
-      current: true,
     },
   ];
   return (

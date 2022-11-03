@@ -1,6 +1,6 @@
 import React from "react";
 
-const Break = ({ title }) => {
+const Break = ({ title }: { title: string }) => {
   return (
     <div className="mt-12">
       <div className="relative">

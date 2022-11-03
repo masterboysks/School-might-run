@@ -2,16 +2,14 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../break";
 import Form from "./Form";
 const pages = [
-  { name: "Fee", href: "#", current: false },
+  { name: "Fee", href: "#" },
   {
     name: "Miscellaneous fee assign",
     href: "/fee/miscellaneous-fee-assign",
-    current: false,
   },
   {
     name: "Assign",
     href: "/fee/miscellaneous-fee-assign/assign",
-    current: true,
   },
 ];
 export default function MiscAssign() {

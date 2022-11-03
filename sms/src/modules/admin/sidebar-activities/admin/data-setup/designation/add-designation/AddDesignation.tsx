@@ -10,21 +10,18 @@ import Break from "../../../../../../../components/common/Break";
 import { Input, Select } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Designation",
     href: "/admin/dashboard/admin/data-setup/designation",
-    current: false,
   },
   {
     name: "Add",
     href: "/admin/dashboard/admin/data-setup/designation/add",
-    current: true,
   },
 ];
 

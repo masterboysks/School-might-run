@@ -2,11 +2,10 @@ import React from "react";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Table from "./Table";
 const pages = [
-  { name: "Fee", href: "#", current: false },
+  { name: "Fee", href: "#" },
   {
     name: "Miscellaneous fee assign",
     href: "/fee/miscellaneous-fee-assign",
-    current: true,
   },
 ];
 function Notice() {

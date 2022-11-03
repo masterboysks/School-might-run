@@ -10,16 +10,14 @@ import { useEffect } from "react";
 import React from "react";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Department",
     href: "/admin/dashboard/admin/data-setup/department",
-    current: true,
   },
 ];
 const Department = () => {

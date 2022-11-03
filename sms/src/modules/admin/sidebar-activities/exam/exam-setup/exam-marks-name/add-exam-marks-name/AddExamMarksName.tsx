@@ -9,21 +9,18 @@ import {
 import { Input } from "../../../../../../../components/common/oldFields";
 
 const pages = [
-  { name: "Exam", href: "#", current: false },
+  { name: "Exam", href: "#" },
   {
     name: "Exam setup",
     href: "#",
-    current: false,
   },
   {
     name: "Exam marks name",
     href: "/admin/dashboard/exam/exam-setup/exam-marks-name",
-    current: false,
   },
   {
     name: "add",
     href: "/admin/dashboard/exam/exam-setup/exam-marks-name/add",
-    current: true,
   },
 ];
 export default function ExamMarksName() {

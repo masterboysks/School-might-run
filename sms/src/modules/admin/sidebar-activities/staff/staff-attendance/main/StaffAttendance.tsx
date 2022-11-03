@@ -7,11 +7,10 @@ import Form from "./Form";
 import Table from "./Table";
 
 const pages = [
-  { name: "Staff", href: "#", current: false },
+  { name: "Staff", href: "#" },
   {
     name: "Staff attendance",
     href: "/staff/staff-attendance/",
-    current: true,
   },
 ];
 function StaffAttendance() {

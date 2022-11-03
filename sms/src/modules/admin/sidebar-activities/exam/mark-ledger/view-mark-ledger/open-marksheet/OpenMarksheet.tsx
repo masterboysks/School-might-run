@@ -7,22 +7,19 @@ import Table from "./Table";
 export default function OpenMarksheet() {
   const { classOfSchool, section, studentName, studentId } = useParams();
   const pages = [
-    { name: "Exam", href: "#", current: false },
+    { name: "Exam", href: "#" },
 
     {
       name: "Marksledger",
       href: "/admin/dashboard/exam/marks-ledger",
-      current: false,
     },
     {
       name: `${classOfSchool} - ${section}`,
       href: `/exam/marks-ledger/view/${classOfSchool}/${section}`,
-      current: false,
     },
     {
       name: studentName,
       href: `/exam/marks-ledger/view/${classOfSchool}/${section}/${studentName}/${studentId}`,
-      current: true,
     },
   ];
   return (

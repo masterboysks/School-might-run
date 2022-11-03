@@ -8,21 +8,18 @@ import Break from "../../../../../../../components/common/Break";
 import { Input } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "University/Board",
     href: "/admin/dashboard/admin/data-setup/university-board",
-    current: false,
   },
   {
     name: "Add",
     href: "/admin/dashboard/admin/data-setup/university-board/add",
-    current: true,
   },
 ];
 const AddUniversityBoard = () => {

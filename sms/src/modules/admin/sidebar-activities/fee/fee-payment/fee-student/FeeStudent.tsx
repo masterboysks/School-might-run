@@ -7,11 +7,10 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 export default function FeeStudent() {
   const { student } = useParams();
   const pages = [
-    { name: "Fee", href: "#", current: false },
+    { name: "Fee", href: "#" },
     {
       name: "Fee payment",
       href: "/fee/fee-payment/",
-      current: false,
     },
     {
       name: `${
@@ -19,7 +18,6 @@ export default function FeeStudent() {
         student.split("-")[0].substring(1)
       }'s logsheet`,
       href: "#",
-      current: true,
     },
   ];
   return (

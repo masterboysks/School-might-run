@@ -137,11 +137,11 @@ export const Upload = ({
         {label}
       </label>
       <div className=" mt-[6px] sm:col-span-2 ">
-        <div className=" flex w-full px-3 py-1.5 border border-primary-base border-dashed rounded-md">
+        <div className=" flex w-full px-3 text-primary-grey py-1.5 border border-primary-base border-dashed rounded-md focus-within:border-solid focus-within:ring ring-primary-base focus-within:text-primary-base">
           <div className=" w-full space-y-1">
             <label
               htmlFor={id}
-              className="text-primary-grey  within:outline-none focus:border-solid focus:outline-none focus:ring-offset-0 flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
+              className="  within:outline-none   flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
             >
               <div>
                 {logo && logo.length === 1

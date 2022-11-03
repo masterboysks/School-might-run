@@ -3,11 +3,10 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../break";
 import Form from "./Form";
 const pages = [
-  { name: "Fee", href: "#", current: false },
+  { name: "Fee", href: "#" },
   {
     name: "Fee assign",
     href: "/fee/fee-assign/",
-    current: true,
   },
 ];
 export default function Assign() {

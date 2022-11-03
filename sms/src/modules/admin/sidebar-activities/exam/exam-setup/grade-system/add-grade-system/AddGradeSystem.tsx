@@ -3,21 +3,18 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import Form from "./Form";
 const pages = [
-  { name: "Exam", href: "#", current: false },
+  { name: "Exam", href: "#" },
   {
     name: "Exam setup",
     href: "#",
-    current: false,
   },
   {
     name: "Grading system",
     href: "/admin/dashboard/exam/exam-setup/grading-system",
-    current: false,
   },
   {
     name: "Add",
     href: "/admin/dashboard/exam/exam-setup/grading-system/add",
-    current: true,
   },
 ];
 export default function AddGradeSystem() {

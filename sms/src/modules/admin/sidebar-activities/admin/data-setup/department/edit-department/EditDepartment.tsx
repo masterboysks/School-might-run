@@ -8,21 +8,18 @@ import Break from "../../../../../../../components/common/Break";
 import { Input } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Department",
     href: "/admin/dashboard/admin/data-setup/department",
-    current: false,
   },
   {
     name: "Edit",
     href: "#",
-    current: true,
   },
 ];
 const EditDepartment = () => {

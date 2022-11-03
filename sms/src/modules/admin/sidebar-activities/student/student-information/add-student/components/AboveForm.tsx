@@ -4,16 +4,14 @@ import { Link } from "react-router-dom";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 
 const pages = [
-  { name: "Student", href: "#", current: false },
+  { name: "Student", href: "#" },
   {
     name: "Student Information",
     href: "/student/student-information/",
-    current: false,
   },
   {
     name: "Add Student",
     href: "/admin/dashboard/student/student-information/add-student-details",
-    current: true,
   },
 ];
 

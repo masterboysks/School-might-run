@@ -51,6 +51,11 @@ const data = [
 export default function Table() {
   return (
     <div className="mt-11 mb-6">
+      <div className="ml-auto w-fit mt-4">
+        <Link to="add" className="primary_btn">
+          Add
+        </Link>
+      </div>
       {data.length === 0 ? (
         <div className="flex justify-center text-2xl my-9">
           Please search to view Table
@@ -68,44 +73,50 @@ export default function Table() {
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700    "
                         >
-                          Student ID
+                          Vehicle no.
                         </th>
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                         >
-                          Student Name
+                          Vehicle name
                         </th>
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                         >
-                          Route Name
+                          Driver Name
                         </th>
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                         >
-                          Station
+                          Driver no.
                         </th>
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                         >
-                          Trip type
+                          Assitant name
                         </th>
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                         >
-                          Transp. fee(Rs)
+                          Assisant nodile no.
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                        >
+                          Document view
                         </th>
 
                         <th
                           scope="col"
-                          className="px-3 py-3.5 w-20 text-left text-sm font-medium text-primary-grey-700   "
+                          className="px-3 py-3.5 w-10 text-left text-sm font-medium text-primary-grey-700   "
                         >
-                          Status
+                          Action
                         </th>
                       </tr>
                     </thead>

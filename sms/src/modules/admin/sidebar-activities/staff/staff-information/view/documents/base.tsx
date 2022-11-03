@@ -3,16 +3,14 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Tabs from "../../Tabs";
 
 const pages = [
-  { name: "Staff", href: "#", current: false },
+  { name: "Staff", href: "#" },
   {
     name: "Staff Information",
     href: "",
-    current: false,
   },
   {
     name: "Add",
     href: "#",
-    current: true,
   },
 ];
 const DocumentView = () => {

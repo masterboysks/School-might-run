@@ -3,16 +3,14 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Form from "./Form";
 import Table from "./Table";
 const pages = [
-  { name: "Report", href: "#", current: false },
+  { name: "Report", href: "#" },
   {
     name: "Attendance report",
     href: "#",
-    current: false,
   },
   {
     name: "Student attendance report",
     href: "/report/attendance-report/student-attendance-report",
-    current: true,
   },
 ];
 export default function StudentAttendanceReportClasses() {

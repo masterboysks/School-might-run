@@ -3,16 +3,14 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Form from "./Form";
 import Table from "./Table";
 const pages = [
-  { name: "Exam", href: "#", current: false },
+  { name: "Exam", href: "#" },
   {
     name: "Exam setup",
     href: "#",
-    current: false,
   },
   {
     name: "Exam name",
     href: "/admin/dashboard/exam/exam-setup/assign-mark",
-    current: true,
   },
 ];
 export default function AssignExam() {

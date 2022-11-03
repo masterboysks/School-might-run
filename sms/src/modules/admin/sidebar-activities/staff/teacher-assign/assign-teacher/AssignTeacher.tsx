@@ -8,17 +8,15 @@ import {
 import { useForm } from "react-hook-form";
 
 const pages = [
-  { name: "Staff", href: "#", current: false },
+  { name: "Staff", href: "#" },
   {
     name: "Teacher assign",
     href: "/staff/teacher-assign/",
-    current: false,
   },
 
   {
     name: "Assign Teacher",
     href: "/staff/teacher-assign/assign-teacher",
-    current: true,
   },
 ];
 const arrayDepartment = [

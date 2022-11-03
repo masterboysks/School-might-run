@@ -4,11 +4,10 @@ import Form from "./Form";
 import Table from "./Table";
 
 const pages = [
-  { name: "Report", href: "#", current: false },
+  { name: "Report", href: "#" },
   {
     name: "Topper Report",
     href: "/report/topper-report",
-    current: true,
   },
 ];
 export default function TopperReportClasses() {

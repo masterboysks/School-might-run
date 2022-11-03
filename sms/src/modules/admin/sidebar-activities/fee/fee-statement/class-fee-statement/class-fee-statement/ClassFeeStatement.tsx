@@ -3,16 +3,14 @@ import LanguageIcon from "@mui/icons-material/Language";
 import Table from "./Table";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 const pages = [
-  { name: "Fee", href: "#", current: false },
+  { name: "Fee", href: "#" },
   {
     name: "Fee statement",
     href: "#",
-    current: false,
   },
   {
     name: "Class fee statement",
     href: "/fee/fee-statement/class-fee-statement",
-    current: true,
   },
 ];
 export default function ClassFeeStatement() {

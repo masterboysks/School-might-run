@@ -4,11 +4,10 @@ import Break from "../../../../../components/common/Break";
 
 import Form from "./Form";
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Organization setup",
     href: "/admin/dashboard/admin/organization-setup",
-    current: true,
   },
 ];
 const OrginazationSetup = () => {

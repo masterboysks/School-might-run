@@ -3,11 +3,10 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Form from "./Form";
 import Table from "./Table";
 const pages = [
-  { name: "Report", href: "#", current: false },
+  { name: "Report", href: "#" },
   {
     name: "Exam report",
     href: "/report/exam-report",
-    current: true,
   },
 ];
 export default function ExamReportClasses() {

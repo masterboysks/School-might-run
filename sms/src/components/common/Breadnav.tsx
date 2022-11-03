@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Breadnav = ({ pages }) => {
@@ -7,15 +8,13 @@ const Breadnav = ({ pages }) => {
       <div className="breadNav">
         <nav className="flex" aria-label="Breadcrumb">
           <ol role="list" className=" flex items-center">
-            {pages.map((page) => (
+            {pages.map((page, i, t) => (
               <li key={page.name}>
                 <div className="flex items-center">
                   {pages.indexOf(page) === 0 ? (
                     <Link
                       to={page.href}
-                      className={` lg:text-base text-xs hidden md:block ${
-                        page.current ? "base font-medium" : "sm font-normal"
-                      }  text-primary-grey-600`}
+                      className={` lg:text-base text-xs hidden md:block sm font-normal text-primary-grey-600`}
                       aria-current={page.current ? "page" : undefined}
                     >
                       {page.name}
@@ -29,7 +28,7 @@ const Breadnav = ({ pages }) => {
                       <Link
                         to={page.href}
                         className={`ml-2  lg:text-base text-xs ${
-                          page.current ? " font-medium" : " font-normal"
+                          i === t.length - 1 ? " font-medium" : " font-normal"
                         }  text-primary-grey-600`}
                         aria-current={page.current ? "page" : undefined}
                       >

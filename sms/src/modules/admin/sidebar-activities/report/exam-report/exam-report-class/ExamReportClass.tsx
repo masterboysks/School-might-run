@@ -8,17 +8,15 @@ import Table from "./Table";
 export default function ExamReportClass() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Report", href: "#", current: false },
+    { name: "Report", href: "#" },
     {
       name: "Exam report",
       href: "/report/exam-report",
-      current: false,
     },
 
     {
       name: `${classOfSchool}-${section}`,
       href: "#",
-      current: true,
     },
   ];
   return (

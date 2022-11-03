@@ -6,11 +6,10 @@ import Breadnav from "../../../../../components/common/Breadnav";
 import RadioTempelate from "../../../../../components/admin/admin/RadioTempelate";
 import { useState } from "react";
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Template",
     href: "/admin/dashboard/admin/template",
-    current: true,
   },
 ];
 function Temeplate() {

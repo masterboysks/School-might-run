@@ -15,16 +15,14 @@ import { useEffect } from "react";
 import React from "react";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Push notification",
     href: "/admin/dashboard/admin/notice",
-    current: false,
   },
   {
     name: "Edit notice",
     href: "#",
-    current: true,
   },
 ];
 

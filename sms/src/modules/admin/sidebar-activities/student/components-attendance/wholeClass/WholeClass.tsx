@@ -7,16 +7,14 @@ import Table from "./Table";
 const WholeClass = () => {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Student", href: "#", current: false },
+    { name: "Student", href: "#" },
     {
       name: "Student Attendance",
       href: "/student/student-attendance/",
-      current: false,
     },
     {
       name: `${classOfSchool}-${section}`,
       href: `/student/student-attendance/${classOfSchool}/${section}`,
-      current: true,
     },
   ];
   return (

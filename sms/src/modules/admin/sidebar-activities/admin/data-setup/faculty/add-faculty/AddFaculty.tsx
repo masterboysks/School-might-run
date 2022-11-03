@@ -9,21 +9,18 @@ import { useForm } from "react-hook-form";
 import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
 import React from "react";
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Faculty",
     href: "/admin/dashboard/admin/data-setup/faculty",
-    current: false,
   },
   {
     name: "Add",
     href: "#",
-    current: true,
   },
 ];
 const AddFaculty = () => {

@@ -4,11 +4,10 @@ import Breadnav from "../../../../../components/common/Breadnav";
 import { Input, Select } from "../../../../../components/common/fields";
 
 const pages = [
-  { name: "Student", href: "#", current: false },
+  { name: "Student", href: "#" },
   {
     name: "Student Information",
     href: "/student/student-information/",
-    current: true,
   },
 ];
 const arrayLevel = [

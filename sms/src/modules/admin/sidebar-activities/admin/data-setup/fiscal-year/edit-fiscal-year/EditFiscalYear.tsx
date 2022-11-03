@@ -12,21 +12,18 @@ import {
 } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Fiscal year",
     href: "/admin/dashboard/admin/data-setup/fiscal-year",
-    current: false,
   },
   {
     name: "Edit",
     href: "",
-    current: true,
   },
 ];
 const EditFiscalYear = () => {

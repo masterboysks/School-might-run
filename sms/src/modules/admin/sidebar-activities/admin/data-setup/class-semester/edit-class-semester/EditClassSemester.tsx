@@ -18,21 +18,18 @@ import { useForm } from "react-hook-form";
 import AssignClassSubject from "../../../../../../../components/admin/admin/AssignClassSubject";
 import React from "react";
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Class/semester",
     href: "/admin/dashboard/admin/data-setup/class-semester",
-    current: false,
   },
   {
     name: "Edit",
     href: "",
-    current: true,
   },
 ];
 

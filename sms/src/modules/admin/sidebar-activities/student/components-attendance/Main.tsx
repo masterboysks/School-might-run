@@ -4,11 +4,10 @@ import ClassTable from "./classTable/ClassTable";
 import Form from "./Form";
 import Breadnav from "../../../../../components/common/Breadnav";
 const pages = [
-  { name: "Student", href: "#", current: false },
+  { name: "Student", href: "#" },
   {
     name: "Student Attendance",
     href: "/student/student-attendance/",
-    current: true,
   },
 ];
 

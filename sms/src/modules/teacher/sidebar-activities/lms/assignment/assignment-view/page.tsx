@@ -56,21 +56,18 @@ const filtered_data = [
 export default function AssignmentView() {
   const { name, id } = useParams();
   const pages = [
-    { name: "Lms", href: "#", current: false },
+    { name: "Lms", href: "#" },
     {
       name: "Assignment",
       href: "/teacher/dashboard/lms/assignment/",
-      current: false,
     },
     {
       name,
       href: `/teacher/dashboard/lms/assignment/${name}`,
-      current: false,
     },
     {
       name: data.title,
       href: "#",
-      current: true,
     },
   ];
   return (

@@ -16,16 +16,14 @@ const people = [
   },
 ];
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Date setup",
     href: "#",
-    current: false,
   },
   {
     name: "Fiscal year",
     href: "/admin/dashboard/admin/data-setup/fiscal-year",
-    current: true,
   },
 ];
 const FiscalYear = () => {

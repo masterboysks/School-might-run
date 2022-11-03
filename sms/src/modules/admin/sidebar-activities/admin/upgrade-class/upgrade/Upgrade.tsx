@@ -3,11 +3,10 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Form from "./Form";
 import React from "react";
 const pages = [
-  { name: "Admin", href: "#", current: false },
+  { name: "Admin", href: "#" },
   {
     name: "Upgrade Class",
     href: "/admin/dashboard/admin/upgrade/",
-    current: true,
   },
 ];
 
