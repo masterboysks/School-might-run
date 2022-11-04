@@ -23,7 +23,7 @@ export default function FeeStatement() {
           </div>
         </div>
       </div>
-      <Table></Table>
+      <Table />
     </>
   );
 }

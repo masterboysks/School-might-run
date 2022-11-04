@@ -72,7 +72,7 @@ export const bs_ad_month = (props) => {
       }
       {...props}
       name={`${props.name}[month]`}
-    ></Select>
+    />
   );
 };
 
@@ -85,6 +85,6 @@ export const bs_ad_day = (props) => {
       min="1"
       max="32"
       step="1"
-    ></InputNumber>
+    />
   );
 };

@@ -21,8 +21,8 @@ export default function ClassStatement() {
     <>
       <Breadnav pages={pages} />
       <Details />
-      <Break title="Monthly fee statement"></Break>
-      <Table></Table>
+      <Break title="Monthly fee statement" />
+      <Table />
     </>
   );
 }

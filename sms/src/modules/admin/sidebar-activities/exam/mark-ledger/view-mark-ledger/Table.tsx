@@ -200,7 +200,7 @@ export default function Table() {
 
         <div className="h-fit w-fit bg-primary-btn sm:box-content xl:col-span-3 box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
           {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-          <Search className="w-4 mx-auto" onClick={handleSubmit}></Search>
+          <Search className="w-4 mx-auto" onClick={handleSubmit} />
         </div>
       </form>
       {/* Table heading */}

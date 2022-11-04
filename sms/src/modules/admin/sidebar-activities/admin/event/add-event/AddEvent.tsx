@@ -25,7 +25,7 @@ function AddEvent() {
   return (
     <div>
       <Breadnav pages={pages} />
-      <Break title="Add event"></Break>
+      <Break title="Add event" />
       <Form date={date} />
     </div>
   );

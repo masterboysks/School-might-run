@@ -18,7 +18,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             required={true}
             errors={errors}
             register={register}
-          ></Input>
+          />
         </div>
         <div className="">
           <Input
@@ -26,7 +26,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             placeholder="Prashad"
             name="father[middle_name]"
             label="Middle name"
-          ></Input>
+          />
         </div>
         <div className="">
           <Input
@@ -36,7 +36,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             register={register}
             name="father[last_name]"
             placeholder="Koirala"
-          ></Input>
+          />
         </div>
         <div className="">
           <InputNumber
@@ -78,7 +78,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             required={true}
             errors={errors}
             register={register}
-          ></Input>
+          />
         </div>
         <div className="">
           <Input
@@ -86,7 +86,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             placeholder=""
             name="mother[middle_name]"
             label="Middle name"
-          ></Input>
+          />
         </div>
         <div className="">
           <Input
@@ -96,7 +96,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             register={register}
             name="mother[last_name]"
             placeholder="Koirala"
-          ></Input>
+          />
         </div>
         <div className="">
           <InputNumber

@@ -21,7 +21,7 @@ export default function UpgradeClass() {
   return (
     <div>
       <Breadnav pages={pages} />
-      <Form></Form>
+      <Form />
       <Filter />
       <Table />
     </div>

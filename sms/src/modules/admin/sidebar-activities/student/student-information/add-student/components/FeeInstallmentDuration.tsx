@@ -5,8 +5,8 @@ import Break from "./Break";
 function FeeInstallmentDuration() {
   return (
     <div className="">
-      <Break title="Fee installment duration"></Break>
-      <div className="mt-6"></div>
+      <Break title="Fee installment duration" />
+      <div className="mt-6" />
       <label htmlFor="fee_installment">Select fee installment duration:</label>
       <br />
       <select

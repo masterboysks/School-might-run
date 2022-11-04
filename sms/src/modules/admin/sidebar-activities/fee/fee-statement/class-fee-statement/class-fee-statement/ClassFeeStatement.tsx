@@ -55,7 +55,7 @@ export default function ClassFeeStatement() {
         </div>
         <div className="h-fit w-fit bg-primary-btn lg:col-span-2 xl:col-span-full sm:box-content col-span-full box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
           {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-          <Search className="w-4 mx-auto"></Search>
+          <Search className="w-4 mx-auto" />
         </div>
       </form>
       <div className="text-primary-btn w-full">
@@ -66,7 +66,7 @@ export default function ClassFeeStatement() {
           </div>
         </div>
       </div>
-      <Table></Table>
+      <Table />
     </>
   );
 }

@@ -24,7 +24,7 @@ export default function Form() {
           value={arrayLevel}
           selected={level}
           setSelected={setLevel}
-        ></Select>
+        />
       </div>
       <div className="">
         <Select
@@ -34,7 +34,7 @@ export default function Form() {
           value={arrayClass}
           selected={classSemester}
           setSelected={setClassSemester}
-        ></Select>
+        />
       </div>
       <div className="">
         <Select
@@ -44,7 +44,7 @@ export default function Form() {
           value={arrayFaculty}
           selected={faculty}
           setSelected={setFaculty}
-        ></Select>
+        />
       </div>
       <div className="">
         <Select
@@ -54,11 +54,11 @@ export default function Form() {
           value={arraySection}
           selected={section}
           setSelected={setSection}
-        ></Select>
+        />
       </div>
       <div className="h-fit w-fit bg-primary-btn lg:col-span-2 xl:col-span-full sm:box-content col-span-full box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
         {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-        <Search className="w-4 mx-auto" onClick={handleSearch}></Search>
+        <Search className="w-4 mx-auto" onClick={handleSearch} />
       </div>
     </form>
   );

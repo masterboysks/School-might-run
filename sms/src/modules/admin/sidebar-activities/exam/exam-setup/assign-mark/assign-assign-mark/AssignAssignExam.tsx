@@ -24,7 +24,7 @@ export default function AssignAssignExam() {
     <>
       <Breadnav pages={pages} />
       <Break title="Assign marks" />
-      <Form></Form>
+      <Form />
       <Table />
     </>
   );

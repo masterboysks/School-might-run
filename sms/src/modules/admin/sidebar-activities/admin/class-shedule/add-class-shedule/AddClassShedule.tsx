@@ -128,7 +128,7 @@ function AddClassShedule() {
                 control={control}
                 errors={errors}
                 required={true}
-              ></MultipleSelect>
+              />
 
               <div className="mt-3">
                 *Note:You can select multiple items at once.
@@ -143,7 +143,7 @@ function AddClassShedule() {
                 errors={errors}
                 register={register}
                 name="subject_id"
-              ></Select>
+              />
             </div>
             <div>
               <Input
@@ -179,7 +179,7 @@ function AddClassShedule() {
                 register={register}
                 errors={errors}
                 value={arrayTeachers}
-              ></Select>
+              />
             </div>
             <div className="col-span-full flex">
               Add subject

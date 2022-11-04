@@ -76,7 +76,7 @@ export default function Table() {
           <div className="h-fit mt-auto -mb-1">
             <div className="h-fit w-fit bg-primary-btn sm:box-content col-span-full sm:ml-0 sm:py-2 box-border px-4 py-3 mt-auto mb-1 ml-auto text-white rounded cursor-pointer">
               {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-              <Search className="w-4 mx-auto"></Search>
+              <Search className="w-4 mx-auto" />
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function Table() {
         </div>
       </div>
       <div className=" ring-1 ring-black ring-opacity-5 mb-9 min-w-full mt-4 overflow-x-auto rounded-lg shadow">
-        <div className="w-fit ml-auto"></div>
+        <div className="w-fit ml-auto" />
         <div className=" flex flex-col w-full rounded">
           <div className=" overflow-x-auto">
             <table className=" min-w-full divide-y divide-gray-300 table-fixed">

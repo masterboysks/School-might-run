@@ -24,7 +24,7 @@ export default function Logsheet() {
     <>
       <Breadnav pages={pages} />
       <Profile></Profile>
-      <Form></Form>
+      <Form />
       <LogTable />
     </>
   );

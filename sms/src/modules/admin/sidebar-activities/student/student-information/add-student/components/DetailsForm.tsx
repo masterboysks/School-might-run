@@ -105,7 +105,7 @@ const DetailsForm = () => {
             register={register}
             required={true}
             errors={errors}
-          ></Input>
+          />
         </div>
         <div className="">
           <Password

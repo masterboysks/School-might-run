@@ -14,7 +14,7 @@ export default function VehicleSetup() {
     <>
       <Breadnav pages={pages} />
       Search left its custonnm
-      <Table></Table>
+      <Table />
     </>
   );
 }

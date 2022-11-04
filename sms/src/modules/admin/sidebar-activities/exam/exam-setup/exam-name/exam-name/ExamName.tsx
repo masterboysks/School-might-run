@@ -15,7 +15,7 @@ export default function ExamName() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Table></Table>
+      <Table />
     </>
   );
 }

@@ -58,7 +58,7 @@ export default function Form() {
           <div className="h-fit col-span-full lg:col-auto mt-auto -mb-1">
             <div className="h-fit w-fit bg-primary-btn sm:box-content col-span-full lg:ml-0 sm:py-2 box-border px-4 py-3 mt-auto mb-1 ml-auto text-white rounded cursor-pointer">
               {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-              <Search className="w-4 mx-auto"></Search>
+              <Search className="w-4 mx-auto" />
             </div>
           </div>
         </div>

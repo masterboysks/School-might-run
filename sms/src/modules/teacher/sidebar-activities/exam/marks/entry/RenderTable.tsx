@@ -14,28 +14,28 @@ const RenderTable = ({ currentItems, register }) => {
               type="number"
               register={register}
               name={"theoryof" + person.class}
-            ></Input>
+             />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <Input
               type="number"
               register={register}
               name={"theoryof" + person.class}
-            ></Input>
+             />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <Input
               type="number"
               register={register}
               name={"theoryof" + person.class}
-            ></Input>
+             />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <InputDisabled
               type="number"
               register={register}
               name={"theoryof" + person.class}
-            ></InputDisabled>
+             /Disabled>
           </td>
         </tr>
       ))}

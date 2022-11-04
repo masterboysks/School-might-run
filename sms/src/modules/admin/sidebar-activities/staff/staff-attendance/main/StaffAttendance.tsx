@@ -28,14 +28,14 @@ function StaffAttendance() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form onSubmit={onSubmit}></Form>
+      <Form onSubmit={onSubmit} />
       <Break title="Attendance" />
       {data.length === 0 ? (
         <div className="my-6 w-full text-center font-medium text-primary-grey-700 text-3xl">
           {message}
         </div>
       ) : (
-        <Table data={data}></Table>
+        <Table data={data} />
       )}
     </>
   );

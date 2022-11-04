@@ -26,7 +26,7 @@ export default function AddSheduleExamShedule() {
   return (
     <>
       <Breadnav pages={pages}></Breadnav>
-      <Break title="Exam schedule"></Break>
+      <Break title="Exam schedule" />
       <Form>
         <Table />
       </Form>

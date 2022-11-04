@@ -62,7 +62,7 @@ const EditAcademicYear = () => {
               label="Academic year*"
               required={true}
               errors={errors}
-            ></YearInput>
+            />
           </div>
           <div className="col-span-full">
             <Checkbox

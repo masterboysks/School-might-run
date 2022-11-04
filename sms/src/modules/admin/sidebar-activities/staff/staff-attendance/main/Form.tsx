@@ -113,7 +113,7 @@ function Form({ onSubmit }) {
         type="submit"
         className="h-fit w-fit bg-primary-btn xl:col-span-3 sm:box-content box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer"
       >
-        <Search className="w-4 mx-auto"></Search>
+        <Search className="w-4 mx-auto" />
       </button>
     </form>
   );

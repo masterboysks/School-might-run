@@ -16,7 +16,7 @@ export default function MiscAssign() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Assign misc. fee"></Break>
+      <Break title="Assign misc. fee" />
       <Form />
     </>
   );

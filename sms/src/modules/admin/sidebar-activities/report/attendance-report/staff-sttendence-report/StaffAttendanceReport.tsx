@@ -16,7 +16,7 @@ export default function StaffAttendanceReport() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form></Form>
+      <Form />
       <Table />
     </>
   );

@@ -72,6 +72,6 @@ export const bs_ad_year = (props) => {
       label={`${props.label}(${
         format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? "BS" : "AD"
       })`}
-    ></InputNumber>
+    />
   );
 };

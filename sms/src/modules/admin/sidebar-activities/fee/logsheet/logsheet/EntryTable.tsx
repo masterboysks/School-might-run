@@ -60,7 +60,7 @@ export default function Table({ type }) {
                       index={index}
                       setEntry={setEntry}
                       entry={entry}
-                    ></RenderTable>
+                    />
                   );
                 })}
                 <tr className="bg-gray-50 ">

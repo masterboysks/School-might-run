@@ -57,7 +57,7 @@ export default function Table({ register, errors, station, setStation }) {
                       station={station}
                       current={curr}
                       index={index}
-                    ></RenderTable>
+                    />
                   );
                 })}
                 <tr className="bg-gray-50 ">

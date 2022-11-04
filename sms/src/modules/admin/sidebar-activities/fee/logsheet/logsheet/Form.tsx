@@ -10,7 +10,7 @@ export const Form = () => {
 
   return (
     <>
-      <Break title="Logsheet"></Break>
+      <Break title="Logsheet" />
       <form className="my-6">
         <input
           type="radio"
@@ -33,7 +33,7 @@ export const Form = () => {
           Discount entry
         </label>
       </form>
-      <Table type={entryType}></Table>
+      <Table type={entryType} />
     </>
   );
 };

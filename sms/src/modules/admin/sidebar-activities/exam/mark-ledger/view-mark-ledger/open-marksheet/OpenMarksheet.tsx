@@ -26,7 +26,7 @@ export default function OpenMarksheet() {
     <>
       <Breadnav pages={pages} />
       <Details />
-      <Table></Table>
+      <Table />
     </>
   );
 }

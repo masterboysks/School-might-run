@@ -1,8 +1,20 @@
 import { CheckIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import React from "react";
 import { Link } from "react-router-dom";
 import Break from "../Break";
 
-const Steps = ({ steps, title }) => {
+const Steps = ({
+  steps,
+  title,
+}: {
+  steps: {
+    id: string;
+    name: string;
+    href: string;
+    status: string;
+  }[];
+  title: string;
+}) => {
   return (
     <>
       <nav

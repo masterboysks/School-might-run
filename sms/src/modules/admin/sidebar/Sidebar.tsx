@@ -79,7 +79,7 @@ export default function Sidebar({ modules }) {
   return (
     <div className="md:pt-9 sm:relative min-w-[72px] border-r-[1px]">
       <div className="sm:hidden ml-[11px] p-1 mt-1 rounded-md text-primary-grey-600   top-3 left-16 focus:outline-none  fixed  z-[100] ">
-        <Hamburger onClick={sidebar}></Hamburger>
+        <Hamburger onClick={sidebar} />
       </div>
       <div
         className="min-w-[72px] overflow-y-auto mt-[2px] py-8 border-r-[1px]  pb-20 border-r-primary-grey-100-grey-200 top-[64px] md:static z-10 fixed  h-screen text-sm sm:inline hidden bg-white "

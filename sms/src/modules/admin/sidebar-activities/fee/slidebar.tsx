@@ -187,7 +187,7 @@ const FeeSlidebar = () => {
         className="lg:hidden overscroll-none opacity-95 fixed top-0  z-[99999] left-[288px] hidden w-full h-screen bg-transparent"
         id="overlay"
         onClick={sidebar}
-      ></div>
+      />
     </>
   );
 };

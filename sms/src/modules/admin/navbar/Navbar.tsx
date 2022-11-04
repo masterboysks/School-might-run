@@ -248,7 +248,7 @@ export default function Navbar() {
           )}
         </Disclosure>
       </div>
-      <div className="mb-16"></div>
+      <div className="mb-16" />
     </>
   );
 }

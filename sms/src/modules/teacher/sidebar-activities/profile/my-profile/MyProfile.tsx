@@ -14,7 +14,7 @@ export default function MyProfile() {
     <>
       <Breadnav pages={pages}></Breadnav>
       <Details />
-      <Table></Table>
+      <Table />
     </>
   );
 }

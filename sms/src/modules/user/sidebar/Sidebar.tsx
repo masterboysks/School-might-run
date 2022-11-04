@@ -474,7 +474,7 @@ export default function Sidebar() {
               <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
             </button>
             <div className="flex flex-1 justify-between px-4">
-              <div className="flex flex-1"></div>
+              <div className="flex flex-1" />
               <div className="ml-4 flex items-center md:ml-6">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">

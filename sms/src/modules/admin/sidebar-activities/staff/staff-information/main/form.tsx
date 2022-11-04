@@ -163,7 +163,7 @@ const Form = ({ onSubmit, page }) => {
           type="submit"
           className="h-fit w-fit bg-primary-btn sm:box-content lg:col-span-2 xl:col-span-1 box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer"
         >
-          <Search className="w-4 mx-auto"></Search>
+          <Search className="w-4 mx-auto" />
         </button>
       </form>
     </>

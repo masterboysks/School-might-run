@@ -16,8 +16,8 @@ export default function AssignExam() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form></Form>
-      <Table></Table>
+      <Form />
+      <Table />
     </>
   );
 }

@@ -52,7 +52,7 @@ export default function Table() {
             label="Day*"
             value={arrayDays}
             name="days"
-          ></Select>
+          />
         </div>
       </div>
       {/*  */}

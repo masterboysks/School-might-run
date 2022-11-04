@@ -88,7 +88,7 @@ export default function Form() {
                         inputFiled={curr}
                         inputFields={inputFileds}
                         setInputFiled={setInputFileds}
-                      ></RenderTable>
+                      />
                     );
                   })}
                   <tr className="bg-gray-50 ">

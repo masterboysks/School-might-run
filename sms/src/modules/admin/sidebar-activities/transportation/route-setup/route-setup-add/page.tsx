@@ -18,7 +18,7 @@ export default function RouteSetup() {
     <>
       <Breadnav pages={pages} />
       <Break title="Add route details" />
-      <Form></Form>
+      <Form />
     </>
   );
 }

@@ -75,7 +75,7 @@ const GuardianFormFalse = () => {
             errors={errors}
             register={register}
             placeholder="An architect"
-          ></Input>
+          />
         </div>
         <div className="">
           <Input
@@ -85,7 +85,7 @@ const GuardianFormFalse = () => {
             errors={errors}
             register={register}
             placeholder="Mother"
-          ></Input>
+          />
         </div>
         <div className="">
           <Input

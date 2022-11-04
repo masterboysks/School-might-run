@@ -39,13 +39,13 @@ export default function Dashboard() {
             register={register}
             name="day"
             label="Class routine"
-          ></Select>
+          />
         </div>
         <div className="bg-primary-grey-900 text-white rounded py-2 px-5  h-fit mt-auto">
           Preview whole routine
         </div>
       </div>
-      <Table></Table>
+      <Table />
     </div>
   );
 }

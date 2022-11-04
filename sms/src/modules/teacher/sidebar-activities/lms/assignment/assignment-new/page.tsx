@@ -22,7 +22,7 @@ export default function AssignmentNew() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form></Form>
+      <Form />
     </>
   );
 }

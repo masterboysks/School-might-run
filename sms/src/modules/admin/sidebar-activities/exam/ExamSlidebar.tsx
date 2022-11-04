@@ -119,7 +119,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="inherit"></Arrow>
+                  <Arrow fontSize="inherit" />
                 </div>
                 Marks Ledger
               </li>
@@ -134,7 +134,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="inherit"></Arrow>
+                  <Arrow fontSize="inherit" />
                 </div>
                 Exam shedule
               </li>
@@ -148,7 +148,7 @@ const Slidebar = () => {
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
-                  <Arrow fontSize="inherit"></Arrow>
+                  <Arrow fontSize="inherit" />
                 </div>
                 Admit card
               </li>
@@ -167,7 +167,7 @@ const Slidebar = () => {
         className="lg:hidden overscroll-none opacity-95 fixed top-0  z-[99999] left-[288px] hidden w-full h-screen bg-transparent"
         id="overlay"
         onClick={sidebar}
-      ></div>
+      />
     </>
   );
 };

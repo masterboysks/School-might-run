@@ -1,25 +1,26 @@
-import  Steps from "../../Steps";
-import  OfficeDetailsForm from "./OfficeDetailsForm";
+import React from "react";
+import Steps from "../../../../../../../components/common/navigation/Steps";
+import OfficeDetailsForm from "./OfficeDetailsForm";
 
 const steps = [
   {
     id: "01",
     name: "Personal details",
-    ,
-    status: "complete"
+    href: "#",
+    status: "complete",
   },
   {
     id: "02",
     name: "Address details",
-    ,
-    status: "complete"
+    href: "#",
+    status: "complete",
   },
   {
     id: "03",
     name: "Office details",
-    ,
-    status: "current"
-  }
+    href: "#",
+    status: "current",
+  },
 ];
 
 const AddStaffGeneralPersonal = () => {

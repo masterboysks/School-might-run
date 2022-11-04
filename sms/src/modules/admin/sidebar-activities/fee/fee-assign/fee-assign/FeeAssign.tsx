@@ -12,7 +12,7 @@ export default function FeeAssign() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Table></Table>
+      <Table />
     </>
   );
 }

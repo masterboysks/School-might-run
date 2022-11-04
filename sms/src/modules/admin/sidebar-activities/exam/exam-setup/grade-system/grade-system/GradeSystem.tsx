@@ -15,7 +15,7 @@ export default function GradeSyatem() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Table></Table>
+      <Table />
     </>
   );
 }

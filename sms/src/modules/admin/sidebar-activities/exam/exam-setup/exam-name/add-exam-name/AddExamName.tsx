@@ -22,7 +22,7 @@ export default function AddExamName() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add exam name"></Break>
+      <Break title="Add exam name" />
       <Form />
     </>
   );

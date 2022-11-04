@@ -36,7 +36,7 @@ export default function Form() {
           name="student id"
           label="Student ID"
           register={register}
-        ></Input>
+        />
       </div>
       <div className="">
         <Select name="status" label="Status" register={register} />
@@ -46,7 +46,7 @@ export default function Form() {
         className="h-fit w-fit bg-primary-btn lg:col-span-2 xl:col-span-full sm:box-content col-span-full box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer"
       >
         {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-        <Search className="w-4 mx-auto"></Search>
+        <Search className="w-4 mx-auto" />
       </button>
     </form>
   );

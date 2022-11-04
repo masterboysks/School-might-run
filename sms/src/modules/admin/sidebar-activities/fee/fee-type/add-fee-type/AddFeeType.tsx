@@ -16,8 +16,8 @@ export default function AddFeeType() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add fee"></Break>
-      <Form></Form>
+      <Break title="Add fee" />
+      <Form />
     </>
   );
 }

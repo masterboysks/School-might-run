@@ -44,7 +44,7 @@ export default function Example() {
 
   return (
     <div className=" ring-1 ring-black ring-opacity-5 mb-9 min-w-full mt-4 overflow-x-auto rounded-lg shadow">
-      <div className="w-fit ml-auto"></div>
+      <div className="w-fit ml-auto" />
       <div className=" flex flex-col w-full rounded">
         <div className=" overflow-x-auto">
           <table className=" min-w-full divide-y divide-gray-300 table-fixed">

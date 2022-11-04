@@ -29,7 +29,7 @@ export default function Form() {
           errors={errors}
           station={station}
           setStation={setStation}
-        ></Table>
+        />
       </div>
     </form>
   );

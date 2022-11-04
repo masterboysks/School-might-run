@@ -14,7 +14,7 @@ export default function StudentWiseDetails() {
     <>
       <Breadnav pages={pages} />
       Search left its custonnm
-      <Table></Table>
+      <Table />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import Search from "@mui/icons-material/SearchOutlined";
+import React from "react";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Table from "./Table";
 const pages = [
@@ -22,7 +23,7 @@ export default function FeePayment() {
             placeholder="557332"
             type="text"
             className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm"
-          ></input>
+          />
         </div>
         <div className="">
           <label className="my-6 text-sm" htmlFor="Desigation">
@@ -33,7 +34,7 @@ export default function FeePayment() {
             placeholder="557332"
             type="text"
             className="w-full p-2  cursor-pointer rounded mt-[6px]  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm"
-          ></input>
+          />
         </div>
         <div className="">
           <label className="my-6 text-sm" htmlFor="Staff type">
@@ -73,10 +74,10 @@ export default function FeePayment() {
         </div>
         <div className="h-fit w-fit bg-primary-btn lg:col-span-3 xl:col-span-2 sm:box-content col-span-full box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
           {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-          <Search className="w-4 mx-auto"></Search>
+          <Search className="w-4 mx-auto" />
         </div>
       </form>
-      <Table></Table>
+      <Table />
     </>
   );
 }

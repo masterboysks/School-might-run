@@ -12,7 +12,7 @@ function Notice() {
   return (
     <div>
       <Breadnav pages={pages} />
-      <Table></Table>
+      <Table />
     </div>
   );
 }

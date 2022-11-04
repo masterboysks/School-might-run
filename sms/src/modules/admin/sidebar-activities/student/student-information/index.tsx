@@ -5,7 +5,7 @@ import Table from "./Table";
 const Main = () => {
   return (
     <>
-      <Form></Form>
+      <Form />
       <Table />
     </>
   );

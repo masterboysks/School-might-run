@@ -13,7 +13,7 @@ export default function RouteSetup() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Table></Table>
+      <Table />
     </>
   );
 }

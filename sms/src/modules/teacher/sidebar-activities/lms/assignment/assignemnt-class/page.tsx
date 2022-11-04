@@ -18,7 +18,7 @@ export default function AssignmentClass() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form></Form>
+      <Form />
       <Table />
     </>
   );

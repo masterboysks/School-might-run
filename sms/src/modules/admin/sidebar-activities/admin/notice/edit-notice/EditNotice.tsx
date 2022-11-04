@@ -75,7 +75,7 @@ function NewNotice() {
   return (
     <div>
       <Breadnav pages={pages} />
-      <Break title="New notice"></Break>
+      <Break title="New notice" />
       <form
         className="form-solid w-full my-4 space-y-4 rounded-md"
         onSubmit={handleSubmit(onSubmit)}

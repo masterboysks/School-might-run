@@ -20,8 +20,8 @@ export default function AddGradeSystem() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add grade system"></Break>
-      <Form></Form>
+      <Break title="Add grade system" />
+      <Form />
     </>
   );
 }

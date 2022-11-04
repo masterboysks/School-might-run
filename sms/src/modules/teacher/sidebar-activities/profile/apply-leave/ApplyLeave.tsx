@@ -52,7 +52,7 @@ export default function ApplyLeave() {
       </div>
       {/* Form */}
       <Break title="Apply leave" />
-      <Form></Form>
+      <Form />
     </>
   );
 }

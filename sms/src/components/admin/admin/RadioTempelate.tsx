@@ -24,7 +24,7 @@ function RadioTempelate({
   return (
     <>
       <div className="mb-3">
-        <Break title={title}></Break>
+        <Break title={title} />
       </div>
       {templateLabel || "Select a tempelate : "}
       <form className=" md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid grid-cols-2 gap-4 my-6 rounded-md">

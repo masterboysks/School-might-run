@@ -12,7 +12,7 @@ export default function FeeType() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Table></Table>
+      <Table />
     </>
   );
 }

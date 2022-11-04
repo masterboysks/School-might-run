@@ -99,8 +99,8 @@ export default function FeeStudent() {
           </div>
         </div>
       </div>
-      <Table></Table>
-      <Form></Form>
+      <Table />
+      <Form />
     </>
   );
 }

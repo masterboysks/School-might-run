@@ -14,8 +14,8 @@ function TeacherAssign() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form></Form>
-      <Table></Table>
+      <Form />
+      <Table />
     </>
   );
 }
