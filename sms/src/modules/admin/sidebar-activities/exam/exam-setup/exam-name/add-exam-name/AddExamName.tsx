@@ -1,5 +1,5 @@
 import React from "react";
-import Breadnav from "../../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 
 import Form from "./Form";

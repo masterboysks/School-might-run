@@ -2,7 +2,7 @@ import profile from "./profile.png";
 import { useParams } from "react-router-dom";
 import Table from "./Table";
 import Form from "./Form";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 
 export default function FeeStudent() {
   const { student } = useParams();

@@ -1,6 +1,6 @@
 import LanguageIcon from "@mui/icons-material/Language";
 import Table from "./Table";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import Form from "./Form";
 
 const pages = [

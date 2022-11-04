@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
 import { SearchBar } from "../../../../../../../components/common/fields";
-import Pagination from "../../../../../../../components/common/Pagination";
+import Pagination from "../../../../../../../components/common/navigation/Pagination";
 import RenderTable from "./RenderTable";
 
 const people = [

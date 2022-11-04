@@ -1,5 +1,5 @@
 import React from "react";
-import Breadnav from "../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../components/common/navigation/Breadnav";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import Form from "./Form";

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
-import Pagination from "../../../../../../../../components/common/Pagination";
+import Pagination from "../../../../../../../../components/common/navigation/Pagination";
 import RenderTable from "./RenderTable";
 
 const people = [

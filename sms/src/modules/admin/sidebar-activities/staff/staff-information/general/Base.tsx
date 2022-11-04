@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import StaffFormPersonalDetailsPicture from "../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
 
 const pages = [

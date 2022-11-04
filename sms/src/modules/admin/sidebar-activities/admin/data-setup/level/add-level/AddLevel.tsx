@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
 import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
-import Breadnav from "../../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import {
   Checkbox,

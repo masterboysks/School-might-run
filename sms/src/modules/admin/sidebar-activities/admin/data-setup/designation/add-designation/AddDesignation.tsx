@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
 import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import Breadnav from "../../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import { Input, Select } from "../../../../../../../components/common/fields";
 

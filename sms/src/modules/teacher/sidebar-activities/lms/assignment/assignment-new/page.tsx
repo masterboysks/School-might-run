@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import Form from "./Form";
 
 export default function AssignmentNew() {

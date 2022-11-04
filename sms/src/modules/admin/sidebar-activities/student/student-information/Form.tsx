@@ -1,6 +1,6 @@
 import Search from "@mui/icons-material/SearchOutlined";
 import { useForm } from "react-hook-form";
-import Breadnav from "../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../components/common/navigation/Breadnav";
 import { Input, Select } from "../../../../../components/common/fields";
 
 const pages = [

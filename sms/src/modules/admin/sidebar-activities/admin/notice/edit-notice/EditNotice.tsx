@@ -7,7 +7,7 @@ import {
   UploadPhoto,
   DateInput,
 } from "../../../../../../components/common/fields";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../components/common/Break";
 import { useForm } from "react-hook-form";
 import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";

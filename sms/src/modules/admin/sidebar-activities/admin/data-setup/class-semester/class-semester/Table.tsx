@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import classApi from "../../../../../../../api/admin/dashboard/admin/data-setup/classApi";
-import Pagination from "../../../../../../../components/common/Pagination";
+import Pagination from "../../../../../../../components/common/navigation/Pagination";
 
 export default function Table() {
   const { register, watch } = useForm();

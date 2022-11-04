@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import Details from "./Details";
 import Form from "./Form";
 import Table from "./Table";

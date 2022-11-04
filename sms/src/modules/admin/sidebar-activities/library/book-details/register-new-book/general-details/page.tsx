@@ -1,5 +1,6 @@
 import React from "react";
 import Steps from "../../../../../../../components/common/navigation/Steps";
+import Form from "./Form";
 const steps = [
   {
     id: "01",
@@ -24,6 +25,7 @@ export default function page() {
   return (
     <div>
       <Steps title="Book's general details" steps={steps} />
+      <Form />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { Input, Select } from "../../../../../../../components/common/fields";
-import Breadnav from "../../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
 import { useForm } from "react-hook-form";

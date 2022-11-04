@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import Pagination from "../../../../../../components/common/Pagination";
+import Pagination from "../../../../../../components/common/navigation/Pagination";
 import RenderTable from "./RenderTable";
 
 export default function Table({ setPage, data, pagination }) {

@@ -1,5 +1,5 @@
 import React from "react";
-import Breadnav from "../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../components/common/navigation/Breadnav";
 import Details from "./Details";
 import Table from "./Table";
 const pages = [

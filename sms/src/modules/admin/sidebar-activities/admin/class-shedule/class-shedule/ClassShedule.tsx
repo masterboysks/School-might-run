@@ -1,7 +1,7 @@
 import Search from "@mui/icons-material/SearchOutlined";
 import { Select } from "../../../../../../components/common/oldFields";
 import { useState } from "react";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import Table from "./Table";
 import React from "react";
 

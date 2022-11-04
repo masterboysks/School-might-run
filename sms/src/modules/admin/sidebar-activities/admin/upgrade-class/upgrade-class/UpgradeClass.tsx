@@ -3,7 +3,7 @@ import Form from "./Form";
 import Filter from "./Filter";
 import { Tab } from "@headlessui/react";
 import Table from "./Table";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import React from "react";
 export default function UpgradeClass() {
   let { classname } = useParams();

@@ -5,7 +5,7 @@ import { Select } from "../../../../../../components/common/fields";
 import { Link } from "react-router-dom";
 import RenderTable from "./RenderTable";
 import { PrinterIcon } from "@heroicons/react/20/solid";
-import Pagination from "../../../../../../components/common/Pagination";
+import Pagination from "../../../../../../components/common/navigation/Pagination";
 import { useEffect } from "react";
 import { useState } from "react";
 import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";

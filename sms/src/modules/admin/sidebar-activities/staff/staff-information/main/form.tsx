@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import departmentApi from "../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
 import designationApi from "../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import Breadnav from "../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../components/common/navigation/Breadnav";
 import {
   Input,
   Select,

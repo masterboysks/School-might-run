@@ -5,7 +5,7 @@ import {
   Radio,
   Select,
 } from "../../../../../../../components/common/fields";
-import Breadnav from "../../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import { useEffect } from "react";
 import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";

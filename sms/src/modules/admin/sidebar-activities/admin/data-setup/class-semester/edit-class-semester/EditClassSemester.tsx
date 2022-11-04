@@ -5,7 +5,7 @@ import {
   Select,
 } from "../../../../../../../components/common/fields";
 import { useState } from "react";
-import Breadnav from "../../../../../../../components/common/Breadnav";
+import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
 import Break from "../../../../../../../components/common/Break";
 import sectionsApi from "../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi";
 import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
