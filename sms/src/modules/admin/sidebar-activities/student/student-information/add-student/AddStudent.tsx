@@ -3,11 +3,11 @@ import AboveForm from "./components/AboveForm";
 import DetailsForm from "./components/DetailsForm";
 const AddStudent = ({ HasAnotherChild, setHasAnotherChild }) => {
   const steps = [
-    { id: "01", name: "Student details", href: "#", status: "current" },
-    { id: "02", name: "Guardian details", href: "#", status: "upcomming" },
-    { id: "03", name: "Address details", href: "#", status: "upcomming" },
-    { id: "04", name: "Class details", href: "#", status: "upcomming" },
-    { id: "05", name: "Fee details", href: "#", status: "upcomming" },
+    { name: "Student details", href: "#", status: "current" },
+    { name: "Guardian details", href: "#", status: "upcomming" },
+    { name: "Address details", href: "#", status: "upcomming" },
+    { name: "Class details", href: "#", status: "upcomming" },
+    { name: "Fee details", href: "#", status: "upcomming" },
   ];
 
   return (

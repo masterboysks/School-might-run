@@ -133,7 +133,7 @@ export default function Table() {
   return (
     <div className="mt-11">
       <div className="w-fit ml-auto mt-4">
-        <Link to="register" className="primary_btn">
+        <Link to="register/general" className="primary_btn">
           Register new book
         </Link>
       </div>

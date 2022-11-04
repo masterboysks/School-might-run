@@ -8,7 +8,6 @@ const Steps = ({
   title,
 }: {
   steps: {
-    id: string;
     name: string;
     href: string;
     status: string;
@@ -45,7 +44,9 @@ const Steps = ({
                   aria-current="step"
                 >
                   <span className="border-primary-grey-600 flex items-center justify-center flex-shrink-0 w-10 h-10 border-2 rounded-full">
-                    <span className="text-primary-grey-600">{step.id}</span>
+                    <span className="text-primary-grey-600">
+                      0{stepIdx + 1}
+                    </span>
                   </span>
                   <span className="text-primary-grey-600 ml-4 text-sm font-medium">
                     {step.name}
@@ -56,7 +57,7 @@ const Steps = ({
                   <span className="flex items-center px-6 py-4 text-sm font-medium">
                     <span className="group-hover:border-gray-400 flex items-center justify-center flex-shrink-0 w-10 h-10 border-2 border-gray-300 rounded-full">
                       <span className="group-hover:text-gray-900 text-gray-500">
-                        {step.id}
+                        0{stepIdx + 1}
                       </span>
                     </span>
                     <span className="group-hover:text-gray-900 ml-4 text-sm font-medium text-gray-500">
@@ -66,7 +67,7 @@ const Steps = ({
                 </Link>
               )}
 
-              {stepIdx !== steps.length - 1 ? (
+              {stepIdx !== steps.length - 2 ? (
                 <>
                   {/* Arrow separator for lg screens and up */}
                   <div

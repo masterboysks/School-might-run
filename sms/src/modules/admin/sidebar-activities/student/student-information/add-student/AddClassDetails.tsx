@@ -3,25 +3,22 @@ import ClassForm from "./components/ClassForm";
 
 const steps = [
   {
-    id: "01",
     name: "Student details",
     href: "/admin/dashboard/student/student-information/add-student-details",
     status: "complete",
   },
   {
-    id: "02",
     name: "Guardian details",
     href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
     status: "complete",
   },
   {
-    id: "03",
     name: "Address details",
     href: "/student/student-information/add-address-details",
     status: "complete",
   },
-  { id: "04", name: "Class details", href: "#", status: "current" },
-  { id: "05", name: "Fee details", href: "#", status: "upcomming" },
+  { name: "Class details", href: "#", status: "current" },
+  { name: "Fee details", href: "#", status: "upcomming" },
 ];
 function AddClassDetails() {
   return (

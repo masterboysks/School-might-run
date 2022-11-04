@@ -3,20 +3,18 @@ import AddressForm from "./components/AddressForm";
 
 const steps = [
   {
-    id: "01",
     name: "Student details",
     href: "/admin/dashboard/student/student-information/add-student-details",
     status: "complete",
   },
   {
-    id: "02",
     name: "Guardian details",
     href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
     status: "complete",
   },
-  { id: "03", name: "Address details", href: "#", status: "current" },
-  { id: "04", name: "Class details", href: "#", status: "upcomming" },
-  { id: "05", name: "Fee details", href: "#", status: "upcomming" },
+  { name: "Address details", href: "#", status: "current" },
+  { name: "Class details", href: "#", status: "upcomming" },
+  { name: "Fee details", href: "#", status: "upcomming" },
 ];
 function AddAddress() {
   return (
