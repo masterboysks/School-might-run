@@ -8,14 +8,13 @@ import Form from "./Form";
 export default function Attendance() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Class", href: "#" },
+    { name: "Class" },
     {
       name: "Classess",
       href: "/teacher/dashboard/class/classess/",
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

@@ -9,10 +9,9 @@ import {
 import { Input } from "../../../../../../../components/common/oldFields";
 
 const pages = [
-  { name: "Exam", href: "#" },
+  { name: "Exam" },
   {
     name: "Exam setup",
-    href: "#",
   },
   {
     name: "Exam marks name",

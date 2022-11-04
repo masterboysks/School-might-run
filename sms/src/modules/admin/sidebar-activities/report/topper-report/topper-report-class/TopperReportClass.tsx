@@ -10,14 +10,13 @@ export default function TopperReportClass() {
   const { classOfSchool } = useParams();
 
   const pages = [
-    { name: "Report", href: "#" },
+    { name: "Report" },
     {
       name: "Topper Report",
       href: "/report/topper-report",
     },
     {
       name: classOfSchool,
-      href: "#",
     },
   ];
   return (

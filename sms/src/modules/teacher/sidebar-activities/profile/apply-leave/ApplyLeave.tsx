@@ -5,7 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import Form from "./Form";
 import Break from "../../../../../components/common/Break";
 const pages = [
-  { name: "Profile", href: "#" },
+  { name: "Profile" },
   {
     name: "Apply leave",
     href: "/teacher/dashboard/profile/apply-leave/",

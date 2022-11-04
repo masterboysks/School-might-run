@@ -6,7 +6,7 @@ import Form from "./Form";
 export default function AssignmentNew() {
   const { name, id } = useParams();
   const pages = [
-    { name: "Lms", href: "#" },
+    { name: "Lms" },
     {
       name: "Assignment",
       href: "/teacher/dashboard/lms/assignment/",
@@ -17,7 +17,6 @@ export default function AssignmentNew() {
     },
     {
       name: "New assignment",
-      href: "#",
     },
   ];
   return (

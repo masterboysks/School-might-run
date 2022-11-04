@@ -8,10 +8,9 @@ import Table from "./Table";
 export default function AssignAssignExam() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Exam", href: "#" },
+    { name: "Exam" },
     {
       name: "Exam setup",
-      href: "#",
     },
     {
       name: "Exam name",
@@ -19,7 +18,6 @@ export default function AssignAssignExam() {
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

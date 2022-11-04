@@ -7,14 +7,13 @@ import Table from "./Table";
 export default function MarksEntry() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Exam", href: "#" },
+    { name: "Exam" },
     {
       name: "Exam marks",
       href: "/teacher/dashboard/exam/exam-marks/",
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

@@ -1,4 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable import /no-anonymous-default-export */
 import { authorized, axiosPrivate } from "./axios";
 
 export default {

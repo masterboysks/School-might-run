@@ -10,10 +10,9 @@ import Break from "../../../../../../../components/common/Break";
 import { Input, Select } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Designation",

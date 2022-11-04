@@ -4,7 +4,7 @@ import Break from "../../../../../components/common/Break";
 
 import Form from "./Form";
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Organization setup",
     href: "/admin/dashboard/admin/organization-setup",

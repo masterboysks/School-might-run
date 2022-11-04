@@ -3,10 +3,9 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 import Table from "./Table";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Designation",

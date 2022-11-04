@@ -8,10 +8,9 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Sub-Faculty",
@@ -19,7 +18,6 @@ const pages = [
   },
   {
     name: "Add",
-    href: "#",
   },
 ];
 const AddSubFaculty = () => {

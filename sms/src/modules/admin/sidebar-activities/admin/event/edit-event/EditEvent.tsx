@@ -16,14 +16,13 @@ import React from "react";
 function AddEvent() {
   const { date } = useParams();
   const pages = [
-    { name: "Admin", href: "#" },
+    { name: "Admin" },
     {
       name: "Event",
       href: "/admin/dashboard/admin/event-calender",
     },
     {
       name: "Add",
-      href: "#",
     },
     {
       name: date,

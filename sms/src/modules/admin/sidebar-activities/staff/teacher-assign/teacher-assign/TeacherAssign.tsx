@@ -4,7 +4,7 @@ import Form from "./Form";
 import Table from "./Table";
 
 const pages = [
-  { name: "Staff", href: "#" },
+  { name: "Staff" },
   {
     name: "Teacher assign",
     href: "/staff/teacher-assign/",

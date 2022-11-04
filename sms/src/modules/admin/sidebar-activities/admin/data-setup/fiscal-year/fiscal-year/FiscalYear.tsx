@@ -16,10 +16,9 @@ const people = [
   },
 ];
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Fiscal year",

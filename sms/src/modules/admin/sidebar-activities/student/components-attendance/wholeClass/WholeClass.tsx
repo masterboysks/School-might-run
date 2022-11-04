@@ -7,7 +7,7 @@ import Table from "./Table";
 const WholeClass = () => {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Student", href: "#" },
+    { name: "Student" },
     {
       name: "Student Attendance",
       href: "/student/student-attendance/",

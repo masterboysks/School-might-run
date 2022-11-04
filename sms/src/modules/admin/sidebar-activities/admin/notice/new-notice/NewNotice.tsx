@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import React from "react";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Push notification",
     href: "/admin/dashboard/admin/notice",

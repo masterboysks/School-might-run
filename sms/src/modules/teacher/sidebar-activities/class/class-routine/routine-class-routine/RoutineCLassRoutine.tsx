@@ -6,14 +6,13 @@ import Table from "./Table";
 export default function RoutineCLassRoutine() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Class", href: "#" },
+    { name: "Class" },
     {
       name: "Class routine",
       href: "/teacher/dashboard/class/class-routine/",
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

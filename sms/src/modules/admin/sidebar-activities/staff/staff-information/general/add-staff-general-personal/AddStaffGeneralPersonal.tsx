@@ -1,25 +1,25 @@
-import Steps from "../../Steps";
+import  Steps from "../../Steps";
 
-import Form from "./PersonalDetailsForm";
+import  Form from "./PersonalDetailsForm";
 const steps = [
   {
     id: "01",
     name: "Personal details",
-    href: "#",
-    status: "current",
+    ,
+    status: "current"
   },
   {
     id: "02",
     name: "Address details",
-    href: "#",
-    status: "upcomming",
+    ,
+    status: "upcomming"
   },
   {
     id: "03",
     name: "Office details",
-    href: "#",
-    status: "upcomming",
-  },
+    ,
+    status: "upcomming"
+  }
 ];
 
 const AddStaffGeneralPersonal = () => {

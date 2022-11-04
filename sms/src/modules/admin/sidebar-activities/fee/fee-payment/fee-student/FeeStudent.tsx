@@ -7,7 +7,7 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 export default function FeeStudent() {
   const { student } = useParams();
   const pages = [
-    { name: "Fee", href: "#" },
+    { name: "Fee" },
     {
       name: "Fee payment",
       href: "/fee/fee-payment/",
@@ -17,7 +17,6 @@ export default function FeeStudent() {
         student.split("-")[0][0].toUpperCase() +
         student.split("-")[0].substring(1)
       }'s logsheet`,
-      href: "#",
     },
   ];
   return (

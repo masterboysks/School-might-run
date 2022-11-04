@@ -4,7 +4,7 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Details from "./Details";
 import Table from "./Table";
 const data = {
-  title: "Important question",
+  title: "import ant question",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, excepturi. Facilis assumenda corrupti, est iste dignissimos consectetur. Optio nesciunt unde rerum tempore est quas ipsa laborum, impedit consequuntur autem aut.",
   assigned_date: "1/2/2023",
@@ -56,7 +56,7 @@ const filtered_data = [
 export default function AssignmentView() {
   const { name, id } = useParams();
   const pages = [
-    { name: "Lms", href: "#" },
+    { name: "Lms" },
     {
       name: "Assignment",
       href: "/teacher/dashboard/lms/assignment/",
@@ -67,7 +67,6 @@ export default function AssignmentView() {
     },
     {
       name: data.title,
-      href: "#",
     },
   ];
   return (

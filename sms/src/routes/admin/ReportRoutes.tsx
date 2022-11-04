@@ -2,58 +2,68 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-const StudentAttendanceReportClasses = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/attendance-report/student-attendance-report/classes/StudentAttendanceReportClasses"
-  )
+const StudentAttendanceReportClasses = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/attendance-report/student-attendance-report/classes/StudentAttendanceReportClasses"
+    )
 );
-const ReportSlidebar = lazy(() =>
-  import("../../modules/admin/sidebar-activities/report/slidebar")
+const ReportSlidebar = lazy(
+  () => import("../../modules/admin/sidebar-activities/report/slidebar")
 );
-const StudentAttendanceReportClass = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/attendance-report/student-attendance-report/class/StudentAttendanceReportClass"
-  )
+const StudentAttendanceReportClass = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/attendance-report/student-attendance-report/class/StudentAttendanceReportClass"
+    )
 );
-const StaffAttendanceReport = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/attendance-report/staff-sttendence-report/StaffAttendanceReport"
-  )
+const StaffAttendanceReport = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/attendance-report/staff-sttendence-report/StaffAttendanceReport"
+    )
 );
-const ExamReportClasses = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/exam-report/exam-report-classes/ExamReportClasses"
-  )
+const ExamReportClasses = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/exam-report/exam-report-classes/ExamReportClasses"
+    )
 );
-const ExamReportClass = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/exam-report/exam-report-class/ExamReportClass"
-  )
+const ExamReportClass = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/exam-report/exam-report-class/ExamReportClass"
+    )
 );
-const FeeReport = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/fee-report/fee-report/FeeReport"
-  )
+const FeeReport = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/fee-report/fee-report/FeeReport"
+    )
 );
-const MonthlyFeeStatementReport = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/fee-report/monthly-fee-statement-report/MonthlyFeeStatementReport"
-  )
+const MonthlyFeeStatementReport = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/fee-report/monthly-fee-statement-report/MonthlyFeeStatementReport"
+    )
 );
-const FeeStatementReport = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/fee-report/fee-statement-report/FeeStatementReport"
-  )
+const FeeStatementReport = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/fee-report/fee-statement-report/FeeStatementReport"
+    )
 );
-const TopperReportClasses = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/topper-report/topper-report-classes/TopperReportClasses"
-  )
+const TopperReportClasses = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/topper-report/topper-report-classes/TopperReportClasses"
+    )
 );
-const TopperReportClass = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/report/topper-report/topper-report-class/TopperReportClass"
-  )
+const TopperReportClass = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/report/topper-report/topper-report-class/TopperReportClass"
+    )
 );
 
 export default function ReportRoutes() {

@@ -3,10 +3,9 @@ import LanguageIcon from "@mui/icons-material/Language";
 import Table from "./Table";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 const pages = [
-  { name: "Fee", href: "#" },
+  { name: "Fee" },
   {
     name: "Fee statement",
-    href: "#",
   },
   {
     name: "Class fee statement",

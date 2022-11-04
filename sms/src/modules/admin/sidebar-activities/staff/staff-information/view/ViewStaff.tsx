@@ -5,14 +5,13 @@ import { Outlet, useParams } from "react-router-dom";
 import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
 import StaffGeneralDetailsView from "../../../../../../contex/admin/staff/StaffGeneralDetailsView";
 const pages = [
-  { name: "Staff", href: "#" },
+  { name: "Staff" },
   {
     name: "Staff Information",
     href: "/admin/dashboard/staff/staff-information",
   },
   {
     name: "View",
-    href: "#",
   },
 ];
 export default function ViewStaff() {

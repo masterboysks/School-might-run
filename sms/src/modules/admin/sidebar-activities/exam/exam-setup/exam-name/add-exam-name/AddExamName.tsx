@@ -5,10 +5,9 @@ import Break from "../../../../../../../components/common/Break";
 import Form from "./Form";
 
 const pages = [
-  { name: "Exam", href: "#" },
+  { name: "Exam" },
   {
     name: "Exam setup",
-    href: "#",
   },
   {
     name: "Exam name",

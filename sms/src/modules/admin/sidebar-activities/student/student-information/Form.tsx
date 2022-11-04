@@ -4,7 +4,7 @@ import Breadnav from "../../../../../components/common/Breadnav";
 import { Input, Select } from "../../../../../components/common/fields";
 
 const pages = [
-  { name: "Student", href: "#" },
+  { name: "Student" },
   {
     name: "Student Information",
     href: "/student/student-information/",

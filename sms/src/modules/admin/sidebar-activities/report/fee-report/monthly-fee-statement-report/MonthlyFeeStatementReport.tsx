@@ -8,15 +8,13 @@ import Table from "./Table";
 export default function ClassStatement() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Report", href: "#" },
+    { name: "Report" },
     {
       name: "Fee Report",
-      href: "#",
     },
 
     {
       name: classOfSchool + "-" + section,
-      href: "#",
     },
   ];
   return (

@@ -17,7 +17,7 @@ import { useForm } from "react-hook-form";
 import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";
 import React from "react";
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Class schedule",
     href: "/admin/dashboard/admin/class-schedule/",

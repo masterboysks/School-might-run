@@ -2,7 +2,7 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Form from "./Form";
 import Table from "./Table";
 const pages = [
-  { name: "Exam", href: "#" },
+  { name: "Exam" },
 
   {
     name: "Marksledger",

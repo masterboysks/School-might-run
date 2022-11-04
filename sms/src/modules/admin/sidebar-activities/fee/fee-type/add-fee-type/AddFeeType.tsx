@@ -2,7 +2,7 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import Break from "../../break";
 import Form from "./Form";
 const pages = [
-  { name: "Fee", href: "#" },
+  { name: "Fee" },
   {
     name: "Fee type",
     href: "/fee/fee-type/",

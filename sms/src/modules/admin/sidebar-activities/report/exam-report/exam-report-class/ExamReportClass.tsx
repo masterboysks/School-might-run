@@ -8,7 +8,7 @@ import Table from "./Table";
 export default function ExamReportClass() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Report", href: "#" },
+    { name: "Report" },
     {
       name: "Exam report",
       href: "/report/exam-report",
@@ -16,7 +16,6 @@ export default function ExamReportClass() {
 
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

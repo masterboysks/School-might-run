@@ -14,10 +14,9 @@ import {
 } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Level",
@@ -25,7 +24,6 @@ const pages = [
   },
   {
     name: "Edit",
-    href: "#",
   },
 ];
 const EditLevel = () => {

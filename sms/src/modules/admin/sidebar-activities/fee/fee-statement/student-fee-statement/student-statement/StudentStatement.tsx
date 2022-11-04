@@ -6,10 +6,9 @@ import Breadnav from "../../../../../../../components/common/Breadnav";
 export default function StudentStatement() {
   const { student } = useParams();
   const pages = [
-    { name: "Fee", href: "#" },
+    { name: "Fee" },
     {
       name: "Fee statement",
-      href: "#",
     },
     {
       name: "Student fee statement",

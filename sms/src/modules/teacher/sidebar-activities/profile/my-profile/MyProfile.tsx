@@ -3,7 +3,7 @@ import Breadnav from "../../../../../components/common/Breadnav";
 import Details from "./Details";
 import Table from "./Table";
 const pages = [
-  { name: "Profile", href: "#" },
+  { name: "Profile" },
   {
     name: "My profile",
     href: "/teacher/dashboard/profile/my-profile/",

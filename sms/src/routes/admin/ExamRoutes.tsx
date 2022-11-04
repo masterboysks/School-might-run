@@ -3,88 +3,104 @@ import { Suspense } from "react";
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
-const ExamSlidebar = lazy(() =>
-  import("../../modules/admin/sidebar-activities/exam/ExamSlidebar")
+const ExamSlidebar = lazy(
+  () => import("../../modules/admin/sidebar-activities/exam/ExamSlidebar")
 );
-const ExamName = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-name/exam-name/ExamName"
-  )
+const ExamName = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/exam-name/exam-name/ExamName"
+    )
 );
-const AddExamName = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-name/add-exam-name/AddExamName"
-  )
+const AddExamName = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/exam-name/add-exam-name/AddExamName"
+    )
 );
-const GradeSystem = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/grade-system/grade-system/GradeSystem"
-  )
+const GradeSystem = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/grade-system/grade-system/GradeSystem"
+    )
 );
-const AddGradeSystem = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/grade-system/add-grade-system/AddGradeSystem"
-  )
+const AddGradeSystem = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/grade-system/add-grade-system/AddGradeSystem"
+    )
 );
-const ExamMarksName = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/exam-marks-name/ExamMarksName"
-  )
+const ExamMarksName = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/exam-marks-name/ExamMarksName"
+    )
 );
-const AddExamMarksName = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/add-exam-marks-name/AddExamMarksName"
-  )
+const AddExamMarksName = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/exam-marks-name/add-exam-marks-name/AddExamMarksName"
+    )
 );
-const AssignExam = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-mark/AssignExam"
-  )
+const AssignExam = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-mark/AssignExam"
+    )
 );
-const AssignAssignExam = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-assign-mark/AssignAssignExam"
-  )
+const AssignAssignExam = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-setup/assign-mark/assign-assign-mark/AssignAssignExam"
+    )
 );
-const MarkLedger = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/mark-ledger/mark-ledger/MarkLedger"
-  )
+const MarkLedger = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/mark-ledger/mark-ledger/MarkLedger"
+    )
 );
-const ViewMarkLedger = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/ViewMarkLedger"
-  )
+const ViewMarkLedger = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/ViewMarkLedger"
+    )
 );
-const OpenMarksheet = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/open-marksheet/OpenMarksheet"
-  )
+const OpenMarksheet = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/mark-ledger/view-mark-ledger/open-marksheet/OpenMarksheet"
+    )
 );
-const ExamShedule = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-shedule/exam-shedule/ExamShedule"
-  )
+const ExamShedule = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-shedule/exam-shedule/ExamShedule"
+    )
 );
-const SheduleExamShedule = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-shedule/shedule-exam-shedule/SheduleExamShedule"
-  )
+const SheduleExamShedule = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-shedule/shedule-exam-shedule/SheduleExamShedule"
+    )
 );
-const AddSheduleExamShedule = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/exam-shedule/add-shedule-exam-shedule/AddSheduleExamShedule"
-  )
+const AddSheduleExamShedule = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/exam-shedule/add-shedule-exam-shedule/AddSheduleExamShedule"
+    )
 );
-const AdmitCard = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/admit-card/admit-card/AdmitCard"
-  )
+const AdmitCard = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/admit-card/admit-card/AdmitCard"
+    )
 );
-const AssignAdmitCard = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/exam/admit-card/assign-admit-card/AssignAdmitCard"
-  )
+const AssignAdmitCard = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/exam/admit-card/assign-admit-card/AssignAdmitCard"
+    )
 );
 export default function ExamRoutes() {
   return (

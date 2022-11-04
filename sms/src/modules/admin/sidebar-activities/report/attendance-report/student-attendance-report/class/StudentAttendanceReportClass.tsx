@@ -8,10 +8,9 @@ import Table from "./Table";
 export default function StudentAttendanceReportClass() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Report", href: "#" },
+    { name: "Report" },
     {
       name: "Attendance report",
-      href: "#",
     },
     {
       name: "Student attendance report",
@@ -19,7 +18,6 @@ export default function StudentAttendanceReportClass() {
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

@@ -13,7 +13,7 @@ const Breadnav = ({ pages }) => {
                 <div className="flex items-center">
                   {pages.indexOf(page) === 0 ? (
                     <Link
-                      to={page.href}
+                      to={page.href || "#"}
                       className={` lg:text-base text-xs hidden md:block sm font-normal text-primary-grey-600`}
                       aria-current={page.current ? "page" : undefined}
                     >
@@ -26,7 +26,7 @@ const Breadnav = ({ pages }) => {
                         aria-hidden="true"
                       />
                       <Link
-                        to={page.href}
+                        to={page.href || "#"}
                         className={`ml-2  lg:text-base text-xs ${
                           i === t.length - 1 ? " font-medium" : " font-normal"
                         }  text-primary-grey-600`}

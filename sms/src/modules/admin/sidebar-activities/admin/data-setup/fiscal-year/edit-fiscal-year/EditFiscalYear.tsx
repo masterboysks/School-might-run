@@ -12,10 +12,9 @@ import {
 } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Fiscal year",

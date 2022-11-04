@@ -1,22 +1,22 @@
-import AboveForm from "./components/AboveForm";
-import AddressForm from "./components/AddressForm";
+import  AboveForm from "./components/AboveForm";
+import  AddressForm from "./components/AddressForm";
 
 const steps = [
   {
     id: "01",
     name: "Student details",
     href: "/admin/dashboard/student/student-information/add-student-details",
-    status: "complete",
+    status: "complete"
   },
   {
     id: "02",
     name: "Guardian details",
     href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
-    status: "complete",
+    status: "complete"
   },
-  { id: "03", name: "Address details", href: "#", status: "current" },
-  { id: "04", name: "Class details", href: "#", status: "upcomming" },
-  { id: "05", name: "Fee details", href: "#", status: "upcomming" },
+  { id: "03", name: "Address details", , status: "current" },
+  { id: "04", name: "Class details", , status: "upcomming" },
+  { id: "05", name: "Fee details", , status: "upcomming" }
 ];
 function AddAddress() {
   return (

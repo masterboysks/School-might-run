@@ -6,14 +6,13 @@ import Form from "./Form";
 export default function AssignmentClass() {
   const { name } = useParams();
   const pages = [
-    { name: "Lms", href: "#" },
+    { name: "Lms" },
     {
       name: "Assignment",
       href: "/teacher/dashboard/lms/assignment/",
     },
     {
       name,
-      href: "#",
     },
   ];
   return (

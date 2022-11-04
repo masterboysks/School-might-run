@@ -8,10 +8,9 @@ import Break from "../../../../../../../components/common/Break";
 import { Input } from "../../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "University/Board",
@@ -19,7 +18,6 @@ const pages = [
   },
   {
     name: "Edit",
-    href: "#",
   },
 ];
 const EditUniversityBoard = () => {

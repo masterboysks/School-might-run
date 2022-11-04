@@ -7,7 +7,7 @@ import Table from "./Table";
 export default function ViewMarkLedger() {
   const { section, classOfSchool } = useParams();
   const pages = [
-    { name: "Exam", href: "#" },
+    { name: "Exam" },
 
     {
       name: "Marksledger",
@@ -15,7 +15,6 @@ export default function ViewMarkLedger() {
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: "#",
     },
   ];
   return (

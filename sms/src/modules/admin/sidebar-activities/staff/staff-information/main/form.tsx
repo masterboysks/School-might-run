@@ -12,7 +12,7 @@ import {
 } from "../../../../../../components/common/fields";
 
 const pages = [
-  { name: "Staff", href: "#" },
+  { name: "Staff" },
   {
     name: "Staff Information",
     href: "/admin/dashboard/staff/staff-information",

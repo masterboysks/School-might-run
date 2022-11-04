@@ -57,7 +57,7 @@ const EditSubject = lazy(
       "../../../modules/admin/sidebar-activities/admin/data-setup/subject/edit-subject/EditSubject"
     )
 );
-// my imports
+// my import s
 const EditLevel = lazy(
   () =>
     import(
@@ -156,12 +156,12 @@ const AddClassSemester = lazy(
     )
 );
 // const AssignSubject = lazy(() =>
-//   import(
+//   import (
 //     "../../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/assign-subject/AssignSubject"
 //   )
 // );
 // const AddAssiginSubject = lazy(() =>
-//   import(
+//   import (
 //     "../../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/add-assign-subject/AddAssiginSubject"
 //   )
 // );

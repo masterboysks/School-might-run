@@ -84,22 +84,22 @@ const AddStaffGeneralOffice = lazy(
     )
 );
 // const StaffAcademicDetails = lazy(() =>
-//   import(
+//   import (
 //     "../../modules/admin/sidebar-activities/staff/staff-information/academic/academic-details/AcademicDetails"
 //   )
 // );
 // const AddStaffAcademicDetails = lazy(() =>
-//   import(
+//   import (
 //     "../../modules/admin/sidebar-activities/staff/staff-information/academic/add-acedimic-details/AddAcademicDetails"
 //   )
 // );
 // const AddStaffDocument = lazy(() =>
-//   import(
+//   import (
 //     "../../modules/admin/sidebar-activities/staff/staff-information/documents/add-document/AddDocument"
 //   )
 // );
 // const StaffDocument = lazy(() =>
-//   import(
+//   import (
 //     "../../modules/admin/sidebar-activities/staff/staff-information/documents/documents/Document"
 //   )
 // );
@@ -110,12 +110,12 @@ const AddStaffGeneralBase = lazy(
     )
 );
 // const AddStaffAcademicBase = lazy(() =>
-//   import(
+//   import (
 //     "../../modules/admin/sidebar-activities/staff/staff-information/academic/base"
 //   )
 // );
 // const AddStaffDocumentBase = lazy(() =>
-//   import(
+//   import (
 //     "../../modules/admin/sidebar-activities/staff/staff-information/documents/base"
 //   )
 // );

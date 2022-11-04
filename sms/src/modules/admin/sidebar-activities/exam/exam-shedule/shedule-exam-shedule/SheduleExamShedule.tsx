@@ -7,7 +7,7 @@ import Table from "./Table";
 export default function AddSheduleExamShedule() {
   const { examName } = useParams();
   const pages = [
-    { name: "Exam", href: "#" },
+    { name: "Exam" },
     {
       name: "Exam shedule",
       href: "/admin/dashboard/exam/exam-shedule",

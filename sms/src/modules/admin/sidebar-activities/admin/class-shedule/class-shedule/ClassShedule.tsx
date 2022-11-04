@@ -6,7 +6,7 @@ import Table from "./Table";
 import React from "react";
 
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Class schedule",
     href: "/admin/dashboard/admin/class-schedule/",

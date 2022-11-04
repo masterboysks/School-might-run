@@ -8,7 +8,7 @@ import Profile from "./Profile";
 export default function Logsheet() {
   const { student } = useParams();
   const pages = [
-    { name: "Fee", href: "#" },
+    { name: "Fee" },
     {
       name: "Student logsheet",
       href: "/fee/student-logsheet",
@@ -18,7 +18,6 @@ export default function Logsheet() {
         student.split("-")[0][0].toUpperCase() +
         student.split("-")[0].substring(1)
       }'s logsheet`,
-      href: "#",
     },
   ];
   return (

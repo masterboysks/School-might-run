@@ -3,54 +3,64 @@ import { Suspense } from "react";
 import { lazy } from "react";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-const AddStudent = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddStudent"
-  )
+const AddStudent = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddStudent"
+    )
 );
-const StudentSlidebar = lazy(() =>
-  import("../../modules/admin/sidebar-activities/student/Slidebar")
+const StudentSlidebar = lazy(
+  () => import("../../modules/admin/sidebar-activities/student/Slidebar")
 );
-const StudentInformation = lazy(() =>
-  import("../../modules/admin/sidebar-activities/student/Student-information")
+const StudentInformation = lazy(
+  () =>
+    import("../../modules/admin/sidebar-activities/student/Student-information")
 );
-const StudentAttendance = lazy(() =>
-  import("../../modules/admin/sidebar-activities/student/Student-attendance")
+const StudentAttendance = lazy(
+  () =>
+    import("../../modules/admin/sidebar-activities/student/Student-attendance")
 );
-const AddguardianTrue = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianTrue"
-  )
+const AddguardianTrue = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianTrue"
+    )
 );
-const AddguardianFalse = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianFalse"
-  )
+const AddguardianFalse = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianFalse"
+    )
 );
-const WholeClass = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/components-attendance/wholeClass/WholeClass"
-  )
+const WholeClass = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/components-attendance/wholeClass/WholeClass"
+    )
 );
-const StudentProfile = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/components-attendance/studentProfile/StudentProfile"
-  )
+const StudentProfile = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/components-attendance/studentProfile/StudentProfile"
+    )
 );
-const AddAddress = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddAddress"
-  )
+const AddAddress = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddAddress"
+    )
 );
-const AddClassDetails = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddClassDetails"
-  )
+const AddClassDetails = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddClassDetails"
+    )
 );
-const AddFeeDetails = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/student/student-information/add-student/AddFeeDetails"
-  )
+const AddFeeDetails = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddFeeDetails"
+    )
 );
 export default function StudentRoutes() {
   const [hasAnotherChild, setHasAnotherChild] = useState(false);

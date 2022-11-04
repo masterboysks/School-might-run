@@ -1,4 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable import /no-anonymous-default-export */
 import { authorized } from "./axios";
 export default {
   create(form) {

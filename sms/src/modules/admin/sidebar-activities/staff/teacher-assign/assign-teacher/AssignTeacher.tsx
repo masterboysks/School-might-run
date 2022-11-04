@@ -8,7 +8,7 @@ import {
 import { useForm } from "react-hook-form";
 
 const pages = [
-  { name: "Staff", href: "#" },
+  { name: "Staff" },
   {
     name: "Teacher assign",
     href: "/staff/teacher-assign/",

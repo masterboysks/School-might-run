@@ -2,7 +2,7 @@ import Search from "@mui/icons-material/SearchOutlined";
 import Breadnav from "../../../../../../components/common/Breadnav";
 import Table from "./Table";
 const pages = [
-  { name: "Fee", href: "#" },
+  { name: "Fee" },
   {
     name: "Fee payment",
     href: "/fee/fee-payment/",

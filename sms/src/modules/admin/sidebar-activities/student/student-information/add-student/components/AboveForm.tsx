@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 
 const pages = [
-  { name: "Student", href: "#" },
+  { name: "Student" },
   {
     name: "Student Information",
     href: "/student/student-information/",

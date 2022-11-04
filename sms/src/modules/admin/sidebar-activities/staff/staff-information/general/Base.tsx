@@ -6,14 +6,13 @@ import Breadnav from "../../../../../../components/common/Breadnav";
 import StaffFormPersonalDetailsPicture from "../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
 
 const pages = [
-  { name: "Staff", href: "#" },
+  { name: "Staff" },
   {
     name: "Staff Information",
     href: "/admin/dashboard/staff/staff-information/",
   },
   {
     name: "Add",
-    href: "#",
   },
 ];
 

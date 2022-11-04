@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 const StudentProfile = () => {
   const { classOfSchool, section, studentName } = useParams();
   const pages = [
-    { name: "Student", href: "#" },
+    { name: "Student" },
     {
       name: "Student Attendance",
       href: "/student/student-attendance/",

@@ -7,7 +7,7 @@ import Table from "./Table";
 export default function OpenMarksheet() {
   const { classOfSchool, section, studentName, studentId } = useParams();
   const pages = [
-    { name: "Exam", href: "#" },
+    { name: "Exam" },
 
     {
       name: "Marksledger",

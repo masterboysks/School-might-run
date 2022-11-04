@@ -13,10 +13,9 @@ import { useForm } from "react-hook-form";
 import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
 import React from "react";
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Subject",

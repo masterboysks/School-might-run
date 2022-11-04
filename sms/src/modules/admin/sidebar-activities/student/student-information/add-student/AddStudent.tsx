@@ -1,12 +1,12 @@
-import AboveForm from "./components/AboveForm";
-import DetailsForm from "./components/DetailsForm";
+import  AboveForm from "./components/AboveForm";
+import  DetailsForm from "./components/DetailsForm";
 const AddStudent = ({ HasAnotherChild, setHasAnotherChild }) => {
   const steps = [
-    { id: "01", name: "Student details", href: "#", status: "current" },
-    { id: "02", name: "Guardian details", href: "#", status: "upcomming" },
-    { id: "03", name: "Address details", href: "#", status: "upcomming" },
-    { id: "04", name: "Class details", href: "#", status: "upcomming" },
-    { id: "05", name: "Fee details", href: "#", status: "upcomming" },
+    { id: "01", name: "Student details", , status: "current" },
+    { id: "02", name: "Guardian details", , status: "upcomming" },
+    { id: "03", name: "Address details", , status: "upcomming" },
+    { id: "04", name: "Class details", , status: "upcomming" },
+    { id: "05", name: "Fee details", , status: "upcomming" }
   ];
 
   return (

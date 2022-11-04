@@ -1,6 +1,6 @@
-import React from "react";
-import AboveForm from "./components/AboveForm";
-import GuardianFormTrue from "./components/GuardianFormTrue";
+import  React from "react";
+import  AboveForm from "./components/AboveForm";
+import  GuardianFormTrue from "./components/GuardianFormTrue";
 
 const AddguardianTrue = () => {
   const steps = [
@@ -8,12 +8,12 @@ const AddguardianTrue = () => {
       id: "01",
       name: "Student details",
       href: "/admin/dashboard/student/student-information/add-student-details",
-      status: "complete",
+      status: "complete"
     },
-    { id: "02", name: "Guardian details", href: "#", status: "current" },
-    { id: "03", name: "Address details", href: "#", status: "upcomming" },
-    { id: "04", name: "Class details", href: "#", status: "upcomming" },
-    { id: "05", name: "Fee details", href: "#", status: "upcomming" },
+    { id: "02", name: "Guardian details", , status: "current" },
+    { id: "03", name: "Address details", , status: "upcomming" },
+    { id: "04", name: "Class details", , status: "upcomming" },
+    { id: "05", name: "Fee details", , status: "upcomming" }
   ];
   return (
     <div className="sm:ml-[72px] box-border md:ml-0 md:w-full sm:pt-2  md:min-w-0 flex-1z">

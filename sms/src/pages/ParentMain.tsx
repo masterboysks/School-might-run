@@ -1,6 +1,6 @@
-import { Fragment, useState } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
-import {
+import  { Fragment, useState } from "react";
+import  { Dialog, Menu, Transition } from "@headlessui/react";
+import  {
   Bars3BottomLeftIcon,
   BellIcon,
   CalendarIcon,
@@ -9,22 +9,22 @@ import {
   HomeIcon,
   InboxIcon,
   UsersIcon,
-  XMarkIcon,
+  XMarkIcon
 } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import  { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon },
-  { name: "Projects", href: "#", icon: FolderIcon },
-  { name: "Calendar", href: "#", icon: CalendarIcon },
-  { name: "Documents", href: "#", icon: InboxIcon },
-  { name: "Reports", href: "#", icon: ChartBarIcon },
+  { name: "Dashboard", , icon: HomeIcon, current: true },
+  { name: "Team", , icon: UsersIcon },
+  { name: "Projects", , icon: FolderIcon },
+  { name: "Calendar", , icon: CalendarIcon },
+  { name: "Documents", , icon: InboxIcon },
+  { name: "Reports", , icon: ChartBarIcon }
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "Your Profile",  },
+  { name: "Settings",  },
+  { name: "Sign out",  }
 ];
 
 function classNames(...classes) {

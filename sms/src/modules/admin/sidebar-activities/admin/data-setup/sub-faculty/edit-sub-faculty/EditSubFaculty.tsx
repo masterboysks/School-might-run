@@ -9,10 +9,9 @@ import { useEffect } from "react";
 import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
 import React from "react";
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "Sub-Faculty",
@@ -20,7 +19,6 @@ const pages = [
   },
   {
     name: "Edit",
-    href: "#",
   },
 ];
 const EditSubFaculty = () => {

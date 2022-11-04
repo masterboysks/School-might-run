@@ -1,4 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
+/* eslint-disable import /no-anonymous-default-export */
 import { authorized } from "../common/axios";
 export default {
   get() {

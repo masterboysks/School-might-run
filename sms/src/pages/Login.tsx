@@ -7,7 +7,7 @@ import Auth from "../api/common/Auth";
 import { useState } from "react";
 import AuthContext from "../contex/AuthProvider";
 import { useContext } from "react";
-// import Error from "../components/loginError/Error";
+// import  Error from "../components/loginError/Error";
 export default function Login() {
   const {
     register,

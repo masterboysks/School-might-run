@@ -8,7 +8,7 @@ import React from "react";
 export default function UpgradeClass() {
   let { classname } = useParams();
   const pages = [
-    { name: "Admin", href: "#" },
+    { name: "Admin" },
     {
       name: "Upgrade Class",
       href: "/admin/dashboard/admin/upgrade/",

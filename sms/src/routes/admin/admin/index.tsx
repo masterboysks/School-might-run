@@ -4,7 +4,7 @@ import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import AdminDataSetupRoutes from "./AdminDataSetupRoutes";
 
-// Admin Imports
+// Admin import s
 const AdminSlidebar = lazy(
   () => import("../../../modules/admin/sidebar-activities/admin/slidebar")
 );

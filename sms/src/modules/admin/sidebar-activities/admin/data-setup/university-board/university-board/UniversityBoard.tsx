@@ -2,10 +2,9 @@ import React from "react";
 import Breadnav from "../../../../../../../components/common/Breadnav";
 import Tables from "./Tables";
 const pages = [
-  { name: "Admin", href: "#" },
+  { name: "Admin" },
   {
     name: "Date setup",
-    href: "#",
   },
   {
     name: "University/Board",
