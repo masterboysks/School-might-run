@@ -10,8 +10,7 @@ export const upload = ({
   required = false,
   showError = true,
   uploadText,
-  errorText = "",
-  id = Math.random() + "jkhsaieor",
+  id = "form_" + name,
   watch,
   accept,
   multiple,
@@ -63,6 +62,7 @@ export const upload = ({
                 className="sr-only"
                 {...register(name, { required })}
                 accept={accept}
+                multiple={multiple}
               />
             </label>
           </div>
@@ -72,7 +72,7 @@ export const upload = ({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errors[name]?.message || " This is a required field."}
           </span>
           <br />
         </>
@@ -89,9 +89,9 @@ export const uploadPhoto = ({
   required = false,
   showError = true,
   uploadText = "",
-  errorText = "",
-  id = Math.random() + "hdfhdfkhfkdh",
+  id = "form_" + name,
   watch,
+  multiple = false,
 }) => {
   let logo;
   watch && (logo = watch(name));
@@ -127,6 +127,7 @@ export const uploadPhoto = ({
                 className="sr-only"
                 {...register(name, { required })}
                 accept="image/*"
+                multiple={multiple}
               />
             </label>
           </div>
@@ -136,7 +137,7 @@ export const uploadPhoto = ({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errors[name]?.message || " This is a required field."}
           </span>
           <br />
         </>

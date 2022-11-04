@@ -1,8 +1,8 @@
 import React from "react";
 
 export const textarea = ({
-  id = Math.random() + "jkhsaieor",
   name,
+  id = "form_" + name,
   register,
   required = false,
 
@@ -31,7 +31,7 @@ export const textarea = ({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            This is a required field.
+            {errors[name]?.message || "This is a required field."}
           </span>
           <br />
         </>

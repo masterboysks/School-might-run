@@ -10,7 +10,7 @@ const Steps = ({
   steps: {
     name: string;
     href: string;
-    status: string;
+    status: number;
   }[];
   title: string;
 }) => {
@@ -23,7 +23,7 @@ const Steps = ({
         <ol role="list" className=" md:flex md:divide-y-0">
           {steps.map((step, stepIdx) => (
             <li key={step.name} className="md:flex-1 md:flex sm:h-14 relative">
-              {step.status === "complete" ? (
+              {step.status === 3 ? (
                 <Link to={step.href} className="group flex items-center w-full">
                   <span className="flex items-center px-6 py-4 text-sm font-medium">
                     <span className="bg-primary-btn flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-full">
@@ -37,7 +37,7 @@ const Steps = ({
                     </span>
                   </span>
                 </Link>
-              ) : step.status === "current" ? (
+              ) : step.status === 2 ? (
                 <Link
                   to={step.href}
                   className="flex items-center px-6 py-4 text-sm font-medium"
@@ -67,7 +67,7 @@ const Steps = ({
                 </Link>
               )}
 
-              {stepIdx !== steps.length - 2 ? (
+              {stepIdx !== steps.length - 1 ? (
                 <>
                   {/* Arrow separator for lg screens and up */}
                   <div

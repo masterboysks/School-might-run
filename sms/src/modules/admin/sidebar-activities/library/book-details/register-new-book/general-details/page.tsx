@@ -3,19 +3,14 @@ import Steps from "../../../../../../../components/common/navigation/Steps";
 import Form from "./Form";
 const steps = [
   {
-    name: "Personal details",
+    name: "Book's general details",
     href: "#",
-    status: "complete",
+    status: 2,
   },
   {
-    name: "Address details",
+    name: "Book specific details",
     href: "#",
-    status: "current",
-  },
-  {
-    name: "Office details",
-    href: "#",
-    status: "upcomming",
+    status: 1,
   },
 ];
 export default function LibraryGeneralDetailsAdd() {

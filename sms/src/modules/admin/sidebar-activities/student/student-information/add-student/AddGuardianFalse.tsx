@@ -7,12 +7,12 @@ const AddGuardianFalse = () => {
     {
       name: "Student details",
       href: "/admin/dashboard/student/student-information/add-student-details",
-      status: "complete",
+      status: 3,
     },
-    { name: "Guardian details", href: "#", status: "current" },
-    { name: "Address details", href: "#", status: "upcomming" },
-    { name: "Class details", href: "#", status: "upcomming" },
-    { name: "Fee details", href: "#", status: "upcomming" },
+    { name: "Guardian details", href: "#", status: 2 },
+    { name: "Address details", href: "#", status: 1 },
+    { name: "Class details", href: "#", status: 1 },
+    { name: "Fee details", href: "#", status: 1 },
   ];
   return (
     <div className="sm:ml-[72px] box-border md:ml-0 md:w-full sm:pt-2 md:min-w-0 flex-1z">

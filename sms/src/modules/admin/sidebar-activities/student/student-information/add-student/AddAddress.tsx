@@ -5,16 +5,16 @@ const steps = [
   {
     name: "Student details",
     href: "/admin/dashboard/student/student-information/add-student-details",
-    status: "complete",
+    status: 3,
   },
   {
     name: "Guardian details",
     href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
-    status: "complete",
+    status: 3,
   },
-  { name: "Address details", href: "#", status: "current" },
-  { name: "Class details", href: "#", status: "upcomming" },
-  { name: "Fee details", href: "#", status: "upcomming" },
+  { name: "Address details", href: "#", status: 2 },
+  { name: "Class details", href: "#", status: 1 },
+  { name: "Fee details", href: "#", status: 1 },
 ];
 function AddAddress() {
   return (

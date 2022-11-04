@@ -5,14 +5,13 @@ import { Fragment } from "react";
 import { useController } from "react-hook-form";
 
 export function select({
-  id = Math.random() + "jkhsaieor",
   name,
 
   errors = {},
-  errorText = "",
   register,
   value: options,
   label,
+  id = "form_" + name,
   required = false,
   showError = true,
   className = "",
@@ -49,7 +48,7 @@ export function select({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errors[name]?.message || " This is a required field."}
           </span>
           <br />
         </>
@@ -72,7 +71,6 @@ export function multipleSelect({
   } = useController({
     name,
     control,
-    people: options,
     rules: { required: required },
   });
   // console.log(value, onChange);
@@ -97,7 +95,9 @@ export function multipleSelect({
                 .join(", ")}
             </span>
             {errors && errors[name] && (
-              <span className="text-red-600">This field is required</span>
+              <span className="text-red-600">
+                {errors[name]?.message || "This field is required"}
+              </span>
             )}
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <ChevronUpDownIcon

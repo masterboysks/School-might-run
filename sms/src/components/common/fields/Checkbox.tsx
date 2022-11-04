@@ -1,8 +1,10 @@
+import React from "react";
+
 export const checkbox = ({
   label, //array with correct index
   name,
   register,
-  id = Math.random() + "uehwsfdkh",
+  id = "form_" + name,
   className = "",
 }) => {
   return (
@@ -51,7 +53,7 @@ export const radio = ({
       ))}
       {errors && errors[name] && (
         <div className=" md:block hidden text-xs font-light text-red-600">
-          {errorText || " This is a required field"}
+          {errors[name]?.message || " This is a required field"}
         </div>
       )}
     </>

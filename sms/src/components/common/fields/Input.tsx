@@ -3,11 +3,10 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React from "react";
 import { useState } from "react";
 export function input({
-  id = Math.random() + "jkhsaieor",
   name,
+  id = "form_" + name,
   shouldUnregister = false,
   errors = {},
-  errorText = "",
   register,
   type = "text",
   label,
@@ -24,7 +23,7 @@ export function input({
   errorText?: string | undefined;
   register: any;
   type?: string | undefined;
-  label: string;
+  label: string | undefined;
   required?: boolean;
   placeholder?: string;
   showError?: boolean;
@@ -57,7 +56,7 @@ export function input({
       {showError && errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {errorText || "This is a required field."}
+            {errors[name]?.message || "This is a required field."}
           </span>
         </>
       )}
@@ -66,11 +65,10 @@ export function input({
 }
 
 export function password({
-  id = Math.random() + "jkhsaieor",
   name,
+  id = "form_" + name,
 
   errors = {},
-  errorText = "",
   register,
   label,
   required = false,
@@ -117,7 +115,7 @@ export function password({
       {showError && errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errors[name]?.message || " This is a required field."}
           </span>
         </>
       )}
@@ -147,8 +145,6 @@ export const inputDisabled = ({
   );
 };
 export function inputNumber({
-  id = Math.random() + "jkhsaieor",
-
   errors = {},
   register,
   label,
@@ -158,6 +154,7 @@ export function inputNumber({
   step = "",
   min = "",
   max = "",
+  id = "form_" + name,
 }) {
   const props = { step, min, max, placeholder, id };
   return (
@@ -185,7 +182,7 @@ export function inputNumber({
       {errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {" This is a required field."}
+            {errors[name]?.message || " This is a required field."}
           </span>
         </>
       )}

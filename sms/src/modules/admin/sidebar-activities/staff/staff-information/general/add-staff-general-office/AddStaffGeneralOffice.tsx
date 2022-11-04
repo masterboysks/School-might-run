@@ -6,17 +6,17 @@ const steps = [
   {
     name: "Personal details",
     href: "#",
-    status: "complete",
+    status: 3,
   },
   {
     name: "Address details",
     href: "#",
-    status: "complete",
+    status: 3,
   },
   {
     name: "Office details",
     href: "#",
-    status: "current",
+    status: 2,
   },
 ];
 

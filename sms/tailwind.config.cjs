@@ -8,6 +8,7 @@ module.exports = {
         primary: {
           "grey-600": "#596579",
           btn: "#0052CC",
+          "btn-disabled": "#145ECC",
           "grey-700": "#374253",
           "profile-circle": "#014DA1",
           "grey-100": "#F4F7FB",
