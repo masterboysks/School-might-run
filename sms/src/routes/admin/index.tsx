@@ -3,12 +3,13 @@ import { useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import StudentRoutes from "./StudentRoutes";
 import StaffRoutes from "./StaffRoutes";
-import AdminDashboardRoutes from "./AdminDashboardRoutes";
+import AdminDashboardRoutes from "./admin";
 import ExamRoutes from "./ExamRoutes";
 import ReportRoutes from "./ReportRoutes";
 import FeeRoutes from "./FeeRoutes";
 import React from "react";
 import TransportationRoutes from "./TransportationRoutes";
+import LibraryRoutes from "./LibraryRoutes";
 
 const AdminMain = lazy(() => import("../../pages/AdminMain"));
 
@@ -31,6 +32,7 @@ function AdminRoutes() {
         <Route path="student/*" element={<StudentRoutes />}></Route>
         <Route path="fee/*" element={<FeeRoutes />}></Route>
         <Route path="transport/*" element={<TransportationRoutes />}></Route>
+        <Route path="library/*" element={<LibraryRoutes />}></Route>
 
         <Route
           path="*"

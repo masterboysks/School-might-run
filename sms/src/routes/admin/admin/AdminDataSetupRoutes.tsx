@@ -3,182 +3,215 @@ import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-const EditAcademicYear = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/edit-academic-year/EditAcademicYear"
-  )
+const EditAcademicYear = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/academic-year/edit-academic-year/EditAcademicYear"
+    )
 );
-const EditClassSemester = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/edit-class-semester/EditClassSemester"
-  )
+const EditClassSemester = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/class-semester/edit-class-semester/EditClassSemester"
+    )
 );
-const EditDepartment = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/department/edit-department/EditDepartment"
-  )
+const EditDepartment = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/department/edit-department/EditDepartment"
+    )
 );
-const EditDesignation = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/designation/edit-designation/EditDesignation"
-  )
+const EditDesignation = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/designation/edit-designation/EditDesignation"
+    )
 );
-const EditFaculty = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty"
-  )
+const EditFaculty = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/faculty/edit-faculty/EditFaculty"
+    )
 );
-const EditFiscalYear = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/edit-fiscal-year/EditFiscalYear"
-  )
+const EditFiscalYear = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/edit-fiscal-year/EditFiscalYear"
+    )
 );
-const EditSection = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/section/edit-section/EditSection"
-  )
+const EditSection = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/section/edit-section/EditSection"
+    )
 );
-const EditSubFaculty = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/edit-sub-faculty/EditSubFaculty"
-  )
+const EditSubFaculty = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/edit-sub-faculty/EditSubFaculty"
+    )
 );
-const EditSubject = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/subject/edit-subject/EditSubject"
-  )
+const EditSubject = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/subject/edit-subject/EditSubject"
+    )
 );
 // my imports
-const EditLevel = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/level/edit-level/EditLevel"
-  )
+const EditLevel = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/level/edit-level/EditLevel"
+    )
 );
-const EditUniversityBoard = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/university-board/edit-university-board/EditUniversityBoard"
-  )
+const EditUniversityBoard = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/university-board/edit-university-board/EditUniversityBoard"
+    )
 );
 
-const UniversityBoard = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/university-board/university-board/UniversityBoard"
-  )
+const UniversityBoard = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/university-board/university-board/UniversityBoard"
+    )
 );
-const AddUniversityBoard = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/university-board/add-university-board/AddUniversityBoard"
-  )
+const AddUniversityBoard = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/university-board/add-university-board/AddUniversityBoard"
+    )
 );
-const Level = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/level/level/Level"
-  )
+const Level = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/level/level/Level"
+    )
 );
-const AddLevel = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/level/add-level/AddLevel"
-  )
+const AddLevel = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/level/add-level/AddLevel"
+    )
 );
-const Faculty = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/faculty/faculty/Faculty"
-  )
+const Faculty = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/faculty/faculty/Faculty"
+    )
 );
-const AddFaculty = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/faculty/add-faculty/AddFaculty"
-  )
+const AddFaculty = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/faculty/add-faculty/AddFaculty"
+    )
 );
-const SubFaculty = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/sub-faculty/SubFaculty"
-  )
+const SubFaculty = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/sub-faculty/SubFaculty"
+    )
 );
-const AddSubFaculty = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/add-sub-faculty/AddSubFaculty"
-  )
+const AddSubFaculty = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/sub-faculty/add-sub-faculty/AddSubFaculty"
+    )
 );
-const Section = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/section/section/Section"
-  )
+const Section = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/section/section/Section"
+    )
 );
-const AddSection = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/section/add-section/AddSection"
-  )
+const AddSection = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/section/add-section/AddSection"
+    )
 );
-const Subject = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/subject/subject/Subject"
-  )
+const Subject = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/subject/subject/Subject"
+    )
 );
-const AddSubject = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/subject/add-subject/AddSubject"
-  )
+const AddSubject = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/subject/add-subject/AddSubject"
+    )
 );
-const ClassSemester = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/class-semester/ClassSemester"
-  )
+const ClassSemester = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/class-semester/class-semester/ClassSemester"
+    )
 );
-const AddClassSemester = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/class-semester/add-class-semester/AddClassSemester"
-  )
+const AddClassSemester = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/class-semester/add-class-semester/AddClassSemester"
+    )
 );
 // const AssignSubject = lazy(() =>
 //   import(
-//     "../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/assign-subject/AssignSubject"
+//     "../../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/assign-subject/AssignSubject"
 //   )
 // );
 // const AddAssiginSubject = lazy(() =>
 //   import(
-//     "../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/add-assign-subject/AddAssiginSubject"
+//     "../../../modules/admin/sidebar-activities/admin/data-setup/assign-subject/add-assign-subject/AddAssiginSubject"
 //   )
 // );
-const Department = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/department/department/Department"
-  )
+const Department = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/department/department/Department"
+    )
 );
-const AddDepartment = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/department/add-department/AddDepartment"
-  )
+const AddDepartment = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/department/add-department/AddDepartment"
+    )
 );
-const Designation = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/designation/designation/Designation"
-  )
+const Designation = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/designation/designation/Designation"
+    )
 );
-const AddDesignation = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/designation/add-designation/AddDesignation"
-  )
+const AddDesignation = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/designation/add-designation/AddDesignation"
+    )
 );
-const AcademicYear = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/academic-year/AcademicYear"
-  )
+const AcademicYear = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/academic-year/academic-year/AcademicYear"
+    )
 );
-const AddAcademicYear = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/academic-year/add-academic-year/AddAcademicYear"
-  )
+const AddAcademicYear = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/academic-year/add-academic-year/AddAcademicYear"
+    )
 );
-const FiscalYear = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/fiscal-year/FiscalYear"
-  )
+const FiscalYear = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/fiscal-year/FiscalYear"
+    )
 );
-const AddFiscalYear = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/add-fiscal-year/AddFiscalYear"
-  )
+const AddFiscalYear = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/data-setup/fiscal-year/add-fiscal-year/AddFiscalYear"
+    )
 );
 export default function AdminDataSetupRoutes() {
   return (

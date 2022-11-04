@@ -2,17 +2,69 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import RouteSetupAdd from "../../modules/admin/sidebar-activities/transportation/route-setup/route-setup-add/page";
-import RouteSetupEdit from "../../modules/admin/sidebar-activities/transportation/route-setup/route-setup-edit/page";
-import RouteSetup from "../../modules/admin/sidebar-activities/transportation/route-setup/route-setup/page";
-import TransportationSlidebar from "../../modules/admin/sidebar-activities/transportation/Slidebar";
-import StudentWiseDetails from "../../modules/admin/sidebar-activities/transportation/student-wise-details/page";
-import VechicleRouteSetupAdd from "../../modules/admin/sidebar-activities/transportation/vehicle-route-setup/vehicle-route-setup-add/page";
-import VehicleRouteSetupEdit from "../../modules/admin/sidebar-activities/transportation/vehicle-route-setup/vehicle-route-setup-edit/page";
-import VehicleRouteSetup from "../../modules/admin/sidebar-activities/transportation/vehicle-route-setup/vehicle-route-setup/page";
-import VehicleSetupAdd from "../../modules/admin/sidebar-activities/transportation/vehicle-setup/vehicle-setup-add/page";
-import VechicleSetupEdit from "../../modules/admin/sidebar-activities/transportation/vehicle-setup/vehicle-setup-edit/page";
-import VehicleSetup from "../../modules/admin/sidebar-activities/transportation/vehicle-setup/vehicle-setup/page";
+const RouteSetupAdd = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/route-setup/route-setup-add/page"
+    )
+);
+const RouteSetupEdit = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/route-setup/route-setup-edit/page"
+    )
+);
+const RouteSetup = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/route-setup/route-setup/page"
+    )
+);
+const TransportationSlidebar = lazy(
+  () => import("../../modules/admin/sidebar-activities/transportation/Slidebar")
+);
+const StudentWiseDetails = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/student-wise-details/page"
+    )
+);
+const VechicleRouteSetupAdd = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/vehicle-route-setup/vehicle-route-setup-add/page"
+    )
+);
+const VehicleRouteSetupEdit = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/vehicle-route-setup/vehicle-route-setup-edit/page"
+    )
+);
+const VehicleRouteSetup = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/vehicle-route-setup/vehicle-route-setup/page"
+    )
+);
+const VehicleSetupAdd = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/vehicle-setup/vehicle-setup-add/page"
+    )
+);
+const VechicleSetupEdit = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/vehicle-setup/vehicle-setup-edit/page"
+    )
+);
+const VehicleSetup = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/transportation/vehicle-setup/vehicle-setup/page"
+    )
+);
 export default function TransportationRoutes() {
   return (
     <Routes>

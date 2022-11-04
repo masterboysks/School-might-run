@@ -2,37 +2,86 @@ import React from "react";
 import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import AcademicDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/academic-details/AcademicDetails";
-import AddAcademicDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/add-acedimic-details/AddAcademicDetails";
-import AcademicsView from "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base";
-import AddDocument from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument";
-import DocumentView from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base";
-import Document from "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/documents/Document";
-import ViewGeneral from "../../modules/admin/sidebar-activities/staff/staff-information/view/general/base";
-import GeneralDetails from "../../modules/admin/sidebar-activities/staff/staff-information/view/general/general-details/GeneralDetails";
-import ViewStaff from "../../modules/admin/sidebar-activities/staff/staff-information/view/ViewStaff";
-const StaffSlidebar = lazy(() =>
-  import("../../modules/admin/sidebar-activities/staff/slidebar")
+const AcademicDetails = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/academic-details/AcademicDetails"
+    )
 );
-const StaffInformation = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information"
-  )
+const AddAcademicDetails = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/add-acedimic-details/AddAcademicDetails"
+    )
 );
-const AddStaffGeneralPersonal = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-personal/AddStaffGeneralPersonal"
-  )
+const AcademicsView = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base"
+    )
 );
-const AddStaffGeneralAddress = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-address/AddStaffGeneralAddress"
-  )
+const AddDocument = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument"
+    )
 );
-const AddStaffGeneralOffice = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice"
-  )
+const DocumentView = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base"
+    )
+);
+const Document = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/documents/Document"
+    )
+);
+const ViewGeneral = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/general/base"
+    )
+);
+const GeneralDetails = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/general/general-details/GeneralDetails"
+    )
+);
+const ViewStaff = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/view/ViewStaff"
+    )
+);
+const StaffSlidebar = lazy(
+  () => import("../../modules/admin/sidebar-activities/staff/slidebar")
+);
+const StaffInformation = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information"
+    )
+);
+const AddStaffGeneralPersonal = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-personal/AddStaffGeneralPersonal"
+    )
+);
+const AddStaffGeneralAddress = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-address/AddStaffGeneralAddress"
+    )
+);
+const AddStaffGeneralOffice = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice"
+    )
 );
 // const StaffAcademicDetails = lazy(() =>
 //   import(
@@ -54,10 +103,11 @@ const AddStaffGeneralOffice = lazy(() =>
 //     "../../modules/admin/sidebar-activities/staff/staff-information/documents/documents/Document"
 //   )
 // );
-const AddStaffGeneralBase = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-information/general/Base"
-  )
+const AddStaffGeneralBase = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-information/general/Base"
+    )
 );
 // const AddStaffAcademicBase = lazy(() =>
 //   import(
@@ -69,20 +119,23 @@ const AddStaffGeneralBase = lazy(() =>
 //     "../../modules/admin/sidebar-activities/staff/staff-information/documents/base"
 //   )
 // );
-const StaffAttendance = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/staff-attendance/main/StaffAttendance"
-  )
+const StaffAttendance = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/staff-attendance/main/StaffAttendance"
+    )
 );
-const TeacherAssign = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/teacher-assign/teacher-assign/TeacherAssign"
-  )
+const TeacherAssign = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/teacher-assign/teacher-assign/TeacherAssign"
+    )
 );
-const AssignTeacher = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/staff/teacher-assign/assign-teacher/AssignTeacher"
-  )
+const AssignTeacher = lazy(
+  () =>
+    import(
+      "../../modules/admin/sidebar-activities/staff/teacher-assign/assign-teacher/AssignTeacher"
+    )
 );
 export default function StaffRoutes() {
   return (

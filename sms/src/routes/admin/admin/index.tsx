@@ -5,52 +5,66 @@ import { Route, Routes } from "react-router-dom";
 import AdminDataSetupRoutes from "./AdminDataSetupRoutes";
 
 // Admin Imports
-const AdminSlidebar = lazy(() =>
-  import("../../modules/admin/sidebar-activities/admin/slidebar")
+const AdminSlidebar = lazy(
+  () => import("../../../modules/admin/sidebar-activities/admin/slidebar")
 );
-const OrginazationSetup = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/organization-setup/OrginazationSetup"
-  )
+const OrginazationSetup = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/organization-setup/OrginazationSetup"
+    )
 );
-const AddClassShedule = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/class-shedule/add-class-shedule/AddClassShedule"
-  )
+const AddClassShedule = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/class-shedule/add-class-shedule/AddClassShedule"
+    )
 );
-const UpgradeClass = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade-class/UpgradeClass"
-  )
+const UpgradeClass = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade-class/UpgradeClass"
+    )
 );
-const ClassSchedule = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/class-shedule/class-shedule/ClassShedule"
-  )
+const ClassSchedule = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/class-shedule/class-shedule/ClassShedule"
+    )
 );
-const Upgrade = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade/Upgrade"
-  )
+const Upgrade = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade/Upgrade"
+    )
 );
-const Notice = lazy(() =>
-  import("../../modules/admin/sidebar-activities/admin/notice/notice/Notice")
+const Notice = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/notice/notice/Notice"
+    )
 );
-const NewNotice = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/notice/new-notice/NewNotice"
-  )
+const NewNotice = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/notice/new-notice/NewNotice"
+    )
 );
-const Event = lazy(() =>
-  import("../../modules/admin/sidebar-activities/admin/event/event/Event")
+const Event = lazy(
+  () =>
+    import("../../../modules/admin/sidebar-activities/admin/event/event/Event")
 );
-const AddEvent = lazy(() =>
-  import(
-    "../../modules/admin/sidebar-activities/admin/event/add-event/AddEvent"
-  )
+const AddEvent = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/event/add-event/AddEvent"
+    )
 );
-const Temeplate = lazy(() =>
-  import("../../modules/admin/sidebar-activities/admin/tempelate/Temeplate")
+const Temeplate = lazy(
+  () =>
+    import(
+      "../../../modules/admin/sidebar-activities/admin/tempelate/Temeplate"
+    )
 );
 export default function AdminDashboardRoutes() {
   return (
