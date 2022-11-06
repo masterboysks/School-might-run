@@ -3,8 +3,12 @@ import { lazy } from "react";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import BookDetails from "../../modules/admin/sidebar-activities/library/book-details/book-details/page";
+import EditBookDetails from "../../modules/admin/sidebar-activities/library/book-details/edit-book-details/page";
+import EditShelfDetails from "../../modules/admin/sidebar-activities/library/book-details/edit-shelf-details/page";
 import LibraryGeneralDetailsAdd from "../../modules/admin/sidebar-activities/library/book-details/register-new-book/general-details/page";
+import LayoutBookDetails from "../../modules/admin/sidebar-activities/library/book-details/register-new-book/layout";
 import LibrarySpecificDetailsAdd from "../../modules/admin/sidebar-activities/library/book-details/register-new-book/specific-details/page";
+import LendBook from "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lead/page";
 import LibrarySlidebar from "../../modules/admin/sidebar-activities/library/Slidebar";
 export default function LibraryRoutes() {
   return (
@@ -26,7 +30,7 @@ export default function LibraryRoutes() {
               </Suspense>
             }
           />
-          <Route path="register">
+          <Route path="register" element={<LayoutBookDetails />}>
             <Route
               path="general"
               element={
@@ -44,9 +48,13 @@ export default function LibraryRoutes() {
               }
             />
           </Route>
+          <Route path="edit-shelf-details" element={<EditShelfDetails />} />
+          <Route path="edit-book-details" element={<EditBookDetails />} />
         </Route>
         <Route path="library-activities">
-          <Route path="lend-books"></Route>
+          <Route path="lend-book">
+            <Route index element={<LendBook />} />
+          </Route>
           <Route path="return-reissue-books"></Route>
         </Route>
         <Route
