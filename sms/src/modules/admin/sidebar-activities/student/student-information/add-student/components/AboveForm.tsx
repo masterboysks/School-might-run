@@ -1,19 +1,19 @@
-import { CheckIcon } from "@heroicons/react/20/solid";
-import Break from "./Break";
-import { Link } from "react-router-dom";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Steps from "../../../../../../../components/common/navigation/Steps";
-import React from "react";
+import { CheckIcon } from '@heroicons/react/20/solid';
+import Break from './Break';
+import { Link } from 'react-router-dom';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Steps from '../../../../../../../components/common/navigation/Steps';
+import React from 'react';
 
 const pages = [
-  { name: "Student" },
+  { name: 'Student' },
   {
-    name: "Student Information",
-    href: "/student/student-information/",
+    name: 'Student Information',
+    href: '/student/student-information/',
   },
   {
-    name: "Add Student",
-    href: "/admin/dashboard/student/student-information/add-student-details",
+    name: 'Add Student',
+    href: '/admin/dashboard/student/student-information/add-student-details',
   },
 ];
 

@@ -1,55 +1,55 @@
-import Admin from "@mui/icons-material/AdminPanelSettingsOutlined";
-import Student from "@mui/icons-material/SchoolOutlined";
-import Staff from "@mui/icons-material/SupervisorAccountOutlined";
-import Fee from "@mui/icons-material/ReceiptLongOutlined";
-import Account from "@mui/icons-material/AccountBalanceWalletOutlined";
-import Libary from "@mui/icons-material/LocalLibraryOutlined";
-import Inventory from "@mui/icons-material/Inventory2Outlined";
-import Exam from "@mui/icons-material/QuizOutlined";
-import Lms from "@mui/icons-material/AppRegistrationOutlined";
-import Transport from "@mui/icons-material/DirectionsBusOutlined";
-import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import Admin from '@mui/icons-material/AdminPanelSettingsOutlined';
+import Student from '@mui/icons-material/SchoolOutlined';
+import Staff from '@mui/icons-material/SupervisorAccountOutlined';
+import Fee from '@mui/icons-material/ReceiptLongOutlined';
+import Account from '@mui/icons-material/AccountBalanceWalletOutlined';
+import Libary from '@mui/icons-material/LocalLibraryOutlined';
+import Inventory from '@mui/icons-material/Inventory2Outlined';
+import Exam from '@mui/icons-material/QuizOutlined';
+import Lms from '@mui/icons-material/AppRegistrationOutlined';
+import Transport from '@mui/icons-material/DirectionsBusOutlined';
+import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-import Hamburger from "@mui/icons-material/MenuOutlined";
-import React from "react";
+import Hamburger from '@mui/icons-material/MenuOutlined';
+import React from 'react';
 
 let activity = [
-  { name: "Admin", value: Admin, path: "admin/organization-setup" },
-  { name: "Staff", value: Staff, path: "staff/staff-information" },
-  { name: "Student", value: Student, path: "student/student-information" },
-  { name: "Fee", value: Fee, path: "fee/fee-type" },
-  { name: "Exam", value: Exam, path: "exam/exam-setup/exam-name" },
+  { name: 'Admin', value: Admin, path: 'admin/organization-setup' },
+  { name: 'Staff', value: Staff, path: 'staff/staff-information' },
+  { name: 'Student', value: Student, path: 'student/student-information' },
+  { name: 'Fee', value: Fee, path: 'fee/fee-type' },
+  { name: 'Exam', value: Exam, path: 'exam/exam-setup/exam-name' },
 
   {
-    name: "Report",
+    name: 'Report',
     value: SummarizeOutlinedIcon,
-    path: "report/attendance-report/student-attendance-report",
+    path: 'report/attendance-report/student-attendance-report',
   },
-  { name: "Library", value: Libary, path: "library/book-details" },
+  { name: 'Library', value: Libary, path: 'library/book-details' },
   {
-    name: "Transport",
+    name: 'Transport',
     value: Transport,
-    path: "transport/student-wise-details",
+    path: 'transport/student-wise-details',
   },
-  { name: "Account", value: Account, path: "account" },
+  { name: 'Account', value: Account, path: 'account' },
   {
-    name: "Inventory",
+    name: 'Inventory',
     value: Inventory,
-    path: "student/student-information",
+    path: 'student/student-information',
   },
-  { name: "LMS", value: Lms, path: "student/student-information" },
+  { name: 'LMS', value: Lms, path: 'student/student-information' },
 ];
 export default function Sidebar({ modules }) {
   // activity = activity.filter((c) => modules?.includes(c.name));
   useEffect(() => {
-    const esc = document.addEventListener("keydown", (e) => {
-      e.key === "Escape" && sidebar();
+    const esc = document.addEventListener('keydown', (e) => {
+      e.key === 'Escape' && sidebar();
     });
 
     return () => {
-      document.removeEventListener("keydown", esc);
+      document.removeEventListener('keydown', esc);
     };
   });
 
@@ -57,23 +57,23 @@ export default function Sidebar({ modules }) {
 
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar')?.classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
   const slidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    let overlay = document.getElementById("overlay")?.classList;
-    const slidebar = document.getElementById("slidebar")?.classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar?.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar?.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
 
   return (
@@ -90,8 +90,8 @@ export default function Sidebar({ modules }) {
             <div
               className={` w-[60px] text-center text-xs rounded py-1 my-4 mx-auto hover:bg-primary-grey-100 z-50 opacity-100  ${
                 location.includes(`admin/dashboard/${curr.name.toLowerCase()}/`)
-                  ? "  bg-primary-grey-100 text-primary-grey-700"
-                  : " text-primary-grey-600 "
+                  ? '  bg-primary-grey-100 text-primary-grey-700'
+                  : ' text-primary-grey-600 '
               }`}
               key={curr.name}
               onClick={() => {
@@ -105,8 +105,8 @@ export default function Sidebar({ modules }) {
                   location.includes(
                     `admin/dashboard/${curr.name.toLowerCase()}/`
                   )
-                    ? "pointer pointer-events-none"
-                    : " "
+                    ? 'pointer pointer-events-none'
+                    : ' '
                 }
               >
                 <curr.value
@@ -114,8 +114,8 @@ export default function Sidebar({ modules }) {
                     location.includes(
                       `admin/dashboard/${curr.name.toLowerCase()}/`
                     )
-                      ? "text-primary-grey-700"
-                      : "text-primary-grey-400"
+                      ? 'text-primary-grey-700'
+                      : 'text-primary-grey-400'
                   }`}
                 />
                 <div className=" text-inherit">{curr.name}</div>

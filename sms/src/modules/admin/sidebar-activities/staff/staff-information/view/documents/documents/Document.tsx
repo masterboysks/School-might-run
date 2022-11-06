@@ -1,4 +1,4 @@
-import DocumentTable from "./DocumentTable";
+import DocumentTable from './DocumentTable';
 
 const Document = () => {
   return <DocumentTable />;

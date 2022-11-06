@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import RenderTable from "./RenderTable";
-import { Select } from "../../../../../../../components/common/oldFields";
+import React, { useState } from 'react';
+import AddIcon from '@mui/icons-material/Add';
+import RenderTable from './RenderTable';
+import { Select } from '../../../../../../../components/common/oldFields';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../../components/common/Buttons";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+} from '../../../../../../../components/common/Buttons';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 export default function Form() {
-  const arrayLevel = ["kdsjhf", "dsjjkhujhg"];
+  const arrayLevel = ['kdsjhf', 'dsjjkhujhg'];
 
-  const [level, setLevel] = useState("Select");
+  const [level, setLevel] = useState('Select');
   const [errorLevel, setErrorLevel] = useState(false);
   const [inputFileds, setInputFileds] = useState([
-    { lowerLimit: "", upperLimit: "", grade: "", gpa: "" },
+    { lowerLimit: '', upperLimit: '', grade: '', gpa: '' },
   ]);
   const navigate = useNavigate();
   const handleSubmit = () => {
     console.log({ inputFileds, level });
     let temp = false;
-    level === "Select" && (temp = true) && setErrorLevel(true);
+    level === 'Select' && (temp = true) && setErrorLevel(true);
     inputFileds.map((curr) => {
       (curr.lowerLimit && curr.upperLimit && curr.grade && curr.gpa) ||
         (temp = true);
     });
-    temp || navigate("/admin/dashboard/exam/exam-setup/grading-system");
+    temp || navigate('/admin/dashboard/exam/exam-setup/grading-system');
   };
   return (
     <>
@@ -103,10 +103,10 @@ export default function Form() {
                             setInputFileds([
                               ...inputFileds,
                               {
-                                lowerLimit: "",
-                                upperLimit: "",
-                                grade: "",
-                                gpa: "",
+                                lowerLimit: '',
+                                upperLimit: '',
+                                grade: '',
+                                gpa: '',
                               },
                             ]);
                           }}

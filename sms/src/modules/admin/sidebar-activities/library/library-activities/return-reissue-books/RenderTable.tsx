@@ -1,7 +1,7 @@
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
-import { Link } from "react-router-dom";
-import React from "react";
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
 export default function RenderTable({
   person,
@@ -11,7 +11,7 @@ export default function RenderTable({
   index,
 }) {
   return (
-    <tr className={selectedPeople.includes(person) ? "bg-gray-50" : undefined}>
+    <tr className={selectedPeople.includes(person) ? 'bg-gray-50' : undefined}>
       <td className="sm:w-16 sm:px-8 relative w-12 px-6">
         {selectedPeople.includes(person) && (
           <div className="absolute inset-y-0 left-0 w-0.5 bg-primary-btn" />

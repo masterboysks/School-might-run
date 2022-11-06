@@ -1,15 +1,15 @@
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../break";
-import Form from "./Form";
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../break';
+import Form from './Form';
 const pages = [
-  { name: "Fee" },
+  { name: 'Fee' },
   {
-    name: "Fee type",
-    href: "/fee/fee-type/",
+    name: 'Fee type',
+    href: '/fee/fee-type/',
   },
   {
-    name: "Add",
-    href: "/fee/fee-type/add",
+    name: 'Add',
+    href: '/fee/fee-type/add',
   },
 ];
 export default function AddFeeType() {

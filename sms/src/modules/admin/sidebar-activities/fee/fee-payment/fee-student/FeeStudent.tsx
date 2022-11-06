@@ -1,21 +1,21 @@
-import profile from "./profile.png";
-import { useParams } from "react-router-dom";
-import Table from "./Table";
-import Form from "./Form";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
+import profile from './profile.png';
+import { useParams } from 'react-router-dom';
+import Table from './Table';
+import Form from './Form';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
 
 export default function FeeStudent() {
   const { student } = useParams();
   const pages = [
-    { name: "Fee" },
+    { name: 'Fee' },
     {
-      name: "Fee payment",
-      href: "/fee/fee-payment/",
+      name: 'Fee payment',
+      href: '/fee/fee-payment/',
     },
     {
       name: `${
-        student.split("-")[0][0].toUpperCase() +
-        student.split("-")[0].substring(1)
+        student.split('-')[0][0].toUpperCase() +
+        student.split('-')[0].substring(1)
       }'s logsheet`,
     },
   ];

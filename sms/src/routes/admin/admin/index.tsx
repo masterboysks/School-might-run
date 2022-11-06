@@ -1,69 +1,69 @@
-import React from "react";
-import { Suspense } from "react";
-import { lazy } from "react";
-import { Route, Routes } from "react-router-dom";
-import AdminDataSetupRoutes from "./AdminDataSetupRoutes";
+import React from 'react';
+import { Suspense } from 'react';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import AdminDataSetupRoutes from './AdminDataSetupRoutes';
 
 // Admin import s
 const AdminSlidebar = lazy(
-  () => import("../../../modules/admin/sidebar-activities/admin/slidebar")
+  () => import('../../../modules/admin/sidebar-activities/admin/slidebar')
 );
 const OrginazationSetup = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/organization-setup/OrginazationSetup"
+      '../../../modules/admin/sidebar-activities/admin/organization-setup/OrginazationSetup'
     )
 );
 const AddClassShedule = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/class-shedule/add-class-shedule/AddClassShedule"
+      '../../../modules/admin/sidebar-activities/admin/class-shedule/add-class-shedule/AddClassShedule'
     )
 );
 const UpgradeClass = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade-class/UpgradeClass"
+      '../../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade-class/UpgradeClass'
     )
 );
 const ClassSchedule = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/class-shedule/class-shedule/ClassShedule"
+      '../../../modules/admin/sidebar-activities/admin/class-shedule/class-shedule/ClassShedule'
     )
 );
 const Upgrade = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade/Upgrade"
+      '../../../modules/admin/sidebar-activities/admin/upgrade-class/upgrade/Upgrade'
     )
 );
 const Notice = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/notice/notice/Notice"
+      '../../../modules/admin/sidebar-activities/admin/notice/notice/Notice'
     )
 );
 const NewNotice = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/notice/new-notice/NewNotice"
+      '../../../modules/admin/sidebar-activities/admin/notice/new-notice/NewNotice'
     )
 );
 const Event = lazy(
   () =>
-    import("../../../modules/admin/sidebar-activities/admin/event/event/Event")
+    import('../../../modules/admin/sidebar-activities/admin/event/event/Event')
 );
 const AddEvent = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/event/add-event/AddEvent"
+      '../../../modules/admin/sidebar-activities/admin/event/add-event/AddEvent'
     )
 );
 const Temeplate = lazy(
   () =>
     import(
-      "../../../modules/admin/sidebar-activities/admin/tempelate/Temeplate"
+      '../../../modules/admin/sidebar-activities/admin/tempelate/Temeplate'
     )
 );
 export default function AdminDashboardRoutes() {
@@ -163,7 +163,7 @@ export default function AdminDashboardRoutes() {
           path="*"
           element={
             <div className="text-primary-grey-700 w-full mt-12 text-xl font-semibold text-center">
-              Page not found-{location.pathname.replace("/", " ")}
+              Page not found-{location.pathname.replace('/', ' ')}
             </div>
           }
         />

@@ -1,33 +1,33 @@
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import RenderTable from "./RenderTable";
-import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Input, Select } from "../../../../../../components/common/fields";
+import { PrinterIcon } from '@heroicons/react/20/solid';
+import RenderTable from './RenderTable';
+import { Fragment, useRef, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Input, Select } from '../../../../../../components/common/fields';
 const people = [
   {
     date: 557663,
-    particular: "Magh",
-    paymentType: "cash",
+    particular: 'Magh',
+    paymentType: 'cash',
     billNo: 99999,
     dr: 11,
     cr: 99999999999999999999,
     balance: 12000000,
   },
   {
-    date: "-----",
-    particular: "Magh",
-    paymentType: "cash",
+    date: '-----',
+    particular: 'Magh',
+    paymentType: 'cash',
     billNo: 99999,
     dr: 11,
     cr: 99999999999999999999,
     balance: 12000000,
   },
   {
-    date: "--",
-    particular: "Magh",
-    paymentType: "cash",
+    date: '--',
+    particular: 'Magh',
+    paymentType: 'cash',
     billNo: 99999,
     dr: 11,
     cr: 99999999999999999999,

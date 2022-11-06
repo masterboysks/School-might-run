@@ -1,17 +1,17 @@
-import React from "react";
-import { useContext } from "react";
-import { useEffect } from "react";
-import { Outlet, useParams } from "react-router-dom";
-import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import StaffGeneralDetailsView from "../../../../../../contex/admin/staff/StaffGeneralDetailsView";
+import React from 'react';
+import { useContext } from 'react';
+import { useEffect } from 'react';
+import { Outlet, useParams } from 'react-router-dom';
+import staffAPI from '../../../../../../api/admin/dashboard/staff/staffAPI';
+import StaffGeneralDetailsView from '../../../../../../contex/admin/staff/StaffGeneralDetailsView';
 const pages = [
-  { name: "Staff" },
+  { name: 'Staff' },
   {
-    name: "Staff Information",
-    href: "/admin/dashboard/staff/staff-information",
+    name: 'Staff Information',
+    href: '/admin/dashboard/staff/staff-information',
   },
   {
-    name: "View",
+    name: 'View',
   },
 ];
 export default function ViewStaff() {
@@ -45,7 +45,7 @@ export default function ViewStaff() {
         <div className="">
           <div className="text-lg text-primary-grey-700 font-medium tracking-wide ">
             <span className="capitalize">{data?.first_name}</span>
-            {"  "}
+            {'  '}
             {data?.last_name}
           </div>
           <div className="">{data?.email}</div>

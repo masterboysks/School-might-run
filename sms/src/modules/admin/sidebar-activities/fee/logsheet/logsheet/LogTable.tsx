@@ -1,6 +1,6 @@
-import RenderTable from "./LogTableRender";
-import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import RenderTable from './LogTableRender';
+import { Fragment, useRef, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
 const people = [
   {
     date: 557663,

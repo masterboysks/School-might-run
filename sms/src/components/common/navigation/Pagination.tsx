@@ -1,10 +1,10 @@
 import {
   ArrowLongLeftIcon,
   ArrowLongRightIcon,
-} from "@heroicons/react/20/solid";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+} from '@heroicons/react/20/solid';
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Pagination({ pagination, setPage }) {
   const [isLastPage, setIsLastPage] = useState(false);
@@ -36,7 +36,7 @@ export default function Pagination({ pagination, setPage }) {
               setPage(pagination?.current_page - 1);
             }}
             className={`inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
-              isFirstPage && "pointer-events-none opacity-60"
+              isFirstPage && 'pointer-events-none opacity-60'
             }`}
           >
             <ArrowLongLeftIcon className="mr-3 h-5 w-5 " aria-hidden="true" />
@@ -53,7 +53,7 @@ export default function Pagination({ pagination, setPage }) {
                       <li
                         className={`inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
                           pagination?.current_page === i + 1 &&
-                          "border-primary-base text-primary-base"
+                          'border-primary-base text-primary-base'
                         }`}
                         onClick={handlePageNumber}
                         key={`pagination${i}`}
@@ -65,7 +65,7 @@ export default function Pagination({ pagination, setPage }) {
                         className={`inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
                           pagination?.current_page ===
                             pagination?.last_page - 4 + i &&
-                          "border-primary-base text-primary-base"
+                          'border-primary-base text-primary-base'
                         }`}
                         onClick={handlePageNumber}
                         key={`pagination${i}`}
@@ -77,7 +77,7 @@ export default function Pagination({ pagination, setPage }) {
                         className={`inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
                           pagination?.current_page ===
                             i - 2 + pagination?.current_page &&
-                          "border-primary-base text-primary-base"
+                          'border-primary-base text-primary-base'
                         }`}
                         onClick={handlePageNumber}
                         key={`pagination${i}`}
@@ -94,7 +94,7 @@ export default function Pagination({ pagination, setPage }) {
                       key={`pagination${i}`}
                       className={`inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
                         pagination?.current_page === i + 1 &&
-                        "border-primary-base text-primary-base"
+                        'border-primary-base text-primary-base'
                       }`}
                     >
                       {i + 1}
@@ -108,7 +108,7 @@ export default function Pagination({ pagination, setPage }) {
               setPage(pagination?.current_page + 1);
             }}
             className={`inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-primary-grey hover:border-primary-base hover:text-primary-base ${
-              isLastPage && "pointer-events-none opacity-60"
+              isLastPage && 'pointer-events-none opacity-60'
             }`}
           >
             Next

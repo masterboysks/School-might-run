@@ -1,46 +1,46 @@
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
-import Search from "@mui/icons-material/SearchOutlined";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { GlobeAltIcon, PrinterIcon } from '@heroicons/react/20/solid';
+import Search from '@mui/icons-material/SearchOutlined';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   InputDisabled,
   Radio,
   SearchBar,
   Select,
-} from "../../../../../../components/common/oldFields";
-import RenderTable from "./RenderTable";
+} from '../../../../../../components/common/oldFields';
+import RenderTable from './RenderTable';
 const people = [
   {
-    class: "Physics",
+    class: 'Physics',
     section: 100,
     faculty: 0,
-    status: "Assigned",
+    status: 'Assigned',
     stdId: 556453127332,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    class: "Physics",
+    class: 'Physics',
     section: 100,
     faculty: 0,
-    status: "Assigned",
+    status: 'Assigned',
     stdId: 5587667332,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    class: "Physics",
+    class: 'Physics',
     section: 100,
     faculty: 0,
-    status: "Assigned",
+    status: 'Assigned',
     stdId: 556733256,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    class: "Physics",
+    class: 'Physics',
     section: 100,
     faculty: 0,
-    status: "Assigned",
+    status: 'Assigned',
     stdId: 556733452,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function Table() {
   const [indexOfFirstItem, setIndexOfFirstItem] = useState(
     indexOfLastItem - itemsOnPage
   );
-  const [message, setmessage] = useState("Showing 1 to 2 of 2 results");
+  const [message, setmessage] = useState('Showing 1 to 2 of 2 results');
 
   const onNextPage = () => {
     setCurrentPage((curr) => curr + 1);
@@ -101,15 +101,15 @@ export default function Table() {
   }, [indexOfFirstItem]);
 
   // Form and filter
-  const arrayExamNameForm = ["djfh", "dsjfg", "djfkhgfd"];
-  const arrayAdmitCardTypeForm = ["djfh", "dsjfg", "djfkhgfd"];
-  const arrayStatusFilter = ["Status", "Assigned", "Unassigned"];
-  const arrayRadioAssign = ["Assigned and Print", "Assign"];
-  const [examNameForm, setExamNameForm] = useState("Select");
-  const [admitCardType, setAdmitCardType] = useState("Select");
-  const [searchFilter, setSearchFilter] = useState("");
-  const [statusFilter, setStatusFilter] = useState("Status");
-  const [radioAssign, setRadioAssign] = useState("");
+  const arrayExamNameForm = ['djfh', 'dsjfg', 'djfkhgfd'];
+  const arrayAdmitCardTypeForm = ['djfh', 'dsjfg', 'djfkhgfd'];
+  const arrayStatusFilter = ['Status', 'Assigned', 'Unassigned'];
+  const arrayRadioAssign = ['Assigned and Print', 'Assign'];
+  const [examNameForm, setExamNameForm] = useState('Select');
+  const [admitCardType, setAdmitCardType] = useState('Select');
+  const [searchFilter, setSearchFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('Status');
+  const [radioAssign, setRadioAssign] = useState('');
   return (
     <>
       {/* search */}
@@ -273,7 +273,7 @@ export default function Table() {
           Total Fail
         </div>
         <div className="flex items-center">
-          <InputDisabled value={"0"} />
+          <InputDisabled value={'0'} />
         </div>
       </div>
     </>

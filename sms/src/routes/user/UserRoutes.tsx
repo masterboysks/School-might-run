@@ -1,48 +1,48 @@
-import React, { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 const Attendance = lazy(
-  () => import("../../modules/user/sidebar-activities/attendance/Attendance")
+  () => import('../../modules/user/sidebar-activities/attendance/Attendance')
 );
 const Dashboard = lazy(
-  () => import("../../modules/user/sidebar-activities/dashboard/Dashboard")
+  () => import('../../modules/user/sidebar-activities/dashboard/Dashboard')
 );
 const AdmitCard = lazy(
   () =>
-    import("../../modules/user/sidebar-activities/exam/admit-card/AdmitCard")
+    import('../../modules/user/sidebar-activities/exam/admit-card/AdmitCard')
 );
 const ExamRoutine = lazy(
   () =>
     import(
-      "../../modules/user/sidebar-activities/exam/exam-routine/ExamRoutine"
+      '../../modules/user/sidebar-activities/exam/exam-routine/ExamRoutine'
     )
 );
 const ReportCard = lazy(
   () =>
-    import("../../modules/user/sidebar-activities/exam/report-card/ReportCard")
+    import('../../modules/user/sidebar-activities/exam/report-card/ReportCard')
 );
 const BalanceSheet = lazy(
   () =>
     import(
-      "../../modules/user/sidebar-activities/fee/balance-sheet/BalanceSheet"
+      '../../modules/user/sidebar-activities/fee/balance-sheet/BalanceSheet'
     )
 );
 const FeeInvoice = lazy(
   () =>
-    import("../../modules/user/sidebar-activities/fee/fee-invoice/FeeInvoice")
+    import('../../modules/user/sidebar-activities/fee/fee-invoice/FeeInvoice')
 );
 const Logsheet = lazy(
-  () => import("../../modules/user/sidebar-activities/fee/logsheet/Logsheet")
+  () => import('../../modules/user/sidebar-activities/fee/logsheet/Logsheet')
 );
 const Reciept = lazy(
-  () => import("../../modules/user/sidebar-activities/fee/reciept/Reciept")
+  () => import('../../modules/user/sidebar-activities/fee/reciept/Reciept')
 );
 const TeacherDetails = lazy(
   () =>
     import(
-      "../../modules/user/sidebar-activities/teacher-details/TeacherDetails"
+      '../../modules/user/sidebar-activities/teacher-details/TeacherDetails'
     )
 );
-const Sidebar = lazy(() => import("../../modules/user/sidebar/Sidebar"));
+const Sidebar = lazy(() => import('../../modules/user/sidebar/Sidebar'));
 
 export default function UserRoutes() {
   return (

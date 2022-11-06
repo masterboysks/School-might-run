@@ -1,72 +1,72 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
-import Arrow from "@mui/icons-material/ArrowForwardIos";
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import Arrow from '@mui/icons-material/ArrowForwardIos';
 
 const activitiesLinks = [
   {
-    name: "Lend books",
-    path: "/admin/dashboard/library/library-activities/lend-book",
+    name: 'Lend books',
+    path: '/admin/dashboard/library/library-activities/lend-book',
   },
   {
-    name: "Return / Reissue books",
-    path: "/admin/dashboard/library/library-activities/return-reissue-book",
+    name: 'return  / Reissue books',
+    path: '/admin/dashboard/library/library-activities/return-reissue-book',
   },
 ];
 const memberLinks = [
   {
-    name: "Student",
-    path: "/admin/dashboard/library/library-member/student",
+    name: 'Student',
+    path: '/admin/dashboard/library/library-member/student',
   },
   {
-    name: "Staff",
-    path: "/admin/dashboard/library/library-member/staff",
+    name: 'Staff',
+    path: '/admin/dashboard/library/library-member/staff',
   },
 ];
 const setupLinks = [
   {
-    name: "Book category",
-    path: "/admin/dashboard/library/library-setup/book-category",
+    name: 'Book category',
+    path: '/admin/dashboard/library/library-setup/book-category',
   },
   {
-    name: "Book sub-category",
-    path: "/admin/dashboard/library/library-setup/book-sub-category",
+    name: 'Book sub-category',
+    path: '/admin/dashboard/library/library-setup/book-sub-category',
   },
   {
-    name: "Book issue rule",
-    path: "/admin/dashboard/library/library-setup/book-issue-rule",
+    name: 'Book issue rule',
+    path: '/admin/dashboard/library/library-setup/book-issue-rule',
   },
   {
-    name: "Fine setup",
-    path: "/admin/dashboard/library/library-setup/fine-setup",
+    name: 'Fine setup',
+    path: '/admin/dashboard/library/library-setup/fine-setup',
   },
 ];
 const bookReportLinks = [
   {
-    name: "Book report",
-    path: "/admin/dashboard/library/library-book-report/book-report",
+    name: 'Book report',
+    path: '/admin/dashboard/library/library-book-report/book-report',
   },
   {
-    name: "Book transaction report",
-    path: "/admin/dashboard/library/library-book-report/book-transaction-report",
+    name: 'Book transaction report',
+    path: '/admin/dashboard/library/library-book-report/book-transaction-report',
   },
   {
-    name: "Library day log",
-    path: "/admin/dashboard/library/library-book-report/library-day-log",
+    name: 'Library day log',
+    path: '/admin/dashboard/library/library-book-report/library-day-log',
   },
   {
-    name: "Book entry report",
-    path: "/admin/dashboard/library/library-book-report/book-entry-report",
+    name: 'Book entry report',
+    path: '/admin/dashboard/library/library-book-report/book-entry-report',
   },
 ];
 const paymentReportLinks = [
   {
-    name: "Library fine summary",
-    path: "/admin/dashboard/library/library-payment-report/library-fine-summary",
+    name: 'Library fine summary',
+    path: '/admin/dashboard/library/library-payment-report/library-fine-summary',
   },
   {
-    name: "Library fine statement",
-    path: "/admin/dashboard/library/library-payment-report/library-fine-statement",
+    name: 'Library fine statement',
+    path: '/admin/dashboard/library/library-payment-report/library-fine-statement',
   },
 ];
 
@@ -79,31 +79,31 @@ const LibrarySlidebar = () => {
   const [paymentReport, setPaymentReport] = useState(false);
   const location = useLocation().pathname;
   useEffect(() => {
-    location.includes("/admin/dashboard/exam/exam-setup")
+    location.includes('/admin/dashboard/exam/exam-setup')
       ? setSetup(true)
       : setSetup(false);
   }, [location]);
 
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar')?.classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    let overlay = document.getElementById("overlay")?.classList;
-    const slidebar = document.getElementById("slidebar")?.classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar?.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar?.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -116,9 +116,9 @@ const LibrarySlidebar = () => {
             <Link to="/admin/dashboard/library/book-details" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3     cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/library/book-details")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/library/book-details')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -133,22 +133,22 @@ const LibrarySlidebar = () => {
               }}
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
             ${
-              location.includes("/admin/dashboard/library/library-activities")
-                ? "text-primary-grey-700"
-                : "text-primary-grey-600"
+              location.includes('/admin/dashboard/library/library-activities')
+                ? 'text-primary-grey-700'
+                : 'text-primary-grey-600'
             } 
                  ${
                    location.includes(
-                     "/admin/dashboard/library/library-activities"
+                     '/admin/dashboard/library/library-activities'
                    ) && !activities
-                     ? "bg-primary-grey-200 "
-                     : "text-primary-grey-600"
+                     ? 'bg-primary-grey-200 '
+                     : 'text-primary-grey-600'
                  }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  activities ? "rotate-90" : ""
+                  activities ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -157,7 +157,7 @@ const LibrarySlidebar = () => {
             </li>
             <ul
               className={`${
-                activities ? "" : "hidden"
+                activities ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -167,8 +167,8 @@ const LibrarySlidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -184,10 +184,10 @@ const LibrarySlidebar = () => {
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3     cursor-pointer rounded ${
                   location.includes(
-                    "/admin/dashboard/library/lost-book-details"
+                    '/admin/dashboard/library/lost-book-details'
                   )
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -202,22 +202,22 @@ const LibrarySlidebar = () => {
               }}
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
             ${
-              location.includes("/admin/dashboard/library/library-member")
-                ? "text-primary-grey-700"
-                : "text-primary-grey-600"
+              location.includes('/admin/dashboard/library/library-member')
+                ? 'text-primary-grey-700'
+                : 'text-primary-grey-600'
             } 
                  ${
                    location.includes(
-                     "/admin/dashboard/library/library-member"
+                     '/admin/dashboard/library/library-member'
                    ) && !member
-                     ? "bg-primary-grey-200 "
-                     : "text-primary-grey-600"
+                     ? 'bg-primary-grey-200 '
+                     : 'text-primary-grey-600'
                  }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  member ? "rotate-90" : ""
+                  member ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -226,7 +226,7 @@ const LibrarySlidebar = () => {
             </li>
             <ul
               className={`${
-                member ? "" : "hidden"
+                member ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -236,8 +236,8 @@ const LibrarySlidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -252,22 +252,22 @@ const LibrarySlidebar = () => {
               }}
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
             ${
-              location.includes("/admin/dashboard/library/library-setup")
-                ? "text-primary-grey-700"
-                : "text-primary-grey-600"
+              location.includes('/admin/dashboard/library/library-setup')
+                ? 'text-primary-grey-700'
+                : 'text-primary-grey-600'
             } 
                  ${
                    location.includes(
-                     "/admin/dashboard/library/library-setup"
+                     '/admin/dashboard/library/library-setup'
                    ) && !setup
-                     ? "bg-primary-grey-200 "
-                     : "text-primary-grey-600"
+                     ? 'bg-primary-grey-200 '
+                     : 'text-primary-grey-600'
                  }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  setup ? "rotate-90" : ""
+                  setup ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -276,7 +276,7 @@ const LibrarySlidebar = () => {
             </li>
             <ul
               className={`${
-                setup ? "" : "hidden"
+                setup ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -286,8 +286,8 @@ const LibrarySlidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -302,22 +302,22 @@ const LibrarySlidebar = () => {
               }}
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
             ${
-              location.includes("/admin/dashboard/library/library-book-report")
-                ? "text-primary-grey-700"
-                : "text-primary-grey-600"
+              location.includes('/admin/dashboard/library/library-book-report')
+                ? 'text-primary-grey-700'
+                : 'text-primary-grey-600'
             } 
                  ${
                    location.includes(
-                     "/admin/dashboard/library/library-book-report"
+                     '/admin/dashboard/library/library-book-report'
                    ) && !bookReport
-                     ? "bg-primary-grey-200 "
-                     : "text-primary-grey-600"
+                     ? 'bg-primary-grey-200 '
+                     : 'text-primary-grey-600'
                  }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  bookReport ? "rotate-90" : ""
+                  bookReport ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -326,7 +326,7 @@ const LibrarySlidebar = () => {
             </li>
             <ul
               className={`${
-                bookReport ? "" : "hidden"
+                bookReport ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -336,8 +336,8 @@ const LibrarySlidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -345,7 +345,7 @@ const LibrarySlidebar = () => {
                   </Link>
                 );
               })}
-            </ul>{" "}
+            </ul>{' '}
             <li
               onClick={() => {
                 setPaymentReport((c) => !c);
@@ -353,23 +353,23 @@ const LibrarySlidebar = () => {
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
             ${
               location.includes(
-                "/admin/dashboard/library/library-payment-report"
+                '/admin/dashboard/library/library-payment-report'
               )
-                ? "text-primary-grey-700"
-                : "text-primary-grey-600"
+                ? 'text-primary-grey-700'
+                : 'text-primary-grey-600'
             } 
                  ${
                    location.includes(
-                     "/admin/dashboard/library/library-payment-report"
+                     '/admin/dashboard/library/library-payment-report'
                    ) && !paymentReport
-                     ? "bg-primary-grey-200 "
-                     : "text-primary-grey-600"
+                     ? 'bg-primary-grey-200 '
+                     : 'text-primary-grey-600'
                  }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  paymentReport ? "rotate-90" : ""
+                  paymentReport ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -378,7 +378,7 @@ const LibrarySlidebar = () => {
             </li>
             <ul
               className={`${
-                paymentReport ? "" : "hidden"
+                paymentReport ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -388,8 +388,8 @@ const LibrarySlidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}

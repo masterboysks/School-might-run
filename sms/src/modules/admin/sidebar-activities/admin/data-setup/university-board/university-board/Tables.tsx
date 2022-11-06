@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
-import { SearchBar } from "../../../../../../../components/common/fields";
-import RenderTable from "./RenderTable";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
+import { SearchBar } from '../../../../../../../components/common/fields';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    board: "NEB",
+    board: 'NEB',
   },
   {
-    board: "TU",
+    board: 'TU',
   },
 ];
 

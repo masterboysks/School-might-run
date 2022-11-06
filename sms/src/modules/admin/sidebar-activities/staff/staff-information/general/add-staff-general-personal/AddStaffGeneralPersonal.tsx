@@ -1,19 +1,19 @@
-import Steps from "../../../../../../../components/common/navigation/Steps";
-import Form from "./PersonalDetailsForm";
+import Steps from '../../../../../../../components/common/navigation/Steps';
+import Form from './PersonalDetailsForm';
 const steps = [
   {
-    name: "Personal details",
-    href: "#",
+    name: 'Personal details',
+    href: '#',
     status: 2,
   },
   {
-    name: "Address details",
-    href: "#",
+    name: 'Address details',
+    href: '#',
     status: 1,
   },
   {
-    name: "Office details",
-    href: "#",
+    name: 'Office details',
+    href: '#',
     status: 1,
   },
 ];

@@ -1,6 +1,6 @@
-import React from "react";
-import Search from "@mui/icons-material/SearchOutlined";
-import { Input } from "../../../../../../components/common/fields";
+import React from 'react';
+import Search from '@mui/icons-material/SearchOutlined';
+import { Input } from '../../../../../../components/common/fields';
 
 export default function Form({ register, handleSubmit, onSubmit }) {
   return (

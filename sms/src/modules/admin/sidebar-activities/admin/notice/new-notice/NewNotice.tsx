@@ -1,33 +1,33 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import {
   Input,
   MultipleSelect,
   Textarea,
   UploadPhoto,
   DateInput,
-} from "../../../../../../components/common/fields";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../components/common/Break";
-import { useForm } from "react-hook-form";
-import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";
-import { useEffect } from "react";
-import React from "react";
+} from '../../../../../../components/common/fields';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../components/common/Break';
+import { useForm } from 'react-hook-form';
+import noticeApi from '../../../../../../api/admin/dashboard/admin/noticeApi';
+import { useEffect } from 'react';
+import React from 'react';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Push notification",
-    href: "/admin/dashboard/admin/notice",
+    name: 'Push notification',
+    href: '/admin/dashboard/admin/notice',
   },
   {
-    name: "New notice",
-    href: "/admin/dashboard/admin/notice/new",
+    name: 'New notice',
+    href: '/admin/dashboard/admin/notice/new',
   },
 ];
 
 function NewNotice() {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('');
   const {
     register,
     handleSubmit,
@@ -36,7 +36,7 @@ function NewNotice() {
     formState: { errors },
   } = useForm();
   const [arraySendTo, setArraySendTo] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (data) => {
     const d = {
@@ -49,12 +49,12 @@ function NewNotice() {
       form.append(name, d[name]);
     }
     d.document.length === 1
-      ? form.append("document", d.document[0])
-      : form.append("document", "");
+      ? form.append('document', d.document[0])
+      : form.append('document', '');
     const res = await noticeApi.create(form);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/notice")
-      : setError("Failed to create a notice");
+      ? navigate('/admin/dashboard/admin/notice')
+      : setError('Failed to create a notice');
   };
 
   useEffect(() => {

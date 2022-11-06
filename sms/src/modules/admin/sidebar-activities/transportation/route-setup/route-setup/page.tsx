@@ -1,12 +1,12 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 
 const pages = [
-  { name: "Transportation" },
+  { name: 'Transportation' },
   {
-    name: "Route setup",
-    href: "/admin/dashboard/transport/route-setup/",
+    name: 'Route setup',
+    href: '/admin/dashboard/transport/route-setup/',
   },
 ];
 export default function RouteSetup() {

@@ -1,27 +1,27 @@
-import React, { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 const ExamDetails = lazy(
   () =>
     import(
-      "../../modules/teacher/sidebar-activities/exam/exam-details/ExamDetails"
+      '../../modules/teacher/sidebar-activities/exam/exam-details/ExamDetails'
     )
 );
 const ExamMarks = lazy(
   () =>
-    import("../../modules/teacher/sidebar-activities/exam/exam-marks/ExamMarks")
+    import('../../modules/teacher/sidebar-activities/exam/exam-marks/ExamMarks')
 );
 const MarksEntry = lazy(
   () =>
     import(
-      "../../modules/teacher/sidebar-activities/exam/marks/entry/MarksEntry"
+      '../../modules/teacher/sidebar-activities/exam/marks/entry/MarksEntry'
     )
 );
 const MarksView = lazy(
   () =>
-    import("../../modules/teacher/sidebar-activities/exam/marks/view/MarksView")
+    import('../../modules/teacher/sidebar-activities/exam/marks/view/MarksView')
 );
 const Slidebar = lazy(
-  () => import("../../modules/teacher/sidebar-activities/exam/Slidebar")
+  () => import('../../modules/teacher/sidebar-activities/exam/Slidebar')
 );
 
 export default function Exam() {

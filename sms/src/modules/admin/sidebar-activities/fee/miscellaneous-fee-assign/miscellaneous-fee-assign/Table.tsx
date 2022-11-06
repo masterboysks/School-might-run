@@ -1,16 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    class: "Class 2",
-    level: "Primary",
-    assignDate: "2022/06/20",
-    section: "C",
-    faculty: "",
+    class: 'Class 2',
+    level: 'Primary',
+    assignDate: '2022/06/20',
+    section: 'C',
+    faculty: '',
     assignAmount: 990000,
-    description: "Picnic fee",
+    description: 'Picnic fee',
   },
 ];
 

@@ -1,10 +1,10 @@
-import React from "react";
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
-import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
-import { useContext } from "react";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import { Link } from "react-router-dom";
+import React from 'react';
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
+import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
+import { useContext } from 'react';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import { Link } from 'react-router-dom';
 
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
@@ -18,7 +18,7 @@ const RenderTable = ({ currentItems, setData }) => {
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
-      heading: "level",
+      heading: 'level',
       inUse,
     });
   };
@@ -33,7 +33,7 @@ const RenderTable = ({ currentItems, setData }) => {
             {person.university_name}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.has_faculty ? "yes" : "no"}
+            {person.has_faculty ? 'yes' : 'no'}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">
@@ -43,14 +43,14 @@ const RenderTable = ({ currentItems, setData }) => {
               </Popover.Button>
               <Popover.Panel
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
-                 ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
+                 ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
                 <div
                   className="p-3"
                   onClick={() => {
                     console.log(person);
                     localStorage.setItem(
-                      "Mb5sVJt5Qp",
+                      'Mb5sVJt5Qp',
                       JSON.stringify({
                         has_faculty: person.has_faculty,
                         university_id: person.university_id,

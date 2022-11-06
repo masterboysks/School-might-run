@@ -1,7 +1,7 @@
-import { useForm } from "react-hook-form";
-import { useNavigate, Link } from "react-router-dom";
-import PermanentAddressForm from "./PermanentAddressForm";
-import TemporaryAddressForm from "./TemporaryAddressForm";
+import { useForm } from 'react-hook-form';
+import { useNavigate, Link } from 'react-router-dom';
+import PermanentAddressForm from './PermanentAddressForm';
+import TemporaryAddressForm from './TemporaryAddressForm';
 
 function AddressForm() {
   const {
@@ -18,7 +18,7 @@ function AddressForm() {
     navigate(-1);
   };
 
-  const sameAsPermenantAddress = watch("same_as_permanent_address");
+  const sameAsPermenantAddress = watch('same_as_permanent_address');
   const navigate = useNavigate();
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

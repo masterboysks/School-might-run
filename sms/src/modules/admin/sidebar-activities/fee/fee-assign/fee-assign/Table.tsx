@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    level: "NEB",
-    class: "jhdgsgasfd",
-    faculty: "no",
-    subFaculty: "no",
+    level: 'NEB',
+    class: 'jhdgsgasfd',
+    faculty: 'no',
+    subFaculty: 'no',
   },
   {
-    level: "TU",
-    class: "gfstrft",
-    faculty: "no",
-    subFaculty: "no",
+    level: 'TU',
+    class: 'gfstrft',
+    faculty: 'no',
+    subFaculty: 'no',
   },
 ];
 

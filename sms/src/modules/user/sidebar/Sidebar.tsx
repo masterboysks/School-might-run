@@ -1,6 +1,6 @@
-import { Fragment, useState } from "react";
-import Arrow from "@mui/icons-material/ArrowForwardIos";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Fragment, useState } from 'react';
+import Arrow from '@mui/icons-material/ArrowForwardIos';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   Bars3BottomLeftIcon,
   CalendarIcon,
@@ -9,20 +9,20 @@ import {
   BanknotesIcon,
   DocumentCheckIcon,
   XMarkIcon,
-} from "@heroicons/react/24/outline";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import one from "../welcome/three.jpg";
-import React from "react";
+} from '@heroicons/react/24/outline';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import one from '../welcome/three.jpg';
+import React from 'react';
 let navigation, dropnavigation;
 
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Sidebar() {
@@ -31,134 +31,134 @@ export default function Sidebar() {
   const [feeData, setFeeData] = useState(false);
   const location = useLocation().pathname;
 
-  location.includes("/parent/dashboard") &&
+  location.includes('/parent/dashboard') &&
     (navigation = [
       {
-        name: "Dashboard",
-        href: "/parent/dashboard/dashboard",
+        name: 'Dashboard',
+        href: '/parent/dashboard/dashboard',
         icon: HomeIcon,
       },
       {
-        name: "Attendance",
-        href: "/parent/dashboard/attendance",
+        name: 'Attendance',
+        href: '/parent/dashboard/attendance',
         icon: CalendarIcon,
       },
       {
-        name: "Teacher details",
-        href: "/parent/dashboard/teacher-details",
+        name: 'Teacher details',
+        href: '/parent/dashboard/teacher-details',
         icon: UsersIcon,
       },
     ]) &&
     (dropnavigation = [
       {
-        name: "Exam",
+        name: 'Exam',
         open: examData,
         close: setExamData,
         icon: DocumentCheckIcon,
-        href: "/parent/dashboard/exam",
+        href: '/parent/dashboard/exam',
         links: [
           {
-            name: "Exam routine",
-            link: "/parent/dashboard/exam/exam-routine",
+            name: 'Exam routine',
+            link: '/parent/dashboard/exam/exam-routine',
           },
           {
-            name: "Admit card",
-            link: "/parent/dashboard/exam/admit-card",
+            name: 'Admit card',
+            link: '/parent/dashboard/exam/admit-card',
           },
           {
-            name: "Report card",
-            link: "/parent/dashboard/exam/report-card",
+            name: 'Report card',
+            link: '/parent/dashboard/exam/report-card',
           },
         ],
       },
       {
-        name: "Fee",
+        name: 'Fee',
         open: feeData,
         close: setFeeData,
         icon: BanknotesIcon,
-        href: "/parent/dashboard/fee",
+        href: '/parent/dashboard/fee',
         links: [
           {
-            name: "Logsheet",
-            link: "/parent/dashboard/fee/logsheet",
+            name: 'Logsheet',
+            link: '/parent/dashboard/fee/logsheet',
           },
           {
-            name: "Fee invoice",
-            link: "/parent/dashboard/fee/fee-invoice",
+            name: 'Fee invoice',
+            link: '/parent/dashboard/fee/fee-invoice',
           },
           {
-            name: "Reciept",
-            link: "/parent/dashboard/fee/reciept",
+            name: 'Reciept',
+            link: '/parent/dashboard/fee/reciept',
           },
           {
-            name: "Balance sheet",
-            link: "/parent/dashboard/fee/balance-sheet",
+            name: 'Balance sheet',
+            link: '/parent/dashboard/fee/balance-sheet',
           },
         ],
       },
     ]);
-  location.includes("/student/dashboard") &&
+  location.includes('/student/dashboard') &&
     (navigation = [
       {
-        name: "Dashboard",
-        href: "/student/dashboard/dashboard",
+        name: 'Dashboard',
+        href: '/student/dashboard/dashboard',
         icon: HomeIcon,
       },
       {
-        name: "Attendance",
-        href: "/student/dashboard/attendance",
+        name: 'Attendance',
+        href: '/student/dashboard/attendance',
         icon: CalendarIcon,
       },
       {
-        name: "Teacher details",
-        href: "/student/dashboard/teacher-details",
+        name: 'Teacher details',
+        href: '/student/dashboard/teacher-details',
         icon: UsersIcon,
       },
     ]) &&
     (dropnavigation = [
       {
-        name: "Exam",
+        name: 'Exam',
         open: examData,
         close: setExamData,
-        href: "/student/dashboard/exam",
+        href: '/student/dashboard/exam',
         icon: DocumentCheckIcon,
         links: [
           {
-            name: "Exam routine",
-            link: "/student/dashboard/exam/exam-routine",
+            name: 'Exam routine',
+            link: '/student/dashboard/exam/exam-routine',
           },
           {
-            name: "Admit card",
-            link: "/student/dashboard/exam/admit-card",
+            name: 'Admit card',
+            link: '/student/dashboard/exam/admit-card',
           },
           {
-            name: "Report card",
-            link: "/student/dashboard/exam/report-card",
+            name: 'Report card',
+            link: '/student/dashboard/exam/report-card',
           },
         ],
       },
       {
-        name: "Fee",
+        name: 'Fee',
         open: feeData,
         close: setFeeData,
-        href: "/student/dashboard/fee",
+        href: '/student/dashboard/fee',
         icon: BanknotesIcon,
         links: [
           {
-            name: "Logsheet",
-            link: "/student/dashboard/fee/logsheet",
+            name: 'Logsheet',
+            link: '/student/dashboard/fee/logsheet',
           },
           {
-            name: "Fee invoice",
-            link: "/student/dashboard/fee/fee-invoice",
+            name: 'Fee invoice',
+            link: '/student/dashboard/fee/fee-invoice',
           },
           {
-            name: "Reciept",
-            link: "/student/dashboard/fee/reciept",
+            name: 'Reciept',
+            link: '/student/dashboard/fee/reciept',
           },
           {
-            name: "Balance sheet",
-            link: "/student/dashboard/fee/balance-sheet",
+            name: 'Balance sheet',
+            link: '/student/dashboard/fee/balance-sheet',
           },
         ],
       },
@@ -226,7 +226,7 @@ export default function Sidebar() {
                     />
                   </div>
                   <div className="mt-5 h-0 flex-1 overflow-y-auto">
-                    {location.includes("/parent/dashboard") && (
+                    {location.includes('/parent/dashboard') && (
                       <div className="px-2">
                         <div className="text-primary-grey-700 mx-1 text-sm my-3">
                           ACCOUNT
@@ -261,17 +261,17 @@ export default function Sidebar() {
                           to={item.href}
                           className={classNames(
                             location.includes(item.href)
-                              ? "bg-primary-grey-200 text-primary-grey-700"
-                              : "text-primary-grey-600 hover:bg-primary-grey-200 ",
-                            "group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                              ? 'bg-primary-grey-200 text-primary-grey-700'
+                              : 'text-primary-grey-600 hover:bg-primary-grey-200 ',
+                            'group flex items-center px-2 py-2 text-base font-medium rounded-md'
                           )}
                         >
                           <item.icon
                             className={classNames(
                               location.includes(item.href)
-                                ? "text-gray-500"
-                                : "text-gray-400 group-hover:text-gray-500",
-                              "mr-4 flex-shrink-0 h-6 w-6"
+                                ? 'text-gray-500'
+                                : 'text-gray-400 group-hover:text-gray-500',
+                              'mr-4 flex-shrink-0 h-6 w-6'
                             )}
                             aria-hidden="true"
                           />
@@ -286,17 +286,17 @@ export default function Sidebar() {
                             }}
                             className={classNames(
                               !item.open && location.includes(item.href)
-                                ? "bg-primary-grey-200 text-primary-grey-700"
-                                : "text-primary-grey-600 hover:bg-primary-grey-200 ",
-                              "group flex items-center px-2 py-2  text-base font-medium rounded-md"
+                                ? 'bg-primary-grey-200 text-primary-grey-700'
+                                : 'text-primary-grey-600 hover:bg-primary-grey-200 ',
+                              'group flex items-center px-2 py-2  text-base font-medium rounded-md'
                             )}
                           >
                             <item.icon
                               className={classNames(
                                 !item.open && location.includes(item.href)
-                                  ? "text-gray-500"
-                                  : "text-gray-400 group-hover:text-gray-500",
-                                "mr-4 flex-shrink-0 h-6 w-6"
+                                  ? 'text-gray-500'
+                                  : 'text-gray-400 group-hover:text-gray-500',
+                                'mr-4 flex-shrink-0 h-6 w-6'
                               )}
                               aria-hidden="true"
                             />
@@ -305,7 +305,7 @@ export default function Sidebar() {
                               <div
                                 id="arrow"
                                 className={`devList text-gray-500  transition duration-100 ease-in text-sm ${
-                                  item.open ? "rotate-90" : ""
+                                  item.open ? 'rotate-90' : ''
                                 }  `}
                               >
                                 <Arrow fontSize="inherit" />
@@ -319,8 +319,8 @@ export default function Sidebar() {
                                   <li
                                     className={`pl-6  pr-3 font-medium text-base   mx-2 mt-2 mb-3 rounded py-[3px]  ${
                                       location.includes(curr.path)
-                                        ? "bg-primary-grey-200 text-primary-grey-700"
-                                        : "hover:bg-primary-grey-200 text-primary-grey-600"
+                                        ? 'bg-primary-grey-200 text-primary-grey-700'
+                                        : 'hover:bg-primary-grey-200 text-primary-grey-600'
                                     }`}
                                   >
                                     {curr.name}
@@ -354,7 +354,7 @@ export default function Sidebar() {
               />
             </div>
             <div className="mt-5 flex flex-grow flex-col">
-              {location.includes("/parent/dashboard") && (
+              {location.includes('/parent/dashboard') && (
                 <div className="px-2">
                   <div className="text-primary-grey-700 mx-1 text-sm my-3">
                     ACCOUNT
@@ -389,17 +389,17 @@ export default function Sidebar() {
                     to={item.href}
                     className={classNames(
                       location.includes(item.href)
-                        ? "bg-primary-grey-200 text-primary-grey-700"
-                        : "text-primary-grey-600 hover:bg-primary-grey-200 ",
-                      "group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        ? 'bg-primary-grey-200 text-primary-grey-700'
+                        : 'text-primary-grey-600 hover:bg-primary-grey-200 ',
+                      'group flex items-center px-2 py-2 text-base font-medium rounded-md'
                     )}
                   >
                     <item.icon
                       className={classNames(
                         location.includes(item.href)
-                          ? "text-gray-500"
-                          : "text-gray-400 group-hover:text-gray-500",
-                        "mr-4 flex-shrink-0 h-6 w-6"
+                          ? 'text-gray-500'
+                          : 'text-gray-400 group-hover:text-gray-500',
+                        'mr-4 flex-shrink-0 h-6 w-6'
                       )}
                       aria-hidden="true"
                     />
@@ -414,17 +414,17 @@ export default function Sidebar() {
                       }}
                       className={classNames(
                         !item.open && location.includes(item.href)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "text-primary-grey-600 hover:bg-primary-grey-200 ",
-                        "group flex items-center px-2 py-2  text-base font-medium rounded-md"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'text-primary-grey-600 hover:bg-primary-grey-200 ',
+                        'group flex items-center px-2 py-2  text-base font-medium rounded-md'
                       )}
                     >
                       <item.icon
                         className={classNames(
                           !item.open && location.includes(item.href)
-                            ? "text-gray-500"
-                            : "text-gray-400 group-hover:text-gray-500",
-                          "mr-4 flex-shrink-0 h-6 w-6"
+                            ? 'text-gray-500'
+                            : 'text-gray-400 group-hover:text-gray-500',
+                          'mr-4 flex-shrink-0 h-6 w-6'
                         )}
                         aria-hidden="true"
                       />
@@ -433,7 +433,7 @@ export default function Sidebar() {
                         <div
                           id="arrow"
                           className={`devList text-gray-500  transition duration-100 ease-in text-sm ${
-                            item.open ? "rotate-90" : ""
+                            item.open ? 'rotate-90' : ''
                           }  `}
                         >
                           <Arrow fontSize="inherit" />
@@ -447,8 +447,8 @@ export default function Sidebar() {
                             <li
                               className={`pl-6  pr-3 font-medium text-base   mx-2 mt-2 mb-3 rounded py-[3px]  ${
                                 location.includes(curr.link)
-                                  ? "bg-primary-grey-200 text-primary-grey-700"
-                                  : "hover:bg-primary-grey-200 text-primary-grey-600"
+                                  ? 'bg-primary-grey-200 text-primary-grey-700'
+                                  : 'hover:bg-primary-grey-200 text-primary-grey-600'
                               }`}
                             >
                               {curr.name}
@@ -507,8 +507,8 @@ export default function Sidebar() {
                             <Link
                               to={item.href}
                               className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm text-gray-700'
                               )}
                             >
                               {item.name}

@@ -1,53 +1,53 @@
-import React from "react";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import RenderTable from './RenderTable';
 const table = [
   {
-    date: "Jun 2",
-    billNo: "5521332",
-    grandTotal: "1000",
-    paidAmount: "99999",
-    dueAmmount: "999999999999",
-    status: "Paid",
+    date: 'Jun 2',
+    billNo: '5521332',
+    grandTotal: '1000',
+    paidAmount: '99999',
+    dueAmmount: '999999999999',
+    status: 'Paid',
   },
   {
-    date: "Jun 2",
-    billNo: "552fgs1332",
-    grandTotal: "1000",
-    paidAmount: "99999",
-    dueAmmount: "999999999999",
-    status: "Paid",
+    date: 'Jun 2',
+    billNo: '552fgs1332',
+    grandTotal: '1000',
+    paidAmount: '99999',
+    dueAmmount: '999999999999',
+    status: 'Paid',
   },
   {
-    date: "Jun 2",
-    billNo: "552wqr1332",
-    grandTotal: "1000",
-    paidAmount: "99999",
-    dueAmmount: "999999999999",
-    status: "Paid",
+    date: 'Jun 2',
+    billNo: '552wqr1332',
+    grandTotal: '1000',
+    paidAmount: '99999',
+    dueAmmount: '999999999999',
+    status: 'Paid',
   },
   {
-    date: "Jun 2",
-    billNo: "ahgfdr5521332",
-    grandTotal: "1000",
-    paidAmount: "99999",
-    dueAmmount: "999999999999",
-    status: "Paid",
+    date: 'Jun 2',
+    billNo: 'ahgfdr5521332',
+    grandTotal: '1000',
+    paidAmount: '99999',
+    dueAmmount: '999999999999',
+    status: 'Paid',
   },
   {
-    date: "Jun 2",
-    billNo: "5521332rywg",
-    grandTotal: "1000",
-    paidAmount: "99999",
-    dueAmmount: "999999999999",
-    status: "Paid",
+    date: 'Jun 2',
+    billNo: '5521332rywg',
+    grandTotal: '1000',
+    paidAmount: '99999',
+    dueAmmount: '999999999999',
+    status: 'Paid',
   },
   {
-    date: "Jun 2",
-    billNo: "552133agert2",
-    grandTotal: "1000",
-    paidAmount: "99999",
-    dueAmmount: "999999999999",
-    status: "Paid",
+    date: 'Jun 2',
+    billNo: '552133agert2',
+    grandTotal: '1000',
+    paidAmount: '99999',
+    dueAmmount: '999999999999',
+    status: 'Paid',
   },
 ];
 export default function Logsheet() {
@@ -55,7 +55,7 @@ export default function Logsheet() {
     <>
       <div className="text-primary-grey-700 text-lg font-medium  ">
         Logsheet
-      </div>{" "}
+      </div>{' '}
       <div className="my-6">
         <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
           <div className="inline-block w-full align-middle">

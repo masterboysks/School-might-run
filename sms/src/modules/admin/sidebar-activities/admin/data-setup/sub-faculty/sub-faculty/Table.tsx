@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
-import { SearchBar } from "../../../../../../../components/common/fields";
-import Pagination from "../../../../../../../components/common/navigation/Pagination";
-import RenderTable from "./RenderTable";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import subFacultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
+import { SearchBar } from '../../../../../../../components/common/fields';
+import Pagination from '../../../../../../../components/common/navigation/Pagination';
+import RenderTable from './RenderTable';
 
 export default function Table() {
   const { register, watch } = useForm();

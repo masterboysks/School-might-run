@@ -1,28 +1,28 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Tabs from "../../../../../../components/common/navigation/Tabs";
-import Form from "./Form.tsx";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Tabs from '../../../../../../components/common/navigation/Tabs';
+import Form from './Form.tsx';
 const tabs = [
   {
-    name: "Edit book details",
-    href: "/admin/dashboard/library/book-details/edit-book-details",
+    name: 'Edit book details',
+    href: '/admin/dashboard/library/book-details/edit-book-details',
     current: false,
   },
   {
-    name: "Edit shelf details",
+    name: 'Edit shelf details',
     href: `#`,
     current: true,
   },
 ];
 const pages = [
-  { name: "Library" },
+  { name: 'Library' },
   {
-    name: "Book details",
-    href: "/admin/dashboard/admin/class-schedule/",
+    name: 'Book details',
+    href: '/admin/dashboard/library/book-details/',
   },
   {
-    name: "Edit shelf details",
-    href: "/admin/dashboard/admin/class-schedule/edit-shelf-details",
+    name: 'Edit shelf details',
+    href: '/admin/dashboard/library/book-details/edit-shelf-details',
   },
 ];
 export default function EditShelfDetails() {

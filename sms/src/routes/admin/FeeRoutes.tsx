@@ -1,99 +1,99 @@
-import React from "react";
-import { lazy } from "react";
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import { lazy } from 'react';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 const FeeSlidebar = lazy(
-  () => import("../../modules/admin/sidebar-activities/fee/slidebar")
+  () => import('../../modules/admin/sidebar-activities/fee/slidebar')
 );
 const FeeType = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-type/fee-type/FeeType"
+      '../../modules/admin/sidebar-activities/fee/fee-type/fee-type/FeeType'
     )
 );
 const AddFeeType = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-type/add-fee-type/AddFeeType"
+      '../../modules/admin/sidebar-activities/fee/fee-type/add-fee-type/AddFeeType'
     )
 );
 const FeeAssign = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-assign/fee-assign/FeeAssign"
+      '../../modules/admin/sidebar-activities/fee/fee-assign/fee-assign/FeeAssign'
     )
 );
 const Assign = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-assign/assign/Assign"
+      '../../modules/admin/sidebar-activities/fee/fee-assign/assign/Assign'
     )
 );
 const StudentLogsheet = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/logsheet/student-logsheet/StudentLogsheet"
+      '../../modules/admin/sidebar-activities/fee/logsheet/student-logsheet/StudentLogsheet'
     )
 );
 const Logsheet = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/logsheet/logsheet/Logsheet"
+      '../../modules/admin/sidebar-activities/fee/logsheet/logsheet/Logsheet'
     )
 );
 const FeePayment = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-payment/fee-payment/FeePayment"
+      '../../modules/admin/sidebar-activities/fee/fee-payment/fee-payment/FeePayment'
     )
 );
 const MiscAssign = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/assign/MiscAssign"
+      '../../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/assign/MiscAssign'
     )
 );
 const MiscellaneousFeeAssign = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/miscellaneous-fee-assign/MiscellaneousFeeAssign"
+      '../../modules/admin/sidebar-activities/fee/miscellaneous-fee-assign/miscellaneous-fee-assign/MiscellaneousFeeAssign'
     )
 );
 const FeeStudent = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-payment/fee-student/FeeStudent"
+      '../../modules/admin/sidebar-activities/fee/fee-payment/fee-student/FeeStudent'
     )
 );
 const ClassFeeStatement = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-fee-statement/ClassFeeStatement"
+      '../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-fee-statement/ClassFeeStatement'
     )
 );
 const StudentFeeStatement = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-fee-statement/StudentFeeStatement"
+      '../../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-fee-statement/StudentFeeStatement'
     )
 );
 const ClassStatement = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement/ClassStatement"
+      '../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement/ClassStatement'
     )
 );
 const StudentStatement = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-statement/StudentStatement"
+      '../../modules/admin/sidebar-activities/fee/fee-statement/student-fee-statement/student-statement/StudentStatement'
     )
 );
 const ClassStatementMonthly = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement-monthly/ClassStatementMonthly"
+      '../../modules/admin/sidebar-activities/fee/fee-statement/class-fee-statement/class-statement-monthly/ClassStatementMonthly'
     )
 );
 export default function FeeRoutes() {
@@ -231,7 +231,7 @@ export default function FeeRoutes() {
           path="*"
           element={
             <div className="text-primary-grey-700 w-full mt-12 text-xl font-semibold text-center">
-              Page not found-{location.pathname.replace("/", " ")}
+              Page not found-{location.pathname.replace('/', ' ')}
             </div>
           }
         />

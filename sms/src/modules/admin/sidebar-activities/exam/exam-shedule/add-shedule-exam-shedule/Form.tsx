@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../components/common/Buttons";
+} from '../../../../../../components/common/Buttons';
 import {
   Input,
   Select,
   SelectDisabled,
-} from "../../../../../../components/common/oldFields";
+} from '../../../../../../components/common/oldFields';
 
 export default function Form({ children }) {
   const navigate = useNavigate();
-  const arrayClassSemester = ["jkfdh", "dsfjhk"];
-  const arrayFaculty = ["jkfdh", "dsfjhk"];
-  const [level, setLevel] = useState("Select");
-  const [classSemester, setClassSemester] = useState("Select");
-  const [faculty, setFaculty] = useState("Select");
-  const [examStartTime, setExamStartTime] = useState("");
-  const [examEndTime, setExamEndTime] = useState("");
+  const arrayClassSemester = ['jkfdh', 'dsfjhk'];
+  const arrayFaculty = ['jkfdh', 'dsfjhk'];
+  const [level, setLevel] = useState('Select');
+  const [classSemester, setClassSemester] = useState('Select');
+  const [faculty, setFaculty] = useState('Select');
+  const [examStartTime, setExamStartTime] = useState('');
+  const [examEndTime, setExamEndTime] = useState('');
   const [errorClassSemester, setErrorClassSemester] = useState(false);
   const [errorExamStartTime, setErrorExamStartTime] = useState(false);
   const [errorExamEndTime, setErrorExamEndTime] = useState(false);
   const handleSubmit = () => {
     console.log({ classSemester, examEndTime, faculty, examStartTime });
     let temp = false;
-    classSemester === "Select" && (temp = true) && setErrorClassSemester(true);
+    classSemester === 'Select' && (temp = true) && setErrorClassSemester(true);
     examStartTime || ((temp = true) && setErrorExamStartTime(true));
     examEndTime || ((temp = true) && setErrorExamEndTime(true));
     temp || navigate(-1);

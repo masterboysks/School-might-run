@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";
-import { SearchBar } from "../../../../../../components/common/fields";
-import RenderTable from "./RenderTable";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import noticeApi from '../../../../../../api/admin/dashboard/admin/noticeApi';
+import { SearchBar } from '../../../../../../components/common/fields';
+import RenderTable from './RenderTable';
 
 export default function Table() {
   const { register, handleSubmit, watch } = useForm();

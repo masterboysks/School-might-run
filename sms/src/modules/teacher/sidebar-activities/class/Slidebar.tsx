@@ -1,33 +1,33 @@
-import Arrow from "@mui/icons-material/ArrowForwardIos";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+import Arrow from '@mui/icons-material/ArrowForwardIos';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Slidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar").classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar').classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar").classList;
+    nav = document.getElementById('sidebar').classList;
     let overlay =
-      document.getElementById("overlay") &&
-      document.getElementById("overlay").classList;
+      document.getElementById('overlay') &&
+      document.getElementById('overlay').classList;
     const slidebar =
-      document.getElementById("slidebar") &&
-      document.getElementById("slidebar").classList;
+      document.getElementById('slidebar') &&
+      document.getElementById('slidebar').classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -40,9 +40,9 @@ const Slidebar = () => {
             <Link to="/teacher/dashboard/class/my-classes" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3    mt-2 mb-3 cursor-pointer rounded  ${
-                  location.includes("/teacher/dashboard/class/my-classes")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/teacher/dashboard/class/my-classes')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -57,9 +57,9 @@ const Slidebar = () => {
             >
               <li
                 className={` flex p-1 mt-2   pr-3   mb-3 cursor-pointer rounded ${
-                  location.includes("/teacher/dashboard/class/class-attendance")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/teacher/dashboard/class/class-attendance')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -71,9 +71,9 @@ const Slidebar = () => {
             <Link to="/teacher/dashboard/class/class-routine" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3    cursor-pointer rounded ${
-                  location.includes("/teacher/dashboard/class/class-routine")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/teacher/dashboard/class/class-routine')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">

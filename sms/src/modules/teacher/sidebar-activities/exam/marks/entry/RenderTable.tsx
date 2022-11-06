@@ -1,6 +1,6 @@
-import React from "react";
-import { Input } from "../../../../../../components/common/fields";
-import { InputDisabled } from "../../../../../../components/common/fields";
+import React from 'react';
+import { Input } from '../../../../../../components/common/fields';
+import { InputDisabled } from '../../../../../../components/common/fields';
 
 const RenderTable = ({ currentItems, register }) => {
   return (
@@ -15,7 +15,7 @@ const RenderTable = ({ currentItems, register }) => {
               label={undefined}
               type="number"
               register={register}
-              name={"theoryof" + person.class}
+              name={'theoryof' + person.class}
             />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -23,7 +23,7 @@ const RenderTable = ({ currentItems, register }) => {
               label={undefined}
               type="number"
               register={register}
-              name={"theoryof" + person.class}
+              name={'theoryof' + person.class}
             />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -31,7 +31,7 @@ const RenderTable = ({ currentItems, register }) => {
               label={undefined}
               type="number"
               register={register}
-              name={"theoryof" + person.class}
+              name={'theoryof' + person.class}
             />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">

@@ -1,10 +1,10 @@
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import React, { Fragment, useState } from "react";
-import UploadOutlined from "@mui/icons-material/UploadOutlined";
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import React, { Fragment, useState } from 'react';
+import UploadOutlined from '@mui/icons-material/UploadOutlined';
 
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export const Checkbox = ({
   label, //array with correct index
@@ -13,8 +13,8 @@ export const Checkbox = ({
   setSelected,
   dataTitle,
   dataValue,
-  id = Math.random() + "jkhsaieor",
-  className = "",
+  id = Math.random() + 'jkhsaieor',
+  className = '',
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -45,8 +45,8 @@ export const NewCheckbox = ({
   label, //array with correct index
   name,
   register,
-  id = Math.random() + "jkhsaieor",
-  className = "",
+  id = Math.random() + 'jkhsaieor',
+  className = '',
 }) => {
   return (
     <div className={`flex items-center h-5 ${className}`}>
@@ -105,7 +105,7 @@ export const Radio = ({
             onChange={handleChange}
             {...optional}
           />
-          <span className={`mx-2 ${error && "text-red-600"}`}>{curr}</span>
+          <span className={`mx-2 ${error && 'text-red-600'}`}>{curr}</span>
         </label>
       ))}
       {error && (
@@ -117,21 +117,21 @@ export const Radio = ({
   );
 };
 export const Input = ({
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   error,
   setError,
-  type = "text",
+  type = 'text',
   label,
   value,
   setValue,
-  placeholder = "",
+  placeholder = '',
   dataTitle,
   dataValue,
   onChange,
-  className = "",
+  className = '',
   step,
-  errorText = "",
+  errorText = '',
   dontShowerrorText = undefined,
 }) => {
   // useEffect(() => {
@@ -148,7 +148,7 @@ export const Input = ({
       {label && (
         <>
           <label
-            className={`my-6 ${error && "text-red-600"} text-sm`}
+            className={`my-6 ${error && 'text-red-600'} text-sm`}
             htmlFor={id}
           >
             {label}
@@ -163,7 +163,7 @@ export const Input = ({
         step={step}
         name={name}
         placeholder={placeholder}
-        type={type || "text"}
+        type={type || 'text'}
         {...optional}
         value={value}
         onChange={
@@ -180,7 +180,7 @@ export const Input = ({
           <>
             <br />
             <span className="text-xs font-light text-red-600">
-              {errorText || "This is a required field."}
+              {errorText || 'This is a required field.'}
             </span>
           </>
         ))}
@@ -190,21 +190,21 @@ export const Input = ({
 // Input field new
 
 export function NewInput({
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   shouldUnregister = false,
 
   errors = {},
-  errorText = "",
+  errorText = '',
   register,
-  type = "text",
+  type = 'text',
   label,
   required = false,
-  placeholder = "",
+  placeholder = '',
   showError = true,
-  className = "",
+  className = '',
   step,
-  labelClassName = "",
+  labelClassName = '',
 }) {
   return (
     <>
@@ -212,7 +212,7 @@ export function NewInput({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && "text-red-600"
+              errors && errors[name] && 'text-red-600'
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -228,13 +228,13 @@ export function NewInput({
         step={step}
         {...register(name, { required, shouldUnregister })}
         placeholder={placeholder}
-        type={type || "text"}
+        type={type || 'text'}
       />
       {showError && errors && errors[name] && (
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errorText || ' This is a required field.'}
           </span>
           <br />
         </>
@@ -244,19 +244,19 @@ export function NewInput({
 }
 // password new
 export function Password({
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
 
   errors = {},
-  errorText = "",
+  errorText = '',
   register,
   label,
   required = false,
-  placeholder = "",
+  placeholder = '',
   showError = true,
-  className = "",
+  className = '',
   step,
-  labelClassName = "",
+  labelClassName = '',
 }) {
   const [visiblity, setVisiblity] = useState(false);
   return (
@@ -265,7 +265,7 @@ export function Password({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && "text-red-600"
+              errors && errors[name] && 'text-red-600'
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -281,7 +281,7 @@ export function Password({
           step={step}
           {...register(name, { required })}
           placeholder={placeholder}
-          type={visiblity ? "text" : "password"}
+          type={visiblity ? 'text' : 'password'}
         />
         <div
           className="right-1 top-4 absolute"
@@ -296,7 +296,7 @@ export function Password({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errorText || " This is a required field."}
+            {errorText || ' This is a required field.'}
           </span>
           <br />
         </>
@@ -307,11 +307,11 @@ export function Password({
 // Input disabled field
 export const InputDisabled = ({
   label,
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   value,
 
-  type = "text",
+  type = 'text',
   dataTitle,
   dataValue,
 }) => {
@@ -329,9 +329,9 @@ export const InputDisabled = ({
         id={id}
         name={name}
         disabled
-        type={type || "text"}
+        type={type || 'text'}
         {...optional}
-        value={value || ""}
+        value={value || ''}
       />
     </>
   );
@@ -339,14 +339,14 @@ export const InputDisabled = ({
 // select disabled
 export const SelectDisabled = ({
   label,
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   value,
   setValue,
-  type = "text",
+  type = 'text',
   dataTitle,
   dataValue,
-  className = "",
+  className = '',
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -377,7 +377,7 @@ export const SelectDisabled = ({
 // Select
 export function Select({
   label,
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   value,
   selected,
@@ -388,14 +388,14 @@ export function Select({
   setError,
 }) {
   let options;
-  selected === "Select"
-    ? (options = ["Select", ...value])
+  selected === 'Select'
+    ? (options = ['Select', ...value])
     : (options = [...value]);
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
   return (
     <>
-      <label className={`my-6 text-sm ${error && "text-red-600"}`} htmlFor={id}>
+      <label className={`my-6 text-sm ${error && 'text-red-600'}`} htmlFor={id}>
         {label}
       </label>
       <select
@@ -408,7 +408,7 @@ export function Select({
         id={id}
         {...optional}
         className={`w-full p-2 ${
-          label && " mt-[6px] "
+          label && ' mt-[6px] '
         }  cursor-pointer rounded  focus:ring-primary-btn     shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm  border-primary-field  required:border-red-600 required:animate-pulse 
         }`}
       >
@@ -431,7 +431,7 @@ export function Select({
 }
 // Multiple select
 export function MultipleSelect({
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   error,
   setError,
@@ -456,7 +456,7 @@ export function MultipleSelect({
   return (
     <>
       <label
-        className={`my-6 text-sm  ${error && " text-red-600"}`}
+        className={`my-6 text-sm  ${error && ' text-red-600'}`}
         htmlFor={id}
       >
         {label}
@@ -476,7 +476,7 @@ export function MultipleSelect({
             className="  h-[38px]  p- rounded focus:ring-primary-btn focus:ring-2 border px-2   border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  "
           >
             <span className="block pr-2 truncate">
-              {selected.map((person) => person).join(", ")}
+              {selected.map((person) => person).join(', ')}
             </span>
             {error && (
               <span className="text-red-600">This field is required</span>
@@ -501,8 +501,8 @@ export function MultipleSelect({
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active
-                        ? "bg-blue-400 text-white "
-                        : "text-primary-grey-600"
+                        ? 'bg-blue-400 text-white '
+                        : 'text-primary-grey-600'
                     }`
                   }
                   value={person}
@@ -511,7 +511,7 @@ export function MultipleSelect({
                     <>
                       <span
                         className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
+                          selected ? 'font-medium' : 'font-normal'
                         }`}
                       >
                         {person}
@@ -559,7 +559,7 @@ export function SearchBar({ id, dataTitle, dataValue, value, setValue }) {
         {...optional}
         className="bg-gray-50 mt-[6px] border border-primary-grey-400 text-primary-grey-600 text-sm rounded focus:ring-primary-btn block w-full pl-10 p-2 "
         placeholder="Search"
-        value={value || ""}
+        value={value || ''}
         onChange={(e) => {
           setValue(e.target.value);
         }}
@@ -577,7 +577,7 @@ export const Upload = ({
   dataTitle,
   dataValue,
   uploadText,
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -585,7 +585,7 @@ export const Upload = ({
     <>
       <label
         htmlFor={id}
-        className={` ${error && " text-red-600 "} block text-sm`}
+        className={` ${error && ' text-red-600 '} block text-sm`}
       >
         {label}
       </label>
@@ -596,7 +596,7 @@ export const Upload = ({
               htmlFor={id}
               className="text-primary-grey-700 -indigo-600 hover:text-focus-within:outline-none focus-within:ring- focus-within:ring-offset-0 flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
             >
-              <div>{uploadText || "Upload here"}</div>
+              <div>{uploadText || 'Upload here'}</div>
               <div className="text-primary-btn">
                 <UploadOutlined />
               </div>
@@ -638,7 +638,7 @@ export const UploadPhoto = ({
   dataTitle,
   dataValue,
   uploadText,
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
 }) => {
   const optional = {};
   dataTitle && (optional[dataTitle] = dataValue);
@@ -647,7 +647,7 @@ export const UploadPhoto = ({
       <div className="">
         <label
           htmlFor={id}
-          className={`${error && "text-red-600 "} block text-sm`}
+          className={`${error && 'text-red-600 '} block text-sm`}
         >
           {label}
         </label>
@@ -680,7 +680,7 @@ export const UploadPhoto = ({
               htmlFor={id}
               className="bg-primary-grey-200 cursor-pointer border-primary-field border-[1px] rounded ml-2 p-1 text-primary-grey-700"
             >
-              {uploadText || "Choose a file to upload"}
+              {uploadText || 'Choose a file to upload'}
             </label>
           </div>
         </div>
@@ -697,7 +697,7 @@ export const UploadPhoto = ({
   );
 };
 export const Textarea = ({
-  id = Math.random() + "jkhsaieor",
+  id = Math.random() + 'jkhsaieor',
   name,
   error,
   setError,
@@ -705,7 +705,7 @@ export const Textarea = ({
   label,
   value,
   setValue,
-  placeholder = "",
+  placeholder = '',
   dataTitle,
   dataValue,
 }) => {
@@ -715,7 +715,7 @@ export const Textarea = ({
   return (
     <>
       <label
-        className={`my-6 text-sm ${error && " text-red-600"}`}
+        className={`my-6 text-sm ${error && ' text-red-600'}`}
         htmlFor={id}
       >
         {label}
@@ -774,7 +774,7 @@ export const Textarea = ({
 //   const optional = {};
 //   dataTitle && (optional[dataTitle] = dataValue);
 
-//   return (
+//   return  (
 //     <>
 //       <label className={`my-6 text-sm ${error && "text-red-600"}`} htmlFor={id}>
 //         {label}
@@ -821,7 +821,7 @@ export const Textarea = ({
 //   const optional = {};
 //   dataTitle && (optional[dataTitle] = dataValue);
 
-//   return (
+//   return  (
 //     <div>
 //       {options.map((curr, i) => (
 //         <>

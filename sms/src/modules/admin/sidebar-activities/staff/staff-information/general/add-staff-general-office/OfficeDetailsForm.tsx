@@ -1,32 +1,32 @@
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
 import {
   DateInput,
   Input,
   Password,
   Select,
   SelectDisabled,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 
-import { useState, useEffect, useContext } from "react";
-import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import staffAPI from "../../../../../../../api/admin/dashboard/staff/staffAPI";
-import StaffFormPersonalDetailsPicture from "../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
+import { useState, useEffect, useContext } from 'react';
+import designationApi from '../../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
+import staffAPI from '../../../../../../../api/admin/dashboard/staff/staffAPI';
+import StaffFormPersonalDetailsPicture from '../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture';
 
 const arrayStatus = [
   {
-    name: "Active",
+    name: 'Active',
     id: 1,
   },
   {
-    name: "Inactive",
+    name: 'Inactive',
     id: 0,
   },
 ];
 const PermanentAddressForm = () => {
-  const [message, setMessage] = useState("");
-  const [date, setDate] = useState("");
+  const [message, setMessage] = useState('');
+  const [date, setDate] = useState('');
   const photo = useContext(StaffFormPersonalDetailsPicture);
   const {
     register,
@@ -37,12 +37,12 @@ const PermanentAddressForm = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const department = watch("department_id");
+  const department = watch('department_id');
   const [arrayDepartment, setArrayDepartment] = useState([]);
   const [arrayDesignation, setArrayDesignation] = useState([]);
   const [arrayStaffType, setArrayStaffType] = useState([
-    { name: "Teacher", id: "teacher" },
-    { name: "Staff", id: "staff" },
+    { name: 'Teacher', id: 'teacher' },
+    { name: 'Staff', id: 'staff' },
   ]);
   useEffect(() => {
     (async () => {
@@ -53,7 +53,7 @@ const PermanentAddressForm = () => {
         console.warn(e);
       }
     })();
-    reset({ ...getValues(), designation_id: "" });
+    reset({ ...getValues(), designation_id: '' });
   }, [department]);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const PermanentAddressForm = () => {
   }, []);
   const onSubmit = async (d) => {
     const form = new FormData();
-    const address = JSON.parse(localStorage.getItem("adgdsas"));
+    const address = JSON.parse(localStorage.getItem('adgdsas'));
     if (address.same_as_permanent_address) {
       delete address.temp_country;
       delete address.temp_district;
@@ -77,7 +77,7 @@ const PermanentAddressForm = () => {
       delete address.temp_tole;
       delete address.temp_ward;
     }
-    const personal = JSON.parse(localStorage.getItem("pdgdsas"));
+    const personal = JSON.parse(localStorage.getItem('pdgdsas'));
     for (const name in address) {
       form.append(`address[${name}]`, address[name]);
     }
@@ -87,16 +87,16 @@ const PermanentAddressForm = () => {
     for (const name in d) {
       form.append(`general[${name}]`, d[name]);
     }
-    form.delete("personal[photo]");
-    form.append("personal[profile_picture]", photo?.photo && photo?.photo[0]);
-    form.append("general.joined_date", date);
+    form.delete('personal[photo]');
+    form.append('personal[profile_picture]', photo?.photo && photo?.photo[0]);
+    form.append('general.joined_date', date);
 
     staffAPI.create(form).then((data) => {
       console.log(data);
       data?.response?.status === 422 &&
         setMessage(data?.response?.data?.errors);
       if (data?.status === 201) {
-        navigate("/admin/dashboard/staff/staff-information/");
+        navigate('/admin/dashboard/staff/staff-information/');
       }
     });
 
@@ -108,14 +108,14 @@ const PermanentAddressForm = () => {
     // });
   };
   const handelBack = (data) => {
-    localStorage.setItem("odgdsas", JSON.stringify(data));
+    localStorage.setItem('odgdsas', JSON.stringify(data));
     navigate(
-      "/admin/dashboard/staff/staff-information/add-staff/general/address-details"
+      '/admin/dashboard/staff/staff-information/add-staff/general/address-details'
     );
   };
   useEffect(() => {
     (async () => {
-      const temp = await JSON.parse(localStorage.getItem("odgdsas"));
+      const temp = await JSON.parse(localStorage.getItem('odgdsas'));
       reset(temp);
     })();
   }, []);

@@ -1,4 +1,4 @@
-import { countryAPI } from "../axios";
+import { countryAPI } from '../axios';
 
 /* eslint-disable import /no-anonymous-default-export */
 const countries = {

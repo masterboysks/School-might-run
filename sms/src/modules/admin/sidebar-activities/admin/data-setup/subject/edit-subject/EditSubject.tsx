@@ -1,33 +1,33 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import {
   Input,
   Radio,
   Select,
-} from "../../../../../../../components/common/fields";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { useEffect } from "react";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import { useForm } from "react-hook-form";
-import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
-import React from "react";
+} from '../../../../../../../components/common/fields';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { useEffect } from 'react';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import { useForm } from 'react-hook-form';
+import subjectApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi';
+import React from 'react';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Subject",
-    href: "/admin/dashboard/admin/data-setup/subject",
+    name: 'Subject',
+    href: '/admin/dashboard/admin/data-setup/subject',
   },
   {
-    name: "Edit",
+    name: 'Edit',
   },
 ];
 const arraySubjectTypes = [
-  { name: "Compulsary subject", id: 1 },
-  { name: "Elective subject", id: 2 },
+  { name: 'Compulsary subject', id: 1 },
+  { name: 'Elective subject', id: 2 },
 ];
 const EditSubject = () => {
   const { id } = useParams();
@@ -38,25 +38,25 @@ const EditSubject = () => {
     formState: { errors },
   } = useForm();
   const [arrayLevel, setArrayLevel] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     console.log(d);
     const res = await subjectApi.edit(id, d);
     console.log(res);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/subject")
-      : setError("Failed to edit subject");
+      ? navigate('/admin/dashboard/admin/data-setup/subject')
+      : setError('Failed to edit subject');
   };
   useEffect(() => {
     (async () => {
       const data = await levelApi.getAll();
       setArrayLevel(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       console.log(temp);
       reset(temp);
     })();
-    return () => localStorage.removeItem("Mb5sVJt5Qp");
+    return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
   return (
     <>

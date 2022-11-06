@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import AddIcon from "@mui/icons-material/Add";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../components/common/Buttons";
-import RenderTable from "./RenderTable";
+} from '../../../../../../components/common/Buttons';
+import RenderTable from './RenderTable';
 
 export default function Table({ register, errors, station, setStation }) {
   return (

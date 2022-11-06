@@ -1,24 +1,24 @@
-import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { Input } from "../../../../../../../components/common/fields";
+import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { Input } from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Department",
-    href: "/admin/dashboard/admin/data-setup/department",
+    name: 'Department',
+    href: '/admin/dashboard/admin/data-setup/department',
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/department/add",
+    name: 'Add',
+    href: '/admin/dashboard/admin/data-setup/department/add',
   },
 ];
 const AddDepartment = () => {
@@ -29,14 +29,14 @@ const AddDepartment = () => {
     formState: { errors },
   } = useForm();
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     const res = await departmentApi.create(d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/department")
-      : setError("Failed to create department");
+      ? navigate('/admin/dashboard/admin/data-setup/department')
+      : setError('Failed to create department');
   };
   return (
     <>

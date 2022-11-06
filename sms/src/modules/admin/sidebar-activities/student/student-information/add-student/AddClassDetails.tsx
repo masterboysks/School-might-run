@@ -1,24 +1,24 @@
-import AboveForm from "./components/AboveForm";
-import ClassForm from "./components/ClassForm";
+import AboveForm from './components/AboveForm';
+import ClassForm from './components/ClassForm';
 
 const steps = [
   {
-    name: "Student details",
-    href: "/admin/dashboard/student/student-information/add-student-details",
+    name: 'Student details',
+    href: '/admin/dashboard/student/student-information/add-student-details',
     status: 3,
   },
   {
-    name: "Guardian details",
-    href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
+    name: 'Guardian details',
+    href: '/admin/dashboard/student/student-information/add-student-details/guardian-false',
     status: 3,
   },
   {
-    name: "Address details",
-    href: "/student/student-information/add-address-details",
+    name: 'Address details',
+    href: '/student/student-information/add-address-details',
     status: 3,
   },
-  { name: "Class details", href: "#", status: 2 },
-  { name: "Fee details", href: "#", status: 1 },
+  { name: 'Class details', href: '#', status: 2 },
+  { name: 'Fee details', href: '#', status: 1 },
 ];
 function AddClassDetails() {
   return (

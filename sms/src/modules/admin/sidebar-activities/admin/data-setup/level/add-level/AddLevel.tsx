@@ -1,29 +1,29 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
 import {
   Checkbox,
   Input,
   Select,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Level",
-    href: "/admin/dashboard/admin/data-setup/level",
+    name: 'Level',
+    href: '/admin/dashboard/admin/data-setup/level',
   },
   {
-    name: "Add",
+    name: 'Add',
   },
 ];
 const AddLevel = () => {
@@ -33,7 +33,7 @@ const AddLevel = () => {
 
     formState: { errors },
   } = useForm();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [arrayUniversity, setArrayUniversity] = useState([]);
   useEffect(() => {
     (async () => {
@@ -48,8 +48,8 @@ const AddLevel = () => {
     const res = await levelApi.create(d);
     console.log(res);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/level")
-      : setError("Failed to create Level");
+      ? navigate('/admin/dashboard/admin/data-setup/level')
+      : setError('Failed to create Level');
   };
   return (
     <>

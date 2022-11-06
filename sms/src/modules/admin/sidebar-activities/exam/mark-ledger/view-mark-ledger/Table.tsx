@@ -1,11 +1,11 @@
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
-import Search from "@mui/icons-material/SearchOutlined";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Input, Select } from "../../../../../../components/common/oldFields";
-import RenderTable from "./RenderTable";
+import { GlobeAltIcon, PrinterIcon } from '@heroicons/react/20/solid';
+import Search from '@mui/icons-material/SearchOutlined';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Input, Select } from '../../../../../../components/common/oldFields';
+import RenderTable from './RenderTable';
 const people = [
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -15,13 +15,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 556453127332,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -31,13 +31,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 5587667332,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -47,13 +47,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 556733256,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -63,13 +63,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 556733452,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
 ];
-const subject = ["English", "Maths", "Nepali", "Social", "EHP", "Science"];
+const subject = ['English', 'Maths', 'Nepali', 'Social', 'EHP', 'Science'];
 
 export default function Table() {
   // Checkbox
@@ -103,7 +103,7 @@ export default function Table() {
   const [indexOfFirstItem, setIndexOfFirstItem] = useState(
     indexOfLastItem - itemsOnPage
   );
-  const [message, setmessage] = useState("Showing 1 to 2 of 2 results");
+  const [message, setmessage] = useState('Showing 1 to 2 of 2 results');
 
   const onNextPage = () => {
     setCurrentPage((curr) => curr + 1);
@@ -127,14 +127,14 @@ export default function Table() {
     setCurrentItems(people.slice(indexOfFirstItem, indexOfLastItem));
   }, [indexOfFirstItem]);
   //
-  const arrayGradingSystem = ["GPA", "Percentage"];
-  const arrayResultStatus = ["kjdhf", "jhgd"];
-  const arrayRemark = ["jhfgd", "fdjkh"];
-  const [academicYear, setAcademicYear] = useState("");
-  const [examName, setExamName] = useState("");
-  const [gradingSystem, setGradingSystem] = useState("GPA");
-  const [resultStatus, setResultStatus] = useState("Select");
-  const [remark, setRemark] = useState("Select");
+  const arrayGradingSystem = ['GPA', 'Percentage'];
+  const arrayResultStatus = ['kjdhf', 'jhgd'];
+  const arrayRemark = ['jhfgd', 'fdjkh'];
+  const [academicYear, setAcademicYear] = useState('');
+  const [examName, setExamName] = useState('');
+  const [gradingSystem, setGradingSystem] = useState('GPA');
+  const [resultStatus, setResultStatus] = useState('Select');
+  const [remark, setRemark] = useState('Select');
   const [errorAcademicYear, setErrorAcademicYear] = useState(false);
   const [errorExamName, setErrorExamName] = useState(false);
   //

@@ -1,12 +1,12 @@
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import Search from "@mui/icons-material/SearchOutlined";
-import { useState } from "react";
-import { Select } from "../../../../../../../components/common/oldFields";
-import SearchIcon from "../../../../../../../components/common/SearchIcon";
-import RenderTable from "./RenderTable";
+import { PrinterIcon } from '@heroicons/react/20/solid';
+import Search from '@mui/icons-material/SearchOutlined';
+import { useState } from 'react';
+import { Select } from '../../../../../../../components/common/oldFields';
+import SearchIcon from '../../../../../../../components/common/SearchIcon';
+import RenderTable from './RenderTable';
 const data = [
   {
-    subject: "Physics",
+    subject: 'Physics',
     fullTheory: 100,
     fullPartical: 0,
     fullAssest: 0,
@@ -17,10 +17,10 @@ const data = [
     obtainedAssest: 0,
     obtainedTotal: 32,
     obtainedHigest: 99,
-    result: "pass",
+    result: 'pass',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     fullTheory: 100,
     fullPartical: 0,
     fullAssest: 0,
@@ -31,10 +31,10 @@ const data = [
     obtainedAssest: 0,
     obtainedTotal: 32,
     obtainedHigest: 99,
-    result: "pass",
+    result: 'pass',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     fullTheory: 100,
     fullPartical: 0,
     fullAssest: 0,
@@ -45,10 +45,10 @@ const data = [
     obtainedAssest: 0,
     obtainedTotal: 32,
     obtainedHigest: 99,
-    result: "pass",
+    result: 'pass',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     fullTheory: 100,
     fullPartical: 0,
     fullAssest: 0,
@@ -59,7 +59,7 @@ const data = [
     obtainedAssest: 0,
     obtainedTotal: 32,
     obtainedHigest: 99,
-    result: "pass",
+    result: 'pass',
   },
 ];
 const total = data.reduce((prv, curr) => {
@@ -67,13 +67,13 @@ const total = data.reduce((prv, curr) => {
 }, 0);
 
 const Table = () => {
-  const arrayAcademicYear = ["fdjsh", "dklshf", "djksh"];
-  const arrayExamName = ["jkdh", "disufj", "dskfjhg"];
+  const arrayAcademicYear = ['fdjsh', 'dklshf', 'djksh'];
+  const arrayExamName = ['jkdh', 'disufj', 'dskfjhg'];
   // Constant
-  const arrayGradingSystem = ["Percentage", "GPA"];
-  const [academicYear, setAcademicYear] = useState("Select");
-  const [examName, setExamName] = useState("Select");
-  const [gradingSystem, setGradingSystem] = useState("Percentage");
+  const arrayGradingSystem = ['Percentage', 'GPA'];
+  const [academicYear, setAcademicYear] = useState('Select');
+  const [examName, setExamName] = useState('Select');
+  const [gradingSystem, setGradingSystem] = useState('Percentage');
   const [errorAcademicYear, setErrorAcademicYear] = useState(false);
   const [errorExamName, setErrorExamName] = useState(false);
 

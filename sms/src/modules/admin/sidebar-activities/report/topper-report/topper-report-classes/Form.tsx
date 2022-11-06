@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import Search from "@mui/icons-material/SearchOutlined";
-import { Select } from "../../../../../../components/common/oldFields";
+import React, { useState } from 'react';
+import Search from '@mui/icons-material/SearchOutlined';
+import { Select } from '../../../../../../components/common/oldFields';
 
 const Form = () => {
-  const arrayLevel = ["dskjhg", "djkgh", "ajsguyew"];
-  const arrayClass = ["dskjhg", "djkgh", "ajsguyew"];
-  const arrayFaculty = ["dskjhg", "djkgh", "ajsguyew"];
-  const [level, setLevel] = useState("Select");
-  const [classSemester, setClassSemester] = useState("Select");
-  const [faculty, setFaculty] = useState("Select");
+  const arrayLevel = ['dskjhg', 'djkgh', 'ajsguyew'];
+  const arrayClass = ['dskjhg', 'djkgh', 'ajsguyew'];
+  const arrayFaculty = ['dskjhg', 'djkgh', 'ajsguyew'];
+  const [level, setLevel] = useState('Select');
+  const [classSemester, setClassSemester] = useState('Select');
+  const [faculty, setFaculty] = useState('Select');
   const handleSearch = () => {
     console.log({ level, classSemester, faculty });
   };

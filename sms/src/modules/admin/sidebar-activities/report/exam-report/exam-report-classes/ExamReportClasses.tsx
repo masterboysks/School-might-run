@@ -1,12 +1,12 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Form from "./Form";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Form from './Form';
+import Table from './Table';
 const pages = [
-  { name: "Report" },
+  { name: 'Report' },
   {
-    name: "Exam report",
-    href: "/report/exam-report",
+    name: 'Exam report',
+    href: '/report/exam-report',
   },
 ];
 export default function ExamReportClasses() {

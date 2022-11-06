@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
 export const textarea = ({
   name,
-  id = "form_" + name,
+  id = 'form_' + name,
   register,
   required = false,
 
   errors = {},
   row = 10,
   label,
-  placeholder = "",
+  placeholder = '',
 }) => {
   return (
     <>
       <label
-        className={`my-6 text-sm ${errors && errors[name] && " text-red-600"}`}
+        className={`my-6 text-sm ${errors && errors[name] && ' text-red-600'}`}
         htmlFor={id}
       >
         {label}
@@ -31,7 +31,7 @@ export const textarea = ({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || "This is a required field."}
+            {errors[name]?.message || 'This is a required field.'}
           </span>
           <br />
         </>

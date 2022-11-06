@@ -1,33 +1,33 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import {
   Input,
   MultipleSelect,
   Textarea,
   UploadPhoto,
   DateInput,
-} from "../../../../../../components/common/fields";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../components/common/Break";
-import { useForm } from "react-hook-form";
-import noticeApi from "../../../../../../api/admin/dashboard/admin/noticeApi";
-import { useEffect } from "react";
-import React from "react";
+} from '../../../../../../components/common/fields';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../components/common/Break';
+import { useForm } from 'react-hook-form';
+import noticeApi from '../../../../../../api/admin/dashboard/admin/noticeApi';
+import { useEffect } from 'react';
+import React from 'react';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Push notification",
-    href: "/admin/dashboard/admin/notice",
+    name: 'Push notification',
+    href: '/admin/dashboard/admin/notice',
   },
   {
-    name: "Edit notice",
+    name: 'Edit notice',
   },
 ];
 
 function NewNotice() {
-  const [date, setDate] = useState("");
-  const [defaultDate, setDefaultDate] = useState("");
+  const [date, setDate] = useState('');
+  const [defaultDate, setDefaultDate] = useState('');
   const {
     register,
     handleSubmit,
@@ -37,7 +37,7 @@ function NewNotice() {
     formState: { errors },
   } = useForm();
   const [arraySendTo, setArraySendTo] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (data) => {
     const d = {
@@ -49,18 +49,18 @@ function NewNotice() {
       form.append(name, d[name]);
     }
     d.document.length === 1
-      ? form.append("document", d.document[0])
-      : form.append("document", "");
+      ? form.append('document', d.document[0])
+      : form.append('document', '');
     const res = await noticeApi.edit(form);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/notice")
-      : setError("Failed to edit a notice");
+      ? navigate('/admin/dashboard/admin/notice')
+      : setError('Failed to edit a notice');
   };
 
   useEffect(() => {
     (async () => {
       try {
-        const temp = JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+        const temp = JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
 
         const data = await noticeApi.sendTo();
         setArraySendTo(data?.data?.data?.data);

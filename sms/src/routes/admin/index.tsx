@@ -1,17 +1,17 @@
-import { Routes, Route } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import StudentRoutes from "./StudentRoutes";
-import StaffRoutes from "./StaffRoutes";
-import AdminDashboardRoutes from "./admin";
-import ExamRoutes from "./ExamRoutes";
-import ReportRoutes from "./ReportRoutes";
-import FeeRoutes from "./FeeRoutes";
-import React from "react";
-import TransportationRoutes from "./TransportationRoutes";
-import LibraryRoutes from "./LibraryRoutes";
+import { Routes, Route } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import StudentRoutes from './StudentRoutes';
+import StaffRoutes from './StaffRoutes';
+import AdminDashboardRoutes from './admin';
+import ExamRoutes from './ExamRoutes';
+import ReportRoutes from './ReportRoutes';
+import FeeRoutes from './FeeRoutes';
+import React from 'react';
+import TransportationRoutes from './TransportationRoutes';
+import LibraryRoutes from './LibraryRoutes';
 
-const AdminMain = lazy(() => import("../../pages/AdminMain"));
+const AdminMain = lazy(() => import('../../pages/AdminMain'));
 
 function AdminRoutes() {
   const location = useLocation();
@@ -38,7 +38,7 @@ function AdminRoutes() {
           path="*"
           element={
             <div className="text-primary-grey-700 w-full mt-12 text-xl font-semibold text-center">
-              Page not found-{location.pathname.replace("/", " ")}
+              Page not found-{location.pathname.replace('/', ' ')}
             </div>
           }
         />

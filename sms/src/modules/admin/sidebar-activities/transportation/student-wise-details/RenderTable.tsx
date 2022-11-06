@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 const arrayGender = {
-  1: "Male",
-  2: "Femail",
+  1: 'Male',
+  2: 'Femail',
 };
 
 const RenderTable = ({ currentItems }) => {
@@ -28,7 +28,7 @@ const RenderTable = ({ currentItems }) => {
             {arrayGender[person.fee]}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.status ? "Active" : "Inactive"}
+            {person.status ? 'Active' : 'Inactive'}
           </td>
         </tr>
       ))}

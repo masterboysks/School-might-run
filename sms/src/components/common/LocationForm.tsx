@@ -1,22 +1,22 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import countries from "../../api/common/country/country";
-import { Select, SelectDisabled } from "./fields";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import countries from '../../api/common/country/country';
+import { Select, SelectDisabled } from './fields';
 
-export default function LocationForm({ register, errors, watch, prefix = "" }) {
+export default function LocationForm({ register, errors, watch, prefix = '' }) {
   let country, province, district, vdc_municipality;
   prefix
     ? ([country, province, district, vdc_municipality] = watch([
-        prefix + "_country",
-        prefix + "_province",
-        prefix + "_district",
-        prefix + "_vdc_municipality",
+        prefix + '_country',
+        prefix + '_province',
+        prefix + '_district',
+        prefix + '_vdc_municipality',
       ]))
     : ([country, province, district, vdc_municipality] = watch([
-        "country",
-        "province",
-        "district",
-        "vdc_municipality",
+        'country',
+        'province',
+        'district',
+        'vdc_municipality',
       ]));
   const [arrayCountry, setArrayCountry] = useState([]);
   const [arrayProvince, setArrayProvince] = useState([]);
@@ -91,7 +91,7 @@ export default function LocationForm({ register, errors, watch, prefix = "" }) {
             label="Country*"
             value={arrayCountry}
             register={register}
-            name={prefix ? prefix + "_country" : "country"}
+            name={prefix ? prefix + '_country' : 'country'}
             required={true}
             errors={errors}
           />
@@ -105,7 +105,7 @@ export default function LocationForm({ register, errors, watch, prefix = "" }) {
             label="Province*"
             value={arrayProvince}
             register={register}
-            name={prefix ? prefix + "_province" : "province"}
+            name={prefix ? prefix + '_province' : 'province'}
             required={true}
             errors={errors}
           />
@@ -121,7 +121,7 @@ export default function LocationForm({ register, errors, watch, prefix = "" }) {
             label="District*"
             value={arrayDistrict}
             register={register}
-            name={prefix ? prefix + "_district" : "district"}
+            name={prefix ? prefix + '_district' : 'district'}
             required={true}
             errors={errors}
           />
@@ -137,7 +137,7 @@ export default function LocationForm({ register, errors, watch, prefix = "" }) {
             label="VDC/Municipality*"
             value={arrayVdcMunicalipality}
             register={register}
-            name={prefix ? prefix + "_vdc_municipality" : "vdc_municipality"}
+            name={prefix ? prefix + '_vdc_municipality' : 'vdc_municipality'}
             errors={errors}
             required={true}
           />

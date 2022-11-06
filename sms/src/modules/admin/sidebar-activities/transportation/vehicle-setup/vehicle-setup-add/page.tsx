@@ -1,11 +1,11 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import Break from "../../../../../../components/common/Break";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import Break from '../../../../../../components/common/Break';
 import {
   Input,
   Upload,
   UploadPhoto,
-} from "../../../../../../components/common/fields";
+} from '../../../../../../components/common/fields';
 export default function VehicleSetupAdd() {
   const {
     register,

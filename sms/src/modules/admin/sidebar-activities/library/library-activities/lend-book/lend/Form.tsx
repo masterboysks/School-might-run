@@ -1,24 +1,24 @@
-import AddIcon from "@mui/icons-material/Add";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import Profile from "/Profile.webp";
+import AddIcon from '@mui/icons-material/Add';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Profile from '/Profile.webp';
 import {
   Input,
   InputDisabled,
-} from "../../../../../../../components/common/fields";
-import * as yup from "yup";
-import Break from "../../../../../../../components/common/Break";
-import RenderTable from "./RenderTable";
+} from '../../../../../../../components/common/fields';
+import * as yup from 'yup';
+import Break from '../../../../../../../components/common/Break';
+import RenderTable from './RenderTable';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../../components/common/Buttons";
+} from '../../../../../../../components/common/Buttons';
 const schema = yup.object().shape({
-  membership_no: yup.string().required("Please enter a valid Membership No*"),
+  membership_no: yup.string().required('Please enter a valid Membership No*'),
 });
 export default function Form() {
   const [selectBook, setSelectBook] = useState<number[]>([0]);
-  const [memberName, setMemberName] = useState("");
+  const [memberName, setMemberName] = useState('');
 
   const {
     handleSubmit,
@@ -27,7 +27,7 @@ export default function Form() {
     watch,
   } = useForm();
   const onSubmit = async (d) => console.log(d);
-  const onBack = () => console.log("back button");
+  const onBack = () => console.log('back button');
   return (
     <div className="mt-6 w-full xl:w-2/3">
       {/* diaglog left */}

@@ -1,28 +1,28 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
-import { useState } from "react";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import React from "react";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+import { SearchBar } from '../../../../../../../components/common/oldFields';
+import { useState } from 'react';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import React from 'react';
 
 const people = [
   {
-    academicYear: "2072",
+    academicYear: '2072',
     isRunning: false,
   },
   {
-    academicYear: "2073",
+    academicYear: '2073',
     isRunning: true,
   },
 ];
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Academic year",
-    href: "/admin/dashboard/admin/data-setup/academic-year",
+    name: 'Academic year',
+    href: '/admin/dashboard/admin/data-setup/academic-year',
   },
 ];
 const AcademicYear = () => {

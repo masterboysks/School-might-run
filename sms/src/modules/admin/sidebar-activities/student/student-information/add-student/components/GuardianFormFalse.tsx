@@ -1,13 +1,13 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import {
   Input,
   InputNumber,
   Password,
   UploadPhoto,
-} from "../../../../../../../components/common/fields";
-import FatheAndMotherDetail from "./FatheAndMotherDetail";
+} from '../../../../../../../components/common/fields';
+import FatheAndMotherDetail from './FatheAndMotherDetail';
 
 const GuardianFormFalse = () => {
   const {

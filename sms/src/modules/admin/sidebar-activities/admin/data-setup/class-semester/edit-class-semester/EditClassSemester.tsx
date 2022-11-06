@@ -1,34 +1,34 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   Input,
   MultipleSelect,
   Select,
-} from "../../../../../../../components/common/fields";
-import { useState } from "react";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import sectionsApi from "../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi";
-import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import classApi from "../../../../../../../api/admin/dashboard/admin/data-setup/classApi";
-import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
-import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import AssignClassSubject from "../../../../../../../components/admin/admin/AssignClassSubject";
-import React from "react";
+} from '../../../../../../../components/common/fields';
+import { useState } from 'react';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import sectionsApi from '../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
+import subFacultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import classApi from '../../../../../../../api/admin/dashboard/admin/data-setup/classApi';
+import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
+import subjectApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import AssignClassSubject from '../../../../../../../components/admin/admin/AssignClassSubject';
+import React from 'react';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Class/semester",
-    href: "/admin/dashboard/admin/data-setup/class-semester",
+    name: 'Class/semester',
+    href: '/admin/dashboard/admin/data-setup/class-semester',
   },
   {
-    name: "Edit",
-    href: "",
+    name: 'Edit',
+    href: '',
   },
 ];
 
@@ -48,13 +48,13 @@ const EditClassSemester = () => {
   const [arrayCompalsarySubjects, setArrayCompalsarySubjects] = useState([]);
   const [arrayElectiveSubjects, setArrayElectiveSubjects] = useState([]);
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   useEffect(() => {
     (async () => {
       const data = await sectionsApi.getAll();
 
       setSectionsOption(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       reset(temp);
     })();
     (async () => {
@@ -81,7 +81,7 @@ const EditClassSemester = () => {
         data?.data?.data.filter((c) => c.subject_type === 2)
       );
     })();
-    return () => localStorage.removeItem("Mb5sVJt5Qp");
+    return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
   const navigate = useNavigate();
   const onSubmit = async (d) => {
@@ -99,8 +99,8 @@ const EditClassSemester = () => {
         ],
       });
       res?.status === 201
-        ? navigate("/admin/dashboard/admin/data-setup/class-semester")
-        : setError("Failed to add class");
+        ? navigate('/admin/dashboard/admin/data-setup/class-semester')
+        : setError('Failed to add class');
     } catch (error) {
       console.warn(error);
     }

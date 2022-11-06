@@ -1,21 +1,21 @@
-import React from "react";
-import Steps from "../../../../../../../components/common/navigation/Steps";
-import OfficeDetailsForm from "./OfficeDetailsForm";
+import React from 'react';
+import Steps from '../../../../../../../components/common/navigation/Steps';
+import OfficeDetailsForm from './OfficeDetailsForm';
 
 const steps = [
   {
-    name: "Personal details",
-    href: "#",
+    name: 'Personal details',
+    href: '#',
     status: 3,
   },
   {
-    name: "Address details",
-    href: "#",
+    name: 'Address details',
+    href: '#',
     status: 3,
   },
   {
-    name: "Office details",
-    href: "#",
+    name: 'Office details',
+    href: '#',
     status: 2,
   },
 ];

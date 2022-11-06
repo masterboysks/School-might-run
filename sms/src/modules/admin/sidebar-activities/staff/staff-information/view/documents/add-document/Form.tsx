@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import staffAPI from '../../../../../../../../api/admin/dashboard/staff/staffAPI';
 import {
   Input,
   Upload,
-} from "../../../../../../../../components/common/fields";
+} from '../../../../../../../../components/common/fields';
 
 const Form = () => {
   const { id } = useParams();
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const {
     register,
@@ -22,8 +22,8 @@ const Form = () => {
   const onSubmit = async (data) => {
     console.log(data);
     const form = new FormData();
-    form.append("document_name", data["document_name"]);
-    form.append("document_file", data["document_file"][0]);
+    form.append('document_name', data['document_name']);
+    form.append('document_file', data['document_file'][0]);
     try {
       const res = await staffAPI.createDocument(id, form);
       res.status === 201

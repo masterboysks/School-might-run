@@ -1,14 +1,14 @@
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Level",
-    href: "/admin/dashboard/admin/data-setup/level",
+    name: 'Level',
+    href: '/admin/dashboard/admin/data-setup/level',
   },
 ];
 const Level = () => {

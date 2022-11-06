@@ -1,15 +1,15 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Breadnav from '../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 
 export default function ExamDetails() {
   const { examName } = useParams();
   const pages = [
-    { name: "Exam" },
+    { name: 'Exam' },
     {
-      name: "Exam marks",
-      href: "/teacher/dashboard/exam/exam-marks/",
+      name: 'Exam marks',
+      href: '/teacher/dashboard/exam/exam-marks/',
     },
     {
       name: examName,

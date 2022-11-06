@@ -1,12 +1,12 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import Search from '@mui/icons-material/SearchOutlined';
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 const pages = [
-  { name: "Fee" },
+  { name: 'Fee' },
   {
-    name: "Fee payment",
-    href: "/fee/fee-payment/",
+    name: 'Fee payment',
+    href: '/fee/fee-payment/',
   },
 ];
 export default function FeePayment() {

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Input, Select } from "../../../../../../components/common/oldFields";
-import Search from "@mui/icons-material/SearchOutlined";
+import React, { useState } from 'react';
+import { Input, Select } from '../../../../../../components/common/oldFields';
+import Search from '@mui/icons-material/SearchOutlined';
 export default function Form() {
-  const arrayDepartment = ["sdjkh", "jhd", "djsh"];
-  const arrayDesignation = ["sdjkh", "jhd", "djsh"];
-  const [fromDate, setFromDate] = useState("");
+  const arrayDepartment = ['sdjkh', 'jhd', 'djsh'];
+  const arrayDesignation = ['sdjkh', 'jhd', 'djsh'];
+  const [fromDate, setFromDate] = useState('');
   const [errorFromDate, setErrorFromDate] = useState(false);
   const [errorToDate, setErrorToDate] = useState(false);
-  const [toDate, setToDate] = useState("");
-  const [department, setDepartment] = useState("Select");
-  const [designation, setDesignation] = useState("Select");
-  const [name, setName] = useState("");
+  const [toDate, setToDate] = useState('');
+  const [department, setDepartment] = useState('Select');
+  const [designation, setDesignation] = useState('Select');
+  const [name, setName] = useState('');
   const [errorName, setErrorName] = useState(false);
   const handleSearch = () => {
     console.log({ fromDate, toDate, department, designation, name });

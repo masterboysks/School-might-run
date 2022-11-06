@@ -1,5 +1,5 @@
-import React from "react";
-import profile from "./profile.png";
+import React from 'react';
+import profile from './profile.png';
 
 const Details = () => {
   return (

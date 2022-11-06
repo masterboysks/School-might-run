@@ -1,16 +1,16 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Select } from "../../../../components/common/fields";
-import design from "./pana.png";
-import Table from "./Table";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Select } from '../../../../components/common/fields';
+import design from './pana.png';
+import Table from './Table';
 const arrayDays = [
-  { name: "Sun", id: 7 },
-  { name: "Mon", id: 1 },
-  { name: "Tue", id: 2 },
-  { name: "Wed", id: 3 },
-  { name: "Thur", id: 4 },
-  { id: 5, name: "Fri" },
-  { name: "Sat", id: 6 },
+  { name: 'Sun', id: 7 },
+  { name: 'Mon', id: 1 },
+  { name: 'Tue', id: 2 },
+  { name: 'Wed', id: 3 },
+  { name: 'Thur', id: 4 },
+  { id: 5, name: 'Fri' },
+  { name: 'Sat', id: 6 },
 ];
 export default function Dashboard() {
   const { register } = useForm();

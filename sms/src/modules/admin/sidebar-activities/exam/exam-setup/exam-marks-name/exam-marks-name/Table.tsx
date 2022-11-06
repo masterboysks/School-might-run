@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
-import RenderTable from "./RenderTable";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { SearchBar } from '../../../../../../../components/common/oldFields';
+import RenderTable from './RenderTable';
 const people = [
   {
-    marksName: "School level",
+    marksName: 'School level',
   },
   {
-    marksName: "School level",
+    marksName: 'School level',
   },
 ];
 
 export default function Table() {
-  const [searchFilter, setSearchFilter] = useState("");
+  const [searchFilter, setSearchFilter] = useState('');
   return (
     <>
       <div className="mt-11 lg:w-2/3 w-full">

@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Search from "@mui/icons-material/SearchOutlined";
-import FatheAndMotherDetail from "./FatheAndMotherDetail";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Search from '@mui/icons-material/SearchOutlined';
+import FatheAndMotherDetail from './FatheAndMotherDetail';
+import { useForm } from 'react-hook-form';
 
 const GuardianFormFalse = () => {
   const {

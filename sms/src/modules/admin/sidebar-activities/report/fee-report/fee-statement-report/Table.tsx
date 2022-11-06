@@ -1,30 +1,30 @@
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import { useState } from "react";
-import { Select } from "../../../../../../components/common/oldFields";
-import RenderTable from "./RenderTable";
+import { PrinterIcon } from '@heroicons/react/20/solid';
+import { useState } from 'react';
+import { Select } from '../../../../../../components/common/oldFields';
+import RenderTable from './RenderTable';
 const people = [
   {
     date: 557663,
-    particular: "Magh",
-    paymentType: "cash",
+    particular: 'Magh',
+    paymentType: 'cash',
     billNo: 99999,
     dr: 11,
     cr: 99999999999999999999,
     balance: 12000000,
   },
   {
-    date: "-----",
-    particular: "Magh",
-    paymentType: "cash",
+    date: '-----',
+    particular: 'Magh',
+    paymentType: 'cash',
     billNo: 99999,
     dr: 11,
     cr: 99999999999999999999,
     balance: 12000000,
   },
   {
-    date: "--",
-    particular: "Magh",
-    paymentType: "cash",
+    date: '--',
+    particular: 'Magh',
+    paymentType: 'cash',
     billNo: 99999,
     dr: 11,
     cr: 99999999999999999999,
@@ -33,35 +33,35 @@ const people = [
 ];
 export default function Table() {
   const arrayFromDate = [
-    "Jan",
-    "Feb",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
+    'Jan',
+    'Feb',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
   const arrayToDate = [
-    "Jan",
-    "Feb",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
+    'Jan',
+    'Feb',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
   const month = new Date().getMonth();
-  const [fromDate, setFromDate] = useState("Jan");
+  const [fromDate, setFromDate] = useState('Jan');
   const [toDate, setToDate] = useState(arrayToDate[month]);
 
   return (

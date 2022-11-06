@@ -1,15 +1,15 @@
-import photo from "./Rectangle 4369.png";
-import photo1 from "./Rectangle 4370.png";
+import photo from './Rectangle 4369.png';
+import photo1 from './Rectangle 4370.png';
 
-import { Link } from "react-router-dom";
-import Breadnav from "../../../../../components/common/navigation/Breadnav";
-import RadioTempelate from "../../../../../components/admin/admin/RadioTempelate";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import Breadnav from '../../../../../components/common/navigation/Breadnav';
+import RadioTempelate from '../../../../../components/admin/admin/RadioTempelate';
+import { useState } from 'react';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Template",
-    href: "/admin/dashboard/admin/template",
+    name: 'Template',
+    href: '/admin/dashboard/admin/template',
   },
 ];
 function Temeplate() {

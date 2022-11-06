@@ -1,117 +1,117 @@
-import React from "react";
-import { useState } from "react";
-import three from "./three.jpg";
-import two from "./two.jpg";
-import { RadioGroup } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/20/solid";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useState } from 'react';
+import three from './three.jpg';
+import two from './two.jpg';
+import { RadioGroup } from '@headlessui/react';
+import { CheckCircleIcon } from '@heroicons/react/20/solid';
+import { useNavigate } from 'react-router-dom';
 const arrayStudents = [
   {
-    name: "Bobby koirala",
-    class: "Class 7",
-    section: "B",
+    name: 'Bobby koirala',
+    class: 'Class 7',
+    section: 'B',
     picture: three,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
   {
-    name: "Whinni koirala",
-    class: "Class 8",
-    section: "B",
+    name: 'Whinni koirala',
+    class: 'Class 8',
+    section: 'B',
     picture: two,
   },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 export default function Welcome() {
   const [selectedMailingLists, setSelectedMailingLists] = useState(
@@ -119,7 +119,7 @@ export default function Welcome() {
   );
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/parent/dashboard");
+    navigate('/parent/dashboard');
   };
   return (
     <div className="text-center flex items-center justify-center  text-primary-grey-600 min-h-screen">
@@ -141,12 +141,12 @@ export default function Welcome() {
                   className={({ checked, active }) =>
                     classNames(
                       checked
-                        ? "border-transparent"
-                        : "border-primary-grey-300",
+                        ? 'border-transparent'
+                        : 'border-primary-grey-300',
                       active
-                        ? "border-primary-grey-400 ring-2 ring-primary-grey-400"
-                        : "",
-                      "relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none w-40"
+                        ? 'border-primary-grey-400 ring-2 ring-primary-grey-400'
+                        : '',
+                      'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none w-40'
                     )
                   }
                 >
@@ -182,19 +182,19 @@ export default function Welcome() {
                       <CheckCircleIcon
                         className={classNames(
                           !checked
-                            ? "text-primary-grey-300"
-                            : "text-primary-grey-400",
-                          "h-5 w-5  absolute -top-2 -right-2 z-10 bg-white rounded"
+                            ? 'text-primary-grey-300'
+                            : 'text-primary-grey-400',
+                          'h-5 w-5  absolute -top-2 -right-2 z-10 bg-white rounded'
                         )}
                         aria-hidden="true"
                       />
                       <span
                         className={classNames(
-                          active ? "border" : "border-2",
+                          active ? 'border' : 'border-2',
                           checked
-                            ? "border-primary-grey-400"
-                            : "border-transparent",
-                          "pointer-events-none absolute -inset-px rounded-lg"
+                            ? 'border-primary-grey-400'
+                            : 'border-transparent',
+                          'pointer-events-none absolute -inset-px rounded-lg'
                         )}
                         aria-hidden="true"
                       />

@@ -1,6 +1,6 @@
-import React from "react";
-import { Input } from "../../../../../../../components/common/fields";
-import LocationForm from "../../../../../../../components/common/LocationForm";
+import React from 'react';
+import { Input } from '../../../../../../../components/common/fields';
+import LocationForm from '../../../../../../../components/common/LocationForm';
 
 const PermanentAddressForm = ({ register, errors, watch }) => {
   return (

@@ -1,29 +1,29 @@
-import React from "react";
-import AboveForm from "./components/AboveForm";
-import FeeForm from "./components/FeeForm";
-import FeeInstallmentDuration from "./components/FeeInstallmentDuration";
+import React from 'react';
+import AboveForm from './components/AboveForm';
+import FeeForm from './components/FeeForm';
+import FeeInstallmentDuration from './components/FeeInstallmentDuration';
 const steps = [
   {
-    name: "Student details",
-    href: "/admin/dashboard/student/student-information/add-student-details",
+    name: 'Student details',
+    href: '/admin/dashboard/student/student-information/add-student-details',
     status: 3,
   },
   {
-    name: "Guardian details",
-    href: "/admin/dashboard/student/student-information/add-student-details/guardian-false",
+    name: 'Guardian details',
+    href: '/admin/dashboard/student/student-information/add-student-details/guardian-false',
     status: 3,
   },
   {
-    name: "Address details",
-    href: "/student/student-information/add-address-details",
+    name: 'Address details',
+    href: '/student/student-information/add-address-details',
     status: 3,
   },
   {
-    name: "Class details",
-    href: "/student/student-information/add-class-details",
+    name: 'Class details',
+    href: '/student/student-information/add-class-details',
     status: 3,
   },
-  { name: "Fee details", href: "#", status: 2 },
+  { name: 'Fee details', href: '#', status: 2 },
 ];
 function AddFeeDetails() {
   return (

@@ -1,31 +1,31 @@
-import React, { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 const AssignmentClass = lazy(
   () =>
     import(
-      "../../modules/teacher/sidebar-activities/lms/assignment/assignemnt-class/page"
+      '../../modules/teacher/sidebar-activities/lms/assignment/assignemnt-class/page'
     )
 );
 const AssignmentNew = lazy(
   () =>
     import(
-      "../../modules/teacher/sidebar-activities/lms/assignment/assignment-new/page"
+      '../../modules/teacher/sidebar-activities/lms/assignment/assignment-new/page'
     )
 );
 const AssignmentView = lazy(
   () =>
     import(
-      "../../modules/teacher/sidebar-activities/lms/assignment/assignment-view/page"
+      '../../modules/teacher/sidebar-activities/lms/assignment/assignment-view/page'
     )
 );
 const Assignment = lazy(
   () =>
     import(
-      "../../modules/teacher/sidebar-activities/lms/assignment/assignment/page"
+      '../../modules/teacher/sidebar-activities/lms/assignment/assignment/page'
     )
 );
 const Slidebar = lazy(
-  () => import("../../modules/teacher/sidebar-activities/lms/Slidebar")
+  () => import('../../modules/teacher/sidebar-activities/lms/Slidebar')
 );
 
 export default function Exam() {
@@ -71,10 +71,10 @@ export default function Exam() {
             </Suspense>
           }
         />
-        <Route path="e-libary" element={"e-libary"} />
-        <Route path="pratice-questions" element={"questions"} />
-        <Route path="report/assignment-report" element={"assignment reports"} />
-        <Route path="report/test-report" element={"test reports"} />
+        <Route path="e-libary" element={'e-libary'} />
+        <Route path="pratice-questions" element={'questions'} />
+        <Route path="report/assignment-report" element={'assignment reports'} />
+        <Route path="report/test-report" element={'test reports'} />
       </Route>
     </Routes>
   );

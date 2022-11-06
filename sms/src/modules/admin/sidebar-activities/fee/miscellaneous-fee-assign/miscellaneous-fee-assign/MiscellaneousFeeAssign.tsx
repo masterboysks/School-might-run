@@ -1,11 +1,11 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 const pages = [
-  { name: "Fee" },
+  { name: 'Fee' },
   {
-    name: "Miscellaneous fee assign",
-    href: "/fee/miscellaneous-fee-assign",
+    name: 'Miscellaneous fee assign',
+    href: '/fee/miscellaneous-fee-assign',
   },
 ];
 function Notice() {

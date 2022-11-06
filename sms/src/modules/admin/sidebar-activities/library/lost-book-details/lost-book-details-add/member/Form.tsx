@@ -1,18 +1,18 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import {
   Input,
   InputDisabled,
   Select,
   Textarea,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 const arrayLostOrDamaged = [
   {
-    name: "Lost",
+    name: 'Lost',
     id: 1,
   },
   {
-    name: "Damaged",
+    name: 'Damaged',
     id: 2,
   },
 ];

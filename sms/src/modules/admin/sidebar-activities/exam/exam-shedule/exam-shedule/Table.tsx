@@ -1,24 +1,24 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import Search from "@mui/icons-material/SearchOutlined";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+import Search from '@mui/icons-material/SearchOutlined';
 import {
   SearchBar,
   Select,
-} from "../../../../../../components/common/oldFields";
-import { useState } from "react";
-import SearchIcon from "../../../../../../components/common/SearchIcon";
+} from '../../../../../../components/common/oldFields';
+import { useState } from 'react';
+import SearchIcon from '../../../../../../components/common/SearchIcon';
 const people = [
   {
-    examName: "First term  examination",
+    examName: 'First term  examination',
   },
   {
-    examName: "Bsc.CSIT Preboard examination",
+    examName: 'Bsc.CSIT Preboard examination',
   },
 ];
 export default function Table() {
-  const arrayLevel = ["jkhdsa", "sdahg", "fdh"];
-  const [level, setLevel] = useState("Select");
-  const [searchFilter, setSearchFilter] = useState("");
+  const arrayLevel = ['jkhdsa', 'sdahg', 'fdh'];
+  const [level, setLevel] = useState('Select');
+  const [searchFilter, setSearchFilter] = useState('');
   return (
     <>
       <div className="md:flex-row flex flex-col justify-between my-6">

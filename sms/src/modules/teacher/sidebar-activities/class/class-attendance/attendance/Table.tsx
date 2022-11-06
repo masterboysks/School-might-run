@@ -1,37 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
 
 const people = [
   {
     id: 115,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
+    name: 'Ranjit',
+    department: 'Academic',
+    designation: 'Primary teacher',
   },
   {
     id: 116,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
+    name: 'Ranjit',
+    department: 'Academic',
+    designation: 'Primary teacher',
   },
   {
     id: 1155,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
+    name: 'Ranjit',
+    department: 'Academic',
+    designation: 'Primary teacher',
   },
   {
     id: 11532,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
+    name: 'Ranjit',
+    department: 'Academic',
+    designation: 'Primary teacher',
   },
   {
     id: 1152,
-    name: "Ranjit",
-    department: "Academic",
-    designation: "Primary teacher",
+    name: 'Ranjit',
+    department: 'Academic',
+    designation: 'Primary teacher',
   },
 ];
 

@@ -1,14 +1,14 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { authorized, axiosPrivate } from "../api/common/axios";
-import AuthContext from "../contex/AuthProvider";
-import { useContext } from "react";
-import Info from "../api/admin/Info";
-import Auth from "../api/common/Auth";
-import { useState } from "react";
-import Sidebar from "../modules/teacher/sidebar/Sidebar";
-import Navbar from "../modules/teacher/navbar/Navbar";
-import React from "react";
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { authorized, axiosPrivate } from '../api/common/axios';
+import AuthContext from '../contex/AuthProvider';
+import { useContext } from 'react';
+import Info from '../api/admin/Info';
+import Auth from '../api/common/Auth';
+import { useState } from 'react';
+import Sidebar from '../modules/teacher/sidebar/Sidebar';
+import Navbar from '../modules/teacher/navbar/Navbar';
+import React from 'react';
 
 const TeacherMain = () => {
   const { setAuth, auth } = useContext(AuthContext);
@@ -18,7 +18,7 @@ const TeacherMain = () => {
   let modules;
   // authorized.interceptors.response.use(
   //   (config) => {
-  //     return config;
+  //     return  config;
   //   },
   //   async (err) => {
   //     const originalConfig = err?.config;
@@ -34,7 +34,7 @@ const TeacherMain = () => {
   //           ] = `Bearer ${data.data.access_token}`;
 
   //           authorized.defaults.headers.Authorization = `Bearer ${data.data.access_token}`;
-  //           return axiosPrivate(originalConfig);
+  //           return  axiosPrivate(originalConfig);
   //         }
   //       } catch (error) {
   //         error.response.status === 400 && localStorage.removeItem("kcx");
@@ -65,7 +65,7 @@ const TeacherMain = () => {
   //   }
   // }, []);
   // if (loading) {
-  //   return <div>Loading...</div>;
+  //   return  <div>Loading...</div>;
   // }
   return (
     <>

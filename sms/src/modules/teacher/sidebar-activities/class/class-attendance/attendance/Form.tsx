@@ -1,7 +1,7 @@
-import React from "react";
-import { Input, Select } from "../../../../../../components/common/fields";
-import Search from "@mui/icons-material/SearchOutlined";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { Input, Select } from '../../../../../../components/common/fields';
+import Search from '@mui/icons-material/SearchOutlined';
+import { useForm } from 'react-hook-form';
 export default function Form() {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (d) => {

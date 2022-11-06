@@ -1,71 +1,71 @@
-import { useState } from "react";
-import { useEffect, useContext } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useEffect, useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   DateInput,
   Input,
   Select,
   UploadPhoto,
-} from "../../../../../../../components/common/fields";
-import StaffFormPersonalDetailsPicture from "../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture";
+} from '../../../../../../../components/common/fields';
+import StaffFormPersonalDetailsPicture from '../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture';
 const arrayBloodGroup = [
   {
-    name: "A+",
+    name: 'A+',
     id: 1,
   },
   {
-    name: "A-",
+    name: 'A-',
     id: 2,
   },
   {
-    name: "B+",
+    name: 'B+',
     id: 3,
   },
   {
-    name: "B-",
+    name: 'B-',
     id: 4,
   },
   {
-    name: "O+",
+    name: 'O+',
     id: 5,
   },
   {
-    name: "O-",
+    name: 'O-',
     id: 6,
   },
   {
-    name: "AB+",
+    name: 'AB+',
     id: 7,
   },
   {
-    name: "Ab-",
+    name: 'Ab-',
     id: 8,
   },
 ];
 const arrayGender = [
   {
-    name: "Male",
+    name: 'Male',
     id: 1,
   },
   {
-    name: "Female",
+    name: 'Female',
     id: 2,
   },
 ];
 const arrayMaritialSatus = [
   {
-    name: "Married",
+    name: 'Married',
     id: 1,
   },
   {
-    name: "Single",
+    name: 'Single',
     id: 2,
   },
 ];
 const DetailsForm = () => {
-  const [date, setDate] = useState("");
-  const [defaultDate, setDefaultDate] = useState("");
+  const [date, setDate] = useState('');
+  const [defaultDate, setDefaultDate] = useState('');
   const photo = useContext(StaffFormPersonalDetailsPicture);
   const navigate = useNavigate();
   const {
@@ -77,7 +77,7 @@ const DetailsForm = () => {
   } = useForm();
   useEffect(() => {
     (async () => {
-      const temp = await JSON.parse(localStorage.getItem("pdgdsas"));
+      const temp = await JSON.parse(localStorage.getItem('pdgdsas'));
       console.log({ ...temp, photo: photo?.photo });
       reset({ ...temp, photo: photo?.photo });
       setDefaultDate(temp.dob);
@@ -88,9 +88,9 @@ const DetailsForm = () => {
     photo?.setPhoto(data.photo);
     delete data.photo;
     data.dob = date;
-    localStorage.setItem("pdgdsas", JSON.stringify(data));
+    localStorage.setItem('pdgdsas', JSON.stringify(data));
     navigate(
-      "/admin/dashboard/staff/staff-information/add-staff/general/address-details"
+      '/admin/dashboard/staff/staff-information/add-staff/general/address-details'
     );
   };
 

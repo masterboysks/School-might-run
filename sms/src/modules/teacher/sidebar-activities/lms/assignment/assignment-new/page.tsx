@@ -1,22 +1,22 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Form from "./Form";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Form from './Form';
 
 export default function AssignmentNew() {
   const { name, id } = useParams();
   const pages = [
-    { name: "Lms" },
+    { name: 'Lms' },
     {
-      name: "Assignment",
-      href: "/teacher/dashboard/lms/assignment/",
+      name: 'Assignment',
+      href: '/teacher/dashboard/lms/assignment/',
     },
     {
       name,
       href: `/teacher/dashboard/lms/assignment/${name}`,
     },
     {
-      name: "New assignment",
+      name: 'New assignment',
     },
   ];
   return (

@@ -1,28 +1,28 @@
-import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../components/common/Break";
+import { useParams } from 'react-router-dom';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../components/common/Break';
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Input,
   InputDisabled,
   MultipleSelect,
   Textarea,
   Upload,
-} from "../../../../../../components/common/oldFields";
-import { useState } from "react";
-import React from "react";
+} from '../../../../../../components/common/oldFields';
+import { useState } from 'react';
+import React from 'react';
 
 function AddEvent() {
   const { date } = useParams();
   const pages = [
-    { name: "Admin" },
+    { name: 'Admin' },
     {
-      name: "Event",
-      href: "/admin/dashboard/admin/event-calender",
+      name: 'Event',
+      href: '/admin/dashboard/admin/event-calender',
     },
     {
-      name: "Add",
+      name: 'Add',
     },
     {
       name: date,
@@ -42,13 +42,13 @@ function AddEvent() {
 export default AddEvent;
 
 function Form({ date }) {
-  const arraySendTo = ["All", ...["jkdsf", "jfhdgf", "jhfdg"]];
-  const [eventTitle, setEventTitle] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const arraySendTo = ['All', ...['jkdsf', 'jfhdgf', 'jhfdg']];
+  const [eventTitle, setEventTitle] = useState('');
+  const [eventDescription, setEventDescription] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
   const [sendTo, setSendTo] = useState([arraySendTo[0]]);
-  const [document, setDocument] = useState("");
+  const [document, setDocument] = useState('');
 
   const [errorEventTitle, setErrorEventTitle] = useState(false);
   const [errorEventDescription, setErrorEventDescription] = useState(false);
@@ -72,7 +72,7 @@ function Form({ date }) {
     endTime || ((temp = true) && setErrorEndTime(true));
     sendTo.length === 0 && (temp = true) && setErrorSendTo(true);
 
-    temp || navigate("/admin/event-calender");
+    temp || navigate('/admin/event-calender');
   };
   return (
     <div>

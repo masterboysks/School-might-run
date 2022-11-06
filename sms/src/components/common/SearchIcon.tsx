@@ -1,7 +1,7 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import React from "react";
+import Search from '@mui/icons-material/SearchOutlined';
+import React from 'react';
 
-export default function SearchIcon({ className = "", onClick }) {
+export default function SearchIcon({ className = '', onClick }) {
   return (
     <div
       onClick={onClick}

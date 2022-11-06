@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../../components/common/fields";
-import RenderTable from "./RenderTable";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { SearchBar } from '../../../../../../components/common/fields';
+import RenderTable from './RenderTable';
+import { useForm } from 'react-hook-form';
 const people = [
   {
-    department: "Non-Academic",
+    department: 'Non-Academic',
   },
   //   {
   //     department: "Academic",

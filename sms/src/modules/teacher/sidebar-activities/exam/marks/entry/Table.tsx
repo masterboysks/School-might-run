@@ -1,37 +1,37 @@
-import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { SearchBar } from "../../../../../../components/common/fields";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { SearchBar } from '../../../../../../components/common/fields';
+import RenderTable from './RenderTable';
 
 export default function Table() {
   const [data, setData] = useState([
     {
-      class: "dsjkhjkah",
-      level: "jkhdkhak",
-      faculty: "jkhdkhak",
-      section: "kjjhdsfjkh",
-      subject: "dfkljf",
-      time: "jjshdf",
-      id: "jdshfgjhdg",
+      class: 'dsjkhjkah',
+      level: 'jkhdkhak',
+      faculty: 'jkhdkhak',
+      section: 'kjjhdsfjkh',
+      subject: 'dfkljf',
+      time: 'jjshdf',
+      id: 'jdshfgjhdg',
     },
     {
-      class: "dsjkhjkah",
-      level: "jkhdkhak",
-      faculty: "jkhdkhak",
-      section: "kjjhdsfjkh",
-      subject: "dfkljf",
-      time: "jjshdf",
-      id: "jdsrtyhfgjhdg",
+      class: 'dsjkhjkah',
+      level: 'jkhdkhak',
+      faculty: 'jkhdkhak',
+      section: 'kjjhdsfjkh',
+      subject: 'dfkljf',
+      time: 'jjshdf',
+      id: 'jdsrtyhfgjhdg',
     },
     {
-      class: "dsjkhjkah",
-      level: "jkhdkhak",
-      faculty: "jkhdkhak",
-      section: "kjjhdsfjkh",
-      subject: "dfkljf",
-      time: "jjshdf",
-      id: "jdsdhfhfgjhdg",
+      class: 'dsjkhjkah',
+      level: 'jkhdkhak',
+      faculty: 'jkhdkhak',
+      section: 'kjjhdsfjkh',
+      subject: 'dfkljf',
+      time: 'jjshdf',
+      id: 'jdsdhfhfgjhdg',
     },
   ]);
   const { register } = useForm();

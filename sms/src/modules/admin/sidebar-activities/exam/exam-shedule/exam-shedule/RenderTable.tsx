@@ -1,7 +1,7 @@
-import React from "react";
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
+import { Link } from 'react-router-dom';
 
 const RenderTable = ({ currentItems }) => {
   return (

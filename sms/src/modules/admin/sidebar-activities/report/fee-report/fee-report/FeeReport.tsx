@@ -1,13 +1,13 @@
-import LanguageIcon from "@mui/icons-material/Language";
-import Table from "./Table";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Form from "./Form";
+import LanguageIcon from '@mui/icons-material/Language';
+import Table from './Table';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Form from './Form';
 
 const pages = [
-  { name: "Report" },
+  { name: 'Report' },
   {
-    name: "Fee Report",
-    href: "/report/fee-report",
+    name: 'Fee Report',
+    href: '/report/fee-report',
   },
 ];
 export default function FeeStatement() {

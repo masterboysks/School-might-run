@@ -1,8 +1,8 @@
-import Table from "./table";
-import Form from "./form";
-import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import { useState } from "react";
-import { useEffect } from "react";
+import Table from './table';
+import Form from './form';
+import staffAPI from '../../../../../../api/admin/dashboard/staff/staffAPI';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Staffs = () => {
   const [page, setPage] = useState(1);

@@ -1,11 +1,11 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Push notification",
-    href: "/admin/dashboard/admin/notice",
+    name: 'Push notification',
+    href: '/admin/dashboard/admin/notice',
   },
 ];
 function Notice() {

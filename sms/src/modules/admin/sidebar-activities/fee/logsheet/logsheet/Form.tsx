@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Break from "../../break";
-import Table from "./EntryTable";
+import React, { useState } from 'react';
+import Break from '../../break';
+import Table from './EntryTable';
 
 export const Form = () => {
   const [entryType, setEntryType] = useState(false);

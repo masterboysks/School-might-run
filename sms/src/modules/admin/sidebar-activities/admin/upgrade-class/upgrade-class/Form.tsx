@@ -1,33 +1,33 @@
-import { Link } from "react-router-dom";
-import AiOutlineEdit from "@mui/icons-material/EditOutlined";
-import StackedSelectAdminUpgrade from "../../../../../../components/admin/admin/StackedSelectAdminUpgrade";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import AiOutlineEdit from '@mui/icons-material/EditOutlined';
+import StackedSelectAdminUpgrade from '../../../../../../components/admin/admin/StackedSelectAdminUpgrade';
+import { useState } from 'react';
 import {
   InputDisabled,
   Select,
-} from "../../../../../../components/common/oldFields";
-import React from "react";
+} from '../../../../../../components/common/oldFields';
+import React from 'react';
 
 const Form = () => {
   // array
-  const arrayClassSemester = ["dfsmkhb", "dsjhfg"];
-  const arraySelectedSection = ["dfsmkhb", "dsjhfg"];
-  const arrayFromLevel = ["dfsmkhb", "dsjhfg"];
-  const arrayFromYear = ["dfsmkhb", "dsjhfg"];
-  const arrayToLevel = ["dfsmkhb", "dsjhfg"];
-  const arrayToYear = ["dfsmkhb", "dsjhfg"];
+  const arrayClassSemester = ['dfsmkhb', 'dsjhfg'];
+  const arraySelectedSection = ['dfsmkhb', 'dsjhfg'];
+  const arrayFromLevel = ['dfsmkhb', 'dsjhfg'];
+  const arrayFromYear = ['dfsmkhb', 'dsjhfg'];
+  const arrayToLevel = ['dfsmkhb', 'dsjhfg'];
+  const arrayToYear = ['dfsmkhb', 'dsjhfg'];
   // backend this is disabled
-  const [fromClassSemester, setFromClassSemester] = useState("Class 12");
-  const [fromAvailableSections, setFromAvailableSections] = useState("A, B, C");
-  const [toAvailableSections, setToAvailableSections] = useState("A, B, C");
-  const [fromSection, setFromSection] = useState("A");
+  const [fromClassSemester, setFromClassSemester] = useState('Class 12');
+  const [fromAvailableSections, setFromAvailableSections] = useState('A, B, C');
+  const [toAvailableSections, setToAvailableSections] = useState('A, B, C');
+  const [fromSection, setFromSection] = useState('A');
   //
-  const [toSelectedSection, setToSelectedSection] = useState("Select");
-  const [toClassSemester, setToClassSemester] = useState("Select");
+  const [toSelectedSection, setToSelectedSection] = useState('Select');
+  const [toClassSemester, setToClassSemester] = useState('Select');
   const [fromLevelStacked, setFromLevelStacked] = useState(arrayFromLevel[0]);
   const [fromYearStacked, setFromYearStacked] = useState(arrayFromYear[0]);
-  const [toLevelStacked, setToLevelStacked] = useState("Select");
-  const [toYearStacked, setToYearStacked] = useState("Select");
+  const [toLevelStacked, setToLevelStacked] = useState('Select');
+  const [toYearStacked, setToYearStacked] = useState('Select');
   // error
   const [errorToYearStacked, setErrorToYearStacked] = useState(false);
   const [errorToLevelStacked, setErrorToLevelStacked] = useState(false);
@@ -48,14 +48,14 @@ const Form = () => {
     });
     console.log(setErrorToLevelStacked(true));
     let temp = false;
-    toLevelStacked === "Select" &&
+    toLevelStacked === 'Select' &&
       (temp = true) &&
       setErrorToLevelStacked(true);
-    toYearStacked === "Select" && (temp = true) && setErrorToYearStacked(true);
-    toClassSemester === "Select" &&
+    toYearStacked === 'Select' && (temp = true) && setErrorToYearStacked(true);
+    toClassSemester === 'Select' &&
       (temp = true) &&
       setErrorToClassSemester(true);
-    toSelectedSection === "Select" &&
+    toSelectedSection === 'Select' &&
       (temp = true) &&
       setErrorToSelectedSection(true);
   };

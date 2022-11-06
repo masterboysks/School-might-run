@@ -1,7 +1,7 @@
-import Arrow from "@mui/icons-material/ArrowForwardIos";
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+import Arrow from '@mui/icons-material/ArrowForwardIos';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Slidebar = () => {
   const [data, setData] = useState(false);
@@ -9,39 +9,39 @@ const Slidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar')?.classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
   const links = [
     {
-      name: "Assignment report",
-      path: "/teacher/dashboard/lms/report/assignment-report",
+      name: 'Assignment report',
+      path: '/teacher/dashboard/lms/report/assignment-report',
     },
     {
-      name: "Test report",
-      path: "/teacher/dashboard/lms/report/test-report",
+      name: 'Test report',
+      path: '/teacher/dashboard/lms/report/test-report',
     },
   ];
   useEffect(() => {
-    location.includes("/teacher/dashboard/lms/report")
+    location.includes('/teacher/dashboard/lms/report')
       ? setData(true)
       : setData(false);
   }, [location]);
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    let overlay = document.getElementById("overlay")?.classList;
-    const slidebar = document.getElementById("slidebar")?.classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar?.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar?.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -54,9 +54,9 @@ const Slidebar = () => {
             <Link to="/teacher/dashboard/lms/assignment" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3    mt-2 mb-3 cursor-pointer rounded  ${
-                  location.includes("/teacher/dashboard/lms/assignment")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/teacher/dashboard/lms/assignment')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -68,9 +68,9 @@ const Slidebar = () => {
             <Link to="/teacher/dashboard/lms/e-libary" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2   pr-3   mb-3 cursor-pointer rounded ${
-                  location.includes("/teacher/dashboard/lms/e-libary")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/teacher/dashboard/lms/e-libary')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -85,9 +85,9 @@ const Slidebar = () => {
             >
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3    cursor-pointer rounded ${
-                  location.includes("/teacher/dashboard/lms/pratice-questions")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/teacher/dashboard/lms/pratice-questions')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -103,17 +103,17 @@ const Slidebar = () => {
                 setDropReports(!dropReports);
               }}
               className={`flex  pr-3     p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
-              ${data ? "text-primary-grey-700" : "text-primary-grey-600"} 
+              ${data ? 'text-primary-grey-700' : 'text-primary-grey-600'} 
                    ${
                      data && !dropReports
-                       ? "bg-primary-grey-200 "
-                       : "text-primary-grey-600"
+                       ? 'bg-primary-grey-200 '
+                       : 'text-primary-grey-600'
                    }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  dropReports ? "rotate-90" : ""
+                  dropReports ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -122,7 +122,7 @@ const Slidebar = () => {
             </li>
             <ul
               className={`${
-                dropReports ? "" : "hidden"
+                dropReports ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -132,8 +132,8 @@ const Slidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}

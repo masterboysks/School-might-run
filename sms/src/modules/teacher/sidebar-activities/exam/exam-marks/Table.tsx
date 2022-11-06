@@ -1,19 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../components/common/oldFields";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { SearchBar } from '../../../../../components/common/oldFields';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    department: "Non-Academic",
+    department: 'Non-Academic',
   },
   {
-    department: "Academic",
+    department: 'Academic',
   },
 ];
 export default function Table() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   return (
     <>
       <div className="mt-11 lg:w-2/3 w-full">

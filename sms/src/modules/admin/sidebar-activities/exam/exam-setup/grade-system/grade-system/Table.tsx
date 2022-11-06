@@ -1,55 +1,55 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+import { Fragment, useRef, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { SearchBar } from '../../../../../../../components/common/oldFields';
 const people = [
   {
-    level: "School level",
+    level: 'School level',
   },
   {
-    level: "School level",
+    level: 'School level',
   },
 ];
 
 const view = {
-  level: "School level",
+  level: 'School level',
   table: [
     {
       lowerLimit: 90,
       upperLimit: 100,
-      grade: "A+",
+      grade: 'A+',
       gpa: 4.0,
     },
     {
       lowerLimit: 80,
       upperLimit: 90,
-      grade: "A",
+      grade: 'A',
       gpa: 3.6,
     },
     {
       lowerLimit: 90,
       upperLimit: 100,
-      grade: "A+",
+      grade: 'A+',
       gpa: 4.0,
     },
     {
       lowerLimit: 90,
       upperLimit: 100,
-      grade: "A+",
+      grade: 'A+',
       gpa: 4.0,
     },
     {
       lowerLimit: 90,
       upperLimit: 100,
-      grade: "A+",
+      grade: 'A+',
       gpa: 4.0,
     },
   ],
 };
 export default function Table() {
-  const [searchFilter, setSearchFilter] = useState("");
+  const [searchFilter, setSearchFilter] = useState('');
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
   return (

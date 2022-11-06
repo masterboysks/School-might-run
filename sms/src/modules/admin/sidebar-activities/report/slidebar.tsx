@@ -1,7 +1,7 @@
-import Arrow from "@mui/icons-material/ArrowForwardIos";
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+import Arrow from '@mui/icons-material/ArrowForwardIos';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const ReportSlidebar = () => {
   const [attendanceReport, setAttendanceReport] = useState(false);
@@ -9,43 +9,43 @@ const ReportSlidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar").classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar').classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
   const links = [
     {
-      name: "Student attendance report",
-      path: "attendance-report/student-attendance-report",
+      name: 'Student attendance report',
+      path: 'attendance-report/student-attendance-report',
     },
     {
-      name: "Staff attendance report",
-      path: "attendance-report/staff-attendance-report",
+      name: 'Staff attendance report',
+      path: 'attendance-report/staff-attendance-report',
     },
   ];
   useEffect(() => {
-    location.includes("/report/attendance-report")
+    location.includes('/report/attendance-report')
       ? setAttendanceReport(true)
       : setAttendanceReport(false);
   }, [location]);
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar").classList;
+    nav = document.getElementById('sidebar').classList;
     let overlay =
-      document.getElementById("overlay") &&
-      document.getElementById("overlay").classList;
+      document.getElementById('overlay') &&
+      document.getElementById('overlay').classList;
     const slidebar =
-      document.getElementById("slidebar") &&
-      document.getElementById("slidebar").classList;
+      document.getElementById('slidebar') &&
+      document.getElementById('slidebar').classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -63,19 +63,19 @@ const ReportSlidebar = () => {
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
               ${
                 attendanceReport
-                  ? "text-primary-grey-700"
-                  : "text-primary-grey-600"
+                  ? 'text-primary-grey-700'
+                  : 'text-primary-grey-600'
               } 
                    ${
                      attendanceReport && !dropAttendanceReport
-                       ? "bg-primary-grey-200 "
-                       : "text-primary-grey-600"
+                       ? 'bg-primary-grey-200 '
+                       : 'text-primary-grey-600'
                    }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  dropAttendanceReport ? "rotate-90" : ""
+                  dropAttendanceReport ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -84,7 +84,7 @@ const ReportSlidebar = () => {
             </li>
             <ul
               className={`${
-                dropAttendanceReport ? "" : "hidden"
+                dropAttendanceReport ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -94,8 +94,8 @@ const ReportSlidebar = () => {
                     <li
                       className={`pl-6   pr-3   mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -107,9 +107,9 @@ const ReportSlidebar = () => {
             <Link to="exam-report" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3    mt-2 mb-3 cursor-pointer rounded  ${
-                  location.includes("/report/exam-report")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/report/exam-report')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -121,9 +121,9 @@ const ReportSlidebar = () => {
             <Link to="fee-report" onClick={sidebar}>
               <li
                 className={` flex p-1  pr-3    mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("/report/fee-report")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/report/fee-report')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -135,9 +135,9 @@ const ReportSlidebar = () => {
             <Link to="topper-report" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3   mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("/report/topper-report")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/report/topper-report')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">

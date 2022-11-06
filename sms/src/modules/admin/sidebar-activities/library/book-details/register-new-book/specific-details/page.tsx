@@ -1,20 +1,20 @@
-import React from "react";
-import Steps from "../../../../../../../components/common/navigation/Steps";
-import Form from "./Form";
+import React from 'react';
+import Steps from '../../../../../../../components/common/navigation/Steps';
+import Form from './Form';
 const steps = [
   {
     name: "Book's general details",
-    href: "#",
+    href: '#',
     status: 3, //complete
   },
   {
-    name: "Book specific details",
-    href: "#",
+    name: 'Book specific details',
+    href: '#',
     status: 2, //current
   },
   {
-    name: "Preview",
-    href: "#",
+    name: 'Preview',
+    href: '#',
     status: 1, //current
   },
 ];

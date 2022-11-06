@@ -1,11 +1,11 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 const pages = [
-  { name: "Class" },
+  { name: 'Class' },
   {
-    name: "Class routine",
-    href: "/teacher/dashboard/class/class-routine/",
+    name: 'Class routine',
+    href: '/teacher/dashboard/class/class-routine/',
   },
 ];
 export default function ClassRoutine() {

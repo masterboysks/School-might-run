@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
-import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
-import classApi from "../../../../../../../api/admin/dashboard/admin/data-setup/classApi";
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
+import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
+import classApi from '../../../../../../../api/admin/dashboard/admin/data-setup/classApi';
+import { Link } from 'react-router-dom';
 
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
@@ -17,7 +17,7 @@ const RenderTable = ({ currentItems, setData }) => {
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
-      heading: "Class",
+      heading: 'Class',
       inUse,
     });
   };
@@ -53,13 +53,13 @@ const RenderTable = ({ currentItems, setData }) => {
               </Popover.Button>
               <Popover.Panel
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
-                 ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
+                 ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
                 <div
                   onClick={() => {
                     console.log(person);
                     localStorage.setItem(
-                      "Mb5sVJt5Qp",
+                      'Mb5sVJt5Qp',
                       JSON.stringify({
                         level_id: person.level_id,
                         class_name: person.class_name,

@@ -1,4 +1,4 @@
-import AcademicTable from "./AcademicDetailsTable";
+import AcademicTable from './AcademicDetailsTable';
 
 const AcademicDetails = () => {
   return <AcademicTable />;

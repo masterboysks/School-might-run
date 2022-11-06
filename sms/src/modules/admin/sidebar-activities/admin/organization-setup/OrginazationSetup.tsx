@@ -1,13 +1,13 @@
-import React from "react";
-import Breadnav from "../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../components/common/Break";
+import React from 'react';
+import Breadnav from '../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../components/common/Break';
 
-import Form from "./Form";
+import Form from './Form';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Organization setup",
-    href: "/admin/dashboard/admin/organization-setup",
+    name: 'Organization setup',
+    href: '/admin/dashboard/admin/organization-setup',
   },
 ];
 const OrginazationSetup = () => {

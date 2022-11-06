@@ -1,8 +1,8 @@
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { InputNumber } from "../../../../../../../components/common/fields";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { InputNumber } from '../../../../../../../components/common/fields';
 export default function RenderTable({
   errors,
   register,
@@ -26,7 +26,7 @@ export default function RenderTable({
   //     console.log(values);
   //     if (values.isbn) {
   //       const temp = values?.isbn.split(/[-,.\s]/);
-  //       return `${temp[2]}-${id + 1}-${temp[3]}-${values?.year}`;
+  //       return  `${temp[2]}-${id + 1}-${temp[3]}-${values?.year}`;
   //       // Registration no from insb -- index number or unit no --publication no-- published date last threee digit
   //     }
   //   };

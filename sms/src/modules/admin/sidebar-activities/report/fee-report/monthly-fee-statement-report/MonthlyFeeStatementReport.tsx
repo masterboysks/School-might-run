@@ -1,20 +1,20 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../components/common/Break";
-import Details from "./Details";
-import Table from "./Table";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../components/common/Break';
+import Details from './Details';
+import Table from './Table';
 
 export default function ClassStatement() {
   const { classOfSchool, section } = useParams();
   const pages = [
-    { name: "Report" },
+    { name: 'Report' },
     {
-      name: "Fee Report",
+      name: 'Fee Report',
     },
 
     {
-      name: classOfSchool + "-" + section,
+      name: classOfSchool + '-' + section,
     },
   ];
   return (

@@ -1,26 +1,26 @@
-import React from "react";
-import { useLayoutEffect, useRef, useState } from "react";
-import { SelectDisabled } from "../../../../../../components/common/oldFields";
+import React from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
+import { SelectDisabled } from '../../../../../../components/common/oldFields';
 
 const people = [
   {
     id: 1,
-    name: "Lindsay Walton",
-    class: "Front-end Developer",
-    section: "lindsay.walton@example.com",
-    mob: "Member",
+    name: 'Lindsay Walton',
+    class: 'Front-end Developer',
+    section: 'lindsay.walton@example.com',
+    mob: 'Member',
   },
   {
     id: 12,
-    name: "Lindsay Walton",
-    class: "Front-end Developer",
-    section: "lindsay.walton@examplfdgbf.com",
-    mob: "Member",
+    name: 'Lindsay Walton',
+    class: 'Front-end Developer',
+    section: 'lindsay.walton@examplfdgbf.com',
+    mob: 'Member',
   },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
@@ -101,7 +101,7 @@ export default function Example() {
                 <tr
                   key={person.id}
                   className={
-                    selectedPeople.includes(person) ? "bg-gray-50" : undefined
+                    selectedPeople.includes(person) ? 'bg-gray-50' : undefined
                   }
                 >
                   <td className="sm:w-16 sm:px-8 relative w-12 px-6">
@@ -127,10 +127,10 @@ export default function Example() {
                   </td>
                   <td
                     className={classNames(
-                      "whitespace-nowrap py-4 px-3 text-sm ",
+                      'whitespace-nowrap py-4 px-3 text-sm ',
                       selectedPeople.includes(person)
-                        ? "text-primary-grey-700"
-                        : "text-primary-grey-600"
+                        ? 'text-primary-grey-700'
+                        : 'text-primary-grey-600'
                     )}
                   >
                     {person.name}

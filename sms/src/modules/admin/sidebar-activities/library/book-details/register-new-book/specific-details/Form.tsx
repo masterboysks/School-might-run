@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-import AddIcon from "@mui/icons-material/Add";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import Break from "../../../../../../components/common/Break";
-import { Input } from "../../../../../../components/common/fields";
-import Table from "./Table";
+import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Break from '../../../../../../components/common/Break';
+import { Input } from '../../../../../../components/common/fields';
+import Table from './Table';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../../components/common/Buttons";
-import RenderTable from "./RenderTable";
+} from '../../../../../../../components/common/Buttons';
+import RenderTable from './RenderTable';
 
 export default function Form() {
   const [station, setStation] = useState<number[]>([0]);
@@ -19,7 +19,7 @@ export default function Form() {
     handleSubmit,
     getValues,
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
   const onBack = async () => {
     const temp = getValues();

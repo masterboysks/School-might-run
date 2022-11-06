@@ -1,10 +1,10 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import {
   Input,
   Textarea,
   UploadPhoto,
-} from "../../../../components/common/fields";
+} from '../../../../components/common/fields';
 
 export default function Form() {
   const {

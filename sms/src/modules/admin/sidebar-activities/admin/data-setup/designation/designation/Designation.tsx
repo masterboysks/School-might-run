@@ -1,15 +1,15 @@
-import React from "react";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Designation",
-    href: "/admin/dashboard/admin/data-setup/designation",
+    name: 'Designation',
+    href: '/admin/dashboard/admin/data-setup/designation',
   },
 ];
 const Designation = () => {

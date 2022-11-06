@@ -1,97 +1,97 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Input,
   InputNumber,
   Select,
-} from "../../../../../../../components/common/fields";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { Link } from "react-router-dom";
+} from '../../../../../../../components/common/fields';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { Link } from 'react-router-dom';
 const dfjkh = [
   {
-    name: "Horror",
-    id: "horror",
+    name: 'Horror',
+    id: 'horror',
   },
   {
-    name: "Si-Fi",
-    id: "Si-Fi",
+    name: 'Si-Fi',
+    id: 'Si-Fi',
   },
   {
-    name: "Personal development",
-    id: "Personal development",
+    name: 'Personal development',
+    id: 'Personal development',
   },
   {
-    name: "Self help",
-    id: "Self help",
+    name: 'Self help',
+    id: 'Self help',
   },
   {
-    name: "Educational",
-    id: "Educational",
+    name: 'Educational',
+    id: 'Educational',
   },
   {
-    name: "Romance",
-    id: "Romance",
+    name: 'Romance',
+    id: 'Romance',
   },
 ];
 const jhdfgjkhds = [
   {
-    name: "bhoot",
-    id: "bhoot",
+    name: 'bhoot',
+    id: 'bhoot',
   },
   {
-    name: "jhgsjkshfd",
-    id: "jhgsjkshfd",
+    name: 'jhgsjkshfd',
+    id: 'jhgsjkshfd',
   },
 ];
 const retvgsfe = [
   {
-    name: "bhoot",
-    id: "bhoot",
+    name: 'bhoot',
+    id: 'bhoot',
   },
   {
-    name: "jhgsjkshfd",
-    id: "jhgsjkshfd",
+    name: 'jhgsjkshfd',
+    id: 'jhgsjkshfd',
   },
 ];
 const schema = yup.object().shape({
-  category: yup.string().required(""),
-  sub_category: yup.string().required(""),
-  language: yup.string().required(""),
+  category: yup.string().required(''),
+  sub_category: yup.string().required(''),
+  language: yup.string().required(''),
   book_title: yup
     .string()
-    .required("")
-    .max(50, "Title cannot be longer than 50 characters."),
+    .required('')
+    .max(50, 'Title cannot be longer than 50 characters.'),
   author_name: yup
     .string()
-    .required("")
-    .min(3, "Author name needs at least 3 characters.")
-    .max(130, "Cannot be longer than 130 characters."),
+    .required('')
+    .min(3, 'Author name needs at least 3 characters.')
+    .max(130, 'Cannot be longer than 130 characters.'),
   isbn: yup
     .string()
-    .required("")
+    .required('')
     .matches(
       /^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/g,
-      "Please enter valid format"
+      'Please enter valid format'
     )
-    .max(80, "ISBN cannot be longer than 80 characters."),
+    .max(80, 'ISBN cannot be longer than 80 characters.'),
   no_of_pages: yup
     .string()
-    .required("")
-    .max(4, "Cannot be longer than 4 characters."),
-  volume: yup.string().max(50, "Cannot be longer than 50 characters."),
-  keywords: yup.string().max(100, "Cannot be longer than 100."),
-  book_edition: yup.string().required("").max(50, "Cannot be longer then 50."),
-  published_date: yup.string().required(""),
+    .required('')
+    .max(4, 'Cannot be longer than 4 characters.'),
+  volume: yup.string().max(50, 'Cannot be longer than 50 characters.'),
+  keywords: yup.string().max(100, 'Cannot be longer than 100.'),
+  book_edition: yup.string().required('').max(50, 'Cannot be longer then 50.'),
+  published_date: yup.string().required(''),
   publisher_name: yup
     .string()
-    .required("")
-    .min(3, "Publisher name needs at least 3 characters.")
-    .max(30, "Cannot be longer than 30 characters."),
+    .required('')
+    .min(3, 'Publisher name needs at least 3 characters.')
+    .max(30, 'Cannot be longer than 30 characters.'),
   book_price: yup
     .string()
-    .required("")
-    .max(5, "Cannot be longer than 5 characters."),
+    .required('')
+    .max(5, 'Cannot be longer than 5 characters.'),
 });
 export default function Form() {
   const [arrayCategory, setArrayCategory] = useState(dfjkh);
@@ -102,18 +102,18 @@ export default function Form() {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
     resolver: yupResolver(schema),
   });
   const onSubmit = (d) => {
     localStorage.setItem(
-      "jhsgbbvppi",
+      'jhsgbbvppi',
       JSON.stringify({
         isbn: d.isbn,
-        year: d.published_date.split("-")[0].slice(1),
+        year: d.published_date.split('-')[0].slice(1),
       })
     );
-    console.log({ year: d.published_date.split("-")[0].slice(1) });
+    console.log({ year: d.published_date.split('-')[0].slice(1) });
   };
   return (
     <form className="w-full" onSubmit={handleSubmit(onSubmit)}>

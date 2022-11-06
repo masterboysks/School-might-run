@@ -1,7 +1,7 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import { useForm } from "react-hook-form";
-import { Select } from "../../../../../../components/common/fields";
-const arrayLevel = [{ id: 1, name: "hlo" }];
+import Search from '@mui/icons-material/SearchOutlined';
+import { useForm } from 'react-hook-form';
+import { Select } from '../../../../../../components/common/fields';
+const arrayLevel = [{ id: 1, name: 'hlo' }];
 function Form() {
   const {
     register,

@@ -1,12 +1,12 @@
-import React from "react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import StaffGeneralDetailsView from "../../../../../../../../contex/admin/staff/StaffGeneralDetailsView";
+import React from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import StaffGeneralDetailsView from '../../../../../../../../contex/admin/staff/StaffGeneralDetailsView';
 
 export default function AddressDetails() {
   const generaldetails = useContext(StaffGeneralDetailsView);
   const data = generaldetails?.data?.address;
-  console.log(data, "address");
+  console.log(data, 'address');
   return (
     <div className="my-6">
       <div className="sm:flex sm:items-center my-3">

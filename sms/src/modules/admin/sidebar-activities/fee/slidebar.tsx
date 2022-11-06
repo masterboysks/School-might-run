@@ -1,7 +1,7 @@
-import Arrow from "@mui/icons-material/ArrowForwardIos";
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+import Arrow from '@mui/icons-material/ArrowForwardIos';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const FeeSlidebar = () => {
   const [data, setData] = useState(false);
@@ -9,43 +9,43 @@ const FeeSlidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar").classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar').classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
   const links = [
     {
-      name: "Class statement ",
-      path: "fee-statement/class-fee-statement",
+      name: 'Class statement ',
+      path: 'fee-statement/class-fee-statement',
     },
     {
-      name: "Student statement",
-      path: "fee-statement/student-fee-statement",
+      name: 'Student statement',
+      path: 'fee-statement/student-fee-statement',
     },
   ];
   useEffect(() => {
-    location.includes("/admin/dashboard/fee/fee-statement")
+    location.includes('/admin/dashboard/fee/fee-statement')
       ? setData(true)
       : setData(false);
   }, [location]);
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar").classList;
+    nav = document.getElementById('sidebar').classList;
     let overlay =
-      document.getElementById("overlay") &&
-      document.getElementById("overlay").classList;
+      document.getElementById('overlay') &&
+      document.getElementById('overlay').classList;
     const slidebar =
-      document.getElementById("slidebar") &&
-      document.getElementById("slidebar").classList;
+      document.getElementById('slidebar') &&
+      document.getElementById('slidebar').classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -58,9 +58,9 @@ const FeeSlidebar = () => {
             <Link to="/admin/dashboard/fee/fee-type" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3    mt-2 mb-3 cursor-pointer rounded  ${
-                  location.includes("/admin/dashboard/fee/fee-type")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/fee/fee-type')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -72,9 +72,9 @@ const FeeSlidebar = () => {
             <Link to="/admin/dashboard/fee/fee-assign" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2   pr-3   mb-3 cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/fee/fee-assign")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/fee/fee-assign')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -86,9 +86,9 @@ const FeeSlidebar = () => {
             <Link to="/admin/dashboard/fee/student-logsheet" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3    cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/fee/student-logsheet")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/fee/student-logsheet')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -100,9 +100,9 @@ const FeeSlidebar = () => {
             <Link to="/admin/dashboard/fee/fee-payment" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2   pr-3    mb-3 cursor-pointer rounded ${
-                  location.includes("fee/fee-payment")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('fee/fee-payment')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -117,17 +117,17 @@ const FeeSlidebar = () => {
                 setDropFeeStatement(!dropFeeStatement);
               }}
               className={`flex  pr-3     p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
-              ${data ? "text-primary-grey-700" : "text-primary-grey-600"} 
+              ${data ? 'text-primary-grey-700' : 'text-primary-grey-600'} 
                    ${
                      data && !dropFeeStatement
-                       ? "bg-primary-grey-200 "
-                       : "text-primary-grey-600"
+                       ? 'bg-primary-grey-200 '
+                       : 'text-primary-grey-600'
                    } text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  dropFeeStatement ? "rotate-90" : ""
+                  dropFeeStatement ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -136,7 +136,7 @@ const FeeSlidebar = () => {
             </li>
             <ul
               className={`${
-                dropFeeStatement ? "" : "hidden"
+                dropFeeStatement ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -146,8 +146,8 @@ const FeeSlidebar = () => {
                     <li
                       className={`pl-6  pr-3    mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -162,9 +162,9 @@ const FeeSlidebar = () => {
             >
               <li
                 className={` flex p-1  pr-3    mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("fee/miscellaneous-fee-assign")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('fee/miscellaneous-fee-assign')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">

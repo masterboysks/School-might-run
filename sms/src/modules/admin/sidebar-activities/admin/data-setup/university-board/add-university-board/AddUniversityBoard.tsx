@@ -1,28 +1,28 @@
-import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { Input } from "../../../../../../../components/common/fields";
+import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { Input } from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "University/Board",
-    href: "/admin/dashboard/admin/data-setup/university-board",
+    name: 'University/Board',
+    href: '/admin/dashboard/admin/data-setup/university-board',
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/university-board/add",
+    name: 'Add',
+    href: '/admin/dashboard/admin/data-setup/university-board/add',
   },
 ];
 const AddUniversityBoard = () => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const {
     register,
     handleSubmit,
@@ -35,8 +35,8 @@ const AddUniversityBoard = () => {
     try {
       const res = await universityBoardApi.create(d);
       res?.status === 201
-        ? navigate("/admin/dashboard/admin/data-setup/university-board")
-        : setError("Failed to add university");
+        ? navigate('/admin/dashboard/admin/data-setup/university-board')
+        : setError('Failed to add university');
     } catch (errors) {
       console.warn(errors);
     }

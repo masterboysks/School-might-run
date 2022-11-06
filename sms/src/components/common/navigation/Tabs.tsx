@@ -1,17 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Fragment, useState, useEffect } from "react";
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import React from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { Fragment, useState, useEffect } from 'react';
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import React from 'react';
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Tabs({ tabs }) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(
     tabs.filter((curr) => {
-      return curr.current ? curr : "";
+      return curr.current ? curr : '';
     })[0]
   );
   useEffect(() => {
@@ -48,8 +48,8 @@ export default function Tabs({ tabs }) {
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
                         active
-                          ? "bg-primary-grey-200 text-primary-700"
-                          : "text-primary-600"
+                          ? 'bg-primary-grey-200 text-primary-700'
+                          : 'text-primary-600'
                       }`
                     }
                     value={person}
@@ -58,7 +58,7 @@ export default function Tabs({ tabs }) {
                       <>
                         <span
                           className={`block truncate ${
-                            selected ? "font-medium" : "font-normal"
+                            selected ? 'font-medium' : 'font-normal'
                           }`}
                         >
                           {person.name}
@@ -86,11 +86,11 @@ export default function Tabs({ tabs }) {
                 to={tab.href}
                 className={classNames(
                   tab.current
-                    ? "border-primary-grey-600 text-primary-grey-600  font-medium"
-                    : "border-transparent text-primary-grey-500  hover:border-primary-grey-300",
-                  "w-1/3 py-4 px-1 text-center border-b-2  text-sm"
+                    ? 'border-primary-grey-600 text-primary-grey-600  font-medium'
+                    : 'border-transparent text-primary-grey-500  hover:border-primary-grey-300',
+                  'w-1/3 py-4 px-1 text-center border-b-2  text-sm'
                 )}
-                aria-current={tab.current ? "page" : undefined}
+                aria-current={tab.current ? 'page' : undefined}
               >
                 {tab.name}
               </Link>

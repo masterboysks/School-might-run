@@ -1,23 +1,23 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { Input, Select } from "../../../../../../../components/common/fields";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
-import { useForm } from "react-hook-form";
-import { useEffect } from "react";
-import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Input, Select } from '../../../../../../../components/common/fields';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import subFacultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Sub-Faculty",
-    href: "/admin/dashboard/admin/data-setup/sub-faculty",
+    name: 'Sub-Faculty',
+    href: '/admin/dashboard/admin/data-setup/sub-faculty',
   },
   {
-    name: "Add",
+    name: 'Add',
   },
 ];
 const AddSubFaculty = () => {
@@ -28,7 +28,7 @@ const AddSubFaculty = () => {
     formState: { errors },
   } = useForm();
   const [arrayFaculty, setArrayFaculty] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   useEffect(() => {
     (async () => {
       const data = await facultyApi.getAll();
@@ -39,8 +39,8 @@ const AddSubFaculty = () => {
   const onSubmit = async (d) => {
     const res = await subFacultyApi.create(d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/sub-faculty")
-      : setError("Failed to create sub-faculty");
+      ? navigate('/admin/dashboard/admin/data-setup/sub-faculty')
+      : setError('Failed to create sub-faculty');
   };
   return (
     <>

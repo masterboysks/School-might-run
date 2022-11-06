@@ -1,6 +1,6 @@
-import React from "react";
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
+import React from 'react';
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
 
 const RenderTable = ({
   currentItems,
@@ -12,7 +12,7 @@ const RenderTable = ({
     <>
       {currentItems.map((person, index, table) => (
         <tr
-          className={selectedPeople.includes(person) ? "bg-gray-50" : undefined}
+          className={selectedPeople.includes(person) ? 'bg-gray-50' : undefined}
           key={index}
         >
           <td className="sm:w-16 sm:px-8 relative w-12 px-6">

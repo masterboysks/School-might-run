@@ -1,30 +1,30 @@
-import Arrow from "@mui/icons-material/ArrowForwardIos";
-import React from "react";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+import Arrow from '@mui/icons-material/ArrowForwardIos';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const transportSlidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar')?.classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    let overlay = document.getElementById("overlay")?.classList;
-    const slidebar = document.getElementById("slidebar")?.classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar?.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar?.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -40,9 +40,9 @@ const transportSlidebar = () => {
             >
               <li
                 className={` flex p-1  pr-3     mt-2 mb-3 cursor-pointer rounded  ${
-                  location.includes("dashboard/transport/student-wise-details")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('dashboard/transport/student-wise-details')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -54,9 +54,9 @@ const transportSlidebar = () => {
             <Link to="/admin/dashboard/transport/route-setup" onClick={sidebar}>
               <li
                 className={` flex p-1   pr-3   mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/transport/route-setup")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/transport/route-setup')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -71,9 +71,9 @@ const transportSlidebar = () => {
             >
               <li
                 className={` flex   pr-3   p-1 mt-2 mb-3 cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/transport/vehicle-setup")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/transport/vehicle-setup')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -89,10 +89,10 @@ const transportSlidebar = () => {
               <li
                 className={` flex   pr-3   p-1 mt-2 mb-3 cursor-pointer rounded ${
                   location.includes(
-                    "/admin/dashboard/transport/vehicle-route-setup"
+                    '/admin/dashboard/transport/vehicle-route-setup'
                   )
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">

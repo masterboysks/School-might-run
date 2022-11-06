@@ -1,16 +1,16 @@
-import Profile from "./Profile";
-import Form from "./Form";
-import Table from "./Table";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import { useParams } from "react-router-dom";
+import Profile from './Profile';
+import Form from './Form';
+import Table from './Table';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import { useParams } from 'react-router-dom';
 
 const StudentProfile = () => {
   const { classOfSchool, section, studentName } = useParams();
   const pages = [
-    { name: "Student" },
+    { name: 'Student' },
     {
-      name: "Student Attendance",
-      href: "/student/student-attendance/",
+      name: 'Student Attendance',
+      href: '/student/student-attendance/',
     },
     {
       name: `${classOfSchool}-${section}`,

@@ -1,8 +1,8 @@
 /* eslint-disable import /no-anonymous-default-export */
-import { authorized } from "./axios";
+import { authorized } from './axios';
 export default {
   create(form) {
-    return authorized.post("/plans", form);
+    return authorized.post('/plans', form);
   },
   get(page) {
     return authorized.get(`/plans?page=${page}`);

@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../../components/common/fields";
-import RenderTable from "./RenderTable";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { SearchBar } from '../../../../../../components/common/fields';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    faculty: "NEB",
-    level: "jhdgsgasfd",
+    faculty: 'NEB',
+    level: 'jhdgsgasfd',
   },
   {
-    faculty: "TU",
-    level: "gfstrft",
+    faculty: 'TU',
+    level: 'gfstrft',
   },
 ];
 

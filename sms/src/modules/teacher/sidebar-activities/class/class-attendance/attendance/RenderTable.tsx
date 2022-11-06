@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { UploadPhoto } from "../../../../../../components/common/fields";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { UploadPhoto } from '../../../../../../components/common/fields';
 
 export default function RenderTable({ curr }) {
   const { watch, register } = useForm();
@@ -47,7 +47,7 @@ export default function RenderTable({ curr }) {
           watch={watch}
           register={register}
           name={curr.name}
-          id={curr.id + "uploadFile"}
+          id={curr.id + 'uploadFile'}
         />
       </td>
     </tr>

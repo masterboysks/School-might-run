@@ -1,25 +1,25 @@
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
-import React from "react";
-import { useLayoutEffect, useRef, useState } from "react";
-import RenderTable from "./RenderTable";
-import Search from "@mui/icons-material/SearchOutlined";
-import { Select } from "../../../../../../../components/common/oldFields";
+import { GlobeAltIcon, PrinterIcon } from '@heroicons/react/20/solid';
+import React from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
+import RenderTable from './RenderTable';
+import Search from '@mui/icons-material/SearchOutlined';
+import { Select } from '../../../../../../../components/common/oldFields';
 
 const people = [
   {
     monthlyFee: 10000000,
-    name: "Asmita",
+    name: 'Asmita',
     previousDue: 40,
-    invoiceStatus: "Unplublished",
+    invoiceStatus: 'Unplublished',
 
     total: 990000,
     miscellaneousFee: 15000,
   },
   {
     monthlyFee: 500,
-    name: "Aarya joti Bajaraya",
+    name: 'Aarya joti Bajaraya',
     previousDue: 40,
-    invoiceStatus: "Unplublished",
+    invoiceStatus: 'Unplublished',
 
     total: 990000,
     miscellaneousFee: 15000,
@@ -46,18 +46,18 @@ export default function Table() {
   }
   //   form
   const arrayMonth = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
   const monthIndex = new Date().getMonth();
   const [month, setMonth] = useState(arrayMonth[monthIndex]);

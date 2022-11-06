@@ -1,27 +1,27 @@
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import React, { useState } from "react";
-import { Select } from "../../../../../../components/common/oldFields";
-import RenderTable from "./RenderExamTopperTable";
+import { PrinterIcon } from '@heroicons/react/20/solid';
+import React, { useState } from 'react';
+import { Select } from '../../../../../../components/common/oldFields';
+import RenderTable from './RenderExamTopperTable';
 const currentItems = [
   {
-    stdId: "Lindsay Walton",
-    stdName: "Front-end Developer",
-    obtainedPercentage: "Lindsay Walton",
+    stdId: 'Lindsay Walton',
+    stdName: 'Front-end Developer',
+    obtainedPercentage: 'Lindsay Walton',
   },
   {
-    stdId: "Lindsa",
-    stdName: "Front-end Developer",
-    obtainedPercentage: "Lindsay Walton",
+    stdId: 'Lindsa',
+    stdName: 'Front-end Developer',
+    obtainedPercentage: 'Lindsay Walton',
   },
   {
-    stdId: "Lindsay Wa",
-    stdName: "Front-end Developer",
-    obtainedPercentage: "Lindsay Walton",
+    stdId: 'Lindsay Wa',
+    stdName: 'Front-end Developer',
+    obtainedPercentage: 'Lindsay Walton',
   },
 ];
 export default function ExamTopper() {
-  const arrayExamName = ["dhgs", "jfhd", "dghf"];
-  const [examName, setExamName] = useState("Select");
+  const arrayExamName = ['dhgs', 'jfhd', 'dghf'];
+  const [examName, setExamName] = useState('Select');
   return (
     <>
       <div className=" md:flex-row md:justify-between flex flex-col items-center">

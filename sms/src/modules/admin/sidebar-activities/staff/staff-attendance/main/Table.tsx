@@ -1,8 +1,8 @@
-import { Fragment } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import RenderTable from "./RenderTable";
+import { Fragment } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import staffAPI from '../../../../../../api/admin/dashboard/staff/staffAPI';
+import RenderTable from './RenderTable';
 
 export default function Table({ data }) {
   const {

@@ -1,34 +1,34 @@
-import { useLayoutEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import RenderTable from "./RenderTable";
+import { useLayoutEffect, useRef, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import RenderTable from './RenderTable';
 const people = [
   {
-    class: "lindsay.walton@example.com",
-    faculty: "Member",
-    level: "Lindsay Walton",
-    start: "Front-end Developer",
-    end: "lindsay.walton@example.com",
+    class: 'lindsay.walton@example.com',
+    faculty: 'Member',
+    level: 'Lindsay Walton',
+    start: 'Front-end Developer',
+    end: 'lindsay.walton@example.com',
   },
   {
-    class: "lindsay.walton@example.com",
-    faculty: "Member",
-    level: "Lindsay Walton",
-    start: "Front-end Developer",
-    end: "lindsay.walton@example.com",
+    class: 'lindsay.walton@example.com',
+    faculty: 'Member',
+    level: 'Lindsay Walton',
+    start: 'Front-end Developer',
+    end: 'lindsay.walton@example.com',
   },
   {
-    class: "lindsay.walton@example.com",
-    faculty: "Member",
-    level: "Lindsay Walton",
-    start: "Front-end Developer",
-    end: "lindsay.walton@example.com",
+    class: 'lindsay.walton@example.com',
+    faculty: 'Member',
+    level: 'Lindsay Walton',
+    start: 'Front-end Developer',
+    end: 'lindsay.walton@example.com',
   },
   {
-    class: "lindsay.walton@example.com",
-    faculty: "Member",
-    level: "Lindsay Walton",
-    start: "Front-end Developer",
-    end: "lindsay.walton@example.com",
+    class: 'lindsay.walton@example.com',
+    faculty: 'Member',
+    level: 'Lindsay Walton',
+    start: 'Front-end Developer',
+    end: 'lindsay.walton@example.com',
   },
 ];
 export default function Table() {

@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
-import RenderTable from "./RenderTable";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { SearchBar } from '../../../../../../../components/common/oldFields';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    level: "NEB",
-    class: "12",
-    section: "A",
-    subFaculty: "Bio",
-    faculty: "Science",
-    elective: ["Opt Math", "Computer"],
-    compulsary: ["Math", "Nepali"],
+    level: 'NEB',
+    class: '12',
+    section: 'A',
+    subFaculty: 'Bio',
+    faculty: 'Science',
+    elective: ['Opt Math', 'Computer'],
+    compulsary: ['Math', 'Nepali'],
   },
 ];
 
 export default function Table() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   return (
     <div className="mt-11 w-full">
       <div className="sm:flex sm:items-center justify-between">

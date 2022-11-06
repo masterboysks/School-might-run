@@ -1,81 +1,83 @@
-import React from "react";
-import { lazy } from "react";
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import { lazy } from 'react';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import LibraryMemberStaffMain from '../../modules/admin/sidebar-activities/library/library-member/staff/main/page';
+import LibraryMemberStudentMain from '../../modules/admin/sidebar-activities/library/library-member/student/main/page';
 const BookDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/book-details/book-details/page"
+      '../../modules/admin/sidebar-activities/library/book-details/book-details/page'
     )
 );
 const EditBookDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/book-details/edit-book-details/page"
+      '../../modules/admin/sidebar-activities/library/book-details/edit-book-details/page'
     )
 );
 const EditShelfDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/book-details/edit-shelf-details/page"
+      '../../modules/admin/sidebar-activities/library/book-details/edit-shelf-details/page'
     )
 );
 const LibraryGeneralDetailsAdd = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/book-details/register-new-book/general-details/page"
+      '../../modules/admin/sidebar-activities/library/book-details/register-new-book/general-details/page'
     )
 );
 const LayoutBookDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/book-details/register-new-book/layout"
+      '../../modules/admin/sidebar-activities/library/book-details/register-new-book/layout'
     )
 );
 const LibrarySpecificDetailsAdd = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/book-details/register-new-book/specific-details/page"
+      '../../modules/admin/sidebar-activities/library/book-details/register-new-book/specific-details/page'
     )
 );
 const LendBook = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend-book/page"
+      '../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend-book/page'
     )
 );
 const LendBookLend = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend/page"
+      '../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend/page'
     )
 );
 const ReturnReIssueBooks = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/library-activities/return-reissue-books/page"
+      '../../modules/admin/sidebar-activities/library/library-activities/return-reissue-books/page'
     )
 );
 const LostBookMember = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details-add/member/page"
+      '../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details-add/member/page'
     )
 );
 const LostBookOrganization = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details-add/organization/page"
+      '../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details-add/organization/page'
     )
 );
 const LostBookDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details/page"
+      '../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details/page'
     )
 );
 const LibrarySlidebar = lazy(
-  () => import("../../modules/admin/sidebar-activities/library/Slidebar")
+  () => import('../../modules/admin/sidebar-activities/library/Slidebar')
 );
 export default function LibraryRoutes() {
   return (
@@ -101,7 +103,7 @@ export default function LibraryRoutes() {
             path="register"
             element={
               <Suspense>
-                <LayoutBookDetails />{" "}
+                <LayoutBookDetails />{' '}
               </Suspense>
             }
           >
@@ -126,7 +128,7 @@ export default function LibraryRoutes() {
             path="edit-shelf-details"
             element={
               <Suspense>
-                <EditShelfDetails />{" "}
+                <EditShelfDetails />{' '}
               </Suspense>
             }
           />
@@ -134,7 +136,7 @@ export default function LibraryRoutes() {
             path="edit-book-details"
             element={
               <Suspense>
-                <EditBookDetails />{" "}
+                <EditBookDetails />{' '}
               </Suspense>
             }
           />
@@ -145,7 +147,7 @@ export default function LibraryRoutes() {
               index
               element={
                 <Suspense>
-                  <LendBook />{" "}
+                  <LendBook />{' '}
                 </Suspense>
               }
             />
@@ -153,7 +155,7 @@ export default function LibraryRoutes() {
               path="lend"
               element={
                 <Suspense>
-                  <LendBookLend />{" "}
+                  <LendBookLend />{' '}
                 </Suspense>
               }
             />
@@ -162,7 +164,7 @@ export default function LibraryRoutes() {
             path="return-reissue-book"
             element={
               <Suspense>
-                <ReturnReIssueBooks />{" "}
+                <ReturnReIssueBooks />{' '}
               </Suspense>
             }
           />
@@ -180,7 +182,7 @@ export default function LibraryRoutes() {
             path="lost-book-organization"
             element={
               <Suspense>
-                <LostBookOrganization />{" "}
+                <LostBookOrganization />{' '}
               </Suspense>
             }
           />
@@ -188,14 +190,28 @@ export default function LibraryRoutes() {
             path="lost-book-member"
             element={
               <Suspense>
-                <LostBookMember />{" "}
+                <LostBookMember />{' '}
               </Suspense>
             }
           />
         </Route>
         <Route path="library-member">
-          <Route path="staff"></Route>
-          <Route path="student"></Route>
+          <Route
+            path="staff"
+            element={
+              <Suspense>
+                <LibraryMemberStaffMain />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="student"
+            element={
+              <Suspense>
+                <LibraryMemberStudentMain />
+              </Suspense>
+            }
+          ></Route>
         </Route>
         <Route path="library-setup">
           <Route path="book-category" />
@@ -216,7 +232,7 @@ export default function LibraryRoutes() {
         path="*"
         element={
           <div className="text-primary-grey-700 w-full mt-12 text-xl font-semibold text-center">
-            Page not found-{location.pathname.replace("/", " ")}
+            Page not found-{location.pathname.replace('/', ' ')}
           </div>
         }
       />

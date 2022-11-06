@@ -1,20 +1,20 @@
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import React from "react";
-import { useState } from "react";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import React from 'react';
+import { useState } from 'react';
 export function input({
   name,
-  id = "form_" + name,
+  id = 'form_' + name,
   shouldUnregister = false,
   errors = {},
   register,
-  type = "text",
+  type = 'text',
   label,
   required = false,
-  placeholder = "",
+  placeholder = '',
   showError = true,
-  className = "",
-  labelClassName = "",
+  className = '',
+  labelClassName = '',
 }: {
   id?: string | undefined;
   name: any;
@@ -36,7 +36,7 @@ export function input({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && "text-red-600"
+              errors && errors[name] && 'text-red-600'
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -56,7 +56,7 @@ export function input({
       {showError && errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || "This is a required field."}
+            {errors[name]?.message || 'This is a required field.'}
           </span>
         </>
       )}
@@ -66,17 +66,17 @@ export function input({
 
 export function password({
   name,
-  id = "form_" + name,
+  id = 'form_' + name,
 
   errors = {},
   register,
   label,
   required = false,
-  placeholder = "",
+  placeholder = '',
   showError = true,
-  className = "",
+  className = '',
   step,
-  labelClassName = "",
+  labelClassName = '',
 }) {
   const [visiblity, setVisiblity] = useState(false);
   return (
@@ -85,7 +85,7 @@ export function password({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && "text-red-600"
+              errors && errors[name] && 'text-red-600'
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -101,7 +101,7 @@ export function password({
           step={step}
           {...register(name, { required })}
           placeholder={placeholder}
-          type={visiblity ? "text" : "password"}
+          type={visiblity ? 'text' : 'password'}
         />
         <div
           className="right-1 top-4 absolute"
@@ -115,7 +115,7 @@ export function password({
       {showError && errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || " This is a required field."}
+            {errors[name]?.message || ' This is a required field.'}
           </span>
         </>
       )}
@@ -125,7 +125,7 @@ export function password({
 export const inputDisabled = ({
   label,
 
-  value = "",
+  value = '',
 }) => {
   return (
     <>
@@ -150,11 +150,11 @@ export function inputNumber({
   label,
   name = label,
   required = false,
-  placeholder = "",
-  step = "",
-  min = "",
+  placeholder = '',
+  step = '',
+  min = '',
   max,
-  id = "form_" + name,
+  id = 'form_' + name,
 }: {
   errors?: {} | undefined;
   register: any;
@@ -174,7 +174,7 @@ export function inputNumber({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && "text-red-600"
+              errors && errors[name] && 'text-red-600'
             } text-sm `}
             htmlFor={id}
           >
@@ -193,7 +193,7 @@ export function inputNumber({
       {errors && errors[name] && (
         <>
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || " This is a required field."}
+            {errors[name]?.message || ' This is a required field.'}
           </span>
         </>
       )}

@@ -1,10 +1,10 @@
-import React from "react";
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
-import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
-import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import React from 'react';
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
+import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
+import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
 
@@ -17,14 +17,14 @@ const RenderTable = ({ currentItems, setData }) => {
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
-      heading: "faculty",
+      heading: 'faculty',
       inUse,
     });
   };
   return (
     <>
       {currentItems?.map((person, index, table) => (
-        <tr key={person.id + "faculty"}>
+        <tr key={person.id + 'faculty'}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.faculty_name}
           </td>
@@ -39,16 +39,16 @@ const RenderTable = ({ currentItems, setData }) => {
               </Popover.Button>
               <Popover.Panel
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer ${
-                  index + 1 < table.length ? "top-0" : "bottom-0"
+                  index + 1 < table.length ? 'top-0' : 'bottom-0'
                 }`}
               >
-                {" "}
+                {' '}
                 <div
                   className="p-3"
                   onClick={() => {
                     console.log(person);
                     localStorage.setItem(
-                      "Mb5sVJt5Qp",
+                      'Mb5sVJt5Qp',
                       JSON.stringify({
                         level_id: person.level_id,
                         faculty_name: person.faculty_name,

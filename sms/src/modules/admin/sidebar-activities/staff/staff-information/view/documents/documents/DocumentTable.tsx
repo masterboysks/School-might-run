@@ -1,16 +1,16 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
-import Pagination from "../../../../../../../../components/common/navigation/Pagination";
-import RenderTable from "./RenderTable";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import staffAPI from '../../../../../../../../api/admin/dashboard/staff/staffAPI';
+import Pagination from '../../../../../../../../components/common/navigation/Pagination';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    document: "slc",
+    document: 'slc',
   },
   {
-    document: "+2",
+    document: '+2',
   },
 ];
 

@@ -1,86 +1,86 @@
-import React from "react";
-import { lazy } from "react";
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import { lazy } from 'react';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 const AcademicDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/academic-details/AcademicDetails"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/academic/academic-details/AcademicDetails'
     )
 );
 const AddAcademicDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/add-acedimic-details/AddAcademicDetails"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/academic/add-acedimic-details/AddAcademicDetails'
     )
 );
 const AcademicsView = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/academic/base'
     )
 );
 const AddDocument = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/documents/add-document/AddDocument'
     )
 );
 const DocumentView = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/documents/base'
     )
 );
 const Document = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/documents/documents/Document"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/documents/documents/Document'
     )
 );
 const ViewGeneral = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/general/base"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/general/base'
     )
 );
 const GeneralDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/general/general-details/GeneralDetails"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/general/general-details/GeneralDetails'
     )
 );
 const ViewStaff = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/view/ViewStaff"
+      '../../modules/admin/sidebar-activities/staff/staff-information/view/ViewStaff'
     )
 );
 const StaffSlidebar = lazy(
-  () => import("../../modules/admin/sidebar-activities/staff/slidebar")
+  () => import('../../modules/admin/sidebar-activities/staff/slidebar')
 );
 const StaffInformation = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information"
+      '../../modules/admin/sidebar-activities/staff/staff-information/main/staff-information'
     )
 );
 const AddStaffGeneralPersonal = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-personal/AddStaffGeneralPersonal"
+      '../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-personal/AddStaffGeneralPersonal'
     )
 );
 const AddStaffGeneralAddress = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-address/AddStaffGeneralAddress"
+      '../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-address/AddStaffGeneralAddress'
     )
 );
 const AddStaffGeneralOffice = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice"
+      '../../modules/admin/sidebar-activities/staff/staff-information/general/add-staff-general-office/AddStaffGeneralOffice'
     )
 );
 // const StaffAcademicDetails = lazy(() =>
@@ -106,7 +106,7 @@ const AddStaffGeneralOffice = lazy(
 const AddStaffGeneralBase = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-information/general/Base"
+      '../../modules/admin/sidebar-activities/staff/staff-information/general/Base'
     )
 );
 // const AddStaffAcademicBase = lazy(() =>
@@ -122,19 +122,19 @@ const AddStaffGeneralBase = lazy(
 const StaffAttendance = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/staff-attendance/main/StaffAttendance"
+      '../../modules/admin/sidebar-activities/staff/staff-attendance/main/StaffAttendance'
     )
 );
 const TeacherAssign = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/teacher-assign/teacher-assign/TeacherAssign"
+      '../../modules/admin/sidebar-activities/staff/teacher-assign/teacher-assign/TeacherAssign'
     )
 );
 const AssignTeacher = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/staff/teacher-assign/assign-teacher/AssignTeacher"
+      '../../modules/admin/sidebar-activities/staff/teacher-assign/assign-teacher/AssignTeacher'
     )
 );
 export default function StaffRoutes() {
@@ -228,7 +228,7 @@ export default function StaffRoutes() {
                   <AcademicDetails></AcademicDetails>
                 </Suspense>
               }
-            />{" "}
+            />{' '}
             <Route
               path="add"
               element={
@@ -294,7 +294,7 @@ export default function StaffRoutes() {
         path="*"
         element={
           <div className="text-primary-grey-700 w-full mt-12 text-xl font-semibold text-center">
-            Page not found-{location.pathname.replace("/", " ")}
+            Page not found-{location.pathname.replace('/', ' ')}
           </div>
         }
       />

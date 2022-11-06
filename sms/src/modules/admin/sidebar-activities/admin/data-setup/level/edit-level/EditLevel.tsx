@@ -1,29 +1,29 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import universityBoardApi from "../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
 import {
   Checkbox,
   Input,
   Select,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Level",
-    href: "/admin/dashboard/admin/data-setup/level",
+    name: 'Level',
+    href: '/admin/dashboard/admin/data-setup/level',
   },
   {
-    name: "Edit",
+    name: 'Edit',
   },
 ];
 const EditLevel = () => {
@@ -34,24 +34,24 @@ const EditLevel = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [arrayUniversity, setArrayUniversity] = useState([]);
   useEffect(() => {
     (async () => {
       const data = await universityBoardApi.get();
       setArrayUniversity(data?.data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       reset(temp);
     })();
-    return () => localStorage.removeItem("Mb5sVJt5Qp");
+    return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     const res = await levelApi.edit(id, d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/level")
-      : setError("Failed to edit Level");
+      ? navigate('/admin/dashboard/admin/data-setup/level')
+      : setError('Failed to edit Level');
   };
   return (
     <>

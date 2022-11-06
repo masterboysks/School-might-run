@@ -1,15 +1,15 @@
-import React from "react";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Form from "./Form";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Form from './Form';
+import Table from './Table';
 const pages = [
-  { name: "Report" },
+  { name: 'Report' },
   {
-    name: "Attendance report",
+    name: 'Attendance report',
   },
   {
-    name: "Student attendance report",
-    href: "/report/attendance-report/student-attendance-report",
+    name: 'Student attendance report',
+    href: '/report/attendance-report/student-attendance-report',
   },
 ];
 export default function StudentAttendanceReportClasses() {

@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import {
   Input,
   Select,
-} from "../../../../../../../components/common/oldFields";
+} from '../../../../../../../components/common/oldFields';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../../components/common/Buttons";
+} from '../../../../../../../components/common/Buttons';
 export default function Form() {
-  const arrayLevel = ["dsfjkh", "dsfsdajkh"];
+  const arrayLevel = ['dsfjkh', 'dsfsdajkh'];
   const [addExamName, setAddExamName] = useState([]);
-  const [level, setLevel] = useState("Select");
-  const [examName, setExamName] = useState("");
+  const [level, setLevel] = useState('Select');
+  const [examName, setExamName] = useState('');
   const [errorLevel, setErrorLevel] = useState(false);
   const [errorExamName, setErrorExamName] = useState(false);
   const navigate = useNavigate();
@@ -22,8 +22,8 @@ export default function Form() {
     console.log({ examName, level, addExamName });
     let temp = false;
     examName || ((temp = true) && setErrorExamName(true));
-    level === "Select" && (temp = true) && setErrorLevel(true);
-    temp || navigate("/admin/dashboard/exam/exam-setup/exam-name");
+    level === 'Select' && (temp = true) && setErrorLevel(true);
+    temp || navigate('/admin/dashboard/exam/exam-setup/exam-name');
   };
   return (
     <form className="form-solid w-full my-6 rounded-md">
@@ -53,12 +53,12 @@ export default function Form() {
               <div className=" relative h-fit" key={i}>
                 <Input
                   placeholder="Preboard"
-                  className={" h-fit "}
+                  className={' h-fit '}
                   value={c.value}
                   // value={c.value}
                   onChange={(e) => {
                     let temp = [...array];
-                    temp[i]["value"] = e.target.value;
+                    temp[i]['value'] = e.target.value;
 
                     setAddExamName(temp);
                   }}
@@ -79,7 +79,7 @@ export default function Form() {
           <div
             className="text-primary-grey-700 flex items-center justify-end mt-3"
             onClick={() => {
-              setAddExamName([...addExamName, { value: "" }]);
+              setAddExamName([...addExamName, { value: '' }]);
             }}
           >
             <div className="">Add</div>

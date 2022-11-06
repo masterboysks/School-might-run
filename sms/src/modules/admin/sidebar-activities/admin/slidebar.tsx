@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
-import Arrow from "@mui/icons-material/ArrowForwardIos";
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import Arrow from '@mui/icons-material/ArrowForwardIos';
 
 const links = [
   {
-    name: "University/Board",
-    path: "/admin/dashboard/admin/data-setup/university-board",
+    name: 'University/Board',
+    path: '/admin/dashboard/admin/data-setup/university-board',
   },
-  { name: "Level", path: "/admin/dashboard/admin/data-setup/level" },
-  { name: "Faculty", path: "/admin/dashboard/admin/data-setup/faculty" },
+  { name: 'Level', path: '/admin/dashboard/admin/data-setup/level' },
+  { name: 'Faculty', path: '/admin/dashboard/admin/data-setup/faculty' },
   {
-    name: "Sub-Faculty",
-    path: "/admin/dashboard/admin/data-setup/sub-faculty",
+    name: 'Sub-Faculty',
+    path: '/admin/dashboard/admin/data-setup/sub-faculty',
   },
-  { name: "Section", path: "/admin/dashboard/admin/data-setup/section" },
-  { name: "Subject", path: "/admin/dashboard/admin/data-setup/subject" },
+  { name: 'Section', path: '/admin/dashboard/admin/data-setup/section' },
+  { name: 'Subject', path: '/admin/dashboard/admin/data-setup/subject' },
   {
-    name: "Class/Semester",
-    path: "/admin/dashboard/admin/data-setup/class-semester",
+    name: 'Class/Semester',
+    path: '/admin/dashboard/admin/data-setup/class-semester',
   },
   // {
   //   name: "Assign-Subject",
   //   path: "/admin/dashboard/admin/data-setup/assign-subject",
   // },
-  { name: "Department", path: "/admin/dashboard/admin/data-setup/department" },
+  { name: 'Department', path: '/admin/dashboard/admin/data-setup/department' },
   {
-    name: "Designation",
-    path: "/admin/dashboard/admin/data-setup/designation",
+    name: 'Designation',
+    path: '/admin/dashboard/admin/data-setup/designation',
   },
   {
-    name: "Academic Year",
-    path: "/admin/dashboard/admin/data-setup/academic-year",
+    name: 'Academic Year',
+    path: '/admin/dashboard/admin/data-setup/academic-year',
   },
   {
-    name: "Fiscal Year",
-    path: "/admin/dashboard/admin/data-setup/fiscal-year",
+    name: 'Fiscal Year',
+    path: '/admin/dashboard/admin/data-setup/fiscal-year',
   },
 ];
 const Slidebar = () => {
@@ -43,31 +43,31 @@ const Slidebar = () => {
   const [data, setData] = useState(false);
   const location = useLocation().pathname;
   useEffect(() => {
-    location.includes("/admin/dashboard/admin/data-setup")
+    location.includes('/admin/dashboard/admin/data-setup')
       ? setData(true)
       : setData(false);
   }, [location]);
 
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar')?.classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
 
   const slidebar = () => {
-    nav = document.getElementById("sidebar")?.classList;
-    let overlay = document.getElementById("overlay")?.classList;
-    const slidebar = document.getElementById("slidebar")?.classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar?.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar?.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
   return (
     <>
@@ -83,9 +83,9 @@ const Slidebar = () => {
             >
               <li
                 className={` flex p-1 mt-2 mb-3  cursor-pointer rounded  pr-3   ${
-                  location.includes("/admin/dashboard/admin/organization-setup")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/admin/organization-setup')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -100,17 +100,17 @@ const Slidebar = () => {
                 setDropdownActive(!dropdownActive);
               }}
               className={`flex  pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
-              ${data ? "text-primary-grey-700" : "text-primary-grey-600"} 
+              ${data ? 'text-primary-grey-700' : 'text-primary-grey-600'} 
                    ${
                      data && !dropdownActive
-                       ? "bg-primary-grey-200 "
-                       : "text-primary-grey-600"
+                       ? 'bg-primary-grey-200 '
+                       : 'text-primary-grey-600'
                    }text-sm`}
             >
               <div
                 id="arrow"
                 className={`devList text-black  transition duration-100 ease-in text-sm ${
-                  dropdownActive ? "rotate-90" : ""
+                  dropdownActive ? 'rotate-90' : ''
                 }  `}
               >
                 <Arrow fontSize="inherit" />
@@ -119,7 +119,7 @@ const Slidebar = () => {
             </li>
             <ul
               className={`${
-                dropdownActive ? "" : "hidden"
+                dropdownActive ? '' : 'hidden'
               } transition duration-700 ease-in`}
               id="dropdown"
             >
@@ -129,8 +129,8 @@ const Slidebar = () => {
                     <li
                       className={`pl-6 mx-2 mt-2 mb-3  pr-3   rounded py-[3px] text-sm ${
                         location.includes(curr.path)
-                          ? "bg-primary-grey-200 text-primary-grey-700"
-                          : "hover:bg-primary-grey-200 text-primary-grey-600"
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
                       }`}
                     >
                       {curr.name}
@@ -142,9 +142,9 @@ const Slidebar = () => {
             <Link to="/admin/dashboard/admin/class-schedule" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/admin/class-schedule")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/admin/class-schedule')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -156,9 +156,9 @@ const Slidebar = () => {
             <Link to="/admin/dashboard/admin/upgrade" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/admin/upgrade")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/admin/upgrade')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -170,9 +170,9 @@ const Slidebar = () => {
             <Link to="/admin/dashboard/admin/notice" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/admin/notice")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/admin/notice')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -184,9 +184,9 @@ const Slidebar = () => {
             <Link to="/admin/dashboard/admin/event-calender" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3  pr-3   cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/admin/event-calender")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/admin/event-calender')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">
@@ -198,9 +198,9 @@ const Slidebar = () => {
             <Link to="/admin/dashboard/admin/template" onClick={sidebar}>
               <li
                 className={` flex p-1 mt-2 mb-3   pr-3    cursor-pointer rounded ${
-                  location.includes("/admin/dashboard/admin/template")
-                    ? " bg-primary-grey-200  text-primary-grey-700 "
-                    : " hover:bg-primary-grey-200 text-primary-grey-600 "
+                  location.includes('/admin/dashboard/admin/template')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
                 } text-sm`}
               >
                 <div className="devList text-primary-grey-300">

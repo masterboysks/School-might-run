@@ -1,21 +1,21 @@
-import React from "react";
-import { Outlet, useParams } from "react-router-dom";
-import Tabs from "../../Tabs";
+import React from 'react';
+import { Outlet, useParams } from 'react-router-dom';
+import Tabs from '../../Tabs';
 export default function ViewGeneral() {
   const { id } = useParams();
   const tabs = [
     {
-      name: "General details",
-      href: "",
+      name: 'General details',
+      href: '',
       current: true,
     },
     {
-      name: "Academic details",
+      name: 'Academic details',
       href: `/admin/dashboard/staff/staff-information/${id}/academic`,
       current: false,
     },
     {
-      name: "Documents",
+      name: 'Documents',
       href: `/admin/dashboard/staff/staff-information/${id}/document`,
       current: false,
     },

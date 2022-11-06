@@ -1,5 +1,5 @@
-import React from "react";
-import Break from "../../common/Break";
+import React from 'react';
+import Break from '../../common/Break';
 
 function RadioTempelate({
   value,
@@ -26,7 +26,7 @@ function RadioTempelate({
       <div className="mb-3">
         <Break title={title} />
       </div>
-      {templateLabel || "Select a tempelate : "}
+      {templateLabel || 'Select a tempelate : '}
       <form className=" md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid grid-cols-2 gap-4 my-6 rounded-md">
         {value.map((value) => (
           <div className=" relative" key={value}>
@@ -57,7 +57,7 @@ function RadioTempelate({
                 href={value}
                 className=" justify-self-center z-20 p-2 my-auto bg-white rounded-lg"
               >
-                {textBtn || "View"}
+                {textBtn || 'View'}
               </a>
             </div>
           </div>

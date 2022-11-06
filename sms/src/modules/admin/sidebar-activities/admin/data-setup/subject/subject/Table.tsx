@@ -1,23 +1,23 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import subjectApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
-import { SearchBar } from "../../../../../../../components/common/fields";
-import Pagination from "../../../../../../../components/common/navigation/Pagination";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import subjectApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi';
+import { SearchBar } from '../../../../../../../components/common/fields';
+import Pagination from '../../../../../../../components/common/navigation/Pagination';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    level: "NEB",
-    status: "jhdgsgasfd",
-    subject: "no",
+    level: 'NEB',
+    status: 'jhdgsgasfd',
+    subject: 'no',
   },
   {
-    level: "TU",
-    status: "gfstrft",
-    subject: "no",
+    level: 'TU',
+    status: 'gfstrft',
+    subject: 'no',
   },
 ];
 

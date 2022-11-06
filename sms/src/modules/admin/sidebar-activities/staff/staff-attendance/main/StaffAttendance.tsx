@@ -1,26 +1,26 @@
-import React from "react";
-import { useState } from "react";
-import staffAPI from "../../../../../../api/admin/dashboard/staff/staffAPI";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../Break";
-import Form from "./Form";
-import Table from "./Table";
+import React from 'react';
+import { useState } from 'react';
+import staffAPI from '../../../../../../api/admin/dashboard/staff/staffAPI';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../Break';
+import Form from './Form';
+import Table from './Table';
 
 const pages = [
-  { name: "Staff" },
+  { name: 'Staff' },
   {
-    name: "Staff attendance",
-    href: "/staff/staff-attendance/",
+    name: 'Staff attendance',
+    href: '/staff/staff-attendance/',
   },
 ];
 function StaffAttendance() {
-  const [message, setMessage] = useState("Search for Data");
+  const [message, setMessage] = useState('Search for Data');
   const [data, setData] = useState([]);
 
   const onSubmit = async (data, page = 1) => {
     (async () => {
       const res = await staffAPI.search(page, data);
-      res.status === 204 && setMessage("No data was found.");
+      res.status === 204 && setMessage('No data was found.');
       setData(res?.data?.data?.data);
     })();
   };

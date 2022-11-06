@@ -1,40 +1,40 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 import {
   Input,
   MultipleSelect,
   Select,
-} from "../../../../../../components/common/fields";
-import { useState } from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../components/common/Break";
-import subjectApi from "../../../../../../api/admin/dashboard/admin/data-setup/subjectApi";
-import teacherApi from "../../../../../../api/admin/dashboard/staff/teacher/teacherApi";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";
-import React from "react";
+} from '../../../../../../components/common/fields';
+import { useState } from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../components/common/Break';
+import subjectApi from '../../../../../../api/admin/dashboard/admin/data-setup/subjectApi';
+import teacherApi from '../../../../../../api/admin/dashboard/staff/teacher/teacherApi';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import classSheduleApi from '../../../../../../api/admin/dashboard/admin/classSheduleApi';
+import React from 'react';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Class schedule",
-    href: "/admin/dashboard/admin/class-schedule/",
+    name: 'Class schedule',
+    href: '/admin/dashboard/admin/class-schedule/',
   },
   {
     name: "Class 1 'A'",
-    href: "/admin/dashboard/admin/class-schedule/add/class-1-a",
+    href: '/admin/dashboard/admin/class-schedule/add/class-1-a',
   },
 ];
 const arrayDays = [
-  { name: "Sun", id: 7 },
-  { name: "Mon", id: 1 },
-  { name: "Tue", id: 2 },
-  { name: "Wed", id: 3 },
-  { name: "Thur", id: 4 },
-  { id: 5, name: "Fri" },
-  { name: "Sat", id: 6 },
+  { name: 'Sun', id: 7 },
+  { name: 'Mon', id: 1 },
+  { name: 'Tue', id: 2 },
+  { name: 'Wed', id: 3 },
+  { name: 'Thur', id: 4 },
+  { id: 5, name: 'Fri' },
+  { name: 'Sat', id: 6 },
 ];
 function AddClassShedule() {
   const {
@@ -44,7 +44,7 @@ function AddClassShedule() {
     formState: { errors },
   } = useForm();
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [arrayTeachers, setArrayTeachers] = useState([]);
   const [arraySubjects, setArraySubjects] = useState([]);
   const navigate = useNavigate();
@@ -60,8 +60,8 @@ function AddClassShedule() {
     console.log(d);
     const res = await classSheduleApi.create(d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/class-schedule")
-      : setError("Failed to create class shedule");
+      ? navigate('/admin/dashboard/admin/class-schedule')
+      : setError('Failed to create class shedule');
   };
   useEffect(() => {
     (async () => {

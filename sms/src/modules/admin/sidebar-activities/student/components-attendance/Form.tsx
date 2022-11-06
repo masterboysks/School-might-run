@@ -1,12 +1,12 @@
-import React from "react";
-import Search from "@mui/icons-material/SearchOutlined";
-import { useForm } from "react-hook-form";
-import { Select } from "../../../../../components/common/fields";
+import React from 'react';
+import Search from '@mui/icons-material/SearchOutlined';
+import { useForm } from 'react-hook-form';
+import { Select } from '../../../../../components/common/fields';
 const arrayLevel = [
-  { name: "anish", id: 7 },
-  { name: "saurav", id: 4 },
-  { name: "asmita", id: 3 },
-  { name: "prahlad", id: 2 },
+  { name: 'anish', id: 7 },
+  { name: 'saurav', id: 4 },
+  { name: 'asmita', id: 3 },
+  { name: 'prahlad', id: 2 },
 ];
 const Form = () => {
   const {

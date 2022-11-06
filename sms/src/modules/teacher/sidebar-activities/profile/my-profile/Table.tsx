@@ -1,17 +1,17 @@
-import React from "react";
-import { useState } from "react";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { useState } from 'react';
+import RenderTable from './RenderTable';
 
 export default function Table() {
   const [data, setData] = useState([
     {
-      name: "SLC marksheet",
+      name: 'SLC marksheet',
     },
     {
-      name: "+2 Marksheeet",
+      name: '+2 Marksheeet',
     },
     {
-      name: "CV",
+      name: 'CV',
     },
   ]);
   return (

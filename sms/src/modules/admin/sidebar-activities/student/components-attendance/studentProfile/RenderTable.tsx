@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const students = [
   {
-    date: "2022/8/10",
-    stdId: "1243",
-    stdName: "Ranjit",
-    status: "Present",
-    reason: "",
+    date: '2022/8/10',
+    stdId: '1243',
+    stdName: 'Ranjit',
+    status: 'Present',
+    reason: '',
   },
 ];
 const RenderTable = () => {

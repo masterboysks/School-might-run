@@ -1,10 +1,10 @@
-import React from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
-import Login from "../pages/Login";
-import TeacherRoutes from "./teacher";
-import AdminRoutes from "./admin";
-import UserRoutes from "./user/UserRoutes";
-import Welcome from "../modules/user/welcome/Welcome";
+import React from 'react';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import Login from '../pages/Login';
+import TeacherRoutes from './teacher';
+import AdminRoutes from './admin';
+import UserRoutes from './user/UserRoutes';
+import Welcome from '../modules/user/welcome/Welcome';
 
 export default function MainRoutes() {
   return (

@@ -1,5 +1,5 @@
-import UploadOutlined from "@mui/icons-material/UploadOutlined";
-import React from "react";
+import UploadOutlined from '@mui/icons-material/UploadOutlined';
+import React from 'react';
 
 export const upload = ({
   label,
@@ -10,7 +10,7 @@ export const upload = ({
   required = false,
   showError = true,
   uploadText,
-  id = "form_" + name,
+  id = 'form_' + name,
   watch,
   accept,
   multiple,
@@ -35,7 +35,7 @@ export const upload = ({
       <label
         htmlFor={id}
         className={` ${
-          errors && errors[name] && " text-red-600 "
+          errors && errors[name] && ' text-red-600 '
         } block text-sm`}
       >
         {label}
@@ -50,7 +50,7 @@ export const upload = ({
               <div>
                 {logo && logo.length === 1
                   ? logo[0].name
-                  : uploadText || "Choose a file to upload"}
+                  : uploadText || 'Choose a file to upload'}
               </div>
               <div className="text-primary-btn">
                 <UploadOutlined />
@@ -72,7 +72,7 @@ export const upload = ({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || " This is a required field."}
+            {errors[name]?.message || ' This is a required field.'}
           </span>
           <br />
         </>
@@ -88,8 +88,8 @@ export const uploadPhoto = ({
   register,
   required = false,
   showError = true,
-  uploadText = "",
-  id = "form_" + name,
+  uploadText = '',
+  id = 'form_' + name,
   watch,
   multiple = false,
 }) => {
@@ -100,7 +100,7 @@ export const uploadPhoto = ({
       <label
         htmlFor={id}
         className={` ${
-          errors && errors[name] && " text-red-600 "
+          errors && errors[name] && ' text-red-600 '
         } block text-sm`}
       >
         {label}
@@ -115,7 +115,7 @@ export const uploadPhoto = ({
               <div>
                 {logo && logo.length === 1
                   ? logo[0].name
-                  : uploadText || "Choose a file to upload"}
+                  : uploadText || 'Choose a file to upload'}
               </div>
               <div className="text-primary-btn">
                 <UploadOutlined />
@@ -137,7 +137,7 @@ export const uploadPhoto = ({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || " This is a required field."}
+            {errors[name]?.message || ' This is a required field.'}
           </span>
           <br />
         </>

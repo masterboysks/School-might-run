@@ -1,36 +1,36 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import { Select } from "../../../../../../components/common/oldFields";
-import { useState } from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
-import React from "react";
+import Search from '@mui/icons-material/SearchOutlined';
+import { Select } from '../../../../../../components/common/oldFields';
+import { useState } from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
+import React from 'react';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Class schedule",
-    href: "/admin/dashboard/admin/class-schedule/",
+    name: 'Class schedule',
+    href: '/admin/dashboard/admin/class-schedule/',
   },
 ];
 
 const ClassSchedule = () => {
-  const arrayLevel = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
-  const arrayClass = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
-  const arrayFaculty = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
-  const arraySection = ["jhdgs", "fjkdhgs", "hdsg", "djkshf"];
-  const [level, setLevel] = useState("Select");
-  const [classSemester, setClassSemester] = useState("Select");
-  const [faculty, setFaculty] = useState("Select");
-  const [section, setSection] = useState("Select");
+  const arrayLevel = ['jhdgs', 'fjkdhgs', 'hdsg', 'djkshf'];
+  const arrayClass = ['jhdgs', 'fjkdhgs', 'hdsg', 'djkshf'];
+  const arrayFaculty = ['jhdgs', 'fjkdhgs', 'hdsg', 'djkshf'];
+  const arraySection = ['jhdgs', 'fjkdhgs', 'hdsg', 'djkshf'];
+  const [level, setLevel] = useState('Select');
+  const [classSemester, setClassSemester] = useState('Select');
+  const [faculty, setFaculty] = useState('Select');
+  const [section, setSection] = useState('Select');
   const [errorLevel, setErrorLevel] = useState(false);
   const [errorClass, setErrorClass] = useState(false);
   const [errorSection, setErrorSection] = useState(false);
 
   const handleSearch = () => {
     // console.log({ level, classSemester, faculty, section });
-    level === "Select" && setErrorLevel(true);
-    classSemester === "Select" && setErrorClass(true);
-    section === "Select" && setErrorSection(true);
+    level === 'Select' && setErrorLevel(true);
+    classSemester === 'Select' && setErrorClass(true);
+    section === 'Select' && setErrorSection(true);
   };
   return (
     <>

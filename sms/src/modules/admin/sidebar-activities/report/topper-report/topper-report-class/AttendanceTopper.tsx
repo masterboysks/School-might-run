@@ -1,26 +1,26 @@
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import RenderTable from "./RenderAttendanceTable";
+import { PrinterIcon } from '@heroicons/react/20/solid';
+import RenderTable from './RenderAttendanceTable';
 const currentItems = [
   {
-    stdId: "Lindsay Walton",
-    stdName: "Front-end Developer",
-    presentDays: "lindsay.walton@example.com",
-    absentDays: "Member",
-    schoolDays: "Lindsay Walton",
+    stdId: 'Lindsay Walton',
+    stdName: 'Front-end Developer',
+    presentDays: 'lindsay.walton@example.com',
+    absentDays: 'Member',
+    schoolDays: 'Lindsay Walton',
   },
   {
-    stdId: "Lindsa",
-    stdName: "Front-end Developer",
-    presentDays: "lindsay.walton@example.com",
-    absentDays: "Member",
-    schoolDays: "Lindsay Walton",
+    stdId: 'Lindsa',
+    stdName: 'Front-end Developer',
+    presentDays: 'lindsay.walton@example.com',
+    absentDays: 'Member',
+    schoolDays: 'Lindsay Walton',
   },
   {
-    stdId: "Lindsay Wa",
-    stdName: "Front-end Developer",
-    presentDays: "lindsay.walton@example.com",
-    absentDays: "Member",
-    schoolDays: "Lindsay Walton",
+    stdId: 'Lindsay Wa',
+    stdName: 'Front-end Developer',
+    presentDays: 'lindsay.walton@example.com',
+    absentDays: 'Member',
+    schoolDays: 'Lindsay Walton',
   },
 ];
 

@@ -1,18 +1,18 @@
-import Class from "@mui/icons-material/SchoolOutlined";
-import Profile from "@mui/icons-material/SupervisorAccountOutlined";
-import Exam from "@mui/icons-material/QuizOutlined";
-import Lms from "@mui/icons-material/AppRegistrationOutlined";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import Class from '@mui/icons-material/SchoolOutlined';
+import Profile from '@mui/icons-material/SupervisorAccountOutlined';
+import Exam from '@mui/icons-material/QuizOutlined';
+import Lms from '@mui/icons-material/AppRegistrationOutlined';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-import Hamburger from "@mui/icons-material/MenuOutlined";
+import Hamburger from '@mui/icons-material/MenuOutlined';
 
 let activity = [
-  { name: "Profile", value: Profile, path: "profile/my-profile" },
-  { name: "Class", value: Class, path: "class/my-classes" },
-  { name: "Exam", value: Exam, path: "exam/exam-marks" },
+  { name: 'Profile', value: Profile, path: 'profile/my-profile' },
+  { name: 'Class', value: Class, path: 'class/my-classes' },
+  { name: 'Exam', value: Exam, path: 'exam/exam-marks' },
 
-  { name: "LMS", value: Lms, path: "lms/assignment" },
+  { name: 'LMS', value: Lms, path: 'lms/assignment' },
 ];
 export default function Sidebar({ modules }) {
   // activity = activity.filter((c) => modules?.includes(c.name));
@@ -21,7 +21,7 @@ export default function Sidebar({ modules }) {
   //     e.key === "Escape" && sidebar();
   //   });
 
-  //   return () => {
+  //   return  () => {
   //     document.removeEventListener("keydown", esc);
   //   };
   // });
@@ -30,27 +30,27 @@ export default function Sidebar({ modules }) {
 
   let nav;
   const sidebar = () => {
-    nav = document.getElementById("sidebar").classList;
-    nav.contains("hidden") ? nav.remove("hidden") : nav.add("hidden");
+    nav = document.getElementById('sidebar').classList;
+    nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
   const slidebar = () => {
-    nav = document.getElementById("sidebar").classList;
+    nav = document.getElementById('sidebar').classList;
     let overlay =
-      document.getElementById("overlay") &&
-      document.getElementById("overlay").classList;
+      document.getElementById('overlay') &&
+      document.getElementById('overlay').classList;
     const slidebar =
-      document.getElementById("slidebar") &&
-      document.getElementById("slidebar").classList;
+      document.getElementById('slidebar') &&
+      document.getElementById('slidebar').classList;
 
     slidebar &&
-      (slidebar.contains("hidden") && !nav.contains("hidden")
-        ? slidebar.remove("hidden")
-        : slidebar.add("hidden"));
+      (slidebar.contains('hidden') && !nav.contains('hidden')
+        ? slidebar.remove('hidden')
+        : slidebar.add('hidden'));
     overlay &&
-      (!slidebar.contains("hidden")
-        ? overlay.remove("hidden")
-        : overlay.add("hidden"));
+      (!slidebar.contains('hidden')
+        ? overlay.remove('hidden')
+        : overlay.add('hidden'));
   };
 
   return (
@@ -69,8 +69,8 @@ export default function Sidebar({ modules }) {
                 location.includes(
                   `teacher/dashboard/${curr.name.toLowerCase()}/`
                 )
-                  ? "  bg-primary-grey-100 text-primary-grey-700"
-                  : " text-primary-grey-600 "
+                  ? '  bg-primary-grey-100 text-primary-grey-700'
+                  : ' text-primary-grey-600 '
               }`}
               key={curr.name}
               onClick={() => {
@@ -84,8 +84,8 @@ export default function Sidebar({ modules }) {
                   location.includes(
                     `teacher/dashboard/${curr.name.toLowerCase()}/`
                   )
-                    ? "pointer pointer-events-none"
-                    : " "
+                    ? 'pointer pointer-events-none'
+                    : ' '
                 }
               >
                 <curr.value
@@ -93,8 +93,8 @@ export default function Sidebar({ modules }) {
                     location.includes(
                       `teacher/dashboard/${curr.name.toLowerCase()}/`
                     )
-                      ? "text-primary-grey-700"
-                      : "text-primary-grey-400"
+                      ? 'text-primary-grey-700'
+                      : 'text-primary-grey-400'
                   }`}
                 />
                 <div className=" text-inherit">{curr.name}</div>

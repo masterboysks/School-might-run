@@ -1,41 +1,41 @@
-import React from "react";
-import one from "../../welcome/three.jpg";
+import React from 'react';
+import one from '../../welcome/three.jpg';
 const arrayTeacher = [
   {
-    name: "Rajni Shing",
+    name: 'Rajni Shing',
     classTeacher: false,
     picture: one,
-    subject: "Nepali",
+    subject: 'Nepali',
   },
   {
-    name: "Rakesh Shing",
+    name: 'Rakesh Shing',
     classTeacher: true,
     picture: one,
-    subject: "Englisg",
+    subject: 'Englisg',
   },
   {
-    name: "JKHDjkfs Shing",
+    name: 'JKHDjkfs Shing',
     classTeacher: false,
     picture: one,
-    subject: "jdhsfj",
+    subject: 'jdhsfj',
   },
   {
-    name: "<MASJNJKfhds> Shing",
+    name: '<MASJNJKfhds> Shing',
     classTeacher: false,
     picture: one,
-    subject: "nadkshkj",
+    subject: 'nadkshkj',
   },
   {
-    name: "Raasgdfsjni Shing",
+    name: 'Raasgdfsjni Shing',
     classTeacher: false,
     picture: one,
-    subject: "Nepali",
+    subject: 'Nepali',
   },
   {
-    name: "Rajafgfdgnifdhgfhfgh Shing",
+    name: 'Rajafgfdgnifdhgfhfgh Shing',
     classTeacher: false,
     picture: one,
-    subject: "Nepali",
+    subject: 'Nepali',
   },
 ];
 export default function TeacherDetails() {
@@ -61,7 +61,7 @@ export default function TeacherDetails() {
                 </span>
                 {curr.classTeacher && (
                   <span className="text-primary-grey-600 ">
-                    {"  "}
+                    {'  '}
                     (Class Teacher)
                   </span>
                 )}

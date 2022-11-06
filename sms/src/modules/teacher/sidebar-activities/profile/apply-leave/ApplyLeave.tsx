@@ -1,25 +1,25 @@
-import React from "react";
-import Breadnav from "../../../../../components/common/navigation/Breadnav";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
-import Form from "./Form";
-import Break from "../../../../../components/common/Break";
+import React from 'react';
+import Breadnav from '../../../../../components/common/navigation/Breadnav';
+import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
+import Form from './Form';
+import Break from '../../../../../components/common/Break';
 const pages = [
-  { name: "Profile" },
+  { name: 'Profile' },
   {
-    name: "Apply leave",
-    href: "/teacher/dashboard/profile/apply-leave/",
+    name: 'Apply leave',
+    href: '/teacher/dashboard/profile/apply-leave/',
   },
 ];
 
 ChartJS.register(ArcElement, Tooltip);
 const data = {
-  labels: ["Present", "Absent"],
+  labels: ['Present', 'Absent'],
   datasets: [
     {
-      label: "Present absent days",
+      label: 'Present absent days',
       data: [80, 20],
-      backgroundColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)"],
+      backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)'],
       hoverOffset: 4,
     },
   ],

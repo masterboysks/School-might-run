@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   Input,
   InputDisabled,
-} from "../../../../../../components/common/fields";
+} from '../../../../../../components/common/fields';
 
 export default function RenderTable({ curr, watch, register, errors }) {
   const status = watch(`${curr.staff_id}[radio]`);
   console.log(status);
-  console.log(curr.staff_id + "_radio");
+  console.log(curr.staff_id + '_radio');
   return (
     <tr>
       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -53,7 +53,7 @@ export default function RenderTable({ curr, watch, register, errors }) {
         </div>
       </td>
       <td className="whitespace-nowrap px-1 pb-2 text-sm text-gray-500">
-        {status === "1" || status === undefined ? (
+        {status === '1' || status === undefined ? (
           <InputDisabled />
         ) : (
           <Input

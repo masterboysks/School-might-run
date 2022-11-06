@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
 import {
   PrimaryButton,
   SecondaryButton,
-} from "../../../../../../../components/common/Buttons";
-import { Input } from "../../../../../../../components/common/oldFields";
+} from '../../../../../../../components/common/Buttons';
+import { Input } from '../../../../../../../components/common/oldFields';
 
 const pages = [
-  { name: "Exam" },
+  { name: 'Exam' },
   {
-    name: "Exam setup",
+    name: 'Exam setup',
   },
   {
-    name: "Exam marks name",
-    href: "/admin/dashboard/exam/exam-setup/exam-marks-name",
+    name: 'Exam marks name',
+    href: '/admin/dashboard/exam/exam-setup/exam-marks-name',
   },
   {
-    name: "add",
-    href: "/admin/dashboard/exam/exam-setup/exam-marks-name/add",
+    name: 'add',
+    href: '/admin/dashboard/exam/exam-setup/exam-marks-name/add',
   },
 ];
 export default function ExamMarksName() {
-  const [examMarksName, setExamMarksName] = useState("");
+  const [examMarksName, setExamMarksName] = useState('');
   const [errorExamMarksName, setErrorExamMarksName] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = () => {
     console.log({ examMarksName });
 
     examMarksName
-      ? navigate("/admin/dashboard/exam/exam-setup/exam-marks-name")
+      ? navigate('/admin/dashboard/exam/exam-setup/exam-marks-name')
       : setErrorExamMarksName(true);
   };
   return (

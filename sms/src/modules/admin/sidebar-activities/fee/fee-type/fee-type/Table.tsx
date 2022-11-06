@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    level: "NEB",
-    paymentMethod: "jhdgsgasfd",
-    feeName: "no",
+    level: 'NEB',
+    paymentMethod: 'jhdgsgasfd',
+    feeName: 'no',
   },
   {
-    level: "TU",
-    paymentMethod: "gfstrft",
-    feeName: "no",
+    level: 'TU',
+    paymentMethod: 'gfstrft',
+    feeName: 'no',
   },
 ];
 

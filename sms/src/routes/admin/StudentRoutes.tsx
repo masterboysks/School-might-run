@@ -1,65 +1,65 @@
-import React from "react";
-import { Suspense } from "react";
-import { lazy } from "react";
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import { Suspense } from 'react';
+import { lazy } from 'react';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 const AddStudent = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddStudent"
+      '../../modules/admin/sidebar-activities/student/student-information/add-student/AddStudent'
     )
 );
 const StudentSlidebar = lazy(
-  () => import("../../modules/admin/sidebar-activities/student/Slidebar")
+  () => import('../../modules/admin/sidebar-activities/student/Slidebar')
 );
 const StudentInformation = lazy(
   () =>
-    import("../../modules/admin/sidebar-activities/student/Student-information")
+    import('../../modules/admin/sidebar-activities/student/Student-information')
 );
 const StudentAttendance = lazy(
   () =>
-    import("../../modules/admin/sidebar-activities/student/Student-attendance")
+    import('../../modules/admin/sidebar-activities/student/Student-attendance')
 );
 const AddguardianTrue = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianTrue"
+      '../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianTrue'
     )
 );
 const AddguardianFalse = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianFalse"
+      '../../modules/admin/sidebar-activities/student/student-information/add-student/AddGuardianFalse'
     )
 );
 const WholeClass = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/components-attendance/wholeClass/WholeClass"
+      '../../modules/admin/sidebar-activities/student/components-attendance/wholeClass/WholeClass'
     )
 );
 const StudentProfile = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/components-attendance/studentProfile/StudentProfile"
+      '../../modules/admin/sidebar-activities/student/components-attendance/studentProfile/StudentProfile'
     )
 );
 const AddAddress = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddAddress"
+      '../../modules/admin/sidebar-activities/student/student-information/add-student/AddAddress'
     )
 );
 const AddClassDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddClassDetails"
+      '../../modules/admin/sidebar-activities/student/student-information/add-student/AddClassDetails'
     )
 );
 const AddFeeDetails = lazy(
   () =>
     import(
-      "../../modules/admin/sidebar-activities/student/student-information/add-student/AddFeeDetails"
+      '../../modules/admin/sidebar-activities/student/student-information/add-student/AddFeeDetails'
     )
 );
 export default function StudentRoutes() {

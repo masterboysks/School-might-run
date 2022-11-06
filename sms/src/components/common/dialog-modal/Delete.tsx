@@ -1,9 +1,9 @@
-import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { useContext } from "react";
-import { DeleteModalContex } from "../../../contex/admin/common/ContexForDeleteModal";
-import React, { useEffect } from "react";
+import { Fragment, useRef, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { useContext } from 'react';
+import { DeleteModalContex } from '../../../contex/admin/common/ContexForDeleteModal';
+import React, { useEffect } from 'react';
 
 export default function Delete() {
   const value = useContext(DeleteModalContex);
@@ -64,7 +64,7 @@ export default function Delete() {
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
                             To delete this {value?.value?.heading}, you need to
-                            first re-assign or remove the{" "}
+                            first re-assign or remove the{' '}
                             {value?.value?.heading}s using it.
                           </p>
                         </div>

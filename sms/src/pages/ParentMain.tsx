@@ -28,13 +28,13 @@ const userNavigation = [
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return  classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  return (
+  return  (
     <>
       {/*
         This example requires updating your template:

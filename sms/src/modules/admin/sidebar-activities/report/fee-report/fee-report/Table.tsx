@@ -1,24 +1,24 @@
-import { useLayoutEffect, useRef, useState } from "react";
-import RenderTable from "./RenderTable";
+import { useLayoutEffect, useRef, useState } from 'react';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    level: "School level",
-    faculty: "",
+    level: 'School level',
+    faculty: '',
     noOfStd: 40,
-    invoiceStatus: "Unplublished",
+    invoiceStatus: 'Unplublished',
 
-    class: "Front-end Developer",
-    section: "lindsay.walton@example.com",
+    class: 'Front-end Developer',
+    section: 'lindsay.walton@example.com',
   },
   {
-    level: "School level",
-    faculty: "",
+    level: 'School level',
+    faculty: '',
     noOfStd: 40,
-    invoiceStatus: "Unplublished",
+    invoiceStatus: 'Unplublished',
 
-    class: "Front-end Developer",
-    section: "lindsay.walton@examplfdgbf.com",
+    class: 'Front-end Developer',
+    section: 'lindsay.walton@examplfdgbf.com',
   },
 ];
 

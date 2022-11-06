@@ -1,20 +1,20 @@
-import RenderTable from "./RenderTable";
+import RenderTable from './RenderTable';
 const people = [
   {
-    subject: "lindsay.walton@example.com",
-    type: "Member",
+    subject: 'lindsay.walton@example.com',
+    type: 'Member',
   },
   {
-    subject: "lindsay.walton@example.com",
-    type: "Member",
+    subject: 'lindsay.walton@example.com',
+    type: 'Member',
   },
   {
-    subject: "lindsay.walton@example.com",
-    type: "Member",
+    subject: 'lindsay.walton@example.com',
+    type: 'Member',
   },
   {
-    subject: "lindsay.walton@example.com",
-    type: "Member",
+    subject: 'lindsay.walton@example.com',
+    type: 'Member',
   },
 ];
 export default function Table() {

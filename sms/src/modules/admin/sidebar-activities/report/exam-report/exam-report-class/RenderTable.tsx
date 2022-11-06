@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 const RenderTable = ({
   currentItems,
@@ -12,7 +12,7 @@ const RenderTable = ({
     <>
       {currentItems.map((person, index, table) => (
         <tr
-          className={selectedPeople.includes(person) ? "bg-gray-50" : undefined}
+          className={selectedPeople.includes(person) ? 'bg-gray-50' : undefined}
           key={index}
         >
           <td className="sm:w-16 sm:px-8 relative w-12 px-6">

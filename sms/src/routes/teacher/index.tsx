@@ -1,12 +1,12 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import ApplyLeave from "../../modules/teacher/sidebar-activities/profile/apply-leave/ApplyLeave";
-import TeacherProfile from "../../modules/teacher/sidebar-activities/profile/my-profile/MyProfile";
-import Slidebar from "../../modules/teacher/sidebar-activities/profile/Slidebar";
-import TeacherMain from "../../pages/TeacherMain";
-import Class from "./Class";
-import Exam from "./Exam";
-import LMS from "./LMS";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import ApplyLeave from '../../modules/teacher/sidebar-activities/profile/apply-leave/ApplyLeave';
+import TeacherProfile from '../../modules/teacher/sidebar-activities/profile/my-profile/MyProfile';
+import Slidebar from '../../modules/teacher/sidebar-activities/profile/Slidebar';
+import TeacherMain from '../../pages/TeacherMain';
+import Class from './Class';
+import Exam from './Exam';
+import LMS from './LMS';
 
 export default function TeacherRoutes() {
   return (

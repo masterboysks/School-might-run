@@ -1,58 +1,58 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import departmentApi from "../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import designationApi from "../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
+import Search from '@mui/icons-material/SearchOutlined';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import departmentApi from '../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import designationApi from '../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
 import {
   Input,
   Select,
   SelectDisabled,
-} from "../../../../../../components/common/fields";
+} from '../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Staff" },
+  { name: 'Staff' },
   {
-    name: "Staff Information",
-    href: "/admin/dashboard/staff/staff-information",
+    name: 'Staff Information',
+    href: '/admin/dashboard/staff/staff-information',
   },
 ];
 const arrayStatus = [
   {
-    name: "Active",
+    name: 'Active',
     id: 1,
   },
   {
-    name: "Inactive",
+    name: 'Inactive',
     id: 0,
   },
 ];
 const arrayOrderBy = [
   {
-    name: "Status",
-    id: "is_active",
+    name: 'Status',
+    id: 'is_active',
   },
   {
-    name: "Staff Id",
-    id: "id",
+    name: 'Staff Id',
+    id: 'id',
   },
   {
-    name: "Staff Name",
-    id: "first_name",
+    name: 'Staff Name',
+    id: 'first_name',
   },
   {
-    name: "Staff type",
-    id: "type",
+    name: 'Staff type',
+    id: 'type',
   },
 ];
 const Form = ({ onSubmit, page }) => {
   const { register, watch, reset, getValues, handleSubmit } = useForm();
-  const department = watch("department_id");
+  const department = watch('department_id');
   const [arrayStaffType, setArrayStaffType] = useState([
-    { name: "Teachers", id: "teacher" },
-    { name: "Parent", id: "parent" },
-    { name: "Admins", id: "admin" },
+    { name: 'Teachers', id: 'teacher' },
+    { name: 'Parent', id: 'parent' },
+    { name: 'Admins', id: 'admin' },
   ]);
   const [arrayDepartment, setArrayDepartment] = useState([]);
   const [arrayDesignation, setArrayDesignation] = useState([]);
@@ -66,7 +66,7 @@ const Form = ({ onSubmit, page }) => {
         console.warn(e);
       }
     })();
-    reset({ ...getValues(), designation_id: "" });
+    reset({ ...getValues(), designation_id: '' });
   }, [department]);
 
   useEffect(() => {

@@ -1,13 +1,13 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
-import { Link } from "react-router-dom";
-import { Select } from "../../../../../../components/common/oldFields";
-import { useState } from "react";
+import Search from '@mui/icons-material/SearchOutlined';
+import { GlobeAltIcon, PrinterIcon } from '@heroicons/react/20/solid';
+import { Link } from 'react-router-dom';
+import { Select } from '../../../../../../components/common/oldFields';
+import { useState } from 'react';
 export default function Form() {
-  const arrayClassSemester = ["fdjh", "fdsjkhg", "dsjhfg"];
-  const arrayFaculty = ["fdjh", "fdsjkhg", "dsjhfg"];
-  const [classSemester, setClassSemester] = useState("Select");
-  const [faculty, setFaculty] = useState("Select");
+  const arrayClassSemester = ['fdjh', 'fdsjkhg', 'dsjhfg'];
+  const arrayFaculty = ['fdjh', 'fdsjkhg', 'dsjhfg'];
+  const [classSemester, setClassSemester] = useState('Select');
+  const [faculty, setFaculty] = useState('Select');
   return (
     <>
       <div className="flex items-center justify-between my-6">

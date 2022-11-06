@@ -1,23 +1,23 @@
-import React from "react";
-import { Outlet, useParams } from "react-router-dom";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Tabs from "../../Tabs";
+import React from 'react';
+import { Outlet, useParams } from 'react-router-dom';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Tabs from '../../Tabs';
 
 const AcademicsView = () => {
   const { id } = useParams();
   const tabs = [
     {
-      name: "General details",
+      name: 'General details',
       href: `/admin/dashboard/staff/staff-information/${id}/general`,
       current: false,
     },
     {
-      name: "Academic details",
-      href: "",
+      name: 'Academic details',
+      href: '',
       current: true,
     },
     {
-      name: "Documents",
+      name: 'Documents',
       href: `/admin/dashboard/staff/staff-information/${id}/document`,
       current: false,
     },

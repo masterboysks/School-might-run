@@ -1,7 +1,7 @@
-import { CheckIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import React from "react";
-import { Link } from "react-router-dom";
-import Break from "../Break";
+import { CheckIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Break from '../Break';
 
 const Steps = ({
   steps,

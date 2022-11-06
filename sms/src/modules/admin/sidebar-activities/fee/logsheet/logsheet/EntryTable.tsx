@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import RenderTable from "./EntryTableRender";
-import AddIcon from "@mui/icons-material/Add";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import RenderTable from './EntryTableRender';
+import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
 
 export default function Table({ type }) {
   const [entry, setEntry] = useState([1]);
   useEffect(() => {
-    type.entry === "discount" && setEntry([1]);
+    type.entry === 'discount' && setEntry([1]);
   }, [type]);
 
   return (
-    <div className={`${type ? "" : " pointer-events-none opacity-50   "}`}>
+    <div className={`${type ? '' : ' pointer-events-none opacity-50   '}`}>
       <div
         className={` ring-1 ring-black ring-opacity-5 mb-3 mt-6 min-w-full overflow-x-auto rounded-lg shadow `}
       >
@@ -67,9 +67,9 @@ export default function Table({ type }) {
                   <td colSpan="6">
                     <div
                       className={`w-fit flex p-2 mx-2 ml-auto cursor-pointer ${
-                        type.entry === "discount"
-                          ? "pointer-events-none opacity-40 "
-                          : " "
+                        type.entry === 'discount'
+                          ? 'pointer-events-none opacity-40 '
+                          : ' '
                       }`}
                     >
                       <div

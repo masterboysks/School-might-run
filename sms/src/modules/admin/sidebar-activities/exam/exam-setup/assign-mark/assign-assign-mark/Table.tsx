@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-const subject = ["Physic", "Maths", "Opt maths", "Chemistry"];
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+const subject = ['Physic', 'Maths', 'Opt maths', 'Chemistry'];
 
 export default function Example() {
   //   const itemsOnPage = 5;

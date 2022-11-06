@@ -1,15 +1,15 @@
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../break";
-import Form from "./Form";
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../break';
+import Form from './Form';
 const pages = [
-  { name: "Fee" },
+  { name: 'Fee' },
   {
-    name: "Miscellaneous fee assign",
-    href: "/fee/miscellaneous-fee-assign",
+    name: 'Miscellaneous fee assign',
+    href: '/fee/miscellaneous-fee-assign',
   },
   {
-    name: "Assign",
-    href: "/fee/miscellaneous-fee-assign/assign",
+    name: 'Assign',
+    href: '/fee/miscellaneous-fee-assign/assign',
   },
 ];
 export default function MiscAssign() {

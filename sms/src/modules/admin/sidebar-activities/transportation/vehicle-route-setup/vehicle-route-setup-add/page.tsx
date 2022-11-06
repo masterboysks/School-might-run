@@ -1,64 +1,64 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import Break from "../../../../../../components/common/Break";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Break from '../../../../../../components/common/Break';
 import {
   Input,
   InputDisabled,
   Select,
   Upload,
   UploadPhoto,
-} from "../../../../../../components/common/fields";
+} from '../../../../../../components/common/fields';
 export default function VehicleRouteSetupAdd() {
   const [route, setRoute] = useState([
     {
-      id: "kljhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljhgjkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljafsdhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljafsdhgjkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljasfhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljasfhgjkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljhgfsaejkshdn",
-      name: "dsjhkjh",
+      id: 'kljhgfsaejkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljwwrhgjkshdn",
-      name: "dsjwerhkjh",
+      id: 'kljwwrhgjkshdn',
+      name: 'dsjwerhkjh',
     },
     {
-      id: "kljrtwyhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljrtwyhgjkshdn',
+      name: 'dsjhkjh',
     },
   ]);
   const [name, setName] = useState([
     {
-      id: "kljhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljhgjkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljafsdhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljafsdhgjkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljasfhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljasfhgjkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljhgfsaejkshdn",
-      name: "dsjhkjh",
+      id: 'kljhgfsaejkshdn',
+      name: 'dsjhkjh',
     },
     {
-      id: "kljwwrhgjkshdn",
-      name: "dsjwerhkjh",
+      id: 'kljwwrhgjkshdn',
+      name: 'dsjwerhkjh',
     },
     {
-      id: "kljrtwyhgjkshdn",
-      name: "dsjhkjh",
+      id: 'kljrtwyhgjkshdn',
+      name: 'dsjhkjh',
     },
   ]);
   const {

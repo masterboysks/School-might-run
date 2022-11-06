@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import Break from "../../../Break";
-import { useRoutes, Link } from "react-router-dom";
-import { Checkbox, Input } from "../../../../../../../components/common/fields";
-import LocationForm from "../../../../../../../components/common/LocationForm";
+import React, { useEffect } from 'react';
+import Break from '../../../Break';
+import { useRoutes, Link } from 'react-router-dom';
+import { Checkbox, Input } from '../../../../../../../components/common/fields';
+import LocationForm from '../../../../../../../components/common/LocationForm';
 const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
-  const asAsPermenantAddress = watch("same_as_permanent_address");
+  const asAsPermenantAddress = watch('same_as_permanent_address');
   // useEffect(() => {
   //   console.log(asAsPermenantAddress);
   // }, [asAsPermenantAddress]);

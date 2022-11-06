@@ -1,6 +1,6 @@
-import React from "react";
-import Form from "./Form";
-import Table from "./Table";
+import React from 'react';
+import Form from './Form';
+import Table from './Table';
 
 const Main = () => {
   return (

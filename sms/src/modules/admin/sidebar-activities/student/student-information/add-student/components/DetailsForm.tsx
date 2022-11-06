@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {
   Checkbox,
   DateInput,
@@ -9,53 +9,53 @@ import {
   Password,
   Select,
   Upload,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 const arrayGender = [
   {
     id: 1,
-    name: "Boy",
+    name: 'Boy',
   },
   {
     id: 2,
-    name: "Girl",
+    name: 'Girl',
   },
 ];
 const arrayBloodGroup = [
   {
-    name: "A+",
+    name: 'A+',
     id: 1,
   },
   {
-    name: "A-",
+    name: 'A-',
     id: 2,
   },
   {
-    name: "B+",
+    name: 'B+',
     id: 3,
   },
   {
-    name: "B-",
+    name: 'B-',
     id: 4,
   },
   {
-    name: "O+",
+    name: 'O+',
     id: 5,
   },
   {
-    name: "O-",
+    name: 'O-',
     id: 6,
   },
   {
-    name: "AB+",
+    name: 'AB+',
     id: 7,
   },
   {
-    name: "Ab-",
+    name: 'Ab-',
     id: 8,
   },
 ];
 const DetailsForm = () => {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('');
   const {
     register,
     handleSubmit,
@@ -63,7 +63,7 @@ const DetailsForm = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const anotherChild = watch("has_siblings");
+  const anotherChild = watch('has_siblings');
   // personal.dob
   return (
     <form className="form-solid my-6 rounded-md">
@@ -203,7 +203,7 @@ const DetailsForm = () => {
           </Link>
           <Link
             to={`/admin/dashboard/student/student-information/add-student-details/guardian-${
-              anotherChild || "true"
+              anotherChild || 'true'
             }`}
             className="primary_btn"
           >

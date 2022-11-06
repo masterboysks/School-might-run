@@ -1,6 +1,6 @@
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import React from "react";
-import { Input } from "../../../../../../../components/common/oldFields";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import React from 'react';
+import { Input } from '../../../../../../../components/common/oldFields';
 export default function RenderTable({
   index,
   inputFiled,

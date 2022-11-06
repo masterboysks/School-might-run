@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Select } from "../../../../../../components/common/oldFields";
+import React, { useEffect, useState } from 'react';
+import { Select } from '../../../../../../components/common/oldFields';
 
 export default function Filter() {
-  const arrayLevel = ["hfjgk", "dsfjhg", "jkhfd"];
-  const arrayClassSemester = ["hfjgk", "dsfjhg", "jkhfd"];
-  const arrayFaculty = ["hfjgk", "dsfjhg", "jkhfd"];
-  const arraySection = ["hfjgk", "dsfjhg", "jkhfd"];
-  const [level, setLevel] = useState("Select");
-  const [classSemester, setClassSemester] = useState("Select");
-  const [faculty, setFaculty] = useState("Select");
-  const [section, setSection] = useState("Select");
+  const arrayLevel = ['hfjgk', 'dsfjhg', 'jkhfd'];
+  const arrayClassSemester = ['hfjgk', 'dsfjhg', 'jkhfd'];
+  const arrayFaculty = ['hfjgk', 'dsfjhg', 'jkhfd'];
+  const arraySection = ['hfjgk', 'dsfjhg', 'jkhfd'];
+  const [level, setLevel] = useState('Select');
+  const [classSemester, setClassSemester] = useState('Select');
+  const [faculty, setFaculty] = useState('Select');
+  const [section, setSection] = useState('Select');
   useEffect(() => {
     let temp = false;
-    level === "Select" && (temp = true);
-    classSemester === "Select" && (temp = true);
-    section === "Select" && (temp = true);
+    level === 'Select' && (temp = true);
+    classSemester === 'Select' && (temp = true);
+    section === 'Select' && (temp = true);
     temp || console.log({ level, classSemester, faculty, section });
   }, [level, classSemester, section, faculty]);
 

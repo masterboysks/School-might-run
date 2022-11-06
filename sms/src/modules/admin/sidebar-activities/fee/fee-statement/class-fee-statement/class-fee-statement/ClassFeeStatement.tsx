@@ -1,15 +1,15 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import LanguageIcon from "@mui/icons-material/Language";
-import Table from "./Table";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
+import Search from '@mui/icons-material/SearchOutlined';
+import LanguageIcon from '@mui/icons-material/Language';
+import Table from './Table';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 const pages = [
-  { name: "Fee" },
+  { name: 'Fee' },
   {
-    name: "Fee statement",
+    name: 'Fee statement',
   },
   {
-    name: "Class fee statement",
-    href: "/fee/fee-statement/class-fee-statement",
+    name: 'Class fee statement',
+    href: '/fee/fee-statement/class-fee-statement',
   },
 ];
 export default function ClassFeeStatement() {

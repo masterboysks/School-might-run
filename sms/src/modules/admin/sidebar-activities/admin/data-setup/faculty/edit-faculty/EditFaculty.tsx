@@ -1,24 +1,24 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
-import { Input, Select } from "../../../../../../../components/common/fields";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { useEffect } from "react";
-import levelApi from "../../../../../../../api/admin/dashboard/admin/data-setup/levelApi";
-import { useForm } from "react-hook-form";
-import facultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi";
-import React from "react";
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Input, Select } from '../../../../../../../components/common/fields';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { useEffect } from 'react';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import { useForm } from 'react-hook-form';
+import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
+import React from 'react';
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Faculty",
-    href: "/admin/dashboard/admin/data-setup/faculty",
+    name: 'Faculty',
+    href: '/admin/dashboard/admin/data-setup/faculty',
   },
   {
-    name: "Edit",
+    name: 'Edit',
   },
 ];
 const EditFaculty = () => {
@@ -31,23 +31,23 @@ const EditFaculty = () => {
     formState: { errors },
   } = useForm();
   const [arrayLevel, setArrayLevel] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   useEffect(() => {
     (async () => {
       const data = await levelApi.getAll();
       setArrayLevel(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       reset(temp);
     })();
-    return () => localStorage.removeItem("Mb5sVJt5Qp");
+    return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     const res = await facultyApi.edit(id, d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/faculty")
-      : setError("Failed to edit faculty");
+      ? navigate('/admin/dashboard/admin/data-setup/faculty')
+      : setError('Failed to edit faculty');
   };
   return (
     <>

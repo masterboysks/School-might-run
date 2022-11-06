@@ -1,19 +1,19 @@
-import React from "react";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
-import Table from "./Table";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import Form from "./Form";
+import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
+import Table from './Table';
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment, useState } from 'react';
+import Form from './Form';
 
 ChartJS.register(ArcElement, Tooltip);
 const data = {
-  labels: ["Present", "Absent"],
+  labels: ['Present', 'Absent'],
   datasets: [
     {
-      label: "Present absent days",
+      label: 'Present absent days',
       data: [80, 20],
-      backgroundColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)"],
+      backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 99, 132)'],
       hoverOffset: 4,
     },
   ],

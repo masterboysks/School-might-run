@@ -1,18 +1,18 @@
-import React from "react";
-import { Input, Password } from "../components/common/fields";
+import React from 'react';
+import { Input, Password } from '../components/common/fields';
 
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import Auth from "../api/common/Auth";
-import { useState } from "react";
-import AuthContext from "../contex/AuthProvider";
-import { useContext } from "react";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Auth from '../api/common/Auth';
+import { useState } from 'react';
+import AuthContext from '../contex/AuthProvider';
+import { useContext } from 'react';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 // import  Error from "../components/loginError/Error";
 const schema = yup.object().shape({
   username: yup.string().required(),
-  password: yup.string().required("Please enter password"),
+  password: yup.string().required('Please enter password'),
 });
 export default function Login() {
   const {
@@ -25,31 +25,31 @@ export default function Login() {
   const navigate = useNavigate();
   // const { abc } = useParams();
   const { setAuth } = useContext(AuthContext);
-  const [errorText, setErrorText] = useState("");
+  const [errorText, setErrorText] = useState('');
   // console.log(abc);
   const onSubmit = async (data) => {
     try {
       const res = await Auth.login(data);
       console.log(res);
       setAuth(res.data.data.token.access_token);
-      localStorage.setItem("kcx", res.data.data.token.refresh_token);
+      localStorage.setItem('kcx', res.data.data.token.refresh_token);
       switch (res.data.data.meta.type) {
-        case "student":
-          navigate("student/dashboard");
+        case 'student':
+          navigate('student/dashboard');
           break;
-        case "parent":
-          navigate("parent/dashboard");
+        case 'parent':
+          navigate('parent/dashboard');
           break;
-        case "teacher":
-          navigate("teacher/dashboard");
+        case 'teacher':
+          navigate('teacher/dashboard');
           break;
         default:
-          navigate("admin/dashboard");
+          navigate('admin/dashboard');
       }
     } catch (err) {
       err.response?.status == 422
-        ? setErrorText("Invalid Credentials")
-        : setErrorText("Server error");
+        ? setErrorText('Invalid Credentials')
+        : setErrorText('Server error');
     }
   };
   return (

@@ -1,13 +1,13 @@
-import React from "react";
-import ClassTable from "./classTable/ClassTable";
+import React from 'react';
+import ClassTable from './classTable/ClassTable';
 
-import Form from "./Form";
-import Breadnav from "../../../../../components/common/navigation/Breadnav";
+import Form from './Form';
+import Breadnav from '../../../../../components/common/navigation/Breadnav';
 const pages = [
-  { name: "Student" },
+  { name: 'Student' },
   {
-    name: "Student Attendance",
-    href: "/student/student-attendance/",
+    name: 'Student Attendance',
+    href: '/student/student-attendance/',
   },
 ];
 

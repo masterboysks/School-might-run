@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
-import { useState } from "react";
-import React from "react";
+import { useState } from 'react';
+import React from 'react';
 import {
   DateInput,
   Input,
@@ -10,8 +10,8 @@ import {
   MultipleSelect,
   Textarea,
   Upload,
-} from "../../../../../../components/common/fields";
-import { useForm } from "react-hook-form";
+} from '../../../../../../components/common/fields';
+import { useForm } from 'react-hook-form';
 
 function Form() {
   const {
@@ -21,7 +21,7 @@ function Form() {
     handleSubmit,
     watch,
   } = useForm();
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('');
   const [arraySendTo, setArraySendTo] = useState([]);
   //   const [eventTitle, setEventTitle] = useState("");
   //   const [eventDescription, setEventDescription] = useState("");

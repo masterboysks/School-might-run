@@ -1,10 +1,10 @@
-import React from "react";
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
-import { DeleteModalContex } from "../../../../../../../contex/admin/common/ContexForDeleteModal";
-import { useContext } from "react";
-import subFacultyApi from "../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi";
-import { Link } from "react-router-dom";
+import React from 'react';
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
+import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
+import { useContext } from 'react';
+import subFacultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
+import { Link } from 'react-router-dom';
 
 const RenderTable = ({ currentItems, setData }) => {
   const value = useContext(DeleteModalContex);
@@ -18,14 +18,14 @@ const RenderTable = ({ currentItems, setData }) => {
       func: deleteFunction,
       id: id,
       message: `You want to delete ${name} ?`,
-      heading: "sub-faculty",
+      heading: 'sub-faculty',
       inUse,
     });
   };
   return (
     <>
       {currentItems?.map((person, index, table) => (
-        <tr key={person.id + "sub-faculty"}>
+        <tr key={person.id + 'sub-faculty'}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.subfaculty_name}
           </td>
@@ -40,13 +40,13 @@ const RenderTable = ({ currentItems, setData }) => {
               </Popover.Button>
               <Popover.Panel
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
-                 ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
+                 ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
                 <div
                   className="p-3"
                   onClick={() => {
                     localStorage.setItem(
-                      "Mb5sVJt5Qp",
+                      'Mb5sVJt5Qp',
                       JSON.stringify({
                         subfaculty_name: person.subfaculty_name,
                         faculty_id: person.faculty_id,

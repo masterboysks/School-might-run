@@ -1,87 +1,87 @@
-import React, { useEffect, useState, Fragment, useRef } from "react";
-import RenderTable from "./RenderTable";
-import { Dialog, Transition } from "@headlessui/react";
+import React, { useEffect, useState, Fragment, useRef } from 'react';
+import RenderTable from './RenderTable';
+import { Dialog, Transition } from '@headlessui/react';
 
 const people = [
   {
     studentId: 12323,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 14152323,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 1234564523,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 12879323,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 12378669784523,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 12378694784523,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 1,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 12378699784523,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 12378697784523,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
   {
     studentId: 12378697584523,
-    studentName: "pratap",
-    rollNo: "admistrative",
-    presentDays: "idk",
-    absentDays: "male",
-    schoolDays: "01234569978",
+    studentName: 'pratap',
+    rollNo: 'admistrative',
+    presentDays: 'idk',
+    absentDays: 'male',
+    schoolDays: '01234569978',
   },
 ];
 
@@ -99,7 +99,7 @@ export default function Table() {
   const [indexOfFirstItem, setIndexOfFirstItem] = useState(
     indexOfLastItem - itemsOnPage
   );
-  const [message, setmessage] = useState("Showing 1 to 2 of 2 results");
+  const [message, setmessage] = useState('Showing 1 to 2 of 2 results');
 
   const onNextPage = () => {
     setCurrentPage((curr) => curr + 1);

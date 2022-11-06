@@ -1,24 +1,24 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import PermanentAddressForm from "./PermanentAddressForm";
-import TemporaryAddressForm from "./TemporaryAddressForm";
-import { useEffect } from "react";
-import React from "react";
-import Steps from "../../../../../../../components/common/navigation/Steps";
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import PermanentAddressForm from './PermanentAddressForm';
+import TemporaryAddressForm from './TemporaryAddressForm';
+import { useEffect } from 'react';
+import React from 'react';
+import Steps from '../../../../../../../components/common/navigation/Steps';
 const steps = [
   {
-    name: "Personal details",
-    href: "#",
+    name: 'Personal details',
+    href: '#',
     status: 3,
   },
   {
-    name: "Address details",
-    href: "#",
+    name: 'Address details',
+    href: '#',
     status: 2,
   },
   {
-    name: "Office details",
-    href: "#",
+    name: 'Office details',
+    href: '#',
     status: 1,
   },
 ];
@@ -31,12 +31,12 @@ const AddStaffGeneralPersonal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const sameAsPermenantAddress = watch("same_as_permanent_address");
+  const sameAsPermenantAddress = watch('same_as_permanent_address');
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-      const temp = await JSON.parse(localStorage.getItem("adgdsas") || "");
+      const temp = await JSON.parse(localStorage.getItem('adgdsas') || '');
       reset(temp);
     })();
   }, []);
@@ -52,9 +52,9 @@ const AddStaffGeneralPersonal = () => {
       delete d.temp_district;
       delete d.temp_vdc_municipality;
     }
-    localStorage.setItem("adgdsas", JSON.stringify(d));
+    localStorage.setItem('adgdsas', JSON.stringify(d));
     navigate(
-      "/admin/dashboard/staff/staff-information/add-staff/general/office-details"
+      '/admin/dashboard/staff/staff-information/add-staff/general/office-details'
     );
   };
   return (

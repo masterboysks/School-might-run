@@ -1,5 +1,5 @@
-import React from "react";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import RenderTable from './RenderTable';
 
 const ClassTable = () => {
   return (

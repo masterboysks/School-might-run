@@ -1,8 +1,8 @@
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { Input } from "../../../../../../../components/common/fields";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { Input } from '../../../../../../../components/common/fields';
 export default function RenderTable({
   register,
   errors,
@@ -11,10 +11,10 @@ export default function RenderTable({
   index,
   current,
 }) {
-  const [accessionNumberGenerate, setAccessionNumberGenerate] = useState("");
+  const [accessionNumberGenerate, setAccessionNumberGenerate] = useState('');
   useEffect(() => {
     (async () => {
-      const temp = localStorage.getItem("jhsgbbvppi") || "";
+      const temp = localStorage.getItem('jhsgbbvppi') || '';
       // console.log(temp, "temp");
       const temp1 = await JSON.parse(temp);
       setAccessionNumberGenerate(temp1);

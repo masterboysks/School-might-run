@@ -1,11 +1,11 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 const pages = [
-  { name: "Class" },
+  { name: 'Class' },
   {
-    name: "Classess",
-    href: "/teacher/dashboard/class/classess/",
+    name: 'Classess',
+    href: '/teacher/dashboard/class/classess/',
   },
 ];
 export default function Classess() {

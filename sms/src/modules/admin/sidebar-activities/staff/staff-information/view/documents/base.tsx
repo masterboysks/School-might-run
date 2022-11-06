@@ -1,33 +1,33 @@
-import { Outlet, useParams } from "react-router-dom";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Tabs from "../../Tabs";
+import { Outlet, useParams } from 'react-router-dom';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Tabs from '../../Tabs';
 
 const pages = [
-  { name: "Staff" },
+  { name: 'Staff' },
   {
-    name: "Staff Information",
-    href: "",
+    name: 'Staff Information',
+    href: '',
   },
   {
-    name: "Add",
+    name: 'Add',
   },
 ];
 const DocumentView = () => {
   const { id } = useParams();
   const tabs = [
     {
-      name: "General details",
+      name: 'General details',
       href: `/admin/dashboard/staff/staff-information/${id}/general`,
       current: false,
     },
     {
-      name: "Academic details",
+      name: 'Academic details',
       href: `/admin/dashboard/staff/staff-information/${id}/academic`,
       current: false,
     },
     {
-      name: "Documents",
-      href: "",
+      name: 'Documents',
+      href: '',
       current: true,
     },
   ];

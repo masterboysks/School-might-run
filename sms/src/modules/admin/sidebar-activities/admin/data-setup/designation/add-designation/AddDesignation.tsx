@@ -1,26 +1,26 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { Input, Select } from "../../../../../../../components/common/fields";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import designationApi from '../../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { Input, Select } from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Designation",
-    href: "/admin/dashboard/admin/data-setup/designation",
+    name: 'Designation',
+    href: '/admin/dashboard/admin/data-setup/designation',
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/designation/add",
+    name: 'Add',
+    href: '/admin/dashboard/admin/data-setup/designation/add',
   },
 ];
 
@@ -32,7 +32,7 @@ const AddDesignation = () => {
     formState: { errors },
   } = useForm();
   const [arrayDepartment, setArrayDepartment] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   useEffect(() => {
     (async () => {
       const data = await departmentApi.getAll();
@@ -43,8 +43,8 @@ const AddDesignation = () => {
   const onSubmit = async (d) => {
     const res = await designationApi.create(d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/designation")
-      : setError("Failed to create designation");
+      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      : setError('Failed to create designation');
   };
 
   return (

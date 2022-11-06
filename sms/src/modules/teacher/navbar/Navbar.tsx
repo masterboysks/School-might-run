@@ -1,12 +1,12 @@
-import { Fragment } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
-import { BellIcon, Bars3Icon } from "@heroicons/react/24/outline";
+import { Fragment } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Disclosure, Menu, Popover, Transition } from '@headlessui/react';
+import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
 
-import man from "./man-pic.png";
+import man from './man-pic.png';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
@@ -41,9 +41,9 @@ export default function Navbar() {
                       <Link
                         to="/teacherr/dashboard/dashboard"
                         className={`${
-                          location.includes("/teacher/dashboard/dashboard")
-                            ? "text-primary-grey-700 font-medium"
-                            : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
+                          location.includes('/teacher/dashboard/dashboard')
+                            ? 'text-primary-grey-700 font-medium'
+                            : 'text-primary-grey-600 font-normal hover:text-primary-grey-700'
                         }  inline-flex items-center px-1 pt-1  text-base `}
                       >
                         Dashboard
@@ -51,9 +51,9 @@ export default function Navbar() {
                       <Link
                         to="/admin/dashboard/event-calender"
                         className={`${
-                          location.includes("event-calender")
-                            ? "text-primary-grey-700 font-medium"
-                            : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
+                          location.includes('event-calender')
+                            ? 'text-primary-grey-700 font-medium'
+                            : 'text-primary-grey-600 font-normal hover:text-primary-grey-700'
                         }  inline-flex items-center px-1 pt-1  text-base `}
                       >
                         Event calander
@@ -61,9 +61,9 @@ export default function Navbar() {
                       <Link
                         to="/admin/dashboard/push-notification"
                         className={`${
-                          location.includes("push-notification")
-                            ? "text-primary-grey-700 font-medium"
-                            : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
+                          location.includes('push-notification')
+                            ? 'text-primary-grey-700 font-medium'
+                            : 'text-primary-grey-600 font-normal hover:text-primary-grey-700'
                         }  inline-flex items-center px-1 pt-1  text-base `}
                       >
                         Push Notification
@@ -71,9 +71,9 @@ export default function Navbar() {
                       <Link
                         to="fee/fee-payment"
                         className={`${
-                          location.includes("fee/fee-payment")
-                            ? "text-primary-grey-700 font-medium"
-                            : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
+                          location.includes('fee/fee-payment')
+                            ? 'text-primary-grey-700 font-medium'
+                            : 'text-primary-grey-600 font-normal hover:text-primary-grey-700'
                         }  inline-flex items-center px-1 pt-1  text-base `}
                       >
                         Fee Payment
@@ -81,9 +81,9 @@ export default function Navbar() {
                       <Link
                         to="fee/student-logsheet"
                         className={`${
-                          location.includes("fee/student-logsheet")
-                            ? "text-primary-grey-700 font-medium"
-                            : "text-primary-grey-600 font-normal hover:text-primary-grey-700"
+                          location.includes('fee/student-logsheet')
+                            ? 'text-primary-grey-700 font-medium'
+                            : 'text-primary-grey-600 font-normal hover:text-primary-grey-700'
                         }  inline-flex items-center px-1 pt-1  text-base `}
                       >
                         Logsheet
@@ -125,8 +125,8 @@ export default function Navbar() {
                                 <Link
                                   to="/admin/dashboard/profile"
                                   className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-base text-gray-700"
+                                    active ? 'bg-gray-100' : '',
+                                    'block px-4 py-2 text-base text-gray-700'
                                   )}
                                 >
                                   Your Profile
@@ -138,8 +138,8 @@ export default function Navbar() {
                                 <Link
                                   to="/admin/dashboard/settings"
                                   className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-base text-gray-700"
+                                    active ? 'bg-gray-100' : '',
+                                    'block px-4 py-2 text-base text-gray-700'
                                   )}
                                 >
                                   Settings
@@ -151,8 +151,8 @@ export default function Navbar() {
                                 <Link
                                   href="#"
                                   className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-base text-gray-700"
+                                    active ? 'bg-gray-100' : '',
+                                    'block px-4 py-2 text-base text-gray-700'
                                   )}
                                 >
                                   Sign out
@@ -179,9 +179,9 @@ export default function Navbar() {
                           <Popover.Button
                             as="a"
                             className={`${
-                              location.includes("dashboard")
-                                ? "bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4"
-                                : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
+                              location.includes('dashboard')
+                                ? 'bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4'
+                                : 'bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4'
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
                             <Link to="/admin/dashboard/"> Dashboard</Link>
@@ -189,9 +189,9 @@ export default function Navbar() {
                           <Popover.Button
                             as="a"
                             className={`${
-                              location.includes("event-calender")
-                                ? "bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4"
-                                : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
+                              location.includes('event-calender')
+                                ? 'bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4'
+                                : 'bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4'
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
                             <Link to="/admin/dashboard/"> Event</Link> Calender
@@ -199,9 +199,9 @@ export default function Navbar() {
                           <Popover.Button
                             as="a"
                             className={`${
-                              location.includes("projects")
-                                ? "bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4"
-                                : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
+                              location.includes('projects')
+                                ? 'bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4'
+                                : 'bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4'
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
                             <Link to="/admin/dashboard/"> Projects</Link>
@@ -209,9 +209,9 @@ export default function Navbar() {
                           <Popover.Button
                             as="a"
                             className={`${
-                              location.includes("push-notification")
-                                ? "bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4"
-                                : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
+                              location.includes('push-notification')
+                                ? 'bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4'
+                                : 'bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4'
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
                             <Link to="/admin/dashboard/"> Push</Link>
@@ -220,9 +220,9 @@ export default function Navbar() {
                           <Popover.Button
                             as="a"
                             className={`${
-                              location.includes("fee-payment")
-                                ? "bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4"
-                                : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
+                              location.includes('fee-payment')
+                                ? 'bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4'
+                                : 'bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4'
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
                             <Link to="/admin/dashboard/"> Fee</Link> Payment
@@ -230,9 +230,9 @@ export default function Navbar() {
                           <Popover.Button
                             as="a"
                             className={`${
-                              location.includes("logsheet")
-                                ? "bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4"
-                                : "bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4"
+                              location.includes('logsheet')
+                                ? 'bg-primary-grey-200 border-primary-grey-300 font-normal-700 cursor-pointer w-full text-primary-grey-700 block py-2 pl-3 pr-4 text-base border-l-4'
+                                : 'bg-primary-grey-100 font-normal-700  hover:bg-primary-grey-200 w-full hover:border-primary-grey-300  cursor-pointer text-primary-grey-600 block py-2 pl-3 pr-4 text-base hover:border-l-4'
                             }  inline-flex items-center px-1 pt-1  text-base `}
                           >
                             <Link to="/admin/dashboard/"> Logsheet</Link>

@@ -4,7 +4,7 @@ export default function RenderTable({
   setSelectedPeople,
 }) {
   return (
-    <tr className={selectedPeople.includes(person) ? "bg-gray-50" : undefined}>
+    <tr className={selectedPeople.includes(person) ? 'bg-gray-50' : undefined}>
       <td className="sm:w-16 sm:px-8 relative w-12 px-6">
         {selectedPeople.includes(person) && (
           <div className="absolute inset-y-0 left-0 w-0.5 bg-primary-btn" />

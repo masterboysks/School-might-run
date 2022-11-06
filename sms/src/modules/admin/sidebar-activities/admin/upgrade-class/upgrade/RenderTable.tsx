@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link } from 'react-router-dom';
+import React from 'react';
 
 const RenderTable = ({ currentItems }) => {
   return (
@@ -22,7 +22,7 @@ const RenderTable = ({ currentItems }) => {
 
           <td className="text-primary-btn whitespace-nowrap px-3 py-4 text-sm font-medium">
             <Link
-              to={`class/${person.class.replace(" ", "-")}-${person.section}`}
+              to={`class/${person.class.replace(' ', '-')}-${person.section}`}
             >
               Upgrade
             </Link>

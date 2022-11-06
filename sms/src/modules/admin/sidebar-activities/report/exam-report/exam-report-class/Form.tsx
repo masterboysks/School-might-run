@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Search from "@mui/icons-material/SearchOutlined";
-import { Input, Select } from "../../../../../../components/common/oldFields";
+import Search from '@mui/icons-material/SearchOutlined';
+import { Input, Select } from '../../../../../../components/common/oldFields';
 export default function Form() {
   //
-  const arrayGradingSystem = ["GPA", "Percentage"];
-  const arrayResultStatus = ["kjdhf", "jhgd"];
-  const arrayRemark = ["jhfgd", "fdjkh"];
-  const [academicYear, setAcademicYear] = useState("");
-  const [examName, setExamName] = useState("");
-  const [gradingSystem, setGradingSystem] = useState("GPA");
-  const [resultStatus, setResultStatus] = useState("Select");
-  const [remark, setRemark] = useState("Select");
+  const arrayGradingSystem = ['GPA', 'Percentage'];
+  const arrayResultStatus = ['kjdhf', 'jhgd'];
+  const arrayRemark = ['jhfgd', 'fdjkh'];
+  const [academicYear, setAcademicYear] = useState('');
+  const [examName, setExamName] = useState('');
+  const [gradingSystem, setGradingSystem] = useState('GPA');
+  const [resultStatus, setResultStatus] = useState('Select');
+  const [remark, setRemark] = useState('Select');
   const [errorAcademicYear, setErrorAcademicYear] = useState(false);
   const [errorExamName, setErrorExamName] = useState(false);
   //

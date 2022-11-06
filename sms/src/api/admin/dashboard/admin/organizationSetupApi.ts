@@ -1,4 +1,4 @@
-import { authorized } from "../../../common/axios";
+import { authorized } from '../../../common/axios';
 
 export default {
   get() {

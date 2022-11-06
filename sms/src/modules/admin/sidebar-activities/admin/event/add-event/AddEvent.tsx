@@ -1,20 +1,20 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../components/common/Break";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../components/common/Break';
 
-import Form from "./Form";
+import Form from './Form';
 
 function AddEvent() {
   const { date } = useParams();
   const pages = [
-    { name: "Admin" },
+    { name: 'Admin' },
     {
-      name: "Event",
-      href: "/admin/dashboard/admin/event-calender",
+      name: 'Event',
+      href: '/admin/dashboard/admin/event-calender',
     },
     {
-      name: "Add",
+      name: 'Add',
     },
     {
       name: date,

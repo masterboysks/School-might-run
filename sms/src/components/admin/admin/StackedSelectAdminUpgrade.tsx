@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function StackedSelectAdminUpgrade({
   label,
@@ -21,12 +21,12 @@ export default function StackedSelectAdminUpgrade({
   disabled,
 }) {
   let optionsTop;
-  selectedTop === "Select"
-    ? (optionsTop = ["Select", ...valueTop])
+  selectedTop === 'Select'
+    ? (optionsTop = ['Select', ...valueTop])
     : (optionsTop = [...valueTop]);
   let optionsBottom;
-  selectedBottom === "Select"
-    ? (optionsBottom = ["Select", ...valueBottom])
+  selectedBottom === 'Select'
+    ? (optionsBottom = ['Select', ...valueBottom])
     : (optionsBottom = [...valueBottom]);
   const [optionalTop, optionalBottom] = [{}, {}];
   dataTitleTop &&
@@ -36,7 +36,7 @@ export default function StackedSelectAdminUpgrade({
     <>
       <label
         className={`my-6 text-sm ${
-          (errorTop || errorBottom) && " text-red-600"
+          (errorTop || errorBottom) && ' text-red-600'
         }`}
       >
         {label}
@@ -45,14 +45,14 @@ export default function StackedSelectAdminUpgrade({
         <select
           name={nameTop}
           onClick={() => errorTop && setErrorTop(false)}
-          disabled={disabled && "disabled"}
+          disabled={disabled && 'disabled'}
           onChange={(e) => {
             setSelectedTop(e.target.value);
           }}
           value={selectedTop}
           {...optionalTop}
           className={`w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm  ${
-            disabled && " bg-primary-grey-100 "
+            disabled && ' bg-primary-grey-100 '
           }`}
         >
           {optionsTop.map((curr) => (
@@ -64,14 +64,14 @@ export default function StackedSelectAdminUpgrade({
         <select
           name={nameBottom}
           onClick={() => errorBottom && setErrorBottom(false)}
-          disabled={disabled && "disabled"}
+          disabled={disabled && 'disabled'}
           onChange={(e) => {
             setSelectedBottom(e.target.value);
           }}
           value={selectedBottom}
           {...optionalBottom}
           className={`w-full p-2 mt-[6px]  cursor-pointer rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400   text-primary-grey-700 text-sm ${
-            disabled && " bg-primary-grey-100 "
+            disabled && ' bg-primary-grey-100 '
           }`}
         >
           {optionsBottom.map((curr) => (

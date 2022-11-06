@@ -1,27 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
 const people = [
   {
-    id: "11",
-    name: "14",
-    department: "Anil",
-    designation: "English",
-    assignedSubject: "English",
+    id: '11',
+    name: '14',
+    department: 'Anil',
+    designation: 'English',
+    assignedSubject: 'English',
   },
   {
-    id: "14",
-    name: "20",
-    department: "Dheren",
-    designation: "Spanish",
-    assignedSubject: "Spanish",
+    id: '14',
+    name: '20',
+    department: 'Dheren',
+    designation: 'Spanish',
+    assignedSubject: 'Spanish',
   },
   {
-    id: "5",
-    name: "11",
-    department: "Alisha",
-    designation: "Maths",
-    assignedSubject: "Maths",
+    id: '5',
+    name: '11',
+    department: 'Alisha',
+    designation: 'Maths',
+    assignedSubject: 'Maths',
   },
 ];
 export default function Table() {

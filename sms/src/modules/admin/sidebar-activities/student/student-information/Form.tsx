@@ -1,20 +1,20 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import { useForm } from "react-hook-form";
-import Breadnav from "../../../../../components/common/navigation/Breadnav";
-import { Input, Select } from "../../../../../components/common/fields";
+import Search from '@mui/icons-material/SearchOutlined';
+import { useForm } from 'react-hook-form';
+import Breadnav from '../../../../../components/common/navigation/Breadnav';
+import { Input, Select } from '../../../../../components/common/fields';
 
 const pages = [
-  { name: "Student" },
+  { name: 'Student' },
   {
-    name: "Student Information",
-    href: "/student/student-information/",
+    name: 'Student Information',
+    href: '/student/student-information/',
   },
 ];
 const arrayLevel = [
-  { name: "anish", id: 7 },
-  { name: "saurav", id: 4 },
-  { name: "asmita", id: 3 },
-  { name: "prahlad", id: 2 },
+  { name: 'anish', id: 7 },
+  { name: 'saurav', id: 4 },
+  { name: 'asmita', id: 3 },
+  { name: 'prahlad', id: 2 },
 ];
 
 const Form = () => {

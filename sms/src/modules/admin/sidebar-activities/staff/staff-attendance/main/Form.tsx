@@ -1,18 +1,18 @@
-import Search from "@mui/icons-material/SearchOutlined";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import departmentApi from "../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import designationApi from "../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import { Input, Select } from "../../../../../../components/common/fields";
+import Search from '@mui/icons-material/SearchOutlined';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import departmentApi from '../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import designationApi from '../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
+import { Input, Select } from '../../../../../../components/common/fields';
 const arrayStatus = [
   {
-    name: "Active",
+    name: 'Active',
     id: 1,
   },
 
   {
-    name: "InActive",
+    name: 'InActive',
     id: 2,
   },
 ];
@@ -27,7 +27,7 @@ function Form({ onSubmit }) {
   } = useForm();
   const [arrayDesignation, setArrayDesignation] = useState([]);
   const [arrayDepartment, setArrayDepartment] = useState([]);
-  const department = watch("department_id");
+  const department = watch('department_id');
   useEffect(() => {
     (async () => {
       try {
@@ -37,7 +37,7 @@ function Form({ onSubmit }) {
         console.warn(e);
       }
     })();
-    reset({ ...getValues(), designation_id: "" });
+    reset({ ...getValues(), designation_id: '' });
   }, [department]);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ function Form({ onSubmit }) {
         />
       </div>
       <div className="">
-        {" "}
+        {' '}
         <Select
           value={arrayDesignation}
           label="Designation"

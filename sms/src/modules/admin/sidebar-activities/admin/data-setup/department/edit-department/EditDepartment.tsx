@@ -1,23 +1,23 @@
-import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { Input } from "../../../../../../../components/common/fields";
+import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { Input } from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Department",
-    href: "/admin/dashboard/admin/data-setup/department",
+    name: 'Department',
+    href: '/admin/dashboard/admin/data-setup/department',
   },
   {
-    name: "Edit",
+    name: 'Edit',
   },
 ];
 const EditDepartment = () => {
@@ -29,14 +29,14 @@ const EditDepartment = () => {
     formState: { errors },
   } = useForm({ defaultValues: { department_name: name } });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     const res = await departmentApi.edit(id, d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/department")
-      : setError("Failed to edit department");
+      ? navigate('/admin/dashboard/admin/data-setup/department')
+      : setError('Failed to edit department');
   };
   return (
     <>

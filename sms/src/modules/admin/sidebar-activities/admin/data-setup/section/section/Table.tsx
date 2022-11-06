@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import sectionsApi from "../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi";
-import { SearchBar } from "../../../../../../../components/common/fields";
-import Pagination from "../../../../../../../components/common/navigation/Pagination";
-import RenderTable from "./RenderTable";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import sectionsApi from '../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
+import { SearchBar } from '../../../../../../../components/common/fields';
+import Pagination from '../../../../../../../components/common/navigation/Pagination';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    section: "NEB",
+    section: 'NEB',
   },
   {
-    section: "TU",
+    section: 'TU',
   },
 ];
 

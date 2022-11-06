@@ -1,13 +1,13 @@
-import React from "react";
-import RenderTable from "./RenderTable";
+import React from 'react';
+import RenderTable from './RenderTable';
 
 const people = [
   {
-    level: "NEB",
-    class: "Class 12",
-    section: "A",
-    subFaculty: "Bio",
-    faculty: "Science",
+    level: 'NEB',
+    class: 'Class 12',
+    section: 'A',
+    subFaculty: 'Bio',
+    faculty: 'Science',
   },
 ];
 

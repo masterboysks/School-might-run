@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import Break from "../../../../../../components/common/Break";
-import { Input } from "../../../../../../components/common/fields";
-import Table from "./Table";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Break from '../../../../../../components/common/Break';
+import { Input } from '../../../../../../components/common/fields';
+import Table from './Table';
 
 export default function Form() {
   const [station, setStation] = useState<number[]>([0]);

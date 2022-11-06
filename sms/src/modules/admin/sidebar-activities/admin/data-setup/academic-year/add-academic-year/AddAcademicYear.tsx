@@ -1,27 +1,27 @@
-import React from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import academicyearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
+import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import academicyearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
 import {
   Checkbox,
   YearInput,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Academic year",
-    href: "/admin/dashboard/admin/data-setup/academic-year",
+    name: 'Academic year',
+    href: '/admin/dashboard/admin/data-setup/academic-year',
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/academic-year/add",
+    name: 'Add',
+    href: '/admin/dashboard/admin/data-setup/academic-year/add',
   },
 ];
 const AddAcademicYear = () => {
@@ -32,13 +32,13 @@ const AddAcademicYear = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     const res = await academicyearApi.create(d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/designation")
-      : setError("Failed to create Academic year");
+      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      : setError('Failed to create Academic year');
   };
   return (
     <>

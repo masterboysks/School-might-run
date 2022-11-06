@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from 'react-router-dom';
 
 const RenderTable = ({ currentItems }) => {
   const { classOfSchool, section } = useParams();

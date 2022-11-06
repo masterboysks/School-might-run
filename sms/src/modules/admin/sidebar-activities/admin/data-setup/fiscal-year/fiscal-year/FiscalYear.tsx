@@ -1,32 +1,32 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import { useState } from "react";
-import { SearchBar } from "../../../../../../../components/common/oldFields";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import React from "react";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+import { useState } from 'react';
+import { SearchBar } from '../../../../../../../components/common/oldFields';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import React from 'react';
 
 const people = [
   {
-    fiscalYear: "2072",
+    fiscalYear: '2072',
     isRunning: false,
   },
   {
-    fiscalYear: "2073",
+    fiscalYear: '2073',
     isRunning: true,
   },
 ];
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Fiscal year",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year",
+    name: 'Fiscal year',
+    href: '/admin/dashboard/admin/data-setup/fiscal-year',
   },
 ];
 const FiscalYear = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   return (
     <>
       <Breadnav pages={pages} />

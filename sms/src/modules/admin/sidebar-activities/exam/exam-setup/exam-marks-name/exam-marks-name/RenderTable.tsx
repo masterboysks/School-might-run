@@ -1,5 +1,5 @@
-import ThreeDots from "@mui/icons-material/MoreVert";
-import { Popover } from "@headlessui/react";
+import ThreeDots from '@mui/icons-material/MoreVert';
+import { Popover } from '@headlessui/react';
 
 const RenderTable = ({ currentItems, setOpen }) => {
   return (
@@ -17,7 +17,7 @@ const RenderTable = ({ currentItems, setOpen }) => {
               </Popover.Button>
               <Popover.Panel
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
-                 ${index + 1 < table.length ? "top-0" : "bottom-0"}`}
+                 ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
                 <div className="p-3">Edit</div>
 

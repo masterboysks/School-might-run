@@ -1,27 +1,27 @@
-import { Link } from "react-router-dom";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Break from "../../Break";
+import { Link } from 'react-router-dom';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Break from '../../Break';
 import {
   MultipleSelect,
   Select,
-} from "../../../../../../components/common/fields";
-import { useForm } from "react-hook-form";
+} from '../../../../../../components/common/fields';
+import { useForm } from 'react-hook-form';
 
 const pages = [
-  { name: "Staff" },
+  { name: 'Staff' },
   {
-    name: "Teacher assign",
-    href: "/staff/teacher-assign/",
+    name: 'Teacher assign',
+    href: '/staff/teacher-assign/',
   },
 
   {
-    name: "Assign Teacher",
-    href: "/staff/teacher-assign/assign-teacher",
+    name: 'Assign Teacher',
+    href: '/staff/teacher-assign/assign-teacher',
   },
 ];
 const arrayDepartment = [
-  { id: 1, name: "THis" },
-  { id: 2, name: "All" },
+  { id: 1, name: 'THis' },
+  { id: 2, name: 'All' },
 ];
 function AssignTeacher() {
   const {

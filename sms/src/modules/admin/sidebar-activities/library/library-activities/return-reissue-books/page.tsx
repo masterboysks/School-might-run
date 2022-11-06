@@ -1,18 +1,18 @@
-import React from "react";
-import Break from "../../../../../../components/common/Break";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import { useForm } from "react-hook-form";
-import Form from "./Form";
-import Table from "./Table";
+import React from 'react';
+import Break from '../../../../../../components/common/Break';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import { useForm } from 'react-hook-form';
+import Form from './Form';
+import Table from './Table';
 const pages = [
-  { name: "Library" },
+  { name: 'Library' },
   {
-    name: "Return / Reissue books",
-    href: "/admin/dashboard/library/library-activities/return-reissue-book",
+    name: 'return  / Reissue books',
+    href: '/admin/dashboard/library/library-activities/return-reissue-book',
   },
   {
-    name: "Lend",
-    href: "#",
+    name: 'Lend',
+    href: '#',
   },
 ];
 export default function ReturnReIssueBooks() {

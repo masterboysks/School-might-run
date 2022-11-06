@@ -1,157 +1,157 @@
-import React from "react";
-import BadgeIcon from "@mui/icons-material/Badge";
+import React from 'react';
+import BadgeIcon from '@mui/icons-material/Badge';
 const routines = [
   {
-    name: "Preboard examination routine",
+    name: 'Preboard examination routine',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },
   {
-    name: "Preboard examination routigfdshne",
+    name: 'Preboard examination routigfdshne',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },
   {
-    name: "Preboard examination rouadgtine",
+    name: 'Preboard examination rouadgtine',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },
   {
-    name: "Preboard examination ewrtgdfg",
+    name: 'Preboard examination ewrtgdfg',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },
   {
-    name: "Preboard examinatio345rewn routine",
+    name: 'Preboard examinatio345rewn routine',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },
   {
-    name: "Preboard examinatiagre543on routine",
+    name: 'Preboard examinatiagre543on routine',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },
   {
-    name: "Preboard eaw32t4agxamination routine",
+    name: 'Preboard eaw32t4agxamination routine',
     days: 45,
     routine: [
       {
-        date: "kjfdjfds",
-        name: "Nepalu",
+        date: 'kjfdjfds',
+        name: 'Nepalu',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhdsjh",
+        date: 'kjfdjfds',
+        name: 'jkhdsjh',
       },
       {
-        date: "kjfdjfds",
-        name: "kldjfklj",
+        date: 'kjfdjfds',
+        name: 'kldjfklj',
       },
       {
-        date: "kjfdjfds",
-        name: "jkhfs",
+        date: 'kjfdjfds',
+        name: 'jkhfs',
       },
     ],
   },

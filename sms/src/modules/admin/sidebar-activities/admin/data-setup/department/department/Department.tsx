@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import { SearchBar } from "../../../../../../../components/common/fields";
-import { useState } from "react";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Pagination from "../../../../../../../components/common/navigation/Pagination";
-import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import { useForm } from "react-hook-form";
-import { useEffect } from "react";
-import React from "react";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+import { SearchBar } from '../../../../../../../components/common/fields';
+import { useState } from 'react';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Pagination from '../../../../../../../components/common/navigation/Pagination';
+import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import React from 'react';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Department",
-    href: "/admin/dashboard/admin/data-setup/department",
+    name: 'Department',
+    href: '/admin/dashboard/admin/data-setup/department',
   },
 ];
 const Department = () => {

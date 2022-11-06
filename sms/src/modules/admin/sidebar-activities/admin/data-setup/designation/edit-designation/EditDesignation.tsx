@@ -1,25 +1,25 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import departmentApi from "../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi";
-import designationApi from "../../../../../../../api/admin/dashboard/admin/data-setup/designationApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
-import { Input, Select } from "../../../../../../../components/common/fields";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
+import designationApi from '../../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
+import { Input, Select } from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Designation",
-    href: "/admin/dashboard/admin/data-setup/designation",
+    name: 'Designation',
+    href: '/admin/dashboard/admin/data-setup/designation',
   },
   {
-    name: "Edit",
+    name: 'Edit',
   },
 ];
 
@@ -32,24 +32,24 @@ const EditDesignation = () => {
     formState: { errors },
   } = useForm();
   const [arrayDepartment, setArrayDepartment] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     const res = await designationApi.edit(id, d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/designation")
-      : setError("Failed to edit designation");
+      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      : setError('Failed to edit designation');
   };
 
   useEffect(() => {
     (async () => {
       const data = await departmentApi.getAll();
       setArrayDepartment(data?.data?.data);
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       reset(temp);
     })();
-    return () => localStorage.removeItem("Mb5sVJt5Qp");
+    return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
   return (
     <>

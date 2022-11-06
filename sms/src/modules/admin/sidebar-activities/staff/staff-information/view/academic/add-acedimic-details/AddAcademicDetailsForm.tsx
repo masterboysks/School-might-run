@@ -1,65 +1,65 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import staffAPI from "../../../../../../../../api/admin/dashboard/staff/staffAPI";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import staffAPI from '../../../../../../../../api/admin/dashboard/staff/staffAPI';
 import {
   Input,
   Select,
-} from "../../../../../../../../components/common/fields";
+} from '../../../../../../../../components/common/fields';
 const arrayLevel = [
   {
-    name: "Secondary level",
-    id: "Secondary level",
+    name: 'Secondary level',
+    id: 'Secondary level',
   },
   {
-    name: "Higher secondary",
-    id: "Higher secondary",
+    name: 'Higher secondary',
+    id: 'Higher secondary',
   },
   {
-    name: "Under graduate",
-    id: "Under graduate",
+    name: 'Under graduate',
+    id: 'Under graduate',
   },
   {
-    name: "Graduate",
-    id: "Graduate",
+    name: 'Graduate',
+    id: 'Graduate',
   },
   {
-    name: "Post Graduate",
-    id: "Post Graduate",
+    name: 'Post Graduate',
+    id: 'Post Graduate',
   },
 ];
 const arrayDivision = [
   {
-    name: "A+",
-    id: "A+",
+    name: 'A+',
+    id: 'A+',
   },
   {
-    name: "A",
-    id: "A",
+    name: 'A',
+    id: 'A',
   },
   {
-    name: "B+",
-    id: "B+",
+    name: 'B+',
+    id: 'B+',
   },
   {
-    name: "B",
-    id: "B",
+    name: 'B',
+    id: 'B',
   },
   {
-    name: "C+",
-    id: "C+",
+    name: 'C+',
+    id: 'C+',
   },
   {
-    name: "C",
-    id: "C",
+    name: 'C',
+    id: 'C',
   },
   {
-    name: "D",
-    id: "D",
+    name: 'D',
+    id: 'D',
   },
 ];
 const AddAcademicDetailsForm = () => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const {
     register,
@@ -125,7 +125,7 @@ const AddAcademicDetailsForm = () => {
           />
         </div>
         <div className="">
-          {" "}
+          {' '}
           <Select
             name="division"
             label="Division*"
@@ -136,7 +136,7 @@ const AddAcademicDetailsForm = () => {
           />
         </div>
         <div className="">
-          {" "}
+          {' '}
           <Input
             name="institution_name"
             label="Institution name*"
@@ -146,7 +146,7 @@ const AddAcademicDetailsForm = () => {
           />
         </div>
         <div className="">
-          {" "}
+          {' '}
           <Input
             name="institution_address"
             label="Institution address*"
@@ -157,7 +157,7 @@ const AddAcademicDetailsForm = () => {
         </div>
 
         <div className="">
-          {" "}
+          {' '}
           <Input
             name="passed_year"
             label="Passed year*"

@@ -1,5 +1,5 @@
-import Break from "../../../../Break";
-import AddAcademicDetailsForm from "./AddAcademicDetailsForm";
+import Break from '../../../../Break';
+import AddAcademicDetailsForm from './AddAcademicDetailsForm';
 
 const AddAcademicDetails = () => {
   return (

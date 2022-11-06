@@ -1,11 +1,11 @@
-import Calendar from "@sbmdkl/nepali-datepicker-reactjs";
-import "@sbmdkl/nepali-datepicker-reactjs/dist/index.css";
-import React, { useState, useEffect } from "react";
-import { InputNumber } from ".";
-import "./datepicker.css";
+import Calendar from '@sbmdkl/nepali-datepicker-reactjs';
+import '@sbmdkl/nepali-datepicker-reactjs/dist/index.css';
+import React, { useState, useEffect } from 'react';
+import { InputNumber } from '.';
+import './datepicker.css';
 
-function ad_bs({ selected, setSelected, label, defaultDate = "" }) {
-  const format = localStorage.getItem("hdjkjkfg");
+function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
+  const format = localStorage.getItem('hdjkjkfg');
   const [render, setRender] = useState(1);
   const handleDate = ({ bsDate }) => {
     setSelected({ date: bsDate });
@@ -14,7 +14,7 @@ function ad_bs({ selected, setSelected, label, defaultDate = "" }) {
     setRender((c) => c + 1);
   }, [defaultDate]);
 
-  if (format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002")
+  if (format === '8cef65fa-4dd7-11ed-bdc3-0242ac120002')
     return (
       <>
         {label && (
@@ -37,7 +37,7 @@ function ad_bs({ selected, setSelected, label, defaultDate = "" }) {
   useEffect(() => {
     if (defaultDate) {
       setSelected(defaultDate);
-    } else setSelected(new Date().toISOString().split("T")[0]);
+    } else setSelected(new Date().toISOString().split('T')[0]);
   }, [defaultDate]);
 
   return (
@@ -60,17 +60,17 @@ function ad_bs({ selected, setSelected, label, defaultDate = "" }) {
 
 export default ad_bs;
 export const bs_ad_year = (props) => {
-  const format = localStorage.getItem("hdjkjkfg");
+  const format = localStorage.getItem('hdjkjkfg');
   return (
     <InputNumber
       placeholder="2005"
       {...props}
       name={`${props.name}`}
-      min={format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? 2000 : 1950}
-      max={format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? 2089 : 2029}
+      min={format === '8cef65fa-4dd7-11ed-bdc3-0242ac120002' ? 2000 : 1950}
+      max={format === '8cef65fa-4dd7-11ed-bdc3-0242ac120002' ? 2089 : 2029}
       step="1"
       label={`${props.label}(${
-        format === "8cef65fa-4dd7-11ed-bdc3-0242ac120002" ? "BS" : "AD"
+        format === '8cef65fa-4dd7-11ed-bdc3-0242ac120002' ? 'BS' : 'AD'
       })`}
     />
   );

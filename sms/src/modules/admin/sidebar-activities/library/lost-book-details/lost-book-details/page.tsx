@@ -1,12 +1,12 @@
-import React from "react";
-import Breadnav from "../../../../../../components/common/navigation/Breadnav";
-import Table from "./Table";
+import React from 'react';
+import Breadnav from '../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
 
 const pages = [
-  { name: "Library" },
+  { name: 'Library' },
   {
-    name: "Lost book details",
-    href: "/admin/dashboard/library/lost-book-details",
+    name: 'Lost book details',
+    href: '/admin/dashboard/library/lost-book-details',
   },
 ];
 export default function LostBookDetails() {

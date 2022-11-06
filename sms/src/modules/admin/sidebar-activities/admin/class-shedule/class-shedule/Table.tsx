@@ -1,22 +1,22 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Select } from "../../../../../../components/common/fields";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Select } from '../../../../../../components/common/fields';
 
-import { Link } from "react-router-dom";
-import RenderTable from "./RenderTable";
-import { PrinterIcon } from "@heroicons/react/20/solid";
-import Pagination from "../../../../../../components/common/navigation/Pagination";
-import { useEffect } from "react";
-import { useState } from "react";
-import classSheduleApi from "../../../../../../api/admin/dashboard/admin/classSheduleApi";
+import { Link } from 'react-router-dom';
+import RenderTable from './RenderTable';
+import { PrinterIcon } from '@heroicons/react/20/solid';
+import Pagination from '../../../../../../components/common/navigation/Pagination';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import classSheduleApi from '../../../../../../api/admin/dashboard/admin/classSheduleApi';
 const arrayDays = [
-  { name: "Sun", id: 7 },
-  { name: "Mon", id: 1 },
-  { name: "Tue", id: 2 },
-  { name: "Wed", id: 3 },
-  { name: "Thur", id: 4 },
-  { id: 5, name: "Fri" },
-  { name: "Sat", id: 6 },
+  { name: 'Sun', id: 7 },
+  { name: 'Mon', id: 1 },
+  { name: 'Tue', id: 2 },
+  { name: 'Wed', id: 3 },
+  { name: 'Thur', id: 4 },
+  { id: 5, name: 'Fri' },
+  { name: 'Sat', id: 6 },
 ];
 export default function Table() {
   const {

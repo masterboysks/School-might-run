@@ -1,8 +1,8 @@
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import React from "react";
-import { Fragment } from "react";
-import { useController } from "react-hook-form";
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import React from 'react';
+import { Fragment } from 'react';
+import { useController } from 'react-hook-form';
 
 export function select({
   name,
@@ -11,11 +11,11 @@ export function select({
   register,
   value: options,
   label,
-  id = "form_" + name,
+  id = 'form_' + name,
   required = false,
   showError = true,
-  className = "",
-  labelClassName = "",
+  className = '',
+  labelClassName = '',
 }) {
   return (
     <>
@@ -23,7 +23,7 @@ export function select({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && "text-red-600"
+              errors && errors[name] && 'text-red-600'
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -48,7 +48,7 @@ export function select({
         <>
           <br />
           <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || " This is a required field."}
+            {errors[name]?.message || ' This is a required field.'}
           </span>
           <br />
         </>
@@ -80,7 +80,7 @@ export function multipleSelect({
         <Listbox.Label>
           <label
             className={`my-6 text-sm  ${
-              errors && errors[name] && " text-red-600"
+              errors && errors[name] && ' text-red-600'
             }`}
           >
             {label}
@@ -92,11 +92,11 @@ export function multipleSelect({
               {options
                 ?.filter((c) => value?.includes(c))
                 ?.map((person) => person.name)
-                .join(", ")}
+                .join(', ')}
             </span>
             {errors && errors[name] && (
               <span className="text-red-600">
-                {errors[name]?.message || "This field is required"}
+                {errors[name]?.message || 'This field is required'}
               </span>
             )}
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -119,8 +119,8 @@ export function multipleSelect({
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active
-                        ? "bg-blue-400 text-white "
-                        : "text-primary-grey-600"
+                        ? 'bg-blue-400 text-white '
+                        : 'text-primary-grey-600'
                     }`
                   }
                   value={person}
@@ -129,7 +129,7 @@ export function multipleSelect({
                     <>
                       <span
                         className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
+                          selected ? 'font-medium' : 'font-normal'
                         }`}
                       >
                         {person?.name}
@@ -150,7 +150,7 @@ export function multipleSelect({
     </>
   );
 }
-export const selectDisabled = ({ label, value = "Select", className = "" }) => {
+export const selectDisabled = ({ label, value = 'Select', className = '' }) => {
   return (
     <>
       <label className={`my-6 text-sm `}>{label}</label>

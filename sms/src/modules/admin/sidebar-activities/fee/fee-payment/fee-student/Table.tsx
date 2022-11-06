@@ -1,20 +1,20 @@
-import RenderTable from "./RenderTable";
-import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import RenderTable from './RenderTable';
+import { Fragment, useRef, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
 const people = [
   {
     date: 557663,
-    particular: "Fee",
+    particular: 'Fee',
     amount: 12000000,
   },
   {
-    date: "-----",
-    particular: "Miscellaneous fee",
+    date: '-----',
+    particular: 'Miscellaneous fee',
     amount: 12000000,
   },
   {
-    date: "--",
-    particular: "Previous Fee",
+    date: '--',
+    particular: 'Previous Fee',
     amount: 12000000,
   },
 ];

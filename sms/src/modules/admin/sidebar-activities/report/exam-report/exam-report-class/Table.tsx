@@ -1,18 +1,18 @@
-import { GlobeAltIcon, PrinterIcon } from "@heroicons/react/20/solid";
+import { GlobeAltIcon, PrinterIcon } from '@heroicons/react/20/solid';
 import React, {
   useEffect,
   useLayoutEffect,
   useRef,
   useState,
   Fragment,
-} from "react";
-import RenderTable from "./RenderTable";
+} from 'react';
+import RenderTable from './RenderTable';
 
-import { Dialog, Transition } from "@headlessui/react";
-import { Input } from "../../../../../../components/common/oldFields";
+import { Dialog, Transition } from '@headlessui/react';
+import { Input } from '../../../../../../components/common/oldFields';
 const people = [
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -22,13 +22,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 556453127332,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -38,13 +38,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 5587667332,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -54,13 +54,13 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 556733256,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
   {
-    subject: "Physics",
+    subject: 'Physics',
     English: 100,
     Maths: 0,
     Nepali: 0,
@@ -70,18 +70,18 @@ const people = [
     Science: 0,
     total: 0,
     percentage: 32,
-    status: "Published",
-    remark: "pass",
+    status: 'Published',
+    remark: 'pass',
     stdId: 556733452,
-    stdName: "Saurav ",
+    stdName: 'Saurav ',
   },
 ];
-const subject = ["English", "Maths", "Nepali", "Social", "EHP", "Science"];
+const subject = ['English', 'Maths', 'Nepali', 'Social', 'EHP', 'Science'];
 
 export default function Table() {
   // Modal
   const [open, setOpen] = useState(false);
-  const [miniumDueAmmount, setMiniumDueAmmount] = useState("");
+  const [miniumDueAmmount, setMiniumDueAmmount] = useState('');
   const cancelButtonRef = useRef(null);
   const handleSubmitMiniumDueAmmount = () => {
     console.log(miniumDueAmmount);
@@ -117,7 +117,7 @@ export default function Table() {
   const [indexOfFirstItem, setIndexOfFirstItem] = useState(
     indexOfLastItem - itemsOnPage
   );
-  const [message, setmessage] = useState("Showing 1 to 2 of 2 results");
+  const [message, setmessage] = useState('Showing 1 to 2 of 2 results');
 
   const onNextPage = () => {
     setCurrentPage((curr) => curr + 1);

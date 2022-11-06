@@ -1,7 +1,7 @@
-import React from "react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import StaffGeneralDetailsView from "../../../../../../../../contex/admin/staff/StaffGeneralDetailsView";
+import React from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import StaffGeneralDetailsView from '../../../../../../../../contex/admin/staff/StaffGeneralDetailsView';
 
 export default function OfficeDetails() {
   const generaldetails = useContext(StaffGeneralDetailsView);

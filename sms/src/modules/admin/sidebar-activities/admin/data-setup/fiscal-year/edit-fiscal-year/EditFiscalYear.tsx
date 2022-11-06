@@ -1,28 +1,28 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import fiscalYearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import fiscalYearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
 import {
   Checkbox,
   YearInput,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Fiscal year",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year",
+    name: 'Fiscal year',
+    href: '/admin/dashboard/admin/data-setup/fiscal-year',
   },
   {
-    name: "Edit",
-    href: "",
+    name: 'Edit',
+    href: '',
   },
 ];
 const EditFiscalYear = () => {
@@ -34,22 +34,22 @@ const EditFiscalYear = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const onSubmit = async (d) => {
     const res = await fiscalYearApi.edit(id, d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/designation")
-      : setError("Failed to edit Fiscal year");
+      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      : setError('Failed to edit Fiscal year');
   };
 
   useEffect(() => {
     (async () => {
-      const temp = await JSON.parse(localStorage.getItem("Mb5sVJt5Qp") || "");
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       reset(temp);
     })();
-    return () => localStorage.removeItem("Mb5sVJt5Qp");
+    return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
   return (
     <>

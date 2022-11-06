@@ -1,26 +1,26 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import fiscalYearApi from "../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi";
-import Breadnav from "../../../../../../../components/common/navigation/Breadnav";
-import Break from "../../../../../../../components/common/Break";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import fiscalYearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi';
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Break from '../../../../../../../components/common/Break';
 import {
   Checkbox,
   YearInput,
-} from "../../../../../../../components/common/fields";
+} from '../../../../../../../components/common/fields';
 
 const pages = [
-  { name: "Admin" },
+  { name: 'Admin' },
   {
-    name: "Date setup",
+    name: 'Date setup',
   },
   {
-    name: "Fiscal year",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year",
+    name: 'Fiscal year',
+    href: '/admin/dashboard/admin/data-setup/fiscal-year',
   },
   {
-    name: "Add",
-    href: "/admin/dashboard/admin/data-setup/fiscal-year/add",
+    name: 'Add',
+    href: '/admin/dashboard/admin/data-setup/fiscal-year/add',
   },
 ];
 const AddFiscalYear = () => {
@@ -31,14 +31,14 @@ const AddFiscalYear = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     console.log(d);
     const res = await fiscalYearApi.create(d);
     res?.status === 201
-      ? navigate("/admin/dashboard/admin/data-setup/designation")
-      : setError("Failed to create Fiscal year");
+      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      : setError('Failed to create Fiscal year');
   };
   return (
     <>

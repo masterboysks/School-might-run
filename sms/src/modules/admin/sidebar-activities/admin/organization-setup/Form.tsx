@@ -1,18 +1,18 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import organizationSetupApi from "../../../../../api/admin/dashboard/admin/organizationSetupApi";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import organizationSetupApi from '../../../../../api/admin/dashboard/admin/organizationSetupApi';
 import {
   DateInput,
   Input,
   Select,
   UploadPhoto,
-} from "../../../../../components/common/fields";
-import LocationForm from "../../../../../components/common/LocationForm";
+} from '../../../../../components/common/fields';
+import LocationForm from '../../../../../components/common/LocationForm';
 
 const arrayDateFormat = [
-  { id: 1, name: "AD" },
-  { id: 2, name: "BS" },
+  { id: 1, name: 'AD' },
+  { id: 2, name: 'BS' },
 ];
 const Form = () => {
   const {
@@ -22,10 +22,10 @@ const Form = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('');
   const [error, setError] = useState(false);
-  const [message, setMessage] = useState("");
-  const [defaultDate, setDefaultDate] = useState("");
+  const [message, setMessage] = useState('');
+  const [defaultDate, setDefaultDate] = useState('');
   const onSubmit = async (data) => {
     const d = {
       ...data,
@@ -37,17 +37,17 @@ const Form = () => {
       form.append(name, d[name]);
     }
     d.company_logo.length === 1
-      ? form.append("company_logo", d.company_logo[0])
-      : form.append("company_logo", "");
+      ? form.append('company_logo', d.company_logo[0])
+      : form.append('company_logo', '');
 
     try {
       const res = await organizationSetupApi.edit(form);
       if (!(res?.status === 201)) {
-        setMessage("Failed to update Organization details");
+        setMessage('Failed to update Organization details');
         setError(true);
       } else {
         setError(false);
-        setMessage("Organization details updated sucesfully");
+        setMessage('Organization details updated sucesfully');
       }
     } catch (error) {
       console.log(error);
@@ -75,7 +75,7 @@ const Form = () => {
         <>
           <div
             className={`${
-              error && "!text-red-600"
+              error && '!text-red-600'
             } text-green-500 font-medium text-lg`}
           >
             {message}

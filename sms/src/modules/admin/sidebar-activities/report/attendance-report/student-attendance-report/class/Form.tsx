@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Search from "@mui/icons-material/SearchOutlined";
-import { Input } from "../../../../../../../components/common/oldFields";
+import React, { useState } from 'react';
+import Search from '@mui/icons-material/SearchOutlined';
+import { Input } from '../../../../../../../components/common/oldFields';
 export default function Form() {
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
   const [errorFromDate, setErrorFromDate] = useState(false);
   const [errorToDate, setErrorToDate] = useState(false);
   const handleSubmit = () => {

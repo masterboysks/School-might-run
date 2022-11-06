@@ -1,14 +1,14 @@
-import RenderTable from "./RenderTable";
+import RenderTable from './RenderTable';
 
 const people = [
   {
     id: 557663,
-    name: "pweson",
-    level: "Primary level",
-    class: "1",
-    faculty: "",
-    section: "B",
-    status: "Active",
+    name: 'pweson',
+    level: 'Primary level',
+    class: '1',
+    faculty: '',
+    section: 'B',
+    status: 'Active',
   },
 ];
 

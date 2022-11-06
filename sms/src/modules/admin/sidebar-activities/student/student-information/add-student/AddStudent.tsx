@@ -1,13 +1,13 @@
-import React from "react";
-import AboveForm from "./components/AboveForm";
-import DetailsForm from "./components/DetailsForm";
+import React from 'react';
+import AboveForm from './components/AboveForm';
+import DetailsForm from './components/DetailsForm';
 const AddStudent = ({ HasAnotherChild, setHasAnotherChild }) => {
   const steps = [
-    { name: "Student details", href: "#", status: 2 },
-    { name: "Guardian details", href: "#", status: 1 },
-    { name: "Address details", href: "#", status: 1 },
-    { name: "Class details", href: "#", status: 1 },
-    { name: "Fee details", href: "#", status: 1 },
+    { name: 'Student details', href: '#', status: 2 },
+    { name: 'Guardian details', href: '#', status: 1 },
+    { name: 'Address details', href: '#', status: 1 },
+    { name: 'Class details', href: '#', status: 1 },
+    { name: 'Fee details', href: '#', status: 1 },
   ];
 
   return (
