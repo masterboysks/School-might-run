@@ -23,7 +23,7 @@ const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
       </div>
       <div className="form-solid mb-6 rounded-md">
         {asAsPermenantAddress || (
-          <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+          <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
             <LocationForm
               register={register}
               errors={errors}

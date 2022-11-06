@@ -82,7 +82,7 @@ function NewNotice() {
             <br />
           </>
         )}
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <MultipleSelect
               value={arraySendTo}
@@ -95,7 +95,7 @@ function NewNotice() {
             Note:You can select multiple items
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <Input
               label="Notice title*"
@@ -107,7 +107,7 @@ function NewNotice() {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <Textarea
               label="Notice description*"
@@ -120,7 +120,7 @@ function NewNotice() {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <UploadPhoto
               label="Document"
@@ -146,7 +146,7 @@ function NewNotice() {
           </div>
         </div>
 
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row w-fit col-span-full lg:col-span-2 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link

@@ -46,12 +46,12 @@ function Form({ date }) {
   return (
     <div>
       <form className="form-solid w-full my-4 space-y-4 rounded-md">
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <InputDisabled label="Selected date" value={date} type="date" />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <Input
               label="Event title*"
@@ -62,7 +62,7 @@ function Form({ date }) {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="col-span-2">
             <Textarea
               label="Event description*"
@@ -75,7 +75,7 @@ function Form({ date }) {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Input
               label="Start time*"
@@ -99,7 +99,7 @@ function Form({ date }) {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <MultipleSelect
               value={arraySendTo}
@@ -122,7 +122,7 @@ function Form({ date }) {
             <br />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row w-fit col-span-full lg:col-span-2 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link

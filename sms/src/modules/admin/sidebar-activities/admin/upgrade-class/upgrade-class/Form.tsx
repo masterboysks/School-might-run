@@ -62,7 +62,7 @@ const Form = () => {
   return (
     <>
       <form className="form-solid w-full my-6 rounded-md">
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="flex">
             <StackedSelectAdminUpgrade
               label="From:"
@@ -93,7 +93,7 @@ const Form = () => {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">
           <div>
             <InputDisabled label="Class/Semester" value={fromClassSemester} />
           </div>
@@ -108,7 +108,7 @@ const Form = () => {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">
           <div>
             <InputDisabled
               label="Aviable section"
@@ -134,7 +134,7 @@ const Form = () => {
             </Link>
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-4">
           <div>
             <InputDisabled label="From Section" value={fromSection} />
           </div>

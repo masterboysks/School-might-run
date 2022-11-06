@@ -29,6 +29,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-router-dom": "^6.4.3",
+    "tailwind-children": "^0.5.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

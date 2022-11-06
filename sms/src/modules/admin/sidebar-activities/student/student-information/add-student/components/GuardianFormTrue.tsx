@@ -14,8 +14,8 @@ const GuardianFormFalse = () => {
   } = useForm();
   return (
     <form className="form-solid my-6 rounded-md">
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-span-full grid grid-cols-1 gap-4">
+      <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 col-span-full grid grid-cols-1 gap-4">
           <div className="">
             <label className="py-6 text-sm" htmlFor="Student Id">
               Mobile Number*

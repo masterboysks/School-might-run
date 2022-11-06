@@ -118,7 +118,7 @@ function AddClassShedule() {
               <br />
             </>
           )}
-          <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+          <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
             {/* multiple select */}
             <div className="col-span-full">
               <MultipleSelect

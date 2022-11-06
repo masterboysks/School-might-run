@@ -65,7 +65,7 @@ const EditFiscalYear = () => {
             <br />
           </>
         )}
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <YearInput
               label="Fiscal year start*"
@@ -93,7 +93,7 @@ const EditFiscalYear = () => {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row sm:col-span-2 w-fit flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
               <Link

@@ -94,11 +94,11 @@ const people = [
   },
 ];
 
-export default function Table() {
+export default function LendBook() {
   return (
     <div className="mt-11">
       <div className="w-fit ml-auto mt-4">
-        <Link to="Lend book" className="primary_btn">
+        <Link to="lend" className="primary_btn">
           Lend book
         </Link>
       </div>

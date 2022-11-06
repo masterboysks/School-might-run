@@ -68,7 +68,7 @@ const AddSubject = () => {
             <br />
           </>
         )}
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Select
               label="Level*"
@@ -110,7 +110,7 @@ const AddSubject = () => {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row col-span-full xl:col-span-3 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link

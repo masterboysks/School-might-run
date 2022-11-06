@@ -14,7 +14,7 @@ export default function Form() {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="my-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+      <div className="my-6 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className="">
           <Input
             register={register}
@@ -39,12 +39,12 @@ export default function Form() {
           />
         </div>
       </div>
-      <div className="my-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+      <div className="my-6 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className=" col-span-2">
           <Textarea register={register} name="reason" label="Reason " />
         </div>
       </div>
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+      <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className="md:flex-row w-fit col-span-full lg:col-span-2 flex flex-col my-6 ml-auto">
           <div className=" w-fit">
             <Link

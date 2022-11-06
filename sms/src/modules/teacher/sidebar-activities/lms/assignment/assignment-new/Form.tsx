@@ -125,7 +125,7 @@ function Form() {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2  grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2   grid grid-cols-1 gap-4">
           <div className="md:flex-row w-fit col-span-full lg:sm:col-span-2 flex flex-col my-6 ml-auto">
             <div className=" w-fit">
               <Link

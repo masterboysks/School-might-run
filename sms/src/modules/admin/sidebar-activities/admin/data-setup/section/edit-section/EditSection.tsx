@@ -53,7 +53,7 @@ const EditSection = () => {
             <br />
           </>
         )}
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Input
               label="Section*"
@@ -66,7 +66,7 @@ const EditSection = () => {
             />
           </div>
         </div>
-        <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+        <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row w-fit flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
               <Link

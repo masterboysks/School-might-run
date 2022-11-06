@@ -9,7 +9,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
   return (
     <>
       <Break title="Father details" />
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
+      <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
         <div>
           <Input
             label="First Name*"
@@ -69,7 +69,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
         </div>
       </div>
       <Break title="Mother details" />
-      <div className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
+      <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
         <div>
           <Input
             label="First Name*"

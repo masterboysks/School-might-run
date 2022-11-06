@@ -8,7 +8,10 @@ import EditShelfDetails from "../../modules/admin/sidebar-activities/library/boo
 import LibraryGeneralDetailsAdd from "../../modules/admin/sidebar-activities/library/book-details/register-new-book/general-details/page";
 import LayoutBookDetails from "../../modules/admin/sidebar-activities/library/book-details/register-new-book/layout";
 import LibrarySpecificDetailsAdd from "../../modules/admin/sidebar-activities/library/book-details/register-new-book/specific-details/page";
-import LendBook from "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lead/page";
+import LendBook from "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend-book/page";
+import LendBookLend from "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend/page";
+import ReturnReIssueBooks from "../../modules/admin/sidebar-activities/library/library-activities/return-reissue-books/page";
+import LostBookDetails from "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details/page";
 import LibrarySlidebar from "../../modules/admin/sidebar-activities/library/Slidebar";
 export default function LibraryRoutes() {
   return (
@@ -54,12 +57,17 @@ export default function LibraryRoutes() {
         <Route path="library-activities">
           <Route path="lend-book">
             <Route index element={<LendBook />} />
+            <Route path="lend" element={<LendBookLend />} />
           </Route>
-          <Route path="return-reissue-books"></Route>
+          <Route path="return-reissue-book" element={<ReturnReIssueBooks />} />
         </Route>
         <Route
           path="lost-book-details"
-          element={<Suspense fallback="Loading">fsa</Suspense>}
+          element={
+            <Suspense fallback="Loading">
+              <LostBookDetails />
+            </Suspense>
+          }
         />
         <Route path="library-member">
           <Route path="staff"></Route>

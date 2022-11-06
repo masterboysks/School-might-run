@@ -48,7 +48,7 @@ export default function RenderTable({
       <td className="whitespace-nowrap w-40 px-3 py-4 text-sm text-gray-500">
         {person.invoiceStatus}
       </td>
-      <td className="whitespace-nowrap relative text-sm text-gray-500">
+      {/* <td className="whitespace-nowrap relative text-sm text-gray-500">
         <Popover>
           <Popover.Button>
             <ThreeDots />
@@ -64,7 +64,7 @@ export default function RenderTable({
             </div>
           </Popover.Panel>
         </Popover>
-      </td>
+      </td> */}
     </tr>
   );
 }

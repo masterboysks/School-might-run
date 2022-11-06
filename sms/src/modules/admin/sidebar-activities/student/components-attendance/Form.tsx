@@ -18,7 +18,7 @@ const Form = () => {
   } = useForm();
   return (
     <div className="ring-black ring-opacity-5 ring-1 form-solid mb-14 w-full p-4 my-6 rounded-md shadow">
-      <form className="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
+      <form className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className="">
           <Select
             value={arrayLevel}
