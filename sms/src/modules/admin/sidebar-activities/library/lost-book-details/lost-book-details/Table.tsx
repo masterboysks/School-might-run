@@ -98,7 +98,7 @@ export default function Table() {
   return (
     <div className="mt-11">
       <div className="w-fit ml-auto mt-4">
-        <Link to="add-lost" className="primary_btn">
+        <Link to="lost-book-organization" className="primary_btn">
           Add lost book details
         </Link>
       </div>

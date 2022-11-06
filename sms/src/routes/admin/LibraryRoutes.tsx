@@ -11,6 +11,8 @@ import LibrarySpecificDetailsAdd from "../../modules/admin/sidebar-activities/li
 import LendBook from "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend-book/page";
 import LendBookLend from "../../modules/admin/sidebar-activities/library/library-activities/lend-book/lend/page";
 import ReturnReIssueBooks from "../../modules/admin/sidebar-activities/library/library-activities/return-reissue-books/page";
+import LostBookMember from "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details-add/member/page";
+import LostBookOrganization from "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details-add/organization/page";
 import LostBookDetails from "../../modules/admin/sidebar-activities/library/lost-book-details/lost-book-details/page";
 import LibrarySlidebar from "../../modules/admin/sidebar-activities/library/Slidebar";
 export default function LibraryRoutes() {
@@ -61,14 +63,21 @@ export default function LibraryRoutes() {
           </Route>
           <Route path="return-reissue-book" element={<ReturnReIssueBooks />} />
         </Route>
-        <Route
-          path="lost-book-details"
-          element={
-            <Suspense fallback="Loading">
-              <LostBookDetails />
-            </Suspense>
-          }
-        />
+        <Route path="lost-book-details">
+          <Route
+            index
+            element={
+              <Suspense fallback="Loading">
+                <LostBookDetails />
+              </Suspense>
+            }
+          />
+          <Route
+            path="lost-book-organization"
+            element={<LostBookOrganization />}
+          />
+          <Route path="lost-book-member" element={<LostBookMember />} />
+        </Route>
         <Route path="library-member">
           <Route path="staff"></Route>
           <Route path="student"></Route>
