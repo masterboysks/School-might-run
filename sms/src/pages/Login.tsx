@@ -7,13 +7,21 @@ import Auth from "../api/common/Auth";
 import { useState } from "react";
 import AuthContext from "../contex/AuthProvider";
 import { useContext } from "react";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 // import  Error from "../components/loginError/Error";
+const schema = yup.object().shape({
+  username: yup.string().required(),
+  password: yup.string().required("Please enter password"),
+});
 export default function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   const navigate = useNavigate();
   // const { abc } = useParams();
   const { setAuth } = useContext(AuthContext);
@@ -77,7 +85,6 @@ export default function Login() {
                 placeholder="Password"
                 name="password"
                 register={register}
-                type="password"
                 errorText="Please enter password"
                 errors={errors}
                 className="mb-4"
@@ -92,12 +99,11 @@ export default function Login() {
                 id="remember_me"
               /> */}
               <br />
-              <button
+              <input
                 className=" focus:outline-none primary_btn w-full mb-5"
                 type="submit"
-              >
-                Login
-              </button>
+                value="Login"
+              />
               <Link
                 to="forgot-password"
                 replace={true}

@@ -70,6 +70,10 @@ const schema = yup.object().shape({
   isbn: yup
     .string()
     .required("")
+    .matches(
+      /^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/g,
+      "Please enter valid format"
+    )
     .max(80, "ISBN cannot be longer than 80 characters."),
   no_of_pages: yup
     .string()
@@ -106,10 +110,10 @@ export default function Form() {
       "jhsgbbvppi",
       JSON.stringify({
         isbn: d.isbn,
-        year: d.published_date.split("-")[0].splice(1),
+        year: d.published_date.split("-")[0].slice(1),
       })
     );
-    console.log(d);
+    console.log({ year: d.published_date.split("-")[0].slice(1) });
   };
   return (
     <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
@@ -209,6 +213,7 @@ export default function Form() {
             name="published_date"
             register={register}
             label="Published date*"
+            type="date"
             placeholder="2022 Second half edition"
             errors={errors}
           />

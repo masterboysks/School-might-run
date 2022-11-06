@@ -1,3 +1,4 @@
+import React from "react";
 import { Input } from "../../../../../../components/common/fields";
 import { InputDisabled } from "../../../../../../components/common/fields";
 
@@ -11,31 +12,30 @@ const RenderTable = ({ currentItems, register }) => {
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <Input
+              label={undefined}
               type="number"
               register={register}
               name={"theoryof" + person.class}
-             />
+            />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <Input
+              label={undefined}
               type="number"
               register={register}
               name={"theoryof" + person.class}
-             />
+            />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <Input
+              label={undefined}
               type="number"
               register={register}
               name={"theoryof" + person.class}
-             />
+            />
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            <InputDisabled
-              type="number"
-              register={register}
-              name={"theoryof" + person.class}
-             /Disabled>
+            <InputDisabled label={undefined} />
           </td>
         </tr>
       ))}
@@ -44,3 +44,4 @@ const RenderTable = ({ currentItems, register }) => {
 };
 
 export default RenderTable;
+// name={"theoryof" + person.class}

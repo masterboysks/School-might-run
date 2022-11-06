@@ -52,12 +52,6 @@ export default function Form() {
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-semibold text-primary-active"
                     >
-                      Call number
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-primary-active"
-                    >
                       Shelf number
                     </th>
                     <th

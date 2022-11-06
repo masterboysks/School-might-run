@@ -13,26 +13,36 @@ export default function RenderTable({
 }) {
   const [accessionNumberGenerate, setAccessionNumberGenerate] = useState("");
   useEffect(() => {
-    async () => {
-      const temp = await localStorage.getElementById("jhsgbbvppi");
-      const temp1 = JSON.parse(temp);
-      setAccessionNumberGenerate(temp);
-    };
+    (async () => {
+      const temp = localStorage.getItem("jhsgbbvppi") || "";
+      // console.log(temp, "temp");
+      const temp1 = await JSON.parse(temp);
+      setAccessionNumberGenerate(temp1);
+    })();
   }, []);
 
   const accessionGenerator = (id, values) => {
-    const temp = values?.isbn.split(/[-,.\s]/);
-    return `${temp[3]}-${id}-${temp[4]}-${values?.year}`;
-    // Registration no from insb -- index number or unit no --publication no-- published date last threee digit
+    console.log(values);
+    if (values.isbn) {
+      const temp = values?.isbn.split(/[-,.\s]/);
+      return `${temp[2]}-${id + 1}-${temp[3]}-${values?.year}`;
+      // Registration no from insb -- index number or unit no --publication no-- published date last threee digit
+    }
   };
 
   return (
     <tr>
       <td className="p-2 px-4">{index + 1}</td>
-      <td className="p-2"></td>
-      <td className="p-2"></td>
       <td className="p-2">
         {accessionGenerator(index, accessionNumberGenerate)}
+      </td>
+      <td className="p-2">
+        <Input
+          placeholder="10:00 AM"
+          name={`${current}[pickup_time]`}
+          label={undefined}
+          register={register}
+        />
       </td>
       <td className="p-2">
         <Input
@@ -51,7 +61,7 @@ export default function RenderTable({
               setStation((curr) => {
                 let temp = [...curr];
 
-                temp.splice(temp.indexOf(current), 1);
+                console.log(temp.splice(index, 1));
                 return temp;
               });
             }}

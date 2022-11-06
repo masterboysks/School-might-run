@@ -12,6 +12,11 @@ const steps = [
     href: "#",
     status: 1,
   },
+  {
+    name: "Preview",
+    href: "#",
+    status: 1,
+  },
 ];
 export default function LibraryGeneralDetailsAdd() {
   return (
