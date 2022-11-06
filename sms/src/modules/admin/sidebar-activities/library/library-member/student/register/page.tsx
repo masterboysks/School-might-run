@@ -17,7 +17,8 @@ export default function LibraryRegisterStudent() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Form />
+      {/* <Form /> */}
+      {/* search left */}
       <Table />
     </>
   );
