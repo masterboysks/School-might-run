@@ -86,7 +86,7 @@ export default function BalanceSheet() {
                       scope="col"
                       className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
                     >
-                      Payment method
+                      Payment month
                     </th>
                     <th
                       scope="col"

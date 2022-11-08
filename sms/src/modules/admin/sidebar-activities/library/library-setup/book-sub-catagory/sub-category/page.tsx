@@ -1,22 +1,24 @@
 import React from 'react';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Table from './Table';
+
 const pages = [
   { name: 'Library' },
   {
     name: 'Setup',
-    href: '/admin/dashboard/library/library-member/staff',
   },
   {
-    name: 'Book category',
-    href: '/admin/dashboard/library/library-setup/book-category',
+    name: 'Book sub-category',
+    href: '/admin/dashboard/library/library-setup/book-sub-category',
   },
 ];
-export default function LibraryBookCategory() {
+const LibraryBookSubCatagory = () => {
   return (
     <>
       <Breadnav pages={pages} />
       <Table />
     </>
   );
-}
+};
+
+export default LibraryBookSubCatagory;

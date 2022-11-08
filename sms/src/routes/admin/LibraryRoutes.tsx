@@ -12,6 +12,12 @@ import LibraryRegisterStudent from '../../modules/admin/sidebar-activities/libra
 import BookBorrowHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/boook-borrow-history/page';
 import LibraryEnrollRenewHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/enroll-renew/page';
 import LibrarySingleStudentLayout from '../../modules/admin/sidebar-activities/library/library-member/student/student/layout';
+import LibraryBookCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-category/add/page';
+import LibraryBookCategory from '../../modules/admin/sidebar-activities/library/library-setup/book-category/catagory/page';
+import LibraryBookCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-category/edit/page';
+import LibraryBookSubCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/add/page';
+import LibraryBookSubCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/edit/page';
+import LibraryBookSubCatagory from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/sub-category/page';
 const BookDetails = lazy(
   () =>
     import(
@@ -262,8 +268,16 @@ export default function LibraryRoutes() {
           </Route>
         </Route>
         <Route path="library-setup">
-          <Route path="book-category" />
-          <Route path="book-sub-category" />
+          <Route path="book-category">
+            <Route index element={<LibraryBookCategory />} />
+            <Route path="add" element={<LibraryBookCategoryAdd />} />
+            <Route path=":id" element={<LibraryBookCategoryEdit />} />
+          </Route>
+          <Route path="book-sub-category">
+            <Route index element={<LibraryBookSubCatagory />} />
+            <Route path="add" element={<LibraryBookSubCategoryAdd />} />
+            <Route path=":id" element={<LibraryBookSubCategoryEdit />} />
+          </Route>
           <Route path="book-issue-rule" />
           <Route path="fine-setup" />
         </Route>
