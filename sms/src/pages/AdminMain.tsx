@@ -56,12 +56,12 @@ const AdminMain = () => {
           modules && setLoading(false);
         } catch (e) {
           // console.log(e);
-          navigate('/');
+          // navigate('/');
         }
       })();
     } catch (error) {
       // console.log(error);
-      navigate('/');
+      // navigate('/');
     }
     // return  () => {
     //   localStorage.removeItem("kcx");

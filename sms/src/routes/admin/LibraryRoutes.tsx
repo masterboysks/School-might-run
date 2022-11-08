@@ -15,9 +15,13 @@ import LibrarySingleStudentLayout from '../../modules/admin/sidebar-activities/l
 import LibraryBookCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-category/add/page';
 import LibraryBookCategory from '../../modules/admin/sidebar-activities/library/library-setup/book-category/catagory/page';
 import LibraryBookCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-category/edit/page';
+import LibraryBookIssueRuleEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-issue-rule/edit/page';
+import LibraryBookIssueRule from '../../modules/admin/sidebar-activities/library/library-setup/book-issue-rule/issue-rule/page';
 import LibraryBookSubCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/add/page';
 import LibraryBookSubCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/edit/page';
 import LibraryBookSubCatagory from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/sub-category/page';
+import LibraryFineSetupEdit from '../../modules/admin/sidebar-activities/library/library-setup/finesetup/edit/page';
+import LibraryFineSetup from '../../modules/admin/sidebar-activities/library/library-setup/finesetup/finesetup/page';
 const BookDetails = lazy(
   () =>
     import(
@@ -275,11 +279,18 @@ export default function LibraryRoutes() {
           </Route>
           <Route path="book-sub-category">
             <Route index element={<LibraryBookSubCatagory />} />
-            <Route path="add" element={<LibraryBookSubCategoryAdd />} />
             <Route path=":id" element={<LibraryBookSubCategoryEdit />} />
           </Route>
-          <Route path="book-issue-rule" />
-          <Route path="fine-setup" />
+          <Route path="book-issue-rule">
+            <Route index element={<LibraryBookIssueRule />} />
+            {/* <Route path="add" element={<LibraryBookIssueRuleAdd />} /> */}
+            <Route path=":id" element={<LibraryBookIssueRuleEdit />} />
+          </Route>
+          <Route path="fine-setup">
+            <Route index element={<LibraryFineSetup />} />
+            {/* <Route path="add" element={<LibraryBookIssueRuleAdd />} /> */}
+            <Route path=":id" element={<LibraryFineSetupEdit />} />
+          </Route>
         </Route>
         <Route path="library-book-report">
           <Route path="book-report" /> <Route path="book-transaction-report" />

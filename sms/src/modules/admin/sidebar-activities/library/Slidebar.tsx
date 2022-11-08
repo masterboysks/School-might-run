@@ -71,18 +71,18 @@ const paymentReportLinks = [
 ];
 
 const LibrarySlidebar = () => {
-  const [dropdownSetupActive, setDropdownSetupActive] = useState(true);
+  // const [dropdownSetupActive, setDropdownSetupActive] = useState(true);
   const [setup, setSetup] = useState(false);
   const [activities, setActivities] = useState(false);
   const [member, setMember] = useState(false);
   const [bookReport, setBookReport] = useState(false);
   const [paymentReport, setPaymentReport] = useState(false);
   const location = useLocation().pathname;
-  useEffect(() => {
-    location.includes('/admin/dashboard/exam/exam-setup')
-      ? setSetup(true)
-      : setSetup(false);
-  }, [location]);
+  // useEffect(() => {
+  //   location.includes('/admin/dashboard/exam/exam-setup')
+  //     ? setSetup(true)
+  //     : setSetup(false);
+  // }, [location]);
 
   let nav;
   const sidebar = () => {
@@ -143,7 +143,7 @@ const LibrarySlidebar = () => {
                    ) && !activities
                      ? 'bg-primary-grey-200 '
                      : 'text-primary-grey-600'
-                 }text-sm`}
+                 } text-sm`}
             >
               <div
                 id="arrow"
@@ -212,7 +212,7 @@ const LibrarySlidebar = () => {
                    ) && !member
                      ? 'bg-primary-grey-200 '
                      : 'text-primary-grey-600'
-                 }text-sm`}
+                 } text-sm`}
             >
               <div
                 id="arrow"
@@ -262,7 +262,7 @@ const LibrarySlidebar = () => {
                    ) && !setup
                      ? 'bg-primary-grey-200 '
                      : 'text-primary-grey-600'
-                 }text-sm`}
+                 } text-sm`}
             >
               <div
                 id="arrow"
@@ -278,7 +278,7 @@ const LibrarySlidebar = () => {
               className={`${
                 setup ? '' : 'hidden'
               } transition duration-700 ease-in`}
-              id="dropdown"
+              id="dropdown-setup"
             >
               {setupLinks.map((curr) => {
                 return (
@@ -312,7 +312,7 @@ const LibrarySlidebar = () => {
                    ) && !bookReport
                      ? 'bg-primary-grey-200 '
                      : 'text-primary-grey-600'
-                 }text-sm`}
+                 } text-sm`}
             >
               <div
                 id="arrow"
@@ -364,7 +364,7 @@ const LibrarySlidebar = () => {
                    ) && !paymentReport
                      ? 'bg-primary-grey-200 '
                      : 'text-primary-grey-600'
-                 }text-sm`}
+                 } text-sm`}
             >
               <div
                 id="arrow"

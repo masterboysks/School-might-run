@@ -1,5 +1,24 @@
 import React from 'react';
-
-export default function page() {
-  return <div>page</div>;
+import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Table from './Table';
+const pages = [
+  { name: 'Library' },
+  {
+    name: 'Setup',
+    href: '/admin/dashboard/library/library-member/staff',
+  },
+  {
+    name: 'Book issue rule',
+    href: '/admin/dashboard/library/library-setup/book-issue-rule',
+  },
+];
+function LibraryBookIssueRule() {
+  return (
+    <div>
+      <Breadnav pages={pages} />
+      <Table />
+    </div>
+  );
 }
+
+export default LibraryBookIssueRule;
