@@ -129,7 +129,10 @@ export default function Table({ type }) {
             </label>
           </div>
           <div className="btns w-fit ">
-            <Link to="/fee/student-logsheet " className="secondary_btn">
+            <Link
+              to="/admin/dashboard/fee/student-logsheet "
+              className="secondary_btn"
+            >
               Cancel
             </Link>
             <div className="primary_btn">Submit</div>

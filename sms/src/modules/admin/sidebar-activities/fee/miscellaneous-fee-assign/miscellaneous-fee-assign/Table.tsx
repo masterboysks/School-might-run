@@ -44,7 +44,7 @@ export default function Table() {
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
-            to="/fee/miscellaneous-fee-assign/assign"
+            to="/admin/dashboard/fee/miscellaneous-fee-assign/assign"
             className="primary_btn"
           >
             Assign

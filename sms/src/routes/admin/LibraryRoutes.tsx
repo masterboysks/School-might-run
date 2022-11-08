@@ -2,6 +2,8 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import LibraryBookReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-report/page';
+import LibraryBookTransactionReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-transaction-report/page';
 import LibraryMemberStaffMain from '../../modules/admin/sidebar-activities/library/library-member/staff/main/page';
 import LibraryRegisterStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/register/page';
 import BookBorrowHistoryStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/boook-borrow-history/page';
@@ -283,17 +285,19 @@ export default function LibraryRoutes() {
           </Route>
           <Route path="book-issue-rule">
             <Route index element={<LibraryBookIssueRule />} />
-            {/* <Route path="add" element={<LibraryBookIssueRuleAdd />} /> */}
             <Route path=":id" element={<LibraryBookIssueRuleEdit />} />
           </Route>
           <Route path="fine-setup">
             <Route index element={<LibraryFineSetup />} />
-            {/* <Route path="add" element={<LibraryBookIssueRuleAdd />} /> */}
             <Route path=":id" element={<LibraryFineSetupEdit />} />
           </Route>
         </Route>
         <Route path="library-book-report">
-          <Route path="book-report" /> <Route path="book-transaction-report" />
+          <Route path="book-report" element={<LibraryBookReport />} />{' '}
+          <Route
+            path="book-transaction-report"
+            element={<LibraryBookTransactionReport />}
+          />
           <Route path="library-day-log" /> <Route path="book-entry-report" />
         </Route>
         <Route path="library-payment-report">

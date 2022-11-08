@@ -43,7 +43,7 @@ export default function Table() {
           />
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
-          <Link to="/fee/fee-type/add" className="primary_btn">
+          <Link to="/admin/dashboard/fee/fee-type/add" className="primary_btn">
             Add
           </Link>
         </div>

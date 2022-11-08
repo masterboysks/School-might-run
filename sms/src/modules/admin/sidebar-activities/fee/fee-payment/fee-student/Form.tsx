@@ -102,7 +102,10 @@ export default function Form() {
       </form>
       <div className="w-full my-6">
         <div className=" w-fit ml-auto">
-          <Link to="/fee/fee-payment" className="secondary_btn cursor-pointer">
+          <Link
+            to="/admin/dashboard/fee/fee-payment"
+            className="secondary_btn cursor-pointer"
+          >
             Cancel
           </Link>
           <Link to={`/fee/fee-payment`} className="primary_btn">

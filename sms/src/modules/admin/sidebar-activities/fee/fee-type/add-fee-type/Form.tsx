@@ -39,10 +39,10 @@ export default function Form() {
         </div>
         <div className="md:flex-row w-fit lg:col-span-3  flex flex-col my-6 ml-auto">
           <div className=" w-fit">
-            <Link to="/fee/fee-type" className="secondary_btn">
+            <Link to="/admin/dashboard/fee/fee-type" className="secondary_btn">
               Cancel
             </Link>
-            <Link to="/fee/fee-type" className="primary_btn">
+            <Link to="/admin/dashboard/fee/fee-type" className="primary_btn">
               Save
             </Link>
           </div>

@@ -6,7 +6,6 @@ const pages = [
   { name: 'Library' },
   {
     name: 'Setup',
-    href: '/admin/dashboard/library/library-member/staff',
   },
   {
     name: 'Book category',

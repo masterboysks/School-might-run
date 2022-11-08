@@ -45,7 +45,10 @@ export default function Table() {
           />
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
-          <Link to="/fee/fee-assign/assign" className="primary_btn">
+          <Link
+            to="/admin/dashboard/fee/fee-assign/assign"
+            className="primary_btn"
+          >
             Assign
           </Link>
         </div>

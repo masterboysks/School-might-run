@@ -170,10 +170,10 @@ export default function Form() {
 
       <div className=" w-full">
         <div className=" w-fit ml-auto">
-          <Link to="/fee/fee-assign" className="secondary_btn">
+          <Link to="/admin/dashboard/fee/fee-assign" className="secondary_btn">
             Cancel
           </Link>
-          <Link to="/fee/fee-assign" className="primary_btn">
+          <Link to="/admin/dashboard/fee/fee-assign" className="primary_btn">
             Save
           </Link>
         </div>

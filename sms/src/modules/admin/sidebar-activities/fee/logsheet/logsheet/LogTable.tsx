@@ -287,7 +287,7 @@ export default function LogTable() {
                     <div className=" md:my-0 md:mt-auto flex flex-1 my-3">
                       <div className="btns w-fit md:ml-auto ml-0">
                         <div
-                          to="/fee/student-logsheet "
+                          to="/admin/dashboard/fee/student-logsheet "
                           className="secondary_btn"
                           onClick={() => setOpen(false)}
                         >

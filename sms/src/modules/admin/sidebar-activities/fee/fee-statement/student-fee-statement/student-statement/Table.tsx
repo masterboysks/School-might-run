@@ -2,6 +2,7 @@ import { PrinterIcon } from '@heroicons/react/20/solid';
 import RenderTable from './RenderTable';
 import { Fragment, useRef, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import React from 'react';
 const people = [
   {
     date: 557663,
