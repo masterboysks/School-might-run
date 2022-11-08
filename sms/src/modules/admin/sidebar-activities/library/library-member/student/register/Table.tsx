@@ -1,190 +1,157 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RenderTable from './RenderTable';
+
 const people = [
   {
-    stdId: 'Lindsay Walton',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
+    level: 'School level',
+    faculty: '',
+    noOfStd: 40,
+    invoiceStatus: 'Unplublished',
+
+    class: 'Front-end Developer',
+    section: 'lindsay.walton@example.com',
   },
   {
-    stdId: 'Lindsa',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsay Wa',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsay Walton1',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsa1',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsay Wa1',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsay Walton2',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsa2',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
-  },
-  {
-    stdId: 'Lindsay Wa2',
-    stdName: 'Front-end Developer',
-    class: 'lindsay.walton@example.com',
-    faculty: 'Member',
-    sec: 'Lindsay Walton',
-    gen: 'Front-end Developer',
-    numb: 'lindsay.walton@example.com',
-    status: 'Member',
+    level: 'School level',
+    faculty: '',
+    noOfStd: 40,
+    invoiceStatus: 'Unplublished',
+
+    class: 'Front-end Developer',
+    section: 'lindsay.walton@examplfdgbf.com',
   },
 ];
 
-export default function Table() {
+export default function Example() {
+  const checkbox = useRef();
+  const [checked, setChecked] = useState(false);
+  const [indeterminate, setIndeterminate] = useState(false);
+  const [selectedPeople, setSelectedPeople] = useState([]);
+
+  useLayoutEffect(() => {
+    const isIndeterminate =
+      selectedPeople.length > 0 && selectedPeople.length < people.length;
+    setChecked(selectedPeople.length === people.length);
+    setIndeterminate(isIndeterminate);
+    checkbox.current.indeterminate = isIndeterminate;
+  }, [selectedPeople]);
+
+  function toggleAll() {
+    setSelectedPeople(checked || indeterminate ? [] : people);
+    setChecked(!checked && !indeterminate);
+    setIndeterminate(false);
+  }
+
   return (
-    <div className="mt-11">
-      <div className="w-fit ml-auto mt-4">
-        <Link to="lost-book-organization" className="primary_btn">
-          Add lost book details
-        </Link>
+    <div className="my-6">
+      <div className="flex justify-end w-full gap-3">
+        <button
+          // to="/admin/dashboard/student/student-information/add-student-details"
+          className="primary_btn"
+        >
+          Renew selected student
+        </button>
+        <button
+          // to="/admin/dashboard/student/student-information/add-student-details"
+          className="primary_btn"
+        >
+          Register selected student
+        </button>
       </div>
-      <div className="my-6">
-        <div className=" ring-1 ring-black ring-opacity-5 min-w-full overflow-x-auto rounded-lg shadow">
-          <div className="inline-block w-full align-middle">
-            <div className=" w-full rounded-lg">
-              <table className="min-w-full divide-y divide-gray-300 table-auto">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700    "
-                    >
-                      Call number
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Book title
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Auther name
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Category
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Sub category
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
-                    >
-                      Status
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 w-10 text-left text-sm font-medium text-primary-grey-700  "
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
-                </tbody>
-              </table>
-            </div>
+
+      <div className=" ring-1 ring-black ring-opacity-5 mb-9 min-w-full mt-4 overflow-x-auto rounded-lg shadow">
+        <div className="w-fit ml-auto" />
+        <div className=" flex flex-col w-full rounded">
+          <div className=" overflow-x-auto">
+            <table className=" min-w-full divide-y divide-gray-300 table-fixed">
+              <thead className="bg-gray-50">
+                <tr className="text-primary-grey-700">
+                  <th
+                    scope="col"
+                    className="sm:w-16 sm:px-8 relative w-12 px-6"
+                  >
+                    <input
+                      type="checkbox"
+                      className="left-4 top-1/2 focus:ring-primary-btn border-primary-field placeholder:text-primary-grey-400 text-primary-btn absolute w-4 h-4 -mt-2 text-sm rounded shadow-md"
+                      ref={checkbox}
+                      checked={checked}
+                      onChange={toggleAll}
+                    />
+                  </th>
+                  <th
+                    scope="col"
+                    className=" py-3.5 pr-3 text-left text-sm font-semibold text-primary-active"
+                  >
+                    Student Id
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-primary-active"
+                  >
+                    Stu. name
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-primary-active"
+                  >
+                    Class/semester
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-primary-active"
+                  >
+                    Faculty
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-primary-active"
+                  >
+                    Section
+                  </th>
+                  {/* <th
+                    scope="col"
+                    className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-left "
+                  >
+                    Fine ammount
+                  </th> */}
+                  <th
+                    scope="col"
+                    className="relative w-16 py-3.5 pl-3 pr-4 sm:pr-6 text-left"
+                  >
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody className=" bg-white divide-y divide-gray-200">
+                {people.map((person, index, table) => (
+                  <RenderTable
+                    key={`${person.class}-${person.section}`}
+                    person={person}
+                    selectedPeople={selectedPeople}
+                    setSelectedPeople={setSelectedPeople}
+                    table={table}
+                    index={index}
+                  />
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      {/* <nav
-        className=" flex items-center justify-between py-3 bg-white border-t border-gray-200"
-        aria-label="Pagination"
-      >
-        <div className="sm:block hidden">
-          <p className="text-sm text-gray-700">{message}</p>
-        </div>
-        <div className="sm:justify-end flex justify-between flex-1">
-          <button
-            disabled={indexOfFirstItem === 0}
-            onClick={onPreviousPage}
-            className="disabled:opacity-80 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md"
-          >
-            Previous
-          </button>
-          <button
-            disabled={indexOfLastItem >= people.length}
-            onClick={onNextPage}
-            className="disabled:opacity-80 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md"
-          >
-            Next
-          </button>
-        </div>
-      </nav> */}
+      {/* <table>
+        <tbody className="child:child:pl-2 text-base">
+          <tr>
+            <th>Total fine</th>
+            <td>: Rs.00</td>
+          </tr>
+          <tr>
+            <th>Discount</th>
+            <td>: </td>
+          </tr>
+        </tbody>
+      </table> */}
     </div>
   );
 }

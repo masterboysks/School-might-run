@@ -4,6 +4,10 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LibraryMemberStaffMain from '../../modules/admin/sidebar-activities/library/library-member/staff/main/page';
 import LibraryMemberStudentMain from '../../modules/admin/sidebar-activities/library/library-member/student/main/page';
+import LibraryRegisterStudent from '../../modules/admin/sidebar-activities/library/library-member/student/register/page';
+import BookBorrowHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/boook-borrow-history/page';
+import LibraryEnrollRenewHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/enroll-renew/page';
+import LibrarySingleStudentLayout from '../../modules/admin/sidebar-activities/library/library-member/student/student/layout';
 const BookDetails = lazy(
   () =>
     import(
@@ -204,14 +208,34 @@ export default function LibraryRoutes() {
               </Suspense>
             }
           ></Route>
-          <Route
-            path="student"
-            element={
-              <Suspense>
-                <LibraryMemberStudentMain />
-              </Suspense>
-            }
-          ></Route>
+          <Route path="student">
+            <Route
+              index
+              element={
+                <Suspense>
+                  <LibraryMemberStudentMain />
+                </Suspense>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <Suspense>
+                  <LibraryRegisterStudent />
+                </Suspense>
+              }
+            />
+            <Route path=":student" element={<LibrarySingleStudentLayout />}>
+              <Route
+                path="enroll-renew"
+                element={<LibraryEnrollRenewHistory />}
+              />
+              <Route
+                path="book-borrow-history"
+                element={<BookBorrowHistory />}
+              />
+            </Route>
+          </Route>
         </Route>
         <Route path="library-setup">
           <Route path="book-category" />
