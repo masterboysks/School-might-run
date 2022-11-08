@@ -2,8 +2,10 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import LibraryBookEntryReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-entry-report/page';
 import LibraryBookReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-report/page';
 import LibraryBookTransactionReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-transaction-report/page';
+import LibraryDayLog from '../../modules/admin/sidebar-activities/library/libaray-book-report/libaray-day-log/page';
 import LibraryMemberStaffMain from '../../modules/admin/sidebar-activities/library/library-member/staff/main/page';
 import LibraryRegisterStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/register/page';
 import BookBorrowHistoryStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/boook-borrow-history/page';
@@ -298,7 +300,11 @@ export default function LibraryRoutes() {
             path="book-transaction-report"
             element={<LibraryBookTransactionReport />}
           />
-          <Route path="library-day-log" /> <Route path="book-entry-report" />
+          <Route path="library-day-log" element={<LibraryDayLog />} />{' '}
+          <Route
+            path="book-entry-report"
+            element={<LibraryBookEntryReport />}
+          />
         </Route>
         <Route path="library-payment-report">
           <Route path="library-fine-summary" />
