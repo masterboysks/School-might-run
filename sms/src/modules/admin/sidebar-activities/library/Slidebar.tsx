@@ -62,11 +62,11 @@ const bookReportLinks = [
 const paymentReportLinks = [
   {
     name: 'Library fine summary',
-    path: '/admin/dashboard/library/library-payment-report/library-fine-summary',
+    path: '/admin/dashboard/library/library-payment-report/summary',
   },
   {
     name: 'Library fine statement',
-    path: '/admin/dashboard/library/library-payment-report/library-fine-statement',
+    path: '/admin/dashboard/library/library-payment-report/statement',
   },
 ];
 

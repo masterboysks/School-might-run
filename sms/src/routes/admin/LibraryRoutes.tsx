@@ -16,6 +16,8 @@ import LibraryRegisterStudent from '../../modules/admin/sidebar-activities/libra
 import BookBorrowHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/boook-borrow-history/page';
 import LibraryEnrollRenewHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/enroll-renew/page';
 import LibrarySingleStudentLayout from '../../modules/admin/sidebar-activities/library/library-member/student/student/layout';
+import LibraryFineStatement from '../../modules/admin/sidebar-activities/library/library-payment-report/library-fine-statement/page';
+import LibraryFineSummary from '../../modules/admin/sidebar-activities/library/library-payment-report/library-fine-summary/page';
 import LibraryBookCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-category/add/page';
 import LibraryBookCategory from '../../modules/admin/sidebar-activities/library/library-setup/book-category/catagory/page';
 import LibraryBookCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-category/edit/page';
@@ -307,8 +309,8 @@ export default function LibraryRoutes() {
           />
         </Route>
         <Route path="library-payment-report">
-          <Route path="library-fine-summary" />
-          <Route path="linrary-fine-statement" />
+          <Route path="summary" element={<LibraryFineSummary />} />
+          <Route path="statement" element={<LibraryFineStatement />} />
         </Route>
       </Route>
       <Route

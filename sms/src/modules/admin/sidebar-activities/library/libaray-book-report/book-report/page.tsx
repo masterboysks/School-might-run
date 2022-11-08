@@ -4,7 +4,7 @@ import Table from './Table';
 const pages = [
   { name: 'Library' },
   {
-    name: 'Report',
+    name: 'Book Report',
   },
   {
     name: 'Book report',

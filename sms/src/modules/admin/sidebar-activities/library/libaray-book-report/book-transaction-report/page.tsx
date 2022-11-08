@@ -4,7 +4,7 @@ import Form from './Form';
 const pages = [
   { name: 'Library' },
   {
-    name: 'Report',
+    name: 'Book Report',
   },
   {
     name: 'Book transaction report',
