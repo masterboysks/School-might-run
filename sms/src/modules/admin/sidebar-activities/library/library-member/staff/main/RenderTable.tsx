@@ -11,11 +11,17 @@ const RenderTable = ({ currentItems }) => {
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.stdId}
           </td>
+          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            {person.stdName}
+          </td>
           <td className="whitespace-nowrap px-3 py-4 underline text-sm text-gray-500">
             <Link to={person.stdName + '/enroll-renew'}>{person.class}</Link>
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.class}
+            {person.faculty}
+          </td>
+          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            {person.faculty}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.faculty}
@@ -31,12 +37,8 @@ const RenderTable = ({ currentItems }) => {
                  ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
                 <div className="p-3">
-                  <Link to="">Change status</Link>
+                  <Link to="#">Change status</Link>
                 </div>
-
-                {/* <div className="p-3">
-                  <Link to="edit-book-details">Delete</Link>
-                </div> */}
               </Popover.Panel>
             </Popover>
           </td>

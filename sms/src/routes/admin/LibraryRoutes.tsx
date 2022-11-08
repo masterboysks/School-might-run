@@ -3,6 +3,10 @@ import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LibraryMemberStaffMain from '../../modules/admin/sidebar-activities/library/library-member/staff/main/page';
+import LibraryRegisterStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/register/page';
+import BookBorrowHistoryStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/boook-borrow-history/page';
+import LibraryEnrollRenewHistoryStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/enroll-renew/page';
+import LibrarySingleStaffLayout from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/layout';
 import LibraryMemberStudentMain from '../../modules/admin/sidebar-activities/library/library-member/student/main/page';
 import LibraryRegisterStudent from '../../modules/admin/sidebar-activities/library/library-member/student/register/page';
 import BookBorrowHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/boook-borrow-history/page';
@@ -200,14 +204,34 @@ export default function LibraryRoutes() {
           />
         </Route>
         <Route path="library-member">
-          <Route
-            path="staff"
-            element={
-              <Suspense>
-                <LibraryMemberStaffMain />
-              </Suspense>
-            }
-          ></Route>
+          <Route path="staff">
+            <Route
+              index
+              element={
+                <Suspense>
+                  <LibraryMemberStaffMain />
+                </Suspense>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <Suspense>
+                  <LibraryRegisterStaff />
+                </Suspense>
+              }
+            />
+            <Route path=":staff" element={<LibrarySingleStaffLayout />}>
+              <Route
+                path="enroll-renew"
+                element={<LibraryEnrollRenewHistoryStaff />}
+              />
+              <Route
+                path="book-borrow-history"
+                element={<BookBorrowHistoryStaff />}
+              />
+            </Route>
+          </Route>
           <Route path="student">
             <Route
               index

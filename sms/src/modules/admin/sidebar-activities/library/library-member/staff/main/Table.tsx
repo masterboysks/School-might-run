@@ -119,13 +119,25 @@ export default function Table() {
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                     >
-                      Member name
+                      Staff Id
                     </th>
                     <th
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                     >
-                      Expire date
+                      Staff name
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                    >
+                      Department
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                    >
+                      Designation
                     </th>
                     <th
                       scope="col"
@@ -135,7 +147,7 @@ export default function Table() {
                     </th>
                     <th
                       scope="col"
-                      className="px-3 w-10 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
+                      className="px-3 py-3.5 w-10 text-left text-sm font-medium text-primary-grey-700   "
                     >
                       Action
                     </th>

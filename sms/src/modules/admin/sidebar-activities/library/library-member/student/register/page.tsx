@@ -7,11 +7,11 @@ const pages = [
   { name: 'Library' },
   {
     name: 'Student',
-    href: '/admin/dashboard/library/library-member/',
+    href: '/admin/dashboard/library/library-member/student',
   },
   {
     name: 'Register/ Renew student',
-    href: '/admin/dashboard/library/library-member/register',
+    href: '/admin/dashboard/library/library-member/student/register',
   },
 ];
 export default function LibraryRegisterStudent() {

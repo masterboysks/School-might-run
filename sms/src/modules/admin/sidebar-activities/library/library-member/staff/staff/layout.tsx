@@ -2,16 +2,16 @@ import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Details from './Details';
-export default function LibrarySingleStudentLayout() {
-  const { student } = useParams();
+export default function LibrarySingleStaffLayout() {
+  const { staff } = useParams();
   const pages = [
     { name: 'Library' },
     {
-      name: 'Student',
-      href: '/admin/dashboard/library/library-member/student',
+      name: 'Staff',
+      href: '/admin/dashboard/library/library-member/staff',
     },
     {
-      name: student,
+      name: staff,
     },
   ];
   return (
