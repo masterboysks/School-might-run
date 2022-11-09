@@ -5,29 +5,31 @@ import { DeleteModalContex } from '../../../../../../../contex/admin/common/Cont
 import { useContext } from 'react';
 import academicyearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 
-const RenderTable = ({ currentItems, setData }) => {
+const RenderTable = ({ currentItems, refetch }) => {
   const value = useContext(DeleteModalContex);
+  const mutation = useMutation({
+    mutationFn: (id) => academicyearApi.delete(id),
+    onSuccess: refetch,
+  });
 
-  const deleteFunction = async (id) => {
-    const res = await academicyearApi.delete(id);
-    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
-  };
   const handleDelete = (id, name, inUse) => {
     value.setValue({
-      func: deleteFunction,
+      func: mutation.mutate,
       id: id,
       message: `You want to delete ${name} ?`,
       heading: 'academic year',
       inUse,
     });
   };
+
   return (
     <>
       {currentItems.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.academicYear}
+            {person.academic_year}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.isRunning ? 'True' : 'False'}
@@ -56,11 +58,15 @@ const RenderTable = ({ currentItems, setData }) => {
                   }}
                   className="p-3"
                 >
-                  <Link to={`${person.id}/${person.academicYear}`}>Edit</Link>
+                  <Link to={`${person.id}/${person.academic_year}`}>Edit</Link>
                 </div>
                 <button
                   onClick={() => {
-                    handleDelete(person.id, person.academicYear, person.in_use);
+                    handleDelete(
+                      person.id,
+                      person.academic_year,
+                      person.in_use
+                    );
                   }}
                   className="p-3"
                 >

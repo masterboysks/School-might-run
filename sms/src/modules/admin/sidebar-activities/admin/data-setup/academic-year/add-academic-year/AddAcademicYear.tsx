@@ -46,7 +46,7 @@ const AddAcademicYear = () => {
   const onSubmit = async (d) => {
     const res = await academicyearApi.create(d);
     res?.status === 201
-      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      ? navigate('/admin/dashboard/admin/data-setup/academic-year')
       : setError('Failed to create Academic year');
   };
   return (

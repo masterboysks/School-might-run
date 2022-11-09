@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import academicyearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
@@ -34,19 +34,24 @@ const pages = [
   },
 ];
 const EditAcademicYear = () => {
+  const { id, name } = useParams();
   const {
     register,
     handleSubmit,
     control,
     reset,
     formState: { errors, isValid },
-  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+    defaultValues: { academic_year: name },
+  });
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    const res = await academicyearApi.edit(d);
+    const res = await academicyearApi.edit(id, d);
     res?.status === 201
-      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      ? navigate('/admin/dashboard/admin/data-setup/academic-year')
       : setError('Failed to edit Academic year');
   };
   return (

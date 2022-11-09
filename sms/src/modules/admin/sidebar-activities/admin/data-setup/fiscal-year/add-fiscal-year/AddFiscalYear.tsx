@@ -37,7 +37,7 @@ const AddFiscalYear = () => {
     console.log(d);
     const res = await fiscalYearApi.create(d);
     res?.status === 201
-      ? navigate('/admin/dashboard/admin/data-setup/designation')
+      ? navigate('/admin/dashboard/admin/data-setup/fiscal-year')
       : setError('Failed to create Fiscal year');
   };
   return (
