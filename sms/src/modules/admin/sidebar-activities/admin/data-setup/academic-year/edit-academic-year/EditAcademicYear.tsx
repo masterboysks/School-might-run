@@ -9,7 +9,16 @@ import {
   Checkbox,
   YearInput,
 } from '../../../../../../../components/common/fields';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  academic_year: yup
+    .string()
+    .required('')
+    .min(4, 'Please enter valid year')
+    .max(4, 'Please enter valid year'),
+  is_running: yup.boolean().required(''),
+});
 const pages = [
   { name: 'Admin' },
   {
@@ -31,7 +40,7 @@ const EditAcademicYear = () => {
     control,
     reset,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {

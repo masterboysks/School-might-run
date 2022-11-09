@@ -17,6 +17,15 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import AssignClassSubject from '../../../../../../../components/admin/admin/AssignClassSubject';
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  level_id: yup.string().required(''),
+  faculty_id: yup.string(),
+  subfaculty_id: yup.string(),
+  class_name: yup.string().required(''),
+});
+
 const pages = [
   { name: 'Admin' },
   {
@@ -38,7 +47,7 @@ const AddClassSemester = () => {
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [sectionsOption, setSectionsOption] = useState([]);
   const [subFacultyOption, setSubFacultyOption] = useState([]);
   const [facultyOption, setFacultyOption] = useState([]);
@@ -80,37 +89,37 @@ const AddClassSemester = () => {
   }, []);
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    // console.log({
-    //   ...d,
-    //   section_ids: d.section_ids?.map((c) => c.id),
-    //   subject_ids: [
-    //     ...arrayCompalsarySubjects
-    //       .filter((c, i) => d[`compalsarySubjects${i}`])
-    //       .map((c) => c.id),
-    //     ...arrayElectiveSubjects
-    //       .filter((c, i) => d[`electiveSubjects${i}`])
-    //       .map((c) => c.id),
-    //   ],
-    // });
-    try {
-      const res = await classApi.create({
-        ...d,
-        section_ids: d.section_ids?.map((c) => c.id),
-        subject_ids: [
-          ...arrayCompalsarySubjects
-            ?.filter((c, i) => d[`compalsarySubjects${i}`])
-            ?.map((c) => c?.id),
-          ...arrayElectiveSubjects
-            ?.filter((c, i) => d[`electiveSubjects${i}`])
-            ?.map((c) => c?.id),
-        ],
-      });
-      res?.status === 201
-        ? navigate('/admin/dashboard/admin/data-setup/class-semester')
-        : setError('Failed to add class');
-    } catch (error) {
-      console.warn(error);
-    }
+    console.log({
+      ...d,
+      section_ids: d.section_ids?.map((c) => c.id),
+      subject_ids: [
+        ...arrayCompalsarySubjects
+          .filter((c, i) => d[`compalsarySubjects${i}`])
+          .map((c) => c.id),
+        ...arrayElectiveSubjects
+          .filter((c, i) => d[`electiveSubjects${i}`])
+          .map((c) => c.id),
+      ],
+    });
+    // try {
+    //   const res = await classApi.create({
+    //     ...d,
+    //     section_ids: d.section_ids?.map((c) => c.id),
+    //     subject_ids: [
+    //       ...arrayCompalsarySubjects
+    //         ?.filter((c, i) => d[`compalsarySubjects${i}`])
+    //         ?.map((c) => c?.id),
+    //       ...arrayElectiveSubjects
+    //         ?.filter((c, i) => d[`electiveSubjects${i}`])
+    //         ?.map((c) => c?.id),
+    //     ],
+    //   });
+    //   res?.status === 201
+    //     ? navigate('/admin/dashboard/admin/data-setup/class-semester')
+    //     : setError('Failed to add class');
+    // } catch (error) {
+    //   console.warn(error);
+    // }
   };
   return (
     <>

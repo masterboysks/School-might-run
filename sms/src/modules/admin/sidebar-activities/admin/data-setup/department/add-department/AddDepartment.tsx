@@ -6,6 +6,11 @@ import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-s
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
 import { Input } from '../../../../../../../components/common/fields';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  department_name: yup.string().required('').max(255, 'Max size 255.'),
+});
 
 const pages = [
   { name: 'Admin' },
@@ -27,7 +32,7 @@ const AddDepartment = () => {
     handleSubmit,
 
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
 
   const [error, setError] = useState('');
 

@@ -17,6 +17,15 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import AssignClassSubject from '../../../../../../../components/admin/admin/AssignClassSubject';
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  level_id: yup.string().required(''),
+  faculty_id: yup.string(),
+  subfaculty_id: yup.string(),
+  class_name: yup.string().required(''),
+});
+
 const pages = [
   { name: 'Admin' },
   {
@@ -40,7 +49,7 @@ const EditClassSemester = () => {
     control,
     reset,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [sectionsOption, setSectionsOption] = useState([]);
   const [subFacultyOption, setSubFacultyOption] = useState([]);
   const [facultyOption, setFacultyOption] = useState([]);

@@ -12,6 +12,15 @@ import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/
 import { useForm } from 'react-hook-form';
 import subjectApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subjectApi';
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  level_id: yup.string().required(''),
+  subject_name: yup.string().required('').max(255, 'Max size 255.'),
+  credit_hours: yup.string().required(''),
+  subject_type: yup.string().required(''),
+});
+
 const pages = [
   { name: 'Admin' },
   {
@@ -36,7 +45,7 @@ const AddSubject = () => {
     handleSubmit,
 
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [arrayLevel, setArrayLevel] = useState([]);
   const [error, setError] = useState('');
   const navigate = useNavigate();
