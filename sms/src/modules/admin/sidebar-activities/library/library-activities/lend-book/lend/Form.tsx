@@ -23,7 +23,7 @@ export default function Form() {
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
   } = useForm();
   const onSubmit = async (d) => console.log(d);

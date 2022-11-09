@@ -10,18 +10,61 @@ import {
 } from '../../../../../components/common/fields';
 import LocationForm from '../../../../../components/common/LocationForm';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 const arrayDateFormat = [
   { id: 1, name: 'AD' },
   { id: 2, name: 'BS' },
 ];
+
+const schema = yup.object().shape({
+  company_name: yup.string().required('').max(255, 'Max size 255.'),
+  registration_no: yup.string().required('').max(255, 'Max size 255.'),
+  pan_no: yup.string().required('').max(255, 'Max size 255.'),
+  postal_code: yup
+    .string()
+    .nullable()
+    .min(4, 'Min size 4.')
+    .max(255, 'Max size 255.'),
+  mobile_no: yup
+    .string()
+    .required('')
+    .min(10, 'Min size 10.')
+    .max(15, 'Max size 15.'),
+  tel_no: yup
+    .string()
+    .required('')
+    .min(7, 'Min size 07.')
+    .max(15, 'Max size 15.'),
+  alt_tel_no: yup.string().max(15, 'Max size 15.'),
+  website: yup.string().nullable().max(255, 'Max size 255.'),
+  company_email: yup
+    .string()
+    .required('')
+    .email('Please enter valid email')
+    .max(255, 'Max size 255.'),
+  country: yup.string().required('').max(255, 'Max size 255.'),
+  province: yup.string().required('').max(255, 'Max size 255.'),
+  district: yup.string().required('').max(255, 'Max size 255.'),
+  vdc_municipality: yup.string().required('').max(255, 'Max size 255.'),
+  ward_no: yup.string().required('').max(255, 'Max size 255.'),
+  tole: yup.string().required('').max(255, 'Max size 255.'),
+  google_map_link: yup.string().nullable().max(255, 'Max size 255.'),
+  date_format: yup.string().required('').max(255, 'Max size 255.'),
+  company_logo: yup.string(),
+});
 const Form = () => {
   const {
     register,
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
-  } = useForm();
+    formState: { isValid, errors },
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+  });
   const [date, setDate] = useState('');
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
@@ -90,7 +133,6 @@ const Form = () => {
             register={register}
             placeholder="XYZ school"
             errors={errors}
-            required={true}
             name="company_name"
           />
         </div>
@@ -100,7 +142,6 @@ const Form = () => {
             register={register}
             placeholder="468456464584464"
             errors={errors}
-            required={true}
             name="registration_no"
             type="number"
           />
@@ -110,7 +151,6 @@ const Form = () => {
             label="Pan no.*"
             register={register}
             errors={errors}
-            required={true}
             name="pan_no"
             placeholder="21445165412154"
             type="number"
@@ -131,7 +171,6 @@ const Form = () => {
             placeholder="214451654"
             name="mobile_no"
             errors={errors}
-            required={true}
             register={register}
             type="number"
           />
@@ -142,7 +181,6 @@ const Form = () => {
             placeholder="015521332"
             register={register}
             errors={errors}
-            required={true}
             name="tel_no"
             type="number"
           />
@@ -167,11 +205,12 @@ const Form = () => {
         </div>
         <div className="">
           <Input
-            label="Email"
+            label="Email*"
             name="company_email"
             type="email"
             placeholder="mail@xyz.com.edu"
             register={register}
+            errors={errors}
           />
         </div>
 
@@ -182,7 +221,6 @@ const Form = () => {
             name="ward_no"
             register={register}
             errors={errors}
-            required={true}
             placeholder="11"
             type="number"
           />
@@ -190,7 +228,6 @@ const Form = () => {
         <div className="">
           <Input
             label="Tole.*"
-            required={true}
             errors={errors}
             register={register}
             name="tole"
@@ -212,7 +249,6 @@ const Form = () => {
             value={arrayDateFormat}
             register={register}
             errors={errors}
-            required={true}
             name="date_format"
           />
 
@@ -224,7 +260,7 @@ const Form = () => {
           <DateInput
             selected={date}
             setSelected={setDate}
-            label="Established date"
+            label="Established date*"
             defaultDate={defaultDate}
           />
         </div>
@@ -253,7 +289,7 @@ const Form = () => {
           >
             Cancel
           </button>
-          <button type="submit" className="primary_btn">
+          <button type="submit" className="primary_btn " disabled={!isValid}>
             Save
           </button>
         </div>

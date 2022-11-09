@@ -9,7 +9,7 @@ export default function Table({ data }) {
     register,
     watch,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -102,7 +102,7 @@ export default function Table({ data }) {
         <Link to="#" className="secondary_btn">
           Cancel
         </Link>
-        <button type="submit" className="primary_btn">
+        <button type="submit" className="primary_btn" disabled={!isValid}>
           Save
         </button>
       </div>

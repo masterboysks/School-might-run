@@ -6,7 +6,7 @@ import { Input, Textarea } from '../../../../../components/common/fields';
 export default function Form() {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm();
   const onSubmit = (data) => {
@@ -53,7 +53,7 @@ export default function Form() {
             >
               Cancel
             </Link>
-            <button type="submit" className="primary_btn">
+            <button type="submit" className="primary_btn" disabled={!isValid}>
               Save
             </button>
           </div>

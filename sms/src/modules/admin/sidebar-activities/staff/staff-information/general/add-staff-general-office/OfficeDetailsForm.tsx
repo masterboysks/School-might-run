@@ -34,7 +34,7 @@ const PermanentAddressForm = () => {
     reset,
     getValues,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const navigate = useNavigate();
   const department = watch('department_id');
@@ -218,7 +218,7 @@ const PermanentAddressForm = () => {
           <button onClick={handleSubmit(handelBack)} className="secondary_btn">
             Back
           </button>
-          <button type="submit" className="primary_btn">
+          <button type="submit" className="primary_btn" disabled={!isValid}>
             Save
           </button>
         </div>

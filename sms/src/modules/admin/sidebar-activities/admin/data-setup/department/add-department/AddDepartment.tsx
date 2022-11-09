@@ -26,7 +26,7 @@ const AddDepartment = () => {
     register,
     handleSubmit,
 
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
 
   const [error, setError] = useState('');
@@ -74,7 +74,7 @@ const AddDepartment = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

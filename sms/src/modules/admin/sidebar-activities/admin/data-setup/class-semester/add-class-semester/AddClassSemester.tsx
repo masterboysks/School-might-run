@@ -37,7 +37,7 @@ const AddClassSemester = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [sectionsOption, setSectionsOption] = useState([]);
   const [subFacultyOption, setSubFacultyOption] = useState([]);
@@ -199,7 +199,7 @@ const AddClassSemester = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

@@ -4,7 +4,7 @@ import Table from './Table';
 import Details from './Details';
 export default function Form() {
   const {
-    formState: { errors },
+    formState: { errors, isValid },
     register,
     handleSubmit,
   } = useForm();

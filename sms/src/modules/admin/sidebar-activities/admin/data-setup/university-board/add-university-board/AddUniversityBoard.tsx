@@ -7,6 +7,9 @@ import Breadnav from '../../../../../../../components/common/navigation/Breadnav
 import Break from '../../../../../../../components/common/Break';
 import { Input } from '../../../../../../../components/common/fields';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 const pages = [
   { name: 'Admin' },
   {
@@ -21,14 +24,20 @@ const pages = [
     href: '/admin/dashboard/admin/data-setup/university-board/add',
   },
 ];
+const schema = yup.object().shape({
+  name: yup.string().required(''),
+});
 const AddUniversityBoard = () => {
   const [error, setError] = useState('');
   const {
     register,
     handleSubmit,
 
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+  });
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     console.log(d);
@@ -81,7 +90,7 @@ const AddUniversityBoard = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

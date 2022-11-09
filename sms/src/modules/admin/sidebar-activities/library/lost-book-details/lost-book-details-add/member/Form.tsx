@@ -18,7 +18,7 @@ const arrayLostOrDamaged = [
 ];
 export default function Form() {
   const {
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     register,
   } = useForm();

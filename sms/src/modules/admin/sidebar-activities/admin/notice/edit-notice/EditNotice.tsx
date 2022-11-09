@@ -34,7 +34,7 @@ function NewNotice() {
     watch,
     reset,
     control,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [arraySendTo, setArraySendTo] = useState([]);
   const [error, setError] = useState('');
@@ -164,7 +164,7 @@ function NewNotice() {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

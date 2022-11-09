@@ -32,7 +32,7 @@ const EditFiscalYear = () => {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -102,7 +102,7 @@ const EditFiscalYear = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

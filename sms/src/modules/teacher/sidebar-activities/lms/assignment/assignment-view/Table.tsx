@@ -39,7 +39,7 @@ export default function Table({ data, status }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);

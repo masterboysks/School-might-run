@@ -23,7 +23,7 @@ function Form({ onSubmit }) {
     reset,
     getValues,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [arrayDesignation, setArrayDesignation] = useState([]);
   const [arrayDepartment, setArrayDepartment] = useState([]);

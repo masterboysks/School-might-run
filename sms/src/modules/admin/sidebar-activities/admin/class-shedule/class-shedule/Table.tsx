@@ -23,7 +23,7 @@ export default function Table() {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
 
   const [data, setData] = useState([]);

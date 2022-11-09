@@ -14,7 +14,7 @@ const Form = () => {
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   return (
     <div className="ring-black ring-opacity-5 ring-1 form-solid mb-14 w-full p-4 my-6 rounded-md shadow">

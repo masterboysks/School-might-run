@@ -61,7 +61,7 @@ const DetailsForm = () => {
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const anotherChild = watch('has_siblings');
   // personal.dob

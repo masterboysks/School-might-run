@@ -17,7 +17,7 @@ function Form() {
   const {
     register,
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     watch,
   } = useForm();
@@ -134,7 +134,7 @@ function Form() {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

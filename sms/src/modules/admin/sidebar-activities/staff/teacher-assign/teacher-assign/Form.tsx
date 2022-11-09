@@ -5,7 +5,7 @@ const arrayLevel = [{ id: 1, name: 'hlo' }];
 function Form() {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm();
   return (

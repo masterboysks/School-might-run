@@ -23,7 +23,7 @@ const Form = () => {
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   return (
     <>

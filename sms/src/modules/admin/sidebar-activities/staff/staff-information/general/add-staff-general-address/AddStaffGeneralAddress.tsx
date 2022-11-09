@@ -29,7 +29,7 @@ const AddStaffGeneralPersonal = () => {
     watch,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const sameAsPermenantAddress = watch('same_as_permanent_address');
   const navigate = useNavigate();

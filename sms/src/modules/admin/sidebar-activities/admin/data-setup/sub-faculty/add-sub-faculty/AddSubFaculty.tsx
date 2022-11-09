@@ -25,7 +25,7 @@ const AddSubFaculty = () => {
     register,
     handleSubmit,
 
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [arrayFaculty, setArrayFaculty] = useState([]);
   const [error, setError] = useState('');
@@ -89,7 +89,7 @@ const AddSubFaculty = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

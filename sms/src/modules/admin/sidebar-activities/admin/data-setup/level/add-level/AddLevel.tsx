@@ -31,7 +31,7 @@ const AddLevel = () => {
     register,
     handleSubmit,
 
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [error, setError] = useState('');
   const [arrayUniversity, setArrayUniversity] = useState([]);
@@ -105,7 +105,7 @@ const AddLevel = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

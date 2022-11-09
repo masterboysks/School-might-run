@@ -10,7 +10,7 @@ export default function VehicleSetupAdd() {
   const {
     register,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm();
   return (

@@ -26,7 +26,7 @@ const arrayDepartment = [
 function AssignTeacher() {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     control,
     handleSubmit,
   } = useForm();

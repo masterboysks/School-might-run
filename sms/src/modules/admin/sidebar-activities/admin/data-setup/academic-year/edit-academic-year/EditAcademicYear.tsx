@@ -30,7 +30,7 @@ const EditAcademicYear = () => {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -82,7 +82,7 @@ const EditAcademicYear = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

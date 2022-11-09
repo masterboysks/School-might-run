@@ -27,7 +27,7 @@ const EditUniversityBoard = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({ defaultValues: { name } });
   const navigate = useNavigate();
   const onSubmit = async (d) => {
@@ -81,7 +81,7 @@ const EditUniversityBoard = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

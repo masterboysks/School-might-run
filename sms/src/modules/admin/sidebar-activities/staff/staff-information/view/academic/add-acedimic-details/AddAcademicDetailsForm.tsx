@@ -67,7 +67,7 @@ const AddAcademicDetailsForm = () => {
     reset,
     getValues,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const { id } = useParams();
   const onSubmit = async (data) => {
@@ -176,7 +176,7 @@ const AddAcademicDetailsForm = () => {
           >
             Back
           </Link>
-          <button type="submit" className="primary_btn">
+          <button type="submit" className="primary_btn" disabled={!isValid}>
             Save
           </button>
         </div>

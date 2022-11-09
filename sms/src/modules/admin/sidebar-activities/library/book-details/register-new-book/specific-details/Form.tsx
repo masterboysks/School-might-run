@@ -15,7 +15,7 @@ export default function Form() {
   const [station, setStation] = useState<number[]>([0]);
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
     getValues,
   } = useForm({

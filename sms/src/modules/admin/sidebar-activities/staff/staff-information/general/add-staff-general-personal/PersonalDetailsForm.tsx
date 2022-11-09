@@ -73,7 +73,7 @@ const DetailsForm = () => {
     watch,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   useEffect(() => {
     (async () => {
@@ -238,7 +238,7 @@ const DetailsForm = () => {
           >
             Cancel
           </Link>
-          <button type="submit" className="primary_btn">
+          <button type="submit" className="primary_btn" disabled={!isValid}>
             Next
           </button>
         </div>

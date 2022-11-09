@@ -17,7 +17,7 @@ const Form = () => {
     reset,
     getValues,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
@@ -76,7 +76,7 @@ const Form = () => {
             >
               Cancel
             </Link>
-            <button type="submit" className="primary_btn">
+            <button type="submit" className="primary_btn" disabled={!isValid}>
               Save
             </button>
           </div>

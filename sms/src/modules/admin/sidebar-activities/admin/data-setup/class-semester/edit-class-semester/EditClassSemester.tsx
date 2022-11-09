@@ -39,7 +39,7 @@ const EditClassSemester = () => {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const [sectionsOption, setSectionsOption] = useState([]);
   const [subFacultyOption, setSubFacultyOption] = useState([]);
@@ -192,7 +192,7 @@ const EditClassSemester = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>

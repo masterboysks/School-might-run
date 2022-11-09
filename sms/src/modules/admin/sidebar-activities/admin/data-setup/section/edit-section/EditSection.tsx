@@ -26,7 +26,7 @@ const EditSection = () => {
     register,
     handleSubmit,
 
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({ defaultValues: { section_name: name } });
 
   const [error, setError] = useState('');
@@ -75,7 +75,7 @@ const EditSection = () => {
               >
                 Cancel
               </Link>
-              <button type="submit" className="primary_btn">
+              <button type="submit" className="primary_btn" disabled={!isValid}>
                 Save
               </button>
             </div>
