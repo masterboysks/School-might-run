@@ -9,7 +9,7 @@ const pages = [
   },
   {
     name: 'Student attendance report',
-    href: '/report/attendance-report/student-attendance-report',
+    href: '/admin/dashboard/report/attendance-report/student-attendance-report',
   },
 ];
 export default function StudentAttendanceReportClasses() {

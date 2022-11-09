@@ -7,7 +7,7 @@ const pages = [
   { name: 'Report' },
   {
     name: 'Fee Report',
-    href: '/report/fee-report',
+    href: '/admin/dashboard/report/fee-report',
   },
 ];
 export default function FeeStatement() {

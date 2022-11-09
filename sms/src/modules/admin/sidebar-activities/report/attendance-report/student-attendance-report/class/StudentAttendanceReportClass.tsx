@@ -14,7 +14,7 @@ export default function StudentAttendanceReportClass() {
     },
     {
       name: 'Student attendance report',
-      href: '/report/attendance-report/student-attendance-report',
+      href: '/admin/dashboard/report/attendance-report/student-attendance-report',
     },
     {
       name: `${classOfSchool}-${section}`,

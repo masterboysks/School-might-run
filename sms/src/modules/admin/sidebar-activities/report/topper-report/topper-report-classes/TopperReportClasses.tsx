@@ -7,7 +7,7 @@ const pages = [
   { name: 'Report' },
   {
     name: 'Topper Report',
-    href: '/report/topper-report',
+    href: '/admin/dashboard/report/topper-report',
   },
 ];
 export default function TopperReportClasses() {

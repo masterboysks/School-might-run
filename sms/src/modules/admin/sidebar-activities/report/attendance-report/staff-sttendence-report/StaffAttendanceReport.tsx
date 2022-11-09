@@ -9,7 +9,7 @@ const pages = [
   },
   {
     name: 'Staff attendance report',
-    href: '/report/attendance-report/staff-attendance-report',
+    href: '/admin/dashboard/report/attendance-report/staff-attendance-report',
   },
 ];
 export default function StaffAttendanceReport() {

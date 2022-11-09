@@ -11,7 +11,7 @@ export default function ExamReportClass() {
     { name: 'Report' },
     {
       name: 'Exam report',
-      href: '/report/exam-report',
+      href: '/admin/dashboard/report/exam-report',
     },
 
     {

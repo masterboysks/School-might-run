@@ -6,10 +6,13 @@ import { Link, Outlet } from 'react-router-dom';
 const ReportSlidebar = () => {
   const [attendanceReport, setAttendanceReport] = useState(false);
   const [dropAttendanceReport, setDropAttendanceReport] = useState(true);
+
+  const [transportReport, setTransportReport] = useState(false);
+  const [dropTransportReport, setDropTransportReport] = useState(true);
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById('sidebar').classList;
+    nav = document.getElementById('sidebar')?.classList;
     nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
@@ -23,27 +26,36 @@ const ReportSlidebar = () => {
       path: 'attendance-report/staff-attendance-report',
     },
   ];
+  const arrayTeansportLiks = [
+    {
+      name: 'Student wise report',
+      path: 'transportation-report/student-wise-report',
+    },
+    {
+      name: 'Location wise report',
+      path: 'transportation-report/location-wise-report',
+    },
+  ];
   useEffect(() => {
-    location.includes('/report/attendance-report')
+    location.includes('admin/dashboard/report/attendance-report')
       ? setAttendanceReport(true)
       : setAttendanceReport(false);
+    location.includes('admin/dashboard/report/transportation-report')
+      ? setTransportReport(true)
+      : setTransportReport(false);
   }, [location]);
 
   const slidebar = () => {
-    nav = document.getElementById('sidebar').classList;
-    let overlay =
-      document.getElementById('overlay') &&
-      document.getElementById('overlay').classList;
-    const slidebar =
-      document.getElementById('slidebar') &&
-      document.getElementById('slidebar').classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
       (slidebar.contains('hidden') && !nav.contains('hidden')
         ? slidebar.remove('hidden')
         : slidebar.add('hidden'));
     overlay &&
-      (!slidebar.contains('hidden')
+      (!slidebar?.contains('hidden')
         ? overlay.remove('hidden')
         : overlay.add('hidden'));
   };
@@ -58,7 +70,7 @@ const ReportSlidebar = () => {
             <li
               id="attendanceReport"
               onClick={() => {
-                setDropAttendanceReport(!dropAttendanceReport);
+                setDropAttendanceReport((c) => !c);
               }}
               className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
               ${
@@ -146,6 +158,55 @@ const ReportSlidebar = () => {
                 Topper report
               </li>
             </Link>
+            <li
+              id="transportReport"
+              onClick={() => {
+                setDropTransportReport((c) => !c);
+              }}
+              className={`flex   pr-3    p-1 mt-2 mb-3 cursor-pointer rounded hover:bg-primary-grey-200 
+              ${
+                transportReport
+                  ? 'text-primary-grey-700'
+                  : 'text-primary-grey-600'
+              } 
+                   ${
+                     transportReport && !dropTransportReport
+                       ? 'bg-primary-grey-200 '
+                       : 'text-primary-grey-600'
+                   }text-sm`}
+            >
+              <div
+                id="arrow"
+                className={`devList text-black  transition duration-100 ease-in text-sm ${
+                  dropTransportReport ? 'rotate-90' : ''
+                }  `}
+              >
+                <Arrow fontSize="inherit" />
+              </div>
+              <div className=" text-sm">Transportation report</div>
+            </li>
+            <ul
+              className={`${
+                dropTransportReport ? '' : 'hidden'
+              } transition duration-700 ease-in`}
+              id="dropdown"
+            >
+              {arrayTeansportLiks.map((curr) => {
+                return (
+                  <Link to={curr.path} key={curr.name} onClick={sidebar}>
+                    <li
+                      className={`pl-6   pr-3   mx-2 mt-2 mb-3 rounded py-[3px] text-sm ${
+                        location.includes(curr.path)
+                          ? 'bg-primary-grey-200 text-primary-grey-700'
+                          : 'hover:bg-primary-grey-200 text-primary-grey-600'
+                      }`}
+                    >
+                      {curr.name}
+                    </li>
+                  </Link>
+                );
+              })}
+            </ul>
           </ul>
         </div>
       </div>

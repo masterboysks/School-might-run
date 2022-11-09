@@ -13,7 +13,7 @@ export default function TopperReportClass() {
     { name: 'Report' },
     {
       name: 'Topper Report',
-      href: '/report/topper-report',
+      href: '/admin/dashboard/report/topper-report',
     },
     {
       name: classOfSchool,

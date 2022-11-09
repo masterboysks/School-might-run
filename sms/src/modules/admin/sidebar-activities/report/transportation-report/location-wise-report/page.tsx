@@ -5,11 +5,14 @@ import Table from './Table';
 const pages = [
   { name: 'Report' },
   {
-    name: 'Exam report',
-    href: '/admin/dashboard/report/exam-report',
+    name: 'Transportation',
+  },
+  {
+    name: 'Location wise report',
+    href: '/admin/dashboard/report/transportation-report/location-wise-report',
   },
 ];
-export default function ExamReportClasses() {
+export default function StudentWiseReport() {
   return (
     <>
       <Breadnav pages={pages} />

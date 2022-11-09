@@ -2,6 +2,8 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import LocationWiseReport from '../../modules/admin/sidebar-activities/report/transportation-report/location-wise-report/page';
+import StudentWiseReport from '../../modules/admin/sidebar-activities/report/transportation-report/student-wise-report/page';
 const StudentAttendanceReportClasses = lazy(
   () =>
     import(
@@ -157,6 +159,10 @@ export default function ReportRoutes() {
             </Suspense>
           }
         />
+        <Route path="transportation-report">
+          <Route path="student-wise-report" element={<StudentWiseReport />} />
+          <Route path="location-wise-report" element={<LocationWiseReport />} />
+        </Route>
         <Route
           path="*"
           element={
