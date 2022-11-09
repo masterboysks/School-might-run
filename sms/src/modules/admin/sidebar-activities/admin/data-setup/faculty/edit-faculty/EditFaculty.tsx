@@ -8,6 +8,8 @@ import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/
 import { useForm } from 'react-hook-form';
 import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 const pages = [
   { name: 'Admin' },
   {
@@ -21,6 +23,10 @@ const pages = [
     name: 'Edit',
   },
 ];
+const schema = yup.object().shape({
+  level_id: yup.string().required(''),
+  faculty_name: yup.string().required('').max(255, 'MaxMax size 255.'),
+});
 const EditFaculty = () => {
   const { id } = useParams();
   const {
@@ -29,7 +35,7 @@ const EditFaculty = () => {
     reset,
 
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [arrayLevel, setArrayLevel] = useState([]);
   const [error, setError] = useState('');
   useEffect(() => {

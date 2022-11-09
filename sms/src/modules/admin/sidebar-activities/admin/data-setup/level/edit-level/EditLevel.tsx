@@ -12,7 +12,8 @@ import {
   Input,
   Select,
 } from '../../../../../../../components/common/fields';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 const pages = [
   { name: 'Admin' },
   {
@@ -26,6 +27,11 @@ const pages = [
     name: 'Edit',
   },
 ];
+const schema = yup.object().shape({
+  level_name: yup.string().required(''),
+  university_id: yup.string().required(''),
+  has_faculty: yup.string(),
+});
 const EditLevel = () => {
   const { id } = useParams();
   const {
@@ -33,7 +39,7 @@ const EditLevel = () => {
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [error, setError] = useState('');
   const [arrayUniversity, setArrayUniversity] = useState([]);
   useEffect(() => {

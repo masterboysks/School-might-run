@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import subFacultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 const pages = [
   { name: 'Admin' },
   {
@@ -21,6 +23,10 @@ const pages = [
     name: 'Edit',
   },
 ];
+const schema = yup.object().shape({
+  faculty_id: yup.string().required(''),
+  subfaculty_name: yup.string().required('').max(255, 'Max size 255.'),
+});
 const EditSubFaculty = () => {
   const { id } = useParams();
   const {
@@ -28,7 +34,7 @@ const EditSubFaculty = () => {
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [arrayFaculty, setArrayFaculty] = useState([]);
   const [error, setError] = useState('');
   useEffect(() => {

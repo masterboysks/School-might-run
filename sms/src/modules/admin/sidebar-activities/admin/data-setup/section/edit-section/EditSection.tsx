@@ -6,7 +6,11 @@ import sectionsApi from '../../../../../../../api/admin/dashboard/admin/data-set
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
 import { Input } from '../../../../../../../components/common/fields';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+const schema = yup.object().shape({
+  section_name: yup.string().required('').max(255, 'Max size 255.'),
+});
 const pages = [
   { name: 'Admin' },
   {
@@ -27,7 +31,11 @@ const EditSection = () => {
     handleSubmit,
 
     formState: { errors, isValid },
-  } = useForm({ defaultValues: { section_name: name } });
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+    defaultValues: { section_name: name },
+  });
 
   const [error, setError] = useState('');
 

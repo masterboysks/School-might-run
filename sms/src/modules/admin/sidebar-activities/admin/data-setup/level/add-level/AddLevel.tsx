@@ -7,6 +7,9 @@ import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/
 import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import {
   Checkbox,
   Input,
@@ -26,13 +29,18 @@ const pages = [
     name: 'Add',
   },
 ];
+const schema = yup.object().shape({
+  level_name: yup.string().required(''),
+  university_id: yup.string().required(''),
+  has_faculty: yup.string(),
+});
 const AddLevel = () => {
   const {
     register,
     handleSubmit,
 
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const [error, setError] = useState('');
   const [arrayUniversity, setArrayUniversity] = useState([]);
   useEffect(() => {

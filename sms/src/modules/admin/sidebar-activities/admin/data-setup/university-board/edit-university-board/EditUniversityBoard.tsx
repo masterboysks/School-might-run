@@ -6,7 +6,8 @@ import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/d
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
 import { Input } from '../../../../../../../components/common/fields';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 const pages = [
   { name: 'Admin' },
   {
@@ -20,6 +21,10 @@ const pages = [
     name: 'Edit',
   },
 ];
+
+const schema = yup.object().shape({
+  name: yup.string().required(''),
+});
 const EditUniversityBoard = () => {
   const { id, name } = useParams();
   const [error, setError] = useState('');
@@ -28,7 +33,12 @@ const EditUniversityBoard = () => {
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm({ defaultValues: { name } });
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+
+    defaultValues: { name },
+  });
   const navigate = useNavigate();
   const onSubmit = async (d) => {
     console.log(d);
