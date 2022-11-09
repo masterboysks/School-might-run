@@ -11,7 +11,6 @@ const RenderTable = ({ currentItems, refetch }) => {
   const value = useContext(DeleteModalContex);
   const mutation = useMutation({
     mutationFn: (id) => academicyearApi.delete(id),
-    onSuccess: refetch,
   });
 
   const handleDelete = (id, name, inUse) => {

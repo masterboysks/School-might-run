@@ -68,7 +68,7 @@ const AddAcademicYear = () => {
             <YearInput
               register={register}
               name="academic_year"
-              label="Academic year*"
+              label="Academic year(BS)*"
               required={true}
               errors={errors}
             />

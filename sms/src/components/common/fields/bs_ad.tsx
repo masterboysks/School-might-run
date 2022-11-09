@@ -1,11 +1,22 @@
 import Calendar from '@sbmdkl/nepali-datepicker-reactjs';
 import '@sbmdkl/nepali-datepicker-reactjs/dist/index.css';
+import { useQuery } from '@tanstack/react-query';
 import React, { useState, useEffect } from 'react';
 import { InputNumber } from '.';
+import DateFormat from '../../../api/common/DateFormat';
 import './datepicker.css';
 
 function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
-  const format = localStorage.getItem('hdjkjkfg');
+  const { data } = useQuery({
+    queryFn: () => DateFormat.get(),
+    staleTime: 865400,
+    queryKey: ['Dateformatofacompany/89217648'],
+  });
+  useEffect(() => {
+    if (defaultDate) {
+      setSelected(defaultDate);
+    } else setSelected(new Date().toISOString().split('T')[0]);
+  }, [defaultDate]);
   const [render, setRender] = useState(1);
   const handleDate = ({ bsDate }) => {
     setSelected({ date: bsDate });
@@ -14,7 +25,7 @@ function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
     setRender((c) => c + 1);
   }, [defaultDate]);
 
-  if (format === '8cef65fa-4dd7-11ed-bdc3-0242ac120002')
+  if (data?.data === '2')
     return (
       <>
         {label && (
@@ -34,11 +45,6 @@ function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
         )}
       </>
     );
-  useEffect(() => {
-    if (defaultDate) {
-      setSelected(defaultDate);
-    } else setSelected(new Date().toISOString().split('T')[0]);
-  }, [defaultDate]);
 
   return (
     <>

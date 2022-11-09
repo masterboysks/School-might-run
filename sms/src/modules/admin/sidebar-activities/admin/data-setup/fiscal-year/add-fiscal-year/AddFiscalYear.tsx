@@ -8,6 +8,7 @@ import {
   Checkbox,
   YearInput,
 } from '../../../../../../../components/common/fields';
+import React from 'react';
 
 const pages = [
   { name: 'Admin' },
@@ -57,7 +58,7 @@ const AddFiscalYear = () => {
         <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <YearInput
-              label="Fiscal year start*"
+              label="Fiscal year start(BS)*"
               name="start_year"
               register={register}
               errors={errors}
@@ -66,7 +67,7 @@ const AddFiscalYear = () => {
           </div>
           <div>
             <YearInput
-              label="Fiscal year end*"
+              label="Fiscal year end(BS)*"
               name="end_year"
               register={register}
               errors={errors}

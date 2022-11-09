@@ -46,7 +46,7 @@ const EditFiscalYear = () => {
 
   useEffect(() => {
     (async () => {
-      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
+      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp'));
       reset(temp);
     })();
     return () => localStorage.removeItem('Mb5sVJt5Qp');
@@ -68,7 +68,7 @@ const EditFiscalYear = () => {
         <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <YearInput
-              label="Fiscal year start*"
+              label="Fiscal year start(BS)*"
               name="start_year"
               register={register}
               errors={errors}
@@ -77,7 +77,7 @@ const EditFiscalYear = () => {
           </div>
           <div>
             <YearInput
-              label="Fiscal year end*"
+              label="Fiscal year end(BS)*"
               name="end_year"
               register={register}
               errors={errors}

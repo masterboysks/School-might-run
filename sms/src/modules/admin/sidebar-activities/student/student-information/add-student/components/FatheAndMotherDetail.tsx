@@ -1,9 +1,9 @@
 import React from 'react';
+import Break from '../../../../../../../components/common/Break';
 import {
   Input,
   InputNumber,
 } from '../../../../../../../components/common/fields';
-import Break from './Break';
 
 export default function FatheAndMotherDetail({ register, errors }) {
   return (

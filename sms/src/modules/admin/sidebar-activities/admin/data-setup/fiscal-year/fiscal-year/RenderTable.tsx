@@ -5,17 +5,17 @@ import fiscalYearApi from '../../../../../../../api/admin/dashboard/admin/data-s
 import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 
-const RenderTable = ({ currentItems }) => {
+const RenderTable = ({ currentItems, refetch }) => {
   const value = useContext(DeleteModalContex);
+  const mutation = useMutation({
+    mutationFn: (id) => fiscalYearApi.delete(id),
+  });
 
-  const deleteFunction = async (id) => {
-    const res = await fiscalYearApi.delete(id);
-    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
-  };
   const handleDelete = (id, name, inUse) => {
     value.setValue({
-      func: deleteFunction,
+      func: mutation.mutate,
       id: id,
       message: `You want to delete ${name} ?`,
       heading: 'fiscal year',
@@ -27,10 +27,10 @@ const RenderTable = ({ currentItems }) => {
       {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.fiscalYear}
+            {person.start_year}/{person.end_year}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.isRunning ? 'True' : 'False'}
+            {person.is_running ? 'True' : 'False'}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">
