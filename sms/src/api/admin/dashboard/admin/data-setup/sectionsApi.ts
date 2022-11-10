@@ -13,7 +13,10 @@ export default {
   create(form) {
     return authorized.post(`/sections`, form);
   },
-  getAll(id = '') {
-    return authorized.get(`/get-sections?level_id=${id}`);
+  getAll() {
+    return authorized.get(`/get-sections`);
+  },
+  getByClassId(id = '') {
+    return authorized.get(`/get-class-sections?class_id=${id}`);
   },
 };

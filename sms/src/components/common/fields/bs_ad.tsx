@@ -9,7 +9,7 @@ import './datepicker.css';
 function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
   const { data } = useQuery({
     queryFn: () => DateFormat.get(),
-    staleTime: 865400,
+    staleTime: 300000,
     queryKey: ['Dateformatofacompany/89217648'],
   });
   useEffect(() => {

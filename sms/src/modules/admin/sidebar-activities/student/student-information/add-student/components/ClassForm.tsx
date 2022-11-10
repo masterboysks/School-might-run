@@ -12,6 +12,8 @@ import {
 } from '../../../../../../../components/common/fields';
 import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
 import classApi from '../../../../../../../api/admin/dashboard/admin/data-setup/classApi';
+import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
+import sectionsApi from '../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
 const schema = yup.object().shape({
   // 'class.admission_date': yup.string().required(),
   'class.level_id': yup.string().required(),
@@ -24,26 +26,62 @@ const schema = yup.object().shape({
   'class.prev_school_grade': yup.string(),
   'class.status': yup.string().required(),
 });
+const arrayStatus = [
+  {
+    id: 1,
 
+    name: 'Active',
+  },
+  {
+    id: 0,
+
+    name: 'Inactive',
+  },
+];
 function ClassForm() {
-  const { data: levelapi, isLoading: levelapiloading } = useQuery({
+  const {
+    register,
+    watch,
+    formState: { isValid, errors },
+    handleSubmit,
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(schema),
+  });
+  const [level_id, class_semester_id] = watch([
+    'level_id',
+    'class_semester_id',
+  ]);
+  const { data: levelapi } = useQuery({
     queryFn: () => levelApi.getAll(),
     queryKey: ['levelapigetall'],
     staleTime: 86400000,
     select: (d) => d.data.data,
   });
-  const { data: classapi, isLoading: classapiloading } = useQuery({
-    queryFn: () => classApi.getAll(),
-    queryKey: ['classapigetall'],
+  const { data: classapi } = useQuery({
+    queryFn: () => classApi.getAll(level_id),
+    queryKey: ['classapigetall', level_id],
+    select: (d) => d.data.data,
     staleTime: 86400000,
+    enabled: !!level_id,
   });
+  const { data: facultyapi } = useQuery({
+    queryFn: () => facultyApi.getAll(level_id),
+    queryKey: ['facultyapiget', level_id],
+    select: (d) => d.data.data,
+    staleTime: 86400000,
+    enabled: !!level_id,
+  });
+  const { data: sectionapi } = useQuery({
+    queryFn: () => sectionsApi.getByClassId(class_semester_id),
+    queryKey: ['sectionapiget', class_semester_id],
+    select: (d) => d.data.data,
+    staleTime: 86400000,
+    enabled: !!class_semester_id,
+  });
+
   const navigate = useNavigate();
   const [dateofAddmission, setDateofAddmission] = useState('');
-  const {
-    register,
-    formState: { isValid, errors },
-    handleSubmit,
-  } = useForm();
 
   return (
     <form className="form-solid my-6 rounded-md">
@@ -58,8 +96,9 @@ function ClassForm() {
         <div className="">
           {/* {console.log(data)} */}
           <Select
-            value={levelapi?.data.data || []}
-            label="Level Id"
+            disabled={!levelapi}
+            value={levelapi}
+            label="Level id*"
             name="level_id"
             register={register}
             errors={errors}
@@ -67,95 +106,70 @@ function ClassForm() {
         </div>
         <div className="">
           <Select
-            value={classapi?.data.data || []}
+            disabled={!classapi}
+            value={classapi}
             label="Class/Semester*"
             name="class_semester_id"
             errors={errors}
             register={register}
           />
-          {/* <label className="py-6 text-sm" htmlFor="Student Id">
-            Class/Semester*
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            name="class"
-            id="class"
-          >
-            <option value="test">Select</option>
-          </select> */}
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Faculty
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            name="class"
-            id="class"
-          >
-            <option value="test">Select</option>
-          </select>
+          <Select
+            disabled={!facultyapi}
+            value={facultyapi}
+            label="Faculty"
+            name="faculty_id"
+            errors={errors}
+            register={register}
+          />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Section
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            name="class"
-            id="class"
-          >
-            <option value="test">Select</option>
-          </select>
+          <Select
+            disabled={!sectionapi}
+            value={sectionapi}
+            label="Section"
+            name="section_id"
+            errors={errors}
+            register={register}
+          />
         </div>
+
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Previous school
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
+          <Input
+            label="Previous school"
             placeholder="AVM school"
+            name="prev_school_name"
+            register={register}
+            errors={errors}
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Address of previous school*
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
-            placeholder="Kalimati, Kathmandu"
+          <Input
+            label="Address of previous school*"
+            name="prev_school_addr"
+            register={register}
+            errors={errors}
+            placeholder="Kalamati, Kathmandu"
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Grade in previous school
-          </label>
-          <br />
-          <input
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-            type="text"
+          <Input
+            label="Grade in previous school"
+            name="prev_school_grade"
+            register={register}
+            errors={errors}
             placeholder="3.45"
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
-            Status
-          </label>
-          <br />
-          <select
-            className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+          <Select
+            value={arrayStatus}
+            register={register}
+            errors={errors}
+            label="Status"
             name="status"
-            id="status"
-          >
-            <option value="test">Select</option>
-          </select>
+          />
         </div>
       </div>
       <div className="w-full">
