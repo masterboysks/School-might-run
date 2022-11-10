@@ -11,6 +11,7 @@ import {
   Select,
 } from '../../../../../../../components/common/fields';
 import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import classApi from '../../../../../../../api/admin/dashboard/admin/data-setup/classApi';
 const schema = yup.object().shape({
   // 'class.admission_date': yup.string().required(),
   'class.level_id': yup.string().required(),
@@ -25,9 +26,16 @@ const schema = yup.object().shape({
 });
 
 function ClassForm() {
-  const { data, isLoading } = useQuery({
+  const { data: levelapi, isLoading: levelapiloading } = useQuery({
     queryFn: () => levelApi.getAll(),
     queryKey: ['levelapigetall'],
+    staleTime: 86400000,
+    select: (d) => d.data.data,
+  });
+  const { data: classapi, isLoading: classapiloading } = useQuery({
+    queryFn: () => classApi.getAll(),
+    queryKey: ['classapigetall'],
+    staleTime: 86400000,
   });
   const navigate = useNavigate();
   const [dateofAddmission, setDateofAddmission] = useState('');
@@ -48,9 +56,9 @@ function ClassForm() {
           />
         </div>
         <div className="">
-          {console.log(data)}
+          {/* {console.log(data)} */}
           <Select
-            value={data?.data.data || {}}
+            value={levelapi?.data.data || []}
             label="Level Id"
             name="level_id"
             register={register}
@@ -58,7 +66,14 @@ function ClassForm() {
           />
         </div>
         <div className="">
-          <label className="py-6 text-sm" htmlFor="Student Id">
+          <Select
+            value={classapi?.data.data || []}
+            label="Class/Semester*"
+            name="class_semester_id"
+            errors={errors}
+            register={register}
+          />
+          {/* <label className="py-6 text-sm" htmlFor="Student Id">
             Class/Semester*
           </label>
           <br />
@@ -68,7 +83,7 @@ function ClassForm() {
             id="class"
           >
             <option value="test">Select</option>
-          </select>
+          </select> */}
         </div>
         <div className="">
           <label className="py-6 text-sm" htmlFor="Student Id">

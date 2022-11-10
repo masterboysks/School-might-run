@@ -13,7 +13,7 @@ export default {
   create(form) {
     return authorized.post(`/sub-faculties`, form);
   },
-  getAll() {
-    return authorized.get(`/get-subfaculties`);
+  getAll(id = '') {
+    return authorized.get(`/get-subfaculties?faculty_id=${id}`);
   },
 };

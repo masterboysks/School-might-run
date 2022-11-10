@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Break from './Break';
+import Break from '../../../../../../../components/common/Break';
 
 function FeeInstallmentDuration() {
   return (

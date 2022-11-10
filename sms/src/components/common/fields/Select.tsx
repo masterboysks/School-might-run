@@ -11,6 +11,7 @@ export function select({
   register,
   value: options,
   label,
+  disabled = false,
   id = 'form_' + name,
   required = false,
   showError = true,
@@ -35,7 +36,8 @@ export function select({
       <select
         {...register(name, { required })}
         id={id}
-        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
+        disabled={disabled}
+        className={`mt-[6px] w-full p- rounded disabled:bg-primary-grey-100 disabled:text-primary-grey-700  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
       >
         <option value="">--Select--</option>
         {options?.map((curr) => (
@@ -62,7 +64,7 @@ export function multipleSelect({
   label,
   value: options,
   control,
-
+  disabled = false,
   errors = {},
   required = false,
 }) {
@@ -76,7 +78,12 @@ export function multipleSelect({
   // console.log(value, onChange);
   return (
     <>
-      <Listbox value={value || []} onChange={onChange} multiple>
+      <Listbox
+        value={value || []}
+        onChange={onChange}
+        multiple
+        disabled={disabled}
+      >
         <Listbox.Label>
           <label
             className={`my-6 text-sm  ${

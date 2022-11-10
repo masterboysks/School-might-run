@@ -13,7 +13,7 @@ export default {
   create(form) {
     return authorized.post(`/subjects`, form);
   },
-  getAll() {
-    return authorized.get(`/get-subjects`);
+  getAll(id = '') {
+    return authorized.get(`/get-subjects?level_id=${id}`);
   },
 };
