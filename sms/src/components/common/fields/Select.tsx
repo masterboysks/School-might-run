@@ -3,7 +3,60 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import React from 'react';
 import { Fragment } from 'react';
 import { useController } from 'react-hook-form';
+import { Select } from '.';
+const arrayMonths = [
+  {
+    bs: 'Baishakh',
 
+    id: 1,
+  },
+  {
+    bs: 'Jestha',
+
+    id: 2,
+  },
+  {
+    bs: 'Aashadha',
+
+    id: 3,
+  },
+  {
+    name: 'April',
+    id: 4,
+  },
+  {
+    name: 'May',
+    id: 5,
+  },
+  {
+    name: 'June',
+    id: 6,
+  },
+  {
+    name: 'July',
+    id: 7,
+  },
+  {
+    name: 'August',
+    id: 8,
+  },
+  {
+    name: 'September',
+    id: 9,
+  },
+  {
+    name: 'October',
+    id: 10,
+  },
+  {
+    name: 'November',
+    id: 11,
+  },
+  {
+    name: 'December',
+    id: 12,
+  },
+];
 export function select({
   name,
 
@@ -157,6 +210,18 @@ export function multipleSelect({
     </>
   );
 }
+export const monthSelect = (props: {
+  name: any;
+  errors?: {} | undefined;
+  register: any;
+  label: any;
+  disabled?: boolean | undefined;
+  id?: string | undefined;
+  required?: boolean | undefined;
+  showError?: boolean | undefined;
+  className?: string | undefined;
+  labelClassName?: string | undefined;
+}) => <Select {...props} value={arrayMonths} />;
 export const selectDisabled = ({ label, value = 'Select', className = '' }) => {
   return (
     <>

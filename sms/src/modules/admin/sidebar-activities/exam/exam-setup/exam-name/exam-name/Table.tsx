@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import RefreshIcon from '@mui/icons-material/Refresh';
+
 import { Link } from 'react-router-dom';
 import { SearchBar } from '../../../../../../../components/common/oldFields';
 import RenderTable from './RenderTable';
-
+import { useQuery } from '@tanstack/react-query';
+import ExamNameApi from '../../../../../../../api/admin/dashboard/exam/exam-setup/ExamNameApi';
 const people = [
   {
     level: 'School level',
@@ -15,12 +18,23 @@ const people = [
 ];
 
 export default function Table() {
+  const { refetch, data, error, isFetching, isLoading } = useQuery({
+    queryFn: () => ExamNameApi.get(),
+    queryKey: ['exam/exam-setup/examname'],
+    staleTime: 300000,
+    select: (d) => d?.data.data,
+  });
   const [searchFilter, setSearchFilter] = useState('');
   return (
     <div className="mt-11 lg:w-2/3 w-full">
       <div className="sm:flex sm:items-center justify-between">
-        <div className="w-72 relative max-w-full">
-          <SearchBar value={searchFilter} setValue={setSearchFilter} />
+        <div className="flex gap-3 items-center">
+          <div className="w-72 relative max-w-full">
+            <SearchBar value={searchFilter} setValue={setSearchFilter} />
+          </div>
+          <button className="" onClick={() => refetch()} disabled={isFetching}>
+            <RefreshIcon />
+          </button>
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
@@ -32,6 +46,7 @@ export default function Table() {
         </div>
       </div>
       <div className="my-6">
+        {(isLoading || isFetching) && 'Loading...'}
         <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
           <div className="inline-block w-full align-middle">
             <div className=" w-full rounded-lg">
@@ -60,7 +75,7 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
+                  <RenderTable currentItems={data?.data} />
                 </tbody>
               </table>
             </div>

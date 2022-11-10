@@ -1,54 +1,116 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import {
-  Input,
-  Select,
-} from '../../../../../../../components/common/oldFields';
+import { Input, Select } from '../../../../../../../components/common/fields';
 import {
   PrimaryButton,
   SecondaryButton,
 } from '../../../../../../../components/common/Buttons';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm, useFieldArray } from 'react-hook-form';
+import { useQuery, useMutation, QueryClient } from '@tanstack/react-query';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import ExamNameApi from '../../../../../../../api/admin/dashboard/exam/exam-setup/ExamNameApi';
 export default function Form() {
-  const arrayLevel = ['dsfjkh', 'dsfsdajkh'];
-  const [addExamName, setAddExamName] = useState([]);
-  const [level, setLevel] = useState('Select');
-  const [examName, setExamName] = useState('');
-  const [errorLevel, setErrorLevel] = useState(false);
-  const [errorExamName, setErrorExamName] = useState(false);
+  const {
+    register,
+    formState: { isValid, errors },
+    control,
+    reset,
+    handleSubmit,
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      exam_name: [' '],
+      level_id: '',
+    },
+  });
+  const queryClient = new QueryClient();
+
+  useEffect(() => {
+    (async () => {
+      const data = await queryClient.getQueriesData('exam/exam-setup/examname');
+      console.log(data);
+    })();
+  }, []);
+
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    console.log({ examName, level, addExamName });
-    let temp = false;
-    examName || ((temp = true) && setErrorExamName(true));
-    level === 'Select' && (temp = true) && setErrorLevel(true);
-    temp || navigate('/admin/dashboard/exam/exam-setup/exam-name');
-  };
+  const [error, setError] = useState('');
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'exam_name',
+
+    rules: { minLength: 1 },
+  });
+  const { data: arrayLevel } = useQuery({
+    queryFn: () => levelApi.getAll(),
+    queryKey: ['levelapiget'],
+    staleTime: 300000,
+    select: (d) => d?.data.data,
+  });
+  const mutation = useMutation({
+    mutationFn: (formData) => {
+      return ExamNameApi.create(formData);
+    },
+    onSuccess: (d) => console.log(d),
+    onError: () => setError('Failed to create exam name'),
+  });
+
   return (
-    <form className="form-solid w-full my-6 rounded-md">
+    <form
+      className="form-solid w-full my-6 rounded-md"
+      onSubmit={handleSubmit((d) => mutation.mutate(d))}
+    >
+      {error && (
+        <>
+          <div className="text-lg font-medium text-red-600">{error}</div>
+          <br />
+        </>
+      )}
       <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
           <Select
+            disabled={!arrayLevel}
             label="Level*"
             value={arrayLevel}
-            selected={level}
-            setSelected={setLevel}
-            error={errorLevel}
-            setError={setErrorLevel}
+            name="level_id"
+            register={register}
+            errors={errors}
+            required={true}
           />
         </div>
         <div className="lg:row-start-auto row-start-2">
-          <Input
+          {fields.map((c, i) => (
+            <div className=" relative h-fit" key={c.id}>
+              <Input
+                placeholder="Preboard"
+                className={' h-fit '}
+                label={i === 0 ? 'Exam name' : undefined}
+                name={'exam_name.' + i}
+                register={register}
+              />
+              {i === 0 ? null : (
+                <div
+                  className=" -right-10 text-primary-grey-700 top-[10px] absolute p-1 bg-white rounded-full shadow"
+                  onClick={() => remove(i)}
+                >
+                  <CloseOutlinedIcon fontSize="inherit" />
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* <Input
             label="Exam name*"
             placeholder="First term"
             value={examName}
             setValue={setExamName}
             error={errorExamName}
             setError={setErrorExamName}
-          />
+          /> */}
 
-          <>
+          {/* <>
             {addExamName.map((c, i, array) => (
               <div className=" relative h-fit" key={i}>
                 <Input
@@ -74,19 +136,18 @@ export default function Form() {
                 </div>
               </div>
             ))}
-          </>
+          </> */}
 
-          <div
-            className="text-primary-grey-700 flex items-center justify-end mt-3"
-            onClick={() => {
-              setAddExamName([...addExamName, { value: '' }]);
-            }}
+          <button
+            type="button"
+            className="text-primary-grey-700 flex items-center justify-end w-full mt-3"
+            onClick={() => append(' ')}
           >
             <div className="">Add</div>
-            <div className="icon border-primary-field p-1 ml-2 border rounded-lg">
+            <div className="icon border-primary-field h-fit p-1 pt-0 ml-2 border rounded-lg">
               <AddOutlinedIcon fontSize="inherit" />
             </div>
-          </div>
+          </button>
         </div>
       </div>
       <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">

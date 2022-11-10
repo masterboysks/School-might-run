@@ -58,10 +58,10 @@ function AddClassShedule() {
     };
 
     console.log(d);
-    const res = await classSheduleApi.create(d);
-    res?.status === 201
-      ? navigate('/admin/dashboard/admin/class-schedule')
-      : setError('Failed to create class shedule');
+    // const res = await classSheduleApi.create(d);
+    // res?.status === 201
+    //   ? navigate('/admin/dashboard/admin/class-schedule')
+    //   : setError('Failed to create class shedule');
   };
   useEffect(() => {
     (async () => {

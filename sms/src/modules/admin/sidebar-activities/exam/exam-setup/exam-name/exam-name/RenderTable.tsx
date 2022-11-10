@@ -5,14 +5,14 @@ import { Popover } from '@headlessui/react';
 const RenderTable = ({ currentItems }) => {
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.level}
+            {person.level_name}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <ul>
-              {person.examName.map((curr, index) => (
+              {person.exam_name?.map((curr, index) => (
                 <li key={index} className="my-1 list-disc">
                   {curr}
                 </li>
@@ -31,7 +31,7 @@ const RenderTable = ({ currentItems }) => {
               >
                 <div className="p-3">Edit</div>
 
-                <div className="p-3">Delete</div>
+                <button className="p-3">Delete</button>
               </Popover.Panel>
             </Popover>
           </td>

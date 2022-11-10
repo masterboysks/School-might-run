@@ -43,7 +43,11 @@ const AcademicYear = () => {
             <div className="w-72 relative max-w-full">
               <SearchBar value={search} setValue={setSearch} />
             </div>
-            <button className="" onClick={refetch}>
+            <button
+              className=""
+              onClick={() => refetch()}
+              disabled={isFetching}
+            >
               <RefreshIcon />
             </button>
           </div>
