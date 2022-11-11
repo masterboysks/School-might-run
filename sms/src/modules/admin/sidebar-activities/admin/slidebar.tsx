@@ -17,6 +17,10 @@ const links = [
   { name: 'Section', path: '/admin/dashboard/admin/data-setup/section' },
   { name: 'Subject', path: '/admin/dashboard/admin/data-setup/subject' },
   {
+    name: 'Batch',
+    path: '/admin/dashboard/admin/data-setup/batch',
+  },
+  {
     name: 'Class/Semester',
     path: '/admin/dashboard/admin/data-setup/class-semester',
   },

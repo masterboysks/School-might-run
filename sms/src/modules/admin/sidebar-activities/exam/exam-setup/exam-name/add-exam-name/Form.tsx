@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Input, Select } from '../../../../../../../components/common/fields';
@@ -13,6 +13,7 @@ import { useQuery, useMutation } from '@tanstack/react-query';
 import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
 import ExamNameApi from '../../../../../../../api/admin/dashboard/exam/exam-setup/ExamNameApi';
 export default function Form() {
+  const { id } = useParams();
   const {
     register,
     formState: { isValid, errors },
@@ -24,7 +25,7 @@ export default function Form() {
     mode: 'onBlur',
     defaultValues: {
       exam_name: [' '],
-      level_id: '',
+      level_id: id || '',
     },
   });
   const level_id = watch('level_id');
@@ -35,9 +36,6 @@ export default function Form() {
     enabled: !!level_id,
     select: (d) => d?.data.data,
   });
-  useEffect(() => {
-    reset({ exam_name: examnamedata, level_id });
-  }, [examnamedata]);
 
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -60,7 +58,10 @@ export default function Form() {
     onSuccess: (d) => navigate(-1),
     onError: () => setError('Failed to create exam name'),
   });
-
+  useEffect(() => {
+    console.log(examnamedata);
+    reset({ exam_name: examnamedata, level_id });
+  }, [examnamedata]);
   return (
     <form
       className="form-solid w-full my-6 rounded-md"
@@ -75,6 +76,7 @@ export default function Form() {
       <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
           <Select
+            key={!arrayLevel ? 1 : 2}
             disabled={!arrayLevel}
             label="Level*"
             value={arrayLevel}

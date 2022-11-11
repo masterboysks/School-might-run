@@ -2,6 +2,9 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AddBatch from '../../../modules/admin/sidebar-activities/admin/data-setup/batch/add-batch/AddBatch';
+import Batch from '../../../modules/admin/sidebar-activities/admin/data-setup/batch/batch/Batch';
+import EditBatch from '../../../modules/admin/sidebar-activities/admin/data-setup/batch/edit-batch/EditUniversityBoard';
 
 const EditAcademicYear = lazy(
   () =>
@@ -237,6 +240,30 @@ export default function AdminDataSetupRoutes() {
         element={
           <Suspense fallback="Loading">
             <EditUniversityBoard></EditUniversityBoard>
+          </Suspense>
+        }
+      />
+      <Route
+        path="batch"
+        element={
+          <Suspense fallback="Loading">
+            <Batch></Batch>
+          </Suspense>
+        }
+      />
+      <Route
+        path="batch/add"
+        element={
+          <Suspense fallback="Loading">
+            <AddBatch></AddBatch>
+          </Suspense>
+        }
+      />
+      <Route
+        path="batch/:id/:name"
+        element={
+          <Suspense fallback="Loading">
+            <EditBatch></EditBatch>
           </Suspense>
         }
       />

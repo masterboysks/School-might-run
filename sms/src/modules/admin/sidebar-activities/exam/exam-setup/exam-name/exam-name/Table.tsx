@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
 import { Link } from 'react-router-dom';
@@ -26,10 +26,14 @@ export default function Table() {
     queryFn: () => ExamNameApi.get(page),
     queryKey: ['exam/exam-setup/examname', page],
     staleTime: Infinity,
-    onSuccess: (d) => setPagination(d?.pagination),
+
     select: (d) => d?.data.data,
     keepPreviousData: true,
   });
+  useEffect(() => {
+    setPagination(data?.pagination);
+  }, [data]);
+
   const [searchFilter, setSearchFilter] = useState('');
   return (
     <div className="mt-11 lg:w-2/3 w-full">
@@ -44,10 +48,10 @@ export default function Table() {
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
-            to="/admin/dashboard/exam/exam-setup/exam-name/edit"
+            to="/admin/dashboard/exam/exam-setup/exam-name/add/ "
             className="primary_btn"
           >
-            Edit
+            Add
           </Link>
         </div>
       </div>

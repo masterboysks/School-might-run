@@ -3,22 +3,23 @@ import Breadnav from '../../../../../../../components/common/navigation/Breadnav
 import Break from '../../../../../../../components/common/Break';
 
 import Form from './Form';
+import { useParams } from 'react-router-dom';
 
-const pages = [
-  { name: 'Exam' },
-  {
-    name: 'Exam setup',
-  },
-  {
-    name: 'Exam name',
-    href: '/admin/dashboard/exam/exam-setup/exam-name',
-  },
-  {
-    name: 'Edit',
-    href: '/admin/dashboard/exam/exam-setup/exam-name/add',
-  },
-];
 export default function AddExamName() {
+  const { id } = useParams();
+  const pages = [
+    { name: 'Exam' },
+    {
+      name: 'Exam setup',
+    },
+    {
+      name: 'Exam name',
+      href: '/admin/dashboard/exam/exam-setup/exam-name',
+    },
+    {
+      name: id ? 'Edit' : 'Add',
+    },
+  ];
   return (
     <>
       <Breadnav pages={pages} />
