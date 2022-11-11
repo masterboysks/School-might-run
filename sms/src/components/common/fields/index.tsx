@@ -3,7 +3,13 @@ import { bs_ad_month } from './bs_adLegacy';
 import { checkbox, radio } from './Checkbox';
 import { input, inputDisabled, inputNumber, password } from './Input';
 import { searchBar } from './Search';
-import { multipleSelect, monthSelect, select, selectDisabled } from './Select';
+import {
+  multipleSelect,
+  monthSelect,
+  select,
+  selectDisabled,
+  multiplemonthSelect,
+} from './Select';
 import { textarea } from './Textbox';
 import { upload, uploadPhoto } from './Upload';
 export const Checkbox = checkbox;
@@ -15,6 +21,7 @@ export const InputDisabled = inputDisabled;
 export const Textarea = textarea;
 export const SelectDisabled = selectDisabled;
 export const MonthSelect = monthSelect;
+export const MultipleMonthSelect = multiplemonthSelect;
 export const Select = select;
 export const MultipleSelect = multipleSelect;
 export const SearchBar = searchBar;

@@ -41,7 +41,7 @@ function NewNotice() {
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      send_to: JSON.stringify(data.send_to?.map((c) => c.id)),
+      // send_to: JSON.stringify(data.send_to?.map((c) => c.id)),
       expiry_date: date,
     };
     const form = new FormData();

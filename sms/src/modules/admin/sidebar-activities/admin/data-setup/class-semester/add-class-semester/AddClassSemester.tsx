@@ -123,7 +123,7 @@ const AddClassSemester = () => {
     try {
       const res = await classApi.create({
         ...d,
-        section_ids: d.section_ids?.map((c) => c.id),
+        // section_ids: d.section_ids?.map((c) => c.id),
         subject_ids: [
           ...arrayCompalsarySubjects
             ?.filter((c, i) => d[`compalsarySubjects${i}`])

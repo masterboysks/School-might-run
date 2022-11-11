@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import {
   Input,
@@ -26,6 +26,7 @@ const pages = [
 ];
 
 function NewNotice() {
+  const { id } = useParams();
   const [date, setDate] = useState('');
   const [defaultDate, setDefaultDate] = useState('');
   const {
@@ -42,7 +43,7 @@ function NewNotice() {
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      send_to: JSON.stringify(data.send_to?.map((c) => c.id)),
+      // send_to: JSON.stringify(data.send_to?.map((c) => c.id)),
     };
     const form = new FormData();
     for (const name in d) {
@@ -51,7 +52,7 @@ function NewNotice() {
     d.document.length === 1
       ? form.append('document', d.document[0])
       : form.append('document', '');
-    const res = await noticeApi.edit(form);
+    const res = await noticeApi.edit(id, form);
     res?.status === 201
       ? navigate('/admin/dashboard/admin/notice')
       : setError('Failed to edit a notice');

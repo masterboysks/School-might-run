@@ -51,7 +51,7 @@ function AddClassShedule() {
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      weekdays: data.weekdays?.map((c) => c.id),
+      // weekdays: data.weekdays?.map((c) => c.id),
       class_id: 20,
       level_id: 10,
       section_id: 1,

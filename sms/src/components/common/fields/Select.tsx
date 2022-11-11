@@ -3,7 +3,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import React from 'react';
 import { Fragment } from 'react';
 import { useController } from 'react-hook-form';
-import { Select } from '.';
+import { MultipleSelect, Select } from '.';
 const arrayMonths = [
   {
     bs: 'Baishakh',
@@ -150,7 +150,7 @@ export function multipleSelect({
           <Listbox.Button className="  h-[46px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  ">
             <span className="block pr-2 truncate">
               {options
-                ?.filter((c) => value?.includes(c))
+                ?.filter((c) => value?.includes(c.id))
                 ?.map((person) => person.name)
                 .join(', ')}
             </span>
@@ -183,7 +183,7 @@ export function multipleSelect({
                         : 'text-primary-grey-600'
                     }`
                   }
-                  value={person}
+                  value={person.id}
                 >
                   {({ selected }) => (
                     <>
@@ -210,6 +210,7 @@ export function multipleSelect({
     </>
   );
 }
+
 export const monthSelect = (props: {
   name: any;
   errors?: {} | undefined;
@@ -222,6 +223,7 @@ export const monthSelect = (props: {
   className?: string | undefined;
   labelClassName?: string | undefined;
 }) => <Select {...props} value={arrayMonths} />;
+
 export const selectDisabled = ({ label, value = 'Select', className = '' }) => {
   return (
     <>
@@ -237,3 +239,15 @@ export const selectDisabled = ({ label, value = 'Select', className = '' }) => {
     </>
   );
 };
+export function multiplemonthSelect(props: {
+  name: any;
+  label: any;
+
+  control: any;
+  disabled?: boolean | undefined;
+  errors?: {} | undefined;
+  required?: boolean | undefined;
+}) {
+  // console.log(value, onChange);
+  return <MultipleSelect value={arrayMonths} {...props} />;
+}
