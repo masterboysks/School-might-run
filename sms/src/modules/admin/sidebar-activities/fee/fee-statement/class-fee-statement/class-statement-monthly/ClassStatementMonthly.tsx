@@ -14,7 +14,7 @@ export default function ClassStatement() {
     },
     {
       name: 'Class fee statement',
-      href: '/fee/fee-statement/class-fee-statement',
+      href: 'admin/dashboard/fee/fee-statement/class-fee-statement',
     },
     {
       name: `${classOfSchool.substring(0, 1).toUpperCase()}${classOfSchool

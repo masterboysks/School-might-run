@@ -5,7 +5,7 @@ const pages = [
   { name: 'Fee' },
   {
     name: 'Student logsheet',
-    href: '/fee/student-logsheet',
+    href: 'admin/dashboard/fee/student-logsheet',
   },
 ];
 export default function StudentLogsheet() {

@@ -5,15 +5,19 @@ import Form from './Form';
 const pages = [
   { name: 'Fee' },
   {
-    name: 'Fee assign',
-    href: 'admin/dashboard/fee/fee-assign/',
+    name: 'Fee type',
+    href: 'admin/dashboard/fee/fee-type/',
+  },
+  {
+    name: 'Edit',
+    href: '#',
   },
 ];
-export default function Assign() {
+export default function EditFeeType() {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Class info" />
+      <Break title="Add fee" />
       <Form />
     </>
   );

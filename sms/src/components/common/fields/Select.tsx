@@ -6,54 +6,59 @@ import { useController } from 'react-hook-form';
 import { MultipleSelect, Select } from '.';
 const arrayMonths = [
   {
-    bs: 'Baishakh',
+    name: 'Baishakh',
 
     id: 1,
   },
   {
-    bs: 'Jestha',
+    name: 'Jestha',
 
     id: 2,
   },
   {
-    bs: 'Aashadha',
+    name: 'Aashadha',
 
     id: 3,
   },
+  { name: 'Shrawan', id: 4 },
   {
-    name: 'April',
-    id: 4,
-  },
-  {
-    name: 'May',
+    name: 'Bhadra',
+
     id: 5,
   },
   {
-    name: 'June',
+    name: 'Ashwin ',
+
     id: 6,
   },
   {
-    name: 'July',
+    name: 'Kartik ',
+
     id: 7,
   },
   {
-    name: 'August',
+    name: 'Mangsir ',
+
     id: 8,
   },
   {
-    name: 'September',
+    name: 'Paush ',
+
     id: 9,
   },
   {
-    name: 'October',
+    name: 'Magh ',
+
     id: 10,
   },
   {
-    name: 'November',
+    name: 'Falgun ',
+
     id: 11,
   },
   {
-    name: 'December',
+    name: 'Chaitra ',
+
     id: 12,
   },
 ];
@@ -111,7 +116,6 @@ export function select({
     </>
   );
 }
-
 export function multipleSelect({
   name,
   label,
@@ -239,6 +243,7 @@ export const selectDisabled = ({ label, value = 'Select', className = '' }) => {
     </>
   );
 };
+
 export function multiplemonthSelect(props: {
   name: any;
   label: any;

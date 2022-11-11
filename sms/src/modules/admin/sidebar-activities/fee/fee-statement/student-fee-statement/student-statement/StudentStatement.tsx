@@ -12,14 +12,14 @@ export default function StudentStatement() {
     },
     {
       name: 'Student fee statement',
-      href: '/fee/fee-statement/student-fee-statement',
+      href: 'admin/dashboard/fee/fee-statement/student-fee-statement',
     },
     {
       name: `${
         student.split('-')[0][0].toUpperCase() +
         student.split('-')[0].substring(1)
       }'s logsheet`,
-      href: '/fee/fee-statement/student-fee-statement',
+      href: 'admin/dashboard/fee/fee-statement/student-fee-statement',
     },
   ];
   return (

@@ -47,7 +47,7 @@ export default function Form() {
   });
   const { data: arrayLevel } = useQuery({
     queryFn: () => levelApi.getAll(),
-    queryKey: ['levelapiget'],
+    queryKey: ['levelapigetall'],
     staleTime: 300000,
     select: (d) => d?.data.data,
   });

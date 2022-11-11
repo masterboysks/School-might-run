@@ -5,11 +5,11 @@ const pages = [
   { name: 'Fee' },
   {
     name: 'Miscellaneous fee assign',
-    href: '/fee/miscellaneous-fee-assign',
+    href: 'admin/dashboard/fee/miscellaneous-fee-assign',
   },
   {
     name: 'Assign',
-    href: '/fee/miscellaneous-fee-assign/assign',
+    href: 'admin/dashboard/fee/miscellaneous-fee-assign/assign',
   },
 ];
 export default function MiscAssign() {

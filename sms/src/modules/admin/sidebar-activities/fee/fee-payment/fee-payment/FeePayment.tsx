@@ -6,7 +6,7 @@ const pages = [
   { name: 'Fee' },
   {
     name: 'Fee payment',
-    href: '/fee/fee-payment/',
+    href: 'admin/dashboard/fee/fee-payment/',
   },
 ];
 export default function FeePayment() {
