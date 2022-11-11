@@ -14,7 +14,7 @@ const pages = [
     href: '/admin/dashboard/exam/exam-setup/exam-name',
   },
   {
-    name: 'Add',
+    name: 'Edit',
     href: '/admin/dashboard/exam/exam-setup/exam-name/add',
   },
 ];

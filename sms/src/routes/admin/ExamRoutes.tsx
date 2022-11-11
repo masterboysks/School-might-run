@@ -123,7 +123,7 @@ export default function ExamRoutes() {
             }
           ></Route>
           <Route
-            path="exam-name/add"
+            path="exam-name/edit"
             element={
               <Suspense fallback="Loading">
                 <AddExamName />

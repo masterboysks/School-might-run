@@ -6,6 +6,7 @@ import { SearchBar } from '../../../../../../../components/common/oldFields';
 import RenderTable from './RenderTable';
 import { useQuery } from '@tanstack/react-query';
 import ExamNameApi from '../../../../../../../api/admin/dashboard/exam/exam-setup/ExamNameApi';
+import Pagination from '../../../../../../../components/common/navigation/Pagination';
 const people = [
   {
     level: 'School level',
@@ -18,11 +19,16 @@ const people = [
 ];
 
 export default function Table() {
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState({});
+
   const { refetch, data, error, isFetching, isLoading } = useQuery({
-    queryFn: () => ExamNameApi.get(),
-    queryKey: ['exam/exam-setup/examname'],
-    staleTime: 300000,
+    queryFn: () => ExamNameApi.get(page),
+    queryKey: ['exam/exam-setup/examname', page],
+    staleTime: Infinity,
+    onSuccess: (d) => setPagination(d?.pagination),
     select: (d) => d?.data.data,
+    keepPreviousData: true,
   });
   const [searchFilter, setSearchFilter] = useState('');
   return (
@@ -38,10 +44,10 @@ export default function Table() {
         </div>
         <div className="sm:mt-0 sm:ml-16 sm:flex-none mt-4">
           <Link
-            to="/admin/dashboard/exam/exam-setup/exam-name/add"
+            to="/admin/dashboard/exam/exam-setup/exam-name/edit"
             className="primary_btn"
           >
-            Add
+            Edit
           </Link>
         </div>
       </div>
@@ -81,6 +87,7 @@ export default function Table() {
             </div>
           </div>
         </div>
+        <Pagination pagination={pagination} setPage={setPage} />
       </div>
     </div>
   );

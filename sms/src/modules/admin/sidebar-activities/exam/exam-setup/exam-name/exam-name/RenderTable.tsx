@@ -29,8 +29,6 @@ const RenderTable = ({ currentItems }) => {
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
                  ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
-                <div className="p-3">Edit</div>
-
                 <button className="p-3">Delete</button>
               </Popover.Panel>
             </Popover>

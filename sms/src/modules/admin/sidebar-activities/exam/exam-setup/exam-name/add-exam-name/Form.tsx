@@ -9,7 +9,7 @@ import {
 } from '../../../../../../../components/common/Buttons';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, useFieldArray } from 'react-hook-form';
-import { useQuery, useMutation, QueryClient } from '@tanstack/react-query';
+import { useQuery, useMutation } from '@tanstack/react-query';
 import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
 import ExamNameApi from '../../../../../../../api/admin/dashboard/exam/exam-setup/ExamNameApi';
 export default function Form() {
@@ -18,6 +18,7 @@ export default function Form() {
     formState: { isValid, errors },
     control,
     reset,
+    watch,
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
@@ -26,14 +27,17 @@ export default function Form() {
       level_id: '',
     },
   });
-  const queryClient = new QueryClient();
-
+  const level_id = watch('level_id');
+  const { data: examnamedata } = useQuery({
+    queryFn: () => ExamNameApi.getByLevelId(level_id),
+    queryKey: ['exam/exam-setup/examname/getone', level_id],
+    staleTime: Infinity,
+    enabled: !!level_id,
+    select: (d) => d?.data.data,
+  });
   useEffect(() => {
-    (async () => {
-      const data = await queryClient.getQueriesData('exam/exam-setup/examname');
-      console.log(data);
-    })();
-  }, []);
+    reset({ exam_name: examnamedata, level_id });
+  }, [examnamedata]);
 
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -53,7 +57,7 @@ export default function Form() {
     mutationFn: (formData) => {
       return ExamNameApi.create(formData);
     },
-    onSuccess: (d) => console.log(d),
+    onSuccess: (d) => navigate(-1),
     onError: () => setError('Failed to create exam name'),
   });
 
