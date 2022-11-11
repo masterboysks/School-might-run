@@ -1,5 +1,9 @@
+import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import RenderTable from './RenderTable';
+import feeTypeApi from '../../../../../../api/admin/dashboard/fee/feeTypeApi';
+import Pagination from '../../../../../../components/common/navigation/Pagination';
 
 const people = [
   {
@@ -15,6 +19,18 @@ const people = [
 ];
 
 export default function Table() {
+  const [page, setPage] = useState(1);
+  const [pagination, setPagination] = useState({});
+  const { data, isFetching, isLoading } = useQuery({
+    queryKey: ['fee/fee-type', page],
+    queryFn: () => feeTypeApi.get(page),
+    staleTime: Infinity,
+    select: (d) => d?.data.data,
+  });
+  useEffect(() => {
+    setPagination(data?.pagination);
+  }, [data]);
+
   return (
     <div className="mt-11 w-full">
       <div className="sm:flex sm:items-center justify-between">
@@ -49,6 +65,7 @@ export default function Table() {
         </div>
       </div>
       <div className="my-6">
+        {isFetching || isLoading ? 'isLoading' : null}
         <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
           <div className="inline-block w-full align-middle">
             <div className=" w-full rounded-lg">
@@ -83,12 +100,13 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
+                  <RenderTable currentItems={data?.data} page={page} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <Pagination pagination={pagination} setPage={setPage} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
   Input,
@@ -13,6 +13,7 @@ import { useQuery, useMutation } from '@tanstack/react-query';
 import * as yup from 'yup';
 import levelApi from '../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
 import feeTypeApi from '../../../../../../api/admin/dashboard/fee/feeTypeApi';
+import { arrayMonths } from '../../../../../../components/common/fields/Select';
 const schema = yup.object().shape({
   name: yup.string().required(),
   level_id: yup.string().required(),
@@ -20,6 +21,7 @@ const schema = yup.object().shape({
 });
 
 export default function Form() {
+  const { id, page } = useParams();
   const { data: levelapi } = useQuery({
     queryFn: () => levelApi.getAll(),
     queryKey: ['levelapigetall'],
@@ -27,9 +29,17 @@ export default function Form() {
     onSuccess: (d) => console.log(d),
     staleTime: Infinity,
   });
+  const { data } = useQuery({
+    queryKey: ['fee/fee-type', page],
+    queryFn: () => feeTypeApi.get(parseInt(page || '1')),
+    staleTime: Infinity,
+    select: (d) => d?.data.data.data.filter((c) => c.id == id)[0],
+  });
+  console.log(data);
   const {
     register,
     control,
+    reset,
     handleSubmit,
     formState: { isValid, errors },
   } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
@@ -43,6 +53,22 @@ export default function Form() {
     const data = { ...d, month: d.month?.map((c) => c.id) };
     mutation.mutate(data);
   };
+  useEffect(() => {
+    if (data) {
+      // console.log(data?.month);
+      console.log({
+        ...data,
+        defaultmonth: data?.month,
+        month: data?.month.map((c) => arrayMonths[c - 1]),
+      });
+      // reset({
+      //   ...data,
+      //   month: data?.month.map((c) => arrayMonths[c - 1]),
+      // });
+      reset({ month: data?.month.map((c) => arrayMonths[c - 1]) });
+    }
+  }, [data]);
+
   return (
     <form
       className="form-solid w-full my-6 rounded-md"
@@ -59,6 +85,7 @@ export default function Form() {
         </div>
         <div>
           <Select
+            key={levelapi ? 1 : 2}
             register={register}
             label="Level*"
             name="level_id"
@@ -66,7 +93,12 @@ export default function Form() {
           />
         </div>
         <div>
-          <MultipleMonthSelect label="Month*" control={control} name="month" />
+          <MultipleMonthSelect
+            label="Month*"
+            control={control}
+            name="month"
+            key={data}
+          />
         </div>
         <div className="md:flex-row w-fit lg:col-span-3  flex flex-col my-6 ml-auto">
           <div className=" w-fit">

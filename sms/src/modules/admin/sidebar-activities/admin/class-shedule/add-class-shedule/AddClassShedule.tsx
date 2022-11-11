@@ -51,7 +51,7 @@ function AddClassShedule() {
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      weekdays: data.weekdays?.map((c) => c.id),
+      // weekdays: data.weekdays?.map((c) => c.id),
       class_id: 20,
       level_id: 10,
       section_id: 1,
@@ -134,8 +134,8 @@ function AddClassShedule() {
                 *Note:You can select multiple items at once.
               </div>
             </div>
-            <div>
-              <Select
+            {/* <div>
+               <Select
                 id="subject"
                 value={arraySubjects}
                 label="Subject*"
@@ -143,7 +143,7 @@ function AddClassShedule() {
                 errors={errors}
                 register={register}
                 name="subject_id"
-              />
+              /> 
             </div>
             <div>
               <Input
@@ -155,10 +155,10 @@ function AddClassShedule() {
                 register={register}
                 required={true}
               />
-              {/*cannot not place placeholder for type time */}
-            </div>
+             cannot not place placeholder for type time 
+          </div>*/}
             {/* input without placeholder */}
-            <div>
+            {/* <div>
               <Input
                 id="endTimer"
                 name="end_time"
@@ -168,9 +168,9 @@ function AddClassShedule() {
                 errors={errors}
                 required={true}
               />
-            </div>
+            </div> */}
             {/* select */}
-            <div>
+            {/* <div>
               <Select
                 id="subject-teacher"
                 name="teacher_id"
@@ -180,7 +180,7 @@ function AddClassShedule() {
                 errors={errors}
                 value={arrayTeachers}
               />
-            </div>
+            </div> */}
             <div className="col-span-full flex">
               Add subject
               <Link to="/admin/dashboard/admin/data-setup/subject/add">

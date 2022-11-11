@@ -11,7 +11,7 @@ export default function Logsheet() {
     { name: 'Fee' },
     {
       name: 'Student logsheet',
-      href: '/fee/student-logsheet',
+      href: 'admin/dashboard/fee/student-logsheet',
     },
     {
       name: `${

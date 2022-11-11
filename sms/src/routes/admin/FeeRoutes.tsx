@@ -2,6 +2,7 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import EditFeeType from '../../modules/admin/sidebar-activities/fee/fee-type/edit-fee-type/EditFeeType';
 
 const FeeSlidebar = lazy(
   () => import('../../modules/admin/sidebar-activities/fee/slidebar')
@@ -194,7 +195,15 @@ export default function FeeRoutes() {
               <AddFeeType />
             </Suspense>
           }
-        ></Route>
+        />
+        <Route
+          path="fee-type/edit/:id/:page"
+          element={
+            <Suspense fallback="Loading">
+              <EditFeeType />
+            </Suspense>
+          }
+        />
         <Route
           path="fee-assign"
           element={

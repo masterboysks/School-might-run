@@ -9,7 +9,7 @@ const pages = [
   },
   {
     name: 'Class fee statement',
-    href: '/fee/fee-statement/class-fee-statement',
+    href: 'admin/dashboard/fee/fee-statement/class-fee-statement',
   },
 ];
 export default function ClassFeeStatement() {

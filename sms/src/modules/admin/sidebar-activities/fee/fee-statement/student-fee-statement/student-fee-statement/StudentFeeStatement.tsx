@@ -9,7 +9,7 @@ const pages = [
   },
   {
     name: 'Student fee statement',
-    href: '/fee/fee-statement/student-fee-statement',
+    href: 'admin/dashboard/fee/fee-statement/student-fee-statement',
   },
 ];
 export default function StudentFeeStatement() {

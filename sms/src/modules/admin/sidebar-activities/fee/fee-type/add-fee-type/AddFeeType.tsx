@@ -1,3 +1,4 @@
+import React from 'react';
 import Breadnav from '../../../../../../components/common/navigation/Breadnav';
 import Break from '../../break';
 import Form from './Form';
@@ -5,11 +6,11 @@ const pages = [
   { name: 'Fee' },
   {
     name: 'Fee type',
-    href: '/fee/fee-type/',
+    href: 'admin/dashboard/fee/fee-type/',
   },
   {
     name: 'Add',
-    href: '/fee/fee-type/add',
+    href: 'admin/dashboard/fee/fee-type/add',
   },
 ];
 export default function AddFeeType() {

@@ -59,7 +59,7 @@ const AddClassSemester = () => {
   console.log(watch(['level_id', 'faculty_id']));
   const { data: levelOption } = useQuery({
     queryFn: levelApi.getAll,
-    queryKey: ['levelapiget'],
+    queryKey: ['levelapigetall'],
     staleTime: 300000,
     select: (d) => d.data.data,
   });

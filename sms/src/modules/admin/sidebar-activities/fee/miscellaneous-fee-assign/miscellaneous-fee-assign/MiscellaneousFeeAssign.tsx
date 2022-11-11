@@ -5,7 +5,7 @@ const pages = [
   { name: 'Fee' },
   {
     name: 'Miscellaneous fee assign',
-    href: '/fee/miscellaneous-fee-assign',
+    href: 'admin/dashboard/fee/miscellaneous-fee-assign',
   },
 ];
 function Notice() {

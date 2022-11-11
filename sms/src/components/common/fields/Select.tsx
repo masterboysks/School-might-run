@@ -4,56 +4,61 @@ import React from 'react';
 import { Fragment } from 'react';
 import { useController } from 'react-hook-form';
 import { Select } from '.';
-const arrayMonths = [
+export const arrayMonths = [
   {
-    bs: 'Baishakh',
+    name: 'Baishakh',
 
     id: 1,
   },
   {
-    bs: 'Jestha',
+    name: 'Jestha',
 
     id: 2,
   },
   {
-    bs: 'Aashadha',
+    name: 'Aashadha',
 
     id: 3,
   },
+  { name: 'Shrawan', id: 4 },
   {
-    name: 'April',
-    id: 4,
-  },
-  {
-    name: 'May',
+    name: 'Bhadra',
+
     id: 5,
   },
   {
-    name: 'June',
+    name: 'Ashwin ',
+
     id: 6,
   },
   {
-    name: 'July',
+    name: 'Kartik ',
+
     id: 7,
   },
   {
-    name: 'August',
+    name: 'Mangsir ',
+
     id: 8,
   },
   {
-    name: 'September',
+    name: 'Paush ',
+
     id: 9,
   },
   {
-    name: 'October',
+    name: 'Magh ',
+
     id: 10,
   },
   {
-    name: 'November',
+    name: 'Falgun ',
+
     id: 11,
   },
   {
-    name: 'December',
+    name: 'Chaitra ',
+
     id: 12,
   },
 ];
@@ -150,7 +155,7 @@ export function multipleSelect({
           <Listbox.Button className="  h-[46px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  ">
             <span className="block pr-2 truncate">
               {options
-                ?.filter((c) => value?.includes(c))
+                ?.filter((c) => value?.includes(c.id))
                 ?.map((person) => person.name)
                 .join(', ')}
             </span>
@@ -183,7 +188,7 @@ export function multipleSelect({
                         : 'text-primary-grey-600'
                     }`
                   }
-                  value={person}
+                  value={person.id}
                 >
                   {({ selected }) => (
                     <>
@@ -237,3 +242,106 @@ export const selectDisabled = ({ label, value = 'Select', className = '' }) => {
     </>
   );
 };
+export function multipleMonthSelect({
+  name,
+  label,
+
+  control,
+  disabled = false,
+  errors = {},
+  required = false,
+}) {
+  const {
+    field: { onChange, value },
+  } = useController({
+    name,
+    control,
+    rules: { required: required },
+  });
+  console.log(control, 'control valur');
+  // console.log(value, 'value of multiple month select');
+  // console.log(arrayMonths.filter((c) => value?.includes(c)));
+  return (
+    <>
+      <Listbox
+        value={value || []}
+        onChange={onChange}
+        multiple
+        disabled={disabled}
+      >
+        <Listbox.Label>
+          <label
+            className={`my-6 text-sm  ${
+              errors && errors[name] && ' text-red-600'
+            }`}
+          >
+            {label}
+          </label>
+        </Listbox.Label>
+        <div className="relative mt-[6px]">
+          <Listbox.Button
+            key={value ? 'gfdfhg43543tgvreftger' : '076834234523sdfs343246'}
+            className="  h-[46px]  p- rounded focus:ring-primary-btn focus:ring-1 ring-inset border px-2   border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full text-left  "
+          >
+            <span className="block pr-2 truncate">
+              {arrayMonths
+                .filter((c) => value?.includes(c.id))
+                ?.map((person) => person.name)
+                .join(', ')}
+            </span>
+            {errors && errors[name] && (
+              <span className="text-red-600">
+                {errors[name]?.message || 'This field is required'}
+              </span>
+            )}
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <ChevronUpDownIcon
+                className="w-5 h-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </span>
+          </Listbox.Button>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Listbox.Options className="max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg">
+              {arrayMonths?.map((person, personIdx) => (
+                <Listbox.Option
+                  key={personIdx}
+                  className={({ active }) =>
+                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                      active
+                        ? 'bg-blue-400 text-white '
+                        : 'text-primary-grey-600'
+                    }`
+                  }
+                  value={person.id}
+                >
+                  {({ selected }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? 'font-medium' : 'font-normal'
+                        }`}
+                      >
+                        {person?.name}
+                      </span>
+                      {selected ? (
+                        <span className=" absolute inset-y-0 left-0 flex items-center pl-3">
+                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
+    </>
+  );
+}

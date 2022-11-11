@@ -10,7 +10,7 @@ export default function FeeStudent() {
     { name: 'Fee' },
     {
       name: 'Fee payment',
-      href: '/fee/fee-payment/',
+      href: 'admin/dashboard/fee/fee-payment/',
     },
     {
       name: `${
