@@ -9,7 +9,7 @@ const FeeSlidebar = () => {
   const location = useLocation().pathname;
   let nav;
   const sidebar = () => {
-    nav = document.getElementById('sidebar').classList;
+    nav = document.getElementById('sidebar')?.classList;
     nav.contains('hidden') ? nav.remove('hidden') : nav.add('hidden');
     slidebar();
   };
@@ -30,20 +30,16 @@ const FeeSlidebar = () => {
   }, [location]);
 
   const slidebar = () => {
-    nav = document.getElementById('sidebar').classList;
-    let overlay =
-      document.getElementById('overlay') &&
-      document.getElementById('overlay').classList;
-    const slidebar =
-      document.getElementById('slidebar') &&
-      document.getElementById('slidebar').classList;
+    nav = document.getElementById('sidebar')?.classList;
+    let overlay = document.getElementById('overlay')?.classList;
+    const slidebar = document.getElementById('slidebar')?.classList;
 
     slidebar &&
       (slidebar.contains('hidden') && !nav.contains('hidden')
         ? slidebar.remove('hidden')
         : slidebar.add('hidden'));
     overlay &&
-      (!slidebar.contains('hidden')
+      (!slidebar?.contains('hidden')
         ? overlay.remove('hidden')
         : overlay.add('hidden'));
   };
@@ -156,6 +152,20 @@ const FeeSlidebar = () => {
                 );
               })}
             </ul>
+            <Link to="/admin/dashboard/fee/generate-invoice" onClick={sidebar}>
+              <li
+                className={` flex p-1  pr-3    mt-2 mb-3 cursor-pointer rounded ${
+                  location.includes('fee/generate-invoice')
+                    ? ' bg-primary-grey-200  text-primary-grey-700 '
+                    : ' hover:bg-primary-grey-200 text-primary-grey-600 '
+                } text-sm`}
+              >
+                <div className="devList text-primary-grey-300">
+                  <Arrow fontSize="inherit" />
+                </div>
+                Genetate invoice
+              </li>
+            </Link>
             <Link
               to="/admin/dashboard/fee/miscellaneous-fee-assign"
               onClick={sidebar}

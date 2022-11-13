@@ -3,6 +3,9 @@ import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import EditFeeType from '../../modules/admin/sidebar-activities/fee/fee-type/edit-fee-type/EditFeeType';
+import GenerateInvoice from '../../modules/admin/sidebar-activities/fee/generate-invoice/generate-invoice/GenerateInvoice';
+import PersonInvoice from '../../modules/admin/sidebar-activities/fee/generate-invoice/person-invoice/PersonInvoice';
+import ViewGenerateInvoice from '../../modules/admin/sidebar-activities/fee/generate-invoice/view-generate-invoice/ViewMarkLedger';
 
 const FeeSlidebar = lazy(
   () => import('../../modules/admin/sidebar-activities/fee/slidebar')
@@ -108,6 +111,33 @@ export default function FeeRoutes() {
           </Suspense>
         }
       >
+        <Route path="generate-invoice">
+          <Route
+            index
+            element={
+              <Suspense fallback="Loading">
+                <GenerateInvoice />
+              </Suspense>
+            }
+          />
+          <Route
+            path="view/:classOfSchool/:section/:studentName/:studentId"
+            element={
+              <Suspense fallback="Loading">
+                <PersonInvoice />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="view/:classOfSchool/:section"
+            element={
+              <Suspense fallback="Loading">
+                <ViewGenerateInvoice />
+              </Suspense>
+            }
+          ></Route>
+        </Route>
+
         <Route
           path="miscellaneous-fee-assign"
           element={
