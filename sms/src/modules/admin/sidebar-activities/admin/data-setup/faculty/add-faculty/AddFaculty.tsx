@@ -38,7 +38,7 @@ const AddFaculty = () => {
   const [error, setError] = useState('');
   useEffect(() => {
     (async () => {
-      const data = await levelApi.getAll();
+      const data = await levelApi.getForFacultuAll();
       setArrayLevel(data?.data?.data);
     })();
   }, []);

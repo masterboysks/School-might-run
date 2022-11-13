@@ -16,4 +16,7 @@ export default {
   getAll() {
     return authorized.get(`/get-levels`);
   },
+  getForFacultuAll() {
+    return authorized.get(`/get-levels?has_faculty=1`);
+  },
 };

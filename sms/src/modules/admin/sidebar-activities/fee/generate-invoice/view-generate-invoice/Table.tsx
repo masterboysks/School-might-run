@@ -345,7 +345,7 @@ export default function Table() {
           </button>
         </div>
       </nav>
-      <div className="w-52 grid items-center grid-cols-2 gap-3 mt-3 mb-6 ml-auto">
+      {/* <div className="w-52 grid items-center grid-cols-2 gap-3 mt-3 mb-6 ml-auto">
         <div className="text-primary-700 text-base font-semibold">
           Total Pass
         </div>
@@ -359,7 +359,7 @@ export default function Table() {
         <div className="mt-[6px] w-full p- rounded  focus:ring-primary-btn  border   border-primary-grey-400 bg-primary-grey-100 shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm p-2 ">
           0
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

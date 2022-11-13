@@ -41,6 +41,7 @@ export default function Form() {
           setSelected={setFaculty}
         />
       </div>
+
       <div className="">
         <Select
           label="Section"
@@ -49,8 +50,18 @@ export default function Form() {
           setSelected={setSection}
         />
       </div>
+
+      <div className="">
+        <Select
+          label="Month"
+          value={arraySection}
+          selected={section}
+          setSelected={setSection}
+        />
+      </div>
+
       <SearchIcon
-        className=" lg:col-span-2 xl:col-span-full sm:box-content col-span-full  mt-auto ml-auto "
+        className="sm:col-start-2 lg:col-start-3 xl:col-start-4  sm:box-content col-span-full  mt-auto ml-auto "
         onClick={handleSubmit}
       />
     </form>

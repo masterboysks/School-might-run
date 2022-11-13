@@ -40,7 +40,7 @@ const EditFaculty = () => {
   const [error, setError] = useState('');
   useEffect(() => {
     (async () => {
-      const data = await levelApi.getAll();
+      const data = await levelApi.getForFacultuAll();
       setArrayLevel(data?.data?.data);
       const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
       reset(temp);

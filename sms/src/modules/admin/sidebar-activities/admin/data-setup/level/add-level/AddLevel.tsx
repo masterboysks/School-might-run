@@ -32,7 +32,7 @@ const pages = [
 const schema = yup.object().shape({
   level_name: yup.string().required(''),
   university_id: yup.string().required(''),
-  has_faculty: yup.string(),
+  has_faculty: yup.boolean(),
 });
 const AddLevel = () => {
   const {
