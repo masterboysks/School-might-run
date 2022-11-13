@@ -14,6 +14,6 @@ export default {
     return authorized.post(`/batches`, form);
   },
   getAll() {
-    return authorized.get(`/batches`);
+    return authorized.get(`/get-batches`);
   },
 };

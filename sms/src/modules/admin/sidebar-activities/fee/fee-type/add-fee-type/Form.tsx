@@ -40,7 +40,7 @@ export default function Form() {
     onSuccess: () => navigate(-1),
   });
   const onSubmit = (d) => {
-    const data = { ...d, month: d.month?.map((c) => c.id) };
+    const data = { ...d };
     mutation.mutate(data);
   };
   return (
@@ -55,6 +55,7 @@ export default function Form() {
             placeholder="Admission fee"
             register={register}
             name="name"
+            errors={errors}
           />
         </div>
         <div>
@@ -63,10 +64,16 @@ export default function Form() {
             label="Level*"
             name="level_id"
             value={levelapi}
+            errors={errors}
           />
         </div>
         <div>
-          <MultipleMonthSelect label="Month*" control={control} name="month" />
+          <MultipleMonthSelect
+            label="Month*"
+            control={control}
+            name="month"
+            errors={errors}
+          />
         </div>
         <div className="md:flex-row w-fit lg:col-span-3  flex flex-col my-6 ml-auto">
           <div className=" w-fit">

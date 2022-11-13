@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 
 export default function Form() {
   const { id, page } = useParams();
-  const { data: levelapi } = useQuery({
+  const { data: levelapi, refetch } = useQuery({
     queryFn: () => levelApi.getAll(),
     queryKey: ['levelapigetall'],
     select: (d) => d?.data.data,
@@ -30,12 +30,11 @@ export default function Form() {
     staleTime: Infinity,
   });
   const { data } = useQuery({
-    queryKey: ['fee/fee-type', page],
+    queryKey: ['fee/fee-type', parseInt(page || '1')],
     queryFn: () => feeTypeApi.get(parseInt(page || '1')),
     staleTime: Infinity,
     select: (d) => d?.data.data.data.filter((c) => c.id == id)[0],
   });
-  console.log(data);
   const {
     register,
     control,
@@ -46,26 +45,19 @@ export default function Form() {
   const navigate = useNavigate();
 
   const mutation = useMutation({
-    mutationFn: (d) => feeTypeApi.create(d),
-    onSuccess: () => navigate(-1),
+    mutationFn: (d) => feeTypeApi.edit(id, d),
+    onSuccess: () => {
+      navigate(-1);
+      refetch();
+    },
   });
   const onSubmit = (d) => {
-    const data = { ...d, month: d.month?.map((c) => c.id) };
+    const data = { ...d };
     mutation.mutate(data);
   };
   useEffect(() => {
     if (data) {
-      // console.log(data?.month);
-      console.log({
-        ...data,
-        defaultmonth: data?.month,
-        month: data?.month.map((c) => arrayMonths[c - 1]),
-      });
-      // reset({
-      //   ...data,
-      //   month: data?.month.map((c) => arrayMonths[c - 1]),
-      // });
-      reset({ month: data?.month.map((c) => arrayMonths[c - 1]) });
+      reset({ ...data });
     }
   }, [data]);
 
@@ -81,6 +73,7 @@ export default function Form() {
             placeholder="Admission fee"
             register={register}
             name="name"
+            errors={errors}
           />
         </div>
         <div>
@@ -89,6 +82,7 @@ export default function Form() {
             register={register}
             label="Level*"
             name="level_id"
+            errors={errors}
             value={levelapi}
           />
         </div>
@@ -96,6 +90,7 @@ export default function Form() {
           <MultipleMonthSelect
             label="Month*"
             control={control}
+            errors={errors}
             name="month"
             key={data}
           />

@@ -4,7 +4,7 @@ import React from 'react';
 import { Fragment } from 'react';
 import { useController } from 'react-hook-form';
 import { MultipleSelect, Select } from '.';
-const arrayMonths = [
+export const arrayMonths = [
   {
     name: 'Baishakh',
 
