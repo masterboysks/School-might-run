@@ -18,6 +18,7 @@ import {
   Select,
 } from '../../../../../../components/common/fields';
 import feeAssignApi from '../../../../../../api/admin/dashboard/fee/feeAssignApi';
+import getSectionFacultiesApi from '../../../../../../api/common/unknown/class/getSectionFacultiesApi';
 const schema = yup.object().shape({
   batch_id: yup.string().required(''),
   level_id: yup.string().required(''),
@@ -37,7 +38,7 @@ export default function Form() {
     getValues,
     watch,
     reset,
-    setError,
+    // setError,
     resetField,
     handleSubmit,
     trigger,
@@ -47,8 +48,11 @@ export default function Form() {
   //   control,
   //   name: 'fee_rate_info',
   // });
-  const [valueLevel, valueClass, valueFaculty, valueSubFaculty, valueBatch] =
-    watch(['level_id', 'class_id', 'faculty_id', 'sub_faculty_id', 'batch_id']);
+  const [valueLevel, valueClass, valueBatch] = watch([
+    'level_id',
+    'class_id',
+    'batch_id',
+  ]);
   // usequery hooks
   const { data: arrBatch } = useQuery({
     queryKey: ['batchapigetall'],
@@ -68,81 +72,101 @@ export default function Form() {
     queryKey: ['classapigetall', valueLevel],
     staleTime: Infinity,
     enabled: !!valueLevel,
+
     select: (d) => d?.data.data,
   });
-  const { data: arrFaculty } = useQuery({
-    queryKey: ['facultyapigetall', valueLevel],
+  const { data: facultyData } = useQuery({
+    queryKey: ['getsectionfacultiesapi', valueClass],
     staleTime: Infinity,
-    enabled: !!valueLevel,
-    select: (d) => d?.data.data,
-    queryFn: () => facultyApi.getAll(valueLevel),
+    // cacheTime: 10 * 60 * 1000,
+    enabled: !!valueClass,
+    onSuccess: (d) => console.log(d),
+    select: (d) => d.data.data,
+    onError: (err) => console.log(err),
+
+    queryFn: () => getSectionFacultiesApi.getSectionFaculties(valueClass),
   });
-  const { data: arrSubFaculty } = useQuery({
-    queryKey: ['subfacultyapigetall', valueFaculty],
-    staleTime: Infinity,
-    queryFn: () => subFacultyApi.getAll(valueFaculty),
-    select: (d) => d?.data.data,
-    enabled: !!valueFaculty,
-  });
+  // const { data: arrFaculty } = useQuery({
+  //   queryKey: ['facultyapigetall', valueLevel],
+  //   staleTime: Infinity,
+  //   enabled: !!valueLevel,
+  //   select: (d) => d?.data.data,
+  //   queryFn: () => facultyApi.getAll(valueLevel),
+  // });
+  // const { data: arrSubFaculty } = useQuery({
+  //   queryKey: ['subfacultyapigetall', valueFaculty],
+  //   staleTime: Infinity,
+  //   queryFn: () => subFacultyApi.getAll(valueFaculty),
+  //   select: (d) => d?.data.data,
+  //   enabled: !!valueFaculty,
+  // });
   const { data: feeRateTable } = useQuery({
     queryFn: () => feeAssignApi.getFeeRate(getValues()),
     select: (d) => d?.data.data,
     onSuccess: (d) => {
-      console.log(getValues());
-      console.log(d);
+      // console.log(getValues());
     },
     queryKey: [
       'feeassignapi',
       valueBatch,
       valueClass,
-      valueFaculty,
+      // valueFaculty,
       valueLevel,
-      valueSubFaculty,
+      // valueSubFaculty,
     ],
 
     enabled: searchValid,
   });
   const mutation = useMutation({
     mutationFn: (d) => feeAssignApi.create(d),
-    onSuccess: () => reset(),
+    onSuccess: () => {
+      setSearchValid(false);
+      reset();
+    },
   });
-  useEffect(() => {
-    resetField('class_id');
-    resetField('faculty_id');
-    setSearchValid(false);
-  }, [valueLevel]);
-  useEffect(() => {
-    resetField('sub_faculty_id');
-    setSearchValid(false);
-  }, [valueFaculty]);
+  // useEffect(() => {
+  //   resetField('class_id');
+  //   resetField('faculty_id');
+  //   setSearchValid(false);
+  // }, [valueLevel]);
+  // useEffect(() => {
+  //   resetField('sub_faculty_id');
+  //   setSearchValid(false);
+  // }, [valueFaculty]);
   const handleSearch = async (e) => {
     e.preventDefault();
-    console.log(errors);
+
     if (await trigger()) {
-      if (!(arrFaculty.length == 0)) {
-        console.log('has faculty');
-        if (valueFaculty) {
-          if (!(arrSubFaculty == 0)) {
-            if (valueSubFaculty) {
-              setSearchValid(true);
-            } else {
-              setError('sub_faculty_id', { type: 'required', message: '' });
-            }
-          }
-        } else {
-          setError('faculty_id', { type: 'required', message: '' });
-        }
-      }
+      setSearchValid(true);
+      // if (!(arrFaculty.length == 0)) {
+      //   console.log('has faculty');
+      //   if (valueFaculty) {
+      //     if (!(arrSubFaculty == 0)) {
+      //       if (valueSubFaculty) {
+      //         setSearchValid(true);
+      //       } else {
+      //         setError('sub_faculty_id', { type: 'required', message: '' });
+      //       }
+      //     }
+      //   } else {
+      //     setError('faculty_id', { type: 'required', message: '' });
+      //   }
+      // }
     }
-    console.log(getValues());
   };
   const onSubmit = (d) => {
+    console.log({ valueLevel, valueClass, valueBatch }, 'levewl');
     const fee_info = d.fee_rate_info?.map((c) => {
       // console.log(d);
       if (c?.is_selected) return { amount: c.amount };
       return null;
     });
-    mutation.mutate({ ...d, fee_rate_info: fee_info });
+    mutation.mutate({
+      ...d,
+      fee_rate_info: fee_info,
+      faculty_id: facultyData?.faculty || null,
+      sub_faculty_id: facultyData?.subfaculty || null,
+    });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -179,7 +203,7 @@ export default function Form() {
             />
           </div>
 
-          <div>
+          {/* <div>
             <Select
               errors={errors}
               label="Faculty"
@@ -198,7 +222,7 @@ export default function Form() {
               disabled={!arrSubFaculty}
               value={arrSubFaculty}
             />
-          </div>
+          </div> */}
           <div className="">
             <button onClick={handleSearch} className="primary_btn">
               Search
