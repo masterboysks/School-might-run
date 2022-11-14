@@ -6,13 +6,16 @@ export const checkbox = ({
   register,
   id = 'form_' + name,
   className = '',
+  defaultValue = false,
+  shouldUnregister = false,
 }) => {
   return (
     <div className={`flex items-center h-5 ${className}`}>
       <input
         id={id}
         type="checkbox"
-        {...register(name)}
+        {...register(name, { shouldUnregister })}
+        defaultChecked={defaultValue}
         className={`focus:ring-primary-btn text-primary-btn  w-4 h-4 border-primary-btn border rounded `}
       />
       <div className="ml-3 text-sm">

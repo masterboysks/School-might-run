@@ -11,7 +11,12 @@ import batchApi from '../../../../../../api/admin/dashboard/admin/data-setup/bat
 import facultyApi from '../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
 import subFacultyApi from '../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
 import sectionsApi from '../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
-import { Select } from '../../../../../../components/common/fields';
+import {
+  Checkbox,
+  Input,
+  InputNumber,
+  Select,
+} from '../../../../../../components/common/fields';
 import feeAssignApi from '../../../../../../api/admin/dashboard/fee/feeAssignApi';
 const schema = yup.object().shape({
   batch_id: yup.string().required(''),
@@ -31,6 +36,7 @@ export default function Form() {
     register,
     getValues,
     watch,
+    reset,
     setError,
     resetField,
     handleSubmit,
@@ -79,20 +85,27 @@ export default function Form() {
     enabled: !!valueFaculty,
   });
   const { data: feeRateTable } = useQuery({
-    queryKey: ['', getValues()],
     queryFn: () => feeAssignApi.getFeeRate(getValues()),
     select: (d) => d?.data.data,
-    onSuccess: (d) => console.log(d),
-    staleTime: 20000,
+    onSuccess: (d) => {
+      console.log(getValues());
+      console.log(d);
+    },
+    queryKey: [
+      'feeassignapi',
+      valueBatch,
+      valueClass,
+      valueFaculty,
+      valueLevel,
+      valueSubFaculty,
+    ],
+
     enabled: searchValid,
   });
-  // const { data: section } = useQuery({
-  //   queryKey: ['sectionsapigetbyclassid', valueClass],
-  //   staleTime: Infinity,
-  //   queryFn: () => sectionsApi.getByClassId(valueClass),
-  //   select: (d) => d?.data.data,
-  //   enabled: !!valueClass,
-  // });
+  const mutation = useMutation({
+    mutationFn: (d) => feeAssignApi.create(d),
+    onSuccess: () => reset(),
+  });
   useEffect(() => {
     resetField('class_id');
     resetField('faculty_id');
@@ -123,7 +136,14 @@ export default function Form() {
     }
     console.log(getValues());
   };
-  const onSubmit = async (d) => console.log(d);
+  const onSubmit = (d) => {
+    const fee_info = d.fee_rate_info?.map((c) => {
+      // console.log(d);
+      if (c?.is_selected) return { amount: c.amount };
+      return null;
+    });
+    mutation.mutate({ ...d, fee_rate_info: fee_info });
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-solid w-full my-6 rounded-md">
@@ -213,96 +233,34 @@ export default function Form() {
                         </tr>
                       </thead>
                       <tbody className=" bg-white divide-y divide-gray-200">
-                        {/* addmission */}
-                        <tr>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="checkbox"
-                              className=" mx-2 rounded"
-                              id="admission_fee"
-                            />
-                            <label htmlFor="admission_fee">Admission fee</label>
-                          </td>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="Number"
-                              placeholder=""
-                              className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-                            />
-                          </td>
-                        </tr>
-                        {/* Annual */}
-                        <tr>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="checkbox"
-                              className=" mx-2 rounded"
-                              id="annual_fee"
-                            />
-                            <label htmlFor="annual_fee">Annual fee</label>
-                          </td>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="Number"
-                              placeholder=""
-                              className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-                            />
-                          </td>
-                        </tr>
-                        {/* monthly */}
-                        <tr>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="checkbox"
-                              className=" mx-2 rounded"
-                              id="monthly_fee"
-                            />
-                            <label htmlFor="monthly_fee">Monthly fee</label>
-                          </td>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="Number"
-                              placeholder=""
-                              className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-                            />
-                          </td>
-                        </tr>
-                        {/* lab */}
-                        <tr>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="checkbox"
-                              className=" mx-2 rounded"
-                              id="lab_fee"
-                            />
-                            <label htmlFor="lab_fee">Lab fee</label>
-                          </td>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="Number"
-                              placeholder=""
-                              className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-                            />
-                          </td>
-                        </tr>
-                        {/* pratical */}
-                        <tr>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="checkbox"
-                              className=" mx-2 rounded"
-                              id="lab_fee"
-                            />
-                            <label htmlFor="lab_fee">Pratical fee</label>
-                          </td>
-                          <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
-                            <input
-                              type="Number"
-                              placeholder=""
-                              className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-                            />
-                          </td>
-                        </tr>
+                        {feeRateTable?.map((curr) => (
+                          <tr key={curr.id + curr.name}>
+                            <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500 p-2">
+                              <Checkbox
+                                label={curr.name}
+                                name={`fee_rate_info.${curr.id}.is_selected`}
+                                defaultValue={curr.is_selected ? true : false}
+                                shouldUnregister
+                                register={register}
+                              />
+                              <label htmlFor="admission_fee"></label>
+                            </td>
+                            <td className="whitespace-nowrap py-4 pr-3 text-sm text-left text-gray-500">
+                              <InputNumber
+                                defaultValue={curr.amount}
+                                label={undefined}
+                                name={`fee_rate_info.${curr.id}.amount`}
+                                register={register}
+                                shouldUnregister
+                              />
+                              {/* <input
+                                type="Number"
+                                placeholder=""
+                                className="mt-[6px] w-full p- rounded  focus:ring-primary-btn    border-primary-field shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
+                              /> */}
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
@@ -310,18 +268,21 @@ export default function Form() {
               </div>
             </div>
           </div>
+          <div className=" w-full">
+            <div className=" w-fit ml-auto">
+              <Link
+                to="/admin/dashboard/fee/fee-assign"
+                className="secondary_btn"
+              >
+                Cancel
+              </Link>
+              <button type="submit" className="primary_btn">
+                Save
+              </button>
+            </div>
+          </div>
         </>
       ) : null}
-      <div className=" w-full">
-        <div className=" w-fit ml-auto">
-          <Link to="/admin/dashboard/fee/fee-assign" className="secondary_btn">
-            Cancel
-          </Link>
-          <Link to="/admin/dashboard/fee/fee-assign" className="primary_btn">
-            Save
-          </Link>
-        </div>
-      </div>
     </form>
   );
 }

@@ -153,7 +153,9 @@ export function inputNumber({
   placeholder = '',
   step = '',
   min = '',
+  shouldUnregister,
   max,
+  defaultValue = '0',
   id = 'form_' + name,
 }: {
   errors?: {} | undefined;
@@ -165,7 +167,9 @@ export function inputNumber({
   step?: string | undefined;
   min?: number;
   max?: number;
+  defaultValue?: string;
   id?: string | undefined;
+  shouldUnregister?: boolean;
 }) {
   const props = { step, min, max, placeholder, id };
   return (
@@ -186,7 +190,13 @@ export function inputNumber({
 
       <input
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm`}
-        {...register(name, { required, valueAsNumber: true })}
+        {...register(name, {
+          required,
+          valueAsNumber: true,
+
+          shouldUnregister,
+        })}
+        defaultValue={defaultValue}
         type="number"
         {...props}
       />
