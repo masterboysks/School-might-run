@@ -23,7 +23,7 @@ export default function Form() {
   });
   const onBack = async () => {
     const temp = getValues();
-    console.log(temp);
+    // console.log(temp);
   };
   return (
     <form>

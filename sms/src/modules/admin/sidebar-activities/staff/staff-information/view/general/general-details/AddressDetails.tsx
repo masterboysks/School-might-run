@@ -6,7 +6,7 @@ import StaffGeneralDetailsView from '../../../../../../../../contex/admin/staff/
 export default function AddressDetails() {
   const generaldetails = useContext(StaffGeneralDetailsView);
   const data = generaldetails?.data?.address;
-  console.log(data, 'address');
+  // console.log(data, 'address');
   return (
     <div className="my-6">
       <div className="sm:flex sm:items-center my-3">

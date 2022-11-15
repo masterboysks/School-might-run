@@ -63,7 +63,7 @@ function NewNotice() {
         const data = await noticeApi.sendTo();
         setArraySendTo(data?.data?.data?.data);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, []);

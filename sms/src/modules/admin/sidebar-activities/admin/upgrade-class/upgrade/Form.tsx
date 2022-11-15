@@ -17,7 +17,7 @@ export default function Form() {
   const [errorSection, setErrorSection] = useState(false);
 
   const handleSubmit = () => {
-    console.log({ level, classSemester, faculty, section });
+    // console.log({ level, classSemester, faculty, section });
     let temp = false;
     level === 'Select' && (temp = true) && setErrorLevel(true);
     classSemester === 'Select' && (temp = true) && setErrorClassSemester(true);

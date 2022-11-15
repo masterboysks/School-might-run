@@ -26,11 +26,11 @@ export default function Login() {
   // const { abc } = useParams();
   const { setAuth } = useContext(AuthContext);
   const [errorText, setErrorText] = useState('');
-  // console.log(abc);
+  // // console.log(abc);
   const onSubmit = async (data) => {
     try {
       const res = await Auth.login(data);
-      console.log(res);
+      // console.log(res);
       setAuth(res.data.data.token.access_token);
       localStorage.setItem('kcx', res.data.data.token.refresh_token);
       switch (res.data.data.meta.type) {

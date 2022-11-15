@@ -59,7 +59,7 @@ export default function Form() {
     onError: () => setError('Failed to create exam name'),
   });
   useEffect(() => {
-    console.log(examnamedata);
+    // console.log(examnamedata);
     reset({ exam_name: examnamedata, level_id });
   }, [examnamedata]);
   return (

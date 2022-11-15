@@ -27,7 +27,7 @@ export default function LocationForm({ register, errors, watch, prefix = '' }) {
       const data = await countries.province(country);
       setArrayProvince(data?.data?.data);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   const districtFunction = async () => {
@@ -35,7 +35,7 @@ export default function LocationForm({ register, errors, watch, prefix = '' }) {
       const data = await countries.district(country, province);
       setArrayDistrict(data?.data?.data);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   const vdcFunction = async () => {
@@ -43,7 +43,7 @@ export default function LocationForm({ register, errors, watch, prefix = '' }) {
       const data = await countries.municipality(country, province, district);
       setArrayVdcMunicalipality(data?.data?.data);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 

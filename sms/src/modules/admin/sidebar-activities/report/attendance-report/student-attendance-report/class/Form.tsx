@@ -7,7 +7,7 @@ export default function Form() {
   const [errorFromDate, setErrorFromDate] = useState(false);
   const [errorToDate, setErrorToDate] = useState(false);
   const handleSubmit = () => {
-    console.log({ fromDate, toDate });
+    // console.log({ fromDate, toDate });
     fromDate || setErrorFromDate(true);
     toDate || setErrorToDate(true);
   };

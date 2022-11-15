@@ -15,14 +15,14 @@ export default function RenderTable({
   useEffect(() => {
     (async () => {
       const temp = localStorage.getItem('jhsgbbvppi') || '';
-      // console.log(temp, "temp");
+      // // console.log(temp, "temp");
       const temp1 = await JSON.parse(temp);
       setAccessionNumberGenerate(temp1);
     })();
   }, []);
 
   const accessionGenerator = (id, values) => {
-    console.log(values);
+    // console.log(values);
     if (values.isbn) {
       const temp = values?.isbn.split(/[-,.\s]/);
       return `${temp[2]}-${id + 1}-${temp[3]}-${values?.year}`;
@@ -61,7 +61,7 @@ export default function RenderTable({
               setStation((curr) => {
                 let temp = [...curr];
 
-                console.log(temp.splice(index, 1));
+                // console.log(temp.splice(index, 1));
                 return temp;
               });
             }}

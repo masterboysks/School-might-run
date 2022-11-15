@@ -35,7 +35,7 @@ const Form = () => {
   const [errorToSelectedSection, setErrorToSelectedSection] = useState(false);
   //  submit and error handaling
   const handleClick = () => {
-    console.log({
+    // console.log({
       fromClassSemester,
       fromAvailableSections,
       toAvailableSections,
@@ -46,7 +46,7 @@ const Form = () => {
       toLevelStacked,
       toYearStacked,
     });
-    console.log(setErrorToLevelStacked(true));
+    // console.log(setErrorToLevelStacked(true));
     let temp = false;
     toLevelStacked === 'Select' &&
       (temp = true) &&

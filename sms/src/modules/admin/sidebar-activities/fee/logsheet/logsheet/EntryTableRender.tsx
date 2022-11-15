@@ -56,7 +56,7 @@ export default function RenderTable({ type, index, setEntry, entry }) {
           <div
             className=" text-primary-grey-700 w-fit p-1 mx-1 bg-white rounded-full shadow"
             onClick={() => {
-              // console.log(examName.slice(0, -1));
+              // // console.log(examName.slice(0, -1));
               setEntry(entry.slice(0, -1));
             }}
           >

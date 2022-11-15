@@ -34,7 +34,7 @@ export default function Table() {
         setData(datas?.data);
         setPagination(datas?.pagination);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, [page]);

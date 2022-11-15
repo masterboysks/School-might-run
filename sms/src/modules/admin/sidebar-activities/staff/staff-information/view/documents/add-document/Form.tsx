@@ -20,7 +20,7 @@ const Form = () => {
     formState: { errors, isValid },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const form = new FormData();
     form.append('document_name', data['document_name']);
     form.append('document_file', data['document_file'][0]);
@@ -30,7 +30,7 @@ const Form = () => {
         ? navigate(`/admin/dashboard/staff/staff-information/${id}/document`)
         : setMessage(res?.response?.data?.message);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
     // to=
   };

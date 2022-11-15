@@ -50,7 +50,7 @@ const PermanentAddressForm = () => {
         const temp = await designationApi.getAll(department);
         setArrayDesignation(temp?.data?.data);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
     reset({ ...getValues(), designation_id: '' });
@@ -62,7 +62,7 @@ const PermanentAddressForm = () => {
         const temp = await departmentApi.getAll();
         setArrayDepartment(temp?.data?.data);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, []);
@@ -92,7 +92,7 @@ const PermanentAddressForm = () => {
     form.append('general.joined_date', date);
 
     staffAPI.create(form).then((data) => {
-      console.log(data);
+      // console.log(data);
       data?.response?.status === 422 &&
         setMessage(data?.response?.data?.errors);
       if (data?.status === 201) {
@@ -101,10 +101,10 @@ const PermanentAddressForm = () => {
     });
 
     // .catch((e) => {
-    //   console.log("this is eroor functin");
-    //   console.log(e);
+    //   // console.log("this is eroor functin");
+    //   // console.log(e);
     //   // e===422?sete(e)
-    //   e === 422 && console.log(e);
+    //   e === 422 && // console.log(e);
     // });
   };
   const handelBack = (data) => {

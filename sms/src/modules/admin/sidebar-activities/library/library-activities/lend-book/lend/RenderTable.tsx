@@ -16,14 +16,14 @@ export default function RenderTable({
   //   useEffect(() => {
   //     (async () => {
   //       const temp = localStorage.getItem("jhsgbbvppi") || "";
-  //       // console.log(temp, "temp");
+  //       // // console.log(temp, "temp");
   //       const temp1 = await JSON.parse(temp);
   //       setAccessionNumberGenerate(temp1);
   //     })();
   //   }, []);
 
   //   const accessionGenerator = (id, values) => {
-  //     console.log(values);
+  //     // console.log(values);
   //     if (values.isbn) {
   //       const temp = values?.isbn.split(/[-,.\s]/);
   //       return  `${temp[2]}-${id + 1}-${temp[3]}-${values?.year}`;
@@ -35,7 +35,7 @@ export default function RenderTable({
     let result;
     result = new Date();
     result.setDate(result.getDate() + days || 0);
-    console.log(result);
+    // console.log(result);
 
     return result.toDateString();
   }

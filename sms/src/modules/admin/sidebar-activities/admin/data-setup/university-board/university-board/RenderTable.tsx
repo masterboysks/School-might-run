@@ -5,22 +5,29 @@ import { useContext } from 'react';
 import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
 import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
 import { Link } from 'react-router-dom';
-
-const RenderTable = ({ currentItems, setData }) => {
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+const RenderTable = ({ currentItems }) => {
+  const queryClient = useQueryClient();
   const value = useContext(DeleteModalContex);
 
-  const deleteFunction = async (id, name, inUse) => {
-    const res = await universityBoardApi.delete(id);
-    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
-  };
+  // const deleteFunction = async (id, name, inUse) => {
+  //   const res = await universityBoardApi.delete(id);
+  //   res.status === 204 && setData(currentItems.filter((d) => d.id != id));
+  // };
+  const mutation = useMutation({
+    mutationFn: (id) => universityBoardApi.delete(id),
+    onSuccess: (id) => queryClient.invalidateQueries(['universityboardapiget']),
+  });
+
   const handleDelete = (id, name, inUse) => {
     value.setValue({
-      func: deleteFunction,
+      func: mutation.mutate,
       id: id,
       message: `You want to delete ${name} ?`,
       heading: 'university',
       inUse,
     });
+    // mutation.mutate(id)
   };
   return (
     <>

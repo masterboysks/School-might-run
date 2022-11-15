@@ -3,13 +3,14 @@ import '@sbmdkl/nepali-datepicker-reactjs/dist/index.css';
 import { useQuery } from '@tanstack/react-query';
 import React, { useState, useEffect } from 'react';
 import { InputNumber } from '.';
-import DateFormat from '../../../api/common/DateFormat';
+import dateFormatApi from '../../../api/common/dateFormatApi';
 import './datepicker.css';
 
 function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
   const { data } = useQuery({
-    queryFn: () => DateFormat.get(),
-    staleTime: 300000,
+    queryFn: () => dateFormatApi.get(),
+    staleTime: Infinity,
+    cacheTime: Infinity,
     queryKey: ['Dateformatofacompany/89217648'],
   });
   useEffect(() => {

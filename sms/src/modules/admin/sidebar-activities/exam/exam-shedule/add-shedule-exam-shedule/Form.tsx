@@ -23,7 +23,7 @@ export default function Form({ children }) {
   const [errorExamStartTime, setErrorExamStartTime] = useState(false);
   const [errorExamEndTime, setErrorExamEndTime] = useState(false);
   const handleSubmit = () => {
-    console.log({ classSemester, examEndTime, faculty, examStartTime });
+    // console.log({ classSemester, examEndTime, faculty, examStartTime });
     let temp = false;
     classSemester === 'Select' && (temp = true) && setErrorClassSemester(true);
     examStartTime || ((temp = true) && setErrorExamStartTime(true));

@@ -19,7 +19,7 @@ export default function AcademicTable() {
         setData(datas?.data);
         setPagination(datas?.pagination);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, [page]);

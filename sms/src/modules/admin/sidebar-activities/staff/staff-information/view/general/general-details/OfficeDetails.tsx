@@ -6,7 +6,7 @@ import StaffGeneralDetailsView from '../../../../../../../../contex/admin/staff/
 export default function OfficeDetails() {
   const generaldetails = useContext(StaffGeneralDetailsView);
   const data = generaldetails?.data?.office;
-  console.log(data);
+  // console.log(data);
   return (
     <div className="my-6">
       <div className="sm:flex sm:items-center my-3">

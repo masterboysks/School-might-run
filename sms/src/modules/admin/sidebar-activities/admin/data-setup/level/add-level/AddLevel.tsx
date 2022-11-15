@@ -52,9 +52,9 @@ const AddLevel = () => {
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    // console.log(d);
     const res = await levelApi.create(d);
-    console.log(res);
+    // console.log(res);
     res?.status === 201
       ? navigate('/admin/dashboard/admin/data-setup/level')
       : setError('Failed to create Level');

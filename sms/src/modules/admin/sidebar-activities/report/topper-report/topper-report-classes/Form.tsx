@@ -10,7 +10,7 @@ const Form = () => {
   const [classSemester, setClassSemester] = useState('Select');
   const [faculty, setFaculty] = useState('Select');
   const handleSearch = () => {
-    console.log({ level, classSemester, faculty });
+    // console.log({ level, classSemester, faculty });
   };
   return (
     <div className="lg:w-11/12 mb-14 w-full">

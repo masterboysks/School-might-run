@@ -24,7 +24,7 @@ export default function Table() {
   //         setData(datas?.data);
   //         // setData();
   //       } catch (e) {
-  //         console.warn(e);
+  //         // console.warn(e);
   //       }
   //     })();
   //   }, []);

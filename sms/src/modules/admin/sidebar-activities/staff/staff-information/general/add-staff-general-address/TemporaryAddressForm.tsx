@@ -6,7 +6,7 @@ import LocationForm from '../../../../../../../components/common/LocationForm';
 const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
   const asAsPermenantAddress = watch('same_as_permanent_address');
   // useEffect(() => {
-  //   console.log(asAsPermenantAddress);
+  //   // console.log(asAsPermenantAddress);
   // }, [asAsPermenantAddress]);
 
   //   const route = useRoutes();

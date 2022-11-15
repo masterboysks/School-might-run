@@ -16,6 +16,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import classSheduleApi from '../../../../../../api/admin/dashboard/admin/classSheduleApi';
 import React from 'react';
+import * as yup from 'yup';
 const pages = [
   { name: 'Admin' },
   {
@@ -36,6 +37,17 @@ const arrayDays = [
   { id: 5, name: 'Fri' },
   { name: 'Sat', id: 6 },
 ];
+
+const schema = yup.object().shape({
+  level_id: yup.string().required(),
+  class_id: yup.string().required(),
+  section_id: yup.string().required(),
+  teacher_id: yup.string().required(),
+  subject_id: yup.string().required(),
+  weekdays: yup.array().required().min(1, 'Select at least one item'),
+  start_time: yup.string().required(),
+  end_time: yup.string().required(),
+});
 function AddClassShedule() {
   const {
     register,
@@ -57,7 +69,7 @@ function AddClassShedule() {
       section_id: 1,
     };
 
-    console.log(d);
+    // console.log(d);
     // const res = await classSheduleApi.create(d);
     // res?.status === 201
     //   ? navigate('/admin/dashboard/admin/class-schedule')

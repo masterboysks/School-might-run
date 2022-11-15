@@ -113,7 +113,7 @@ export default function Form() {
         year: d.published_date.split('-')[0].slice(1),
       })
     );
-    console.log({ year: d.published_date.split('-')[0].slice(1) });
+    // console.log({ year: d.published_date.split('-')[0].slice(1) });
   };
   return (
     <form className="w-full" onSubmit={handleSubmit(onSubmit)}>

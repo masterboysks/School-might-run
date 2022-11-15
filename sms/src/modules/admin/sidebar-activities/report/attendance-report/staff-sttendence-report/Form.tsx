@@ -13,7 +13,7 @@ export default function Form() {
   const [name, setName] = useState('');
   const [errorName, setErrorName] = useState(false);
   const handleSearch = () => {
-    console.log({ fromDate, toDate, department, designation, name });
+    // console.log({ fromDate, toDate, department, designation, name });
     toDate || setErrorToDate(true);
     fromDate || setErrorFromDate(true);
     name || setErrorName(true);

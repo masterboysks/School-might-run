@@ -13,7 +13,7 @@ export default function Form() {
   const [section, setSection] = useState('Select');
 
   const handleSubmit = () => {
-    console.log({ level, classSemester, faculty, section });
+    // console.log({ level, classSemester, faculty, section });
   };
   return (
     <div className="mt-11 lg:w-2/3 w-full">

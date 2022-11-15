@@ -50,17 +50,17 @@ const TeacherMain = () => {
   //       try {
   //         authorized.defaults.headers.Authorization = `Bearer ${auth}`;
   //         modules = await Info.get();
-  //         console.log(modules);
+  //         // console.log(modules);
   //         setSidebarData(modules.data?.data?.modules);
   //         if (!modules) throw { message: "Modules not found", status: "404" };
   //         modules && setLoading(false);
   //       } catch (e) {
-  //         // console.log(e);
+  //         // // console.log(e);
   //         navigate("/");
   //       }
   //     })();
   //   } catch (error) {
-  //     // console.log(error);
+  //     // // console.log(error);
   //     navigate("/");
   //   }
   // }, []);

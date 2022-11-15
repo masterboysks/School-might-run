@@ -26,9 +26,9 @@ export default function DocumentTable() {
         const datas = data?.data?.data;
         setData(datas?.data);
         setPagination(datas?.pagination);
-        console.log(datas);
+        // console.log(datas);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, [page]);

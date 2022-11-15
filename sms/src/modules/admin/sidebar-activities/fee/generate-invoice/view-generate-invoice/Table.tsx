@@ -139,13 +139,13 @@ export default function Table() {
   const [errorExamName, setErrorExamName] = useState(false);
   //
   const handleSubmit = () => {
-    console.log({
-      academicYear,
-      examName,
-      gradingSystem,
-      resultStatus,
-      remark,
-    });
+    // console.log({
+    //   academicYear,
+    //   examName,
+    //   gradingSystem,
+    //   resultStatus,
+    //   remark,
+    // });
     academicYear || setErrorAcademicYear(true);
     examName || setErrorExamName(true);
   };

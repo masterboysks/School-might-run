@@ -16,7 +16,7 @@ export default function GenerateForm() {
   const [section, setSection] = useState('Select');
 
   const handleSubmit = () => {
-    console.log({ level, classSemester, faculty, section });
+    // console.log({ level, classSemester, faculty, section });
   };
   return (
     <div className="my-6">

@@ -12,7 +12,7 @@ function AddressForm() {
     formState: { errors, isValid },
   } = useForm();
   const onSubmit = async (d) => {
-    console.log(d);
+    // console.log(d);
   };
   const onBack = () => {
     navigate(-1);

@@ -111,7 +111,7 @@ const EditClassSemester = () => {
         ? navigate('/admin/dashboard/admin/data-setup/class-semester')
         : setError('Failed to add class');
     } catch (error) {
-      console.warn(error);
+      // console.warn(error);
     }
   };
   return (

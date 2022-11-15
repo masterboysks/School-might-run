@@ -26,7 +26,7 @@ function Form({ date }) {
   const [errorSendTo, setErrorSendTo] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = () => {
-    console.log({
+    // console.log({
       eventTitle,
       eventDescription,
       startTime,

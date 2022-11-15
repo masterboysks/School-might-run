@@ -34,7 +34,7 @@ export default function Table() {
         const datas = data?.data?.data;
         setData(datas?.data);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, []);

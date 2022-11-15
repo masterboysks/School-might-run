@@ -27,7 +27,7 @@ export default function ExamMarksName() {
   const [errorExamMarksName, setErrorExamMarksName] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = () => {
-    console.log({ examMarksName });
+    // console.log({ examMarksName });
 
     examMarksName
       ? navigate('/admin/dashboard/exam/exam-setup/exam-marks-name')

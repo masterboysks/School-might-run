@@ -13,7 +13,7 @@ export default function Table({ data }) {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     const res = await staffAPI.attendance(data);
   };

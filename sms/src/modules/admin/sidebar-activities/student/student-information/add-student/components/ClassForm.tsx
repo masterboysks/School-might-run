@@ -94,7 +94,7 @@ function ClassForm() {
           />
         </div>
         <div className="">
-          {/* {console.log(data)} */}
+          {/* {// console.log(data)} */}
           <Select
             disabled={!levelapi}
             value={levelapi}

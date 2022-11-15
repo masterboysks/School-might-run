@@ -17,7 +17,7 @@ export default function Form() {
   ]);
   const navigate = useNavigate();
   const handleSubmit = () => {
-    console.log({ inputFileds, level });
+    // console.log({ inputFileds, level });
     let temp = false;
     level === 'Select' && (temp = true) && setErrorLevel(true);
     inputFileds.map((curr) => {

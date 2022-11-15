@@ -78,13 +78,13 @@ const DetailsForm = () => {
   useEffect(() => {
     (async () => {
       const temp = await JSON.parse(localStorage.getItem('pdgdsas'));
-      console.log({ ...temp, photo: photo?.photo });
+      // console.log({ ...temp, photo: photo?.photo });
       reset({ ...temp, photo: photo?.photo });
       setDefaultDate(temp.dob);
     })();
   }, []);
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     photo?.setPhoto(data.photo);
     delete data.photo;
     data.dob = date;

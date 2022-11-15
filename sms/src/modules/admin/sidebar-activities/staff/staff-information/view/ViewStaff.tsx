@@ -30,7 +30,7 @@ export default function ViewStaff() {
           office: office?.data?.data,
         });
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     })();
     return generalDetails.setData({});

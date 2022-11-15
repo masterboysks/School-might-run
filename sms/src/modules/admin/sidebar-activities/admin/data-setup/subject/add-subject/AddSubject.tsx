@@ -50,9 +50,9 @@ const AddSubject = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    // console.log(d);
     const res = await subjectApi.create(d);
-    console.log(res);
+    // console.log(res);
     res?.status === 201
       ? navigate('/admin/dashboard/admin/data-setup/subject')
       : setError('Failed to create subject');

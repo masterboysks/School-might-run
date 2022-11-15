@@ -37,14 +37,13 @@ function Form() {
   //   const [errorSendTo, setErrorSendTo] = useState(false);
   const navigate = useNavigate();
   const onSubmit = (d) => {
-    console.log({ ...d, deadline: d });
+    // console.log({ ...d, deadline: d });
     // let temp = false;
     // eventTitle || ((temp = true) && setErrorEventTitle(true));
     // eventDescription || ((temp = true) && setErrorEventDescription(true));
     // startTime || ((temp = true) && setErrorStartTime(true));
     // endTime || ((temp = true) && setErrorEndTime(true));
     // sendTo.length === 0 && (temp = true) && setErrorSendTo(true);
-
     // temp || navigate("/admin/event-calender");
   };
   return (

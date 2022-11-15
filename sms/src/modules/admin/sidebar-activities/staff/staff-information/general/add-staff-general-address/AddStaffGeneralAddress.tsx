@@ -42,7 +42,7 @@ const AddStaffGeneralPersonal = () => {
   }, []);
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     let d = { ...data };
     if (sameAsPermenantAddress) {
       delete d.temp_ward;

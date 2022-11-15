@@ -34,7 +34,7 @@ function Form({ onSubmit }) {
         const temp = await designationApi.getAll(department);
         setArrayDesignation(temp?.data?.data);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
     reset({ ...getValues(), designation_id: '' });
@@ -46,7 +46,7 @@ function Form({ onSubmit }) {
         const temp = await departmentApi.getAll();
         setArrayDepartment(temp?.data?.data);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, []);

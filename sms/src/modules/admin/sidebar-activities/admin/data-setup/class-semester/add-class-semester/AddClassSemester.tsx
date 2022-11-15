@@ -56,7 +56,7 @@ const AddClassSemester = () => {
   const [error, setError] = useState('');
   const [level_id, faculty_id] = watch(['level_id', 'faculty_id']);
   const { refetch } = useQuery({ queryKey: ['classapiget'] });
-  console.log(watch(['level_id', 'faculty_id']));
+  // console.log(watch(['level_id', 'faculty_id']));
   const { data: levelOption } = useQuery({
     queryFn: levelApi.getAll,
     queryKey: ['levelapigetall'],
@@ -90,7 +90,7 @@ const AddClassSemester = () => {
     staleTime: 300000,
     select: (d) => d.data.data,
     onSuccess: (data) => {
-      // console.log(data);
+      // // console.log(data);
       setArrayCompalsarySubjects(data.filter((c) => c.subject_type === 1));
       setArrayElectiveSubjects(data.filter((c) => c.subject_type === 2));
     },
@@ -108,7 +108,7 @@ const AddClassSemester = () => {
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    // console.log({
+    // // console.log({
     //   ...d,
     //   section_ids: d.section_ids?.map((c) => c.id),
     //   subject_ids: [
@@ -140,7 +140,7 @@ const AddClassSemester = () => {
         setError('Failed to add class');
       }
     } catch (error) {
-      console.warn(error);
+      // console.warn(error);
     }
   };
   return (

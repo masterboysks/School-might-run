@@ -48,14 +48,14 @@ const AddBatch = () => {
   });
 
   // const onSubmit = async (d) => {
-  //   console.log(d);
+  //   // console.log(d);
   //   try {
   //     const res = await universityBoardApi.create(d);
   //     res?.status === 201
   //       ? navigate('/admin/dashboard/admin/data-setup/university-board')
   //       : setError('Failed to add university');
   //   } catch (errors) {
-  //     console.warn(errors);
+  //     // console.warn(errors);
   //   }
 
   // university

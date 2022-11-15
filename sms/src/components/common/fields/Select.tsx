@@ -132,7 +132,7 @@ export function multipleSelect({
     control,
     rules: { required: required },
   });
-  // console.log(value, onChange);
+  // // console.log(value, onChange);
   return (
     <>
       <Listbox
@@ -253,6 +253,6 @@ export function multiplemonthSelect(props: {
   errors?: {} | undefined;
   required?: boolean | undefined;
 }) {
-  // console.log(value, onChange);
+  // // console.log(value, onChange);
   return <MultipleSelect value={arrayMonths} {...props} />;
 }

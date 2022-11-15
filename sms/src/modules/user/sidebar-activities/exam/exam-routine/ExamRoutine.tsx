@@ -192,7 +192,7 @@ export default function ExamRoutine() {
 //     setRoutine(data?.data)
 //     setIsOpen(true)
 //   } catch (error) {
-//     console.warn(error)
+//     // console.warn(error)
 //   }
 
 // }

@@ -6,7 +6,7 @@ import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/d
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
 import { Input } from '../../../../../../../components/common/fields';
-
+import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
@@ -28,6 +28,7 @@ const schema = yup.object().shape({
   name: yup.string().required(''),
 });
 const AddUniversityBoard = () => {
+  const queryClient = useQueryClient();
   const [error, setError] = useState('');
   const {
     register,
@@ -39,16 +40,23 @@ const AddUniversityBoard = () => {
     resolver: yupResolver(schema),
   });
   const navigate = useNavigate();
+  const mutation = useMutation({
+    mutationFn: (d) => universityBoardApi.create(d),
+    onSuccess: (d) => {
+      queryClient.invalidateQueries(['universityboardapiget']);
+      navigate(-1);
+    },
+  });
   const onSubmit = async (d) => {
-    console.log(d);
-    try {
-      const res = await universityBoardApi.create(d);
-      res?.status === 201
-        ? navigate('/admin/dashboard/admin/data-setup/university-board')
-        : setError('Failed to add university');
-    } catch (errors) {
-      console.warn(errors);
-    }
+    mutation.mutate(d);
+    // try {
+    //   const res = await ;
+    //   res?.status === 201
+    //     ? navigate('/admin/dashboard/admin/data-setup/university-board')
+    //     : setError('Failed to add university');
+    // } catch (errors) {
+    //   setError(errors.response.data.message);
+    // }
 
     // university
     //   ? navigate("/admin/data-setup/university-board")

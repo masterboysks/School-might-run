@@ -77,9 +77,9 @@ export const Radio = ({
   dataValue,
 }) => {
   // useEffect(() => {
-  //   console.log(err, name);
+  //   // console.log(err, name);
   //   error && !selected ? setErr(true) : setErr(false);
-  //   console.log(err);
+  //   // console.log(err);
   // }, [error]);
 
   const optional = {};
@@ -135,9 +135,9 @@ export const Input = ({
   dontShowerrorText = undefined,
 }) => {
   // useEffect(() => {
-  //   console.log(err, name);
+  //   // console.log(err, name);
   //   error && value.trim === "" ? setErr(true) : setErr(false);
-  //   console.log(err);
+  //   // console.log(err);
   // });
 
   const optional = {};
@@ -174,7 +174,7 @@ export const Input = ({
         }
         onClick={() => error && setError(false)}
       />
-      {/* {console.log(error)} */}
+      {/* {// console.log(error)} */}
       {error &&
         (dontShowErrorText || (
           <>
@@ -446,9 +446,9 @@ export function MultipleSelect({
   // let err = false;
 
   // useEffect(() => {
-  //   console.log(err, name);
+  //   // console.log(err, name);
   //   error && !(selected.length === 0) ? setErr(true) : setErr(false);
-  //   console.log(err);
+  //   // console.log(err);
   // }, [error]);
 
   const optional = {};
@@ -766,9 +766,9 @@ export const Textarea = ({
 //   // const mailRgexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 
 //   // useEffect(() => {
-//   //   console.log(err, name);
+//   //   // console.log(err, name);
 //   //   error && value.matches(mailRgexp) ? setErr(true) : setErr(false);
-//   //   console.log(err);
+//   //   // console.log(err);
 //   // }, [error]);
 
 //   const optional = {};
@@ -836,7 +836,7 @@ export const Textarea = ({
 //               onChange={(e) => {
 //                 let temp = selected;
 //                 temp.slice(i, 1, e.target.checked);
-//                 console.log(e.target.checked);
+//                 // console.log(e.target.checked);
 //                 setSelected(temp);
 //               }}
 //             />

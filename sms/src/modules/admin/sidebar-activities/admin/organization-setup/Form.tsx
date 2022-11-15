@@ -65,14 +65,15 @@ const Form = () => {
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState<String | Object>('');
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
   const [defaultDate, setDefaultDate] = useState('');
   const onSubmit = async (data) => {
+    // console.log(date);
     const d = {
       ...data,
-      established_at: date,
+      established_at: date?.date || date,
     };
 
     const form = new FormData();
@@ -93,7 +94,7 @@ const Form = () => {
         setMessage('Organization details updated sucesfully');
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   const resetData = async () => {
@@ -289,7 +290,7 @@ const Form = () => {
           >
             Cancel
           </button>
-          <button type="submit" className="primary_btn " disabled={!isValid}>
+          <button type="submit" className="primary_btn ">
             Save
           </button>
         </div>

@@ -130,7 +130,7 @@ export default function Form() {
     if (await trigger()) {
       setSearchValid(true);
       // if (!(arrFaculty.length == 0)) {
-      //   console.log('has faculty');
+      //   // console.log('has faculty');
       //   if (valueFaculty) {
       //     if (!(arrSubFaculty == 0)) {
       //       if (valueSubFaculty) {
@@ -146,9 +146,9 @@ export default function Form() {
     }
   };
   const onSubmit = (d) => {
-    console.log({ valueLevel, valueClass, valueBatch }, 'levewl');
+    // console.log({ valueLevel, valueClass, valueBatch }, 'levewl');
     const fee_info = d.fee_rate_info?.map((c) => {
-      // console.log(d);
+      // // console.log(d);
       if (c?.is_selected) return { amount: c.amount };
       return null;
     });

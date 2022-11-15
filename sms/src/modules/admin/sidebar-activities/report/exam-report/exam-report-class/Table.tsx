@@ -84,7 +84,7 @@ export default function Table() {
   const [miniumDueAmmount, setMiniumDueAmmount] = useState('');
   const cancelButtonRef = useRef(null);
   const handleSubmitMiniumDueAmmount = () => {
-    console.log(miniumDueAmmount);
+    // console.log(miniumDueAmmount);
   };
   // Checkbox
   const checkbox = useRef();

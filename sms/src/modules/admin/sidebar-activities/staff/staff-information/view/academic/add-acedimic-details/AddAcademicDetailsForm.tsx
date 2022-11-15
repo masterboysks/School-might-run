@@ -71,7 +71,7 @@ const AddAcademicDetailsForm = () => {
   } = useForm();
   const { id } = useParams();
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     try {
       const res = await staffAPI.createAcademic(id, data);
@@ -79,7 +79,7 @@ const AddAcademicDetailsForm = () => {
         ? navigate(`/admin/dashboard/staff/staff-information/${id}/academic`)
         : setMessage(res?.response?.data?.message);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   return (

@@ -41,14 +41,14 @@ const EditUniversityBoard = () => {
   });
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    // console.log(d);
     try {
       const res = await universityBoardApi.edit(id, d);
       res?.status === 201
         ? navigate('/admin/dashboard/admin/data-setup/university-board')
         : setError('Failed to edit university');
     } catch (errors) {
-      console.warn(errors);
+      // console.warn(errors);
     }
 
     // university

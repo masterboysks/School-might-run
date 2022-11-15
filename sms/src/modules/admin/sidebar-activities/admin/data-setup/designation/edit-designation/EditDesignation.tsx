@@ -123,7 +123,7 @@ export default EditDesignation;
 // const [errorDesignation, setErrorDesignation] = useState(false);
 // const navigate = useNavigate();
 // const handleSubmit = () => {
-//   console.log({ department, designation });
+//   // console.log({ department, designation });
 //   let temp = false;
 //   department === "Select" && (temp = true) && setErrorDepartment(true);
 //   designation || setErrorDesignation(true) || (temp = true);

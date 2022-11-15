@@ -50,9 +50,9 @@ const EditSubject = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    // console.log(d);
     const res = await subjectApi.edit(id, d);
-    console.log(res);
+    // console.log(res);
     res?.status === 201
       ? navigate('/admin/dashboard/admin/data-setup/subject')
       : setError('Failed to edit subject');
@@ -62,7 +62,7 @@ const EditSubject = () => {
       const data = await levelApi.getAll();
       setArrayLevel(data?.data?.data);
       const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
-      console.log(temp);
+      // console.log(temp);
       reset(temp);
     })();
     return () => localStorage.removeItem('Mb5sVJt5Qp');

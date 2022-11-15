@@ -68,7 +68,7 @@ function NewNotice() {
         setDefaultDate(temp.expiry_date);
         reset(temp);
       } catch (e) {
-        console.warn(e);
+        // console.warn(e);
       }
     })();
   }, []);
