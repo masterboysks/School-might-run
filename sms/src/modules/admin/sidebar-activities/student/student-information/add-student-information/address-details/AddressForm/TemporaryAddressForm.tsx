@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Break from '../../../../../../../../components/common/Break';
 import {
   Checkbox,
   Input,
 } from '../../../../../../../../components/common/fields';
 import LocationForm from '../../../../../../../../components/common/LocationForm';
-import Break from '../../../../../staff/Break';
 const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
   const asAsPermenantAddress = watch('same_as_permanent_address');
   return (

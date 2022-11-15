@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import staffAPI from '../../../../../../api/admin/dashboard/staff/staffAPI';
+import Break from '../../../../../../components/common/Break';
 import Breadnav from '../../../../../../components/common/navigation/Breadnav';
-import Break from '../../Break';
 import Form from './Form';
 import Table from './Table';
 

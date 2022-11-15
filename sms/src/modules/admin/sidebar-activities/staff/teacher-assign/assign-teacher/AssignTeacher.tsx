@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import Breadnav from '../../../../../../components/common/navigation/Breadnav';
-import Break from '../../Break';
 import {
   MultipleSelect,
   Select,
 } from '../../../../../../components/common/fields';
 import { useForm } from 'react-hook-form';
 import React from 'react';
+import Break from '../../../../../../components/common/Break';
 
 const pages = [
   { name: 'Staff' },
