@@ -2,32 +2,162 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import LibraryBookEntryReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-entry-report/page';
-import LibraryBookReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-report/page';
-import LibraryBookTransactionReport from '../../modules/admin/sidebar-activities/library/libaray-book-report/book-transaction-report/page';
-import LibraryDayLog from '../../modules/admin/sidebar-activities/library/libaray-book-report/libaray-day-log/page';
-import LibraryMemberStaffMain from '../../modules/admin/sidebar-activities/library/library-member/staff/main/page';
-import LibraryRegisterStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/register/page';
-import BookBorrowHistoryStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/boook-borrow-history/page';
-import LibraryEnrollRenewHistoryStaff from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/enroll-renew/page';
-import LibrarySingleStaffLayout from '../../modules/admin/sidebar-activities/library/library-member/staff/staff/layout';
-import LibraryMemberStudentMain from '../../modules/admin/sidebar-activities/library/library-member/student/main/page';
-import LibraryRegisterStudent from '../../modules/admin/sidebar-activities/library/library-member/student/register/page';
-import BookBorrowHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/boook-borrow-history/page';
-import LibraryEnrollRenewHistory from '../../modules/admin/sidebar-activities/library/library-member/student/student/enroll-renew/page';
-import LibrarySingleStudentLayout from '../../modules/admin/sidebar-activities/library/library-member/student/student/layout';
-import LibraryFineStatement from '../../modules/admin/sidebar-activities/library/library-payment-report/library-fine-statement/page';
-import LibraryFineSummary from '../../modules/admin/sidebar-activities/library/library-payment-report/library-fine-summary/page';
-import LibraryBookCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-category/add/page';
-import LibraryBookCategory from '../../modules/admin/sidebar-activities/library/library-setup/book-category/catagory/page';
-import LibraryBookCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-category/edit/page';
-import LibraryBookIssueRuleEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-issue-rule/edit/page';
-import LibraryBookIssueRule from '../../modules/admin/sidebar-activities/library/library-setup/book-issue-rule/issue-rule/page';
-import LibraryBookSubCategoryAdd from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/add/page';
-import LibraryBookSubCategoryEdit from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/edit/page';
-import LibraryBookSubCatagory from '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/sub-category/page';
-import LibraryFineSetupEdit from '../../modules/admin/sidebar-activities/library/library-setup/finesetup/edit/page';
-import LibraryFineSetup from '../../modules/admin/sidebar-activities/library/library-setup/finesetup/finesetup/page';
+const LibraryBookEntryReport = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/libaray-book-report/book-entry-report/page'
+    )
+);
+const LibraryBookReport = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/libaray-book-report/book-report/page'
+    )
+);
+const LibraryBookTransactionReport = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/libaray-book-report/book-transaction-report/page'
+    )
+);
+const LibraryDayLog = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/libaray-book-report/libaray-day-log/page'
+    )
+);
+const LibraryMemberStaffMain = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/staff/main/page'
+    )
+);
+const LibraryRegisterStaff = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/staff/register/page'
+    )
+);
+const BookBorrowHistoryStaff = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/staff/staff/boook-borrow-history/page'
+    )
+);
+const LibraryEnrollRenewHistoryStaff = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/staff/staff/enroll-renew/page'
+    )
+);
+const LibrarySingleStaffLayout = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/staff/staff/layout'
+    )
+);
+const LibraryMemberStudentMain = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/student/main/page'
+    )
+);
+const LibraryRegisterStudent = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/student/register/page'
+    )
+);
+const BookBorrowHistory = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/student/student/boook-borrow-history/page'
+    )
+);
+const LibraryEnrollRenewHistory = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/student/student/enroll-renew/page'
+    )
+);
+const LibrarySingleStudentLayout = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-member/student/student/layout'
+    )
+);
+const LibraryFineStatement = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-payment-report/library-fine-statement/page'
+    )
+);
+const LibraryFineSummary = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-payment-report/library-fine-summary/page'
+    )
+);
+const LibraryBookCategoryAdd = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-category/add/page'
+    )
+);
+const LibraryBookCategory = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-category/catagory/page'
+    )
+);
+const LibraryBookCategoryEdit = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-category/edit/page'
+    )
+);
+const LibraryBookIssueRuleEdit = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-issue-rule/edit/page'
+    )
+);
+const LibraryBookIssueRule = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-issue-rule/issue-rule/page'
+    )
+);
+const LibraryBookSubCategoryAdd = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/add/page'
+    )
+);
+const LibraryBookSubCategoryEdit = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/edit/page'
+    )
+);
+const LibraryBookSubCatagory = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/book-sub-catagory/sub-category/page'
+    )
+);
+const LibraryFineSetupEdit = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/finesetup/edit/page'
+    )
+);
+const LibraryFineSetup = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/library/library-setup/finesetup/finesetup/page'
+    )
+);
 const BookDetails = lazy(
   () =>
     import(

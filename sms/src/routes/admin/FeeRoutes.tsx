@@ -2,10 +2,30 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import EditFeeType from '../../modules/admin/sidebar-activities/fee/fee-type/edit-fee-type/EditFeeType';
-import GenerateInvoice from '../../modules/admin/sidebar-activities/fee/generate-invoice/generate-invoice/GenerateInvoice';
-import PersonInvoice from '../../modules/admin/sidebar-activities/fee/generate-invoice/person-invoice/PersonInvoice';
-import ViewGenerateInvoice from '../../modules/admin/sidebar-activities/fee/generate-invoice/view-generate-invoice/ViewMarkLedger';
+const EditFeeType = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/fee/fee-type/edit-fee-type/EditFeeType'
+    )
+);
+const GenerateInvoice = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/fee/generate-invoice/generate-invoice/GenerateInvoice'
+    )
+);
+const PersonInvoice = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/fee/generate-invoice/person-invoice/PersonInvoice'
+    )
+);
+const ViewGenerateInvoice = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/fee/generate-invoice/view-generate-invoice/ViewMarkLedger'
+    )
+);
 
 const FeeSlidebar = lazy(
   () => import('../../modules/admin/sidebar-activities/fee/slidebar')

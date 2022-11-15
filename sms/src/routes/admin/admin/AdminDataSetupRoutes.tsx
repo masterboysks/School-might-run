@@ -2,9 +2,24 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AddBatch from '../../../modules/admin/sidebar-activities/admin/data-setup/batch/add-batch/AddBatch';
-import Batch from '../../../modules/admin/sidebar-activities/admin/data-setup/batch/batch/Batch';
-import EditBatch from '../../../modules/admin/sidebar-activities/admin/data-setup/batch/edit-batch/EditUniversityBoard';
+const AddBatch = lazy(
+  () =>
+    import(
+      '../../../modules/admin/sidebar-activities/admin/data-setup/batch/add-batch/AddBatch'
+    )
+);
+const Batch = lazy(
+  () =>
+    import(
+      '../../../modules/admin/sidebar-activities/admin/data-setup/batch/batch/Batch'
+    )
+);
+const EditBatch = lazy(
+  () =>
+    import(
+      '../../../modules/admin/sidebar-activities/admin/data-setup/batch/edit-batch/EditUniversityBoard'
+    )
+);
 
 const EditAcademicYear = lazy(
   () =>

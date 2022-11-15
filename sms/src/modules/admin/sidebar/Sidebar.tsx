@@ -33,13 +33,13 @@ let activity = [
     value: Transport,
     path: 'transport/student-wise-details',
   },
-  { name: 'Account', value: Account, path: 'account' },
-  {
-    name: 'Inventory',
-    value: Inventory,
-    path: 'student/student-information',
-  },
-  { name: 'LMS', value: Lms, path: 'student/student-information' },
+  // { name: 'Account', value: Account, path: 'account' },
+  // {
+  //   name: 'Inventory',
+  //   value: Inventory,
+  //   path: 'student/student-information',
+  // },
+  // { name: 'LMS', value: Lms, path: 'student/student-information' },
 ];
 export default function Sidebar({ modules }) {
   // activity = activity.filter((c) => modules?.includes(c.name));

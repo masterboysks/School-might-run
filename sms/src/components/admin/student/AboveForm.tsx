@@ -1,9 +1,6 @@
-import { CheckIcon } from '@heroicons/react/20/solid';
-
-import { Link } from 'react-router-dom';
-import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
-import Steps from '../../../../../../../components/common/navigation/Steps';
 import React from 'react';
+import Breadnav from '../../common/navigation/Breadnav';
+import Steps from '../../common/navigation/Steps';
 
 const pages = [
   { name: 'Student' },

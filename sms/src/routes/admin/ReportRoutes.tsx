@@ -2,8 +2,18 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import LocationWiseReport from '../../modules/admin/sidebar-activities/report/transportation-report/location-wise-report/page';
-import StudentWiseReport from '../../modules/admin/sidebar-activities/report/transportation-report/student-wise-report/page';
+const LocationWiseReport = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/report/transportation-report/location-wise-report/page'
+    )
+);
+const StudentWiseReport = lazy(
+  () =>
+    import(
+      '../../modules/admin/sidebar-activities/report/transportation-report/student-wise-report/page'
+    )
+);
 const StudentAttendanceReportClasses = lazy(
   () =>
     import(

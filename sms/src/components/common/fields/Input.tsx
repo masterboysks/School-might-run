@@ -75,7 +75,7 @@ export function password({
   placeholder = '',
   showError = true,
   className = '',
-  step,
+  // step,
   labelClassName = '',
 }) {
   const [visiblity, setVisiblity] = useState(false);
@@ -98,7 +98,7 @@ export function password({
         <input
           className={`mt-[6px] w-full p- rounded pr-8  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
           id={id}
-          step={step}
+          // step={step}
           {...register(name, { required })}
           placeholder={placeholder}
           type={visiblity ? 'text' : 'password'}

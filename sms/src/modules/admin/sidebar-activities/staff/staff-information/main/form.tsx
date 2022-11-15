@@ -10,6 +10,7 @@ import {
   Select,
   SelectDisabled,
 } from '../../../../../../components/common/fields';
+import React from 'react';
 
 const pages = [
   { name: 'Staff' },
