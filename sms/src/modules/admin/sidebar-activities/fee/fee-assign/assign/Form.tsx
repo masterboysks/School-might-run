@@ -103,17 +103,8 @@ export default function Form() {
   const { data: feeRateTable } = useQuery({
     queryFn: () => feeAssignApi.getFeeRate(getValues()),
     select: (d) => d?.data.data,
-    onSuccess: (d) => {
-      // console.log(getValues());
-    },
-    queryKey: [
-      'feeassignapi',
-      valueBatch,
-      valueClass,
-      // valueFaculty,
-      valueLevel,
-      // valueSubFaculty,
-    ],
+
+    queryKey: ['feeassignapi', valueBatch, valueClass, valueLevel],
 
     enabled: searchValid,
   });
@@ -164,8 +155,8 @@ export default function Form() {
     mutation.mutate({
       ...d,
       fee_rate_info: fee_info,
-      faculty_id: facultyData?.faculty || null,
-      sub_faculty_id: facultyData?.subfaculty || null,
+      faculty_id: facultyData?.faculty?.id || null,
+      sub_faculty_id: facultyData?.subfaculty?.id || null,
     });
   };
   return (

@@ -31,7 +31,7 @@ const RenderTable = ({ currentItems, refetch }) => {
             {person.academic_year}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.isRunning ? 'True' : 'False'}
+            {person.is_running ? 'True' : 'False'}
           </td>
 
           <td className="whitespace-nowrap relative text-sm text-gray-500">
