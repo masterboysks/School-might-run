@@ -1,47 +1,74 @@
 import React, { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RenderTable from './RenderTable';
-import { Select } from '../../../../../../../components/common/oldFields';
+import { Select } from '../../../../../../../components/common/fields';
 import {
   PrimaryButton,
   SecondaryButton,
 } from '../../../../../../../components/common/Buttons';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-export default function Form() {
-  const arrayLevel = ['kdsjhf', 'dsjjkhujhg'];
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/levelApi';
+import { useFieldArray, useForm } from 'react-hook-form';
 
-  const [level, setLevel] = useState('Select');
-  const [errorLevel, setErrorLevel] = useState(false);
-  const [inputFileds, setInputFileds] = useState([
-    { lowerLimit: '', upperLimit: '', grade: '', gpa: '' },
-  ]);
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    // console.log({ inputFileds, level });
-    let temp = false;
-    level === 'Select' && (temp = true) && setErrorLevel(true);
-    inputFileds.map((curr) => {
-      (curr.lowerLimit && curr.upperLimit && curr.grade && curr.gpa) ||
-        (temp = true);
-    });
-    temp || navigate('/admin/dashboard/exam/exam-setup/grading-system');
-  };
+export default function Form() {
+  const { data: arrayLevel, isLoading } = useQuery({
+    queryKey: ['levelapigetall'],
+    queryFn: () => levelApi.getAll(),
+    select: (d) => d.data.data,
+    onSuccess: (d) => console.log(d),
+  });
+  const {
+    handleSubmit,
+    register,
+    control,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      grade_system: [
+        { lower_limit: null, upper_limit: null, grade: '', gpa: null },
+      ],
+    },
+  });
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'grade_system',
+  });
+  const onSubmit = (d) => console.log(d);
+  // const arrayLevel = ['kdsjhf', 'dsjjkhujhg'];
+  // const [level, setLevel] = useState('Select');
+  // const [errorLevel, setErrorLevel] = useState(false);
+  // const [inputFileds, setInputFileds] = useState([
+  //   { lowerLimit: '', upperLimit: '', grade: '', gpa: '' },
+  // ]);
+  // const navigate = useNavigate();
+  // const handleSubmit = () => {
+  //   // console.log({ inputFileds, level });
+  //   let temp = false;
+  //   level === 'Select' && (temp = true) && setErrorLevel(true);
+  //   inputFileds.map((curr) => {
+  //     (curr.lowerLimit && curr.upperLimit && curr.grade && curr.gpa) ||
+  //       (temp = true);
+  //   });
+  //   temp || navigate('/admin/dashboard/exam/exam-setup/grading-system');
+  // };
   return (
-    <>
-      <form className="form-solid w-full my-6 rounded-md">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-solid w-full my-6 rounded-md">
         <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Select
               label="Level*"
               value={arrayLevel}
-              selected={level}
-              setSelected={setLevel}
-              error={errorLevel}
-              setError={setErrorLevel}
+              register={register}
+              name="level_id"
+              required
+              errors={errors}
             />
           </div>
         </div>
-      </form>
+      </div>
       <div className="mt-11 lg:w-2/3 w-full">
         <div
           className={` ring-1 ring-black ring-opacity-5 mb-3 mt-6 min-w-full overflow-x-auto rounded-lg shadow `}
@@ -80,19 +107,20 @@ export default function Form() {
                   </tr>
                 </thead>
                 <tbody className=" bg-white divide-y divide-gray-200">
-                  {inputFileds.map((curr, index) => {
+                  {fields.map((field, index, table) => {
                     return (
                       <RenderTable
-                        key={index}
+                        errors={errors}
                         index={index}
-                        inputFiled={curr}
-                        inputFields={inputFileds}
-                        setInputFiled={setInputFileds}
+                        key={field.id}
+                        register={register}
+                        remove={remove}
+                        table={table}
                       />
                     );
                   })}
                   <tr className="bg-gray-50 ">
-                    <td colSpan="5">
+                    <td colSpan={5}>
                       <div
                         className={`w-fit flex p-2 mx-2 ml-auto cursor-pointer
                         }`}
@@ -100,15 +128,12 @@ export default function Form() {
                         <div
                           className="w-fit flex items-center justify-center"
                           onClick={() => {
-                            setInputFileds([
-                              ...inputFileds,
-                              {
-                                lowerLimit: '',
-                                upperLimit: '',
-                                grade: '',
-                                gpa: '',
-                              },
-                            ]);
+                            append({
+                              lower_limit: null,
+                              upper_limit: null,
+                              grade: '',
+                              gpa: null,
+                            });
                           }}
                         >
                           <div className="text-primary-btn mx-1">Add new</div>
@@ -127,12 +152,12 @@ export default function Form() {
         </div>
 
         <div className="w-fit ml-auto">
-          <Link to="/admin/dashboard/exam/exam-setup/grading-system">
-            <SecondaryButton>Cancel</SecondaryButton>
-          </Link>
-          <PrimaryButton onClick={handleSubmit}>Save</PrimaryButton>
+          {/* <Link to="/admin/dashboard/exam/exam-setup/grading-system"> */}
+          <SecondaryButton>Cancel</SecondaryButton>
+          {/* </Link> */}
+          <PrimaryButton type="submit">Save</PrimaryButton>
         </div>
       </div>
-    </>
+    </form>
   );
 }
