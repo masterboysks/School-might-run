@@ -70,6 +70,8 @@ const AddStaffGeneralPersonal = () => {
           register={register}
           watch={watch}
           errors={errors}
+          handleBack={undefined}
+          isValid={isValid}
         />
       </form>
     </>

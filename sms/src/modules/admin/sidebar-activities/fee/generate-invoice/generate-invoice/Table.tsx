@@ -1,3 +1,4 @@
+import { PrinterIcon } from '@heroicons/react/20/solid';
 import React, { useEffect, useState } from 'react';
 
 import RenderTable from './RenderTable';
@@ -451,6 +452,14 @@ export default function Table() {
 
   return (
     <div className="mt-11">
+      <div className="flex items-center sm:justify-end">
+        <div className=" flex items-center gap-3">
+          <div className="text-primary-btn font-semibold">Print</div>
+          <div className="icon text-primary-btn w-5">
+            <PrinterIcon />
+          </div>
+        </div>
+      </div>
       <div className="my-6">
         <div className=" ring-1 ring-black ring-opacity-5 min-w-full overflow-x-auto rounded-lg shadow">
           <div className="inline-block w-full align-middle">

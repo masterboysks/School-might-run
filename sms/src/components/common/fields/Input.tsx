@@ -17,7 +17,7 @@ export function input({
   labelClassName = '',
 }: {
   id?: string | undefined;
-  name: any;
+  name: string;
   shouldUnregister?: boolean | undefined;
   errors?: {} | undefined;
   errorText?: string | undefined;
@@ -36,7 +36,10 @@ export function input({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && 'text-red-600'
+              name
+                .split('.')
+                .reduce((p, c) => (p && p[c]) || undefined, errors) &&
+              'text-red-600'
             } text-sm ${labelClassName}`}
             htmlFor={id}
           >
@@ -53,13 +56,17 @@ export function input({
         placeholder={placeholder}
         type={type}
       />
-      {showError && errors && errors[name] && (
-        <>
-          <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || 'This is a required field.'}
-          </span>
-        </>
-      )}
+      {showError &&
+        name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors) && (
+          <>
+            <span className="text-xs font-light text-red-600">
+              {name
+                .split('.') // @ts-ignore
+                .reduce((p, c) => (p && p[c]) || undefined, errors)?.message ||
+                'This is a required field.'}
+            </span>
+          </>
+        )}
     </>
   );
 }
@@ -152,7 +159,7 @@ export function inputNumber({
   required = false,
   placeholder = '',
   step = '',
-  min = '',
+  min,
   shouldUnregister,
   max,
   defaultValue = '0',
@@ -171,6 +178,9 @@ export function inputNumber({
   id?: string | undefined;
   shouldUnregister?: boolean;
 }) {
+  console.log(
+    name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors)
+  );
   const props = { step, min, max, placeholder, id };
   return (
     <>
@@ -178,7 +188,10 @@ export function inputNumber({
         <>
           <label
             className={`my-6 ${
-              errors && errors[name] && 'text-red-600'
+              name
+                .split('.')
+                .reduce((p, c) => (p && p[c]) || undefined, errors) &&
+              'text-red-600'
             } text-sm `}
             htmlFor={id}
           >
@@ -200,13 +213,17 @@ export function inputNumber({
         type="number"
         {...props}
       />
-      {errors && errors[name] && (
-        <>
-          <span className="text-xs font-light text-red-600">
-            {errors[name]?.message || ' This is a required field.'}
-          </span>
-        </>
-      )}
+      {errors &&
+        name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors) && (
+          <>
+            <span className="text-xs font-light text-red-600">
+              {name
+                .split('.') // @ts-ignore
+                .reduce((p, c) => (p && p[c]) || undefined, errors)?.message ||
+                ' This is a required field.'}
+            </span>
+          </>
+        )}
     </>
   );
 }

@@ -1,13 +1,18 @@
 import React, { createContext, useState } from 'react';
-
-const StudentFormStudentPictureAndGurdainPicture = createContext({});
+interface studentContes {
+  values: Object;
+  setValues: React.Dispatch<React.SetStateAction<{}>>;
+}
+const StudentFormStudentPictureAndGurdainPicture = createContext<studentContes>(
+  { values: {}, setValues: () => undefined }
+);
 
 export const StudentFormPicture = ({ children }) => {
-  const [photo, setPhoto] = useState({});
+  const [values, setValues] = useState({});
 
   return (
     <StudentFormStudentPictureAndGurdainPicture.Provider
-      value={{ photo, setPhoto }}
+      value={{ values, setValues }}
     >
       {children}
     </StudentFormStudentPictureAndGurdainPicture.Provider>

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import batchApi from '../../../../../../../api/admin/dashboard/admin/data-setup/batchApi';
 import {
   Checkbox,
   DateInput,
@@ -10,6 +12,33 @@ import {
   Select,
   Upload,
 } from '../../../../../../../components/common/fields';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import StudentFormStudentPictureAndGurdainPicture from '../../../../../../../contex/admin/student/StudentFormStudentPictureAndGurdainPicture';
+const schema = yup.object().shape({
+  batch_id: yup.string().required(''),
+  first_name: yup
+    .string()
+    .required('')
+    .min(2, 'Enter at lest 2 characters.')
+    .max(255, 'Enter at lest 255 characters.'),
+  middle_name: yup
+    .string()
+    .min(2, 'Enter at lest 2 characters.')
+    .max(255, 'Enter at lest 255 characters.'),
+  last_name: yup
+    .string()
+    .required('')
+    .min(2, 'Enter at lest 2 characters.')
+    .max(255, 'Enter at lest 255 characters.'),
+  username: yup.string().required(''),
+  email: yup.string().required(''),
+  mobile_number: yup.string(),
+  password: yup.string().required(''),
+  gender: yup.string().required(''),
+  blood_group: yup.string().required(''),
+  has_siblings: yup.boolean(),
+});
 const arrayGender = [
   {
     id: 1,
@@ -55,6 +84,8 @@ const arrayBloodGroup = [
   },
 ];
 const DetailsForm = () => {
+  const navigator = useNavigate();
+  const formState = useContext(StudentFormStudentPictureAndGurdainPicture);
   const [date, setDate] = useState('');
   const {
     register,
@@ -62,20 +93,33 @@ const DetailsForm = () => {
     reset,
     watch,
     formState: { errors, isValid },
-  } = useForm();
-  const anotherChild = watch('has_siblings');
-  // personal.dob
+  } = useForm({ resolver: yupResolver(schema), mode: 'onBlur' });
+  const { data: batchOptions } = useQuery({
+    queryFn: () => batchApi.getAll(),
+    queryKey: ['batchapigetall'],
+    select: (d) => d.data.data,
+    staleTime: Infinity,
+  });
+  const onSubmit = (d) => {
+    formState?.setValues({
+      ...formState.values,
+      personal: { ...d, dob: date },
+    });
+    navigator('guardian');
+  };
   return (
-    <form className="form-solid my-6 rounded-md">
+    <form
+      className="form-solid my-6 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div>
           <Input
             label="First Name*"
             placeholder="Roshan"
             register={register}
-            name="personal[first_name]"
+            name="first_name"
             errors={errors}
-            required={true}
           />
         </div>
         <div className="">
@@ -83,7 +127,8 @@ const DetailsForm = () => {
             label="Middle Name"
             placeholder="Bahadur"
             register={register}
-            name="personal[middle_name]"
+            name="middle_name"
+            errors={errors}
           />
         </div>
         <div className="">
@@ -92,64 +137,73 @@ const DetailsForm = () => {
             placeholder="Dahal"
             register={register}
             errors={errors}
-            required={true}
-            name="personal[last_name]"
+            name="last_name"
           />
         </div>
-
+        <div className="">
+          <Select
+            disabled={!batchOptions}
+            key={batchOptions ? 1 : 2}
+            value={batchOptions}
+            errors={errors}
+            register={register}
+            label="Batch*"
+            name="batch_id"
+          />
+        </div>
         <div className="">
           <Input
-            label="Username"
+            label="Username*"
             placeholder="@roshandahal"
-            name="personal[username]"
-            register={register}
-            required={true}
+            name="username"
             errors={errors}
+            register={register}
           />
         </div>
         <div className="">
           <Password
-            label="Password"
+            label="Password*"
             placeholder="Password"
-            name="personal[password]"
+            name="password"
             register={register}
-            required={true}
             errors={errors}
           ></Password>
         </div>
         <div className="">
           <Input
             label="Mobile Number"
+            errors={errors}
             placeholder="981234567"
             register={register}
-            name="personal[mobile_number]"
+            name="mobile_number"
           />
         </div>
         <div className="">
           <Input
             label="Email"
             placeholder="mail@hoymail.com"
+            errors={errors}
             type="email"
             register={register}
-            name="personal[email]"
+            name="email"
           />
         </div>
         <div className="">
           <Select
             value={arrayGender}
             label="Gender*"
-            required={true}
             register={register}
             errors={errors}
-            name="personal[gender]"
+            name="gender"
           />
         </div>
         <div className="">
           <Select
-            label="BLood Group"
+            label="BLood Group*"
+            errors={errors}
             value={arrayBloodGroup}
             register={register}
-            name="personal[blood_group]"
+            name="blood_group"
           />
         </div>
         <div className="">
@@ -161,22 +215,22 @@ const DetailsForm = () => {
         </div>
         <div className="">
           <Upload
-            name="personal[birth_cit_certificate]"
+            name="birth_cit_certificate"
             accept="image/*,.pdf"
             label="Birth/Citizenship Certificate*"
-            required={true}
             errors={errors}
             watch={watch}
+            required
             register={register}
             id="556565565_Form_birth_certificate"
           />
         </div>
         <div className="">
           <Upload
-            name="personal[profile_picture]"
+            name="profile_picture"
             accept="image/*"
             label="Photo*"
-            required={true}
+            required
             errors={errors}
             watch={watch}
             id="6456463546_Form_photo"
@@ -184,12 +238,11 @@ const DetailsForm = () => {
           />
         </div>
       </div>
-
       <div className="relative z-0 flex items-start mt-6">
         <Checkbox
           register={register}
           id="956526565_form_checkbox"
-          name="personal[has_siblings]"
+          name="has_siblings"
           label="Has another child admitted"
         />
       </div>
@@ -201,14 +254,16 @@ const DetailsForm = () => {
           >
             Cancel
           </Link>
-          <Link
-            to={`/admin/dashboard/student/student-information/add-student-details/guardian-${
-              anotherChild || 'true'
-            }`}
+          <button
+            type="submit"
+            // to={`/admin/dashboard/student/student-information/add-student-details/guardian-${
+            //   anotherChild || 'true'
+            // }`}
+            disabled={!isValid}
             className="primary_btn"
           >
             Next
-          </Link>
+          </button>
         </div>
       </div>
     </form>

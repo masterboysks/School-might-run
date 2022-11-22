@@ -87,7 +87,7 @@ export default function StudentRoutes() {
           }
         />
         <Route
-          path="student-information/add-student-details/guardian-true"
+          path="student-information/add-student-details/guardian"
           element={
             <Suspense fallback="Loading">
               <AddStudentGurdainDetail />

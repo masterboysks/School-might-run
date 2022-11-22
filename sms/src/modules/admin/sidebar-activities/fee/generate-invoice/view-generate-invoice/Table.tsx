@@ -217,17 +217,6 @@ export default function Table() {
       <div className="flex items-center justify-between">
         <div className="md:block hidden text-xl">Generate invoice</div>
         <div className=" flex items-center gap-3">
-          <div className="flex items-center">
-            <div className="text-primary-btn font-semibold">Publish</div>
-            <div className="icon text-primary-btn w-5 ml-2">
-              <GlobeAltIcon fontSize="medium" />
-            </div>
-          </div>
-          <div className="">
-            <select className="mt-[6px]  sm:w-40 min-w-full p- rounded  focus:ring-primary-btn    border-primary-field bg-white shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm">
-              <option value="test">Choose print option</option>
-            </select>
-          </div>
           <div className="text-primary-btn font-semibold">Print</div>
           <div className="icon text-primary-btn w-5">
             <PrinterIcon />
@@ -304,7 +293,7 @@ export default function Table() {
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                     >
-                      Status
+                      Print Status
                     </th>
                   </tr>
                 </thead>
