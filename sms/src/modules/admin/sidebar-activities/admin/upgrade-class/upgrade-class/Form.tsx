@@ -36,16 +36,16 @@ const Form = () => {
   //  submit and error handaling
   const handleClick = () => {
     // console.log({
-      fromClassSemester,
-      fromAvailableSections,
-      toAvailableSections,
-      fromSection,
-      toSelectedSection,
-      toClassSemester,
-      fromLevelStacked,
-      toLevelStacked,
-      toYearStacked,
-    });
+    //   fromClassSemester,
+    //   fromAvailableSections,
+    //   toAvailableSections,
+    //   fromSection,
+    //   toSelectedSection,
+    //   toClassSemester,
+    //   fromLevelStacked,
+    //   toLevelStacked,
+    //   toYearStacked,
+    // });
     // console.log(setErrorToLevelStacked(true));
     let temp = false;
     toLevelStacked === 'Select' &&

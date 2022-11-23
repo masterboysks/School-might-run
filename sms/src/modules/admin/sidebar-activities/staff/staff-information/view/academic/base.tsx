@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
-import Tabs from '../../Tabs';
+import Tabs from '../../../../../../../components/common/navigation/Tabs';
 
 const AcademicsView = () => {
   const { id } = useParams();

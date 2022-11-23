@@ -15,7 +15,7 @@ export default function Filter() {
     level === 'Select' && (temp = true);
     classSemester === 'Select' && (temp = true);
     section === 'Select' && (temp = true);
-    temp || // console.log({ level, classSemester, faculty, section });
+    // temp || // console.log({ level, classSemester, faculty, section });
   }, [level, classSemester, section, faculty]);
 
   return (

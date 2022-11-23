@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useQuery } from '@tanstack/react-query';
@@ -14,6 +14,7 @@ import levelApi from '../../../../../../../api/admin/dashboard/admin/data-setup/
 import classApi from '../../../../../../../api/admin/dashboard/admin/data-setup/classApi';
 import facultyApi from '../../../../../../../api/admin/dashboard/admin/data-setup/facultyApi';
 import sectionsApi from '../../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
+import StudentFormStudentPictureAndGurdainPicture from '../../../../../../../contex/admin/student/StudentFormStudentPictureAndGurdainPicture';
 const schema = yup.object().shape({
   // 'class.admission_date': yup.string().required(),
   'class.level_id': yup.string().required(),
@@ -39,13 +40,19 @@ const arrayStatus = [
   },
 ];
 function ClassForm() {
+  const navigate = useNavigate();
+  const formState = useContext(StudentFormStudentPictureAndGurdainPicture);
+
   const {
     register,
     watch,
     formState: { isValid, errors },
     handleSubmit,
+    reset,
+    getValues,
   } = useForm({
     mode: 'onBlur',
+
     resolver: yupResolver(schema),
   });
   const [level_id, class_semester_id] = watch([
@@ -80,11 +87,30 @@ function ClassForm() {
     enabled: !!class_semester_id,
   });
 
-  const navigate = useNavigate();
-  const [dateofAddmission, setDateofAddmission] = useState('');
-
+  const [dateofAddmission, setDateofAddmission] = useState(
+    formState.values?.class?.admission_date || ''
+  );
+  const onSubmit = (d) => {
+    formState.setValues((c) => {
+      return { ...c, class: { ...d, admission_date: dateofAddmission } };
+    });
+    navigate('/admin/dashboard/student/student-information/add-fee-details');
+  };
+  // to={`/admin/dashboard/student/student-information/add-fee-details`}
+  const onBack = () => {
+    formState.setValues((c) => {
+      return {
+        ...c,
+        class: { ...getValues(), admission_date: dateofAddmission },
+      };
+    });
+    navigate(-1);
+  };
   return (
-    <form className="form-solid my-6 rounded-md">
+    <form
+      className="form-solid my-6 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4 my-6">
         <div className="">
           <DateInput
@@ -174,20 +200,12 @@ function ClassForm() {
       </div>
       <div className="w-full">
         <div className=" w-fit ml-auto">
-          <div
-            onClick={() => {
-              navigate(-1);
-            }}
-            className="secondary_btn cursor-pointer"
-          >
+          <button onClick={onBack} className="secondary_btn cursor-pointer">
             Back
-          </div>
-          <Link
-            to={`/admin/dashboard/student/student-information/add-fee-details`}
-            className="primary_btn"
-          >
+          </button>
+          <button type="submit" className="primary_btn">
             Next
-          </Link>
+          </button>
         </div>
       </div>
     </form>

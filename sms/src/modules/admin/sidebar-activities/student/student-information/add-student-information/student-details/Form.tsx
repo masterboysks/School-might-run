@@ -88,14 +88,18 @@ const arrayBloodGroup = [
 const DetailsForm = () => {
   const navigator = useNavigate();
   const formState = useContext(StudentFormStudentPictureAndGurdainPicture);
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState<string>(formState.values?.dob || '');
   const {
     register,
     handleSubmit,
     reset,
     watch,
     formState: { errors, isValid },
-  } = useForm({ resolver: yupResolver(schema), mode: 'onBlur' });
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onBlur',
+    defaultValues: { ...formState.values?.personal },
+  });
   const { data: batchOptions } = useQuery({
     queryFn: () => batchApi.getAll(),
     queryKey: ['batchapigetall'],
@@ -103,9 +107,11 @@ const DetailsForm = () => {
     staleTime: Infinity,
   });
   const onSubmit = (d) => {
-    formState?.setValues({
-      ...formState.values,
-      personal: { ...d, dob: date },
+    formState?.setValues((c) => {
+      return {
+        ...c,
+        personal: { ...d, dob: date },
+      };
     });
     navigator('guardian');
   };

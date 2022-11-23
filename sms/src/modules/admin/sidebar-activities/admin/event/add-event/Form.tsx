@@ -27,13 +27,13 @@ function Form({ date }) {
   const navigate = useNavigate();
   const handleSubmit = () => {
     // console.log({
-      eventTitle,
-      eventDescription,
-      startTime,
-      endTime,
-      sendTo,
-      document,
-    });
+    //   eventTitle,
+    //   eventDescription,
+    //   startTime,
+    //   endTime,
+    //   sendTo,
+    //   document,
+    // });
     let temp = false;
     eventTitle || ((temp = true) && setErrorEventTitle(true));
     eventDescription || ((temp = true) && setErrorEventDescription(true));

@@ -17,12 +17,12 @@ export default function Form() {
   //
   const handleSubmit = () => {
     // console.log({
-      academicYear,
-      examName,
-      gradingSystem,
-      resultStatus,
-      remark,
-    });
+    //   academicYear,
+    //   examName,
+    //   gradingSystem,
+    //   resultStatus,
+    //   remark,
+    // });
     academicYear || setErrorAcademicYear(true);
     examName || setErrorExamName(true);
   };

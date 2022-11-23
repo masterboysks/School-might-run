@@ -1,6 +1,7 @@
+import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
-import Tabs from '../../Tabs';
+// import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
+import Tabs from '../../../../../../../components/common/navigation/Tabs';
 
 const pages = [
   { name: 'Staff' },

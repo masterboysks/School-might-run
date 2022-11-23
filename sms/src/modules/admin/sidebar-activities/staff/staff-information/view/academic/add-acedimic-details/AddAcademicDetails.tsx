@@ -1,4 +1,5 @@
-import Break from '../../../../Break';
+import React from 'react';
+import Break from '../../../../../../../../components/common/Break';
 import AddAcademicDetailsForm from './AddAcademicDetailsForm';
 
 const AddAcademicDetails = () => {

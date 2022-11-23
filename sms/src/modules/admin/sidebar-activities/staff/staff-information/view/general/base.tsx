@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import Tabs from '../../Tabs';
+import Tabs from '../../../../../../../components/common/navigation/Tabs';
 export default function ViewGeneral() {
   const { id } = useParams();
   const tabs = [

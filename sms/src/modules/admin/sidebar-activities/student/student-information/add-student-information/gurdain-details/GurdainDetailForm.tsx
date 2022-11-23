@@ -96,11 +96,13 @@ const schema = yup.object().shape({
   }),
 });
 const GuardianDetailForm = () => {
-  const navigator = useNavigate();
+  const navigate = useNavigate();
 
   const formState = useContext(StudentFormStudentPictureAndGurdainPicture);
 
-  const [disabledFields, setDisabledFields] = useState(false);
+  const [disabledFields, setDisabledFields] = useState<boolean>(
+    formState?.values?.local_guardian?.already_exists || false
+  );
   const {
     register,
     handleSubmit,
@@ -111,6 +113,11 @@ const GuardianDetailForm = () => {
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
+    defaultValues: {
+      ...formState?.values?.local_guardian,
+      ...formState?.values?.mother,
+      ...formState?.values?.father,
+    },
   });
 
   const mobile_value = watch('local_guardian.mobile_number');
@@ -145,14 +152,27 @@ const GuardianDetailForm = () => {
     },
   });
   const onSubmit = (d) => {
-    formState?.setValues({
-      ...formState.values,
-      ...d,
-      local_guardian: { already_exists: disabledFields },
+    formState?.setValues((c) => {
+      return {
+        ...c,
+        ...d,
+        local_guardian: { already_exists: disabledFields },
+      };
     });
-    navigator(
+    navigate(
       '/admin/dashboard/student/student-information/add-address-details'
     );
+  };
+  const onBack = (e) => {
+    e.preventDefault();
+    formState?.setValues((c) => {
+      return {
+        ...c,
+        ...getValues(),
+        local_guardian: { already_exists: disabledFields },
+      };
+    });
+    navigate(-1);
   };
   // console.log(isValid);
   // console.log(mobile_value?.toString().length >= 10);
@@ -314,12 +334,9 @@ const GuardianDetailForm = () => {
       <FatheAndMotherDetail errors={errors} register={register} />
       <div className="w-full">
         <div className=" w-fit ml-auto">
-          <Link
-            to="/admin/dashboard/student/student-information/add-student-details"
-            className="secondary_btn"
-          >
+          <button className="secondary_btn" onClick={onBack}>
             Back
-          </Link>
+          </button>
           <button type="submit" className="primary_btn" disabled={!isValid}>
             Next
           </button>
