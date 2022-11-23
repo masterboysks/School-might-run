@@ -14,6 +14,7 @@ export function input({
   placeholder = '',
   showError = true,
   className = '',
+  disabled = false,
   labelClassName = '',
 }: {
   id?: string | undefined;
@@ -28,6 +29,7 @@ export function input({
   placeholder?: string;
   showError?: boolean;
   className?: string;
+  disabled?: boolean;
   labelClassName?: string | undefined;
 }) {
   return (
@@ -50,11 +52,12 @@ export function input({
       )}
 
       <input
-        className={`mt-[6px] w-full p- rounded   py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm ${className}`}
+        className={`mt-[6px] w-full  rounded   py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400 disabled:bg-primary-grey-100 disabled:text-primary-grey-700  text-primary-grey-600 text-sm ${className}`}
         id={id}
         {...register(name, { required, shouldUnregister })}
         placeholder={placeholder}
         type={type}
+        disabled={disabled}
       />
       {showError &&
         name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors) && (
@@ -178,9 +181,9 @@ export function inputNumber({
   id?: string | undefined;
   shouldUnregister?: boolean;
 }) {
-  console.log(
-    name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors)
-  );
+  // console.log(
+  //   name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors)
+  // );
   const props = { step, min, max, placeholder, id };
   return (
     <>

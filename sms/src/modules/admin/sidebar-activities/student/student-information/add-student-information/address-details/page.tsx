@@ -4,12 +4,12 @@ import AddressForm from './AddressForm';
 const steps = [
   {
     name: 'Student details',
-    href: '/admin/dashboard/student/student-information/add-student-details',
+
     status: 3,
   },
   {
     name: 'Guardian details',
-    href: '/admin/dashboard/student/student-information/add-student-details/guardian-false',
+
     status: 3,
   },
   { name: 'Address details', href: '#', status: 2 },

@@ -83,7 +83,7 @@ export const upload = ({
 export const uploadPhoto = ({
   label,
   name,
-
+  disabled = false,
   errors = {},
   register,
   required = false,
@@ -106,18 +106,29 @@ export const uploadPhoto = ({
         {label}
       </label>
       <div className=" mt-[6px] sm:col-span-2 ">
-        <div className=" flex w-full px-3 text-primary-grey-600 py-2.5 border border-primary-btn border-dashed rounded-md focus-within:border-solid focus-within:ring-primary-btn  focus-within:text-primary-btn">
+        <div
+          className={` flex w-full px-3 text-primary-grey-600 py-2.5 border border-primary-btn border-dashed rounded-md focus-within:border-solid focus-within:ring-primary-btn  focus-within:text-primary-btn   ${
+            disabled && ' border-primary-btn/50 bg-primary-grey-100 '
+          }`}
+        >
           <div className=" w-full space-y-1">
             <label
               htmlFor={id}
-              className="  within:outline-none   flex items-center justify-between w-full text-sm bg-white rounded-md cursor-pointer"
+              className={`
+                  within:outline-none   flex items-center justify-between w-full text-sm bg-inherit rounded-md cursor-pointer  
+               ${disabled && ' !cursor-default'}
+              `}
             >
               <div>
                 {logo && logo.length === 1
                   ? logo[0].name
                   : uploadText || 'Choose a file to upload'}
               </div>
-              <div className="text-primary-btn">
+              <div
+                className={`text-primary-btn ${
+                  disabled && 'text-primary-btn/50'
+                }`}
+              >
                 <UploadOutlined />
               </div>
               <input
@@ -128,6 +139,7 @@ export const uploadPhoto = ({
                 {...register(name, { required })}
                 accept="image/*"
                 multiple={multiple}
+                disabled={disabled}
               />
             </label>
           </div>

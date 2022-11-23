@@ -6,7 +6,6 @@ export default function AddStudentGurdainDetail() {
   const steps = [
     {
       name: 'Student details',
-      href: '/admin/dashboard/student/student-information/add-student-details',
       status: 3,
     },
     { name: 'Guardian details', href: '#', status: 2 },

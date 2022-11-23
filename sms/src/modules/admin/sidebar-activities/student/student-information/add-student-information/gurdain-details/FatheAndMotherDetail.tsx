@@ -13,7 +13,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
         <div>
           <Input
             label="First Name*"
-            name="father[first_name]"
+            name="father.first_name"
             placeholder="Krish"
             required={true}
             errors={errors}
@@ -24,7 +24,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
           <Input
             register={register}
             placeholder="Prashad"
-            name="father[middle_name]"
+            name="father.middle_name"
             label="Middle name"
           />
         </div>
@@ -34,7 +34,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             required={true}
             errors={errors}
             register={register}
-            name="father[last_name]"
+            name="father.last_name"
             placeholder="Koirala"
           />
         </div>
@@ -44,7 +44,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             errors={errors}
             register={register}
             required
-            name="father[mobile_number]"
+            name="father.mobile_number"
             placeholder="9805540213"
           />
         </div>
@@ -52,7 +52,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
           <Input
             type="email"
             register={register}
-            name="father[email]"
+            name="father.email"
             label="Email"
             placeholder="xyz@suchhi.com.np"
           />
@@ -60,7 +60,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
         <div className="">
           <Input
             register={register}
-            name="father[occupation]"
+            name="father.occupation"
             label="Occupation*"
             required={true}
             errors={errors}
@@ -73,7 +73,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
         <div>
           <Input
             label="First Name*"
-            name="mother[first_name]"
+            name="mother.first_name"
             placeholder="Sabitri"
             required={true}
             errors={errors}
@@ -84,7 +84,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
           <Input
             register={register}
             placeholder=""
-            name="mother[middle_name]"
+            name="mother.middle_name"
             label="Middle name"
           />
         </div>
@@ -94,7 +94,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             required={true}
             errors={errors}
             register={register}
-            name="mother[last_name]"
+            name="mother.last_name"
             placeholder="Koirala"
           />
         </div>
@@ -104,7 +104,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
             errors={errors}
             register={register}
             required
-            name="mother[mobile_number]"
+            name="mother.mobile_number"
             placeholder="9805540213"
           />
         </div>
@@ -112,7 +112,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
           <Input
             type="email"
             register={register}
-            name="mother[email]"
+            name="mother.email"
             label="Email"
             placeholder="xyzas@suchhi.com.np"
           />
@@ -120,7 +120,7 @@ export default function FatheAndMotherDetail({ register, errors }) {
         <div className="">
           <Input
             register={register}
-            name="mother[occupation]"
+            name="mother.occupation"
             label="Occupation*"
             required={true}
             errors={errors}

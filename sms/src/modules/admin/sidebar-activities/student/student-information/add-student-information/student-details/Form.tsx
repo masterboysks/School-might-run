@@ -24,6 +24,8 @@ const schema = yup.object().shape({
     .max(255, 'Enter at lest 255 characters.'),
   middle_name: yup
     .string()
+    .nullable()
+    .transform((v, o) => (o === '' ? null : v))
     .min(2, 'Enter at lest 2 characters.')
     .max(255, 'Enter at lest 255 characters.'),
   last_name: yup
@@ -238,14 +240,7 @@ const DetailsForm = () => {
           />
         </div>
       </div>
-      <div className="relative z-0 flex items-start mt-6">
-        <Checkbox
-          register={register}
-          id="956526565_form_checkbox"
-          name="has_siblings"
-          label="Has another child admitted"
-        />
-      </div>
+
       <div className="w-full">
         <div className=" w-fit ml-auto">
           <Link
