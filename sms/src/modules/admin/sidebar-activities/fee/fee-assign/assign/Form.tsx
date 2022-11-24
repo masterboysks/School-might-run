@@ -78,28 +78,12 @@ export default function Form() {
   const { data: facultyData } = useQuery({
     queryKey: ['getsectionfacultiesapi', valueClass],
     staleTime: Infinity,
-    // cacheTime: 10 * 60 * 1000,
     enabled: !!valueClass,
-    onSuccess: (d) => console.log(d),
     select: (d) => d.data.data,
     onError: (err) => console.log(err),
 
     queryFn: () => getSectionFacultiesApi.getSectionFaculties(valueClass),
   });
-  // const { data: arrFaculty } = useQuery({
-  //   queryKey: ['facultyapigetall', valueLevel],
-  //   staleTime: Infinity,
-  //   enabled: !!valueLevel,
-  //   select: (d) => d?.data.data,
-  //   queryFn: () => facultyApi.getAll(valueLevel),
-  // });
-  // const { data: arrSubFaculty } = useQuery({
-  //   queryKey: ['subfacultyapigetall', valueFaculty],
-  //   staleTime: Infinity,
-  //   queryFn: () => subFacultyApi.getAll(valueFaculty),
-  //   select: (d) => d?.data.data,
-  //   enabled: !!valueFaculty,
-  // });
   const { data: feeRateTable } = useQuery({
     queryFn: () => feeAssignApi.getFeeRate(getValues()),
     select: (d) => d?.data.data,
@@ -115,48 +99,23 @@ export default function Form() {
       reset();
     },
   });
-  // useEffect(() => {
-  //   resetField('class_id');
-  //   resetField('faculty_id');
-  //   setSearchValid(false);
-  // }, [valueLevel]);
-  // useEffect(() => {
-  //   resetField('sub_faculty_id');
-  //   setSearchValid(false);
-  // }, [valueFaculty]);
   const handleSearch = async (e) => {
     e.preventDefault();
 
     if (await trigger()) {
       setSearchValid(true);
-      // if (!(arrFaculty.length == 0)) {
-      //   // console.log('has faculty');
-      //   if (valueFaculty) {
-      //     if (!(arrSubFaculty == 0)) {
-      //       if (valueSubFaculty) {
-      //         setSearchValid(true);
-      //       } else {
-      //         setError('sub_faculty_id', { type: 'required', message: '' });
-      //       }
-      //     }
-      //   } else {
-      //     setError('faculty_id', { type: 'required', message: '' });
-      //   }
-      // }
     }
   };
   const onSubmit = (d) => {
-    // console.log({ valueLevel, valueClass, valueBatch }, 'levewl');
     const fee_info = d.fee_rate_info?.map((c) => {
-      // // console.log(d);
       if (c?.is_selected) return { amount: c.amount };
       return null;
     });
     mutation.mutate({
       ...d,
       fee_rate_info: fee_info,
-      faculty_id: facultyData?.faculty?.id || null,
-      sub_faculty_id: facultyData?.subfaculty?.id || null,
+      faculty_id: facultyData?.faculty?.id || false,
+      sub_faculty_id: facultyData?.subfaculty?.id || false,
     });
   };
   return (

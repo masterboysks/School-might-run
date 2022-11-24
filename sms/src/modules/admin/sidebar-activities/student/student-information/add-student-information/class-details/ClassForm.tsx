@@ -136,17 +136,6 @@ function ClassForm() {
         </div>
         <div className="">
           <Select
-            key={classapi ? 1 : 2}
-            disabled={!classapi}
-            value={classapi}
-            label="Class/Semester*"
-            name="class_semester_id"
-            errors={errors}
-            register={register}
-          />
-        </div>
-        <div className="">
-          <Select
             key={facultyapi ? 1 : 2}
             disabled={!facultyapi}
             value={facultyapi}
@@ -156,6 +145,18 @@ function ClassForm() {
             register={register}
           />
         </div>
+        <div className="">
+          <Select
+            key={classapi ? 1 : 2}
+            disabled={!classapi}
+            value={classapi}
+            label="Class/Semester*"
+            name="class_semester_id"
+            errors={errors}
+            register={register}
+          />
+        </div>
+
         <div className="">
           <Select
             key={sectionapi ? 1 : 2}
