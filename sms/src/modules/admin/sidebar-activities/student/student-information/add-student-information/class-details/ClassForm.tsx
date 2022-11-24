@@ -17,15 +17,15 @@ import sectionsApi from '../../../../../../../api/admin/dashboard/admin/data-set
 import StudentFormStudentPictureAndGurdainPicture from '../../../../../../../contex/admin/student/StudentFormStudentPictureAndGurdainPicture';
 const schema = yup.object().shape({
   // 'class.admission_date': yup.string().required(),
-  'class.level_id': yup.string().required(),
-  'class.class_semester_id': yup.string().required(),
-  'class.faculty_id': yup.string(),
-  'class.subfaculty_id': yup.string(),
-  'class.section_id': yup.string().required(),
-  'class.prev_school_name': yup.string(),
-  'class.prev_school_addr': yup.string(),
-  'class.prev_school_grade': yup.string(),
-  'class.status': yup.string().required(),
+  level_id: yup.string().required(''),
+  class_semester_id: yup.string().required(''),
+  faculty_id: yup.string(),
+  subfaculty_id: yup.string(),
+  section_id: yup.string().required(''),
+  prev_school_name: yup.string(),
+  prev_school_addr: yup.string(),
+  prev_school_grade: yup.string(),
+  status: yup.string().required(''),
 });
 const arrayStatus = [
   {
@@ -52,7 +52,7 @@ function ClassForm() {
     getValues,
   } = useForm({
     mode: 'onBlur',
-
+    defaultValues: { ...formState.values?.class },
     resolver: yupResolver(schema),
   });
   const [level_id, class_semester_id] = watch([
@@ -91,6 +91,7 @@ function ClassForm() {
     formState.values?.class?.admission_date || ''
   );
   const onSubmit = (d) => {
+    console.log('submitted');
     formState.setValues((c) => {
       return { ...c, class: { ...d, admission_date: dateofAddmission } };
     });
@@ -104,7 +105,9 @@ function ClassForm() {
         class: { ...getValues(), admission_date: dateofAddmission },
       };
     });
-    navigate(-1);
+    navigate(
+      '/admin/dashboard/student/student-information/add-address-details'
+    );
   };
   return (
     <form
@@ -122,6 +125,7 @@ function ClassForm() {
         <div className="">
           {/* {// console.log(data)} */}
           <Select
+            key={levelapi ? 1 : 2}
             disabled={!levelapi}
             value={levelapi}
             label="Level id*"
@@ -132,6 +136,7 @@ function ClassForm() {
         </div>
         <div className="">
           <Select
+            key={classapi ? 1 : 2}
             disabled={!classapi}
             value={classapi}
             label="Class/Semester*"
@@ -142,6 +147,7 @@ function ClassForm() {
         </div>
         <div className="">
           <Select
+            key={facultyapi ? 1 : 2}
             disabled={!facultyapi}
             value={facultyapi}
             label="Faculty"
@@ -152,6 +158,7 @@ function ClassForm() {
         </div>
         <div className="">
           <Select
+            key={sectionapi ? 1 : 2}
             disabled={!sectionapi}
             value={sectionapi}
             label="Section"
@@ -172,7 +179,7 @@ function ClassForm() {
         </div>
         <div className="">
           <Input
-            label="Address of previous school*"
+            label="Address of previous school"
             name="prev_school_addr"
             register={register}
             errors={errors}

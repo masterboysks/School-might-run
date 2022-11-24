@@ -35,7 +35,10 @@ const schema = yup.object().shape({
     .max(255, 'Enter at lest 255 characters.'),
   username: yup.string().required(''),
   email: yup.string().required(''),
-  mobile_number: yup.string(),
+  mobile_number: yup
+    .number()
+    .min(1000000000, 'Enter 10 digit number.')
+    .max(10000000000 - 1, 'Enter 10 digit number.'),
   password: yup.string().required(''),
   gender: yup.string().required(''),
   blood_group: yup.string().required(''),
@@ -260,7 +263,7 @@ const DetailsForm = () => {
             // to={`/admin/dashboard/student/student-information/add-student-details/guardian-${
             //   anotherChild || 'true'
             // }`}
-            disabled={!isValid}
+            // disabled={!isValid}
             className="primary_btn"
           >
             Next

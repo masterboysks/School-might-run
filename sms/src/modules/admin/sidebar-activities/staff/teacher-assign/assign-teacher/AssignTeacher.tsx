@@ -19,7 +19,7 @@ const schema = yup.object().shape({
   department_id: yup.string().required(''),
   designation_id: yup.string().required(''),
   teacher_name: yup.string().required(''),
-  teacher_id: yup.string().required(''),
+  teacher_code: yup.string().required(''),
   subject: yup.array().min(1, 'Select at least 1 item.'),
 });
 const pages = [
@@ -50,8 +50,8 @@ function AssignTeacher() {
     defaultValues: {
       department_id: '',
       designation_id: '',
+      teacher_code: '',
       teacher_id: '',
-      teacher_name: '',
       subject: [],
     },
     resolver: yupResolver(schema),
@@ -60,7 +60,7 @@ function AssignTeacher() {
   const [departmentValue, designationValue, teacherName] = watch([
     'department_id',
     'designation_id',
-    'teacher_name',
+    'teacher_id',
   ]);
   const { data: departmentOption } = useQuery({
     queryFn: () => departmentApi.getAll(),
@@ -104,7 +104,7 @@ function AssignTeacher() {
     queryKey: ['staffgeneralapigetidbyname', designationValue, teacherName],
     select: (d) => {
       return d?.data.data?.map((c) => {
-        return { name: c.teacher_id, id: c.teacher_id };
+        return { name: c.teacher_code, id: c.teacher_code };
       });
     },
     staleTime: Infinity,
@@ -123,10 +123,10 @@ function AssignTeacher() {
     resetField('designation_id');
   }, [departmentValue]);
   useEffect(() => {
-    resetField('teacher_name');
+    resetField('teacher_id');
   }, [designationValue]);
   useEffect(() => {
-    resetField('teacher_id');
+    resetField('teacher_code');
   }, [teacherName]);
   const onSubmit = (d) => console.log(d);
   return (
@@ -191,7 +191,7 @@ function AssignTeacher() {
               key={!teacherOptions ? 1 : 2}
               disabled={!teacherOptions}
               label="Teacher name*"
-              name="teacher_name"
+              name="teacher_id"
               value={teacherOptions}
               register={register}
             />
@@ -205,7 +205,7 @@ function AssignTeacher() {
               label="Teacher ID*"
               value={teacherIdOptions}
               register={register}
-              name="teacher_id"
+              name="teacher_code"
             />
           </div>
           <div className="">

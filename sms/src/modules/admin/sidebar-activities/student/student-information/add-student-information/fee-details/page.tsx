@@ -28,10 +28,9 @@ const steps = [
 export default function AddStudentFeeDetail() {
   return (
     <>
-      {' '}
       <AboveForm steps={steps} title="Fee details" />
       <FeeForm />
-      <FeeInstallmentDuration />
+      {/* <FeeInstallmentDuration /> */}
     </>
   );
 }

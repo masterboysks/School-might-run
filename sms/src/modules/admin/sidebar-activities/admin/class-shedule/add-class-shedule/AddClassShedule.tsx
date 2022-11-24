@@ -69,11 +69,11 @@ function AddClassShedule() {
       section_id: 1,
     };
 
-    // console.log(d);
-    // const res = await classSheduleApi.create(d);
-    // res?.status === 201
-    //   ? navigate('/admin/dashboard/admin/class-schedule')
-    //   : setError('Failed to create class shedule');
+    console.log(d);
+    const res = await classSheduleApi.create(d);
+    res?.status === 201
+      ? navigate('/admin/dashboard/admin/class-schedule')
+      : setError('Failed to create class shedule');
   };
   useEffect(() => {
     (async () => {

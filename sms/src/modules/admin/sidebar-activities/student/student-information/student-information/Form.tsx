@@ -8,7 +8,7 @@ const pages = [
   { name: 'Student' },
   {
     name: 'Student Information',
-    href: '/student/student-information/',
+    href: '/admin/dashboard/student/student-information/',
   },
 ];
 const arrayLevel = [

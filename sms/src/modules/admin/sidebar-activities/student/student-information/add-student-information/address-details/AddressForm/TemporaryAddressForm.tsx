@@ -20,7 +20,7 @@ const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
         />
       </div>
       <div className="form-solid mb-6 rounded-md">
-        {asAsPermenantAddress || (
+        {asAsPermenantAddress ? null : (
           <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
             <LocationForm
               register={register}
@@ -53,12 +53,9 @@ const TemporaryAddressForm = ({ register, watch, errors, handleBack }) => {
             <button onClick={handleBack} className="secondary_btn">
               Back
             </button>
-            <Link
-              to={`/admin/dashboard/student/student-information/add-class-details`}
-              className="primary_btn"
-            >
+            <button type="submit" className="primary_btn">
               Next
-            </Link>
+            </button>
           </div>
         </div>
       </div>

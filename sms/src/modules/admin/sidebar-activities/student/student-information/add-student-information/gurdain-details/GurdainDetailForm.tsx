@@ -35,7 +35,8 @@ const schema = yup.object().shape({
       .number()
       .required('')
       .typeError('Enter a valid number')
-      .min(1000000000, ''),
+      .min(1000000000, 'Enter 10 digit number.')
+      .max(10000000000 - 1, 'Enter 10 digit number.'),
 
     email: yup.string().email('Please enter a valid mail.'),
     occupation: yup.string().required(''),
@@ -64,7 +65,8 @@ const schema = yup.object().shape({
       .number()
       .required('')
       .typeError('Enter a valid number')
-      .min(1000000000, ''),
+      .min(1000000000, 'Enter 10 digit number.')
+      .max(10000000000 - 1, 'Enter 10 digit number.'),
     email: yup.string(),
 
     occupation: yup.string().required(''),
@@ -89,7 +91,8 @@ const schema = yup.object().shape({
       .number()
       .required('')
       .typeError('Enter a valid number')
-      .min(1000000000, ''),
+      .min(1000000000, 'Enter 10 digit number.')
+      .max(10000000000 - 1, 'Enter 10 digit number.'),
     email: yup.string(),
 
     occupation: yup.string().required(''),
@@ -114,9 +117,9 @@ const GuardianDetailForm = () => {
     mode: 'onBlur',
     resolver: yupResolver(schema),
     defaultValues: {
-      ...formState?.values?.local_guardian,
-      ...formState?.values?.mother,
-      ...formState?.values?.father,
+      local_guardian: { ...formState?.values?.local_guardian },
+      mother: { ...formState?.values?.mother },
+      father: { ...formState?.values?.father },
     },
   });
 
@@ -156,7 +159,11 @@ const GuardianDetailForm = () => {
       return {
         ...c,
         ...d,
-        local_guardian: { already_exists: disabledFields },
+        local_guardian: {
+          ...d.local_guardian,
+          already_exists: disabledFields ? 1 : 0,
+          has_siblings: disabledFields ? 1 : 0,
+        },
       };
     });
     navigate(
@@ -169,10 +176,16 @@ const GuardianDetailForm = () => {
       return {
         ...c,
         ...getValues(),
-        local_guardian: { already_exists: disabledFields },
+        local_guardian: {
+          ...getValues().local_guardian,
+          already_exists: disabledFields ? 1 : 0,
+          has_siblings: disabledFields ? 1 : 0,
+        },
       };
     });
-    navigate(-1);
+    navigate(
+      '/admin/dashboard/student/student-information/add-student-details'
+    );
   };
   // console.log(isValid);
   // console.log(mobile_value?.toString().length >= 10);
@@ -337,7 +350,11 @@ const GuardianDetailForm = () => {
           <button className="secondary_btn" onClick={onBack}>
             Back
           </button>
-          <button type="submit" className="primary_btn" disabled={!isValid}>
+          <button
+            type="submit"
+            className="primary_btn"
+            // disabled={!isValid}
+          >
             Next
           </button>
         </div>

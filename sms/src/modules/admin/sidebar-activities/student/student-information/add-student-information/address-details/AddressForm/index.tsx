@@ -59,16 +59,33 @@ function AddressForm() {
     // console.log(d);
     // address
     formState.setValues((c) => {
-      return { ...c, address: { ...d } };
+      return {
+        ...c,
+        address: {
+          ...d,
+          same_as_permanent_address: d.same_as_permanent_address ? 1 : 0,
+        },
+      };
     });
     navigate('/admin/dashboard/student/student-information/add-class-details');
+    // /admin/dashboard/student/student-information/add-class-details
   };
   const onBack = (e) => {
     e.preventDefault();
     formState.setValues((c) => {
-      return { ...c, address: { ...getValues() } };
+      return {
+        ...c,
+        address: {
+          ...getValues(),
+          same_as_permanent_address: getValues().same_as_permanent_address
+            ? 1
+            : 0,
+        },
+      };
     });
-    navigate(-1);
+    navigate(
+      '/admin/dashboard/student/student-information/add-student-details/guardian'
+    );
   };
 
   const navigate = useNavigate();
