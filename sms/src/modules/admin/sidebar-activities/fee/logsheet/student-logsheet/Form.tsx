@@ -24,7 +24,7 @@ export default function Form() {
             placeholder="557332"
             register={register}
             label="Student Id"
-            name="student_id"
+            name="student_code"
           />
         </div>
         <div className="">

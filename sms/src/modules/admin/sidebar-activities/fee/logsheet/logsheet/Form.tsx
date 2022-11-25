@@ -17,15 +17,12 @@ export const Form = () => {
   const {
     formState: { errors, isValid },
     register,
+    control,
     reset,
     handleSubmit,
     watch,
   } = useForm();
   const [invoice_type] = watch(['invoice_type']);
-  // const [entryType, setEntryType] = useState('normal');
-  const entryOnChange = (e) => {
-    console.log('changed');
-  };
 
   return (
     <>
@@ -38,7 +35,7 @@ export const Form = () => {
             value={arrayEntryType}
           />
         </div>
-        <Table type={invoice_type} />
+        <Table type={invoice_type} control={control} register={register} />
       </form>
     </>
   );

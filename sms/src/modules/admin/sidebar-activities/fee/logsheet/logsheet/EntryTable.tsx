@@ -3,7 +3,7 @@ import RenderTable from './EntryTableRender';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 
-export default function Table({ type }) {
+export default function Table({ type, control, register }) {
   const [entry, setEntry] = useState([1]);
   useEffect(() => {
     type === 'discount' && setEntry([1]);
