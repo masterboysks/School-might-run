@@ -13,7 +13,7 @@ export default {
   create(form) {
     return authorized.post(`/fiscal-years`, form);
   },
-  getAll() {
-    return authorized.get(`/get-fiscal-years`);
-  },
+  // getAll() {
+  //   return authorized.get(`/get-fiscal-years`);
+  // },
 };

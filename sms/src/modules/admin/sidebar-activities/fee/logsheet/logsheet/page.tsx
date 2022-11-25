@@ -11,7 +11,7 @@ export default function Logsheet() {
     { name: 'Fee' },
     {
       name: 'Student logsheet',
-      href: 'admin/dashboard/fee/student-logsheet',
+      href: '/admin/dashboard/fee/student-logsheet',
     },
     {
       name: `${
@@ -25,7 +25,7 @@ export default function Logsheet() {
       <Breadnav pages={pages} />
       <Profile></Profile>
       <Form />
-      <LogTable />
+      {/* <LogTable /> */}
     </>
   );
 }

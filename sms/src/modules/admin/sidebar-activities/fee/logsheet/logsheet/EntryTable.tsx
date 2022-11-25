@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 export default function Table({ type }) {
   const [entry, setEntry] = useState([1]);
   useEffect(() => {
-    type.entry === 'discount' && setEntry([1]);
+    type === 'discount' && setEntry([1]);
   }, [type]);
 
   return (
-    <div className={`${type ? '' : ' pointer-events-none opacity-50   '}`}>
+    <div className={`${type ? '' : ' pointer-events-none opacity-50'}`}>
       <div
         className={` ring-1 ring-black ring-opacity-5 mb-3 mt-6 min-w-full overflow-x-auto rounded-lg shadow `}
       >
@@ -64,10 +64,10 @@ export default function Table({ type }) {
                   );
                 })}
                 <tr className="bg-gray-50 ">
-                  <td colSpan="6">
+                  <td colSpan={6}>
                     <div
                       className={`w-fit flex p-2 mx-2 ml-auto cursor-pointer ${
-                        type.entry === 'discount'
+                        type === 'discount'
                           ? 'pointer-events-none opacity-40 '
                           : ' '
                       }`}

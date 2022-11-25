@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Break from '../../break';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -19,6 +18,7 @@ import {
 } from '../../../../../../components/common/fields';
 import feeAssignApi from '../../../../../../api/admin/dashboard/fee/feeAssignApi';
 import getSectionFacultiesApi from '../../../../../../api/common/unknown/class/getSectionFacultiesApi';
+import Break from '../../../../../../components/common/Break';
 const schema = yup.object().shape({
   batch_id: yup.string().required(''),
   level_id: yup.string().required(''),

@@ -17,9 +17,9 @@ export default {
     );
     // ?level_id=10&batch_id=2&class_id=21&faculty_id=1&sub_faculty_id=1
   },
-  edit(id, form) {
-    return authorized.put(`classes/${id}`, form);
-  },
+  // edit(id, form) {
+  //   return authorized.put(`classes/${id}`, form);
+  // },
   create(form) {
     return authorized.post(`/student`, form);
   },

@@ -1,4 +1,5 @@
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import React from 'react';
 export default function RenderTable({ type, index, setEntry, entry }) {
   return (
     <tr>
@@ -31,8 +32,8 @@ export default function RenderTable({ type, index, setEntry, entry }) {
           name="discount"
           id="discount"
           placeholder="00"
-          className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn  ${
-            type.entry !== 'discount text-sm'
+          className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn  text-sm ${
+            type !== 'discount'
               ? ' border-primary-field  placeholder:text-primary-grey-400 '
               : '  pointer-events-none border-primary-grey-400 bg-primary-grey-100 shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 '
           } `}

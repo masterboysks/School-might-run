@@ -42,12 +42,15 @@ function NewNotice() {
     const d = {
       ...data,
       // send_to: JSON.stringify(data.send_to?.map((c) => c.id)),
-      expiry_date: date,
+      expiry_date: date.date || date,
     };
     const form = new FormData();
     for (const name in d) {
       form.append(name, d[name]);
     }
+
+    form.delete('send_to');
+    data.send_to?.map((c, i) => form.append(`send_to[${i}]`, c));
     d.document.length === 1
       ? form.append('document', d.document[0])
       : form.append('document', '');

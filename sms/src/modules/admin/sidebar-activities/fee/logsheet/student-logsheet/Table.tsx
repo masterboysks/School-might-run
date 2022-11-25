@@ -1,3 +1,4 @@
+import React from 'react';
 import RenderTable from './RenderTable';
 
 const people = [

@@ -1,6 +1,6 @@
 import React from 'react';
+import Break from '../../../../../../components/common/Break';
 import Breadnav from '../../../../../../components/common/navigation/Breadnav';
-import Break from '../../break';
 import Form from './Form';
 const pages = [
   { name: 'Fee' },

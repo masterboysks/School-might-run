@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Break from '../../../../../../../components/common/Break';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
-import Break from '../../../break';
 import Details from './Details';
 import Table from './Table';
 

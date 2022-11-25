@@ -65,7 +65,7 @@ export default function Table() {
         </div>
       </div>
       <div className="my-6">
-        {isFetching || isLoading ? 'isLoading' : null}
+        {isFetching || isLoading ? ' isLoading... ' : null}
         <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
           <div className="inline-block w-full align-middle">
             <div className=" w-full rounded-lg">

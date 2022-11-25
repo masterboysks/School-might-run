@@ -14,7 +14,6 @@ export default function StudentLogsheet() {
     <>
       <Breadnav pages={pages} />
       <Form />
-      <Table />
     </>
   );
 }

@@ -1,39 +1,45 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import Break from '../../../../../../components/common/Break';
+import { Radio } from '../../../../../../components/common/fields';
 import Table from './EntryTable';
-
+const arrayEntryType = [
+  {
+    name: 'Normal entry',
+    id: 'normal',
+  },
+  {
+    name: 'Discount entry',
+    id: 'discount',
+  },
+];
 export const Form = () => {
-  const [entryType, setEntryType] = useState(false);
+  const {
+    formState: { errors, isValid },
+    register,
+    reset,
+    handleSubmit,
+    watch,
+  } = useForm();
+  const [invoice_type] = watch(['invoice_type']);
+  // const [entryType, setEntryType] = useState('normal');
   const entryOnChange = (e) => {
-    setEntryType({ entry: e.target.value });
+    console.log('changed');
   };
 
   return (
     <>
       <Break title="Logsheet" />
-      <form className="my-6">
-        <input
-          type="radio"
-          name="entry"
-          id="normal"
-          value="normal"
-          onChange={entryOnChange}
-        />
-        <label htmlFor="normal" className="ml-2 mr-6">
-          Normal entry
-        </label>
-        <input
-          type="radio"
-          name="entry"
-          id="discount"
-          value="discount"
-          onChange={entryOnChange}
-        />
-        <label htmlFor="discount" className="ml-2">
-          Discount entry
-        </label>
+      <form className="">
+        <div className="my-6">
+          <Radio
+            register={register}
+            name="invoice_type"
+            value={arrayEntryType}
+          />
+        </div>
+        <Table type={invoice_type} />
       </form>
-      <Table type={entryType} />
     </>
   );
 };

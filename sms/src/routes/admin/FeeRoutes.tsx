@@ -62,9 +62,7 @@ const StudentLogsheet = lazy(
 );
 const Logsheet = lazy(
   () =>
-    import(
-      '../../modules/admin/sidebar-activities/fee/logsheet/logsheet/Logsheet'
-    )
+    import('../../modules/admin/sidebar-activities/fee/logsheet/logsheet/page')
 );
 const FeePayment = lazy(
   () =>

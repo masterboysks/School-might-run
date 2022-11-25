@@ -70,7 +70,6 @@ const Form = () => {
   const [message, setMessage] = useState('');
   const [defaultDate, setDefaultDate] = useState('');
   const onSubmit = async (data) => {
-    // console.log(date);
     const d = {
       ...data,
       established_at: date?.date || date,
@@ -259,6 +258,7 @@ const Form = () => {
         </div>
         <div className="">
           <DateInput
+            name="format"
             register={register}
             selected={date}
             setSelected={setDate}

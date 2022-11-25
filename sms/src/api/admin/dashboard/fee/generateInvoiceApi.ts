@@ -13,7 +13,7 @@ export default {
   create(form) {
     return authorized.post(`/fee-type`, form);
   },
-  getByLevelId(id) {
-    return authorized.get(`/get-fee-type-level?level_id=${id}`);
-  },
+  // getByLevelId(id) {
+  //   return authorized.get(`/get-fee-type-level?level_id=${id}`);
+  // },
 };
