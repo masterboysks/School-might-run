@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Breadnav from '../../../../../../components/common/navigation/Breadnav';
 import Details from './Details';
-import Table from './Table';
+import TableWrapper from './TableWrapper';
 
 export default function ViewGenerateInvoice() {
   const { section, classOfSchool } = useParams();
@@ -21,7 +21,7 @@ export default function ViewGenerateInvoice() {
     <>
       <Breadnav pages={pages} />
       <Details />
-      <Table />
+      <TableWrapper />
     </>
   );
 }

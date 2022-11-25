@@ -13,6 +13,7 @@ import { useState, useEffect, useContext } from 'react';
 import designationApi from '../../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
 import staffAPI from '../../../../../../../api/admin/dashboard/staff/staffAPI';
 import StaffFormPersonalDetailsPicture from '../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture';
+import React from 'react';
 
 const arrayStatus = [
   {
@@ -177,6 +178,7 @@ const PermanentAddressForm = () => {
         </div>
         <div className="">
           <DateInput
+            register={register}
             label="Joined date*"
             selected={date}
             setSelected={setDate}

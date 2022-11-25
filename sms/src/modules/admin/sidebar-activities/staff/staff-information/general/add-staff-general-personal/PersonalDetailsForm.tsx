@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
@@ -170,6 +171,7 @@ const DetailsForm = () => {
         </div>
         <div className="">
           <DateInput
+            register={register}
             selected={date}
             setSelected={setDate}
             label="Date of birth"

@@ -6,13 +6,15 @@ import { InputNumber } from '.';
 import dateFormatApi from '../../../api/common/dateFormatApi';
 import './datepicker.css';
 
-function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
+function ad_bs({ selected, setSelected, label, defaultDate = '', register }) {
   const { data } = useQuery({
     queryFn: () => dateFormatApi.get(),
     staleTime: Infinity,
     cacheTime: Infinity,
     queryKey: ['Dateformatofacompany/89217648'],
   });
+  const _ = register('date_format', { value: data?.data });
+
   useEffect(() => {
     if (defaultDate) {
       setSelected(defaultDate);
@@ -25,7 +27,6 @@ function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
   useEffect(() => {
     setRender((c) => c + 1);
   }, [defaultDate]);
-
   if (data?.data === '2')
     return (
       <>

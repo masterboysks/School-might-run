@@ -259,6 +259,7 @@ const Form = () => {
         </div>
         <div className="">
           <DateInput
+            register={register}
             selected={date}
             setSelected={setDate}
             label="Established date*"

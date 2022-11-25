@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Break from '../../break';
+import Break from '../../../../../../components/common/Break';
 import Table from './EntryTable';
 
 export const Form = () => {

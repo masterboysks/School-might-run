@@ -23,7 +23,7 @@ export default {
   create(form) {
     return authorized.post(`/student`, form);
   },
-  getAll(id = '') {
-    return authorized.get(`/get-classes?level_id=${id}`);
+  getStudents(page = 1) {
+    return authorized.get(`/student?page=${page}`);
   },
 };

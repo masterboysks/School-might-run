@@ -142,7 +142,12 @@ function NewNotice() {
             />
           </div> */}
           <div className="">
-            <DateInput selected={date} setSelected={setDate} label="Date" />
+            <DateInput
+              register={register}
+              selected={date}
+              setSelected={setDate}
+              label="Date"
+            />
           </div>
         </div>
 

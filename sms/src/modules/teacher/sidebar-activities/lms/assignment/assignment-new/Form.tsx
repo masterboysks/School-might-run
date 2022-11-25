@@ -52,6 +52,7 @@ function Form() {
         <div className="sm:grid-cols-2  grid  gap-4">
           <div className="sm:col-span-2">
             <DateInput
+              register={register}
               selected={date}
               setSelected={setDate}
               label="Event title"

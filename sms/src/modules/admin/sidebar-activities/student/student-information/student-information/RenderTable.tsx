@@ -5,13 +5,13 @@ import { Popover } from '@headlessui/react';
 const RenderTable = ({ currentItems }) => {
   return (
     <>
-      {currentItems.map((person, index, table) => (
-        <tr key={person.stdId}>
+      {currentItems?.map((person, index, table) => (
+        <tr key={person.student_id}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.stdId}
+            {person.student_id}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.stdName}
+            {person.student_name}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.class}
@@ -20,16 +20,16 @@ const RenderTable = ({ currentItems }) => {
             {person.faculty}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.sec}
+            {person.section}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.gen}
+            {person.gender}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.numb}
+            {person.mobile_number}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.status}
+            {person.status ? 'Active' : 'Inactive'}
           </td>
           <td className="whitespace-nowrap relative text-sm text-gray-500">
             <Popover>
