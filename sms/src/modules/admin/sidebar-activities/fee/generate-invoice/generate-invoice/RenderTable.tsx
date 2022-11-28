@@ -23,7 +23,9 @@ const RenderTable = ({ currentItems }) => {
           </td>
 
           <td className="whitespace-nowrap text-primary-btn  relative px-3 py-4 text-sm">
-            <Link to={`view/${person.class_id}/${person.section_id}`}>
+            <Link
+              to={`view/${person.class_id}/${person.section_id}/${person.class_name}/${person.section_name}`}
+            >
               View
             </Link>
           </td>

@@ -7,6 +7,9 @@ import Form from './Form';
 import RenderTable from './RenderTable';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import generateInvoiceApi from '../../../../../../api/admin/dashboard/fee/generateInvoiceApi';
 const schema = yup.object().shape({
   print_status: yup.string(),
   student_name: yup.string(),
@@ -14,13 +17,25 @@ const schema = yup.object().shape({
   month: yup.string().required(''),
 });
 export default function TableWrapper() {
+  const [search, setSearch] = useState<undefined | {}>();
+  const { classOfSchool, section } = useParams();
   const {
     formState: { errors, isValid },
     register,
     watch,
     handleSubmit,
-  } = useForm({ resolver: yupResolver(schema) });
-  const onSubmit = (d) => console.log(d);
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: { class_id: classOfSchool, section_id: section },
+  });
+  const { data } = useQuery({
+    queryFn: () => generateInvoiceApi.getClass(search),
+    queryKey: ['generateinvoiceapigetclass', search],
+    enabled: !!search,
+    select: (d) => d.data.data,
+    onSuccess: (d) => console.log(d),
+  });
+  const onSubmit = (d) => setSearch(d);
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>

@@ -139,7 +139,7 @@ export default function FeeRoutes() {
             }
           />
           <Route
-            path="view/:classOfSchool/:section/:studentName/:studentId"
+            path="view/:classOfSchool/:section//:className/:sectionName/:studentName/:studentId"
             element={
               <Suspense fallback="Loading">
                 <PersonInvoice />
@@ -147,7 +147,7 @@ export default function FeeRoutes() {
             }
           ></Route>
           <Route
-            path="view/:classOfSchool/:section"
+            path="view/:classOfSchool/:section/:className/:sectionName"
             element={
               <Suspense fallback="Loading">
                 <ViewGenerateInvoice />

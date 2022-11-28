@@ -13,6 +13,10 @@ export default {
   create(form) {
     return authorized.post(`/fee-type`, form);
   },
+  getClass(params) {
+    return authorized.get(`/inv-get-student`, { params });
+  },
+
   // getByLevelId(id) {
   //   return authorized.get(`/get-fee-type-level?level_id=${id}`);
   // },

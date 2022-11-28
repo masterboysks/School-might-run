@@ -4,7 +4,7 @@ import Breadnav from '../../../../../../components/common/navigation/Breadnav';
 import TableWrapper from './TableWrapper';
 
 export default function ViewGenerateInvoice() {
-  const { section, classOfSchool } = useParams();
+  const { sectionName, className } = useParams();
   const pages = [
     { name: 'Fee' },
 
@@ -13,7 +13,7 @@ export default function ViewGenerateInvoice() {
       href: '/admin/dashboard/fee/generate-invoice',
     },
     {
-      name: `${classOfSchool}-${section}`,
+      name: `${className} - ${sectionName}`,
     },
   ];
   return (
