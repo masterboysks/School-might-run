@@ -6,14 +6,9 @@ import { InputNumber } from '.';
 import dateFormatApi from '../../../api/common/dateFormatApi';
 import './datepicker.css';
 
-function ad_bs({
-  selected,
-  setSelected,
-  label,
-  defaultDate = '',
-  register,
-  name = 'date_format',
-}) {
+function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
+  // register,
+  // name = 'date_format',
   const { data } = useQuery({
     queryFn: () => dateFormatApi.get(),
     staleTime: Infinity,
@@ -51,7 +46,7 @@ function ad_bs({
             className={`mt-[6px] w-full fff  rounded focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm `}
           />
         )}
-        <input className="hidden" {...register(name, { value: data?.data })} />
+        {/* <input className="hidden" {...register(name, { value: data?.data })} /> */}
       </>
     );
 
@@ -69,7 +64,7 @@ function ad_bs({
         onChange={(e) => setSelected(e.target.value)}
         type="date"
       />
-      <input className="hidden" {...register(name, { value: data?.data })} />
+      {/* <input className="hidden" {...register(name, { value: data?.data })} /> */}
     </>
   );
 }

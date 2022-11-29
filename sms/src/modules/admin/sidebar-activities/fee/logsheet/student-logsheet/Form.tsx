@@ -15,9 +15,13 @@ export default function Form() {
   // const {register}=useQuery({
 
   // })
+  const onSubmit = (d) => console.log(d);
   return (
     <>
-      <form className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ring-1 ring-black ring-opacity-5 form-solid grid grid-cols-1 gap-4 p-4 my-6 rounded-md shadow">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ring-1 ring-black ring-opacity-5 form-solid grid grid-cols-1 gap-4 p-4 my-6 rounded-md shadow"
+      >
         <div className="">
           <Input
             errors={errors}
@@ -83,7 +87,9 @@ export default function Form() {
         </div>
         <div className="h-fit w-fit bg-primary-btn sm:col-start-2 lg:col-start-3 xl:col-start-4 sm:box-content  box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
           {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-          <Search className="w-4 mx-auto" />
+          <button className="w-4 mx-auto" type="submit">
+            <Search />
+          </button>
         </div>
       </form>
       <Break title="Student logsheet"></Break>

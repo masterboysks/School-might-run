@@ -20,14 +20,29 @@ export const Form = () => {
     control,
     reset,
     handleSubmit,
+    setValue,
     watch,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      invoice_type: '',
+      items: [
+        {
+          invoice_date: '',
+          description: '',
+          amount: 0,
+          discount_amount: 0,
+        },
+      ],
+    },
+  });
+  const [grandTotal, setGrandTotal] = useState(0);
+  const onSubmit = (d) => console.log({ ...d, total_amount: grandTotal });
   const [invoice_type] = watch(['invoice_type']);
 
   return (
     <>
       <Break title="Logsheet" />
-      <form className="">
+      <form className="" onSubmit={handleSubmit(onSubmit)}>
         <div className="my-6">
           <Radio
             register={register}
@@ -35,7 +50,15 @@ export const Form = () => {
             value={arrayEntryType}
           />
         </div>
-        <Table type={invoice_type} control={control} register={register} />
+        <Table
+          watch={watch}
+          setGrandTotal={setGrandTotal}
+          grandTotal={grandTotal}
+          setValue={setValue}
+          type={invoice_type}
+          control={control}
+          register={register}
+        />
       </form>
     </>
   );

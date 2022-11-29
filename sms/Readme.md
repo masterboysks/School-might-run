@@ -1,5 +1,27 @@
-<!-- assignment/page.jsx assignment/assignment/page.jsx assignment/assignment-view/page.jsx assignment/assignment-view/view/page.jsx assignment/assignment-view/view-details/page.jsx assignment/assignment-view/edit-details/page.jsx e-libary/page.jsx e-libary/e-libary/page.jsx e-libary/view/page.jsx e-libary/view/notes/page.jsx e-libary/view/folders/page.jsx e-libary/view/notes/add/page.jsx practice-question/page.jsx practice-question/view/page.jsx practice-question/view/class/page.jsx practice-question/view/page.jsx practice-question/view/class/sets/page.jsx practice-question/view/page.jsx practice-question/view/class/add/page.jsx test/page.jsx test/view//page.jsx test/add/page.jsx reports/assignment-report/page.jsx reports/assignment-report/view/page.jsx reports/assignment-report/view/student/page.jsx reports/test-report/page.jsx reports/test-report/view/page.jsx reports/test-report/student/page.jsx  -->
+### All api request handaling are handled here
 
-<!-- pages from lms teacher -->
+src/api
 
-## formprovide configuration needed helps in nesting components
+### components
+
+repetidly used components are here
+
+### modules
+
+all of SPA is made within this folder
+
+### contsx
+
+contex are defined and provider are also haldled within this folder
+
+### pages
+
+module start point starts form here
+
+## Routes
+
+routes are managed within this folder and all routes are defined inside of this folder
+
+# Form
+
+Form fields are defined in src/components/common/fields

@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import generateInvoiceApi from '../../../../../../api/admin/dashboard/fee/generateInvoiceApi';
+import Table from './Table';
 const schema = yup.object().shape({
   print_status: yup.string(),
   student_name: yup.string(),
@@ -19,6 +20,7 @@ const schema = yup.object().shape({
 export default function TableWrapper() {
   const [search, setSearch] = useState<undefined | {}>();
   const { classOfSchool, section } = useParams();
+  const [page, setPage] = useState(1);
   const {
     formState: { errors, isValid },
     register,
@@ -27,19 +29,22 @@ export default function TableWrapper() {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: { class_id: classOfSchool, section_id: section },
-  });
-  const { data } = useQuery({
-    queryFn: () => generateInvoiceApi.getClass(search),
-    queryKey: ['generateinvoiceapigetclass', search],
-    enabled: !!search,
+  }); // @ts-ignore
+  const month = watch('month');
+  const { data, isLoading } = useQuery({
+    queryFn: () => generateInvoiceApi.getClass({ ...search, page }),
+    queryKey: ['generateinvoiceapigetclass', search, page],
+    enabled: !!month && !!search,
     select: (d) => d.data.data,
     onSuccess: (d) => console.log(d),
   });
+  useEffect(() => setSearch(undefined), [watch]);
   const onSubmit = (d) => setSearch(d);
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Form register={register} errors={errors} />
+        {isLoading ? null : <Table data={data} setPage={setPage} />}
       </form>
     </>
   );

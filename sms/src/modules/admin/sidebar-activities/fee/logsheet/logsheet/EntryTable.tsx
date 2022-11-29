@@ -2,12 +2,32 @@ import React, { useEffect, useState } from 'react';
 import RenderTable from './EntryTableRender';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
+import { useFieldArray } from 'react-hook-form';
+import { InputDisabled } from '../../../../../../components/common/fields';
 
-export default function Table({ type, control, register }) {
-  const [entry, setEntry] = useState([1]);
+export default function Table({
+  type,
+  control,
+  register,
+  setValue,
+  watch,
+  setGrandTotal,
+  grandTotal,
+}) {
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'items',
+  });
+
+  const entry = watch('invoice_type');
   useEffect(() => {
-    type === 'discount' && setEntry([1]);
-  }, [type]);
+    setGrandTotal(watch('items').reduce((t, c, i) => t + c.total_amount, 0));
+  }, [watch()]);
+  useEffect(() => {
+    setValue('items', [
+      { invoice_date: '', description: '', amount: 0, discount_amount: 0 },
+    ]);
+  }, [entry]);
 
   return (
     <div className={`${type ? '' : ' pointer-events-none opacity-50'}`}>
@@ -53,13 +73,17 @@ export default function Table({ type, control, register }) {
                 </tr>
               </thead>
               <tbody className=" bg-white divide-y divide-gray-200">
-                {entry.map((curr, index) => {
+                {fields.map((curr, index) => {
                   return (
                     <RenderTable
+                      key={curr.id}
                       type={type}
                       index={index}
-                      setEntry={setEntry}
-                      entry={entry}
+                      register={register}
+                      setValue={setValue}
+                      remove={remove}
+                      watch={watch}
+                      setGrandTotal={setGrandTotal}
                     />
                   );
                 })}
@@ -72,10 +96,16 @@ export default function Table({ type, control, register }) {
                           : ' '
                       }`}
                     >
-                      <div
+                      <button
                         className="w-fit flex items-center justify-center"
-                        onClick={() => {
-                          setEntry([...entry, 1]);
+                        onClick={(e) => {
+                          e.preventDefault();
+                          append({
+                            invoice_date: '',
+                            description: '',
+                            ammount: 0,
+                            discount_amount: 0,
+                          });
                         }}
                       >
                         <div className="text-primary-btn mx-1">Add new</div>
@@ -83,7 +113,7 @@ export default function Table({ type, control, register }) {
                           className="text-primary-btn"
                           fontSize="inherit"
                         />
-                      </div>
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -94,7 +124,8 @@ export default function Table({ type, control, register }) {
       </div>
       <div className="md:flex-row flex flex-col w-full">
         <div className="grid items-center grid-cols-2 py-1">
-          <label htmlFor="grandTotal">Grand total :</label>
+          <InputDisabled label="Grand total:" value={grandTotal || 0} />
+          {/* <label htmlFor="grandTotal">Grand total :</label>
           <input
             type="number"
             name="grandTotal"
@@ -102,32 +133,9 @@ export default function Table({ type, control, register }) {
             id="grandTotal"
             placeholder="Rs.12000"
             className="mt-[6px] w-36 p- rounded  focus:ring-primary-btn    border-primary-grey-400 bg-primary-grey-100 shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-          />
-          <label htmlFor="paidAmount">Paid ammount*: </label>
-          <input
-            type="number"
-            name="paidAmmount"
-            id="paidAmmount"
-            placeholder="Rs.12000"
-            className="mt-[6px] w-36 p- rounded  focus:ring-primary-btn   shadow-md border-primary-field  placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-          />
-          <label htmlFor="due">Due amount:</label>
-          <input
-            type="number"
-            name="due"
-            disabled
-            id="due"
-            placeholder="Rs.12000"
-            className="mt-[6px] w-36 p- rounded  focus:ring-primary-btn    border-primary-grey-400 bg-primary-grey-100 shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm"
-          />
+          /> */}
         </div>
-        <div className=" md:ml-3 md:my-0 md:mt-auto flex justify-between flex-1 my-3">
-          <div className="generate md:items-center flex">
-            <input type="checkbox" className="mr-3 rounded" id="generateBill" />
-            <label htmlFor="generateBill" className="">
-              Generate Bill
-            </label>
-          </div>
+        <div className=" md:ml-3 md:my-0 md:mt-auto flex justify-end flex-1 my-3">
           <div className="btns w-fit ">
             <Link
               to="/admin/dashboard/fee/student-logsheet "
@@ -135,7 +143,9 @@ export default function Table({ type, control, register }) {
             >
               Cancel
             </Link>
-            <div className="primary_btn">Submit</div>
+            <button type="submit" className="primary_btn">
+              Submit
+            </button>
           </div>
         </div>
       </div>

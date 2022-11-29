@@ -136,6 +136,9 @@ export const inputDisabled = ({
   label,
 
   value = '',
+}: {
+  label: string | undefined;
+  value?: string | number;
 }) => {
   return (
     <>
@@ -165,6 +168,7 @@ export function inputNumber({
   min,
   shouldUnregister,
   max,
+  disabled = false,
   defaultValue = '0',
   id = 'form_' + name,
 }: {
@@ -178,6 +182,7 @@ export function inputNumber({
   min?: number;
   max?: number;
   defaultValue?: string;
+  disabled?: boolean;
   id?: string | undefined;
   shouldUnregister?: boolean;
 }) {
@@ -205,7 +210,7 @@ export function inputNumber({
       )}
 
       <input
-        className={`mt-[6px] w-full p- rounded  focus:ring-primary-btn focus:border-primary-btn  py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400    text-primary-grey-600 text-sm`}
+        className={`mt-[6px] w-full  rounded   py-3 border-primary-btn shadow-md placeholder:text-primary-grey-400 disabled:bg-primary-grey-100 disabled:text-primary-grey-700  text-primary-grey-600 text-sm `}
         {...register(name, {
           required,
           valueAsNumber: true,
@@ -214,6 +219,7 @@ export function inputNumber({
         })}
         defaultValue={defaultValue}
         type="number"
+        disabled={disabled}
         {...props}
       />
       {errors &&

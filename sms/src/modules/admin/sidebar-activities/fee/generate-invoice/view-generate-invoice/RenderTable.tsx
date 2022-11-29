@@ -1,69 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RenderTable = ({
-  currentItems,
-  subject,
-  selectedPeople,
-  setSelectedPeople,
-}) => {
+const RenderTable = ({ currentItems }) => {
   return (
     <>
-      {currentItems.map((person, index, table) => (
-        <tr
-          className={selectedPeople.includes(person) ? 'bg-gray-50' : undefined}
-          key={index}
-        >
-          <td className="sm:w-16 sm:px-8 relative w-12 px-6">
-            {selectedPeople.includes(person) && (
-              <div className="absolute inset-y-0 left-0 w-0.5 bg-primary-btn" />
-            )}
-            <input
-              type="checkbox"
-              className="left-4 top-1/2 focus:ring-primary-btn border-primary-field placeholder:text-primary-grey-400 text-primary-btn absolute w-4 h-4 -mt-2 text-sm rounded shadow-md"
-              value={person.invoiceStatus}
-              checked={selectedPeople.includes(person)}
-              onChange={(e) =>
-                setSelectedPeople(
-                  e.target.checked
-                    ? [...selectedPeople, person]
-                    : selectedPeople.filter((p) => p !== person)
-                )
-              }
-            />
-          </td>
+      {' '}
+      {currentItems?.map((person, index, table) => (
+        <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.stdId}
+            {person.student_code}
           </td>
-          <td className="whitespace-nowrap text-primary-btn px-3 py-4 text-sm">
-            <Link to={`${person.stdName}/${person.stdId}`}>
-              {person.stdName}
-            </Link>
+          <td className="whitespace-nowrap  px-3 py-4 text-sm">
+            {person.name}
           </td>
-          {/* {subject.map((sub, i) => (
-            <td
-              className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-              key={i}
-            >
-              {person[sub]}
-            </td>
-          ))} */}
 
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.total}
+            {person.invoice_no}
           </td>
-          {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.percentage}
-          </td>
-          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.remark}
-          </td> */}
 
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.status}
+            {person.total_amount}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.status}
+            {person.no_of_print || 'Not printed'}
           </td>
         </tr>
       ))}
