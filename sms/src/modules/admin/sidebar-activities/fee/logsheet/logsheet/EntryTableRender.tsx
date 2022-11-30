@@ -41,6 +41,7 @@ export default function RenderTable({
           label={undefined}
           register={register}
           name={`items.${index}.amount`}
+          min={0}
         />
       </td>
       <td className="p-2">
@@ -52,6 +53,8 @@ export default function RenderTable({
             register={register}
             shouldUnregister={true}
             name={`items.${index}.discount_amount`}
+            min={0}
+            onKeyPress={(event) => event.charCode >= 48 && event.charCode <= 57}
           />
         )}
 

@@ -1,19 +1,8 @@
 import React from 'react';
+import Pagination from '../../../../../../components/common/navigation/Pagination';
 import RenderTable from './RenderTable';
 
-const people = [
-  {
-    id: 557663,
-    name: 'pweson',
-    level: 'Primary level',
-    class: '1',
-    faculty: '',
-    section: 'B',
-    due: 50,
-  },
-];
-
-export default function Table() {
+export default function Table({ data, setPage }) {
   return (
     <div className="my-6">
       <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
@@ -59,12 +48,6 @@ export default function Table() {
                   >
                     Section
                   </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5  text-left text-sm font-medium text-primary-grey-700  "
-                  >
-                    Total Due
-                  </th>
 
                   <th
                     scope="col"
@@ -75,12 +58,13 @@ export default function Table() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                <RenderTable currentItems={people} />
+                <RenderTable currentItems={data?.data} />
               </tbody>
             </table>
           </div>
         </div>
       </div>
+      <Pagination pagination={data?.pagination} setPage={setPage} />
     </div>
   );
 }

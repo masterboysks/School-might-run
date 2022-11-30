@@ -5,15 +5,15 @@ import studentApi from '../../../../../../api/admin/dashboard/student/studentApi
 import Pagination from '../../../../../../components/common/navigation/Pagination';
 import RenderTable from './RenderTable';
 
-export default function Table() {
-  const [page, setPage] = useState(1);
-  const { data: currentItems, isLoading } = useQuery({
-    queryFn: () => studentApi.getStudents(page),
-    queryKey: ['studentapigetstudents', page],
-    select: (d) => {
-      return d?.data.data;
-    },
-  });
+export default function Table({ setPage, data, isLoading }) {
+  // const [page, setPage] = useState(1);
+  // const { data: currentItems, isLoading } = useQuery({
+  //   queryFn: () => studentApi.getStudents(page),
+  //   queryKey: ['studentapigetstudents', page],
+  //   select: (d) => {
+  //     return d?.data.data;
+  //   },
+  // });
 
   return (
     <div className="mt-11">
@@ -101,13 +101,13 @@ export default function Table() {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    <RenderTable currentItems={currentItems?.data} />
+                    <RenderTable currentItems={data?.data} />
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-          <Pagination pagination={currentItems?.pagination} setPage={setPage} />
+          <Pagination pagination={data?.pagination} setPage={setPage} />
         </div>
       )}
     </div>

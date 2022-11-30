@@ -171,6 +171,7 @@ export function inputNumber({
   disabled = false,
   defaultValue = '0',
   id = 'form_' + name,
+  onKeyPress,
 }: {
   errors?: {} | undefined;
   register: any;
@@ -185,6 +186,7 @@ export function inputNumber({
   disabled?: boolean;
   id?: string | undefined;
   shouldUnregister?: boolean;
+  onKeyPress?: any;
 }) {
   // console.log(
   //   name.split('.').reduce((p, c) => (p && p[c]) || undefined, errors)
@@ -220,6 +222,7 @@ export function inputNumber({
         defaultValue={defaultValue}
         type="number"
         disabled={disabled}
+        onKeyDown={onKeyPress}
         {...props}
       />
       {errors &&

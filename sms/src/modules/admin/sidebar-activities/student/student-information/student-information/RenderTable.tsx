@@ -1,12 +1,15 @@
 import React from 'react';
 import ThreeDots from '@mui/icons-material/MoreVert';
 import { Popover } from '@headlessui/react';
-
+const arrayGender = {
+  1: 'Male',
+  2: 'Femail',
+};
 const RenderTable = ({ currentItems }) => {
   return (
     <>
       {currentItems?.map((person, index, table) => (
-        <tr key={person.student_id}>
+        <tr key={person.student_id || Math.random()}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.student_id}
           </td>
@@ -23,7 +26,7 @@ const RenderTable = ({ currentItems }) => {
             {person.section}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.gender}
+            {arrayGender[person.gender]}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.mobile_number}

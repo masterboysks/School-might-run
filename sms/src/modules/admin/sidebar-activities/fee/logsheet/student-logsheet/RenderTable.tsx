@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 const RenderTable = ({ currentItems }) => {
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.id}
+            {person.student_code}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.name}
+            {person.student_name}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.level}
@@ -19,14 +19,12 @@ const RenderTable = ({ currentItems }) => {
             {person.class}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.faculty && person.faculty}
+            {person.faculty}
           </td>
           <td className="whitespace-nowrap  px-3 py-4 text-sm text-gray-500">
             {person.section}
           </td>
-          <td className="whitespace-nowrap  px-3 py-4 text-sm text-gray-500">
-            Rs. {person.due}
-          </td>
+
           <td className="whitespace-nowrap text-primary-btn  px-3 py-4 text-sm">
             <Link to={`${person.name}-${person.id}`}>Open</Link>
           </td>

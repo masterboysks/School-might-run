@@ -13,4 +13,7 @@ export default {
   createLogsheet(id, form) {
     return authorized.post(`/student-logsheet/${id}`, form);
   },
+  getStudent(params) {
+    return authorized.get(`/student`, { params });
+  },
 };
