@@ -1,5 +1,9 @@
+import { useMutation } from '@tanstack/react-query';
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
+import studentLogsheetApi from '../../../../../../api/admin/dashboard/fee/studentLogsheetApi';
 import Break from '../../../../../../components/common/Break';
 import { Radio } from '../../../../../../components/common/fields';
 import Table from './EntryTable';
@@ -14,6 +18,7 @@ const arrayEntryType = [
   },
 ];
 export const Form = () => {
+  const { student } = useParams();
   const {
     formState: { errors, isValid },
     register,
@@ -21,6 +26,7 @@ export const Form = () => {
     reset,
     handleSubmit,
     setValue,
+
     watch,
   } = useForm({
     defaultValues: {
@@ -35,8 +41,13 @@ export const Form = () => {
       ],
     },
   });
+  const mutate = useMutation({
+    mutationFn: (d) => studentLogsheetApi.createLogsheet(student, d),
+    onError: (e) => console.log(e),
+    onSuccess: () => console.log('Complete'),
+  });
   const [grandTotal, setGrandTotal] = useState(0);
-  const onSubmit = (d) => console.log({ ...d, total_amount: grandTotal });
+  const onSubmit = (d) => mutate.mutate({ ...d, total_amount: grandTotal });
   const [invoice_type] = watch(['invoice_type']);
 
   return (

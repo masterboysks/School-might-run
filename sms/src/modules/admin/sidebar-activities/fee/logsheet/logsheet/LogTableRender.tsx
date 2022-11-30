@@ -1,35 +1,30 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 const LogTableRender = ({ currentItems, setOpen }) => {
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.date}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.billNo}
+            {person.description}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.total <= 0
-              ? `(Rs.${Math.abs(person.total)})`
-              : `Rs.${person.total}`}
+            {person.bill_no}
           </td>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            Rs.{person.paid}
-          </td>
-          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            {person.due <= 0
-              ? `(Rs.${Math.abs(person.due)})`
-              : `Rs.${person.due}`}
+            {person.total_amount <= 0
+              ? `(Rs.${Math.abs(person.total_amount)})`
+              : `Rs.${person.total_amount}`}
           </td>
 
           <td className="whitespace-nowrap text-primary-btn px-3 py-4 text-sm">
             <span
               className="cursor-pointer"
               onClick={() => {
-                setOpen(true);
+                setOpen(person.id);
               }}
             >
               Details

@@ -11,30 +11,26 @@ const StudentAttendenceStudent = () => {
     { name: 'Student' },
     {
       name: 'Student Attendance',
-      href: '/student/student-attendance/',
+      href: '/admin/dashboard/student/student-attendance/',
     },
     {
       name: `${classOfSchool}-${section}`,
-      href: `/student/student-attendance/${classOfSchool}/${section}`,
+      href: `/admin/dashboard/student/student-attendance/${classOfSchool}/${section}`,
     },
     {
       name: `${studentName}`,
-      href: `/student/student-attendance/${classOfSchool}/${section}/${studentName}`,
+      href: `/admin/dashboard/student/student-attendance/${classOfSchool}/${section}/${studentName}`,
     },
   ];
   return (
-    <div className=" sm:ml-[72px] box-border md:ml-0 md:w-full  md:min-w-0 flex-1">
-      <div className="absolute left-0 w-full top-28 sm:mt-9 md:block sm:static -z-10">
-        <div className="w-11/12 mx-auto text-sm -z-10">
-          <div className="pt-9">
-            <Breadnav pages={pages} />
-          </div>
-          <Profile />
-          <Form />
-          <Table />
-        </div>
+    <>
+      <div className="pt-9">
+        <Breadnav pages={pages} />
       </div>
-    </div>
+      <Profile />
+      <Form />
+      <Table />
+    </>
   );
 };
 

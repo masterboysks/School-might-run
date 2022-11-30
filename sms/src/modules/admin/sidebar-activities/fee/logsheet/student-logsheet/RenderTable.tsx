@@ -26,7 +26,7 @@ const RenderTable = ({ currentItems }) => {
           </td>
 
           <td className="whitespace-nowrap text-primary-btn  px-3 py-4 text-sm">
-            <Link to={`${person.name}-${person.id}`}>Open</Link>
+            <Link to={`${person.id}`}>Open</Link>
           </td>
         </tr>
       ))}

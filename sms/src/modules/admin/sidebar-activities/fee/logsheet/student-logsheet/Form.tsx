@@ -135,12 +135,15 @@ export default function Form() {
             errors={errors}
           />
         </div>
-        <div className="h-fit w-fit bg-primary-btn sm:col-start-2 lg:col-start-3 xl:col-start-4 sm:box-content  box-border px-4 py-3 mt-auto ml-auto text-white rounded cursor-pointer">
+        <button
+          type="submit"
+          className="h-fit w-fit bg-primary-btn sm:col-start-2 lg:col-start-3 xl:col-start-4 sm:box-content  box-border px-4 pl-3 py-3 mt-auto ml-auto text-white rounded cursor-pointer"
+        >
           {/* <span className="sm:hidden text-primary-grey-100 text-sm">Search</span> */}
-          <button className="w-4 mx-auto" type="submit">
+          <div className="w-4 mx-auto">
             <Search />
-          </button>
-        </div>
+          </div>
+        </button>
       </form>
       <Break title="Student logsheet"></Break>
       <Table data={data} setPage={setPage} />

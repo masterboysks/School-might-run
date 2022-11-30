@@ -16,4 +16,13 @@ export default {
   getStudent(params) {
     return authorized.get(`/student`, { params });
   },
+  getOneStudent(id) {
+    return authorized.get(`/student/${id}`);
+  },
+  getLogsheet(id) {
+    return authorized.get(`/student-logsheet/${id}`);
+  },
+  getInvoiceDetails(id) {
+    return authorized.get(`/inv-det-get-student/${id}`);
+  },
 };
