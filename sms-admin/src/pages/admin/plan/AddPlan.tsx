@@ -15,56 +15,52 @@ const pages = [
   { name: "Create", href: "#", current: true },
 ];
 const arrayModules = [
-  "Staff",
-  "Users",
-  "Account",
-  "Library",
-  "Inventory",
-  "Exam",
-  "Report",
-  "LMS",
-  "Transport",
-  "Parent",
-  "Student",
-  "Teacher",
-  "Accounting",
+  { name: "Staff", id: "Staff" },
+  { name: "Users", id: "Users" },
+  { name: "Account", id: "Account" },
+  { name: "Library", id: "Library" },
+  { name: "Inventory", id: "Inventory" },
+  { name: "Exam", id: "Exam" },
+  { name: "Report", id: "Report" },
+  { name: "LMS", id: "LMS" },
+  { name: "Transport", id: "Transport" },
+  { name: "Parent", id: "Parent" },
+  { name: "Student", id: "Student" },
+  { name: "Teacher", id: "Teacher" },
+  { name: "Accounting", id: "Accounting" },
 ];
-const duration = ["Monthly", "Quaterly", "Semi-yearly", "Yearly", "2 Years"];
+const duration = [
+  { name: "Monthly", id: "monthly" },
+  { name: "Quaterly", id: "quaterly" },
+  { name: "Semi-yearly", id: "semi-yearly" },
+  { name: "Yearly", id: "yearly" },
+  { name: "2 Years", id: "2 years" },
+];
 export default function AddCompany() {
-  const [selected, setSelected] = useState([]);
   const [error, setError] = useState(false);
   const [moduleError, setModulesError] = useState(false);
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-
+    control,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (d) => {
-    if (selected.length === 0) {
-      setModulesError(true);
-    } else {
-      try {
-        const res = await Plans.create({
-          description: d.description,
-          duration: d.duration,
-          name: d.name,
-          price: d.price,
-          modules: selected,
-          max_users: d.max_users,
-          whats_included: included.map((c) => {
-            return d[`whatIsIncluded${c}`];
-          }),
-        });
+    try {
+      const res = await Plans.create({
+        ...d,
+        whats_included: included.map((c) => {
+          return d[`whatIsIncluded${c}`];
+        }),
+      });
 
-        res?.status === 201
-          ? navigate("/admin/plan")
-          : setError("Failed to create plan");
-      } catch (e) {
-        console.log(e);
-      }
+      res?.status === 201
+        ? navigate("/admin/plan")
+        : setError("Failed to create plan");
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -117,7 +113,6 @@ export default function AddCompany() {
             required={true}
             errors={errors}
             value={duration}
-            selected="Select"
           />
         </div>
 
@@ -134,10 +129,9 @@ export default function AddCompany() {
           <MultipleSelect
             label="Modules*"
             value={arrayModules}
-            selected={selected}
-            setSelected={setSelected}
-            error={moduleError}
-            setError={setModulesError}
+            errors={errors}
+            control={control}
+            name="modules"
           />
         </div>
 
@@ -178,7 +172,6 @@ export default function AddCompany() {
               setIncluded([...included, included.splice(-1)[0] + 1]);
             }}
           >
-        
             <AddIcon />
           </div>
         </div>

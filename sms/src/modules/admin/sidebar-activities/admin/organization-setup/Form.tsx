@@ -13,11 +13,6 @@ import LocationForm from '../../../../../components/common/LocationForm';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-const arrayDateFormat = [
-  { id: 1, name: 'AD' },
-  { id: 2, name: 'BS' },
-];
-
 const schema = yup.object().shape({
   company_name: yup.string().required('').max(255, 'Max size 255.'),
   registration_no: yup.string().required('').max(255, 'Max size 255.'),
@@ -51,7 +46,6 @@ const schema = yup.object().shape({
   ward_no: yup.string().required('').max(255, 'Max size 255.'),
   tole: yup.string().required('').max(255, 'Max size 255.'),
   google_map_link: yup.string().nullable().max(255, 'Max size 255.'),
-  date_format: yup.string().required('').max(255, 'Max size 255.'),
   company_logo: yup.string(),
 });
 const Form = () => {
@@ -243,23 +237,9 @@ const Form = () => {
             placeholder="Link here"
           />
         </div>
-        <div className="">
-          <Select
-            label="AD/BS*"
-            value={arrayDateFormat}
-            register={register}
-            errors={errors}
-            name="date_format"
-          />
 
-          <span className="text-sm">
-            Note:Selected date format will be used in whole system.
-          </span>
-        </div>
         <div className="">
           <DateInput
-            name="format"
-            register={register}
             selected={date}
             setSelected={setDate}
             label="Established date*"

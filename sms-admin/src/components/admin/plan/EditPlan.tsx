@@ -2,25 +2,32 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import AddIcon from "@mui/icons-material/Add";
 
-import Input, { MultipleSelect } from "../../commom/input";
+import Input, { MultipleSelect, Select } from "../../commom/input";
 
 import RemoveIcon from "@mui/icons-material/Remove";
 import Plans from "../../../api/Plans";
 import { Checkbox } from "../../commom/checkbox";
 const arrayModules = [
-  "Staff",
-  "Users",
-  "Account",
-  "Library",
-  "Inventory",
-  "Exam",
-  "Report",
-  "LMS",
-  "Transport",
-  "Parent",
-  "Student",
-  "Teacher",
-  "Accounting",
+  { name: "Staff", id: "Staff" },
+  { name: "Users", id: "Users" },
+  { name: "Account", id: "Account" },
+  { name: "Library", id: "Library" },
+  { name: "Inventory", id: "Inventory" },
+  { name: "Exam", id: "Exam" },
+  { name: "Report", id: "Report" },
+  { name: "LMS", id: "LMS" },
+  { name: "Transport", id: "Transport" },
+  { name: "Parent", id: "Parent" },
+  { name: "Student", id: "Student" },
+  { name: "Teacher", id: "Teacher" },
+  { name: "Accounting", id: "Accounting" },
+];
+const duration = [
+  { name: "Monthly", id: "monthly" },
+  { name: "Quaterly", id: "quaterly" },
+  { name: "Semi-yearly", id: "semi-yearly" },
+  { name: "Yearly", id: "yearly" },
+  { name: "2 Years", id: "2 years" },
 ];
 export default function EditPlan({
   defaultValues,
@@ -28,9 +35,9 @@ export default function EditPlan({
   setPlans,
   plans,
 }) {
-  const [selected, setSelected] = useState(defaultValues.modules || []);
+  // const [selected, setSelected] = useState(defaultValues.modules || []);
   const [error, setError] = useState(false);
-  const [moduleError, setModulesError] = useState(false);
+  // const [moduleError, setModulesError] = useState(false);
 
   const [included, setIncluded] = useState(
     defaultValues?.whats_included?.map((c, i) => {
@@ -41,6 +48,7 @@ export default function EditPlan({
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -54,29 +62,20 @@ export default function EditPlan({
   });
   const onSubmit = async (d) => {
     const form = {
-      description: d.description,
-      duration: d.duration,
-      name: d.name,
-      price: d.price,
-      modules: selected,
-      max_users: d.max_users,
-      status: d.status,
+      ...d,
       whats_included: included.map((c) => {
         return d[`whatIsIncluded${c}`];
       }),
     };
-    if (selected.length === 0) {
-      setModulesError(true);
-    } else {
-      try {
-        const res = await Plans.edit({
-          id: defaultValues.id,
-          form,
-        });
-        res?.status === 201 ? edited(form) : setError("Failed to update plan");
-      } catch (e) {
-        console.log(e);
-      }
+
+    try {
+      const res = await Plans.edit({
+        id: defaultValues.id,
+        form,
+      });
+      res?.status === 201 ? edited(form) : setError("Failed to update plan");
+    } catch (e) {
+      console.log(e);
     }
   };
   const edited = (form) => {
@@ -124,7 +123,8 @@ export default function EditPlan({
           />
         </div>
         <div className="">
-          <Input
+          <Select
+            value={duration}
             register={register}
             label="Duration *"
             name="duration"
@@ -143,11 +143,10 @@ export default function EditPlan({
         <div className="">
           <MultipleSelect
             label="Modules*"
+            control={control}
             value={arrayModules}
-            selected={selected}
-            setSelected={setSelected}
-            error={moduleError}
-            setError={setModulesError}
+            name="modules"
+            errors={errors}
           />
         </div>
         <div className="">

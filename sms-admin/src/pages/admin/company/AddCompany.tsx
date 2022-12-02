@@ -15,22 +15,20 @@ const pages = [
   { name: "Company", href: "/admin/company", current: false },
   { name: "Add", href: "#", current: true },
 ];
-
+const arrayDateFormat = [
+  { id: 1, name: "AD" },
+  { id: 2, name: "BS" },
+];
 export default function AddCompany() {
   const [plans, setPlans] = useState([]);
   const [suffix, setSuffix] = useState("spellinnovation.com.np");
 
   const [error, setError] = useState(false);
-  const [plansWithId, setPlansWithId] = useState([]);
   useEffect(() => {
     (async () => {
       const data = await Company.plans();
       if (!data.data.data.domain) return;
-      setPlansWithId(data.data.data.planName);
-      const temp = data.data.data.planName.map((c) => {
-        return c.name;
-      });
-      setPlans(temp);
+      setPlans(data.data.data.planName);
 
       setSuffix(data.data.data.domain);
     })();
@@ -50,7 +48,6 @@ export default function AddCompany() {
       form.append(name, d[name]);
     }
     form.append("logo", d.logo[0]);
-    form.append("plan", plansWithId.filter((c) => c.name === d.plan)[0].id);
     try {
       const res = await Company.create(form);
       res?.status === 201
@@ -107,7 +104,6 @@ export default function AddCompany() {
             name="password"
             errors={errors}
             required={true}
-            type="password"
           />
         </div>
         <div className="">
@@ -117,8 +113,20 @@ export default function AddCompany() {
             name="password_confirmation"
             required={true}
             errors={errors}
-            type="password"
           />
+        </div>
+        <div className="">
+          <Select
+            label="AD/BS*"
+            value={arrayDateFormat}
+            register={register}
+            errors={errors}
+            name="date_format"
+          />
+
+          <span className="text-sm">
+            Note:Selected date format will be used in whole system.
+          </span>
         </div>
         <div className="">
           <Select
@@ -128,7 +136,6 @@ export default function AddCompany() {
             required={true}
             errors={errors}
             value={plans}
-            selected="Select"
           />
         </div>
         <div className="">

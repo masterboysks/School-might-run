@@ -5,6 +5,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import UploadOutlined from "@mui/icons-material/UploadOutlined";
 import { Listbox, Transition } from "@headlessui/react";
+import { useController } from "react-hook-form";
 export default function Input({
   id,
   name,
@@ -21,6 +22,22 @@ export default function Input({
   className,
   step,
   labelClassName,
+}: {
+  id?: string | undefined;
+  name: string;
+  shouldUnregister?: boolean | undefined;
+  defaultValue?: string;
+  errors?: {} | undefined;
+  errorText?: string | undefined;
+  register: any;
+  type?: string | undefined;
+  label: string | undefined;
+  required?: boolean;
+  step?: number;
+  placeholder?: string;
+  showError?: boolean;
+  className?: string;
+  labelClassName?: string | undefined;
 }) {
   return (
     <>
@@ -59,19 +76,18 @@ export default function Input({
 }
 
 export function Select({
-  id,
   name,
+  id = "form_" + name,
 
-  errors,
-  errorText,
+  errors = {},
+  errorText = "",
   register,
   value: options,
   label,
   required = false,
-  selected,
   showError = true,
-  className,
-  labelClassName,
+  className = "",
+  labelClassName = "",
 }) {
   return (
     <>
@@ -93,10 +109,10 @@ export function Select({
         id={id}
         className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
       >
-        {selected === "Select" && <option value="">--Select--</option>}
+        <option value="">--Select--</option>
         {options.map((curr) => (
-          <option value={curr} key={curr} className="">
-            {curr}
+          <option value={curr.id} key={curr.id} className="">
+            {curr.name}
           </option>
         ))}
       </select>
@@ -114,15 +130,15 @@ export function Select({
 }
 export const Upload = ({
   label,
-  id,
   name,
-  errors,
+  id = "form_" + name,
+  errors = {},
   register,
   required = false,
-  showError,
+  showError = true,
   watch,
-  uploadText,
-  errorText,
+  uploadText = "",
+  errorText = "",
 }) => {
   let logo;
   watch && (logo = watch(name));
@@ -176,19 +192,19 @@ export const Upload = ({
   );
 };
 export function Password({
-  id,
   name,
+  id = "form_" + name,
 
   errors,
-  errorText,
+  errorText = "",
   register,
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   showError = true,
-  className,
-  step,
-  labelClassName,
+  className = "",
+
+  labelClassName = "",
 }) {
   const [visiblity, setVisiblity] = useState(false);
   return (
@@ -210,7 +226,6 @@ export function Password({
         <input
           className={`mt-[6px] w-full p- rounded pr-8  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize text-primary-grey text-sm ${className}`}
           id={id}
-          step={step}
           {...register(name, { required })}
           placeholder={placeholder}
           type={visiblity ? "text" : "password"}
@@ -235,31 +250,30 @@ export function Password({
   );
 }
 export function MultipleSelect({
-  id,
   name,
-  error,
-  setError,
+  id = "form_" + name,
   label,
-  value: options, //array
-  setSelected,
-  selected, //array
+  value: options,
+  control,
+  errors = {},
+  required = false,
 }) {
+  const {
+    field: { onChange, value },
+  } = useController({
+    name,
+    control,
+    rules: { required: required },
+  });
   return (
     <div className="w-full">
       <label
-        className={`my-6 text-sm  ${error && " text-red-600"}`}
+        className={`my-6 text-sm  ${errors && errors[name] && " text-red-600"}`}
         htmlFor={id}
       >
         {label}
       </label>
-      <Listbox
-        value={selected}
-        onChange={(e) => {
-          setSelected(e);
-        }}
-        onClick={() => error && setError(false)}
-        multiple
-      >
+      <Listbox value={value || []} onChange={onChange} multiple>
         <div className="relative mt-[6px]">
           <Listbox.Button
             id={id}
@@ -267,11 +281,14 @@ export function MultipleSelect({
             className="  h-[38px]  p- rounded focus:ring-primary-base focus:ring-2 border px-2   border-primary-base shadow-md placeholder:text-primary-grey-400    text-primary-grey-700 text-sm relative w-full min-w-full max-w-full text-left  "
           >
             <span className=" truncate  block  sm:w-full w-40 sm:max-w-sm md:max-w-md ">
-              {selected.map((person) => person).join(",")}
+              {options
+                ?.filter((c) => value?.includes(c.id))
+                ?.map((person) => person.name)
+                .join(", ")}
             </span>
-            {error && (
+            {errors && errors[name] && (
               <span className="text-red-600 break-all">
-                This field is required
+                {errors[name]?.message || "This field is required"}
               </span>
             )}
             <span className="absolute inset-y-0 right-0 flex items-center py-2 pointer-events-none">
@@ -298,7 +315,7 @@ export function MultipleSelect({
                         : "text-primary-grey-600"
                     }`
                   }
-                  value={person}
+                  value={person.id}
                 >
                   {({ selected }) => (
                     <>
@@ -307,7 +324,7 @@ export function MultipleSelect({
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {person}
+                        {person.name}
                       </span>
                       {selected ? (
                         <span className=" absolute inset-y-0 left-0 flex items-center pl-3">
@@ -326,19 +343,19 @@ export function MultipleSelect({
   );
 }
 export function InputWithSuffix({
-  id,
   name,
+  id = "form_" + name,
 
-  errors,
+  errors = {},
   register,
-  type,
+  type = "text",
   label,
   required = false,
-  placeholder,
+  placeholder = "",
   showError = true,
-  className,
-  step,
-  labelClassName,
+  className = "",
+
+  labelClassName = "",
   suffix,
 }) {
   return (
@@ -361,10 +378,9 @@ export function InputWithSuffix({
         <input
           className={`mt-[6px] w-full p- rounded  focus:ring-primary-base focus:border-primary-base  py-3 border-primary-base shadow-md placeholder:text-primary-grey-400   placeholder:capitalize pr-44 text-primary-grey text-sm ${className}`}
           id={id}
-          step={step}
           {...register(name, { required })}
           placeholder={placeholder}
-          type={type || "text"}
+          type={type}
         />
         <div className="absolute inset-y-0 pt-2 hidden right-0 pr-3 sm:flex items-center pointer-events-none">
           <span className="text-gray-500 sm:text-sm" id="price-currency">
