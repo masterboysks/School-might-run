@@ -75,7 +75,7 @@ function AddClassShedule() {
     select: (d) => d.data.data,
     staleTime: Infinity,
     enabled: !!details?.faculty_id,
-    onSuccess: (d) => console.log(d),
+    onSuccess: (d) => console.log(d, 'Arraysubjecy'),
   });
   const pages = [
     { name: 'Admin' },
@@ -184,7 +184,7 @@ function AddClassShedule() {
             <div>
               <Select
                 id="subject"
-                value={arraySubjects}
+                value={arraySubjects || []}
                 label="Subject*"
                 required={true}
                 errors={errors}

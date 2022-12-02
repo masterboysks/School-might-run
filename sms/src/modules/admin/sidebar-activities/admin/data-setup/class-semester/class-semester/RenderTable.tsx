@@ -13,6 +13,7 @@ const RenderTable = ({ currentItems, setData }) => {
     res.status === 204 && setData(currentItems.filter((d) => d.id != id));
   };
   const handleDelete = (id, name, inUse) => {
+    // @ts-ignore
     value.setValue({
       func: deleteFunction,
       id: id,
@@ -55,24 +56,7 @@ const RenderTable = ({ currentItems, setData }) => {
                 className={` -left-full absolute z-10 bg-white divide-y-2 rounded shadow-lg cursor-pointer
                  ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
-                <div
-                  onClick={() => {
-                    console.log(person, 'person');
-                    localStorage.setItem(
-                      'Mb5sVJt5Qp',
-                      JSON.stringify({
-                        level_id: person.level_id,
-                        class_name: person.class_name,
-                        faculty_id: person.faculty_id,
-                        subfaculty_id: person.subfaculty_id,
-                        section_ids: person.section_ids,
-                        compalsarySubjects: person.compalsarySubjects,
-                        electiveSubjects: person.electiveSubjects,
-                      })
-                    );
-                  }}
-                  className="p-3"
-                >
+                <div className="p-3">
                   <Link to={`${person.id}/${person.class_name}`}>Edit</Link>
                 </div>
                 <button

@@ -56,6 +56,8 @@ const RenderTable = ({ currentItems, setData }) => {
                         subject_name: person.subject_name,
                         subject_type: person.subject_type + '',
                         credit_hours: person.credit_hours,
+                        has_practical: person.has_practical,
+                        credit_hours_pr: person.credit_hours_pr,
                       })
                     );
                   }}

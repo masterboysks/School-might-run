@@ -22,7 +22,7 @@ export default function AssignClassSubject({
               <input
                 id={curr.name + i + label}
                 type="checkbox"
-                {...register(name + i)}
+                {...register(`${name}[${curr.id}]`)}
                 className={`focus:ring-primary-btn text-primary-btn  w-4 h-4 border-primary-btn border rounded `}
               />
               <div className="ml-3 text-sm">

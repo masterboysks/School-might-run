@@ -2,8 +2,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import {
   Input,
+  InputNumber,
   Radio,
   Select,
+  Checkbox,
 } from '../../../../../../../components/common/fields';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../../components/common/Break';
@@ -44,14 +46,19 @@ const EditSubject = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, isValid },
   } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
+  const hasPratical = watch('has_practical');
   const [arrayLevel, setArrayLevel] = useState([]);
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    // console.log(d);
-    const res = await subjectApi.edit(id, d);
+    console.log(d);
+    const res = await subjectApi.edit(id, {
+      ...d,
+      has_practical: d.has_practical ? 1 : 0,
+    });
     // console.log(res);
     res?.status === 201
       ? navigate('/admin/dashboard/admin/data-setup/subject')
@@ -89,6 +96,7 @@ const EditSubject = () => {
               register={register}
               errors={errors}
               required={true}
+              disabled
               name="level_id"
             />
           </div>
@@ -102,17 +110,37 @@ const EditSubject = () => {
               name="subject_name"
             />
           </div>
+
           <div>
-            <Input
+            <InputNumber
               label="Credit hours*"
-              type="number"
-              placeholder="80"
+              placeholder="3"
               name="credit_hours"
               register={register}
               required={true}
               errors={errors}
             />
           </div>
+          <div className="col-start-1 mt-auto">
+            <Checkbox
+              label="has pratical"
+              name="has_practical"
+              register={register}
+            />
+          </div>
+
+          {hasPratical ? (
+            <div>
+              <InputNumber
+                label="Credit hours pratical*"
+                placeholder="1"
+                name="credit_hours_pr"
+                register={register}
+                errors={errors}
+                shouldUnregister={true}
+              />
+            </div>
+          ) : null}
           <div className="col-span-full flex my-3 space-x-4">
             <Radio
               value={arraySubjectTypes}

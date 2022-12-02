@@ -1,9 +1,11 @@
+import React from "react";
+
 export const Checkbox = ({
   label, //array with correct index
   name,
   register,
   id,
-  className,
+  className = "",
 }) => {
   return (
     <div className={`flex items-center h-5 ${className}`}>

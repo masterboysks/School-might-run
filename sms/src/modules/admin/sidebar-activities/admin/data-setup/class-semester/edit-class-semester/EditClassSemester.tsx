@@ -49,60 +49,68 @@ const EditClassSemester = () => {
     handleSubmit,
     control,
     reset,
+    watch,
     formState: { errors, isValid },
   } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
-  // const [sectionsOption, setSectionsOption] = useState([]);
-  // const [subFacultyOption, setSubFacultyOption] = useState([]);
-  // const [facultyOption, setFacultyOption] = useState([]);
-  // const [levelOption, setLevelOption] = useState([]);
+  const [level_id, faculty_id] = watch(['level_id', 'faculty_id']);
   const [arrayCompalsarySubjects, setArrayCompalsarySubjects] = useState([]);
   const [arrayElectiveSubjects, setArrayElectiveSubjects] = useState([]);
 
   const [error, setError] = useState('');
 
-  const { data: sectionsOption } = useQuery({
-    queryFn: () => sectionsApi.getAll(),
-    queryKey: ['sectionapigetall'],
+  const { data: formData } = useQuery({
+    queryFn: () => classApi.getByID(id),
+    queryKey: ['classapigetbyid', id],
     staleTime: Infinity,
     select: (d) => d?.data?.data,
-  });
-  const { data: subFacultyOption } = useQuery({
-    queryFn: () => subFacultyApi.getAll(),
-    queryKey: ['subfacultyapigetall'],
-    staleTime: Infinity,
-    select: (d) => d?.data?.data,
-  });
-  const { data: facultyOption } = useQuery({
-    queryFn: () => facultyApi.getAll(),
-    queryKey: ['facultapigetall'],
-    staleTime: Infinity,
-    select: (d) => d?.data?.data,
+    onSuccess: (d) => console.log(d, 'class get'),
   });
   const { data: levelOption } = useQuery({
-    queryFn: () => levelApi.getAll(),
+    queryFn: levelApi.getAll,
     queryKey: ['levelapigetall'],
-    staleTime: Infinity,
-    select: (d) => d?.data?.data,
-  });
-  const { data: sections } = useQuery({
-    queryFn: () => subjectApi.getAll(),
-    queryKey: ['sectionapigetall'],
-    staleTime: Infinity,
+    staleTime: 300000,
     select: (d) => d.data.data,
   });
 
+  const { data: sectionsOption } = useQuery({
+    queryFn: () => sectionsApi.getAll(),
+    staleTime: 300000,
+    select: (d) => d.data.data,
+    queryKey: ['sectionapiget'],
+  });
+  const { data: subFacultyOption } = useQuery({
+    queryFn: () => subFacultyApi.getAll(faculty_id),
+    staleTime: 300000,
+    select: (d) => d.data.data,
+    queryKey: ['subfacultyapiget', faculty_id],
+    enabled: !!faculty_id,
+  });
+  const { data: facultyOption } = useQuery({
+    queryFn: () => facultyApi.getAll(level_id),
+    staleTime: 300000,
+    select: (d) => d.data.data,
+    queryKey: ['facultyapiget', level_id],
+    enabled: !!level_id,
+  });
+
+  const { data: subject, isLoading } = useQuery({
+    queryFn: () => subjectApi.getAll(level_id),
+
+    select: (d) => d.data.data,
+    queryKey: ['subjectapiget', level_id],
+    enabled: !!level_id,
+  });
   useEffect(() => {
-    (async () => {
-      const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
-      console.log(temp);
-      reset(temp);
-    })();
-    return () => localStorage.removeItem('Mb5sVJt5Qp');
-  }, []);
+    setArrayCompalsarySubjects(subject?.filter((c) => c.subject_type === 1));
+    setArrayElectiveSubjects(subject?.filter((c) => c.subject_type === 2));
+  }, [subject]);
+
   useEffect(() => {
-    setArrayCompalsarySubjects(sections?.filter((c) => c.subject_type === 1));
-    setArrayElectiveSubjects(sections?.filter((c) => c.subject_type === 2));
-  }, [sections]);
+    console.log(subject, 'subject');
+    setArrayCompalsarySubjects(subject?.filter((c) => c.subject_type === 1));
+    setArrayElectiveSubjects(subject?.filter((c) => c.subject_type === 2));
+  }, [subject]);
+  useEffect(() => reset(formData), [formData]);
 
   const navigate = useNavigate();
 
@@ -145,7 +153,6 @@ const EditClassSemester = () => {
           <div>
             <Select
               label="Level*"
-              key={levelOption ? 15874 : 25456468}
               value={levelOption}
               register={register}
               name="level_id"
@@ -164,18 +171,20 @@ const EditClassSemester = () => {
           </div>
           <div>
             <Select
+              disabled={!facultyOption}
+              key={facultyOption ? 1252345146 : 1164352}
               label="Faculty"
               value={facultyOption}
-              key={facultyOption ? 245645416884165 : 42}
               register={register}
               name="faculty_id"
             />
           </div>
           <div>
             <Select
+              disabled={!subFacultyOption}
+              key={subFacultyOption ? 15341 : 513452352}
               label="Sub faculty"
               value={subFacultyOption}
-              key={subFacultyOption ? 61 : 72}
               name="subfaculty_id"
               register={register}
             />
@@ -186,7 +195,6 @@ const EditClassSemester = () => {
               label="Sections*"
               name="section_ids"
               value={sectionsOption}
-              key={subFacultyOption ? 187 : 2564}
               control={control}
               errors={errors}
               required={true}
@@ -197,20 +205,24 @@ const EditClassSemester = () => {
             </div>
           </div>
         </div>
-        <AssignClassSubject
-          label="Select for compulsary Subject*"
-          register={register}
-          key={arrayCompalsarySubjects ? 1544812 : 2516661231}
-          value={arrayCompalsarySubjects}
-          name="compalsarySubjects"
-        />
-        <AssignClassSubject
-          label="Select for elective Subject"
-          register={register}
-          key={arrayElectiveSubjects ? 175218971 : 26544}
-          value={arrayElectiveSubjects}
-          name="electiveSubjects"
-        />
+        {!isLoading ? (
+          <>
+            <AssignClassSubject
+              label="Select for compulsary Subject*"
+              register={register}
+              value={arrayCompalsarySubjects}
+              key={arrayCompalsarySubjects ? 1124124245 : 2143524723}
+              name="subject_ids"
+            />
+            <AssignClassSubject
+              label="Select for elective Subject"
+              register={register}
+              value={arrayElectiveSubjects}
+              key={arrayElectiveSubjects ? 32876587134 : 8234687367}
+              name="subject_ids"
+            />
+          </>
+        ) : null}
         <div className="sm:grid-cols-2  xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div className="md:flex-row col-span-full xl:col-span-4 flex flex-col my-6 ml-auto">
             <div className=" w-fit">

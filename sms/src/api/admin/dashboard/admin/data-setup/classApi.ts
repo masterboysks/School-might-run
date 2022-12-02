@@ -4,6 +4,9 @@ export default {
   get(page = 1) {
     return authorized.get(`/classes?page=${page}`);
   },
+  getByID(id) {
+    return authorized.get(`/single-class/${id}`);
+  },
   delete(id) {
     return authorized.delete(`classes/${id}`);
   },

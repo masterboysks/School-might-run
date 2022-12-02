@@ -54,9 +54,9 @@ const AddClassSemester = () => {
   const [arrayElectiveSubjects, setArrayElectiveSubjects] = useState([]);
 
   const [error, setError] = useState('');
-  const [level_id, faculty_id] = watch(['level_id', 'faculty_id']);
-  const { refetch } = useQuery({ queryKey: ['classapiget'] });
+  const { refetch } = useQuery({ queryKey: ['classapiget'], enabled: false });
   // console.log(watch(['level_id', 'faculty_id']));
+  const [level_id, faculty_id] = watch(['level_id', 'faculty_id']);
   const { data: levelOption } = useQuery({
     queryFn: levelApi.getAll,
     queryKey: ['levelapigetall'],
@@ -99,19 +99,18 @@ const AddClassSemester = () => {
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    console.log(d);
+    console.log({
+      ...d,
+      subject_ids: d.subject_ids
+        ?.map((c, i) => (c ? i : false))
+        .filter((c) => c),
+    });
     try {
       const res = await classApi.create({
         ...d,
-        // section_ids: d.section_ids?.map((c) => c.id),
-        subject_ids: [
-          ...arrayCompalsarySubjects
-            ?.filter((c, i) => d[`compalsarySubjects${i}`])
-            ?.map((c) => c?.id),
-          ...arrayElectiveSubjects
-            ?.filter((c, i) => d[`electiveSubjects${i}`])
-            ?.map((c) => c?.id),
-        ],
+        subject_ids: d.subject_ids
+          ?.map((c, i) => (c ? i : false))
+          .filter((c) => c),
       });
       if (res?.status === 201) {
         refetch();
@@ -123,6 +122,14 @@ const AddClassSemester = () => {
       // console.warn(error);
     }
   };
+  // [
+  //   ...arrayCompalsarySubjects
+  //     ?.filter((c, i) => d[`compalsarySubjects${i}`])
+  //     ?.map((c) => c?.id),
+  //   ...arrayElectiveSubjects
+  //     ?.filter((c, i) => d[`electiveSubjects${i}`])
+  //     ?.map((c) => c?.id),
+  // ],
   return (
     <>
       <Breadnav pages={pages} />
@@ -197,13 +204,13 @@ const AddClassSemester = () => {
               label="Select for compulsary Subject*"
               register={register}
               value={arrayCompalsarySubjects}
-              name="compalsarySubjects"
+              name="subject_ids"
             />
             <AssignClassSubject
               label="Select for elective Subject"
               register={register}
               value={arrayElectiveSubjects}
-              name="electiveSubjects"
+              name="subject_ids"
             />
           </>
         ) : null}

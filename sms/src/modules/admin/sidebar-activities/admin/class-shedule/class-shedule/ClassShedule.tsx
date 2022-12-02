@@ -45,7 +45,7 @@ const ClassSchedule = () => {
     setValue,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const [level_id, class_id] = watch(['level_id', class_id]);
+  const [level_id, class_id] = watch(['level_id', 'class_id']);
   const { data: arrayLevel } = useQuery({
     queryFn: () => levelApi.getAll(),
     queryKey: ['levelapigetall'],
