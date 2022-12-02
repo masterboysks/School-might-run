@@ -16,4 +16,7 @@ export default {
   getAll(id = '') {
     return authorized.get(`/get-classes?level_id=${id}`);
   },
+  getWithParams(params) {
+    return authorized.get('get-class-sec-lev', { params });
+  },
 };

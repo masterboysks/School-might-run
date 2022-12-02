@@ -13,7 +13,7 @@ export default function Table() {
   const [page, setPage] = useState(1);
   const [pagination, setPagination] = useState({});
   // const [data, setData] = useState([]);
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryFn: () => batchApi.get(page),
     queryKey: ['admin/datasetup/batch', page],
     select: (d) => d.data.data,
@@ -67,7 +67,7 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={data?.data} />
+                  <RenderTable refetch={refetch} currentItems={data?.data} />
                 </tbody>
               </table>
             </div>

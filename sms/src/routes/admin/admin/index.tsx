@@ -144,7 +144,7 @@ export default function AdminDashboardRoutes() {
           }
         ></Route>
         <Route
-          path="class-schedule/add"
+          path="class-schedule/add/:classId/:sectionId/:levelId"
           element={
             <Suspense fallback="Loading">
               <AddClassShedule />

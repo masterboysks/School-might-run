@@ -19,6 +19,7 @@ import AssignClassSubject from '../../../../../../../components/admin/admin/Assi
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useQuery } from '@tanstack/react-query';
 const schema = yup.object().shape({
   level_id: yup.string().required(''),
   faculty_id: yup.string(),
@@ -50,49 +51,61 @@ const EditClassSemester = () => {
     reset,
     formState: { errors, isValid },
   } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
-  const [sectionsOption, setSectionsOption] = useState([]);
-  const [subFacultyOption, setSubFacultyOption] = useState([]);
-  const [facultyOption, setFacultyOption] = useState([]);
-  const [levelOption, setLevelOption] = useState([]);
+  // const [sectionsOption, setSectionsOption] = useState([]);
+  // const [subFacultyOption, setSubFacultyOption] = useState([]);
+  // const [facultyOption, setFacultyOption] = useState([]);
+  // const [levelOption, setLevelOption] = useState([]);
   const [arrayCompalsarySubjects, setArrayCompalsarySubjects] = useState([]);
   const [arrayElectiveSubjects, setArrayElectiveSubjects] = useState([]);
 
   const [error, setError] = useState('');
+
+  const { data: sectionsOption } = useQuery({
+    queryFn: () => sectionsApi.getAll(),
+    queryKey: ['sectionapigetall'],
+    staleTime: Infinity,
+    select: (d) => d?.data?.data,
+  });
+  const { data: subFacultyOption } = useQuery({
+    queryFn: () => subFacultyApi.getAll(),
+    queryKey: ['subfacultyapigetall'],
+    staleTime: Infinity,
+    select: (d) => d?.data?.data,
+  });
+  const { data: facultyOption } = useQuery({
+    queryFn: () => facultyApi.getAll(),
+    queryKey: ['facultapigetall'],
+    staleTime: Infinity,
+    select: (d) => d?.data?.data,
+  });
+  const { data: levelOption } = useQuery({
+    queryFn: () => levelApi.getAll(),
+    queryKey: ['levelapigetall'],
+    staleTime: Infinity,
+    select: (d) => d?.data?.data,
+  });
+  const { data: sections } = useQuery({
+    queryFn: () => subjectApi.getAll(),
+    queryKey: ['sectionapigetall'],
+    staleTime: Infinity,
+    select: (d) => d.data.data,
+  });
+
   useEffect(() => {
     (async () => {
-      const data = await sectionsApi.getAll();
-
-      setSectionsOption(data?.data?.data);
       const temp = await JSON.parse(localStorage.getItem('Mb5sVJt5Qp') || '');
+      console.log(temp);
       reset(temp);
-    })();
-    (async () => {
-      const data = await subFacultyApi.getAll();
-
-      setSubFacultyOption(data?.data?.data);
-    })();
-    (async () => {
-      const data = await facultyApi.getAll();
-
-      setFacultyOption(data?.data?.data);
-    })();
-    (async () => {
-      const data = await levelApi.getAll();
-
-      setLevelOption(data?.data?.data);
-    })();
-    (async () => {
-      const data = await subjectApi.getAll();
-      setArrayCompalsarySubjects(
-        data?.data?.data.filter((c) => c.subject_type === 1)
-      );
-      setArrayElectiveSubjects(
-        data?.data?.data.filter((c) => c.subject_type === 2)
-      );
     })();
     return () => localStorage.removeItem('Mb5sVJt5Qp');
   }, []);
+  useEffect(() => {
+    setArrayCompalsarySubjects(sections?.filter((c) => c.subject_type === 1));
+    setArrayElectiveSubjects(sections?.filter((c) => c.subject_type === 2));
+  }, [sections]);
+
   const navigate = useNavigate();
+
   const onSubmit = async (d) => {
     try {
       const res = await classApi.edit(id, {
@@ -132,6 +145,7 @@ const EditClassSemester = () => {
           <div>
             <Select
               label="Level*"
+              key={levelOption ? 15874 : 25456468}
               value={levelOption}
               register={register}
               name="level_id"
@@ -152,6 +166,7 @@ const EditClassSemester = () => {
             <Select
               label="Faculty"
               value={facultyOption}
+              key={facultyOption ? 245645416884165 : 42}
               register={register}
               name="faculty_id"
             />
@@ -160,6 +175,7 @@ const EditClassSemester = () => {
             <Select
               label="Sub faculty"
               value={subFacultyOption}
+              key={subFacultyOption ? 61 : 72}
               name="subfaculty_id"
               register={register}
             />
@@ -170,6 +186,7 @@ const EditClassSemester = () => {
               label="Sections*"
               name="section_ids"
               value={sectionsOption}
+              key={subFacultyOption ? 187 : 2564}
               control={control}
               errors={errors}
               required={true}
@@ -183,12 +200,14 @@ const EditClassSemester = () => {
         <AssignClassSubject
           label="Select for compulsary Subject*"
           register={register}
+          key={arrayCompalsarySubjects ? 1544812 : 2516661231}
           value={arrayCompalsarySubjects}
           name="compalsarySubjects"
         />
         <AssignClassSubject
           label="Select for elective Subject"
           register={register}
+          key={arrayElectiveSubjects ? 175218971 : 26544}
           value={arrayElectiveSubjects}
           name="electiveSubjects"
         />

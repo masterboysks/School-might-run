@@ -85,41 +85,21 @@ const AddClassSemester = () => {
     enabled: !!level_id,
   });
 
-  const { data: _, isLoading } = useQuery({
+  const { data: subject, isLoading } = useQuery({
     queryFn: () => subjectApi.getAll(level_id),
     staleTime: 300000,
     select: (d) => d.data.data,
-    onSuccess: (data) => {
-      // // console.log(data);
-      setArrayCompalsarySubjects(data.filter((c) => c.subject_type === 1));
-      setArrayElectiveSubjects(data.filter((c) => c.subject_type === 2));
-    },
     queryKey: ['subjectapiget', level_id],
     enabled: !!level_id,
   });
-  //   const data = await subjectApi.getAll();
-  //   setArrayCompalsarySubjects(
-  //     data?.data?.data.filter((c) => c.subject_type === 1)
-  //   );
-  // setArrayElectiveSubjects(
-  //   data?.data?.data.filter((c) => c.subject_type === 2)
-  // );
-  // })();
+  useEffect(() => {
+    setArrayCompalsarySubjects(subject?.filter((c) => c.subject_type === 1));
+    setArrayElectiveSubjects(subject?.filter((c) => c.subject_type === 2));
+  }, [subject]);
 
   const navigate = useNavigate();
   const onSubmit = async (d) => {
-    // // console.log({
-    //   ...d,
-    //   section_ids: d.section_ids?.map((c) => c.id),
-    //   subject_ids: [
-    //     ...arrayCompalsarySubjects
-    //       .filter((c, i) => d[`compalsarySubjects${i}`])
-    //       .map((c) => c.id),
-    //     ...arrayElectiveSubjects
-    //       .filter((c, i) => d[`electiveSubjects${i}`])
-    //       .map((c) => c.id),
-    //   ],
-    // });
+    console.log(d);
     try {
       const res = await classApi.create({
         ...d,

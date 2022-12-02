@@ -3,25 +3,25 @@ import ThreeDots from '@mui/icons-material/MoreVert';
 import { Popover } from '@headlessui/react';
 import { useContext } from 'react';
 import { DeleteModalContex } from '../../../../../../../contex/admin/common/ContexForDeleteModal';
-import universityBoardApi from '../../../../../../../api/admin/dashboard/admin/data-setup/universityBoardApi';
 import { Link } from 'react-router-dom';
+import batchApi from '../../../../../../../api/admin/dashboard/admin/data-setup/batchApi';
 
-const RenderTable = ({ currentItems }) => {
-  // const value = useContext(DeleteModalContex);
+const RenderTable = ({ currentItems, refetch }) => {
+  const value = useContext(DeleteModalContex);
 
-  // const deleteFunction = async (id, name, inUse) => {
-  //   const res = await universityBoardApi.delete(id);
-  //   res.status === 204 && setData(currentItems.filter((d) => d.id != id));
-  // };
-  // const handleDelete = (id, name, inUse) => {
-  //   value.setValue({
-  //     func: deleteFunction,
-  //     id: id,
-  //     message: `You want to delete ${name} ?`,
-  //     heading: 'university',
-  //     inUse,
-  //   });
-  // };
+  const deleteFunction = async (id, name, inUse) => {
+    const res = await batchApi.delete(id);
+    res.status === 204 && refetch();
+  };
+  const handleDelete = (id, name, inUse) => {
+    value.setValue({
+      func: deleteFunction,
+      id: id,
+      message: `You want to delete ${name} ?`,
+      heading: 'Batch',
+      inUse,
+    });
+  };
   return (
     <>
       {currentItems?.map((person, index, table) => (
@@ -44,9 +44,9 @@ const RenderTable = ({ currentItems }) => {
                 </div>
 
                 <button
-                  // onClick={() => {
-                  //   handleDelete(person.id, person.name, person.in_use);
-                  // }}
+                  onClick={() => {
+                    handleDelete(person.id, person.name, person.in_use);
+                  }}
                   className="p-3"
                 >
                   Delete

@@ -57,7 +57,7 @@ const RenderTable = ({ currentItems, setData }) => {
               >
                 <div
                   onClick={() => {
-                    // console.log(person);
+                    console.log(person, 'person');
                     localStorage.setItem(
                       'Mb5sVJt5Qp',
                       JSON.stringify({

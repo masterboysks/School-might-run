@@ -9,12 +9,12 @@ export default function AssignClassSubject({
 }) {
   return (
     <>
-      {value.length === 0 ? (
+      {value && value?.length === 0 ? (
         <></>
       ) : (
         <div className="sm:grid-cols-2 lg:grid-cols-3 lg:w-2/3 mt-9 grid grid-cols-1 gap-4">
           <div className="col-span-full pt-5">{label}</div>
-          {value.map((curr, i) => (
+          {value?.map((curr, i) => (
             <div
               className={`flex items-center h-5 ${className}`}
               key={curr.name + i + label + curr.id}

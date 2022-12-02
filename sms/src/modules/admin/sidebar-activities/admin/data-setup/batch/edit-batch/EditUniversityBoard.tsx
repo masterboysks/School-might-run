@@ -8,14 +8,15 @@ import Break from '../../../../../../../components/common/Break';
 import { Input } from '../../../../../../../components/common/fields';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import batchApi from '../../../../../../../api/admin/dashboard/admin/data-setup/batchApi';
 const pages = [
   { name: 'Admin' },
   {
     name: 'Date setup',
   },
   {
-    name: 'University/Board',
-    href: '/admin/dashboard/admin/data-setup/university-board',
+    name: 'Batch',
+    href: '/admin/dashboard/admin/data-setup/batch',
   },
   {
     name: 'Edit',
@@ -43,10 +44,10 @@ const EditBatch = () => {
   const onSubmit = async (d) => {
     // console.log(d);
     try {
-      const res = await universityBoardApi.edit(id, d);
+      const res = await batchApi.edit(id, d);
       res?.status === 201
-        ? navigate('/admin/dashboard/admin/data-setup/university-board')
-        : setError('Failed to edit university');
+        ? navigate('/admin/dashboard/admin/data-setup/batch')
+        : setError('Failed to edit batch');
     } catch (errors) {
       // console.warn(errors);
     }
@@ -58,7 +59,7 @@ const EditBatch = () => {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Edit university/Board details" />
+      <Break title="Batch" />
 
       <form
         className="form-solid w-full my-6 rounded-md"
@@ -73,9 +74,9 @@ const EditBatch = () => {
         <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
           <div>
             <Input
-              label="University/Board*"
-              placeholder="National Education Board"
-              name="name"
+              label="Batch*"
+              placeholder="2078"
+              name="batch_name"
               required={true}
               register={register}
               errors={errors}
@@ -86,7 +87,7 @@ const EditBatch = () => {
           <div className="md:flex-row w-fit flex flex-col my-6 ml-auto">
             <div className=" w-fit my-auto">
               <Link
-                to="/admin/dashboard/admin/data-setup/university-board"
+                to="/admin/dashboard/admin/data-setup/batch"
                 className="secondary_btn"
               >
                 Cancel

@@ -1,8 +1,8 @@
 import { authorized } from '../../../common/axios';
 
 export default {
-  get(page = 1) {
-    return authorized.get(`/schedules?page=${page}`);
+  get(params) {
+    return authorized.get(`/schedules`, { params });
   },
   delete(id) {
     return authorized.delete(`schedules/${id}`);

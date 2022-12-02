@@ -18,7 +18,7 @@ const arrayDays = [
   { id: 5, name: 'Fri' },
   { name: 'Sat', id: 6 },
 ];
-export default function Table() {
+export default function Table({ data, setPage, query }) {
   const {
     register,
     handleSubmit,
@@ -26,51 +26,35 @@ export default function Table() {
     formState: { errors, isValid },
   } = useForm();
 
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await classSheduleApi.get();
-        const datas = data?.data?.data;
-        setData(datas?.data);
-      } catch (e) {
-        // console.warn(e);
-      }
-    })();
-  }, []);
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const data = await classSheduleApi.get();
+  //       const datas = data?.data?.data;
+  //       setData(datas?.data);
+  //     } catch (e) {
+  //       // console.warn(e);
+  //     }
+  //   })();
+  // }, []);
+  if (!data) return '';
   return (
     <div className="mt-11 w-full">
-      <div className="sm:grid lg:grid-cols-4 sm:items-center justify-between grid-cols-2">
-        <div className="col-span-2">
-          <div className="">
-            <Select
-              id="day"
-              label="Day*"
-              value={arrayDays}
-              required={true}
-              register={register}
-              name="days"
-              errors={errors}
-            />
+      <div className=" flex col-span-2 mt-3 lg:mt-auto ml-auto justify-end">
+        <div className="text-primary-btn print flex items-center p-2 mx-1 mt-auto font-medium">
+          <span className="mx-1">Print</span>
+          <div className="w-7">
+            <PrinterIcon fontSize="medium" />
           </div>
         </div>
-        <div className=" flex col-span-2 mt-3 lg:mt-auto ml-auto">
-          <div className="text-primary-btn print flex items-center p-2 mx-1 mt-auto font-medium">
-            <span className="mx-1">Print</span>
-            <div className="w-7">
-              <PrinterIcon fontSize="medium" />
-            </div>
-          </div>
-          <Link to="#" className="secondary_btn">
-            Edit
-          </Link>
-          <Link
-            to="/admin/dashboard/admin/class-schedule/add"
-            className="primary_btn"
-          >
-            Add
-          </Link>
-        </div>
+
+        <Link
+          to={`add/${query.class_id}/${query.section_id}/${query.level_id}`}
+          className="primary_btn"
+        >
+          Add
+        </Link>
       </div>
       <div className="my-6">
         <div className=" ring-1 ring-black ring-opacity-5 overflow-x-auto rounded-lg shadow">
@@ -107,13 +91,14 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={data} />
+                  <RenderTable currentItems={data?.data} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+      <Pagination pagination={data?.pagination} setPage={setPage} />
     </div>
   );
 }

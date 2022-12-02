@@ -11,7 +11,7 @@ import facultyApi from '../../../../../../api/admin/dashboard/admin/data-setup/f
 import subFacultyApi from '../../../../../../api/admin/dashboard/admin/data-setup/subFacultyApi';
 import sectionsApi from '../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
 import studentLogsheetApi from '../../../../../../api/admin/dashboard/fee/studentLogsheetApi';
-const arrayLevel = [{ name: 'hi', id: '6' }];
+
 export default function Form() {
   const {
     register,

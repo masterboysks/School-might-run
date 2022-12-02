@@ -22,8 +22,7 @@ const pages = [
     href: '/admin/dashboard/admin/data-setup/batch',
   },
   {
-    name: 'add',
-    href: '/admin/dashboard/admin/data-setup/batch/add',
+    name: 'Add',
   },
 ];
 const schema = yup.object().shape({
@@ -65,7 +64,7 @@ const AddBatch = () => {
   return (
     <>
       <Breadnav pages={pages} />
-      <Break title="Add university/Board details" />
+      <Break title="Batch" />
 
       <form
         className="form-solid w-full my-6 rounded-md"

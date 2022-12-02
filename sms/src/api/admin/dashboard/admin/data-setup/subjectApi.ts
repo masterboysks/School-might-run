@@ -16,4 +16,7 @@ export default {
   getAll(id = '') {
     return authorized.get(`/get-subjects?level_id=${id}`);
   },
+  getByParams(params) {
+    return authorized.get('/subject-for-exam', { params });
+  },
 };

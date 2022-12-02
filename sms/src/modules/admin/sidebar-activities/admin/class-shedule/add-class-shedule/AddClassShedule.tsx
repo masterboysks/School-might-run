@@ -1,7 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-
 import {
   Input,
   MultipleSelect,
@@ -17,17 +16,10 @@ import { useForm } from 'react-hook-form';
 import classSheduleApi from '../../../../../../api/admin/dashboard/admin/classSheduleApi';
 import React from 'react';
 import * as yup from 'yup';
-const pages = [
-  { name: 'Admin' },
-  {
-    name: 'Class schedule',
-    href: '/admin/dashboard/admin/class-schedule/',
-  },
-  {
-    name: "Class 1 'A'",
-    href: '/admin/dashboard/admin/class-schedule/add/class-1-a',
-  },
-];
+import { yupResolver } from '@hookform/resolvers/yup';
+import classApi from '../../../../../../api/admin/dashboard/admin/data-setup/classApi';
+import sectionsApi from '../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
+
 const arrayDays = [
   { name: 'Sun', id: 7 },
   { name: 'Mon', id: 1 },
@@ -49,24 +41,62 @@ const schema = yup.object().shape({
   end_time: yup.string().required(),
 });
 function AddClassShedule() {
+  const { levelId, classId, sectionId } = useParams();
+  const classDetails = {
+    level_id: levelId,
+    class_id: classId,
+    section_id: sectionId,
+  };
+
   const {
     register,
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(schema) });
 
+  const { data: details } = useQuery({
+    queryFn: () => classApi.getWithParams(classDetails),
+
+    select: (d) => d.data.data,
+    queryKey: ['classapigetwithparams', classDetails],
+  });
+
+  const { data: arraySubjects } = useQuery({
+    queryFn: () =>
+      subjectApi.getByParams({
+        ...classDetails,
+        faculty_id: details?.faculty_id,
+      }),
+    queryKey: [
+      'sectionapigetbyclassid',
+      { ...classDetails, faculty_id: details?.faculty_id },
+    ],
+    select: (d) => d.data.data,
+    staleTime: Infinity,
+    enabled: !!details?.faculty_id,
+    onSuccess: (d) => console.log(d),
+  });
+  const pages = [
+    { name: 'Admin' },
+    {
+      name: 'Class schedule',
+      href: '/admin/dashboard/admin/class-schedule/',
+    },
+    {
+      name: `${details?.class_name}-${details?.section_name}`,
+      href: '/admin/dashboard/admin/class-schedule/add/class-1-a',
+    },
+  ];
   const [error, setError] = useState('');
   const [arrayTeachers, setArrayTeachers] = useState([]);
-  const [arraySubjects, setArraySubjects] = useState([]);
   const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     const d = {
       ...data,
       // weekdays: data.weekdays?.map((c) => c.id),
-      class_id: 20,
-      level_id: 10,
-      section_id: 1,
+      ...classDetails,
     };
 
     console.log(d);
@@ -80,10 +110,10 @@ function AddClassShedule() {
       const data = await teacherApi.getAll();
       setArrayTeachers(data?.data?.data);
     })();
-    (async () => {
-      const data = await subjectApi.getAll();
-      setArraySubjects(data?.data?.data);
-    })();
+    // (async () => {
+    //   const data = await subjectApi.getAll();
+    //   setArraySubjects(data?.data?.data);
+    // })();
   }, []);
   // const [days, setDays] = useState([]); //array for multiple
   // const [daysError, setDaysError] = useState(false);
@@ -98,23 +128,28 @@ function AddClassShedule() {
             <div className="md:grid-cols-2 gap-x-5 gap-y-2 grid grid-cols-1">
               <div className="flex justify-between py-2 border-b-[1px] border-b-primary-grey-300 ">
                 <span className="text-primary-grey-600">Class:</span>
-                <span className="text-primary-grey-700">1</span>
+                <span className="text-primary-grey-700">
+                  {details?.class_name}
+                </span>
               </div>
               <div className="flex justify-between py-2 border-b-[1px] border-b-primary-grey-300 ">
                 <span className="text-primary-grey-600">Section:</span>
-                <span className="text-primary-grey-700">B</span>
+                <span className="text-primary-grey-700">
+                  {details?.section_name}
+                </span>
               </div>
-              <div className="flex justify-between py-2 border-b-[1px] border-b-primary-grey-300 ">
+              <div className="flex justify-between py-2 border-b-[1px] border-b-primary-grey-300 md:border-b-0 ">
                 <span className="text-primary-grey-600">Level:</span>
-                <span className="text-primary-grey-700">School level</span>
+                <span className="text-primary-grey-700">
+                  {details?.level_name}
+                </span>
               </div>
-              <div className="flex justify-between py-2 border-b-[1px] border-b-primary-grey-300 ">
-                <span className="text-primary-grey-600">No of students:</span>
-                <span className="text-primary-grey-700">1</span>
-              </div>
+
               <div className=" flex justify-between py-2">
                 <span className="text-primary-grey-600">Faculty:</span>
-                <span className="text-primary-grey-700"></span>
+                <span className="text-primary-grey-700">
+                  {details?.faculty_name}
+                </span>
               </div>
             </div>
           </div>
