@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import RenderTable from './RenderTable';
-import { SearchBar } from '../../../../../../../components/common/oldFields';
+import { SearchBar } from '../../../../../../../components/common/fields';
 import { useState } from 'react';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import React from 'react';
 import academicyearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/academicyearApi';
 import { useQuery } from '@tanstack/react-query';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import { useForm } from 'react-hook-form';
 const people = [
   {
     academicYear: '2072',
@@ -33,7 +34,7 @@ const AcademicYear = () => {
     queryFn: () => academicyearApi.get(),
     staleTime: 20 * 1000,
   });
-  const [search, setSearch] = useState(null);
+  const { register } = useForm();
   return (
     <>
       <Breadnav pages={pages} />
@@ -41,7 +42,7 @@ const AcademicYear = () => {
         <div className="sm:flex sm:items-center justify-between">
           <div className="flex gap-3 items-center">
             <div className="w-72 relative max-w-full">
-              <SearchBar value={search} setValue={setSearch} />
+              <SearchBar register={register} name="search" />
             </div>
             <button
               className=""
