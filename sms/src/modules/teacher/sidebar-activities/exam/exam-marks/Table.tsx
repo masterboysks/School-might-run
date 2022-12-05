@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SearchBar } from '../../../../../components/common/oldFields';
+import { SearchBar } from '../../../../../components/common/fields';
 import RenderTable from './RenderTable';
+import { useForm } from 'react-hook-form';
 
 const people = [
   {
@@ -14,12 +15,13 @@ const people = [
 ];
 export default function Table() {
   const [search, setSearch] = useState('');
+  const { register } = useForm();
   return (
     <>
       <div className="mt-11 lg:w-2/3 w-full">
         <div className="sm:flex sm:items-center justify-between">
           <div className="w-72 relative max-w-full">
-            <SearchBar value={search} setValue={setSearch} />
+            <SearchBar name="search" register={register} />
           </div>
         </div>
         <div className="my-6">

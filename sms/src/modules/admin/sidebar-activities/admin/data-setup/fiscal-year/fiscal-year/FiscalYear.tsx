@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import RenderTable from './RenderTable';
 import { useState } from 'react';
-import { SearchBar } from '../../../../../../../components/common/oldFields';
+import { SearchBar } from '../../../../../../../components/common/fields';
 import Breadnav from '../../../../../../../components/common/navigation/Breadnav';
 import React from 'react';
 import fiscalYearApi from '../../../../../../../api/admin/dashboard/admin/data-setup/fiscalYearApi';
 import { useQuery } from '@tanstack/react-query';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import { useForm } from 'react-hook-form';
 
 const people = [
   {
@@ -29,12 +30,12 @@ const pages = [
   },
 ];
 const FiscalYear = () => {
+  const { register } = useForm();
   const { data, error, isFetching, refetch } = useQuery({
     queryKey: ['admin/datasetup/fiscalyear'],
     queryFn: () => fiscalYearApi.get(),
     staleTime: 20 * 1000,
   });
-  const [search, setSearch] = useState('');
   return (
     <>
       <Breadnav pages={pages} />
@@ -42,7 +43,7 @@ const FiscalYear = () => {
         <div className="sm:flex sm:items-center justify-between">
           <div className="flex gap-3 items-center">
             <div className="w-72 relative max-w-full">
-              <SearchBar value={search} setValue={setSearch} />
+              <SearchBar register={register} name="search" />
             </div>
             <button
               className=""
