@@ -1,5 +1,4 @@
-import ad_bs, { bs_ad_year } from './bs_ad';
-import { bs_ad_month } from './bs_adLegacy';
+import ad_bs, { bs_ad_year, bs_ad_month } from './bs_ad';
 import { checkbox, radio } from './Checkbox';
 import { input, inputDisabled, inputNumber, password } from './Input';
 import { searchBar } from './Search';

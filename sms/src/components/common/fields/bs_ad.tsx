@@ -5,7 +5,69 @@ import React, { useState, useEffect } from 'react';
 import { InputNumber } from '.';
 import dateFormatApi from '../../../api/common/dateFormatApi';
 import './datepicker.css';
+import { Select } from '.';
+const arrayMonths = [
+  {
+    name: 'Baishakh',
 
+    id: 1,
+  },
+  {
+    name: 'Jestha',
+
+    id: 2,
+  },
+  {
+    name: 'Aashadha',
+
+    id: 3,
+  },
+  {
+    name: 'Shrawan',
+
+    id: 4,
+  },
+  {
+    name: 'Bhadra',
+
+    id: 5,
+  },
+  {
+    name: 'Ashwin ',
+
+    id: 6,
+  },
+  {
+    name: 'Kartik ',
+
+    id: 7,
+  },
+  {
+    name: 'Mangsir ',
+
+    id: 8,
+  },
+  {
+    name: 'Paush ',
+
+    id: 9,
+  },
+  {
+    name: 'Magh ',
+
+    id: 10,
+  },
+  {
+    name: 'Falgun ',
+
+    id: 11,
+  },
+  {
+    name: 'Chaitra ',
+
+    id: 12,
+  },
+];
 function ad_bs({ selected, setSelected, label, defaultDate = '' }) {
   // register,
   // name = 'date_format',
@@ -80,5 +142,21 @@ export const bs_ad_year = (props) => {
       max={2199}
       step="1"
     />
+  );
+};
+export const bs_ad_month = (props: {
+  name: any;
+  errors?: {} | undefined;
+  register: any;
+  label: any;
+  disabled?: boolean | undefined;
+  id?: string | undefined;
+  required?: boolean | undefined;
+  showError?: boolean | undefined;
+  className?: string | undefined;
+  labelClassName?: string | undefined;
+}) => {
+  return (
+    <Select value={arrayMonths} {...props} name={`${props.name}[month]`} />
   );
 };

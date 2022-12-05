@@ -64,7 +64,6 @@ export const arrayMonths = [
 ];
 export function select({
   name,
-
   errors = {},
   register,
   value: options,
