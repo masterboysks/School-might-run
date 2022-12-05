@@ -11,14 +11,12 @@ import Breadnav from '../../../../../../components/common/navigation/Breadnav';
 import Break from '../../../../../../components/common/Break';
 import subjectApi from '../../../../../../api/admin/dashboard/admin/data-setup/subjectApi';
 import teacherApi from '../../../../../../api/admin/dashboard/staff/teacher/teacherApi';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import classSheduleApi from '../../../../../../api/admin/dashboard/admin/classSheduleApi';
 import React from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classApi from '../../../../../../api/admin/dashboard/admin/data-setup/classApi';
-import sectionsApi from '../../../../../../api/admin/dashboard/admin/data-setup/sectionsApi';
 
 const arrayDays = [
   { name: 'Sun', id: 7 },
@@ -47,7 +45,6 @@ function AddClassShedule() {
     class_id: classId,
     section_id: sectionId,
   };
-  //?level_id,class:_id,section_id,faculty_id
   const {
     register,
     handleSubmit,
@@ -68,16 +65,20 @@ function AddClassShedule() {
         class_id: classId,
         section_id: sectionId,
       }),
-    // ...classDetails,
-    // faculty_id: details?.faculty_id,
     queryKey: [
       'sectionapigetbyclassid',
-      { ...classDetails, faculty_id: details?.faculty_id },
+      { class_id: classId, section_id: sectionId },
     ],
-    select: (d) => console.log(d.data.data),
+    select: (d) => d.data,
     staleTime: Infinity,
     enabled: !!details?.faculty_id,
-    onSuccess: (d) => console.log(d, 'Arraysubjecy'),
+  });
+  const { data: arrayTeachers } = useQuery({
+    queryFn: () => teacherApi.getAll(),
+    queryKey: ['teacherapigetall', ,],
+    select: (d) => d.data.data,
+    staleTime: Infinity,
+    enabled: !!details?.faculty_id,
   });
   const pages = [
     { name: 'Admin' },
@@ -86,19 +87,16 @@ function AddClassShedule() {
       href: '/admin/dashboard/admin/class-schedule/',
     },
     {
-      // name: `${details?.class_name}-${details?.section_name}`,
-      name: 'Class schedule',
+      name: 'Add class shedule',
       href: '/admin/dashboard/admin/class-schedule/add/class-1-a',
     },
   ];
   const [error, setError] = useState('');
-  const [arrayTeachers, setArrayTeachers] = useState([]);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const d = {
       ...data,
-      // weekdays: data.weekdays?.map((c) => c.id),
       ...classDetails,
     };
 
@@ -108,18 +106,6 @@ function AddClassShedule() {
       ? navigate('/admin/dashboard/admin/class-schedule')
       : setError('Failed to create class shedule');
   };
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await teacherApi.getAll();
-  //     setArrayTeachers(data?.data?.data);
-  //   })();
-  // (async () => {
-  //   const data = await subjectApi.getAll();
-  //   setArraySubjects(data?.data?.data);
-  // })();
-  // }, []);
-  // const [days, setDays] = useState([]); //array for multiple
-  // const [daysError, setDaysError] = useState(false);
 
   return (
     <>
@@ -187,7 +173,7 @@ function AddClassShedule() {
             <div>
               <Select
                 id="subject"
-                value={[]} // arraySubjects
+                value={arraySubjects || []} // arraySubjects
                 label="Subject*"
                 required={true}
                 errors={errors}
