@@ -9,7 +9,7 @@ import {
   Select,
   UploadPhoto,
 } from '../../../../../../../components/common/fields';
-import StaffFormPersonalDetailsPicture from '../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture';
+import { useStaffFormData } from '../../../../../../../contex/admin/staff/StaffFormData';
 const arrayBloodGroup = [
   {
     name: 'A+',
@@ -65,9 +65,9 @@ const arrayMaritialSatus = [
   },
 ];
 const DetailsForm = () => {
+  const { dataForm, setForm } = useStaffFormData();
   const [date, setDate] = useState('');
   const [defaultDate, setDefaultDate] = useState('');
-  const photo = useContext(StaffFormPersonalDetailsPicture);
   const navigate = useNavigate();
   const {
     register,
@@ -77,19 +77,14 @@ const DetailsForm = () => {
     formState: { errors, isValid },
   } = useForm();
   useEffect(() => {
-    (async () => {
-      const temp = await JSON.parse(localStorage.getItem('pdgdsas'));
-      // console.log({ ...temp, photo: photo?.photo });
-      reset({ ...temp, photo: photo?.photo });
-      setDefaultDate(temp.dob);
-    })();
+    reset({ ...dataForm?.personal });
+    setDefaultDate(dataForm.personal?.dob);
   }, []);
   const onSubmit = async (data) => {
-    // console.log(data);
-    photo?.setPhoto(data.photo);
-    delete data.photo;
-    data.dob = date;
-    localStorage.setItem('pdgdsas', JSON.stringify(data));
+    setForm((c) => {
+      return { ...c, personal: { ...data, dob: date } };
+    });
+
     navigate(
       '/admin/dashboard/staff/staff-information/add-staff/general/address-details'
     );
@@ -226,7 +221,7 @@ const DetailsForm = () => {
             uploadText="Picture of person"
             watch={watch}
             register={register}
-            name="photo"
+            name="profile_picture"
             id="photo_form_9988"
           />
         </div>

@@ -9,10 +9,11 @@ const pages = [
     href: '/admin/dashboard/fee/fee-assign/',
   },
   {
-    name: 'Assign',
+    name: 'Edit',
+    href: '/admin/dashboard/fee/fee-assign/',
   },
 ];
-export default function Assign() {
+export default function EditFeeAssign() {
   return (
     <>
       <Breadnav pages={pages} />

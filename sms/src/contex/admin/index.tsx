@@ -1,17 +1,18 @@
 import React from 'react';
 import ContexForDeleteModal from './common/ContexForDeleteModal';
-import { StaffFormPersonalDetailsPictureContex } from './staff/StaffFormPersonalDetailsPicture';
+import StaffFormDataCOntex from './staff/StaffFormData';
+
 import { StaffGeneralDetailsViewContex } from './staff/StaffGeneralDetailsView';
 import { StudentFormPicture } from './student/StudentFormStudentPictureAndGurdainPicture';
 
 export default function Admin({ children }) {
   return (
-    <StaffFormPersonalDetailsPictureContex>
+    <StaffFormDataCOntex>
       <StaffGeneralDetailsViewContex>
         <StudentFormPicture>
           <ContexForDeleteModal>{children}</ContexForDeleteModal>
         </StudentFormPicture>
       </StaffGeneralDetailsViewContex>
-    </StaffFormPersonalDetailsPictureContex>
+    </StaffFormDataCOntex>
   );
 }

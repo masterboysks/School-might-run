@@ -20,16 +20,12 @@ const people = [
 
 export default function Table() {
   const [page, setPage] = useState(1);
-  const [pagination, setPagination] = useState({});
-  const { data, isFetching, isLoading } = useQuery({
+  const { data, isFetching, isLoading, refetch } = useQuery({
     queryKey: ['fee/fee-type', page],
     queryFn: () => feeTypeApi.get(page),
     staleTime: Infinity,
     select: (d) => d?.data.data,
   });
-  useEffect(() => {
-    setPagination(data?.pagination);
-  }, [data]);
 
   return (
     <div className="mt-11 w-full">
@@ -100,13 +96,17 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={data?.data} page={page} />
+                  <RenderTable
+                    refetch={refetch}
+                    currentItems={data?.data}
+                    page={page}
+                  />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-        <Pagination pagination={pagination} setPage={setPage} />
+        <Pagination pagination={data?.pagination} setPage={setPage} />
       </div>
     </div>
   );

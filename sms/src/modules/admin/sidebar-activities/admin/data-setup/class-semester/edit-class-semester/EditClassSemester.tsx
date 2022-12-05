@@ -106,7 +106,6 @@ const EditClassSemester = () => {
   }, [subject]);
 
   useEffect(() => {
-    console.log(subject, 'subject');
     setArrayCompalsarySubjects(subject?.filter((c) => c.subject_type === 1));
     setArrayElectiveSubjects(subject?.filter((c) => c.subject_type === 2));
   }, [subject]);
@@ -157,6 +156,7 @@ const EditClassSemester = () => {
               register={register}
               name="level_id"
               required={true}
+              key={levelOption ? 173647 : 2387}
               errors={errors}
             />
           </div>

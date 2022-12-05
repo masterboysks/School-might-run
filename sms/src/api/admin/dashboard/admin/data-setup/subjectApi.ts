@@ -4,6 +4,7 @@ export default {
   get(page = 1) {
     return authorized.get(`/subjects?page=${page}`);
   },
+
   delete(id) {
     return authorized.delete(`subjects/${id}`);
   },
@@ -18,5 +19,8 @@ export default {
   },
   getByParams(params) {
     return authorized.get('/subject-for-exam', { params });
+  },
+  getSubjectFromClass(params) {
+    return authorized.get(`/get-class-subject`, { params });
   },
 };

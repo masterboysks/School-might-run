@@ -2,6 +2,7 @@ import React from 'react';
 import { Suspense } from 'react';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import EditNotice from '../../../modules/admin/sidebar-activities/admin/notice/edit-notice/EditNotice';
 import AdminDataSetupRoutes from './AdminDataSetupRoutes';
 
 // Admin import s
@@ -116,6 +117,14 @@ export default function AdminDashboardRoutes() {
           element={
             <Suspense fallback="Loading">
               <NewNotice />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="notice/edit/:id/:name"
+          element={
+            <Suspense fallback="Loading">
+              <EditNotice />
             </Suspense>
           }
         ></Route>

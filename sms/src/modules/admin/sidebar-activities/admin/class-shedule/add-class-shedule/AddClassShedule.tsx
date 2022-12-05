@@ -47,7 +47,7 @@ function AddClassShedule() {
     class_id: classId,
     section_id: sectionId,
   };
-
+  //?level_id,class:_id,section_id,faculty_id
   const {
     register,
     handleSubmit,
@@ -64,15 +64,17 @@ function AddClassShedule() {
 
   const { data: arraySubjects } = useQuery({
     queryFn: () =>
-      subjectApi.getByParams({
-        ...classDetails,
-        faculty_id: details?.faculty_id,
+      subjectApi.getSubjectFromClass({
+        class_id: classId,
+        section_id: sectionId,
       }),
+    // ...classDetails,
+    // faculty_id: details?.faculty_id,
     queryKey: [
       'sectionapigetbyclassid',
       { ...classDetails, faculty_id: details?.faculty_id },
     ],
-    select: (d) => d.data.data,
+    select: (d) => console.log(d.data.data),
     staleTime: Infinity,
     enabled: !!details?.faculty_id,
     onSuccess: (d) => console.log(d, 'Arraysubjecy'),
@@ -84,7 +86,8 @@ function AddClassShedule() {
       href: '/admin/dashboard/admin/class-schedule/',
     },
     {
-      name: `${details?.class_name}-${details?.section_name}`,
+      // name: `${details?.class_name}-${details?.section_name}`,
+      name: 'Class schedule',
       href: '/admin/dashboard/admin/class-schedule/add/class-1-a',
     },
   ];
@@ -105,16 +108,16 @@ function AddClassShedule() {
       ? navigate('/admin/dashboard/admin/class-schedule')
       : setError('Failed to create class shedule');
   };
-  useEffect(() => {
-    (async () => {
-      const data = await teacherApi.getAll();
-      setArrayTeachers(data?.data?.data);
-    })();
-    // (async () => {
-    //   const data = await subjectApi.getAll();
-    //   setArraySubjects(data?.data?.data);
-    // })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const data = await teacherApi.getAll();
+  //     setArrayTeachers(data?.data?.data);
+  //   })();
+  // (async () => {
+  //   const data = await subjectApi.getAll();
+  //   setArraySubjects(data?.data?.data);
+  // })();
+  // }, []);
   // const [days, setDays] = useState([]); //array for multiple
   // const [daysError, setDaysError] = useState(false);
 
@@ -184,7 +187,7 @@ function AddClassShedule() {
             <div>
               <Select
                 id="subject"
-                value={arraySubjects || []}
+                value={[]} // arraySubjects
                 label="Subject*"
                 required={true}
                 errors={errors}
@@ -225,7 +228,8 @@ function AddClassShedule() {
                 required={true}
                 register={register}
                 errors={errors}
-                value={arrayTeachers}
+                key={arrayTeachers ? 464164524634 : 464564564787454}
+                value={arrayTeachers || []}
               />
             </div>
             <div className="col-span-full flex">

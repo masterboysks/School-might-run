@@ -29,14 +29,12 @@ export default function Table({ data }) {
                         >
                           Class/semester
                         </th>
-
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "
                         >
                           Level
                         </th>
-
                         <th
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-medium text-primary-grey-700   "

@@ -38,7 +38,7 @@ export default function Table({ data, setPage, query }) {
   //     }
   //   })();
   // }, []);
-  if (!data) return '';
+  if (!data) return <></>;
   return (
     <div className="mt-11 w-full">
       <div className=" flex col-span-2 mt-3 lg:mt-auto ml-auto justify-end">

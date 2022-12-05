@@ -2,6 +2,7 @@ import React from 'react';
 import { lazy } from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import EditFeeAssign from '../../modules/admin/sidebar-activities/fee/fee-assign/edit-fee-assign/Assign';
 const EditFeeType = lazy(
   () =>
     import(
@@ -265,6 +266,14 @@ export default function FeeRoutes() {
           element={
             <Suspense fallback="Loading">
               <Assign />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="fee-assign/edit/:id"
+          element={
+            <Suspense fallback="Loading">
+              <EditFeeAssign />
             </Suspense>
           }
         ></Route>

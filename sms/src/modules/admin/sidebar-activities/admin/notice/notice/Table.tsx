@@ -5,22 +5,17 @@ import { Link } from 'react-router-dom';
 import noticeApi from '../../../../../../api/admin/dashboard/admin/noticeApi';
 import { SearchBar } from '../../../../../../components/common/fields';
 import RenderTable from './RenderTable';
-
+import { useQuery } from '@tanstack/react-query';
 export default function Table() {
   const { register, handleSubmit, watch } = useForm();
 
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await noticeApi.get();
-        const datas = data?.data?.data;
-        setData(datas?.data);
-      } catch (e) {
-        // console.warn(e);
-      }
-    })();
-  }, []);
+  const { data, refetch } = useQuery({
+    queryFn: () => noticeApi.get(),
+    select: (d) => d.data.data?.data,
+    retry: 0,
+    queryKey: ['noticeapiget'],
+  });
+
   return (
     <div className="mt-11 w-full">
       <div className="sm:flex sm:items-center justify-between">
@@ -81,7 +76,7 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={data} />
+                  <RenderTable refetch={refetch} currentItems={data} />
                 </tbody>
               </table>
             </div>

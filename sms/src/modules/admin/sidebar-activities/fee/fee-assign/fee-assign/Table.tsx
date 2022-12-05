@@ -1,4 +1,8 @@
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import feeAssignApi from '../../../../../../api/admin/dashboard/fee/feeAssignApi';
+import Pagination from '../../../../../../components/common/navigation/Pagination';
 import RenderTable from './RenderTable';
 
 const people = [
@@ -17,6 +21,13 @@ const people = [
 ];
 
 export default function Table() {
+  const [page, setPage] = useState(1);
+  const { data } = useQuery({
+    queryFn: () => feeAssignApi.get(page),
+    queryKey: ['feeassignapiget', page],
+    select: (d) => d?.data.data,
+    onSuccess: (d) => console.log(d),
+  });
   return (
     <div className="mt-11 w-full">
       <div className="sm:flex sm:items-center justify-between">
@@ -94,12 +105,13 @@ export default function Table() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  <RenderTable currentItems={people} />
+                  <RenderTable currentItems={data?.data} />
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <Pagination pagination={data?.pagination} setPage={setPage} />
       </div>
     </div>
   );

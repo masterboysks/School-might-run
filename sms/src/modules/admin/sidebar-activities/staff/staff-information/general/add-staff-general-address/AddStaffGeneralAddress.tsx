@@ -5,6 +5,7 @@ import TemporaryAddressForm from './TemporaryAddressForm';
 import { useEffect } from 'react';
 import React from 'react';
 import Steps from '../../../../../../../components/common/navigation/Steps';
+import { useStaffFormData } from '../../../../../../../contex/admin/staff/StaffFormData';
 const steps = [
   {
     name: 'Personal details',
@@ -24,6 +25,8 @@ const steps = [
 ];
 
 const AddStaffGeneralPersonal = () => {
+  const { dataForm, setForm } = useStaffFormData();
+
   const {
     register,
     watch,
@@ -34,25 +37,21 @@ const AddStaffGeneralPersonal = () => {
   const sameAsPermenantAddress = watch('same_as_permanent_address');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    (async () => {
-      const temp = await JSON.parse(localStorage.getItem('adgdsas') || '');
-      reset(temp);
-    })();
-  }, []);
+  useEffect(() => reset({ ...dataForm.address }), []);
 
   const onSubmit = async (data) => {
-    // console.log(data);
-    let d = { ...data };
+    let filterData = { ...data };
     if (sameAsPermenantAddress) {
-      delete d.temp_ward;
-      delete d.temp_tole;
-      delete d.temp_country;
-      delete d.temp_province;
-      delete d.temp_district;
-      delete d.temp_vdc_municipality;
+      delete filterData.temp_ward;
+      delete filterData.temp_tole;
+      delete filterData.temp_country;
+      delete filterData.temp_province;
+      delete filterData.temp_district;
+      delete filterData.temp_vdc_municipality;
     }
-    localStorage.setItem('adgdsas', JSON.stringify(d));
+    setForm((d) => {
+      return { ...d, address: { ...d } };
+    });
     navigate(
       '/admin/dashboard/staff/staff-information/add-staff/general/office-details'
     );

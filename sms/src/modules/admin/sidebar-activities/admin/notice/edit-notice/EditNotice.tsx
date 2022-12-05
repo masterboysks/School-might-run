@@ -25,7 +25,7 @@ const pages = [
   },
 ];
 
-function NewNotice() {
+function EditNotice() {
   const { id } = useParams();
   const [date, setDate] = useState('');
   const [defaultDate, setDefaultDate] = useState('');
@@ -177,4 +177,4 @@ function NewNotice() {
   );
 }
 
-export default NewNotice;
+export default EditNotice;

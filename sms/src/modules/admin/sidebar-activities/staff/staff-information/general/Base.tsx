@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Breadnav from '../../../../../../components/common/navigation/Breadnav';
-import StaffFormPersonalDetailsPicture from '../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture';
+import { useStaffFormData } from '../../../../../../contex/admin/staff/StaffFormData';
 
 const pages = [
   { name: 'Staff' },
@@ -17,15 +17,9 @@ const pages = [
 ];
 
 const Base = () => {
-  const photo = useContext(StaffFormPersonalDetailsPicture);
-  useEffect(() => {
-    return () => {
-      localStorage.removeItem('odgdsas');
-      localStorage.removeItem('adgdsas');
-      localStorage.removeItem('pdgdsas');
-      photo.setPhoto();
-    };
-  }, []);
+  const { reset } = useStaffFormData();
+
+  useEffect(() => reset(), []);
   return (
     <>
       <Breadnav pages={pages} />

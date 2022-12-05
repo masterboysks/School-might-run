@@ -6,12 +6,12 @@ import { useContext } from 'react';
 import noticeApi from '../../../../../../api/admin/dashboard/admin/noticeApi';
 import { Link } from 'react-router-dom';
 
-const RenderTable = ({ currentItems }) => {
+const RenderTable = ({ currentItems, refetch }) => {
   const value = useContext(DeleteModalContex);
 
   const deleteFunction = async (id) => {
     const res = await noticeApi.delete(id);
-    res.status === 204 && setData(currentItems.filter((d) => d.id != id));
+    res.status === 204 && refetch();
   };
   const handleDelete = (id, name, inUse) => {
     value.setValue({
@@ -24,7 +24,7 @@ const RenderTable = ({ currentItems }) => {
   };
   return (
     <>
-      {currentItems.map((person, index, table) => (
+      {currentItems?.map((person, index, table) => (
         <tr key={index}>
           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             {person.entry_date}
@@ -79,7 +79,7 @@ const RenderTable = ({ currentItems }) => {
                   }}
                   className="p-3"
                 >
-                  <Link to={`${person.id}/${person.title}`}>Edit</Link>
+                  <Link to={`edit/${person.id}/${person.title}`}>Edit</Link>
                 </div>
                 <button
                   onClick={() => {

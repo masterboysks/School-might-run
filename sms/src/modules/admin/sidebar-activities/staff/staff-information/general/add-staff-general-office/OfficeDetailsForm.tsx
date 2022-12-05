@@ -1,19 +1,19 @@
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import departmentApi from '../../../../../../../api/admin/dashboard/admin/data-setup/departmentApi';
 import {
   DateInput,
   Input,
   Password,
   Select,
-  SelectDisabled,
 } from '../../../../../../../components/common/fields';
 
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import designationApi from '../../../../../../../api/admin/dashboard/admin/data-setup/designationApi';
 import staffAPI from '../../../../../../../api/admin/dashboard/staff/staffAPI';
-import StaffFormPersonalDetailsPicture from '../../../../../../../contex/admin/staff/StaffFormPersonalDetailsPicture';
 import React from 'react';
+import { useStaffFormData } from '../../../../../../../contex/admin/staff/StaffFormData';
+import { useQuery } from '@tanstack/react-query';
 
 const arrayStatus = [
   {
@@ -26,50 +26,43 @@ const arrayStatus = [
   },
 ];
 const PermanentAddressForm = () => {
-  const [message, setMessage] = useState('');
+  const { dataForm, setForm } = useStaffFormData();
+
+  const [message, setMessage] = useState<undefined | []>();
   const [date, setDate] = useState('');
-  const photo = useContext(StaffFormPersonalDetailsPicture);
   const {
     register,
     watch,
     reset,
-    getValues,
+    setValue,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm();
   const navigate = useNavigate();
   const department = watch('department_id');
-  const [arrayDepartment, setArrayDepartment] = useState([]);
-  const [arrayDesignation, setArrayDesignation] = useState([]);
   const [arrayStaffType, setArrayStaffType] = useState([
     { name: 'Teacher', id: 'teacher' },
     { name: 'Staff', id: 'staff' },
-  ]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const temp = await designationApi.getAll(department);
-        setArrayDesignation(temp?.data?.data);
-      } catch (e) {
-        // console.warn(e);
-      }
-    })();
-    reset({ ...getValues(), designation_id: '' });
-  }, [department]);
+  ]); // api left
+  useEffect(() => setValue('designation_id', ''), [department]);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const temp = await departmentApi.getAll();
-        setArrayDepartment(temp?.data?.data);
-      } catch (e) {
-        // console.warn(e);
-      }
-    })();
-  }, []);
+  const { data: arrayDesignation } = useQuery({
+    queryFn: () => designationApi.getAll(department),
+    queryKey: ['designationapigetall', department],
+    select: (d) => d.data.data,
+    retry: 0,
+    enabled: !!department,
+  });
+  const { data: arrayDepartment } = useQuery({
+    queryFn: () => departmentApi.getAll(),
+    queryKey: ['departmentapigetall'],
+    select: (d) => d.data.data,
+    retry: 0,
+  });
+
   const onSubmit = async (d) => {
     const form = new FormData();
-    const address = JSON.parse(localStorage.getItem('adgdsas'));
+    const address = dataForm.address;
     if (address.same_as_permanent_address) {
       delete address.temp_country;
       delete address.temp_district;
@@ -78,7 +71,7 @@ const PermanentAddressForm = () => {
       delete address.temp_tole;
       delete address.temp_ward;
     }
-    const personal = JSON.parse(localStorage.getItem('pdgdsas'));
+    const personal = dataForm.personal;
     for (const name in address) {
       form.append(`address[${name}]`, address[name]);
     }
@@ -89,8 +82,11 @@ const PermanentAddressForm = () => {
       form.append(`general[${name}]`, d[name]);
     }
     form.delete('personal[photo]');
-    form.append('personal[profile_picture]', photo?.photo && photo?.photo[0]);
-    form.append('general.joined_date', date);
+    form.append(
+      'personal[profile_picture]',
+      personal?.profile_picture && personal?.profile_picture[0]
+    );
+    form.append('general[joined_date]', date);
 
     staffAPI.create(form).then((data) => {
       // console.log(data);
@@ -100,32 +96,22 @@ const PermanentAddressForm = () => {
         navigate('/admin/dashboard/staff/staff-information/');
       }
     });
-
-    // .catch((e) => {
-    //   // console.log("this is eroor functin");
-    //   // console.log(e);
-    //   // e===422?sete(e)
-    //   e === 422 && // console.log(e);
-    // });
   };
   const handelBack = (data) => {
-    localStorage.setItem('odgdsas', JSON.stringify(data));
+    setForm((c) => {
+      return { ...c, general: { ...data } };
+    });
     navigate(
       '/admin/dashboard/staff/staff-information/add-staff/general/address-details'
     );
   };
-  useEffect(() => {
-    (async () => {
-      const temp = await JSON.parse(localStorage.getItem('odgdsas'));
-      reset(temp);
-    })();
-  }, []);
+  useEffect(() => reset(dataForm.general), []);
   return (
     <form
       className="form-solid my-6 rounded-md"
       onSubmit={handleSubmit(onSubmit)}
     >
-      {message.length !== 0 && (
+      {message ? (
         <>
           <div className="!text-red-600 font-medium text-lg">
             <ul>
@@ -136,7 +122,7 @@ const PermanentAddressForm = () => {
           </div>
           <br />
         </>
-      )}
+      ) : null}
       <div className="sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 grid grid-cols-1 gap-4">
         <div className="">
           <Select
@@ -149,36 +135,31 @@ const PermanentAddressForm = () => {
           />
         </div>
         <div className="">
-          {arrayDepartment.length !== 0 ? (
-            <Select
-              label="Department*"
-              value={arrayDepartment}
-              register={register}
-              errors={errors}
-              name="department_id"
-              required={true}
-            />
-          ) : (
-            <SelectDisabled label="Department*" />
-          )}
+          <Select
+            label="Department*"
+            value={arrayDepartment || []}
+            register={register}
+            errors={errors}
+            name="department_id"
+            required={true}
+            disabled={!arrayDepartment}
+            key={arrayDepartment ? 7254871627416274 : 33872568732687523}
+          />
         </div>
         <div className="">
-          {department && arrayDesignation.length !== 0 ? (
-            <Select
-              label="Designation*"
-              required={true}
-              name="designation_id"
-              value={arrayDesignation}
-              errors={errors}
-              register={register}
-            />
-          ) : (
-            <SelectDisabled label="Designation*" />
-          )}
+          <Select
+            label="Designation*"
+            required={true}
+            name="designation_id"
+            value={arrayDesignation || []}
+            errors={errors}
+            register={register}
+            disabled={!arrayDesignation}
+            key={arrayDesignation ? 7254877416274 : 33873258732687523}
+          />
         </div>
         <div className="">
           <DateInput
-            register={register}
             label="Joined date*"
             selected={date}
             setSelected={setDate}

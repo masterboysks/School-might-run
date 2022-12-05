@@ -17,7 +17,7 @@ const Batch = lazy(
 const EditBatch = lazy(
   () =>
     import(
-      '../../../modules/admin/sidebar-activities/admin/data-setup/batch/edit-batch/EditUniversityBoard'
+      '../../../modules/admin/sidebar-activities/admin/data-setup/batch/edit-batch/EditBatch'
     )
 );
 
@@ -275,7 +275,7 @@ export default function AdminDataSetupRoutes() {
         }
       />
       <Route
-        path="batch/:id/:name"
+        path="batch/:id"
         element={
           <Suspense fallback="Loading">
             <EditBatch></EditBatch>

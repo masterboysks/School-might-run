@@ -40,7 +40,7 @@ const RenderTable = ({ currentItems, refetch }) => {
                  ${index + 1 < table.length ? 'top-0' : 'bottom-0'}`}
               >
                 <div className="p-3">
-                  <Link to={`${person.id}/${person.name}`}>Edit</Link>
+                  <Link to={`${person.id}`}>Edit</Link>
                 </div>
 
                 <button

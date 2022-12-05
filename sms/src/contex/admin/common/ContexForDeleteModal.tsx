@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
 
@@ -14,3 +14,5 @@ export default function ContexForDeleteModal({ children }) {
     </DeleteModalContex.Provider>
   );
 }
+
+export const useDeleteModalContex = () => useContext(DeleteModalContex);

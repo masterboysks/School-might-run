@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { Input } from '../../../../../../../components/common/fields';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import batchApi from '../../../../../../../api/admin/dashboard/admin/data-setup/batchApi';
+import { useQuery } from '@tanstack/react-query';
 const pages = [
   { name: 'Admin' },
   {
@@ -27,20 +28,26 @@ const schema = yup.object().shape({
   name: yup.string().required(''),
 });
 const EditBatch = () => {
-  const { id, name } = useParams();
+  const { id } = useParams();
   const [error, setError] = useState('');
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
     formState: { errors, isValid },
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
-
-    defaultValues: { name },
   });
   const navigate = useNavigate();
+  const { data: formData } = useQuery({
+    queryFn: () => batchApi.getOne(id),
+    queryKey: ['batchapigetone', id],
+    select: (d) => d?.data,
+    retry: 1,
+  });
+  useEffect(() => setValue('batch_name', formData), [formData]);
+
   const onSubmit = async (d) => {
     // console.log(d);
     try {
